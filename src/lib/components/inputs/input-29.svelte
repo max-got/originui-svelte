@@ -52,7 +52,7 @@
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
 		Built with <a
 			class="underline hover:text-foreground"
-			href="https://next.bits-ui.com/docs/components/date-field"
+			href="https://github.com/fmaclen/svelte-currency-input"
 			target="_blank"
 			rel="noopener nofollow"
 		>
