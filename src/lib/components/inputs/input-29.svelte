@@ -1,42 +1,10 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
+	// Dependencies: pnpm install lucide-svelte @canutin/svelte-currency-input
 	import { ChevronDown, ChevronUp } from 'lucide-svelte';
 	import Label from '$lib/components/ui/label.svelte';
+	import CurrencyInput from '@canutin/svelte-currency-input';
 
 	let value = $state(99);
-
-	function formatCurrency(amount: number): string {
-		return new Intl.NumberFormat('de-DE', {
-			style: 'currency',
-			currency: 'EUR',
-			currencySign: 'accounting'
-		}).format(amount);
-	}
-
-	function increment() {
-		value++;
-	}
-
-	function decrement() {
-		value--;
-	}
-
-	function handleInput(event: Event) {
-		const input = event.target as HTMLInputElement;
-		const newValue = parseFloat(input.value.replace(/[^0-9.-]+/g, ''));
-		if (!isNaN(newValue)) {
-			value = newValue;
-		} else {
-			input.value = formatCurrency(value);
-		}
-	}
-
-	$effect(() => {
-		const input = document.getElementById('input-29') as HTMLInputElement;
-		if (input) {
-			input.value = formatCurrency(value);
-		}
-	});
 </script>
 
 <div class="space-y-2">
@@ -46,22 +14,22 @@
 	<div
 		class="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input text-sm shadow-sm shadow-black/[.04] ring-offset-background transition-shadow focus-within:border-ring focus-within:outline-none focus-within:ring-2 focus-within:ring-ring/30 focus-within:ring-offset-2"
 	>
-		<input
+		<CurrencyInput
 			id="input-29"
-			type="text"
-			oninput={handleInput}
-			aria-labelledby="input-29"
 			autocomplete="off"
-			inputmode="decimal"
-			autocorrect="off"
-			aria-roledescription="Currency input"
-			spellcheck="false"
-			class="flex-1 bg-background px-3 py-2 tabular-nums text-foreground focus:outline-none"
+			name="total"
+			bind:value
+			locale="de-DE"
+			currency="EUR"
+			inputClasses={{
+				wrapper: 'flex-1',
+				formatted: 'bg-background px-3 py-2 tabular-nums !text-foreground focus:outline-none'
+			}}
 		/>
 		<div class="flex h-[calc(100%+2px)] flex-col">
 			<button
 				id="increment-button"
-				onclick={increment}
+				onclick={() => value++}
 				class="-me-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				aria-label="Increase value"
 				aria-labelledby="increment-button input-29"
@@ -71,7 +39,7 @@
 			</button>
 			<button
 				id="decrement-button"
-				onclick={decrement}
+				onclick={() => value--}
 				class="-me-px -mt-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				aria-label="Decrease value"
 				aria-labelledby="decrement-button input-29"
@@ -81,4 +49,14 @@
 			</button>
 		</div>
 	</div>
+	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+		Built with <a
+			class="underline hover:text-foreground"
+			href="https://next.bits-ui.com/docs/components/date-field"
+			target="_blank"
+			rel="noopener nofollow"
+		>
+			Svelte Currency Input
+		</a>
+	</p>
 </div>

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@canutin/svelte-currency-input':
+        specifier: ^0.12.0
+        version: 0.12.0
       '@fontsource/inter':
         specifier: ^5.1.0
         version: 5.1.0
@@ -121,6 +124,9 @@ packages:
 
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
+
+  '@canutin/svelte-currency-input@0.12.0':
+    resolution: {integrity: sha512-phA4HWD169vHkol5chKY/8bhOcTLZeyCq6gnxUVMNPY6Kl+JTG/rKQvPfPEwLBmNIGrrdlF03zAe+lKpiuc3iw==}
 
   '@cloudflare/kv-asset-handler@0.3.4':
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
@@ -2301,6 +2307,11 @@ snapshots:
       tinyexec: 0.3.1
 
   '@antfu/utils@0.7.10': {}
+
+  '@canutin/svelte-currency-input@0.12.0':
+    optionalDependencies:
+      '@cloudflare/workerd-linux-64': 1.20241018.1
+      '@rollup/rollup-linux-x64-gnu': 4.24.0
 
   '@cloudflare/kv-asset-handler@0.3.4':
     dependencies:
