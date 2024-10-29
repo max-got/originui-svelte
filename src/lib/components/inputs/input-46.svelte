@@ -56,7 +56,7 @@
 			bind:country={selectedCountry}
 			bind:value
 			options={{
-				autoPlaceholder: false
+				format: 'international'
 			}}
 		/>
 	</div>
