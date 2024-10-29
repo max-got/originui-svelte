@@ -34,4 +34,5 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           projectName: originui-svelte
           deploymentName: Preview
+          branch: ${{ github.event.pull_request.head.ref }}
           directory: ${{ steps.preview-build-artifact.outputs.download-path }}
