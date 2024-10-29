@@ -1,6 +1,6 @@
 <script lang="ts">
 	import 'svelte-tel-input/styles/flags.css';
-	import type { DetailedValue, CountryCode, E164Number } from 'svelte-tel-input/types';
+	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
 	import { TelInput, normalizedCountries } from 'svelte-tel-input';
 	import Label from '$lib/components/ui/label.svelte';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
@@ -48,6 +48,9 @@
 			id="input-46"
 			bind:country={selectedCountry}
 			bind:value
+			options={{
+				autoPlaceholder: false
+			}}
 			required
 			placeholder="Enter phone number"
 			class="-ml-px flex h-9 w-full rounded-lg rounded-l-none border border-input bg-background px-3 py-2 text-sm text-foreground shadow-none shadow-black/[.04] ring-offset-background transition-shadow placeholder:text-muted-foreground/70 focus-visible:z-10 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
