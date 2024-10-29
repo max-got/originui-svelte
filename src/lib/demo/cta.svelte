@@ -1,11 +1,9 @@
-<div class="my-16 text-center">
-	<h2 class="mb-6 text-center">
-		<span class="block text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-			Check out the original Origin UI library
-		</span>
-		<span class="mt-1 block text-lg text-muted-foreground"> or send a suggestion </span>
+<div class="my-16 px-4 text-center sm:px-6">
+	<h2 class="mb-3 text-3xl font-bold text-foreground">
+		<span class="block"> Check out the original Origin UI library </span>
+		<span class="mt-1 block text-lg font-medium text-muted-foreground"> or send a suggestion </span>
 	</h2>
-	<p class="mb-6 text-muted-foreground">
+	<p class="mb-6 text-balance text-muted-foreground">
 		Suggest a component or improvements you'd like to see & check out the original Origin UI!
 	</p>
 	<div class="flex flex-wrap items-center justify-center gap-4">
