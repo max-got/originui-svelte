@@ -8,8 +8,6 @@
 
 	let selectedCountry: CountryCode | null = $state(null);
 	let value: E164Number | null = $state(null);
-	let detailedValue: DetailedValue | null = $state(null);
-	let valid = $state(true);
 </script>
 
 <div class="space-y-2" dir="ltr">
@@ -49,9 +47,7 @@
 		<TelInput
 			id="input-46"
 			bind:country={selectedCountry}
-			bind:detailedValue
 			bind:value
-			bind:valid
 			required
 			placeholder="Enter phone number"
 			class="-ml-px flex h-9 w-full rounded-lg rounded-l-none border border-input bg-background px-3 py-2 text-sm text-foreground shadow-none shadow-black/[.04] ring-offset-background transition-shadow placeholder:text-muted-foreground/70 focus-visible:z-10 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
