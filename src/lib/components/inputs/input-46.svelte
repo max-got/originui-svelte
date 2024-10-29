@@ -6,7 +6,7 @@
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import Phone from 'lucide-svelte/icons/phone';
 
-	let selectedCountry: CountryCode | undefined = $state();
+	let selectedCountry: CountryCode | null = $state(null);
 	let value: E164Number | null = $state(null);
 	let detailedValue: DetailedValue | null = $state(null);
 	let valid = $state(true);
@@ -34,7 +34,7 @@
 				</span>
 			</div>
 			<select
-				onchange={(e) => (selectedCountry = (e.currentTarget.value as CountryCode) || undefined)}
+				onchange={(e) => (selectedCountry = (e.currentTarget.value as CountryCode) || null)}
 				class="absolute inset-0 text-sm opacity-0"
 				aria-label="Select country"
 			>
