@@ -34,12 +34,11 @@
 				</span>
 			</div>
 			<select
-				value=""
 				onchange={(e) => (selectedCountry = (e.currentTarget.value as CountryCode) || undefined)}
 				class="absolute inset-0 text-sm opacity-0"
 				aria-label="Select country"
 			>
-				<option value=""> Select a country </option>
+				<option value="">Select a country</option>
 				{#each normalizedCountries as country (country.id)}
 					<option value={country.id}>
 						{country.label}
@@ -48,6 +47,7 @@
 			</select>
 		</div>
 		<TelInput
+			id="input-46"
 			bind:country={selectedCountry}
 			bind:detailedValue
 			bind:value
