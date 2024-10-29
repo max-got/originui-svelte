@@ -8,6 +8,10 @@
 
 	let selectedCountry: CountryCode | null = $state(null);
 	let value: E164Number | null = $state(null);
+
+	function handleCountryChange(e: Event & { currentTarget: EventTarget & HTMLSelectElement }) {
+		selectedCountry = (e.currentTarget.value as CountryCode) || null;
+	}
 </script>
 
 <div class="space-y-2" dir="ltr">
@@ -32,7 +36,7 @@
 				</span>
 			</div>
 			<select
-				onchange={(e) => (selectedCountry = (e.currentTarget.value as CountryCode) || null)}
+				onchange={handleCountryChange}
 				class="absolute inset-0 text-sm opacity-0"
 				aria-label="Select country"
 			>
@@ -46,14 +50,14 @@
 		</div>
 		<TelInput
 			id="input-46"
+			required
+			placeholder="Enter phone number"
+			class="-ml-px flex h-9 w-full rounded-lg rounded-l-none border border-input bg-background px-3 py-2 text-sm text-foreground shadow-none shadow-black/[.04] ring-offset-background transition-shadow placeholder:text-muted-foreground/70 focus-visible:z-10 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 			bind:country={selectedCountry}
 			bind:value
 			options={{
 				autoPlaceholder: false
 			}}
-			required
-			placeholder="Enter phone number"
-			class="-ml-px flex h-9 w-full rounded-lg rounded-l-none border border-input bg-background px-3 py-2 text-sm text-foreground shadow-none shadow-black/[.04] ring-offset-background transition-shadow placeholder:text-muted-foreground/70 focus-visible:z-10 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 		/>
 	</div>
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
