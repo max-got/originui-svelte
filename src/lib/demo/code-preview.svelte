@@ -19,6 +19,6 @@
 	:global(html.dark .shiki),
 	:global(html.dark .shiki span) {
 		color: var(--shiki-dark) !important;
-		background-color: var(--shiki-dark-bg) !important;
+		background-color: transparent !important;
 	}
 </style>
