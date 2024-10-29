@@ -32,5 +32,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           projectName: originui-svelte
-          directory: ./.svelte-kit/cloudflare
+          directory: .svelte-kit/cloudflare
           deploymentName: Production
