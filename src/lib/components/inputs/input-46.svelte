@@ -1,17 +1,21 @@
 <script lang="ts">
 	import 'svelte-tel-input/styles/flags.css';
+	import type { ChangeEventHandler } from 'svelte/elements';
+
 	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
 	import { TelInput, normalizedCountries } from 'svelte-tel-input';
+
 	import Label from '$lib/components/ui/label.svelte';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import Phone from 'lucide-svelte/icons/phone';
 
-	let selectedCountry: CountryCode | null = $state(null);
-	let value: E164Number | null = $state(null);
+	let selectedCountry = $state<CountryCode | null>(null);
+	let value = $state<E164Number | null>(null);
 
-	function handleCountryChange(e: Event & { currentTarget: EventTarget & HTMLSelectElement }) {
-		selectedCountry = (e.currentTarget.value as CountryCode) || null;
-	}
+	const handleCountryChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
+		const { value } = e.currentTarget;
+		selectedCountry = (value as CountryCode) || null;
+	};
 </script>
 
 <div class="space-y-2" dir="ltr">
