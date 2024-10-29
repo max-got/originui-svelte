@@ -35,4 +35,3 @@ jobs:
           projectName: originui-svelte
           deploymentName: Preview
           directory: ${{ steps.preview-build-artifact.outputs.download-path }}
-          branch: ${{ github.head_ref || github.ref_name }}
