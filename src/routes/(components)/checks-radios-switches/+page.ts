@@ -7,13 +7,13 @@ export const load = (async ({ data }) => {
 	const { componentMetadataSwitch, componentMetadataRadio, componentMetadataCheckbox } = data;
 
 	const switchComponents = await Promise.all(
-		componentMetadataSwitch.map((component) => createComponentRender(component))
+		componentMetadataSwitch.map(async (metadata) => createComponentRender(metadata))
 	);
 	const radioComponents = await Promise.all(
-		componentMetadataRadio.map((component) => createComponentRender(component))
+		componentMetadataRadio.map(async (metadata) => createComponentRender(metadata))
 	);
 	const checkboxComponents = await Promise.all(
-		componentMetadataCheckbox.map((component) => createComponentRender(component))
+		componentMetadataCheckbox.map(async (metadata) => createComponentRender(metadata))
 	);
 
 	return { switchComponents, radioComponents, checkboxComponents };

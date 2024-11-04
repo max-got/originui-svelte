@@ -7,7 +7,7 @@ export const load = (async ({ data }) => {
 	const { componentMetadata } = data;
 
 	const components = await Promise.all(
-		componentMetadata.map((component) => createComponentRender(component))
+		componentMetadata.map(async (metadata) => createComponentRender(metadata))
 	);
 
 	return { components };

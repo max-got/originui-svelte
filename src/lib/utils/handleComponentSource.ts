@@ -4,8 +4,8 @@ import { removeShikiComments, addPathComment, addDependenciesComments } from './
 import highlighter from './codePreview.js';
 
 interface ComponentImports {
-	compiled: Record<string, Component>;
-	source: Record<string, string>;
+	compiled: Record<string, () => Promise<Component>>;
+	source: Record<string, () => Promise<string>>;
 }
 
 // Lazy load imports
@@ -17,19 +17,19 @@ function getImports(): ComponentImports {
 			compiled: import.meta.glob(
 				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 				{
-					eager: true,
+					eager: false,
 					import: 'default'
 				}
-			) as Record<string, Component>,
+			) as Record<string, () => Promise<Component>>,
 
 			source: import.meta.glob(
 				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 				{
 					query: '?raw',
-					eager: true,
+					eager: false,
 					import: 'default'
 				}
-			) as Record<string, string>
+			) as Record<string, () => Promise<string>>
 		};
 	}
 	return imports;
@@ -66,7 +66,9 @@ async function processComponentSource(rawSource: string, path: string) {
 
 export async function getCompiledComponent(path: string): Promise<Component | null> {
 	const { compiled } = getImports();
-	return compiled[path] ?? null;
+	const importFn = compiled[path];
+	if (!importFn) return null;
+	return await importFn();
 }
 
 export async function getComponentSource(
@@ -75,17 +77,18 @@ export async function getComponentSource(
 ): Promise<ComponentMetadata> {
 	const path = buildComponentPath(directory, componentName);
 	const { source } = getImports();
-	const rawSource = source[path];
+	const importFn = source[path];
 
-	const metadata = !rawSource
-		? createEmptyComponentMetadata(componentName, path)
-		: {
-				id: componentName,
-				path,
-				code: await processComponentSource(rawSource, path)
-			};
+	if (!importFn) {
+		return createEmptyComponentMetadata(componentName, path);
+	}
 
-	return metadata;
+	const rawSource = await importFn();
+	return {
+		id: componentName,
+		path,
+		code: await processComponentSource(rawSource, path)
+	};
 }
 
 export async function fetchComponentsFromAPI(

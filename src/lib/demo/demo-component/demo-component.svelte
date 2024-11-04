@@ -4,8 +4,6 @@
 	import CopyButton from '$lib/demo/copy-button.svelte';
 	import ViewToggleButton from './demo-view-toggle-button.svelte';
 
-	import CodePreview from '$lib/demo/code-preview.svelte';
-
 	let {
 		component,
 		class: className
@@ -15,10 +13,29 @@
 	} = $props();
 
 	let showCode = $state(false);
+	let Preview = $state<typeof import('$lib/demo/code-preview.svelte').default | null>(null);
+	let CodePreview = $state<typeof import('$lib/demo/code-preview.svelte').default | null>(null);
 
-	async function toggleView() {
-		showCode = !showCode;
+	async function loadPreview() {
+		if (!Preview) {
+			Preview = (await import('$lib/demo/code-preview.svelte')).default;
+		}
 	}
+	function toggleView() {
+		showCode = !showCode;
+		if (showCode) {
+			loadCodePreview();
+		}
+	}
+	async function loadCodePreview() {
+		if (!CodePreview) {
+			CodePreview = (await import('$lib/demo/code-preview.svelte')).default;
+		}
+	}
+
+	$effect(() => {
+		loadPreview();
+	});
 </script>
 
 {#snippet actionButtons({ source }: { source: string })}
@@ -40,8 +57,10 @@
 	{#if component && component.code.copyable.content && component.code.preview.content}
 		{@render actionButtons({ source: component.code.copyable.content })}
 		{#if showCode}
-			<CodePreview code={component.code.highlighted.content} />
-		{:else}
+			{#if CodePreview}
+				<CodePreview code={component.code.highlighted.content} />
+			{/if}
+		{:else if Preview}
 			<component.render />
 		{/if}
 	{:else}
