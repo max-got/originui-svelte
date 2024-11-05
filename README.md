@@ -6,11 +6,15 @@
 > [!NOTE]  
 > This is a work in progress. For some components the necessary libraries are coming soon (e.g. [Bits UI](https://next.bits-ui.com/docs/introduction)) or are just not available yet (e.g. [React Payment Inputs](https://github.com/medipass/react-payment-inputs)). Maybe i will add them in the future myself.
 
-Origin UI - Svelte is a collection of copy-and-paste components for quickly building app UIs using Svelte. The collection currently features 90+ components and is updated with new examples if the original library is updated.
+Origin UI - Svelte is a collection of copy-and-paste components for quickly building app UIs using Svelte. The collection currently features a lot of Components and is updated with new examples if the original library is updated & i have time to do so.
 
 ## Demo
 
 [originui-svelte.pages.dev/](https://originui-svelte.pages.dev/)
+
+## Why?
+
+I started this project to showcase Svelte 5's powerful features and fine-grained reactivity. I found the original components beautiful and wanted to demonstrate how Svelte's syntax and powerful reactivity system can create equally stunning UIs with less complexity. The components demonstrate modern Svelte patterns and runes while providing practical, reusable UI elements. While I aim for high quality code, I can't guarantee these implementations are perfect - they're meant to serve as examples and starting points that you can build upon and improve for your specific needs.
 
 ## Features
 
@@ -128,11 +132,15 @@ Import the CSS in your `src/lib/app.css` file (the following is based on tailwin
 
 - Inputs
 - Buttons
-- (More categories to be added)
+- Checkboxes, Radios and Switches
+
+## Other
+
+- Easing Visualizer
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. I'm more than happy if folks want to help improve and optimize this fork. One of the goals of this project is to expand the Svelte community and showcase how powerful Svelte can be for building modern UIs. I would love to see more companies adopt Svelte for their projects.
 
 ## Terms of Use
 
