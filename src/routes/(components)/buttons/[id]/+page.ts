@@ -1,12 +1,12 @@
-export const prerender = false;
+export const prerender = true;
 
 import type { PageLoad } from './$types.js';
 import { createComponentRender } from '$lib/utils/handleComponentSource.js';
 import { error } from '@sveltejs/kit';
 
-export const load = (async ({ parent,data }) => {
-	const { id,isDataRequest } = data // component id
-	const { componentMetadata:_componentMetadata } = await parent() // all components
+export const load = (async ({ parent, data }) => {
+	const { id, isDataRequest } = data; // component id
+	const { componentMetadata: _componentMetadata } = await parent(); // all components
 
 	const componentMetadata = _componentMetadata.find((c) => c.id === id);
 
