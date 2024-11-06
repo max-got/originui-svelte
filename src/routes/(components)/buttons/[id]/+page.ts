@@ -1,4 +1,4 @@
-export const prerender = true;
+export const prerender = false;
 
 import type { PageLoad } from './$types.js';
 import { createComponentRender } from '$lib/utils/handleComponentSource.js';
