@@ -3,8 +3,9 @@ export const prerender = true;
 import type { PageLoad } from './$types.js';
 import { createComponentRender } from '$lib/utils/handleComponentSource.js';
 
-export const load = (async ({ data }) => {
-	const { componentMetadata } = data;
+export const load = (async ({ parent }) => {
+	const { componentMetadata } = await parent();
+	
 
 	const components = await Promise.all(
 		componentMetadata.map((component) => createComponentRender(component))

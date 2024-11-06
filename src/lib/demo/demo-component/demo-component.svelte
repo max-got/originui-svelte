@@ -5,20 +5,28 @@
 	import ViewToggleButton from './demo-view-toggle-button.svelte';
 
 	import CodePreview from '$lib/demo/code-preview.svelte';
+	import { page } from '$app/stores';
 
 	let {
 		component,
-		class: className
+		class: className,
+		shallowCodeShow = true,
+		onShowCode
 	}: {
 		component: ComponentRender;
+		shallowCodeShow?: boolean;
+		onShowCode?: (url: string) => void;
 		class?: string;
 	} = $props();
 
 	let showCode = $state(false);
-
 	async function toggleView() {
 		showCode = !showCode;
 	}
+
+	const url = $derived(`${$page.url}/${component.id}`);
+
+	//!TODO: in the best case, showCode should automatically be set to true when component is rendered as an shallow route
 </script>
 
 {#snippet actionButtons({ source }: { source: string })}
@@ -30,8 +38,18 @@
 				'lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100 '
 		)}
 	>
-		<ViewToggleButton {showCode} onToggle={toggleView} />
-		<div class="h-6 w-px bg-border"></div>
+		{#if !shallowCodeShow}
+			<ViewToggleButton {showCode} onToggle={toggleView} />
+			<div class="h-6 w-px bg-border"></div>
+		{:else}
+			<ViewToggleButton
+				{showCode}
+				onToggle={() => {
+					onShowCode?.(url);
+				}}
+			/>
+			<div class="h-6 w-px bg-border"></div>
+		{/if}
 		<CopyButton code={source} />
 	</div>
 {/snippet}
