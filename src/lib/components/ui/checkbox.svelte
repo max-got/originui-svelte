@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Checkbox as CheckboxPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
 
+	import { Checkbox as CheckboxPrimitive } from 'bits-ui';
+
 	let {
-		ref = $bindable(null),
-		class: className,
 		checked = $bindable(false),
+		class: className,
+		ref = $bindable(null),
 		...restProps
 	}: CheckboxPrimitive.RootProps = $props();
 </script>

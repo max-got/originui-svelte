@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { Tooltip } from 'bits-ui';
 	import type { TooltipContentProps } from 'bits-ui';
+
 	import { cn } from '$lib/utils.js';
 
+	import { Tooltip } from 'bits-ui';
+
 	let {
-		sideOffset = 4,
-		ref = $bindable(null),
-		class: className,
 		children,
+		class: className,
+		ref = $bindable(null),
+		sideOffset = 4,
 		...restProps
 	}: TooltipContentProps = $props();
 </script>
