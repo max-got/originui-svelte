@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
 	import type { ComponentRender } from '$lib/types/components.js';
-	import CopyButton from '$lib/demo/copy-button.svelte';
-	import ViewToggleButton from './demo-view-toggle-button.svelte';
 
+	import ViewToggleButton from './demo-view-toggle-button.svelte';
 	import CodePreview from '$lib/demo/code-preview.svelte';
 	import { page } from '$app/stores';
 
@@ -13,6 +11,7 @@
 		shallowCodeShow = true,
 		onShowCode
 	}: {
+		class?: string;
 		component: ComponentRender;
 		shallowCodeShow?: boolean;
 		onShowCode?: (url: string) => void;

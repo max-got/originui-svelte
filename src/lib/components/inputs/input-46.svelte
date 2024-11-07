@@ -1,13 +1,13 @@
 <script lang="ts">
-	import 'svelte-tel-input/styles/flags.css';
+	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
 	import type { ChangeEventHandler } from 'svelte/elements';
 
-	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
-	import { TelInput, normalizedCountries } from 'svelte-tel-input';
-
 	import Label from '$lib/components/ui/label.svelte';
+
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import Phone from 'lucide-svelte/icons/phone';
+	import { normalizedCountries, TelInput } from 'svelte-tel-input';
+	import 'svelte-tel-input/styles/flags.css';
 
 	let selectedCountry = $state<CountryCode | null>(null);
 	let value = $state<E164Number | null>(null);

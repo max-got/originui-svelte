@@ -7,14 +7,15 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
+
 	import Code from 'lucide-svelte/icons/code';
 	import Eye from 'lucide-svelte/icons/eye';
 
 	let {
-		showCode,
+		class: className,
 		onToggle,
-		class: className
-	}: { showCode: boolean; onToggle: () => void; class?: string } = $props();
+		showCode
+	}: { class?: string; onToggle: () => void; showCode: boolean } = $props();
 </script>
 
 <div class={cn(className)}>

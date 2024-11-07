@@ -1,23 +1,35 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
+	import type { EventHandler } from 'svelte/elements';
+
 	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 	import Mic from 'lucide-svelte/icons/mic';
 	import Search from 'lucide-svelte/icons/search';
+	import { onDestroy } from 'svelte';
 
 	let inputValue = $state('');
 	let isLoading = $state(false);
-	let timer = $state<ReturnType<typeof setTimeout> | null>(null);
+	let timer: null | ReturnType<typeof setTimeout> = $state(null);
 
-	$effect(() => {
-		if (inputValue) {
-			isLoading = true;
-			timer = setTimeout(() => {
-				isLoading = false;
-			}, 500);
+	const handleInput: EventHandler<Event, HTMLInputElement> = () => {
+		if (timer) clearTimeout(timer);
+
+		if (!inputValue) {
+			isLoading = false;
+			return;
 		}
 
-		return () => timer && clearTimeout(timer);
+		isLoading = true;
+		timer = setTimeout(() => {
+			isLoading = false;
+			timer = null;
+		}, 500);
+	};
+
+	onDestroy(() => {
+		if (timer) clearTimeout(timer);
 	});
 </script>
 
@@ -30,6 +42,7 @@
 			placeholder="Search..."
 			type="search"
 			bind:value={inputValue}
+			oninput={handleInput}
 		/>
 		<div
 			class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"

@@ -4,26 +4,26 @@
 	import Label from '$lib/components/ui/label.svelte';
 
 	const initialTree: TreeNode = {
-		id: 'natural-wonders',
-		label: 'Natural Wonders',
 		children: [
-			{ id: 'mountains', label: 'Mountains', defaultChecked: true },
+			{ defaultChecked: true, id: 'mountains', label: 'Mountains' },
 			{
-				id: 'waterfalls',
-				label: 'Waterfalls',
 				children: [
 					{ id: 'niagara', label: 'Niagara Falls' },
-					{ id: 'angel-falls', label: 'Angel Falls', defaultChecked: true }
-				]
+					{ defaultChecked: true, id: 'angel-falls', label: 'Angel Falls' }
+				],
+				id: 'waterfalls',
+				label: 'Waterfalls'
 			},
 			{ id: 'grand-canyon', label: 'Grand Canyon' }
-		]
+		],
+		id: 'natural-wonders',
+		label: 'Natural Wonders'
 	};
 </script>
 
 <div class="space-y-3">
 	<CheckboxTree tree={initialTree}>
-		{#snippet renderNode({ id, label, isChecked, onCheckedChange, children })}
+		{#snippet renderNode({ children, id, isChecked, label, onCheckedChange })}
 			<div class="ms-6 flex items-center gap-2">
 				<Checkbox {id} checked={isChecked} {onCheckedChange} />
 				<Label for={id}>{label}</Label>

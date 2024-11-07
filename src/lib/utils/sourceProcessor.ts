@@ -1,9 +1,9 @@
 import {
-	IMPORTS_REGEX,
-	POSSIBLE_DEPENDENCIES,
-	COLLAPSIBLE_START_REGEX,
 	COLLAPSIBLE_END_REGEX,
-	ENHANCED_IMAGE_REGEX
+	COLLAPSIBLE_START_REGEX,
+	ENHANCED_IMAGE_REGEX,
+	IMPORTS_REGEX,
+	POSSIBLE_DEPENDENCIES
 } from './shared.js';
 
 export function removeShikiComments(source: string) {
@@ -32,11 +32,11 @@ export function addDependenciesComments(source: string) {
 	const enhancedImageMatch = source.match(ENHANCED_IMAGE_REGEX);
 	if (enhancedImageMatch) {
 		dependencies.add({
-			//@ts-expect-error - i know what i'm doing
+			dev: true,
+			// @ts-expect-error - i know what i'm doing
 			name: 'enhanced-image',
-			//@ts-expect-error - i know what i'm doing
-			packageName: '@sveltejs/enhanced-img',
-			dev: true
+			// @ts-expect-error - i know what i'm doing
+			packageName: '@sveltejs/enhanced-img'
 		});
 	}
 

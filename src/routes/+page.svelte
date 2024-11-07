@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Illustration from '$lib/demo/illustration.svelte';
+
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 </script>
 

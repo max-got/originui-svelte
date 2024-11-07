@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { TransitionEventHandler } from 'svelte/elements';
+
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
@@ -6,11 +8,11 @@
 	let checked = $state(false);
 	let inputElement: HTMLInputElement | null = $state(null);
 
-	$effect(() => {
-		if (checked === true && inputElement) {
+	const handleTransitionEnd: TransitionEventHandler<HTMLDivElement> = () => {
+		if (checked && inputElement) {
 			inputElement.focus();
 		}
-	});
+	};
 </script>
 
 <div>
@@ -30,6 +32,7 @@
 				aria-labelledby="checkbox-11"
 				class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=expanded]:grid-rows-[1fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:opacity-100"
 				data-state={checked ? 'expanded' : 'collapsed'}
+				ontransitionend={handleTransitionEnd}
 			>
 				<div class="-m-2 overflow-hidden p-2">
 					<div class="mt-3">

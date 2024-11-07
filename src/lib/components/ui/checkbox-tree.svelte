@@ -7,31 +7,32 @@
 	 */
 
 	export interface TreeNode {
+		children?: TreeNode[];
+		defaultChecked?: boolean;
 		id: string;
 		label: string;
-		defaultChecked?: boolean;
-		children?: TreeNode[];
 	}
 
 	export interface RenderNodeProps {
-		id: string;
-		label: string;
-		isChecked: boolean | 'indeterminate';
-		onCheckedChange: () => void;
 		children: RenderNodeProps[];
+		id: string;
+		isChecked: 'indeterminate' | boolean;
+		label: string;
+		onCheckedChange: () => void;
 	}
 </script>
 
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+
 	import { SvelteSet } from 'svelte/reactivity';
 
 	let {
-		tree,
-		renderNode
+		renderNode,
+		tree
 	}: {
-		tree: TreeNode;
 		renderNode: Snippet<[RenderNodeProps]>;
+		tree: TreeNode;
 	} = $props();
 
 	const checkedNodes = new SvelteSet<string>();
@@ -44,7 +45,7 @@
 		node.children?.forEach(initializeCheckedNodes);
 	})(tree);
 
-	function isChecked(node: TreeNode): boolean | 'indeterminate' {
+	function isChecked(node: TreeNode): 'indeterminate' | boolean {
 		if (!node.children) {
 			return checkedNodes.has(node.id);
 		}
@@ -77,11 +78,11 @@
 
 	function renderTreeNode(node: TreeNode): RenderNodeProps {
 		return {
+			children: node.children?.map(renderTreeNode) ?? [],
 			id: node.id,
-			label: node.label,
 			isChecked: isChecked(node),
-			onCheckedChange: () => handleCheck(node),
-			children: node.children?.map(renderTreeNode) ?? []
+			label: node.label,
+			onCheckedChange: () => handleCheck(node)
 		};
 	}
 </script>

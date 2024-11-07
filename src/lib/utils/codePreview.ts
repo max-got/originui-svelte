@@ -1,17 +1,18 @@
+import type { Element } from 'hast';
+
+import { h } from 'hastscript';
 import {
-	createHighlighterCore,
 	type CodeToHastOptions,
+	createHighlighterCore,
 	type HighlighterCore,
 	type ShikiTransformer
 } from 'shiki/core';
 import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import githubDarkDefault from 'shiki/themes/github-dark-default.mjs';
 import githubLightDefault from 'shiki/themes/github-light-default.mjs';
-import type { Element } from 'hast';
-import { h } from 'hastscript';
 
 let highlighterInstance: HighlighterCore | null = null;
-let highlighterPromise: Promise<HighlighterCore> | null = null;
+let highlighterPromise: null | Promise<HighlighterCore> = null;
 
 async function createHighlighterInstance() {
 	// Return existing instance if available
@@ -22,9 +23,9 @@ async function createHighlighterInstance() {
 
 	// Create new initialization promise
 	highlighterPromise = createHighlighterCore({
-		themes: [githubDarkDefault, githubLightDefault],
+		engine: createOnigurumaEngine(import('shiki/wasm')),
 		langs: [import('shiki/langs/svelte.mjs')],
-		engine: createOnigurumaEngine(import('shiki/wasm'))
+		themes: [githubDarkDefault, githubLightDefault]
 	}).then((instance) => {
 		highlighterInstance = instance;
 		return instance;
@@ -33,10 +34,10 @@ async function createHighlighterInstance() {
 	return highlighterPromise;
 }
 
-type CollapsibleSection = {
-	start: { line: Element; characterStart: number; characterEnd: number };
-	end?: { line: Element; characterStart: number; characterEnd: number };
-};
+interface CollapsibleSection {
+	end?: { characterEnd: number; characterStart: number; line: Element };
+	start: { characterEnd: number; characterStart: number; line: Element };
+}
 
 function createCollapsibleSectionTransformer(
 	startRegex: RegExp,
@@ -56,8 +57,8 @@ function createCollapsibleSectionTransformer(
 
 					if (startRegex.test(text.value)) {
 						const section = {
-							start: { line: line, characterStart: 0, characterEnd: text.value.length },
-							end: undefined
+							end: undefined,
+							start: { characterEnd: text.value.length, characterStart: 0, line }
 						};
 						collapsibleSectionsMap.set(idx, section);
 					}
@@ -67,9 +68,9 @@ function createCollapsibleSectionTransformer(
 						if (!openSection) continue;
 
 						openSection.end = {
-							line: line,
+							characterEnd: text.value.length,
 							characterStart: 0,
-							characterEnd: text.value.length
+							line
 						};
 					}
 				}
@@ -80,7 +81,7 @@ function createCollapsibleSectionTransformer(
 			const collapsibleSections = Array.from(collapsibleSectionsMap.entries());
 			for (let i = collapsibleSections.length - 1; i >= 0; i--) {
 				const [_idx, section] = collapsibleSections[i];
-				const { start, end } = section;
+				const { end, start } = section;
 				if (!end) continue; // Skip sections without an end
 
 				const startLineIdx = code.children.indexOf(start.line);
@@ -89,26 +90,19 @@ function createCollapsibleSectionTransformer(
 
 				const linesBetweenContent = linesBetween
 					.filter((line) => line.type === 'element' || line.type === 'text')
-					.filter((line) => (line.type === 'element' ? line.children.length > 0 : true))
-					.map((line) => (line.type === 'element' ? line.children : line.value));
+					.filter((line) => (line.type === 'element' ? line.children.length > 0 : true));
 
 				const wrapperDiv = h(
 					'div',
 					{
-						class: 'collapsed-section-wrapper contents group',
+						class: 'collapsed-section-wrapper',
 						'data-open': 'false'
 					},
 					[
 						h(
 							'button',
 							{
-								class: /*tw*/ `inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium
-									bg-muted/40 hover:bg-muted/60
-									border border-border/30 hover:border-border/50
-									rounded-md shadow-sm 
-									text-foreground/70 hover:text-foreground
-									transition-all duration-150
-									relative -ml-1 -mt-1`,
+								class: 'collapsible-toggle',
 								onclick: `
 									this.parentElement.dataset.open === 'true' ? this.parentElement.dataset.open = 'false' : this.parentElement.dataset.open = 'true'
 									this.textContent = this.parentElement.dataset.open === 'true' ? 'Collapse code 📕' : 'Expand code 📖'
@@ -117,11 +111,7 @@ function createCollapsibleSectionTransformer(
 							},
 							'Expand code 📖'
 						),
-						h(
-							'span',
-							{ class: 'collapsed-section inline group-data-[open=false]:hidden' },
-							linesBetweenContent
-						)
+						h('span', { class: 'collapsed-section' }, linesBetweenContent)
 					]
 				);
 
@@ -135,25 +125,21 @@ function createCollapsibleSectionTransformer(
 }
 
 const collapsibleSectionTransformer = createCollapsibleSectionTransformer(
-	new RegExp(
-		`\\s*(?://|/\\*|<!--|#|--|%{1,2}|;{1,2}|"|')\\s+\\[!code collapse-start\\]\\s*(?:\\*/|-->)?\\s*$`
-	),
-	new RegExp(
-		`\\s*(?://|/\\*|<!--|#|--|%{1,2}|;{1,2}|"|')\\s+\\[!code collapse-end\\]\\s*(?:\\*/|-->)?\\s*$`
-	)
+	/\s*(?:\/\/|\/\*|<!--|[#"']|--|%{1,2}|;{1,2})\s+\[!code collapse-start\]\s*(?:(?:\*\/|-->)\s*)?$/,
+	/\s*(?:\/\/|\/\*|<!--|[#"']|--|%{1,2}|;{1,2})\s+\[!code collapse-end\]\s*(?:(?:\*\/|-->)\s*)?$/
 );
 
 async function highlighter(
 	code: string,
-	options: Omit<Partial<CodeToHastOptions>, 'themes' | 'theme' | 'lang'> = {}
+	options: Omit<Partial<CodeToHastOptions>, 'lang' | 'theme' | 'themes'> = {}
 ) {
 	const instance = await createHighlighterInstance();
 
 	const html = instance.codeToHtml(code, {
 		lang: 'svelte',
 		themes: {
-			light: 'github-light-default',
-			dark: 'github-dark-default'
+			dark: 'github-dark-default',
+			light: 'github-light-default'
 		},
 		transformers: [collapsibleSectionTransformer],
 		...options

@@ -7,6 +7,7 @@
 	 * headless component, your contributions are welcome!
 	 */
 	import { getContext, setContext } from 'svelte';
+
 	const LOCALE_CONTEXT_KEY = Symbol('ctx:locale');
 	interface LocaleOptions {
 		locale?: string;
@@ -51,16 +52,17 @@
 </script>
 
 <script lang="ts">
-	import { DateRangePicker, type DateRange, type DateRangeValidator } from 'bits-ui';
+	import Label from '$lib/components/ui/label.svelte';
+	import { cn } from '$lib/utils.js';
+
+	import { type DateValue, getLocalTimeZone, isWeekend, today } from '@internationalized/date';
+	import { type DateRange, DateRangePicker, type DateRangeValidator } from 'bits-ui';
 	import Calendar from 'lucide-svelte/icons/calendar';
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import Label from '$lib/components/ui/label.svelte';
-	import { cn } from '$lib/utils.js';
-	import { getLocalTimeZone, today, isWeekend, type DateValue } from '@internationalized/date';
 
 	let now = today(getLocalTimeZone());
-	let value: DateRange = $state({ start: undefined, end: undefined });
+	let value: DateRange = $state({ end: undefined, start: undefined });
 	let locale = useLocale();
 
 	// Define disabled date ranges
@@ -209,7 +211,7 @@
 		</DateRangePicker.Calendar>
 	</DateRangePicker.Content>
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
-		Built with{' '}
+		Built with
 		<a
 			class="underline hover:text-foreground"
 			href="https://next.bits-ui.com/docs/components/date-range-picker"

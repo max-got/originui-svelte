@@ -1,13 +1,12 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+	import { cn } from '$lib/utils.js';
 
 	import Check from 'lucide-svelte/icons/check';
 	import Eye from 'lucide-svelte/icons/eye';
 	import EyeOff from 'lucide-svelte/icons/eye-off';
 	import X from 'lucide-svelte/icons/x';
-
-	import { cn } from '$lib/utils.js';
 
 	let password = $state('');
 	let isVisible = $state(false);

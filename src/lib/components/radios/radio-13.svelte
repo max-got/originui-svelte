@@ -2,12 +2,12 @@
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	const items = [
-		{ id: 'radio-13-r1', value: 'r1', label: '2 CPU' },
-		{ id: 'radio-13-r2', value: 'r2', label: '4 CPU' },
-		{ id: 'radio-13-r3', value: 'r3', label: '6 CPU' },
-		{ id: 'radio-13-r4', value: 'r4', label: '8 CPU' },
-		{ id: 'radio-13-r5', value: 'r5', label: '12 CPU' },
-		{ id: 'radio-13-r6', value: 'r6', label: '16 CPU', disabled: true }
+		{ id: 'radio-13-r1', label: '2 CPU', value: 'r1' },
+		{ id: 'radio-13-r2', label: '4 CPU', value: 'r2' },
+		{ id: 'radio-13-r3', label: '6 CPU', value: 'r3' },
+		{ id: 'radio-13-r4', label: '8 CPU', value: 'r4' },
+		{ id: 'radio-13-r5', label: '12 CPU', value: 'r5' },
+		{ disabled: true, id: 'radio-13-r6', label: '16 CPU', value: 'r6' }
 	];
 </script>
 

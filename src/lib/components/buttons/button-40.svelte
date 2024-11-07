@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
+
 	import ThumbsUp from 'lucide-svelte/icons/thumbs-up';
 </script>
 

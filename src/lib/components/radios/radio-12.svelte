@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+
+	import IconApple from '~icons/ri/apple-line';
 	import IconBankCard from '~icons/ri/bank-card-line';
 	import IconPaypal from '~icons/ri/paypal-line';
-	import IconApple from '~icons/ri/apple-line';
 
 	const items = [
-		{ id: 'radio-12-cc', value: 'cc', label: 'Card', Icon: IconBankCard },
-		{ id: 'radio-12-paypal', value: 'paypal', label: 'PayPal', Icon: IconPaypal },
-		{ id: 'radio-12-apple-pay', value: 'apple-pay', label: 'Apple Pay', Icon: IconApple }
+		{ Icon: IconBankCard, id: 'radio-12-cc', label: 'Card', value: 'cc' },
+		{ Icon: IconPaypal, id: 'radio-12-paypal', label: 'PayPal', value: 'paypal' },
+		{ Icon: IconApple, id: 'radio-12-apple-pay', label: 'Apple Pay', value: 'apple-pay' }
 	];
 
 	let selectedValue = $state('cc');

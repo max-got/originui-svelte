@@ -2,9 +2,9 @@
 	import Button from '$lib/components/ui/button.svelte';
 
 	import IconFacebook from '~icons/ri/facebook-fill';
+	import IconGithub from '~icons/ri/github-fill';
 	import IconGoogle from '~icons/ri/google-fill';
 	import IconTwitter from '~icons/ri/twitter-x-fill';
-	import IconGithub from '~icons/ri/github-fill';
 </script>
 
 <div class="inline-flex flex-wrap gap-2">

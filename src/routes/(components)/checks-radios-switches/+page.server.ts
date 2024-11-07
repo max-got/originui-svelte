@@ -1,4 +1,5 @@
 import type { PageServerLoad } from './$types.js';
+
 import { fetchComponentsFromAPI } from '$lib/utils/handleComponentSource.js';
 
 export const load = (async ({ fetch }) => {
@@ -7,8 +8,8 @@ export const load = (async ({ fetch }) => {
 	const componentMetadataCheckbox = await fetchComponentsFromAPI(fetch, 'checkboxes.json');
 
 	return {
-		componentMetadataSwitch,
+		componentMetadataCheckbox,
 		componentMetadataRadio,
-		componentMetadataCheckbox
+		componentMetadataSwitch
 	};
 }) satisfies PageServerLoad;

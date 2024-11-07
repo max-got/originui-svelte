@@ -1,10 +1,10 @@
 <script lang="ts">
-	import '../app.css';
+	import Header from '$lib/demo/header.svelte';
 
 	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
-
-	import Header from '$lib/demo/header.svelte';
 	import { ModeWatcher } from 'mode-watcher';
+
+	import '../app.css';
 
 	let { children } = $props();
 </script>

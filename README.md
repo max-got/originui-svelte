@@ -1,9 +1,9 @@
 # Origin UI - Svelte
 
-> [!NOTE]  
+> [!NOTE]
 > This is a fork of the original [Origin UI](https://originui.com/) project. This project is not affiliated with the original. I'm grateful for their work and have created these Svelte components copied from their design.
 
-> [!NOTE]  
+> [!NOTE]
 > This is a work in progress. For some components the necessary libraries are coming soon (e.g. [Bits UI](https://next.bits-ui.com/docs/introduction)) or are just not available yet (e.g. [React Payment Inputs](https://github.com/medipass/react-payment-inputs)). Maybe i will add them in the future myself.
 
 Origin UI - Svelte is a collection of copy-and-paste components for quickly building app UIs using Svelte. The collection currently features 90+ components and is updated with new examples if the original library is updated.
@@ -28,7 +28,7 @@ Origin UI - Svelte is a collection of copy-and-paste components for quickly buil
 
 ### Development
 
-> [!NOTE]  
+> [!NOTE]
 > This project uses [pnpm](https://pnpm.io/) as package manager.
 
 1. Clone the repository:

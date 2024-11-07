@@ -7,10 +7,10 @@
 	 * headless component, your contributions are welcome!
 	 */
 	export class CharacterLimit {
-		maxLength: number;
-
 		#value = $state('');
+
 		characterCount = $derived(this.#value.length);
+		maxLength: number;
 
 		constructor(maxLength: number) {
 			this.maxLength = maxLength;

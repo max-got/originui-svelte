@@ -3,16 +3,16 @@
 
 	const options = [
 		{
-			value: 'left',
-			label: 'Left'
+			label: 'Left',
+			value: 'left'
 		},
 		{
-			value: 'center',
-			label: 'Center'
+			label: 'Center',
+			value: 'center'
 		},
 		{
-			value: 'right',
-			label: 'Right'
+			label: 'Right',
+			value: 'right'
 		}
 	] as const;
 

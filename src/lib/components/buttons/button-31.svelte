@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
+
+	import Ellipsis from 'lucide-svelte/icons/ellipsis';
 	import Files from 'lucide-svelte/icons/files';
 	import Film from 'lucide-svelte/icons/film';
-	import Ellipsis from 'lucide-svelte/icons/ellipsis';
 </script>
 
 <div class="inline-flex -space-x-px rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse">

@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import type { WithElementRef } from 'bits-ui';
+	import type { HTMLTextareaAttributes } from 'svelte/elements';
+
 	import { cn } from '$lib/utils.js';
 
 	let {
+		class: className,
 		ref = $bindable(null),
 		value = $bindable(),
-		class: className,
 		...restProps
 	}: WithElementRef<HTMLTextareaAttributes> = $props();
 </script>

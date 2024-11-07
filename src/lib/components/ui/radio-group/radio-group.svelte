@@ -8,10 +8,10 @@
 	import { cn } from '$lib/utils.js';
 
 	let {
-		ref = $bindable(null),
-		value = $bindable(undefined),
 		children,
 		class: className,
+		ref = $bindable(null),
+		value = $bindable(undefined),
 		...restProps
 	}: RadioGroupPrimitive.RootProps = $props();
 </script>

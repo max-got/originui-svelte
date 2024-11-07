@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	let { title, children }: { title: string; children: Snippet } = $props();
+
+	let { children, title }: { children: Snippet; title: string } = $props();
 </script>
 
 <div class="mb-16 text-center">
