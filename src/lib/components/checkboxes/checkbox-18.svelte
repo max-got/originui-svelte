@@ -2,13 +2,13 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
 	const items = [
-		{ id: 'checkbox-18-c1', value: 'c1', label: 'Monday', defaultChecked: true },
-		{ id: 'checkbox-18-c2', value: 'c2', label: 'Tuesday', defaultChecked: true },
-		{ id: 'checkbox-18-c3', value: 'c3', label: 'Wednesday' },
-		{ id: 'checkbox-18-c4', value: 'c4', label: 'Thursday', defaultChecked: true },
-		{ id: 'checkbox-18-c5', value: 'c5', label: 'Friday', defaultChecked: true },
-		{ id: 'checkbox-18-c6', value: 'c6', label: 'Saturday' },
-		{ id: 'checkbox-18-c7', value: 'c7', label: 'Sunday', disabled: true }
+		{ defaultChecked: true, id: 'checkbox-18-c1', label: 'Monday', value: 'c1' },
+		{ defaultChecked: true, id: 'checkbox-18-c2', label: 'Tuesday', value: 'c2' },
+		{ id: 'checkbox-18-c3', label: 'Wednesday', value: 'c3' },
+		{ defaultChecked: true, id: 'checkbox-18-c4', label: 'Thursday', value: 'c4' },
+		{ defaultChecked: true, id: 'checkbox-18-c5', label: 'Friday', value: 'c5' },
+		{ id: 'checkbox-18-c6', label: 'Saturday', value: 'c6' },
+		{ disabled: true, id: 'checkbox-18-c7', label: 'Sunday', value: 'c7' }
 	];
 </script>
 

@@ -1,16 +1,17 @@
 <script lang="ts">
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+
 	import Brush from 'lucide-svelte/icons/brush';
 	import Eraser from 'lucide-svelte/icons/eraser';
 	import Scissors from 'lucide-svelte/icons/scissors';
 	import SwatchBook from 'lucide-svelte/icons/swatch-book';
 
 	const items = [
-		{ id: 'checkbox-16-c1', value: 'c1', label: 'Palette', Icon: SwatchBook, defaultChecked: true },
-		{ id: 'checkbox-16-c2', value: 'c2', label: 'Brush', Icon: Brush },
-		{ id: 'checkbox-16-c3', value: 'c3', label: 'Eraser', Icon: Eraser },
-		{ id: 'checkbox-16-c4', value: 'c4', label: 'Cut', Icon: Scissors }
+		{ defaultChecked: true, Icon: SwatchBook, id: 'checkbox-16-c1', label: 'Palette', value: 'c1' },
+		{ Icon: Brush, id: 'checkbox-16-c2', label: 'Brush', value: 'c2' },
+		{ Icon: Eraser, id: 'checkbox-16-c3', label: 'Eraser', value: 'c3' },
+		{ Icon: Scissors, id: 'checkbox-16-c4', label: 'Cut', value: 'c4' }
 	];
 </script>
 

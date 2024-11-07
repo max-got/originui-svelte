@@ -2,7 +2,7 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	let checked = $state<boolean | 'indeterminate'>('indeterminate');
+	let checked = $state<'indeterminate' | boolean>('indeterminate');
 </script>
 
 <div class="flex items-center gap-2">
