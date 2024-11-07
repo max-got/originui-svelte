@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
+
 	import SquareArrowOutUpRight from 'lucide-svelte/icons/square-arrow-out-up-right';
 </script>
 

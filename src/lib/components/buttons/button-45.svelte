@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import IconGoogle from '~icons/ri/google-fill';
-	import IconTwitter from '~icons/ri/twitter-x-fill';
 	import IconFacebook from '~icons/ri/facebook-fill';
 	import IconGithub from '~icons/ri/github-fill';
+	import IconGoogle from '~icons/ri/google-fill';
+	import IconTwitter from '~icons/ri/twitter-x-fill';
 </script>
 
 <div class="flex w-full flex-col gap-2">

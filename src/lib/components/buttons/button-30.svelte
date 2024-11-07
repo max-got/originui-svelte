@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';
+
 	import AlignCenter from 'lucide-svelte/icons/align-center';
 	import AlignJustify from 'lucide-svelte/icons/align-justify';
 	import AlignLeft from 'lucide-svelte/icons/align-left';

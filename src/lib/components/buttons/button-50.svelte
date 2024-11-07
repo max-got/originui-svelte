@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
-	import IconChevronUp from 'lucide-svelte/icons/chevron-up';
+
 	import IconChevronDown from 'lucide-svelte/icons/chevron-down';
 	import IconChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import IconChevronRight from 'lucide-svelte/icons/chevron-right';
+	import IconChevronUp from 'lucide-svelte/icons/chevron-up';
 	import IconCircle from 'lucide-svelte/icons/circle';
 </script>
 
