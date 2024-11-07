@@ -1,20 +1,20 @@
 import type { Component } from 'svelte';
 
-export type ComponentMetadata = {
-	id: string;
-	path: string;
+export interface ComponentMetadata {
 	code: {
 		copyable: { content: string };
-		preview: { content: string };
 		highlighted: { content: string };
+		preview: { content: string };
 	};
-};
+	id: string;
+	path: string;
+}
 
 export type ComponentRender = ComponentMetadata & {
 	render: Component;
 };
 
-export type ComponentDirectory = {
+export interface ComponentDirectory {
 	directory: string;
 	files: string[];
-};
+}

@@ -1,7 +1,9 @@
 import type { Component } from 'svelte';
-import type { ComponentMetadata, ComponentRender } from '../types/components.js';
-import { removeShikiComments, addPathComment, addDependenciesComments } from './sourceProcessor.js';
+
 import highlighter from './codePreview.js';
+import { addDependenciesComments, addPathComment, removeShikiComments } from './sourceProcessor.js';
+
+import type { ComponentMetadata, ComponentRender } from '../types/components.js';
 
 interface ComponentImports {
 	compiled: Record<string, Component>;
@@ -25,9 +27,9 @@ function getImports(): ComponentImports {
 			source: import.meta.glob(
 				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 				{
-					query: '?raw',
 					eager: true,
-					import: 'default'
+					import: 'default',
+					query: '?raw'
 				}
 			) as Record<string, string>
 		};
@@ -41,13 +43,13 @@ function buildComponentPath(directory: string, componentName: string): string {
 
 function createEmptyComponentMetadata(componentName: string, path: string): ComponentMetadata {
 	return {
-		id: componentName,
-		path,
 		code: {
 			copyable: { content: '' },
-			preview: { content: '' },
-			highlighted: { content: '' }
-		}
+			highlighted: { content: '' },
+			preview: { content: '' }
+		},
+		id: componentName,
+		path
 	};
 }
 
@@ -59,8 +61,8 @@ async function processComponentSource(rawSource: string, path: string) {
 
 	return {
 		copyable: { content: sourceWithDeps },
-		preview: { content: previewSource },
-		highlighted: { content: highlightedSource }
+		highlighted: { content: highlightedSource },
+		preview: { content: previewSource }
 	};
 }
 
@@ -80,9 +82,9 @@ export async function getComponentSource(
 	const metadata = !rawSource
 		? createEmptyComponentMetadata(componentName, path)
 		: {
+				code: await processComponentSource(rawSource, path),
 				id: componentName,
-				path,
-				code: await processComponentSource(rawSource, path)
+				path
 			};
 
 	return metadata;
