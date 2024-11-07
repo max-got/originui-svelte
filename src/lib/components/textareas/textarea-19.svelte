@@ -7,8 +7,13 @@
 	 * headless component, your contributions are welcome!
 	 */
 	class AutoGrowingTextarea {
-		element: HTMLTextAreaElement | null = null;
 		defaultRows: number;
+		element: HTMLTextAreaElement | null = null;
+
+		events = {
+			oninput: this.handleInput
+		};
+
 		maxRows?: number;
 
 		constructor(defaultRows = 1, maxRows?: number) {
@@ -16,16 +21,18 @@
 			this.maxRows = maxRows;
 		}
 
-		handleInput = () => {
+		handleInput() {
 			if (!this.element) return;
 
 			this.element.style.height = 'auto';
 
 			const style = window.getComputedStyle(this.element);
-			const borderHeight = parseInt(style.borderTopWidth) + parseInt(style.borderBottomWidth);
-			const paddingHeight = parseInt(style.paddingTop) + parseInt(style.paddingBottom);
+			const borderHeight =
+				Number.parseInt(style.borderTopWidth) + Number.parseInt(style.borderBottomWidth);
+			const paddingHeight =
+				Number.parseInt(style.paddingTop) + Number.parseInt(style.paddingBottom);
 
-			const lineHeight = parseInt(style.lineHeight);
+			const lineHeight = Number.parseInt(style.lineHeight);
 			const maxHeight = this.maxRows
 				? lineHeight * this.maxRows + borderHeight + paddingHeight
 				: Infinity;
@@ -33,7 +40,7 @@
 			const newHeight = Math.min(this.element.scrollHeight + borderHeight, maxHeight);
 
 			this.element.style.height = `${newHeight}px`;
-		};
+		}
 	}
 	// [!code collapse-end]
 </script>
@@ -51,8 +58,8 @@
 		id="textarea-19"
 		placeholder="Leave a comment"
 		bind:ref={autoGrowing.element}
-		oninput={autoGrowing.handleInput}
 		rows={autoGrowing.defaultRows}
 		class="min-h-[none] resize-none"
+		{...autoGrowing.events}
 	/>
 </div>

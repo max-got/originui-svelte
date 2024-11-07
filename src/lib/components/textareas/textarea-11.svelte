@@ -1,7 +1,7 @@
 <script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 	import Textarea from '$lib/components/ui/textarea.svelte';
-	import Button from '$lib/components/ui/button.svelte';
 </script>
 
 <div class="space-y-2">
