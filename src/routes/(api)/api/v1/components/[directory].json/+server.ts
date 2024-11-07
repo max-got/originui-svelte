@@ -1,5 +1,6 @@
 export const prerender = true;
 import type { EntryGenerator, RequestHandler } from './$types.js';
+
 import { getComponentSource } from '$lib/utils/handleComponentSource.js';
 
 const files = import.meta.glob(
@@ -48,8 +49,8 @@ export const GET: RequestHandler = async ({ params, setHeaders }) => {
 	);
 
 	setHeaders({
-		'content-type': 'application/json',
-		'cache-control': 'public, max-age=31536000, immutable, stale-while-revalidate=86400'
+		'cache-control': 'public, max-age=31536000, immutable, stale-while-revalidate=86400',
+		'content-type': 'application/json'
 	});
 
 	return new Response(JSON.stringify(components));
