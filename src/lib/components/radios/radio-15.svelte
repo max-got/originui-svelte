@@ -3,10 +3,10 @@
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	const items = [
-		{ id: 'radio-15-r1', value: 'r1', label: 'Hobby', price: '$9/mo' },
-		{ id: 'radio-15-r2', value: 'r2', label: 'Plus', price: '$29/mo' },
-		{ id: 'radio-15-r3', value: 'r3', label: 'Team', price: '$49/mo' },
-		{ id: 'radio-15-r4', value: 'r4', label: 'Enterprise', price: 'Custom' }
+		{ id: 'radio-15-r1', label: 'Hobby', price: '$9/mo', value: 'r1' },
+		{ id: 'radio-15-r2', label: 'Plus', price: '$29/mo', value: 'r2' },
+		{ id: 'radio-15-r3', label: 'Team', price: '$49/mo', value: 'r3' },
+		{ id: 'radio-15-r4', label: 'Enterprise', price: 'Custom', value: 'r4' }
 	];
 
 	let selectedValue = $state('r2');

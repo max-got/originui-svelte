@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+
 	import IconStarFill from '~icons/ri/star-fill';
 
 	let selectedValue = $state('all');
@@ -18,7 +19,7 @@
 		<RadioGroupItem value="5-stars" id="radio-06-5-stars" />
 		<Label for="radio-06-5-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
-				{#each Array(5) as _}
+				{#each Array.from({ length: 5 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
 				{/each}
 			</span>
@@ -30,7 +31,7 @@
 		<RadioGroupItem value="4-stars" id="radio-06-4-stars" />
 		<Label for="radio-06-4-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
-				{#each Array(4) as _}
+				{#each Array.from({ length: 4 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
 				{/each}
 				<IconStarFill width="16" height="16" aria-hidden="true" class="opacity-30" />
@@ -43,10 +44,10 @@
 		<RadioGroupItem value="3-stars" id="radio-06-3-stars" />
 		<Label for="radio-06-3-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
-				{#each Array(3) as _}
+				{#each Array.from({ length: 3 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
 				{/each}
-				{#each Array(2) as _}
+				{#each Array.from({ length: 2 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" class="opacity-30" />
 				{/each}
 			</span>
@@ -58,10 +59,10 @@
 		<RadioGroupItem value="2-stars" id="radio-06-2-stars" />
 		<Label for="radio-06-2-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
-				{#each Array(2) as _}
+				{#each Array.from({ length: 2 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
 				{/each}
-				{#each Array(3) as _}
+				{#each Array.from({ length: 3 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" class="opacity-30" />
 				{/each}
 			</span>
@@ -74,7 +75,7 @@
 		<Label for="radio-06-1-star" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				<IconStarFill width="16" height="16" aria-hidden="true" />
-				{#each Array(4) as _}
+				{#each Array.from({ length: 4 }) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" class="opacity-30" />
 				{/each}
 			</span>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { TransitionEventHandler } from 'svelte/elements';
+
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
@@ -6,13 +8,11 @@
 	let selectedValue = $state('without-expansion');
 	let inputElement = $state<HTMLInputElement | null>(null);
 
-	// Better way to focus the input element
-	// with $effect the input element is focused before the transition ends and therefore it is not properly focused
-	function handleTransitionEnd() {
+	const handleTransitionEnd: TransitionEventHandler<HTMLDivElement> = () => {
 		if (selectedValue === 'with-expansion' && inputElement) {
 			inputElement.focus();
 		}
-	}
+	};
 </script>
 
 <RadioGroup class="gap-6" bind:value={selectedValue}>
