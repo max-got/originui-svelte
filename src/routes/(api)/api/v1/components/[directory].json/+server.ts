@@ -32,52 +32,38 @@ export const entries: EntryGenerator = () => {
 	return AVAILABLE_COMPONENTS.map(({ directory }) => ({ directory }));
 };
 
-export const GET: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params, setHeaders }) => {
 	const { directory } = params;
 
-	try {
-		const foundDirectory = AVAILABLE_COMPONENTS.find(
-			(component) => component.directory === directory
-		);
+	const foundDirectory = AVAILABLE_COMPONENTS.find(
+		(component) => component.directory === directory
+	);
 
-		if (!foundDirectory) {
-			return new Response('Component not available (yet?). Create a new issue if you need this.', {
-				status: 404,
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			});
-		}
-
-		const components = await Promise.all(
-			foundDirectory.files.map((file) => getComponentSource(foundDirectory.directory, file))
-		);
-
-		const responseHeaders = {
-			'Content-Type': 'application/json',
-			'Cache-Control': 'public, max-age=31536000, immutable, stale-while-revalidate=86400'
-		};
-
-		return new Response(JSON.stringify(components), { headers: responseHeaders });
-	} catch (error) {
-		console.error('Error fetching components:', error);
-		return new Response('Internal server error while fetching components', {
-			status: 500,
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
+	if (!foundDirectory) {
+		throw new Error(`Components ${directory} not found. components/${directory}.json/+server.ts`);
 	}
+
+	const components = await Promise.all(
+		foundDirectory.files.map((file) => getComponentSource(foundDirectory.directory, file))
+	);
+
+	setHeaders({
+		'content-type': 'application/json',
+		'cache-control': 'public, max-age=31536000, immutable, stale-while-revalidate=86400'
+	});
+
+	return new Response(JSON.stringify(components));
 };
 
-export const fallback: RequestHandler = async () => {
+export const fallback: RequestHandler = async ({ setHeaders }) => {
+	setHeaders({
+		'content-type': 'application/json'
+	});
+
 	return new Response(
 		"Components not available (yet?). Create a new issue if you need this. Not even sure why you're here.",
 		{
-			status: 404,
-			headers: {
-				'Content-Type': 'application/json'
-			}
+			status: 404
 		}
 	);
 };
