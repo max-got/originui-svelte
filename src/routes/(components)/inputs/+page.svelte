@@ -1,6 +1,6 @@
 <script lang="ts">
-	import PageHeader from '$lib/demo/page-header.svelte';
 	import * as DemoComponents from '$lib/demo/demo-component/index.js';
+	import PageHeader from '$lib/demo/page-header.svelte';
 
 	let { data } = $props();
 </script>

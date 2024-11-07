@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { PinInput, type PinInputCell } from 'bits-ui';
 	import Label from '$lib/components/ui/label.svelte';
 	import { cn } from '$lib/utils.js';
+
+	import { PinInput, type PinInputCell } from 'bits-ui';
 	import Minus from 'lucide-svelte/icons/minus';
 
 	let value = $state('');

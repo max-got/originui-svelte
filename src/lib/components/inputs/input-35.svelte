@@ -7,10 +7,10 @@
 	 * headless component, your contributions are welcome!
 	 */
 	export class CharacterLimit {
-		maxLength: number;
-
 		#value = $state('');
+
 		characterCount = $derived(this.#value.length);
+		maxLength: number;
 
 		constructor(maxLength: number) {
 			this.maxLength = maxLength;
@@ -28,8 +28,8 @@
 </script>
 
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 
 	const maxLength = 8;
 	const characterLimit = new CharacterLimit(maxLength);

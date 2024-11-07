@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 	import {
 		Tooltip,
 		TooltipContent,
@@ -8,6 +8,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
+
 	import Check from 'lucide-svelte/icons/check';
 	import Copy from 'lucide-svelte/icons/copy';
 

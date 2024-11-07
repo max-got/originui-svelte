@@ -1,7 +1,8 @@
 <script lang="ts">
+	import Label from '$lib/components/ui/label.svelte';
+
 	import Minus from 'lucide-svelte/icons/minus';
 	import Plus from 'lucide-svelte/icons/plus';
-	import Label from '$lib/components/ui/label.svelte';
 
 	let value = $state(2048);
 	const minValue = 0;
@@ -18,8 +19,8 @@
 
 	function handleInput(event: Event) {
 		const input = event.target as HTMLInputElement;
-		const newValue = parseInt(input.value, 10);
-		if (!isNaN(newValue) && newValue >= minValue) {
+		const newValue = Number.parseInt(input.value, 10);
+		if (!Number.isNaN(newValue) && newValue >= minValue) {
 			value = newValue;
 		} else {
 			input.value = value.toString();

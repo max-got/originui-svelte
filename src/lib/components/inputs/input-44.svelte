@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { PinInput, type PinInputCell } from 'bits-ui';
 	import Label from '$lib/components/ui/label.svelte';
 	import { cn } from '$lib/utils.js';
+
+	import { PinInput, type PinInputCell } from 'bits-ui';
 
 	let value = $state('');
 </script>

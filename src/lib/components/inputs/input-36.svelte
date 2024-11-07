@@ -7,6 +7,7 @@
 	 * headless component, your contributions are welcome!
 	 */
 	import { getContext, setContext } from 'svelte';
+
 	const LOCALE_CONTEXT_KEY = Symbol('ctx:locale');
 	interface LocaleOptions {
 		locale?: string;
@@ -51,8 +52,9 @@
 </script>
 
 <script lang="ts">
-	import { DateField } from 'bits-ui';
 	import Label from '$lib/components/ui/label.svelte';
+
+	import { DateField } from 'bits-ui';
 
 	const localeCtx = useLocale();
 </script>
