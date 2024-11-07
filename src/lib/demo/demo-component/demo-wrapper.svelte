@@ -3,7 +3,7 @@
 
 	import { cn } from '$lib/utils.js';
 
-	let { class: className, children }: { class?: string; children: Snippet } = $props();
+	let { children, class: className }: { children: Snippet; class?: string } = $props();
 </script>
 
 <div

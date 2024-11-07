@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
 	import type { ComponentRender } from '$lib/types/components.js';
-	import CopyButton from '$lib/demo/copy-button.svelte';
-	import ViewToggleButton from './demo-view-toggle-button.svelte';
 
+	import ViewToggleButton from './demo-view-toggle-button.svelte';
 	import CodePreview from '$lib/demo/code-preview.svelte';
+	import CopyButton from '$lib/demo/copy-button.svelte';
+	import { cn } from '$lib/utils.js';
 
 	let {
-		component,
-		class: className
+		class: className,
+		component
 	}: {
-		component: ComponentRender;
 		class?: string;
+		component: ComponentRender;
 	} = $props();
 
 	let showCode = $state(false);
