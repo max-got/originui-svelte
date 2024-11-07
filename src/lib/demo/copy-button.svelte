@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { EventHandler } from 'svelte/elements';
+
 	import Button from '$lib/components/ui/button.svelte';
 	import {
 		Tooltip,
@@ -8,10 +10,10 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	let { code, class: className }: { code: string; class?: string } = $props();
+	let { class: className, code }: { class?: string; code: string } = $props();
 	let copied = $state(false);
 
-	const handleCopy = async () => {
+	const handleCopy: EventHandler<Event, HTMLButtonElement> = async () => {
 		try {
 			await navigator.clipboard.writeText(code);
 			copied = true;
@@ -26,7 +28,7 @@
 	<TooltipProvider>
 		<Tooltip>
 			<TooltipTrigger
-				onclick={() => handleCopy()}
+				onclick={handleCopy}
 				class="text-muted-foreground/80 hover:bg-transparent hover:text-foreground disabled:opacity-100"
 				aria-label={copied ? 'Copied' : 'Copy component source'}
 				disabled={copied}
