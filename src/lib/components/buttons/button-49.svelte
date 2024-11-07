@@ -1,30 +1,32 @@
 <script lang="ts">
+	import type { EventHandler } from 'svelte/elements';
+
 	import Button from '$lib/components/ui/button.svelte';
+
 	import IconCircleUserRound from 'lucide-svelte/icons/circle-user-round';
 	import IconX from 'lucide-svelte/icons/x';
 
 	let fileInput: HTMLInputElement;
-	let files = $state<FileList | null>(null);
-	let fileName = $state<string | null>(null);
-	let previewUrl = $state<string | null>(null);
+	let fileName = $state<null | string>(null);
+	let previewUrl = $state<null | string>(null);
 
 	function handleThumbnailClick() {
 		fileInput.click();
 	}
 
-	$effect(() => {
-		if (files && files.length > 0) {
-			fileName = files[0].name;
-			previewUrl = URL.createObjectURL(files[0]);
-			console.log('File selected:', files[0]);
+	const handleFileChange: EventHandler<Event, HTMLInputElement> = (e) => {
+		const file = e.currentTarget.files?.[0];
+		if (file) {
+			fileName = file.name;
+			previewUrl = URL.createObjectURL(file);
 		}
-	});
+	};
 
-	function handleRemove() {
+	const handleRemove: EventHandler<Event, HTMLAnchorElement | HTMLButtonElement> = () => {
 		fileName = null;
 		previewUrl = null;
 		fileInput.value = '';
-	}
+	};
 </script>
 
 <div>
@@ -61,7 +63,7 @@
 		<input
 			type="file"
 			bind:this={fileInput}
-			bind:files
+			onchange={handleFileChange}
 			class="hidden"
 			accept="image/*"
 			aria-label="Upload image file"
