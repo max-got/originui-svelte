@@ -3,11 +3,13 @@
 
 	import ViewToggleButton from './demo-view-toggle-button.svelte';
 	import CodePreview from '$lib/demo/code-preview.svelte';
+	import CopyButton from '$lib/demo/copy-button.svelte';
+	import { cn } from '$lib/utils.js';
 	import { page } from '$app/stores';
 
 	let {
-		component,
 		class: className,
+		component,
 		shallowCodeShow = true,
 		onShowCode
 	}: {
@@ -15,7 +17,6 @@
 		component: ComponentRender;
 		shallowCodeShow?: boolean;
 		onShowCode?: (url: string) => void;
-		class?: string;
 	} = $props();
 
 	let showCode = $state(false);

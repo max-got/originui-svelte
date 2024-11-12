@@ -1,7 +1,12 @@
 {
 	"name": "originui-svelte",
 	"type": "module",
+	"type": "module",
 	"version": "0.0.1",
+	"packageManager": "pnpm@9.12.2",
+	"engines": {
+		"node": ">=20.10.0"
+	},
 	"packageManager": "pnpm@9.12.2",
 	"engines": {
 		"node": ">=20.10.0"

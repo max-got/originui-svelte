@@ -2,6 +2,8 @@ import type { PageLoad } from './$types.js';
 
 import { createComponentRender } from '$lib/utils/handleComponentSource.js';
 
+export const prerender = true;
+
 export const load = (async ({ parent }) => {
 	const { componentMetadata } = await parent();
 

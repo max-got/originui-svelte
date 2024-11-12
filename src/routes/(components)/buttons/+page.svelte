@@ -1,9 +1,11 @@
 <script lang="ts">
+	import CodePreview from './[id]/+page.svelte';
 	import * as DemoComponents from '$lib/demo/demo-component/index.js';
+	import Modal from '$lib/demo/modal.svelte';
+	import PageHeader from '$lib/demo/page-header.svelte';
+
 	import { goto, preloadData, pushState } from '$app/navigation';
 	import { page } from '$app/stores';
-	import Modal from '$lib/demo/modal.svelte';
-	import CodePreview from './[id]/+page.svelte';
 
 	let { data } = $props();
 
