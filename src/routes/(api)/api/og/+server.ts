@@ -1,8 +1,6 @@
 import Card from './card.svelte';
 
 import { Resvg } from '@resvg/resvg-js';
-import { read } from '$app/server';
-import InterRegularTTF from '$lib/assets/og/fonts/Inter-Regular.ttf';
 import satori, { type SatoriOptions } from 'satori';
 import { html as toReactNode } from 'satori-html';
 import { render } from 'svelte/server';
@@ -10,15 +8,7 @@ import { render } from 'svelte/server';
 const height = 630;
 const width = 1200;
 
-const fontData = read(InterRegularTTF).arrayBuffer();
-
-const options: SatoriOptions = {
-	fonts: [{ data: await fontData, name: 'Inter' }],
-	height,
-	width
-};
-
-export const GET = async ({ setHeaders, url, fetch }) => {
+export const GET = async ({ fetch, setHeaders, url }) => {
 	const title = url.searchParams.get('title') ?? undefined;
 	const author = url.searchParams.get('author') ?? undefined;
 	const website = url.searchParams.get('website') ?? undefined;
@@ -31,9 +21,19 @@ export const GET = async ({ setHeaders, url, fetch }) => {
 			website
 		}
 	});
+	const fontData = await fetch('/fonts/Inter-Regular.ttf')
+		.then((res) => res.arrayBuffer())
+		.catch((e) => {
+			console.log(e);
+			throw e;
+		});
 
 	const markup = toReactNode(body);
-	const svg = await satori(markup, options);
+	const svg = await satori(markup, {
+		fonts: [{ data: fontData, name: 'Inter' }],
+		height,
+		width
+	});
 
 	const resvg = new Resvg(svg, {
 		fitTo: {
