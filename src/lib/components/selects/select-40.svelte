@@ -1,0 +1,58 @@
+<script lang="ts">
+	import { cn } from '$lib/utils.js';
+
+	import Label from '$lib/components/ui/label.svelte';
+	import * as Select from '$lib/components/ui/select/index.js';
+
+	import Avatar01 from '$lib/assets/avatar-40-01.jpg';
+	import Avatar02 from '$lib/assets/avatar-40-02.jpg';
+	import Avatar03 from '$lib/assets/avatar-40-03.jpg';
+
+	const items = [
+		{ value: 's1', username: '@jennycodes', name: 'Jenny Hamilton', avatar: Avatar01 },
+		{ value: 's2', username: '@paulsmith', name: 'Paul Smith', avatar: Avatar02 },
+		{ value: 's3', username: '@wyen.luna', name: 'Luna Wyen', avatar: Avatar03 }
+	];
+
+	let value = $state('s1');
+
+	const selected = $derived(items.find((i) => i.value === value));
+</script>
+
+{#snippet user(item: (typeof items)[number])}
+	<span class="flex items-center gap-2">
+		<img class="size-10 rounded-full" src={item.avatar} alt={item.name} width={40} height={40} />
+		<span>
+			<span class="block font-medium">{item.name}</span>
+			<span class="mt-0.5 block text-xs text-muted-foreground">{item.username}</span>
+		</span>
+	</span>
+{/snippet}
+
+<div class="space-y-2">
+	<Label for="select-40">Options with portrait</Label>
+	<Select.Root type="single" bind:value>
+		<Select.Trigger
+			id="select-40"
+			class={cn(
+				'h-auto [&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_img]:shrink-0',
+				selected && 'ps-2'
+			)}
+		>
+			{#if selected}
+				{@render user(selected)}
+			{:else}
+				Select a user
+			{/if}
+		</Select.Trigger>
+		<Select.Content
+			class="[&_*[data-select-item]>span]:end-2 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]]:pe-8 [&_*[data-select-item]]:ps-2"
+		>
+			{#each items as item (item.value)}
+				<Select.Item value={item.value}>
+					{@render user(item)}
+				</Select.Item>
+			{/each}
+		</Select.Content>
+	</Select.Root>
+</div>
