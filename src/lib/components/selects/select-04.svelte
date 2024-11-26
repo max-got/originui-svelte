@@ -12,6 +12,6 @@
 		<option value="s4">Gatsby</option>
 	</SelectNative>
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
-		Tell us what&lsquo;s your favorite Select framework
+		Tell us what&lsquo;s your favorite
 	</p>
 </div>
