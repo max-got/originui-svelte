@@ -2,7 +2,6 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import SelectNative from '$lib/components/ui/select-native.svelte';
 
-	// [!code collapse-start]
 	const timezones = Intl.supportedValuesOf('timeZone')
 		.map((timezone) => {
 			const formatter = new Intl.DateTimeFormat('en', {
@@ -20,15 +19,14 @@
 			};
 		})
 		.sort((a, b) => a.numericOffset - b.numericOffset);
-	// [!code collapse-end]
 </script>
 
 <div class="space-y-2">
 	<Label for="select-12">Timezone select (native)</Label>
-	<SelectNative id="select-12" value="Europe/London">
-		{#each timezones as { label, value } (value)}
-			<option {value}>
-				{label}
+	<SelectNative id="select-12">
+		{#each timezones as item (item.value)}
+			<option value={item.value} selected={item.value == 'Europe/London'}>
+				{item.label}
 			</option>
 		{/each}
 	</SelectNative>

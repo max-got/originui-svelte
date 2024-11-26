@@ -9,8 +9,8 @@
 	>
 		Select with overlapping label (native)
 	</label>
-	<SelectNative id="select-13" value="">
-		<option value="" disabled> Select framework </option>
+	<SelectNative id="select-13">
+		<option value="" disabled selected> Select framework </option>
 		<option value="s1">Svelte</option>
 		<option value="s2">Next.js</option>
 		<option value="s3">Astro</option>

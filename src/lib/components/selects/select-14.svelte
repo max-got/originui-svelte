@@ -10,10 +10,9 @@
 	</label>
 	<SelectNative
 		id="select-14"
-		value=""
 		class="border-none bg-transparent shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
 	>
-		<option value="" disabled> Select framework </option>
+		<option value="" disabled selected> Select framework </option>
 		<option value="s1">Svelte</option>
 		<option value="s2">Next.js</option>
 		<option value="s3">Astro</option>
