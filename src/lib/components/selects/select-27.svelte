@@ -3,10 +3,10 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 
 	const items = [
-		{ value: 's1', label: 'Svelte', disabled: true },
-		{ value: 's2', label: 'Next.js' },
-		{ value: 's3', label: 'Astro', disabled: true },
-		{ value: 's4', label: 'Gatsby' }
+		{ disabled: true, label: 'Svelte', value: 's1' },
+		{ label: 'Next.js', value: 's2' },
+		{ disabled: true, label: 'Astro', value: 's3' },
+		{ label: 'Gatsby', value: 's4' }
 	];
 
 	let value = $state('s2');

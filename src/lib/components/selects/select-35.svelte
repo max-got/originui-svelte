@@ -2,14 +2,14 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import * as Select from '$lib/components/ui/select/index.js';
 
-	import Sun from 'lucide-svelte/icons/sun';
-	import Moon from 'lucide-svelte/icons/moon';
 	import MonitorCog from 'lucide-svelte/icons/monitor-cog';
+	import Moon from 'lucide-svelte/icons/moon';
+	import Sun from 'lucide-svelte/icons/sun';
 
 	const items = [
-		{ value: 's1', label: 'Light', icon: Sun },
-		{ value: 's2', label: 'Dark', icon: Moon },
-		{ value: 's3', label: 'System', icon: MonitorCog }
+		{ icon: Sun, label: 'Light', value: 's1' },
+		{ icon: Moon, label: 'Dark', value: 's2' },
+		{ icon: MonitorCog, label: 'System', value: 's3' }
 	];
 
 	let value = $state('s1');
@@ -18,7 +18,7 @@
 </script>
 
 {#snippet theme(item: (typeof items)[number])}
-	<svelte:component this={item.icon} size={16} aria-hidden="true" />
+	<item.icon size={16} aria-hidden="true" />
 	<span class="truncate">{item.label}</span>
 {/snippet}
 

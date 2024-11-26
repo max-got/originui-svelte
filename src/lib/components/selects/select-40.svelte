@@ -1,17 +1,16 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
-
 	import Label from '$lib/components/ui/label.svelte';
 	import * as Select from '$lib/components/ui/select/index.js';
+	import { cn } from '$lib/utils.js';
 
 	import Avatar01 from '$lib/assets/avatar-40-01.jpg';
 	import Avatar02 from '$lib/assets/avatar-40-02.jpg';
 	import Avatar03 from '$lib/assets/avatar-40-03.jpg';
 
 	const items = [
-		{ value: 's1', username: '@jennycodes', name: 'Jenny Hamilton', avatar: Avatar01 },
-		{ value: 's2', username: '@paulsmith', name: 'Paul Smith', avatar: Avatar02 },
-		{ value: 's3', username: '@wyen.luna', name: 'Luna Wyen', avatar: Avatar03 }
+		{ avatar: Avatar01, name: 'Jenny Hamilton', username: '@jennycodes', value: 's1' },
+		{ avatar: Avatar02, name: 'Paul Smith', username: '@paulsmith', value: 's2' },
+		{ avatar: Avatar03, name: 'Luna Wyen', username: '@wyen.luna', value: 's3' }
 	];
 
 	let value = $state('s1');

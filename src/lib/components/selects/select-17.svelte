@@ -5,10 +5,10 @@
 	import Clock from 'lucide-svelte/icons/clock';
 
 	const items = [
-		{ value: 's1', label: '00:00 AM - 11:59 PM' },
-		{ value: 's2', label: '01:00 AM - 12:59 PM' },
-		{ value: 's3', label: '02:00 AM - 01:59 PM' },
-		{ value: 's4', label: '03:00 AM - 02:59 PM' }
+		{ label: '00:00 AM - 11:59 PM', value: 's1' },
+		{ label: '01:00 AM - 12:59 PM', value: 's2' },
+		{ label: '02:00 AM - 01:59 PM', value: 's3' },
+		{ label: '03:00 AM - 02:59 PM', value: 's4' }
 	];
 
 	let value = $state('s1');

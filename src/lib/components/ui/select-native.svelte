@@ -7,11 +7,11 @@
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 
 	let {
+		children,
 		class: className,
+		multiple,
 		ref = $bindable(null),
 		value = $bindable(),
-		children,
-		multiple,
 		...restProps
 	}: WithElementRef<HTMLSelectAttributes> = $props();
 

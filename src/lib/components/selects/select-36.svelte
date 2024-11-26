@@ -3,9 +3,9 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 
 	const items = [
-		{ value: 's1', label: 'Standard Plan', description: 'Ideal for individuals' },
-		{ value: 's2', label: 'Pro Plan', description: 'For professional users' },
-		{ value: 's3', label: 'Enterprise Plan', description: 'Built for large teams' }
+		{ description: 'Ideal for individuals', label: 'Standard Plan', value: 's1' },
+		{ description: 'For professional users', label: 'Pro Plan', value: 's2' },
+		{ description: 'Built for large teams', label: 'Enterprise Plan', value: 's3' }
 	];
 
 	let value = $state('s2');

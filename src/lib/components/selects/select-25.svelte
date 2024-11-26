@@ -3,15 +3,15 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 
 	const frontend = [
-		{ value: 's1', label: 'Svelte' },
-		{ value: 's2', label: 'Vue' },
-		{ value: 's3', label: 'Angular' }
+		{ label: 'Svelte', value: 's1' },
+		{ label: 'Vue', value: 's2' },
+		{ label: 'Angular', value: 's3' }
 	];
 
 	const backend = [
-		{ value: 's4', label: 'Node.js' },
-		{ value: 's5', label: 'Python' },
-		{ value: 's6', label: 'Java' }
+		{ label: 'Node.js', value: 's4' },
+		{ label: 'Python', value: 's5' },
+		{ label: 'Java', value: 's6' }
 	];
 
 	const items = [...frontend, ...backend];

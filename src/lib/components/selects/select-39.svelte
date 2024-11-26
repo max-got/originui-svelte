@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
-
 	import Label from '$lib/components/ui/label.svelte';
 	import * as Select from '$lib/components/ui/select/index.js';
+	import { cn } from '$lib/utils.js';
 
 	const items = [
-		{ value: 's1', name: 'Frank Morris', class: 'bg-indigo-400/20 text-indigo-500' },
-		{ value: 's2', name: 'Xavier Guerra', class: 'bg-purple-400/20 text-purple-500' },
-		{ value: 's3', name: 'Anne Kelley', class: 'bg-rose-400/20 text-rose-500' }
+		{ class: 'bg-indigo-400/20 text-indigo-500', name: 'Frank Morris', value: 's1' },
+		{ class: 'bg-purple-400/20 text-purple-500', name: 'Xavier Guerra', value: 's2' },
+		{ class: 'bg-rose-400/20 text-rose-500', name: 'Anne Kelley', value: 's3' }
 	];
 
 	let value = $state('s1');

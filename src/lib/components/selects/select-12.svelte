@@ -14,9 +14,9 @@
 			const modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;
 
 			return {
-				value: timezone,
 				label: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,
-				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0')
+				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),
+				value: timezone
 			};
 		})
 		.sort((a, b) => a.numericOffset - b.numericOffset);
@@ -26,7 +26,7 @@
 <div class="space-y-2">
 	<Label for="select-12">Timezone select (native)</Label>
 	<SelectNative id="select-12" value="Europe/London">
-		{#each timezones as { value, label } (value)}
+		{#each timezones as { label, value } (value)}
 			<option {value}>
 				{label}
 			</option>

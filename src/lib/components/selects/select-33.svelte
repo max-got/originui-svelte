@@ -3,8 +3,8 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 
 	const items = [
-		{ value: 's1', label: 'Javascript' },
-		{ value: 's2', label: 'Bash' }
+		{ label: 'Javascript', value: 's1' },
+		{ label: 'Bash', value: 's2' }
 	];
 
 	let value = $state('s1');

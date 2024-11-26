@@ -13,9 +13,9 @@
 			const modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;
 
 			return {
-				value: timezone,
 				label: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,
-				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0')
+				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),
+				value: timezone
 			};
 		})
 		.sort((a, b) => a.numericOffset - b.numericOffset);

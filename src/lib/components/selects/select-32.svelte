@@ -3,11 +3,11 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 
 	const items = [
-		{ value: 's1', label: 'Completed', class: 'text-emerald-600' },
-		{ value: 's2', label: 'In Progress', class: 'text-blue-500' },
-		{ value: 's3', label: 'Pending', class: 'text-amber-500' },
-		{ value: 's4', label: 'Cancelled', class: 'text-gray-500' },
-		{ value: 's5', label: 'Failed', class: 'text-red-500' }
+		{ class: 'text-emerald-600', label: 'Completed', value: 's1' },
+		{ class: 'text-blue-500', label: 'In Progress', value: 's2' },
+		{ class: 'text-amber-500', label: 'Pending', value: 's3' },
+		{ class: 'text-gray-500', label: 'Cancelled', value: 's4' },
+		{ class: 'text-red-500', label: 'Failed', value: 's5' }
 	];
 
 	let value = $state('s1');
