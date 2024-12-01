@@ -5,12 +5,12 @@
 	import { Popover as PopoverPrimitive } from 'bits-ui';
 
 	let {
+		class: className,
+		orientation = 'horizontal',
 		ref = $bindable(null),
 		showTooltip = false,
 		tooltipContent,
-		class: className,
 		value = $bindable([0]),
-		orientation = 'horizontal',
 		...restProps
 	}: WithoutChildrenOrChild<
 		SliderPrimitive.RootProps & {

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import Button from '$lib/components/ui/button.svelte';
 	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
 
 	const items = Array.from({ length: 100 }, (_, i) => ({

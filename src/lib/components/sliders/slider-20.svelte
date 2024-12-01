@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import Button from '$lib/components/ui/button.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
 
 	import Minus from 'lucide-svelte/icons/minus';
