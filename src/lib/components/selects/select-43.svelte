@@ -13,25 +13,23 @@
 
 	const timezones = Intl.supportedValuesOf('timeZone');
 
-	const formattedTimezones = $derived.by(() => {
-		return timezones
-			.map((timezone) => {
-				const formatter = new Intl.DateTimeFormat('en', {
-					timeZone: timezone,
-					timeZoneName: 'shortOffset'
-				});
-				const parts = formatter.formatToParts(new Date());
-				const offset = parts.find((part) => part.type === 'timeZoneName')?.value || '';
-				const modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;
+	const formattedTimezones = timezones
+		.map((timezone) => {
+			const formatter = new Intl.DateTimeFormat('en', {
+				timeZone: timezone,
+				timeZoneName: 'shortOffset'
+			});
+			const parts = formatter.formatToParts(new Date());
+			const offset = parts.find((part) => part.type === 'timeZoneName')?.value || '';
+			const modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;
 
-				return {
-					label: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,
-					numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),
-					value: timezone
-				};
-			})
-			.sort((a, b) => a.numericOffset - b.numericOffset);
-	});
+			return {
+				label: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,
+				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),
+				value: timezone
+			};
+		})
+		.sort((a, b) => a.numericOffset - b.numericOffset);
 
 	function handleSelect(currentValue: string) {
 		value = currentValue === value ? '' : currentValue;
