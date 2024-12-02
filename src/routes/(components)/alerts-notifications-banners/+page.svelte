@@ -30,7 +30,7 @@
 			>
 				{#each data.notificationComponents as component (component.id)}
 					{#if component.id != 'notification-23'}
-						<DemoComponents.Demo class="flex justify-center" {component} />
+						<DemoComponents.Demo class="flex items-center justify-center" {component} />
 					{/if}
 				{/each}
 			</div>
