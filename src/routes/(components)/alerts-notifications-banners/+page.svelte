@@ -13,7 +13,7 @@
 <main>
 	<div class="px-4 sm:px-6">
 		<div class="mx-auto w-full max-w-6xl">
-			<PageHeader title="Checkbox, Radio, and Switch">
+			<PageHeader title="Alert, Notification, and Banner">
 				A growing collection of {totalComponents} alert, notification, and banner components built with
 				<span class="text-svelte">Svelte</span> and TailwindCSS.
 			</PageHeader>
