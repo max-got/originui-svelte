@@ -1,6 +1,5 @@
 import type { PossibleDependency } from '$lib/constants';
 import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
-import type { Component } from 'svelte';
 
 import type { Prettify } from './helpers';
 
@@ -42,7 +41,6 @@ export type UnavailableComponent = Prettify<_UnavailableComponent>;
 export type AvailableComponent = Prettify<_AvailableComponent>;
 
 export type ComponentMetadata = AvailableComponent | UnavailableComponent;
-export type ComponentWithRender = Prettify<AvailableComponent & { component: Component }>;
 
 export interface ComponentDirectory {
 	directory: AvailableOUIComponent;
