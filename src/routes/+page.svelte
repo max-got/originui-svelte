@@ -9,7 +9,7 @@
 <main>
 	<div class="px-4 sm:px-6">
 		<div class="mx-auto w-full max-w-3xl">
-			<div class="mb-16">
+			<div class="my-16">
 				<h1
 					class="mx-auto mb-4 max-w-3xl text-4xl/[1.1] font-extrabold tracking-tight text-foreground md:text-5xl/[1.1]"
 				>
@@ -24,7 +24,7 @@
 					class="w-fit max-w-prose text-pretty border-t border-border pt-4 text-sm text-accent-foreground"
 				>
 					This project is not affiliated with the original <a
-						class="text-svelte underline"
+						class="underline"
 						href="https://originui.com/"
 						rel="noreferrer">Origin UI</a
 					>. <br />
@@ -68,10 +68,10 @@
 						</li>
 						<li>
 							<a
-								href="/selects"
+								href="/sliders"
 								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
 							>
-								Select
+								Slider
 								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
 							</a>
 						</li>

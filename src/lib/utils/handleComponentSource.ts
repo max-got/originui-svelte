@@ -1,21 +1,29 @@
+import type { ComponentAPIResponseJSON } from '$data/api/components.handler.js';
+import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types.js';
 import type { Component } from 'svelte';
 
-import highlighter from './codePreview.js';
-import { addDependenciesComments, addPathComment, removeShikiComments } from './sourceProcessor.js';
+import { highlighterSvelte, highlighterZsh } from './codePreview.js';
+import { COLLAPSIBLE_END_REGEX, COLLAPSIBLE_START_REGEX } from './shiki-transformer/collapsible.js';
+import {
+	ENHANCED_IMAGE_REGEX,
+	POSSIBLE_DEPENDENCIES,
+	type PossibleDependency
+} from '$lib/constants.js';
 
-import type { ComponentMetadata, ComponentRender } from '../types/components.js';
+const IMPORTS_REGEX =
+	/(?<=(?:import|export)[^`'"]*from\s+[`'"])(?<path1>[^`'"]+)(?=[`'"])|(?:import|export)(?:\s+|\s*\(\s*)[`'"](?<path2>[|'"`])/g;
 
 interface ComponentImports {
 	compiled: Record<string, Component>;
 	source: Record<string, string>;
 }
 
-// Lazy load imports
-let imports: ComponentImports | null = null;
+// Cache for imports
+let importsCache: ComponentImports | null = null;
 
-function getImports(): ComponentImports {
-	if (!imports) {
-		imports = {
+const getImports = (): ComponentImports => {
+	if (!importsCache) {
+		importsCache = {
 			compiled: import.meta.glob(
 				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 				{
@@ -23,7 +31,6 @@ function getImports(): ComponentImports {
 					import: 'default'
 				}
 			) as Record<string, Component>,
-
 			source: import.meta.glob(
 				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 				{
@@ -34,86 +41,178 @@ function getImports(): ComponentImports {
 			) as Record<string, string>
 		};
 	}
-	return imports;
+	return importsCache;
+};
+
+function removeShikiComments(source: string) {
+	return source
+		.split('\n')
+		.filter((line) => !line.match(COLLAPSIBLE_START_REGEX) && !line.match(COLLAPSIBLE_END_REGEX))
+		.join('\n');
 }
 
-function buildComponentPath(directory: string, componentName: string): string {
+function addPathComment(source: string, path: string) {
+	return `${source}\n<!-- Path: ${path} -->`;
+}
+
+function getDependencies(source: string): PossibleDependency[] {
+	const dependencies = new Set<PossibleDependency>();
+	const matches = source.matchAll(IMPORTS_REGEX);
+	for (const match of matches) {
+		const importPath = match[1] || match[2];
+		const matchingDeps = POSSIBLE_DEPENDENCIES.filter((dep) => importPath.includes(dep.name));
+		matchingDeps.forEach((dep) => dependencies.add(dep));
+	}
+
+	const enhancedImageMatch = source.match(ENHANCED_IMAGE_REGEX);
+	if (enhancedImageMatch) {
+		dependencies.add({
+			dev: true,
+			//@ts-expect-error  - isn't a direct dependency, but must be treated as such
+			name: 'enhanced-image',
+			//@ts-expect-error  - isn't a direct dependency, but must be treated as such
+			packageName: '@sveltejs/enhanced-img',
+			//@ts-expect-error  - isn't a direct dependency, but must be treated as such
+			url: 'https://www.npmjs.com/package/@sveltejs/enhanced-img'
+		});
+	}
+
+	const sortedDependencies = Array.from(dependencies.values()).sort(
+		(a, b) => Number(a.dev) - Number(b.dev)
+	);
+
+	if (sortedDependencies.length === 0) return [];
+
+	return sortedDependencies;
+}
+
+function addDependenciesComments(source: string, dependencies: PossibleDependency[]) {
+	if (dependencies.length === 0) return source;
+
+	const deps = dependencies.filter((d) => !d.dev).map((d) => d.packageName);
+	const devDeps = dependencies.filter((d) => d.dev).map((d) => d.packageName);
+
+	let comment = '<!--\nDependencies:\n';
+	if (devDeps.length) comment += `pnpm i -D ${devDeps.join(' ')}\n`;
+	if (deps.length) comment += `pnpm i ${deps.join(' ')}\n`;
+	comment += '-->';
+
+	return `${source}\n\n${comment}`;
+}
+
+function getDependenciesInstallCommand(dependencies: PossibleDependency[]) {
+	if (dependencies.length === 0) return '';
+
+	let command = '';
+	const deps = dependencies.filter((d) => !d.dev).map((d) => d.packageName);
+	const devDeps = dependencies.filter((d) => d.dev).map((d) => d.packageName);
+
+	if (devDeps.length) command += `pnpm i -D ${devDeps.join(' ')}`;
+	if (deps.length) {
+		if (command) command += ' && ';
+		command += `pnpm i ${deps.join(' ')}`;
+	}
+
+	return command;
+}
+
+function buildComponentPath(
+	directory: string,
+	componentName: string
+): `/src/lib/components/${string}/${string}.svelte` {
 	return `/src/lib/components/${directory}/${componentName}.svelte`;
 }
 
-function createEmptyComponentMetadata(componentName: string, path: string): ComponentMetadata {
+async function processComponentSource(rawSource: string, path: string) {
+	const dependencies = getDependencies(rawSource);
+	const dependenciesInstallCommand = getDependenciesInstallCommand(dependencies);
+
+	const cleanedSource = removeShikiComments(rawSource);
+	const sourceWithDeps = addDependenciesComments(cleanedSource, dependencies);
+	const previewSource = addPathComment(addDependenciesComments(rawSource, dependencies), path);
+
+	const [highlightedSource, highlightedCleanedSource, highlightedInstallCommand] =
+		await Promise.all([
+			highlighterSvelte(previewSource),
+			highlighterSvelte(rawSource),
+			highlighterZsh(dependenciesInstallCommand)
+		]);
+
 	return {
 		code: {
-			copyable: { content: '' },
-			highlighted: { content: '' },
-			preview: { content: '' }
+			highlighted: { content: highlightedCleanedSource },
+			highlightedWithDeps: { content: highlightedSource },
+			raw: { content: sourceWithDeps },
+			rawWithDeps: { content: previewSource }
 		},
-		id: componentName,
-		path
-	};
+		componentDependencies: {
+			command: {
+				highlighted: { content: dependenciesInstallCommand ? highlightedInstallCommand : '' },
+				raw: { content: dependenciesInstallCommand }
+			},
+			list: dependencies
+		}
+	} as const;
 }
 
-async function processComponentSource(rawSource: string, path: string) {
-	const cleanedSource = removeShikiComments(rawSource);
-	const sourceWithDeps = addDependenciesComments(cleanedSource);
-	const previewSource = addPathComment(addDependenciesComments(rawSource), path);
-	const highlightedSource = await highlighter(previewSource);
+export async function getCompiledComponent(path: string) {
+	return getImports().compiled[path] ?? null;
+}
+
+export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
+	const path = buildComponentPath(directory, componentName);
+	const componentSource = getImports().source[path];
+
+	if (!componentSource) {
+		return {
+			available: false,
+			directory,
+			id: componentName,
+			path
+		} as const;
+	}
 
 	return {
-		copyable: { content: sourceWithDeps },
-		highlighted: { content: highlightedSource },
-		preview: { content: previewSource }
-	};
+		...(await processComponentSource(componentSource, path)),
+		available: true,
+		directory,
+		id: componentName,
+		path
+	} as const;
 }
 
-export async function getCompiledComponent(path: string): Promise<Component | null> {
-	const { compiled } = getImports();
-	return compiled[path] ?? null;
-}
+export type AvailableOUIComponent = Extract<
+	ComponentAPIResponseJSON['components'][number],
+	{ available: true }
+> & {
+	component: Awaited<ReturnType<typeof getCompiledComponent>>;
+};
+export type UnavailableOUIComponent = Extract<
+	ComponentAPIResponseJSON['components'][number],
+	{ available: false }
+>;
 
-export async function getComponentSource(
-	directory: string,
-	componentName: string
-): Promise<ComponentMetadata> {
-	const path = buildComponentPath(directory, componentName);
-	const { source } = getImports();
-	const rawSource = source[path];
+export async function createComponent(
+	metadata: ComponentAPIResponseJSON['components'][number] & { available: true }
+): Promise<AvailableOUIComponent>;
+export async function createComponent(
+	metadata: ComponentAPIResponseJSON['components'][number] & { available: false }
+): Promise<UnavailableOUIComponent>;
+export async function createComponent(
+	metadata: ComponentAPIResponseJSON['components'][number]
+): Promise<AvailableOUIComponent | UnavailableOUIComponent>;
 
-	const metadata = !rawSource
-		? createEmptyComponentMetadata(componentName, path)
-		: {
-				code: await processComponentSource(rawSource, path),
-				id: componentName,
-				path
-			};
-
-	return metadata;
-}
-
-export async function fetchComponentsFromAPI(
-	fetchFn: typeof fetch,
-	directory: string
-): Promise<ComponentMetadata[]> {
-	const response = await fetchFn(`/api/v1/components/${directory}`);
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch components: ${response.statusText}`);
+export async function createComponent(metadata: ComponentAPIResponseJSON['components'][number]) {
+	if (!metadata.available) {
+		return {
+			...metadata
+		};
 	}
 
-	const components = (await response.json()) as ComponentMetadata[];
-	return components;
-}
-
-export async function createComponentRender(metadata: ComponentMetadata): Promise<ComponentRender> {
 	const component = await getCompiledComponent(metadata.path);
-	if (!component) {
-		throw new Error(`Component not found: ${metadata.path}`);
-	}
 
-	const render: ComponentRender = {
-		render: component,
-		...metadata
+	return {
+		...metadata,
+		component: component
 	};
-
-	return render;
 }

@@ -10,7 +10,11 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	let { class: className, code }: { class?: string; code: string } = $props();
+	let {
+		class: className,
+		code,
+		ref = $bindable(null)
+	}: { class?: string; code: string; ref?: HTMLElement | null } = $props();
 	let copied = $state(false);
 
 	const handleCopy: EventHandler<Event, HTMLButtonElement> = async () => {
@@ -28,6 +32,7 @@
 	<TooltipProvider>
 		<Tooltip>
 			<TooltipTrigger
+				bind:ref
 				onclick={handleCopy}
 				class="text-muted-foreground/80 hover:bg-transparent hover:text-foreground disabled:opacity-100"
 				aria-label={copied ? 'Copied' : 'Copy component source'}

@@ -75,4 +75,35 @@
 		--input: 240 3.7% 15.9%;
 		--ring: 240 3.8% 46.1%;
 	}
+
+	::-webkit-scrollbar {
+		width: 0.5rem;
+		height: 0.5rem;
+	}
+
+	::-webkit-scrollbar-track {
+		--tw-bg-opacity: 1 !important;
+		background-color: hsl(var(--muted) / var(--tw-bg-opacity)) !important;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: calc(var(--radius) - 4px);
+		background-color: hsl(var(--muted-foreground) / 0.3) !important;
+	}
+
+	::-webkit-scrollbar-corner {
+		background-color: hsl(var(--muted-foreground) / 0.3) !important;
+	}
+}
+
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
 }

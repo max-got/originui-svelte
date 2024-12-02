@@ -10,13 +10,15 @@
 		children?: TreeNode[];
 		defaultChecked?: boolean;
 		id: string;
+		indeterminate?: boolean;
 		label: string;
 	}
 
 	export interface RenderNodeProps {
+		checked: boolean;
 		children: RenderNodeProps[];
 		id: string;
-		isChecked: 'indeterminate' | boolean;
+		indeterminate?: boolean;
 		label: string;
 		onCheckedChange: () => void;
 	}
@@ -45,7 +47,7 @@
 		node.children?.forEach(initializeCheckedNodes);
 	})(tree);
 
-	function isChecked(node: TreeNode): 'indeterminate' | boolean {
+	function isChecked(node: TreeNode): boolean {
 		if (!node.children) {
 			return checkedNodes.has(node.id);
 		}
@@ -54,10 +56,15 @@
 		if (childrenChecked.every((status) => status === true)) {
 			return true;
 		}
-		if (childrenChecked.some((status) => status === true || status === 'indeterminate')) {
-			return 'indeterminate';
-		}
+
 		return false;
+	}
+
+	function isIndeterminate(node: TreeNode): boolean {
+		if (!node.children?.length) return false;
+
+		const childrenChecked = node.children.map(isChecked);
+		return childrenChecked.some(Boolean) && !childrenChecked.every(Boolean);
 	}
 
 	function handleCheck(node: TreeNode) {
@@ -78,9 +85,10 @@
 
 	function renderTreeNode(node: TreeNode): RenderNodeProps {
 		return {
+			checked: isChecked(node),
 			children: node.children?.map(renderTreeNode) ?? [],
 			id: node.id,
-			isChecked: isChecked(node),
+			indeterminate: isIndeterminate(node),
 			label: node.label,
 			onCheckedChange: () => handleCheck(node)
 		};
