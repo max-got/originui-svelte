@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/2/2024, 4:28:00 PM
+ * Last generated at: 12/2/2024, 5:04:57 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -10,6 +10,29 @@
 import type { Prettify } from '$lib/types/helpers';
 
 export const OUI_DIRECTORIES = {
+	CHECKBOXES: {
+		directory: 'checkboxes',
+		components: [
+			'checkbox-01.svelte',
+			'checkbox-02.svelte',
+			'checkbox-03.svelte',
+			'checkbox-04.svelte',
+			'checkbox-05.svelte',
+			'checkbox-06.svelte',
+			'checkbox-07.svelte',
+			'checkbox-08.svelte',
+			'checkbox-09.svelte',
+			'checkbox-10.svelte',
+			'checkbox-11.svelte',
+			'checkbox-12.svelte',
+			'checkbox-13.svelte',
+			'checkbox-14.svelte',
+			'checkbox-15.svelte',
+			'checkbox-16.svelte',
+			'checkbox-17.svelte',
+			'checkbox-18.svelte'
+		]
+	},
 	BUTTONS: {
 		directory: 'buttons',
 		components: [
@@ -66,27 +89,116 @@ export const OUI_DIRECTORIES = {
 			'button-51.svelte'
 		]
 	},
-	CHECKBOXES: {
-		directory: 'checkboxes',
+	SLIDERS: {
+		directory: 'sliders',
 		components: [
-			'checkbox-01.svelte',
-			'checkbox-02.svelte',
-			'checkbox-03.svelte',
-			'checkbox-04.svelte',
-			'checkbox-05.svelte',
-			'checkbox-06.svelte',
-			'checkbox-07.svelte',
-			'checkbox-08.svelte',
-			'checkbox-09.svelte',
-			'checkbox-10.svelte',
-			'checkbox-11.svelte',
-			'checkbox-12.svelte',
-			'checkbox-13.svelte',
-			'checkbox-14.svelte',
-			'checkbox-15.svelte',
-			'checkbox-16.svelte',
-			'checkbox-17.svelte',
-			'checkbox-18.svelte'
+			'slider-01.svelte',
+			'slider-02.svelte',
+			'slider-03.svelte',
+			'slider-04.svelte',
+			'slider-05.svelte',
+			'slider-06.svelte',
+			'slider-07.svelte',
+			'slider-08.svelte',
+			'slider-09.svelte',
+			'slider-10.svelte',
+			'slider-11.svelte',
+			'slider-12.svelte',
+			'slider-13.svelte',
+			'slider-14.svelte',
+			'slider-15.svelte',
+			'slider-16.svelte',
+			'slider-17.svelte',
+			'slider-18.svelte',
+			'slider-19.svelte',
+			'slider-20.svelte',
+			'slider-21.svelte',
+			'slider-22.svelte',
+			'slider-23.svelte',
+			'slider-24.svelte',
+			'slider-25.svelte',
+			'slider-26.svelte',
+			'slider-27.svelte'
+		]
+	},
+	RADIOS: {
+		directory: 'radios',
+		components: [
+			'radio-01.svelte',
+			'radio-02.svelte',
+			'radio-03.svelte',
+			'radio-04.svelte',
+			'radio-05.svelte',
+			'radio-06.svelte',
+			'radio-07.svelte',
+			'radio-08.svelte',
+			'radio-09.svelte',
+			'radio-10.svelte',
+			'radio-11.svelte',
+			'radio-12.svelte',
+			'radio-13.svelte',
+			'radio-14.svelte',
+			'radio-15.svelte',
+			'radio-16.svelte',
+			'radio-17.svelte',
+			'radio-18.svelte',
+			'radio-19.svelte'
+		]
+	},
+	SELECTS: {
+		directory: 'selects',
+		components: [
+			'select-01.svelte',
+			'select-02.svelte',
+			'select-03.svelte',
+			'select-04.svelte',
+			'select-05.svelte',
+			'select-06.svelte',
+			'select-07.svelte',
+			'select-08.svelte',
+			'select-09.svelte',
+			'select-10.svelte',
+			'select-11.svelte',
+			'select-12.svelte',
+			'select-13.svelte',
+			'select-14.svelte',
+			'select-15.svelte',
+			'select-16.svelte',
+			'select-17.svelte',
+			'select-18.svelte',
+			'select-19.svelte',
+			'select-20.svelte',
+			'select-21.svelte',
+			'select-22.svelte',
+			'select-23.svelte',
+			'select-24.svelte',
+			'select-25.svelte',
+			'select-26.svelte',
+			'select-27.svelte',
+			'select-28.svelte',
+			'select-29.svelte',
+			'select-30.svelte',
+			'select-31.svelte',
+			'select-32.svelte',
+			'select-33.svelte',
+			'select-34.svelte',
+			'select-35.svelte',
+			'select-36.svelte',
+			'select-37.svelte',
+			'select-38.svelte',
+			'select-39.svelte',
+			'select-40.svelte',
+			'select-41.todo.svelte',
+			'select-42.todo.svelte',
+			'select-43.todo.svelte',
+			'select-44.todo.svelte',
+			'select-45.todo.svelte',
+			'select-46.todo.svelte',
+			'select-47.todo.svelte',
+			'select-48.svelte',
+			'select-49.todo.svelte',
+			'select-50.todo.svelte',
+			'select-51.todo.svelte'
 		]
 	},
 	SWITCHES: {
@@ -109,6 +221,30 @@ export const OUI_DIRECTORIES = {
 			'switch-15.svelte',
 			'switch-16.svelte',
 			'switch-17.svelte'
+		]
+	},
+	TEXTAREAS: {
+		directory: 'textareas',
+		components: [
+			'textarea-01.svelte',
+			'textarea-02.svelte',
+			'textarea-03.svelte',
+			'textarea-04.svelte',
+			'textarea-05.svelte',
+			'textarea-06.svelte',
+			'textarea-07.svelte',
+			'textarea-08.svelte',
+			'textarea-09.svelte',
+			'textarea-10.svelte',
+			'textarea-11.svelte',
+			'textarea-12.svelte',
+			'textarea-13.svelte',
+			'textarea-14.svelte',
+			'textarea-15.svelte',
+			'textarea-16.svelte',
+			'textarea-17.svelte',
+			'textarea-18.svelte',
+			'textarea-19.svelte'
 		]
 	},
 	INPUTS: {
@@ -172,114 +308,37 @@ export const OUI_DIRECTORIES = {
 			'input-56.todo.svelte',
 			'input-57.todo.svelte'
 		]
-	},
-	SLIDERS: {
-		directory: 'sliders',
-		components: [
-			'slider-01.svelte',
-			'slider-02.svelte',
-			'slider-03.svelte',
-			'slider-04.svelte',
-			'slider-05.svelte',
-			'slider-06.svelte',
-			'slider-07.svelte',
-			'slider-08.svelte',
-			'slider-09.svelte',
-			'slider-10.svelte',
-			'slider-11.svelte',
-			'slider-12.svelte',
-			'slider-13.svelte',
-			'slider-14.svelte',
-			'slider-15.svelte',
-			'slider-16.svelte',
-			'slider-17.svelte',
-			'slider-18.svelte',
-			'slider-19.svelte',
-			'slider-20.svelte',
-			'slider-21.svelte',
-			'slider-22.svelte',
-			'slider-23.svelte',
-			'slider-24.svelte',
-			'slider-25.svelte',
-			'slider-26.svelte',
-			'slider-27.svelte'
-		]
-	},
-	RADIOS: {
-		directory: 'radios',
-		components: [
-			'radio-01.svelte',
-			'radio-02.svelte',
-			'radio-03.svelte',
-			'radio-04.svelte',
-			'radio-05.svelte',
-			'radio-06.svelte',
-			'radio-07.svelte',
-			'radio-08.svelte',
-			'radio-09.svelte',
-			'radio-10.svelte',
-			'radio-11.svelte',
-			'radio-12.svelte',
-			'radio-13.svelte',
-			'radio-14.svelte',
-			'radio-15.svelte',
-			'radio-16.svelte',
-			'radio-17.svelte',
-			'radio-18.svelte',
-			'radio-19.svelte'
-		]
-	},
-	TEXTAREAS: {
-		directory: 'textareas',
-		components: [
-			'textarea-01.svelte',
-			'textarea-02.svelte',
-			'textarea-03.svelte',
-			'textarea-04.svelte',
-			'textarea-05.svelte',
-			'textarea-06.svelte',
-			'textarea-07.svelte',
-			'textarea-08.svelte',
-			'textarea-09.svelte',
-			'textarea-10.svelte',
-			'textarea-11.svelte',
-			'textarea-12.svelte',
-			'textarea-13.svelte',
-			'textarea-14.svelte',
-			'textarea-15.svelte',
-			'textarea-16.svelte',
-			'textarea-17.svelte',
-			'textarea-18.svelte',
-			'textarea-19.svelte'
-		]
 	}
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];
 
-export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
-export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
-export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
+export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
+export type OUISelectsComponents = (typeof OUI_DIRECTORIES)['SELECTS']['components'][number];
+export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
+export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 
 export type OUIComponent = Prettify<
-	| OUIButtonsComponents
 	| OUICheckboxesComponents
-	| OUISwitchesComponents
-	| OUIInputsComponents
+	| OUIButtonsComponents
 	| OUISlidersComponents
 	| OUIRadiosComponents
+	| OUISelectsComponents
+	| OUISwitchesComponents
 	| OUITextareasComponents
+	| OUIInputsComponents
 >;
 
 export interface OUIDirectoryToComponent {
-	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
-	switches: OUISwitchesComponents;
-	inputs: OUIInputsComponents;
+	buttons: OUIButtonsComponents;
 	sliders: OUISlidersComponents;
 	radios: OUIRadiosComponents;
+	selects: OUISelectsComponents;
+	switches: OUISwitchesComponents;
 	textareas: OUITextareasComponents;
+	inputs: OUIInputsComponents;
 }
