@@ -5,7 +5,8 @@
 	import * as Command from '$lib/components/ui/command';
 	import * as Popover from '$lib/components/ui/popover';
 	import { cn } from '$lib/utils';
-	import { Check, ChevronDown } from 'lucide-svelte';
+	import Check from 'lucide-svelte/icons/check';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 
 	let open = false;
 	let value = '';
