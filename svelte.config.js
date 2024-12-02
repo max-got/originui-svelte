@@ -16,6 +16,9 @@ const config = {
 		alias: {
 			$assets: './src/lib/assets',
 			$lib: './src/lib'
+		},
+		prerender: {
+			handleMissingId: 'warn'
 		}
 	},
 
