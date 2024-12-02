@@ -1,9 +1,3 @@
-<script lang="ts">
-	import { mode } from 'mode-watcher';
-
-	const stopColor = $derived($mode === 'dark' ? '#71717A' : '#52525B');
-</script>
-
 <svg
 	class="pointer-events-none absolute left-1/2 -z-10 -translate-x-full"
 	xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +32,8 @@
 			y2="337"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color={stopColor} stop-opacity=".64" />
-			<stop offset="1" stop-color={stopColor} stop-opacity="0" />
+			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
+			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
 		</linearGradient>
 		<linearGradient
 			id="ill-d"
@@ -49,8 +43,8 @@
 			y2="337"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color={stopColor} stop-opacity=".64" />
-			<stop offset="1" stop-color={stopColor} stop-opacity="0" />
+			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
+			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
 		</linearGradient>
 		<filter
 			id="illf-a"
@@ -106,8 +100,8 @@
 			y2="467"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color={stopColor} stop-opacity=".64" />
-			<stop offset="1" stop-color={stopColor} stop-opacity="0" />
+			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
+			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
 		</linearGradient>
 		<filter
 			id="ill2-a"

@@ -1,0 +1,361 @@
+<script lang="ts">
+	import type { ComponentAPIResponseJSON } from '$data/api/components.handler';
+
+	import PreviewComponentDependency from './preview-component-dependency.svelte';
+	import Button from '$lib/components/ui/button.svelte';
+	import CodePreview from '$lib/demo/code-preview.svelte';
+	import CopyButton from '$lib/demo/copy-button.svelte';
+	import { type AvailableOUIComponent, createComponent } from '$lib/utils/handleComponentSource.js';
+
+	import { goto } from '$app/navigation';
+	import { navigating, page } from '$app/stores';
+	import { clickOutside } from '$lib/actions/clickOutside';
+	import ChevronUp from 'lucide-svelte/icons/chevron-up';
+	import Code from 'lucide-svelte/icons/code';
+	import ExternalLink from 'lucide-svelte/icons/external-link';
+	import Share from 'lucide-svelte/icons/share-2';
+	import KbdLeft from 'lucide-svelte/icons/square-arrow-left';
+	import KbdRight from 'lucide-svelte/icons/square-arrow-right';
+	import { fade } from 'svelte/transition';
+
+	const overviewUrl = $derived($page.url.pathname.split('/').slice(0, -1).join('/'));
+
+	type PaginationComponentProps = {
+		componentMetadata: ComponentAPIResponseJSON['components'][number];
+	};
+	type Props = {
+		componentMetadata: AvailableOUIComponent;
+		isPreview?: boolean;
+		nextComponentMetadata?: ComponentAPIResponseJSON['components'][number];
+		prevComponentMetadata?: ComponentAPIResponseJSON['components'][number];
+	};
+	let {
+		componentMetadata,
+		isPreview = true,
+		nextComponentMetadata,
+		prevComponentMetadata
+	}: Props = $props();
+
+	const hasDependencies = $derived(componentMetadata.componentDependencies.list.length > 0);
+
+	async function shareComponent() {
+		const shareData = {
+			text: `Check out the ${componentMetadata.id} component from Origin UI - Svelte`,
+			title: `Origin UI - Svelte - ${componentMetadata.id}`,
+			url: $page.url.href
+		};
+
+		try {
+			if (navigator.share) {
+				await navigator.share(shareData);
+			} else {
+				await navigator.clipboard.writeText(shareData.url);
+			}
+		} catch (err) {
+			console.error('Error sharing:', err);
+		}
+	}
+
+	let showComponentPaginationNav = $state(false);
+
+	const Component = $derived(componentMetadata.component);
+
+	// Add keyboard navigation
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'ArrowLeft' && prevComponentMetadata?.available) {
+			goto(`${overviewUrl}/${prevComponentMetadata.id}`);
+		} else if (e.key === 'ArrowRight' && nextComponentMetadata?.available) {
+			goto(`${overviewUrl}/${nextComponentMetadata.id}`);
+		}
+	}
+</script>
+
+<svelte:document onkeydown={handleKeydown} />
+
+{#if $navigating}
+	<div
+		transition:fade
+		class="fixed inset-0 z-[calc(infinity)] bg-background/50 backdrop-blur-sm"
+	></div>
+{/if}
+
+{#snippet paginationComponent({ componentMetadata }: PaginationComponentProps)}
+	<div
+		class="relative w-full content-center overflow-hidden rounded-md border border-input/50 bg-card p-4 shadow-sm transition-all duration-200 hover:border-input hover:shadow-md"
+	>
+		<div class="flex scale-90 items-center justify-center transition-transform duration-200">
+			{#await createComponent(componentMetadata)}
+				<div class="h-12 w-32 animate-pulse rounded-md bg-muted"></div>
+			{:then data}
+				{#if data.available}
+					{@const Component = data.component}
+					<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
+						<Component />
+					</div>
+				{:else}
+					<div class="flex h-12 w-32 items-center justify-center rounded-md bg-destructive/10">
+						<span class="text-xs text-destructive">Failed to load</span>
+					</div>
+				{/if}
+			{:catch}
+				<div class="flex h-12 w-32 items-center justify-center rounded-md bg-destructive/10">
+					<span class="text-xs text-destructive">Failed to load</span>
+				</div>
+			{/await}
+		</div>
+	</div>
+{/snippet}
+
+<div class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
+	<header class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+		<div class="flex flex-col gap-1">
+			<div class="flex items-center gap-2">
+				<h1 class="text-2xl font-bold">{componentMetadata.id}</h1>
+				<Button class="gap-2" variant="ghost" size="icon" onclick={shareComponent}>
+					<Share size={16} aria-hidden />
+				</Button>
+			</div>
+			<p class="text-sm text-muted-foreground">{componentMetadata.path}</p>
+		</div>
+		<div class="flex items-center gap-2">
+			<Button
+				class="gap-2"
+				variant="secondary"
+				size="sm"
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://github.com/max-got/originui-svelte/tree/main{componentMetadata.path}"
+			>
+				Component Source
+				<Code size={16} aria-hidden />
+			</Button>
+			{#if isPreview}
+				<Button
+					class="gap-2"
+					variant="secondary"
+					size="sm"
+					target="_blank"
+					rel="noopener noreferrer"
+					href="{$page.url.href}/{componentMetadata.directory}/{componentMetadata.id}"
+				>
+					Go to Component
+					<ExternalLink size={16} aria-hidden />
+				</Button>
+			{/if}
+		</div>
+	</header>
+
+	<section class="_grid">
+		<div
+			class="_preview col-span-full grid h-fit max-h-[800px] gap-8 lg:sticky lg:top-4 lg:col-span-5"
+		>
+			<!-- Preview Section -->
+			<div class="flex flex-col gap-2">
+				<h2 class="font-semibold">Preview</h2>
+				<div
+					class="z-0 flex items-center justify-center rounded-lg border border-muted bg-background p-6 shadow-sm"
+				>
+					<div>
+						<Component />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Code Section -->
+		<div class="_code col-span-full grid gap-2">
+			<div class="flex items-center">
+				<h2 class=" font-semibold">Code</h2>
+			</div>
+			<div
+				class="relative grid rounded-lg border border-muted {isPreview
+					? 'max-h-[50vh] overflow-y-auto'
+					: ''}"
+				data-vaul-no-drag
+			>
+				<CodePreview code={componentMetadata.code.highlighted.content} />
+				<div class="absolute right-1 top-1">
+					<CopyButton code={componentMetadata.code.highlighted.content} />
+				</div>
+			</div>
+		</div>
+
+		<!-- Dependencies Section -->
+		<div class="_dependencies flex h-fit flex-col gap-2">
+			<div class="flex items-center">
+				<h2
+					class="font-semibold data-[has-dependencies=false]:text-muted-foreground data-[has-dependencies=false]:line-through"
+					data-has-dependencies={hasDependencies ? 'true' : 'false'}
+				>
+					Dependencies
+				</h2>
+			</div>
+
+			{#if hasDependencies}
+				<div class="grid h-full gap-2 lg:grid-cols-2">
+					<div class="flex flex-col gap-2">
+						<h3 class="text-sm font-semibold">Command</h3>
+						<div
+							class="relative flex h-full items-center justify-center rounded-lg border border-muted bg-background px-2 py-4 shadow-sm"
+						>
+							<div class="grid items-center gap-4" data-vaul-no-drag>
+								<CodePreview
+									code={componentMetadata.componentDependencies.command.highlighted.content}
+								/>
+							</div>
+							<div class="absolute right-1 top-1">
+								<CopyButton code={componentMetadata.componentDependencies.command.raw.content} />
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-col gap-2">
+						<h3 class="text-sm font-semibold">Packages</h3>
+						<div
+							class="flex h-full max-h-[400px] items-center justify-center rounded-lg border border-muted bg-background px-2 py-4 shadow-sm"
+						>
+							<div class="grid place-items-start gap-4 lg:grid-cols-2">
+								{#each componentMetadata.componentDependencies.list as dependency (dependency.packageName)}
+									<PreviewComponentDependency {dependency} class="w-full" />
+								{/each}
+							</div>
+						</div>
+					</div>
+				</div>
+			{/if}
+		</div>
+	</section>
+</div>
+
+{#if prevComponentMetadata?.available || nextComponentMetadata?.available}
+	<div
+		class="group/wrapper fixed bottom-[env(safe-area-inset-bottom)] left-0 isolate z-[calc(infinity)] w-full transition-opacity duration-200"
+		role="complementary"
+		aria-label="Component navigation"
+		data-show-nav={showComponentPaginationNav ? 'true' : 'false'}
+		use:clickOutside
+		onclickoutside={() => (showComponentPaginationNav = false)}
+	>
+		<div class="relative isolate mx-auto max-w-screen-lg px-4">
+			<nav
+				id="component-nav"
+				class="absolute bottom-0 left-0 z-0 w-full translate-y-full overflow-hidden rounded-lg border border-t border-border bg-background/95 p-4 opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-data-[show-nav=true]/wrapper:-translate-y-[calc(0%+2rem)] group-data-[show-nav=true]/wrapper:opacity-100 md:rounded-xl md:p-6"
+				aria-hidden={showComponentPaginationNav ? 'false' : 'true'}
+			>
+				<ul class="grid grid-cols-2 place-items-stretch gap-12">
+					{#key prevComponentMetadata}
+						<li class="group/link flex flex-col gap-2">
+							{#if prevComponentMetadata?.available}
+								<Button
+									href="{overviewUrl}/{prevComponentMetadata.id}"
+									class="group self-start"
+									variant="ghost"
+									size="sm"
+									aria-label="Previous component: {prevComponentMetadata.id}"
+								>
+									<kbd class="inline-flex items-center gap-2">
+										<KbdLeft size={16} />
+										<span class="hidden md:inline">Previous</span>
+									</kbd>
+									<span class="sr-only">Previous component: {prevComponentMetadata.id}</span>
+								</Button>
+								<a
+									class="inline-flex flex-1"
+									href="{overviewUrl}/{prevComponentMetadata.id}"
+									aria-label="Previous component: {prevComponentMetadata.id}"
+								>
+									{@render paginationComponent({
+										componentMetadata: prevComponentMetadata
+									})}
+								</a>
+							{/if}
+						</li>
+
+						<li class="group/link flex flex-col gap-2">
+							{#if nextComponentMetadata?.available}
+								<Button
+									href="{overviewUrl}/{nextComponentMetadata.id}"
+									class="group self-end"
+									variant="ghost"
+									size="sm"
+									aria-label="Next component: {nextComponentMetadata.id}"
+								>
+									<kbd class="inline-flex items-center gap-2">
+										<span class="hidden md:inline">Next</span>
+										<KbdRight size={16} />
+									</kbd>
+									<span class="sr-only">Next component: {nextComponentMetadata.id}</span>
+								</Button>
+								<a
+									class="inline-flex flex-1"
+									href="{overviewUrl}/{nextComponentMetadata.id}"
+									aria-label="Next component: {nextComponentMetadata.id}"
+								>
+									{@render paginationComponent({
+										componentMetadata: nextComponentMetadata
+									})}
+								</a>
+							{/if}
+						</li>
+					{/key}
+				</ul>
+			</nav>
+
+			<div
+				class="z-50 h-[2rem] translate-y-5 rounded-lg border border-t border-border bg-background/95 backdrop-blur-sm transition-all duration-300 ease-out hover:translate-y-0 hover:shadow-lg group-data-[show-nav=true]/wrapper:translate-y-0 group-data-[show-nav=true]/wrapper:rounded-t-none"
+			>
+				<Button
+					class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-5 transition-transform hover:scale-105"
+					onclick={() => (showComponentPaginationNav = !showComponentPaginationNav)}
+					variant="outline"
+					size="icon"
+					aria-expanded={showComponentPaginationNav}
+					aria-controls="component-nav"
+				>
+					<ChevronUp
+						size={16}
+						aria-hidden
+						class="transition-transform duration-200 group-data-[show-nav=true]/wrapper:rotate-180"
+					/>
+					<span class="sr-only"
+						>{showComponentPaginationNav ? 'Hide' : 'Show'} component navigation</span
+					>
+				</Button>
+			</div>
+		</div>
+	</div>
+{/if}
+
+<style lang="postcss">
+	._grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'preview'
+			'code'
+			'dependencies';
+
+		& > ._preview {
+			grid-area: preview;
+		}
+
+		& > ._code {
+			grid-area: code;
+		}
+
+		& > ._dependencies {
+			grid-area: dependencies;
+		}
+	}
+
+	@media (min-width: theme('screens.lg')) {
+		._grid {
+			grid-template-columns: 0.5fr 1fr;
+			grid-template-rows: 1fr 0.5fr;
+			grid-template-areas:
+				'preview code code'
+				'preview code code'
+				'dependencies dependencies dependencies';
+		}
+	}
+</style>

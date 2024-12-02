@@ -27,7 +27,8 @@ export default tseslint.config(
 					argsIgnorePattern: '^_',
 					varsIgnorePattern: '^_'
 				}
-			]
+			],
+			'no-console': ['error', { allow: ['warn', 'error'] }]
 		}
 	},
 	{

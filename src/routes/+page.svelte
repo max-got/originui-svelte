@@ -9,7 +9,7 @@
 <main>
 	<div class="px-4 sm:px-6">
 		<div class="mx-auto w-full max-w-3xl">
-			<div class="mb-16">
+			<div class="my-16">
 				<h1
 					class="mx-auto mb-4 max-w-3xl text-4xl/[1.1] font-extrabold tracking-tight text-foreground md:text-5xl/[1.1]"
 				>
@@ -24,7 +24,7 @@
 					class="w-fit max-w-prose text-pretty border-t border-border pt-4 text-sm text-accent-foreground"
 				>
 					This project is not affiliated with the original <a
-						class="text-svelte underline"
+						class="underline"
 						href="https://originui.com/"
 						rel="noreferrer">Origin UI</a
 					>. <br />
