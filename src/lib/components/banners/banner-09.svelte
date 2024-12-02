@@ -13,14 +13,14 @@
 	function calculateTimeLeft() {
 		const difference = saleEndDate.getTime() - new Date().getTime();
 
-		if (difference <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true };
+		if (difference <= 0) return { days: 0, hours: 0, isExpired: true, minutes: 0, seconds: 0 };
 
 		return {
 			days: Math.floor(difference / (1000 * 60 * 60 * 24)),
 			hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+			isExpired: false,
 			minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-			seconds: Math.floor((difference % (1000 * 60)) / 1000),
-			isExpired: false
+			seconds: Math.floor((difference % (1000 * 60)) / 1000)
 		};
 	}
 

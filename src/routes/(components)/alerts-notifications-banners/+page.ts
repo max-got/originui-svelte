@@ -5,7 +5,7 @@ import { createComponentRender } from '$lib/utils/handleComponentSource.js';
 export const prerender = true;
 
 export const load = (async ({ data }) => {
-	const { componentMetadataAlert, componentMetadataNotification, componentMetadataBanner } = data;
+	const { componentMetadataAlert, componentMetadataBanner, componentMetadataNotification } = data;
 
 	const alertComponents = await Promise.all(
 		componentMetadataAlert.map((component) => createComponentRender(component))
@@ -17,5 +17,5 @@ export const load = (async ({ data }) => {
 		componentMetadataBanner.map((component) => createComponentRender(component))
 	);
 
-	return { alertComponents, notificationComponents, bannerComponents };
+	return { alertComponents, bannerComponents, notificationComponents };
 }) satisfies PageLoad;

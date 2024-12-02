@@ -9,7 +9,7 @@ export const load = (async ({ fetch }) => {
 
 	return {
 		componentMetadataAlert,
-		componentMetadataNotification,
-		componentMetadataBanner
+		componentMetadataBanner,
+		componentMetadataNotification
 	};
 }) satisfies PageServerLoad;

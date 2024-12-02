@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import Info from 'lucide-svelte/icons/info';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import Info from 'lucide-svelte/icons/info';
 	import X from 'lucide-svelte/icons/x';
 </script>
 
@@ -15,7 +15,7 @@
 			<Info class="mt-0.5 shrink-0 text-blue-500" size={16} strokeWidth={2} aria-hidden="true" />
 			<div class="flex grow justify-between gap-12">
 				<p class="text-sm">Just a quick note!</p>
-				<a href="#" class="group whitespace-nowrap text-sm font-medium">
+				<a href="#/" class="group whitespace-nowrap text-sm font-medium">
 					Link<ArrowRight
 						class="-mt-0.5 ms-1 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
 						size={16}

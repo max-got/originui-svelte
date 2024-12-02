@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Avatar from '$assets/avatar-32-01.jpg';
 	import Button from '$lib/components/ui/button.svelte';
 
+	import Avatar from '$assets/avatar-32-01.jpg';
 	import X from 'lucide-svelte/icons/x';
 </script>
 
@@ -14,9 +14,11 @@
 		<div class="flex grow flex-col gap-3">
 			<div class="space-y-1">
 				<p class="text-sm text-muted-foreground">
-					<a class="font-medium text-foreground hover:underline" href="#"> Mary Palmer </a>
+					<a class="font-medium text-foreground hover:underline" href="#/"> Mary Palmer </a>
 					mentioned you in
-					<a class="font-medium text-foreground hover:underline" href="#"> project-campaign-02 </a>.
+					<a class="font-medium text-foreground hover:underline" href="#/">
+						project-campaign-02
+					</a>.
 				</p>
 				<p class="text-xs text-muted-foreground">2 min ago</p>
 			</div>
