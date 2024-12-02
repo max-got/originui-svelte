@@ -1,20 +1,50 @@
+import type { PossibleDependency } from '$lib/constants';
+import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
 import type { Component } from 'svelte';
 
-export interface ComponentMetadata {
-	code: {
-		copyable: { content: string };
-		highlighted: { content: string };
-		preview: { content: string };
-	};
-	id: string;
+import type { Prettify } from './helpers';
+
+export interface DependenciesCode {
+	highlighted: { content: string };
+	raw: { content: string };
+}
+
+export interface ComponentDependencies {
+	command: DependenciesCode;
+	list: PossibleDependency[];
+}
+
+export interface SourceCode {
+	highlighted: { content: string };
+	highlightedWithDeps: { content: string };
+	raw: { content: string };
+	rawWithDeps: { content: string };
+}
+
+export interface BaseComponentMetadata {
+	available: boolean;
+	directory: AvailableOUIComponent;
+	id: AvailableOUIComponent;
 	path: string;
 }
 
-export type ComponentRender = ComponentMetadata & {
-	render: Component;
-};
+interface _UnavailableComponent extends BaseComponentMetadata {
+	available: false;
+}
+
+interface _AvailableComponent extends BaseComponentMetadata {
+	available: true;
+	code: SourceCode;
+	componentDependencies: ComponentDependencies;
+}
+
+export type UnavailableComponent = Prettify<_UnavailableComponent>;
+export type AvailableComponent = Prettify<_AvailableComponent>;
+
+export type ComponentMetadata = AvailableComponent | UnavailableComponent;
+export type ComponentWithRender = Prettify<AvailableComponent & { component: Component }>;
 
 export interface ComponentDirectory {
-	directory: string;
-	files: string[];
+	directory: AvailableOUIComponent;
+	files: AvailableOUIComponent[];
 }

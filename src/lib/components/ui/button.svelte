@@ -48,19 +48,25 @@
 	let {
 		children,
 		class: className,
+		href = null,
 		ref = $bindable(null),
 		size = 'default',
-		type = 'button',
 		variant = 'default',
 		...restProps
 	}: ButtonProps = $props();
 </script>
 
-<button
-	bind:this={ref}
-	{type}
-	class={cn(buttonVariants({ className, size, variant }))}
-	{...restProps}
->
-	{@render children?.()}
-</button>
+{#if !href}
+	<button
+		bind:this={ref}
+		type="button"
+		class={cn(buttonVariants({ className, size, variant }))}
+		{...restProps}
+	>
+		{@render children?.()}
+	</button>
+{:else}
+	<a bind:this={ref} {href} class={cn(buttonVariants({ className, size, variant }))} {...restProps}>
+		{@render children?.()}
+	</a>
+{/if}

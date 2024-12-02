@@ -6,7 +6,7 @@
 <header>
 	<div class="px-4 sm:px-6">
 		<div
-			class="mx-auto mb-16 flex h-[72px] w-full max-w-6xl items-center justify-between border-b border-border/70"
+			class="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between border-b border-border/70"
 		>
 			<a href="/" aria-label="Home">
 				<span class="sr-only">Origin UI - Svelte</span>

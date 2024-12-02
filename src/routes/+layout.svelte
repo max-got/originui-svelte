@@ -2,9 +2,10 @@
 	import Header from '$lib/demo/header.svelte';
 
 	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
-	import { ModeWatcher } from 'mode-watcher';
 
 	import '../app.css';
+
+	import { ModeWatcher } from 'mode-watcher';
 
 	let { children } = $props();
 </script>
@@ -22,7 +23,8 @@
 <ModeWatcher defaultMode="system" />
 
 <div
-	class="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip"
+	class="relative z-0 flex min-h-screen flex-col overflow-hidden !bg-background supports-[overflow:clip]:overflow-clip"
+	data-vaul-drawer-wrapper
 >
 	<Header />
 	{@render children()}
