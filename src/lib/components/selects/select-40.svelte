@@ -3,9 +3,9 @@
 	import * as Select from '$lib/components/ui/select/index.js';
 	import { cn } from '$lib/utils.js';
 
-	import Avatar01 from '$lib/assets/avatar-40-01.jpg';
-	import Avatar02 from '$lib/assets/avatar-40-02.jpg';
-	import Avatar03 from '$lib/assets/avatar-40-03.jpg';
+	import Avatar01 from '$lib/assets/avatar-40-01.jpg?w=80&h=80&enhanced';
+	import Avatar02 from '$lib/assets/avatar-40-02.jpg?w=80&h=80&enhanced';
+	import Avatar03 from '$lib/assets/avatar-40-03.jpg?w=80&h=80&enhanced';
 
 	const items = [
 		{ avatar: Avatar01, name: 'Jenny Hamilton', username: '@jennycodes', value: 's1' },
@@ -20,7 +20,7 @@
 
 {#snippet user(item: (typeof items)[number])}
 	<span class="flex items-center gap-2">
-		<img class="size-10 rounded-full" src={item.avatar} alt={item.name} width={40} height={40} />
+		<enhanced:img class=" size-10 rounded-full" src={item.avatar} alt={item.name} />
 		<span>
 			<span class="block font-medium">{item.name}</span>
 			<span class="mt-0.5 block text-xs text-muted-foreground">{item.username}</span>
