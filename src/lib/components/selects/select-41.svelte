@@ -11,20 +11,20 @@
 	let value = '';
 
 	const frameworks = [
-		{ label: 'Next.js', value: 'next.js' },
 		{ label: 'SvelteKit', value: 'sveltekit' },
+		{ label: 'Svelte', value: 'svelte' },
 		{ label: 'Nuxt.js', value: 'nuxt.js' },
 		{ label: 'Remix', value: 'remix' },
 		{ label: 'Astro', value: 'astro' },
 		{ label: 'Angular', value: 'angular' },
 		{ label: 'Vue.js', value: 'vue' },
-		{ label: 'React', value: 'react' },
 		{ label: 'Ember.js', value: 'ember' },
 		{ label: 'Gatsby', value: 'gatsby' },
 		{ label: 'Eleventy', value: 'eleventy' },
 		{ label: 'SolidJS', value: 'solid' },
 		{ label: 'Preact', value: 'preact' },
 		{ label: 'Qwik', value: 'qwik' },
+		{ label: 'Next.js', value: 'next.js' },
 		{ label: 'Alpine.js', value: 'alpine' },
 		{ label: 'Lit', value: 'lit' }
 	];
