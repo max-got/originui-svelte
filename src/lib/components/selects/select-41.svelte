@@ -1,16 +1,5 @@
-<script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-
-	import * as Command from '$lib/components/ui/command';
-	import * as Popover from '$lib/components/ui/popover';
-	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-
-	let open = false;
-	let value = '';
-
+<script context="module" lang="ts">
+	// [!code collapse-start]
 	const frameworks = [
 		{ label: 'SvelteKit', value: 'sveltekit' },
 		{ label: 'Svelte', value: 'svelte' },
@@ -29,6 +18,21 @@
 		{ label: 'Alpine.js', value: 'alpine' },
 		{ label: 'Lit', value: 'lit' }
 	];
+	// [!code collapse-end]
+</script>
+
+<script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
+	import * as Command from '$lib/components/ui/command';
+	import * as Popover from '$lib/components/ui/popover';
+	import { cn } from '$lib/utils';
+	import Check from 'lucide-svelte/icons/check';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+
+	let open = false;
+	let value = '';
 
 	function handleSelect(currentValue: string) {
 		value = currentValue === value ? '' : currentValue;

@@ -1,7 +1,5 @@
-<script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
-
+<script module lang="ts">
+	// [!code collapse-start]
 	const continents = [
 		{
 			countries: [
@@ -43,6 +41,12 @@
 			label: 'Oceania'
 		}
 	];
+	// [!code collapse-end]
+</script>
+
+<script lang="ts">
+	import Label from '$lib/components/ui/label.svelte';
+	import * as Select from '$lib/components/ui/select/index.js';
 
 	const items = continents.reduce(
 		(previous: (typeof continents)[number]['countries'], current) =>
