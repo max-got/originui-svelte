@@ -40,6 +40,15 @@ export const COMPONENT_ROUTES = {
 			title: 'Input'
 		},
 		path: 'inputs'
+	},
+	sliders: {
+		componentDirectory: ['sliders'],
+		header: {
+			description:
+				'A growing collection of over ${count} slider components built with Svelte and TailwindCSS.',
+			title: 'Slider'
+		},
+		path: 'sliders'
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 
