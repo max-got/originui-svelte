@@ -112,7 +112,7 @@
 						{@const IconComponent = selectedItem.icon}
 						<span class="flex min-w-0 items-center gap-2">
 							<IconComponent class="h-4 w-4 text-muted-foreground" />
-							<span class="truncate">{value}</span>
+							<span class="truncate">{selectedItem.label}</span>
 						</span>
 					{:else}
 						<span class="text-muted-foreground">Select service category</span>
