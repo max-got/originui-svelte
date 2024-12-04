@@ -75,6 +75,12 @@
 		--input: 240 3.7% 15.9%;
 		--ring: 240 3.8% 46.1%;
 	}
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 
 	::-webkit-scrollbar {
 		width: 0.5rem;

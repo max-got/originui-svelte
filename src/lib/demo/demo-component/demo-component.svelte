@@ -23,7 +23,7 @@
 </script>
 
 {#snippet actionButtons({ source }: { source: string })}
-	<div class={cn('absolute right-2 top-2 z-10 flex items-center gap-x-2 rounded-lg')}>
+	<div class={cn('absolute right-2 top-2 flex items-center gap-x-2 rounded-lg')}>
 		<ViewComponentButton
 			href={componentUrl}
 			onToggle={(e) => onShallowRouteClick?.(e, componentUrl)}
