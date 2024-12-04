@@ -1,0 +1,92 @@
+<script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
+	import * as Command from '$lib/components/ui/command';
+	import * as Popover from '$lib/components/ui/popover';
+	import { cn } from '$lib/utils';
+	import Check from 'lucide-svelte/icons/check';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+
+	let open = $state(false);
+	let value = $state('Europe/Berlin');
+
+	const timezones = Intl.supportedValuesOf('timeZone');
+
+	const formattedTimezones = timezones
+		.map((timezone) => {
+			const formatter = new Intl.DateTimeFormat('en', {
+				timeZone: timezone,
+				timeZoneName: 'shortOffset'
+			});
+			const parts = formatter.formatToParts(new Date());
+			const offset = parts.find((part) => part.type === 'timeZoneName')?.value || '';
+			const modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;
+
+			return {
+				label: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,
+				numericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),
+				value: timezone
+			};
+		})
+		.sort((a, b) => a.numericOffset - b.numericOffset);
+
+	function handleSelect(currentValue: string) {
+		value = currentValue === value ? '' : currentValue;
+		open = false;
+	}
+
+	function filterFn(value: string, search: string) {
+		const normalizedValue = value.toLowerCase();
+		const normalizedSearch = search.toLowerCase().replace(/\s+/g, '');
+		return normalizedValue.includes(normalizedSearch) ? 1 : 0;
+	}
+</script>
+
+<div class="space-y-2">
+	<Label for="select-43">Timezone select with search</Label>
+	<Popover.Root bind:open>
+		<Popover.Trigger>
+			{#snippet child({ props })}
+				<Button
+					id="select-43"
+					variant="outline"
+					role="combobox"
+					aria-expanded={open}
+					class="w-full justify-between bg-background px-3 font-normal outline-offset-0 hover:bg-background focus-visible:border-ring focus-visible:outline-[3px] focus-visible:outline-ring/20"
+					{...props}
+				>
+					<span class={cn('truncate', !value && 'text-muted-foreground')}>
+						{#if value}
+							{formattedTimezones.find((timezone) => timezone.value === value)?.label}
+						{:else}
+							Select timezone
+						{/if}
+					</span>
+					<ChevronDown
+						size={16}
+						stroke-width={2}
+						class="shrink-0 text-muted-foreground/80"
+						aria-hidden="true"
+					/>
+				</Button>
+			{/snippet}
+		</Popover.Trigger>
+		<Popover.Content class="w-full min-w-[var(--bits-popover-anchor-width)] p-0" align="start">
+			<Command.Root filter={filterFn}>
+				<Command.Input placeholder="Search timezone..." />
+				<Command.List>
+					<Command.Empty>No timezone found.</Command.Empty>
+					<Command.Group>
+						{#each formattedTimezones as { label, value: itemValue } (itemValue)}
+							<Command.Item value={itemValue} onSelect={() => handleSelect(itemValue)}>
+								{label}
+								<Check class={cn('ml-auto', value === itemValue ? 'opacity-100' : 'opacity-0')} />
+							</Command.Item>
+						{/each}
+					</Command.Group>
+				</Command.List>
+			</Command.Root>
+		</Popover.Content>
+	</Popover.Root>
+</div>

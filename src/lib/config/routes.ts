@@ -41,6 +41,15 @@ export const COMPONENT_ROUTES = {
 		},
 		path: 'inputs'
 	},
+	selects: {
+		componentDirectory: ['selects'],
+		header: {
+			description:
+				'A growing collection of over ${count} select components built with Svelte and TailwindCSS.',
+			title: 'Select'
+		},
+		path: 'selects'
+	},
 	sliders: {
 		componentDirectory: ['sliders'],
 		header: {
