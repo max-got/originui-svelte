@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/10/2024, 6:35:02 PM
+ * Last generated at: 12/10/2024, 7:00:19 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -41,29 +41,6 @@ export const OUI_DIRECTORIES = {
 			'banner-09.svelte',
 			'banner-10.svelte',
 			'banner-11.svelte'
-		]
-	},
-	CHECKBOXES: {
-		directory: 'checkboxes',
-		components: [
-			'checkbox-01.svelte',
-			'checkbox-02.svelte',
-			'checkbox-03.svelte',
-			'checkbox-04.svelte',
-			'checkbox-05.svelte',
-			'checkbox-06.svelte',
-			'checkbox-07.svelte',
-			'checkbox-08.svelte',
-			'checkbox-09.svelte',
-			'checkbox-10.svelte',
-			'checkbox-11.svelte',
-			'checkbox-12.svelte',
-			'checkbox-13.svelte',
-			'checkbox-14.svelte',
-			'checkbox-15.svelte',
-			'checkbox-16.svelte',
-			'checkbox-17.svelte',
-			'checkbox-18.svelte'
 		]
 	},
 	BUTTONS: {
@@ -122,88 +99,27 @@ export const OUI_DIRECTORIES = {
 			'button-51.svelte'
 		]
 	},
-	RADIOS: {
-		directory: 'radios',
+	CHECKBOXES: {
+		directory: 'checkboxes',
 		components: [
-			'radio-01.svelte',
-			'radio-02.svelte',
-			'radio-03.svelte',
-			'radio-04.svelte',
-			'radio-05.svelte',
-			'radio-06.svelte',
-			'radio-07.svelte',
-			'radio-08.svelte',
-			'radio-09.svelte',
-			'radio-10.svelte',
-			'radio-11.svelte',
-			'radio-12.svelte',
-			'radio-13.svelte',
-			'radio-14.svelte',
-			'radio-15.svelte',
-			'radio-16.svelte',
-			'radio-17.svelte',
-			'radio-18.svelte',
-			'radio-19.svelte'
-		]
-	},
-	NOTIFICATIONS: {
-		directory: 'notifications',
-		components: [
-			'notification-01.svelte',
-			'notification-02.svelte',
-			'notification-03.svelte',
-			'notification-04.svelte',
-			'notification-05.svelte',
-			'notification-06.svelte',
-			'notification-07.svelte',
-			'notification-08.svelte',
-			'notification-09.svelte',
-			'notification-10.svelte',
-			'notification-11.svelte',
-			'notification-12.svelte',
-			'notification-13.svelte',
-			'notification-14.svelte',
-			'notification-15.svelte',
-			'notification-16.svelte',
-			'notification-17.svelte',
-			'notification-18.svelte',
-			'notification-19.todo.svelte',
-			'notification-20.todo.svelte',
-			'notification-21.svelte',
-			'notification-22.svelte',
-			'notification-23.svelte'
-		]
-	},
-	SLIDERS: {
-		directory: 'sliders',
-		components: [
-			'slider-01.svelte',
-			'slider-02.svelte',
-			'slider-03.svelte',
-			'slider-04.svelte',
-			'slider-05.svelte',
-			'slider-06.svelte',
-			'slider-07.svelte',
-			'slider-08.svelte',
-			'slider-09.svelte',
-			'slider-10.svelte',
-			'slider-11.svelte',
-			'slider-12.svelte',
-			'slider-13.svelte',
-			'slider-14.svelte',
-			'slider-15.svelte',
-			'slider-16.svelte',
-			'slider-17.svelte',
-			'slider-18.svelte',
-			'slider-19.svelte',
-			'slider-20.svelte',
-			'slider-21.svelte',
-			'slider-22.svelte',
-			'slider-23.svelte',
-			'slider-24.svelte',
-			'slider-25.svelte',
-			'slider-26.svelte',
-			'slider-27.svelte'
+			'checkbox-01.svelte',
+			'checkbox-02.svelte',
+			'checkbox-03.svelte',
+			'checkbox-04.svelte',
+			'checkbox-05.svelte',
+			'checkbox-06.svelte',
+			'checkbox-07.svelte',
+			'checkbox-08.svelte',
+			'checkbox-09.svelte',
+			'checkbox-10.svelte',
+			'checkbox-11.svelte',
+			'checkbox-12.svelte',
+			'checkbox-13.svelte',
+			'checkbox-14.svelte',
+			'checkbox-15.svelte',
+			'checkbox-16.svelte',
+			'checkbox-17.svelte',
+			'checkbox-18.svelte'
 		]
 	},
 	INPUTS: {
@@ -268,6 +184,90 @@ export const OUI_DIRECTORIES = {
 			'input-57.todo.svelte'
 		]
 	},
+	NOTIFICATIONS: {
+		directory: 'notifications',
+		components: [
+			'notification-01.svelte',
+			'notification-02.svelte',
+			'notification-03.svelte',
+			'notification-04.svelte',
+			'notification-05.svelte',
+			'notification-06.svelte',
+			'notification-07.svelte',
+			'notification-08.svelte',
+			'notification-09.svelte',
+			'notification-10.svelte',
+			'notification-11.svelte',
+			'notification-12.svelte',
+			'notification-13.svelte',
+			'notification-14.svelte',
+			'notification-15.svelte',
+			'notification-16.svelte',
+			'notification-17.svelte',
+			'notification-18.svelte',
+			'notification-19.todo.svelte',
+			'notification-20.todo.svelte',
+			'notification-21.svelte',
+			'notification-22.svelte',
+			'notification-23.svelte'
+		]
+	},
+	RADIOS: {
+		directory: 'radios',
+		components: [
+			'radio-01.svelte',
+			'radio-02.svelte',
+			'radio-03.svelte',
+			'radio-04.svelte',
+			'radio-05.svelte',
+			'radio-06.svelte',
+			'radio-07.svelte',
+			'radio-08.svelte',
+			'radio-09.svelte',
+			'radio-10.svelte',
+			'radio-11.svelte',
+			'radio-12.svelte',
+			'radio-13.svelte',
+			'radio-14.svelte',
+			'radio-15.svelte',
+			'radio-16.svelte',
+			'radio-17.svelte',
+			'radio-18.svelte',
+			'radio-19.svelte'
+		]
+	},
+	SLIDERS: {
+		directory: 'sliders',
+		components: [
+			'slider-01.svelte',
+			'slider-02.svelte',
+			'slider-03.svelte',
+			'slider-04.svelte',
+			'slider-05.svelte',
+			'slider-06.svelte',
+			'slider-07.svelte',
+			'slider-08.svelte',
+			'slider-09.svelte',
+			'slider-10.svelte',
+			'slider-11.svelte',
+			'slider-12.svelte',
+			'slider-13.svelte',
+			'slider-14.svelte',
+			'slider-15.svelte',
+			'slider-16.svelte',
+			'slider-17.svelte',
+			'slider-18.svelte',
+			'slider-19.svelte',
+			'slider-20.svelte',
+			'slider-21.svelte',
+			'slider-22.svelte',
+			'slider-23.svelte',
+			'slider-24.svelte',
+			'slider-25.svelte',
+			'slider-26.svelte',
+			'slider-27.svelte'
+		]
+	},
 	SWITCHES: {
 		directory: 'switches',
 		components: [
@@ -319,25 +319,25 @@ export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES
 
 export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components'][number];
 export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
-export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
-export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
+export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
+export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUINotificationsComponents =
 	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
+export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
-export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
 
 export type OUIComponent = Prettify<
 	| OUIAlertsComponents
 	| OUIBannersComponents
-	| OUICheckboxesComponents
 	| OUIButtonsComponents
-	| OUIRadiosComponents
-	| OUINotificationsComponents
-	| OUISlidersComponents
+	| OUICheckboxesComponents
 	| OUIInputsComponents
+	| OUINotificationsComponents
+	| OUIRadiosComponents
+	| OUISlidersComponents
 	| OUISwitchesComponents
 	| OUITextareasComponents
 >;
@@ -345,12 +345,12 @@ export type OUIComponent = Prettify<
 export interface OUIDirectoryToComponent {
 	alerts: OUIAlertsComponents;
 	banners: OUIBannersComponents;
-	checkboxes: OUICheckboxesComponents;
 	buttons: OUIButtonsComponents;
-	radios: OUIRadiosComponents;
-	notifications: OUINotificationsComponents;
-	sliders: OUISlidersComponents;
+	checkboxes: OUICheckboxesComponents;
 	inputs: OUIInputsComponents;
+	notifications: OUINotificationsComponents;
+	radios: OUIRadiosComponents;
+	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
 	textareas: OUITextareasComponents;
 }
