@@ -11,9 +11,10 @@
 			<Dialog.Title>Send us feedback</Dialog.Title>
 			<Dialog.Description>
 				Watch
-				<a class="text-foreground hover:underline" href="#">tutorials</a>, read Origin UI&lsquo;s
-				<a class="text-foreground hover:underline" href="#">documentation</a>, or join our
-				<a class="text-foreground hover:underline" href="#">Discord</a>
+				<a class="text-foreground hover:underline" href="#title">tutorials</a>, read Origin
+				UI&lsquo;s
+				<a class="text-foreground hover:underline" href="#title">documentation</a>, or join our
+				<a class="text-foreground hover:underline" href="#title">Discord</a>
 				for community help.
 			</Dialog.Description>
 		</Dialog.Header>

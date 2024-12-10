@@ -55,7 +55,7 @@
 
 		<p class="text-center text-xs text-muted-foreground">
 			By subscribing you agree to our
-			<a class="underline hover:no-underline" href="#">Privacy Policy</a>.
+			<a class="underline hover:no-underline" href="#title">Privacy Policy</a>.
 		</p>
 	</Dialog.Content>
 </Dialog.Root>
