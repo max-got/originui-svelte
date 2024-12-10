@@ -3,11 +3,13 @@
 
 	import { COMPONENT_ROUTES } from '$lib/config/routes';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import { mode } from 'mode-watcher';
 </script>
 
 <svelte:head>
 	<title>Origin UI - Svelte | Beautiful UI components built with Tailwind CSS and Svelte</title>
 
+	<meta name="theme-color" content={$mode === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 100%)'} />
 	<meta
 		name="Description"
 		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
