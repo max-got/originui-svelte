@@ -5,10 +5,15 @@
 		setPreviewComponentDialogCtx
 	} from '$lib/demo/preview-component/index.svelte';
 
+	import { mode } from 'mode-watcher';
+	import { Toaster } from 'svelte-sonner';
+
 	let { children } = $props();
 
 	const previewComponentDialogCtx = setPreviewComponentDialogCtx({});
 </script>
+
+<Toaster position="top-right" theme={$mode} />
 
 <main>
 	<div class="px-4 sm:px-6">

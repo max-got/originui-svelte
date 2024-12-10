@@ -13,7 +13,7 @@
 		/>
 		<div class="flex grow justify-between gap-3">
 			<p class="text-sm">Some information is missing!</p>
-			<a href="#/" class="group whitespace-nowrap text-sm font-medium">
+			<a href="#title" class="group whitespace-nowrap text-sm font-medium">
 				Link<ArrowRight
 					class="-mt-0.5 ms-1 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
 					size={16}

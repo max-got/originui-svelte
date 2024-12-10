@@ -17,7 +17,7 @@
 					<p class="text-sm">
 						We just added something awesome to make your experience even better.
 					</p>
-					<a href="#/" class="group whitespace-nowrap text-sm font-medium">
+					<a href="#title" class="group whitespace-nowrap text-sm font-medium">
 						Learn more<ArrowRight
 							class="-mt-0.5 ms-1 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
 							size={16}

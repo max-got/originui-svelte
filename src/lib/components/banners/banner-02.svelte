@@ -11,6 +11,6 @@
 			aria-hidden="true"
 		/>Get the most out of your app with real-time updates and analytics
 		<span class="text-muted-foreground">·</span>
-		<a href="#/" class="font-medium underline hover:no-underline">Upgrade</a>
+		<a href="#title" class="font-medium underline hover:no-underline">Upgrade</a>
 	</p>
 </div>

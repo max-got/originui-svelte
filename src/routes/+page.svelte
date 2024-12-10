@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Illustration from '$lib/demo/illustration.svelte';
 
+	import { COMPONENT_ROUTES } from '$lib/config/routes';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 </script>
 
@@ -39,51 +40,17 @@
 				<h2 class="mb-5 text-muted-foreground">Latest components</h2>
 				<nav>
 					<ul class="flex flex-col gap-2">
-						<li>
-							<a
-								href="/inputs"
-								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-							>
-								Input
-								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-							</a>
-						</li>
-						<li>
-							<a
-								href="/buttons"
-								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-							>
-								Button
-								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-							</a>
-						</li>
-						<li>
-							<a
-								href="/checks-radios-switches"
-								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-							>
-								Checkbox, Radio, and Switch
-								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-							</a>
-						</li>
-						<li>
-							<a
-								href="/sliders"
-								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-							>
-								Slider
-								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-							</a>
-						</li>
-						<li>
-							<a
-								href="/alerts-notifications-banners"
-								class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-							>
-								Alert, Notification, and Banner
-								<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-							</a>
-						</li>
+						{#each Object.values(COMPONENT_ROUTES).sort((a, b) => a.order - b.order) as route (route.path)}
+							<li>
+								<a
+									href={route.path}
+									class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
+								>
+									{route.header.title}
+									<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
+								</a>
+							</li>
+						{/each}
 					</ul>
 				</nav>
 			</div>

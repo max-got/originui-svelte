@@ -10,10 +10,23 @@ type ComponentRoutes = {
 		description: string;
 		title: string;
 	};
+	label: string;
+	order: number;
 	path: string;
 };
 
 export const COMPONENT_ROUTES = {
+	alertsNotificationsBanners: {
+		componentDirectory: ['alerts', 'notifications', 'banners'],
+		header: {
+			description:
+				'A growing collection of ${count} alert, notification, and banner components built with Svelte and TailwindCSS.',
+			title: 'Alert, Notification, and Banner'
+		},
+		label: 'Alerts, Notifications, and Banners',
+		order: 6,
+		path: 'alerts-notifications-banners'
+	},
 	buttons: {
 		componentDirectory: ['buttons'],
 		header: {
@@ -21,6 +34,8 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} button components built with Svelte and TailwindCSS.',
 			title: 'Button'
 		},
+		label: 'Buttons',
+		order: 2,
 		path: 'buttons'
 	},
 	checkboxes: {
@@ -30,6 +45,8 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} checkbox components built with Svelte and TailwindCSS.',
 			title: 'Checkbox'
 		},
+		label: 'Checkboxes, Radios, and Switches',
+		order: 3,
 		path: 'checks-radios-switches'
 	},
 	inputs: {
@@ -39,6 +56,8 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} input and textarea components built with Svelte and TailwindCSS.',
 			title: 'Input'
 		},
+		label: 'Inputs',
+		order: 1,
 		path: 'inputs'
 	},
 	sliders: {
@@ -48,6 +67,8 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} slider components built with Svelte and TailwindCSS.',
 			title: 'Slider'
 		},
+		label: 'Sliders',
+		order: 5,
 		path: 'sliders'
 	}
 } as const satisfies Record<string, ComponentRoutes>;

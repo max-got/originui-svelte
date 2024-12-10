@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
+	import type { WithElementRef } from 'bits-ui';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	import CopyButton from '../copy-button.svelte';
 	import ViewComponentButton from '../view-component-button.svelte';
@@ -7,15 +9,18 @@
 
 	import { page } from '$app/stores';
 
+	type DemoComponentProps = WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+		componentData: AvailableOUIComponent;
+		onShallowRouteClick?: (e: MouseEvent, componentUrl: string) => void;
+	};
+
 	let {
 		class: className,
 		componentData,
-		onShallowRouteClick
-	}: {
-		class?: string;
-		componentData: AvailableOUIComponent;
-		onShallowRouteClick?: (e: MouseEvent, componentUrl: string) => void;
-	} = $props();
+		onShallowRouteClick,
+		ref = $bindable(null),
+		...restProps
+	}: DemoComponentProps = $props();
 
 	const Component = $derived(componentData.component);
 
@@ -33,7 +38,7 @@
 	</div>
 {/snippet}
 
-<div id="component-{componentData.id}" class={cn('group/item relative ', className)}>
+<div bind:this={ref} class={cn('group/item relative bg-background', className)} {...restProps}>
 	{@render actionButtons({ source: componentData.code.raw.content })}
 
 	<Component />

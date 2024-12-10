@@ -14,9 +14,9 @@
 		<div class="flex grow flex-col gap-3">
 			<div class="space-y-1">
 				<p class="text-sm text-muted-foreground">
-					<a class="font-medium text-foreground hover:underline" href="#/"> Mary Palmer </a>
+					<a class="font-medium text-foreground hover:underline" href="#title"> Mary Palmer </a>
 					mentioned you in
-					<a class="font-medium text-foreground hover:underline" href="#/">
+					<a class="font-medium text-foreground hover:underline" href="#title">
 						project-campaign-02
 					</a>.
 				</p>
