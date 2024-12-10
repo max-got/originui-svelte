@@ -4,6 +4,14 @@ type MetadataVariables = {
 	count: string;
 };
 
+type SEOMetadata = {
+	description: string;
+	keywords?: string;
+	title: string;
+	twitterDescription: string;
+	twitterTitle: string;
+};
+
 type ComponentRoutes = {
 	componentDirectory: OUIDirectory[];
 	header: {
@@ -13,6 +21,7 @@ type ComponentRoutes = {
 	label: string;
 	order: number;
 	path: string;
+	seo: SEOMetadata;
 };
 
 export const COMPONENT_ROUTES = {
@@ -25,7 +34,16 @@ export const COMPONENT_ROUTES = {
 		},
 		label: 'Alerts, Notifications, and Banners',
 		order: 6,
-		path: 'alerts-notifications-banners'
+		path: 'alerts-notifications-banners',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'alert, notification, banner, component, svelte, tailwindcss',
+			title: 'Alerts, Notifications, and Banners',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Alerts, Notifications, and Banners'
+		}
 	},
 	buttons: {
 		componentDirectory: ['buttons'],
@@ -36,7 +54,16 @@ export const COMPONENT_ROUTES = {
 		},
 		label: 'Buttons',
 		order: 2,
-		path: 'buttons'
+		path: 'buttons',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'button, component, svelte, tailwindcss',
+			title: 'Buttons',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Buttons'
+		}
 	},
 	checkboxes: {
 		componentDirectory: ['checkboxes', 'radios', 'switches'],
@@ -47,7 +74,16 @@ export const COMPONENT_ROUTES = {
 		},
 		label: 'Checkboxes, Radios, and Switches',
 		order: 3,
-		path: 'checks-radios-switches'
+		path: 'checks-radios-switches',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'checkbox, radio, switch, component, svelte, tailwindcss',
+			title: 'Checkboxes, Radios, and Switches',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Checkboxes, Radios, and Switches'
+		}
 	},
 	inputs: {
 		componentDirectory: ['inputs', 'textareas'],
@@ -58,7 +94,16 @@ export const COMPONENT_ROUTES = {
 		},
 		label: 'Inputs',
 		order: 1,
-		path: 'inputs'
+		path: 'inputs',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Input and Textarea components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'input, textarea, component, svelte, tailwindcss',
+			title: 'Inputs and Textareas',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Input and Textarea components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Inputs and Textareas'
+		}
 	},
 	sliders: {
 		componentDirectory: ['sliders'],
@@ -69,7 +114,16 @@ export const COMPONENT_ROUTES = {
 		},
 		label: 'Sliders',
 		order: 5,
-		path: 'sliders'
+		path: 'sliders',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Slider components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'slider, component, svelte, tailwindcss',
+			title: 'Sliders',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Slider components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Sliders'
+		}
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 

@@ -5,6 +5,42 @@
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 </script>
 
+<svelte:head>
+	<title>Origin UI - Svelte | Beautiful UI components built with Tailwind CSS and Svelte</title>
+
+	<meta
+		name="Description"
+		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
+	/>
+	<meta name="keywords" content="svelte, component, origin ui, tailwindcss, ui, library" />
+
+	<meta
+		property="og:title"
+		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
+	/>
+	<meta
+		property="og:description"
+		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
+	/>
+	<meta property="og:image:type" content="image/jpeg" /><meta
+		property="og:image:width"
+		content="2400"
+	/>
+	<meta property="og:image:height" content="1260" />
+	<meta property="og:image" content="/og-image.jpg" />
+
+	<meta name="twitter:title" content="Origin UI - Svelte" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta
+		name="twitter:description"
+		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
+	/>
+	<meta name="twitter:image:type" content="image/jpeg" />
+	<meta name="twitter:image:width" content="2400" />
+	<meta name="twitter:image:height" content="1260" />
+	<meta name="twitter:image" content="/twitter-image.jpg" />
+</svelte:head>
+
 <Illustration />
 
 <main>

@@ -39,6 +39,23 @@
 	{data.routeMetadata.header.description}
 </PageHeader>
 
+<svelte:head>
+	<title>{data.routeMetadata.seo.title} | Svelte Components | Origin UI - Svelte</title>
+	<meta name="description" content={data.routeMetadata.seo.description} />
+	<meta name="keywords" content={data.routeMetadata.seo.keywords} />
+	<meta
+		property="og:title"
+		content="{data.routeMetadata.seo.title} | Svelte Components  | Origin UI - Svelte"
+	/>
+	<meta property="og:description" content={data.routeMetadata.seo.description} />
+
+	<meta
+		name="twitter:title"
+		content="{data.routeMetadata.seo.twitterTitle} | Svelte Components  | Origin UI - Svelte"
+	/>
+	<meta name="twitter:description" content={data.routeMetadata.seo.twitterDescription} />
+</svelte:head>
+
 <div class="_component-directory-wrapper">
 	<DemoComponents.Wrapper
 		componentCategories={[data.components]}
