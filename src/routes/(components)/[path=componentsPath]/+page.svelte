@@ -82,6 +82,7 @@
 
 				&[data-component='notification-23'] {
 					grid-column: 1 / -1;
+					display: block;
 				}
 			}
 		}
