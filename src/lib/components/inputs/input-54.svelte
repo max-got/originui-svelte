@@ -2,9 +2,7 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import InputmaskLib from 'inputmask';
-
-	const Inputmask = InputmaskLib.default || InputmaskLib;
+	import Inputmask from 'inputmask';
 
 	let inputElement = $state<HTMLInputElement | null>(null);
 

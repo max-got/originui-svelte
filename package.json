@@ -14,21 +14,24 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"generate:registry": "tsx scripts/createComponentRegistryTypes.ts"
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.1.0",
 		"@fontsource/jetbrains-mono": "^5.1.1",
 		"@internationalized/date": "^3.5.6",
-		"bits-ui": "1.0.0-next.31",
+		"bits-ui": "1.0.0-next.48",
 		"clsx": "^2.1.1",
 		"hastscript": "^9.0.0",
 		"inputmask": "^5.0.7",
 		"lucide-svelte": "^0.454.0",
 		"mode-watcher": "^0.4.1",
+		"runed": "^0.15.3",
 		"svelte-tel-input": "^3.5.2",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",
+		"vaul-svelte": "1.0.0-next.2",
 		"wrangler": "^3.83.0"
 	},
 	"devDependencies": {
@@ -39,6 +42,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/hast": "^3.0.4",
 		"@types/inputmask": "^5.0.7",
+		"@types/node": "^22.9.0",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",

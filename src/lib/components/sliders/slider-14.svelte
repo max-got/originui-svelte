@@ -1,0 +1,14 @@
+<script lang="ts">
+	import Label from '$lib/components/ui/label.svelte';
+	import Slider from '$lib/components/ui/slider.svelte';
+</script>
+
+<div class="space-y-4">
+	<Label>Slider with multiple thumbs</Label>
+	<Slider
+		value={[25, 50, 100]}
+		aria-label="Slider with multiple thumbs"
+		showTooltip
+		tooltipContent={(value) => `${value}%`}
+	/>
+</div>
