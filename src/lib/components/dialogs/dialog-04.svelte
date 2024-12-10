@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { buttonVariants } from '../ui/button.svelte';
+	import { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 </script>
