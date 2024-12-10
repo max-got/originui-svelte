@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/2/2024, 4:28:00 PM
+ * Last generated at: 12/10/2024, 7:00:19 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -10,6 +10,39 @@
 import type { Prettify } from '$lib/types/helpers';
 
 export const OUI_DIRECTORIES = {
+	ALERTS: {
+		directory: 'alerts',
+		components: [
+			'alert-01.svelte',
+			'alert-02.svelte',
+			'alert-03.svelte',
+			'alert-04.svelte',
+			'alert-05.svelte',
+			'alert-06.svelte',
+			'alert-07.svelte',
+			'alert-08.svelte',
+			'alert-09.svelte',
+			'alert-10.svelte',
+			'alert-11.svelte',
+			'alert-12.svelte'
+		]
+	},
+	BANNERS: {
+		directory: 'banners',
+		components: [
+			'banner-01.svelte',
+			'banner-02.svelte',
+			'banner-03.svelte',
+			'banner-04.svelte',
+			'banner-05.svelte',
+			'banner-06.svelte',
+			'banner-07.svelte',
+			'banner-08.svelte',
+			'banner-09.svelte',
+			'banner-10.svelte',
+			'banner-11.svelte'
+		]
+	},
 	BUTTONS: {
 		directory: 'buttons',
 		components: [
@@ -115,28 +148,6 @@ export const OUI_DIRECTORIES = {
 			'dialog-21.svelte'
 		]
 	},
-	SWITCHES: {
-		directory: 'switches',
-		components: [
-			'switch-01.svelte',
-			'switch-02.svelte',
-			'switch-03.svelte',
-			'switch-04.svelte',
-			'switch-05.svelte',
-			'switch-06.svelte',
-			'switch-07.svelte',
-			'switch-08.svelte',
-			'switch-09.svelte',
-			'switch-10.svelte',
-			'switch-11.svelte',
-			'switch-12.svelte',
-			'switch-13.svelte',
-			'switch-14.svelte',
-			'switch-15.svelte',
-			'switch-16.svelte',
-			'switch-17.svelte'
-		]
-	},
 	INPUTS: {
 		directory: 'inputs',
 		components: [
@@ -199,6 +210,58 @@ export const OUI_DIRECTORIES = {
 			'input-57.todo.svelte'
 		]
 	},
+	NOTIFICATIONS: {
+		directory: 'notifications',
+		components: [
+			'notification-01.svelte',
+			'notification-02.svelte',
+			'notification-03.svelte',
+			'notification-04.svelte',
+			'notification-05.svelte',
+			'notification-06.svelte',
+			'notification-07.svelte',
+			'notification-08.svelte',
+			'notification-09.svelte',
+			'notification-10.svelte',
+			'notification-11.svelte',
+			'notification-12.svelte',
+			'notification-13.svelte',
+			'notification-14.svelte',
+			'notification-15.svelte',
+			'notification-16.svelte',
+			'notification-17.svelte',
+			'notification-18.svelte',
+			'notification-19.todo.svelte',
+			'notification-20.todo.svelte',
+			'notification-21.svelte',
+			'notification-22.svelte',
+			'notification-23.svelte'
+		]
+	},
+	RADIOS: {
+		directory: 'radios',
+		components: [
+			'radio-01.svelte',
+			'radio-02.svelte',
+			'radio-03.svelte',
+			'radio-04.svelte',
+			'radio-05.svelte',
+			'radio-06.svelte',
+			'radio-07.svelte',
+			'radio-08.svelte',
+			'radio-09.svelte',
+			'radio-10.svelte',
+			'radio-11.svelte',
+			'radio-12.svelte',
+			'radio-13.svelte',
+			'radio-14.svelte',
+			'radio-15.svelte',
+			'radio-16.svelte',
+			'radio-17.svelte',
+			'radio-18.svelte',
+			'radio-19.svelte'
+		]
+	},
 	SLIDERS: {
 		directory: 'sliders',
 		components: [
@@ -231,28 +294,26 @@ export const OUI_DIRECTORIES = {
 			'slider-27.svelte'
 		]
 	},
-	RADIOS: {
-		directory: 'radios',
+	SWITCHES: {
+		directory: 'switches',
 		components: [
-			'radio-01.svelte',
-			'radio-02.svelte',
-			'radio-03.svelte',
-			'radio-04.svelte',
-			'radio-05.svelte',
-			'radio-06.svelte',
-			'radio-07.svelte',
-			'radio-08.svelte',
-			'radio-09.svelte',
-			'radio-10.svelte',
-			'radio-11.svelte',
-			'radio-12.svelte',
-			'radio-13.svelte',
-			'radio-14.svelte',
-			'radio-15.svelte',
-			'radio-16.svelte',
-			'radio-17.svelte',
-			'radio-18.svelte',
-			'radio-19.svelte'
+			'switch-01.svelte',
+			'switch-02.svelte',
+			'switch-03.svelte',
+			'switch-04.svelte',
+			'switch-05.svelte',
+			'switch-06.svelte',
+			'switch-07.svelte',
+			'switch-08.svelte',
+			'switch-09.svelte',
+			'switch-10.svelte',
+			'switch-11.svelte',
+			'switch-12.svelte',
+			'switch-13.svelte',
+			'switch-14.svelte',
+			'switch-15.svelte',
+			'switch-16.svelte',
+			'switch-17.svelte'
 		]
 	},
 	TEXTAREAS: {
@@ -282,33 +343,43 @@ export const OUI_DIRECTORIES = {
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];
 
+export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components'][number];
+export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
 export type OUIDialogsComponents = (typeof OUI_DIRECTORIES)['DIALOGS']['components'][number];
-export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
-export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
+export type OUINotificationsComponents =
+	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
+export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
+export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
 
 export type OUIComponent = Prettify<
+	| OUIAlertsComponents
+	| OUIBannersComponents
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
 	| OUIDialogsComponents
-	| OUISwitchesComponents
 	| OUIInputsComponents
-	| OUISlidersComponents
+	| OUINotificationsComponents
 	| OUIRadiosComponents
+	| OUISlidersComponents
+	| OUISwitchesComponents
 	| OUITextareasComponents
 >;
 
 export interface OUIDirectoryToComponent {
+	alerts: OUIAlertsComponents;
+	banners: OUIBannersComponents;
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
 	dialogs: OUIDialogsComponents;
-	switches: OUISwitchesComponents;
 	inputs: OUIInputsComponents;
-	sliders: OUISlidersComponents;
+	notifications: OUINotificationsComponents;
 	radios: OUIRadiosComponents;
+	sliders: OUISlidersComponents;
+	switches: OUISwitchesComponents;
 	textareas: OUITextareasComponents;
 }

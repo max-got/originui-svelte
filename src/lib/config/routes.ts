@@ -4,16 +4,47 @@ type MetadataVariables = {
 	count: string;
 };
 
+type SEOMetadata = {
+	description: string;
+	keywords?: string;
+	title: string;
+	twitterDescription: string;
+	twitterTitle: string;
+};
+
 type ComponentRoutes = {
 	componentDirectory: OUIDirectory[];
 	header: {
 		description: string;
 		title: string;
 	};
+	label: string;
+	order: number;
 	path: string;
+	seo: SEOMetadata;
 };
 
 export const COMPONENT_ROUTES = {
+	alertsNotificationsBanners: {
+		componentDirectory: ['alerts', 'notifications', 'banners'],
+		header: {
+			description:
+				'A growing collection of ${count} alert, notification, and banner components built with Svelte and TailwindCSS.',
+			title: 'Alert, Notification, and Banner'
+		},
+		label: 'Alerts, Notifications, and Banners',
+		order: 6,
+		path: 'alerts-notifications-banners',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'alert, notification, banner, component, svelte, tailwindcss',
+			title: 'Alerts, Notifications, and Banners',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Alerts, Notifications, and Banners'
+		}
+	},
 	buttons: {
 		componentDirectory: ['buttons'],
 		header: {
@@ -21,7 +52,18 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} button components built with Svelte and TailwindCSS.',
 			title: 'Button'
 		},
-		path: 'buttons'
+		label: 'Buttons',
+		order: 2,
+		path: 'buttons',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'button, component, svelte, tailwindcss',
+			title: 'Buttons',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Buttons'
+		}
 	},
 	checkboxes: {
 		componentDirectory: ['checkboxes', 'radios', 'switches'],
@@ -30,7 +72,18 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} checkbox components built with Svelte and TailwindCSS.',
 			title: 'Checkbox'
 		},
-		path: 'checks-radios-switches'
+		label: 'Checkboxes, Radios, and Switches',
+		order: 3,
+		path: 'checks-radios-switches',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'checkbox, radio, switch, component, svelte, tailwindcss',
+			title: 'Checkboxes, Radios, and Switches',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Checkboxes, Radios, and Switches'
+		}
 	},
 	dialogs: {
 		componentDirectory: ['dialogs'],
@@ -48,7 +101,18 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} input and textarea components built with Svelte and TailwindCSS.',
 			title: 'Input'
 		},
-		path: 'inputs'
+		label: 'Inputs',
+		order: 1,
+		path: 'inputs',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Input and Textarea components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'input, textarea, component, svelte, tailwindcss',
+			title: 'Inputs and Textareas',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Input and Textarea components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Inputs and Textareas'
+		}
 	},
 	sliders: {
 		componentDirectory: ['sliders'],
@@ -57,7 +121,18 @@ export const COMPONENT_ROUTES = {
 				'A growing collection of over ${count} slider components built with Svelte and TailwindCSS.',
 			title: 'Slider'
 		},
-		path: 'sliders'
+		label: 'Sliders',
+		order: 5,
+		path: 'sliders',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Slider components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'slider, component, svelte, tailwindcss',
+			title: 'Sliders',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Slider components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Sliders'
+		}
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 

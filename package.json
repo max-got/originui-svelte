@@ -28,6 +28,7 @@
 		"lucide-svelte": "^0.454.0",
 		"mode-watcher": "^0.4.1",
 		"runed": "^0.15.3",
+		"svelte-sonner": "^0.3.28",
 		"svelte-tel-input": "^3.5.2",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",

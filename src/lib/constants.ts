@@ -36,6 +36,12 @@ export const POSSIBLE_DEPENDENCIES = [
 		name: 'inputmask',
 		packageName: 'inputmask',
 		url: 'https://github.com/RobinHerbots/Inputmask'
+	},
+	{
+		dev: false,
+		name: 'svelte-sonner',
+		packageName: 'svelte-sonner',
+		url: 'https://github.com/wobsoriano/svelte-sonner'
 	}
 ] as const;
 
