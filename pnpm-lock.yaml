@@ -38,6 +38,9 @@ importers:
       runed:
         specifier: ^0.15.3
         version: 0.15.3(svelte@5.1.12)
+      svelte-sonner:
+        specifier: ^0.3.28
+        version: 0.3.28(svelte@5.1.12)
       svelte-tel-input:
         specifier: ^3.5.2
         version: 3.5.2(svelte@5.1.12)
@@ -2137,6 +2140,11 @@ packages:
 
   svelte-parse-markup@0.1.5:
     resolution: {integrity: sha512-T6mqZrySltPCDwfKXWQ6zehipVLk4GWfH1zCMGgRtLlOIFPuw58ZxVYxVvotMJgJaurKi1i14viB2GIRKXeJTQ==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
+
+  svelte-sonner@0.3.28:
+    resolution: {integrity: sha512-K3AmlySeFifF/cKgsYNv5uXqMVNln0NBAacOYgmkQStLa/UoU0LhfAACU6Gr+YYC8bOCHdVmFNoKuDbMEsppJg==}
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
 
@@ -4315,6 +4323,10 @@ snapshots:
       svelte: 5.1.12
 
   svelte-parse-markup@0.1.5(svelte@5.1.12):
+    dependencies:
+      svelte: 5.1.12
+
+  svelte-sonner@0.3.28(svelte@5.1.12):
     dependencies:
       svelte: 5.1.12
 
