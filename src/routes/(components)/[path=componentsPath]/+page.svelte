@@ -31,7 +31,7 @@
 <DemoComponents.Wrapper
 	componentCategories={[data.components]}
 	data-path={data.routeMetadata.path}
-	class="data-[path=buttons]:text-center"
+	class="data-[path=buttons]:text-center data-[path=dialogs]:text-center"
 >
 	{#snippet availableComponent({ availableComponentData })}
 		<DemoComponents.Demo
