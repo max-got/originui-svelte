@@ -32,6 +32,15 @@ export const COMPONENT_ROUTES = {
 		},
 		path: 'checks-radios-switches'
 	},
+	dialogs: {
+		componentDirectory: ['dialogs'],
+		header: {
+			description:
+				'A growing collection of over ${count} dialog components built with Svelte and TailwindCSS.',
+			title: 'Dialog'
+		},
+		path: 'dialogs'
+	},
 	inputs: {
 		componentDirectory: ['inputs', 'textareas'],
 		header: {
