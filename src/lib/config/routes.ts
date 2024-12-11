@@ -85,6 +85,26 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Checkboxes, Radios, and Switches'
 		}
 	},
+	dialogs: {
+		componentDirectory: ['dialogs'],
+		header: {
+			description:
+				'A growing collection of over ${count} dialog components built with Svelte and TailwindCSS.',
+			title: 'Dialog'
+		},
+		label: 'Dialogs',
+		order: 7,
+		path: 'dialogs',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'dialog, component, svelte, tailwindcss',
+			title: 'Dialogs',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Dialogs'
+		}
+	},
 	inputs: {
 		componentDirectory: ['inputs', 'textareas'],
 		header: {

@@ -89,6 +89,11 @@ export const getChecksDirectories = () =>
 export const getChecksFileNames = () => componentRegistry.getFiles(getChecksDirectories());
 export type CheckComponents = DirectoryFileNames<'checkboxes' | 'radios' | 'switches'>;
 
+/* Dialogs */
+export const getDialogsDirectories = () => componentRegistry.getDirectories(['DIALOGS']);
+export const getDialogsFileNames = () => componentRegistry.getFiles(getDialogsDirectories());
+export type DialogComponents = DirectoryFileNames<'dialogs'>;
+
 /* Inputs, Textareas */
 export const getInputsDirectories = () => componentRegistry.getDirectories(['INPUTS', 'TEXTAREAS']);
 export const getInputsFileNames = () => componentRegistry.getFiles(getInputsDirectories());
