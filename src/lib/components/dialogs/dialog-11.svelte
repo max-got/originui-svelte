@@ -2,8 +2,8 @@
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Label from '$lib/components/ui/label.svelte';
-	import Textarea from '$lib/components/ui/textarea.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Textarea from '$lib/components/ui/textarea.svelte';
 </script>
 
 <Dialog.Root>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as AlertDialog from '$lib/components/ui/alert-dialog/index.js';
+	import { buttonVariants } from '$lib/components/ui/button.svelte';
 
 	import CircleAlert from 'lucide-svelte/icons/circle-alert';
 </script>

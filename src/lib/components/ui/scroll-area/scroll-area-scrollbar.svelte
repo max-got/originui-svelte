@@ -4,10 +4,10 @@
 	import { ScrollArea as ScrollAreaPrimitive, type WithoutChild } from 'bits-ui';
 
 	let {
-		ref = $bindable(null),
+		children,
 		class: className,
 		orientation = 'vertical',
-		children,
+		ref = $bindable(null),
 		...restProps
 	}: WithoutChild<ScrollAreaPrimitive.ScrollbarProps> = $props();
 </script>

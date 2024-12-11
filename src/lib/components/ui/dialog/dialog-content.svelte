@@ -1,21 +1,21 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+
 	import DialogOverlay from './dialog-overlay.svelte';
 	import { cn } from '$lib/utils.js';
 
 	import { Dialog as DialogPrimitive, type WithoutChild } from 'bits-ui';
-
 	import X from 'lucide-svelte/icons/x';
 
 	let {
-		class: className,
-		ref = $bindable(null),
-		portalProps,
 		children,
+		class: className,
+		portalProps,
+		ref = $bindable(null),
 		...restProps
 	}: WithoutChild<DialogPrimitive.ContentProps> & {
-		portalProps?: DialogPrimitive.PortalProps;
 		children: Snippet;
+		portalProps?: DialogPrimitive.PortalProps;
 	} = $props();
 </script>
 

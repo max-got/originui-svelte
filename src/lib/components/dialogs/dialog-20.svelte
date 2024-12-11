@@ -1,31 +1,30 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import DialogImg from '$lib/assets/dialog-content.png';
 
+	import DialogImg from '$lib/assets/dialog-content.png';
+	import { cn } from '$lib/utils';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	const steps = [
 		{
-			title: 'Welcome to Origin UI',
 			description:
-				'Discover a powerful collection of components designed to enhance your development workflow.'
+				'Discover a powerful collection of components designed to enhance your development workflow.',
+			title: 'Welcome to Origin UI'
 		},
 		{
-			title: 'Customizable Components',
 			description:
-				'Each component is fully customizable and built with modern web standards in mind.'
+				'Each component is fully customizable and built with modern web standards in mind.',
+			title: 'Customizable Components'
 		},
 		{
-			title: 'Ready to Start?',
-			description: 'Begin building amazing interfaces with our comprehensive component library.'
+			description: 'Begin building amazing interfaces with our comprehensive component library.',
+			title: 'Ready to Start?'
 		},
 		{
-			title: 'Get Support',
 			description:
-				'Access our extensive documentation and community resources to make the most of Origin UI.'
+				'Access our extensive documentation and community resources to make the most of Origin UI.',
+			title: 'Get Support'
 		}
 	];
 
@@ -61,7 +60,7 @@
 								'h-1.5 w-1.5 rounded-full bg-primary',
 								index + 1 === step ? 'bg-primary' : 'opacity-20'
 							)}
-						/>
+						></div>
 					{/each}
 				</div>
 				<Dialog.Footer>

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import Label from '$lib/components/ui/label.svelte';
-	import Input from '$lib/components/ui/input.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 </script>
 
 <Dialog.Root>

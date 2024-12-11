@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import Label from '$lib/components/ui/label.svelte';
 	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 	import {
 		Tooltip,
 		TooltipContent,
@@ -12,6 +10,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 
+	import { cn } from '$lib/utils';
 	import Check from 'lucide-svelte/icons/check';
 	import Copy from 'lucide-svelte/icons/copy';
 	import UserRoundPlus from 'lucide-svelte/icons/user-round-plus';
@@ -25,7 +24,6 @@
 	}
 
 	function handleCopy() {
-		console.log('called');
 		navigator.clipboard.writeText(input!.value);
 		copied = true;
 		setTimeout(() => (copied = false), 1500);
@@ -55,7 +53,7 @@
 				<div class="space-y-2">
 					<Label>Invite via email</Label>
 					<div class="space-y-3">
-						{#each emails as email, index}
+						{#each emails as _, index}
 							<Input
 								id={`team-email-${index + 1}`}
 								placeholder="hi@yourcompany.com"

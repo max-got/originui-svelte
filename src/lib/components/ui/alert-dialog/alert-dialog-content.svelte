@@ -6,8 +6,8 @@
 
 	let {
 		class: className,
-		ref = $bindable(null),
 		portalProps,
+		ref = $bindable(null),
 		...restProps
 	}: WithoutChild<AlertDialogPrimitive.ContentProps> & {
 		portalProps?: AlertDialogPrimitive.PortalProps;
