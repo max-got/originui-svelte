@@ -31,8 +31,8 @@ export const OUI_DIRECTORIES = {
 			'accordion-16.svelte',
 			'accordion-17.svelte',
 			'accordion-18.svelte',
-			'accordion-19.svelte',
-			'accordion-20.svelte'
+			'accordion-19.todo.svelte',
+			'accordion-20.todo.svelte'
 		]
 	},
 	ALERTS: {
