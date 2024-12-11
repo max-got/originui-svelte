@@ -143,7 +143,7 @@ export const OUI_DIRECTORIES = {
 			'dialog-16.todo.svelte',
 			'dialog-17.todo.svelte',
 			'dialog-18.svelte',
-			'dialog-19.svelte',
+			'dialog-19.todo.svelte',
 			'dialog-20.svelte',
 			'dialog-21.svelte'
 		]
