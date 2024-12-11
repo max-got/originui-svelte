@@ -1,45 +1,45 @@
 <script lang="ts">
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
-	import { Accordion as AccordionPrimitive } from 'bits-ui';
 
+	import { Accordion as AccordionPrimitive } from 'bits-ui';
 	import Bell from 'lucide-svelte/icons/bell';
 	import LifeBuoy from 'lucide-svelte/icons/life-buoy';
 	import Link2 from 'lucide-svelte/icons/link-2';
-	import ShieldCheck from 'lucide-svelte/icons/shield-check';
 	import Plus from 'lucide-svelte/icons/plus';
+	import ShieldCheck from 'lucide-svelte/icons/shield-check';
 
 	const items = [
 		{
-			id: '1',
+			content:
+				'Connect your accounts from Google, GitHub, or Microsoft to enable single sign-on and streamline your workflow. Connected accounts can be used for quick login and importing your preferences across platforms. You can revoke access to any connected account at any time.',
 			icon: Link2,
-			title: 'Connected accounts',
+			id: '1',
 			sub: 'Manage your linked social and work accounts',
-			content:
-				'Connect your accounts from Google, GitHub, or Microsoft to enable single sign-on and streamline your workflow. Connected accounts can be used for quick login and importing your preferences across platforms. You can revoke access to any connected account at any time.'
+			title: 'Connected accounts'
 		},
 		{
-			id: '2',
+			content:
+				'Choose which updates you want to receive. You can get notifications for: security alerts, billing updates, newsletter and product announcements, usage reports, and scheduled maintenance. Notifications can be delivered via email, SMS, or push notifications on your devices.',
 			icon: Bell,
-			title: 'Notifications',
+			id: '2',
 			sub: 'Customize your notification preferences',
-			content:
-				'Choose which updates you want to receive. You can get notifications for: security alerts, billing updates, newsletter and product announcements, usage reports, and scheduled maintenance. Notifications can be delivered via email, SMS, or push notifications on your devices.'
+			title: 'Notifications'
 		},
 		{
-			id: '3',
+			content:
+				'Protect your account with two-factor authentication. You can use authenticator apps like Google Authenticator or Authy, receive SMS codes, or use security keys like YubiKey. We recommend using an authenticator app for the most secure experience.',
 			icon: ShieldCheck,
-			title: '2-step verification',
+			id: '3',
 			sub: 'Add an extra layer of security to your account',
-			content:
-				'Protect your account with two-factor authentication. You can use authenticator apps like Google Authenticator or Authy, receive SMS codes, or use security keys like YubiKey. We recommend using an authenticator app for the most secure experience.'
+			title: '2-step verification'
 		},
 		{
-			id: '4',
-			icon: LifeBuoy,
-			title: 'Contact support',
-			sub: "We're here to help 24/7",
 			content:
-				'Our support team is available around the clock to assist you. For billing inquiries, technical issues, or general questions, you can reach us through live chat, email at support@example.com, or schedule a call with our technical team. Premium support is available for enterprise customers.'
+				'Our support team is available around the clock to assist you. For billing inquiries, technical issues, or general questions, you can reach us through live chat, email at support@example.com, or schedule a call with our technical team. Premium support is available for enterprise customers.',
+			icon: LifeBuoy,
+			id: '4',
+			sub: "We're here to help 24/7",
+			title: 'Contact support'
 		}
 	];
 </script>
