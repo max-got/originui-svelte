@@ -45,7 +45,7 @@
 </script>
 
 <div class="space-y-4">
-	<h2 class="text-xl font-bold">W/ icon, sub-header, and chevron</h2>
+	<h2 class="text-xl font-bold">W/ icon, sub-header, and plus-minus</h2>
 	<Accordion.Root type="single" class="w-full" value="3">
 		{#each items as item}
 			<Accordion.Item value={item.id} class="py-2">
