@@ -25,6 +25,26 @@ type ComponentRoutes = {
 };
 
 export const COMPONENT_ROUTES = {
+	accordions: {
+		componentDirectory: ['accordions'],
+		header: {
+			description:
+				'A growing collection of ${count} accordion components built with Svelte and TailwindCSS.',
+			title: 'Accordion'
+		},
+		label: 'Accordions',
+		order: 8,
+		path: 'accordions',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'button, component, svelte, tailwindcss',
+			title: 'Accordions',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Accordions'
+		}
+	},
 	alertsNotificationsBanners: {
 		componentDirectory: ['alerts', 'notifications', 'banners'],
 		header: {
