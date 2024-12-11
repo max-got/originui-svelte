@@ -1,0 +1,58 @@
+<script lang="ts">
+	import * as Accordion from '$lib/components/ui/accordion/index.js';
+
+	import AtSign from 'lucide-svelte/icons/at-sign';
+	import Command from 'lucide-svelte/icons/command';
+	import Eclipse from 'lucide-svelte/icons/eclipse';
+	import Zap from 'lucide-svelte/icons/zap';
+
+	const items = [
+		{
+			id: '1',
+			icon: Command,
+			title: 'What makes Origin UI different?',
+			content:
+				'Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.'
+		},
+		{
+			id: '2',
+			icon: Eclipse,
+			title: 'How can I customize the components?',
+			content:
+				'Use our CSS variables for global styling, or className and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.'
+		},
+		{
+			id: '3',
+			icon: Zap,
+			title: 'Is Origin UI optimized for performance?',
+			content:
+				'Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.'
+		},
+		{
+			id: '4',
+			icon: AtSign,
+			title: 'How accessible are the components?',
+			content:
+				'All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.'
+		}
+	];
+</script>
+
+<div class="space-y-4">
+	<h2 class="text-xl font-bold">W/ icon and chevron</h2>
+	<Accordion.Root type="single" class="w-full" value="3">
+		{#each items as item}
+			<Accordion.Item value={item.id} class="py-2">
+				<Accordion.Trigger class="py-2 text-[15px] leading-6 hover:no-underline">
+					<span class="flex items-center gap-3">
+						<item.icon size={16} strokeWidth={2} class="shrink-0 opacity-60" aria-hidden="true" />
+						<span>{item.title}</span>
+					</span>
+				</Accordion.Trigger>
+				<Accordion.Content class="pb-2 ps-7 text-muted-foreground">
+					{item.content}
+				</Accordion.Content>
+			</Accordion.Item>
+		{/each}
+	</Accordion.Root>
+</div>
