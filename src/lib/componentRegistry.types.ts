@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 8:38:59 PM
+ * Last generated at: 12/12/2024, 8:46:38 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -364,6 +364,20 @@ export const OUI_DIRECTORIES = {
 			'textarea-18.svelte',
 			'textarea-19.svelte'
 		]
+	},
+	TOOLTIPS: {
+		directory: 'tooltips',
+		components: [
+			'tooltip-01.todo.svelte',
+			'tooltip-02.todo.svelte',
+			'tooltip-03.todo.svelte',
+			'tooltip-04.todo.svelte',
+			'tooltip-05.todo.svelte',
+			'tooltip-06.todo.svelte',
+			'tooltip-07.todo.svelte',
+			'tooltip-08.todo.svelte',
+			'tooltip-09.todo.svelte'
+		]
 	}
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];
@@ -381,6 +395,7 @@ export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
+export type OUITooltipsComponents = (typeof OUI_DIRECTORIES)['TOOLTIPS']['components'][number];
 
 export type OUIComponent = Prettify<
 	| OUIAccordionsComponents
@@ -395,6 +410,7 @@ export type OUIComponent = Prettify<
 	| OUISlidersComponents
 	| OUISwitchesComponents
 	| OUITextareasComponents
+	| OUITooltipsComponents
 >;
 
 export interface OUIDirectoryToComponent {
@@ -410,4 +426,5 @@ export interface OUIDirectoryToComponent {
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
 	textareas: OUITextareasComponents;
+	tooltips: OUITooltipsComponents;
 }

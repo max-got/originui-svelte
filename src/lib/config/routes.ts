@@ -164,6 +164,26 @@ export const COMPONENT_ROUTES = {
 				'An extensive collection of copy-and-paste Slider components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
 			twitterTitle: 'Sliders'
 		}
+	},
+	tooltips: {
+		componentDirectory: ['tooltips'],
+		header: {
+			description:
+				'A growing collection of ${count} tooltip and hover card components built with Svelte and TailwindCSS.',
+			title: 'Tooltip'
+		},
+		label: 'Tooltips',
+		order: 9,
+		path: 'tooltips',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'tooltip, hover card, component, svelte, tailwindcss',
+			title: 'Tooltips and Hover Cards',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Tooltips and Hover Cards'
+		}
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 
