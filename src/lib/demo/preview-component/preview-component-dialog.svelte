@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
+	import type { AvailableOUIComponent } from '$data/api/components.handler';
 
 	import Component from './preview-component.svelte';
 	import * as Dialog from '$lib/demo/ui/dialog/index.js';

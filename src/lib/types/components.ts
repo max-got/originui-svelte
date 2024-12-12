@@ -1,5 +1,5 @@
+import type { AvailableOUIComponent } from '$data/api/components.handler';
 import type { PossibleDependency } from '$lib/constants';
-import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
 
 import type { Prettify } from './helpers';
 
