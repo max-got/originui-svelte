@@ -9,11 +9,11 @@
 			content:
 				'Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.',
 			id: '1',
-			title: 'What makes Origin UI different?'
+			title: 'What makes Origin UI - Svelte different?'
 		},
 		{
 			content:
-				'Use our CSS variables for global styling, or className and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.',
+				'Use our CSS variables for global styling, or class and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.',
 			id: '2',
 			title: 'How can I customize the components?'
 		},
@@ -21,7 +21,7 @@
 			content:
 				'Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.',
 			id: '3',
-			title: 'Is Origin UI optimized for performance?'
+			title: 'Is Origin UI - Svelte optimized for performance?'
 		},
 		{
 			content:
