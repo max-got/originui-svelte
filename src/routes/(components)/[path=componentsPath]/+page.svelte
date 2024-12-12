@@ -58,7 +58,7 @@
 	>
 		{#snippet availableComponent({ data })}
 			<DemoComponents.Demo
-				class="demo data-[directory=switches]:flex data-[directory=switches]:justify-center"
+				class="demo data-[directory=switches]:flex data-[directory=switches]:justify-center data-[directory=dialogs]:text-center"
 				data-component={data.id}
 				data-directory={data.directory}
 				componentData={data}
