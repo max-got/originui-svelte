@@ -7,15 +7,12 @@
 	let {
 		children,
 		class: className,
-		level = 3,
 		ref = $bindable(null),
 		...restProps
-	}: WithoutChild<AccordionPrimitive.TriggerProps> & {
-		level?: AccordionPrimitive.HeaderProps['level'];
-	} = $props();
+	}: WithoutChild<AccordionPrimitive.TriggerProps> = $props();
 </script>
 
-<AccordionPrimitive.Header {level} class="flex">
+<AccordionPrimitive.Header class="flex">
 	<AccordionPrimitive.Trigger
 		bind:ref
 		class={cn(
