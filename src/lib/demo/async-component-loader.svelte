@@ -4,8 +4,6 @@
 	import type { Component, Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import Button from '$lib/components/ui/button.svelte';
-
 	import { cn } from '$lib/utils';
 	import ShieldX from 'lucide-svelte/icons/shield-x';
 	import { useIntersectionObserver, type UseIntersectionObserverOptions } from 'runed';
@@ -81,7 +79,6 @@
 			<ShieldX aria-hidden="true" />
 		</div>
 		<p class="text-sm text-muted-foreground">{error.message}</p>
-		<Button variant="outline" size="sm">Reload</Button>
 	</div>
 {/snippet}
 
