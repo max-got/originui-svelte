@@ -75,36 +75,38 @@
 	</DemoComponents.Wrapper>
 </div>
 
-<style>
-	.components-wrapper {
-		:global .wrapper {
-			&[data-path='buttons'] {
-				text-align: center;
+<div>
+	<style>
+		.components-wrapper {
+			.wrapper {
+				&[data-path='buttons'] {
+					text-align: center;
+				}
+			}
+			.demo {
+				&[data-directory='banners'] {
+					grid-column: 1 / -1;
+				}
+
+				&[data-directory='tooltips'],
+				&[data-directory='switches'],
+				&[data-directory='notifications'],
+				&[data-directory='alerts'],
+				&[data-directory='hover-cards'] {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+
+				&[data-directory='dialogs'] {
+					text-align: center;
+				}
+
+				&[data-component='notification-23'] {
+					grid-column: 1 / -1;
+					display: block;
+				}
 			}
 		}
-		:global .demo {
-			&[data-directory='banners'] {
-				grid-column: 1 / -1;
-			}
-
-			&[data-directory='tooltips'],
-			&[data-directory='switches'],
-			&[data-directory='notifications'],
-			&[data-directory='alerts'],
-			&[data-directory='hover-cards'] {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-
-			&[data-directory='dialogs'] {
-				text-align: center;
-			}
-
-			&[data-component='notification-23'] {
-				grid-column: 1 / -1;
-				display: block;
-			}
-		}
-	}
-</style>
+	</style>
+</div>
