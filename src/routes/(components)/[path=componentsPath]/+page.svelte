@@ -101,7 +101,8 @@
 				}
 
 				&[data-directory='notifications'],
-				&[data-directory='alerts'] {
+				&[data-directory='alerts'],
+				&[data-directory='hover-cards'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;

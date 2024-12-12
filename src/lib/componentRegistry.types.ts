@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 9:27:19 PM
+ * Last generated at: 12/12/2024, 9:49:13 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -175,11 +175,7 @@ export const OUI_DIRECTORIES = {
 	},
 	'HOVER-CARDS': {
 		directory: 'hover-cards',
-		components: [
-			'hover-card-01.todo.svelte',
-			'hover-card-02.todo.svelte',
-			'hover-card-03.todo.svelte'
-		]
+		components: ['hover-card-01.svelte', 'hover-card-02.svelte', 'hover-card-03.svelte']
 	},
 	INPUTS: {
 		directory: 'inputs',
