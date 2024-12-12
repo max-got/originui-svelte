@@ -75,7 +75,8 @@ class ComponentRegistryGenerator {
 		const components = Array.from(this.#dirComponentSet).sort((a, b) => a.dir.localeCompare(b.dir));
 
 		function generateDirName(dir: string) {
-			return `${GENERATED_TYPE_PREFIX}${dir.charAt(0).toUpperCase()}${dir.slice(1)}`;
+			const formattedDir = dir.replace(/[^a-zA-Z]/g, '');
+			return `${GENERATED_TYPE_PREFIX}${formattedDir.charAt(0).toUpperCase()}${formattedDir.slice(1)}`;
 		}
 
 		function directoryObject() {
@@ -116,7 +117,7 @@ class ComponentRegistryGenerator {
 		function directoryToComponent() {
 			let output = `export interface ${DIRECTORY_TO_COMPONENT_NAME} {`;
 			components.forEach(({ dir }) => {
-				output += `  ${dir}: ${generateDirName(dir)}Components;`;
+				output += `  '${dir}': ${generateDirName(dir)}Components;`;
 			});
 			return `${output}}`;
 		}
