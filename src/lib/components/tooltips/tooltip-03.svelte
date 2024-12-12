@@ -10,7 +10,7 @@
 </script>
 
 <TooltipProvider delayDuration={0}>
-	<Tooltip >
+	<Tooltip>
 		<TooltipTrigger>
 			{#snippet child({ props })}
 				<Button variant="outline" size="sm" {...props}>W/ arrow</Button>
