@@ -1,4 +1,3 @@
-import type { ComponentAPIResponseJSON } from '$data/api/components.handler.js';
 import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types.js';
 import type { Component } from 'svelte';
 
@@ -18,30 +17,24 @@ interface ComponentImports {
 	source: Record<string, string>;
 }
 
-// Cache for imports
-let importsCache: ComponentImports | null = null;
-
 const getImports = (): ComponentImports => {
-	if (!importsCache) {
-		importsCache = {
-			compiled: import.meta.glob(
-				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
-				{
-					eager: true,
-					import: 'default'
-				}
-			) as Record<string, Component>,
-			source: import.meta.glob(
-				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
-				{
-					eager: true,
-					import: 'default',
-					query: '?raw'
-				}
-			) as Record<string, string>
-		};
-	}
-	return importsCache;
+	return {
+		compiled: import.meta.glob(
+			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			{
+				eager: true,
+				import: 'default'
+			}
+		) as Record<string, Component>,
+		source: import.meta.glob(
+			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			{
+				eager: true,
+				import: 'default',
+				query: '?raw'
+			}
+		) as Record<string, string>
+	};
 };
 
 function removeShikiComments(source: string) {
@@ -179,40 +172,4 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 		id: componentName,
 		path
 	} as const;
-}
-
-export type AvailableOUIComponent = Extract<
-	ComponentAPIResponseJSON['components'][number],
-	{ available: true }
-> & {
-	component: Awaited<ReturnType<typeof getCompiledComponent>>;
-};
-export type UnavailableOUIComponent = Extract<
-	ComponentAPIResponseJSON['components'][number],
-	{ available: false }
->;
-
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number] & { available: true }
-): Promise<AvailableOUIComponent>;
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number] & { available: false }
-): Promise<UnavailableOUIComponent>;
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number]
-): Promise<AvailableOUIComponent | UnavailableOUIComponent>;
-
-export async function createComponent(metadata: ComponentAPIResponseJSON['components'][number]) {
-	if (!metadata.available) {
-		return {
-			...metadata
-		};
-	}
-
-	const component = await getCompiledComponent(metadata.path);
-
-	return {
-		...metadata,
-		component: component
-	};
 }

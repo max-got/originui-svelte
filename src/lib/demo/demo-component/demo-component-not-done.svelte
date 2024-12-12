@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
+	import type { AvailableComponentMetadata } from '$data/api/components.handler';
 
+	import AsyncComponentLoader from '../async-component-loader.svelte';
 	import { cn } from '$lib/utils.js';
 
 	let {
@@ -8,13 +9,15 @@
 		componentData
 	}: {
 		class?: string;
-		componentData: AvailableOUIComponent;
+		componentData: AvailableComponentMetadata;
 		onShallowRoute?: (e: MouseEvent) => void;
 	} = $props();
-
-	const Component = $derived(componentData.component);
 </script>
 
 <div class={cn('group/item relative ', className)}>
-	<Component />
+	<AsyncComponentLoader componentId={componentData.id} directory={componentData.directory}>
+		{#snippet child({ Component })}
+			<Component />
+		{/snippet}
+	</AsyncComponentLoader>
 </div>
