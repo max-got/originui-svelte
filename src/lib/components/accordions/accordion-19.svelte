@@ -121,7 +121,7 @@
 			{title}
 		</CollapsibleTrigger>
 		<CollapsibleContent
-			class="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm text-muted-foreground transition-all"
+			class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
 		>
 			{content}
 		</CollapsibleContent>

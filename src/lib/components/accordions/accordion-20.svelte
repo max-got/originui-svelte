@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Component } from 'svelte';
-
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
 	import {
@@ -119,7 +117,6 @@
 					{#each item.collapsibles as collapsible}
 						{@render CollapsibleDemo({
 							content: collapsible.content,
-							// @ts-expect-error - lucide-svelte needs to update their types
 							Icon: collapsible.icon,
 							open: collapsible.open ?? false,
 							title: collapsible.title
@@ -138,7 +135,7 @@
 	title
 }: {
 	content: string;
-	Icon: Component;
+	Icon: typeof Gauge;
 	open: boolean;
 	title: string;
 })}
@@ -158,7 +155,7 @@
 			</span>
 		</CollapsibleTrigger>
 		<CollapsibleContent
-			class="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm text-muted-foreground transition-all"
+			class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
 		>
 			{content}
 		</CollapsibleContent>

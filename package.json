@@ -25,7 +25,7 @@
 		"clsx": "^2.1.1",
 		"hastscript": "^9.0.0",
 		"inputmask": "^5.0.7",
-		"lucide-svelte": "^0.454.0",
+		"lucide-svelte": "^0.468.0",
 		"mode-watcher": "^0.5.0",
 		"runed": "^0.18.0",
 		"svelte-sonner": "^0.3.28",
