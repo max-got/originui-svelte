@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 8:46:38 PM
+ * Last generated at: 12/12/2024, 9:04:58 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -368,11 +368,11 @@ export const OUI_DIRECTORIES = {
 	TOOLTIPS: {
 		directory: 'tooltips',
 		components: [
-			'tooltip-01.todo.svelte',
-			'tooltip-02.todo.svelte',
-			'tooltip-03.todo.svelte',
-			'tooltip-04.todo.svelte',
-			'tooltip-05.todo.svelte',
+			'tooltip-01.svelte',
+			'tooltip-02.svelte',
+			'tooltip-03.svelte',
+			'tooltip-04.svelte',
+			'tooltip-05.svelte',
 			'tooltip-06.todo.svelte',
 			'tooltip-07.todo.svelte',
 			'tooltip-08.todo.svelte',
