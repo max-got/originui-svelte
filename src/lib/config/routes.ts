@@ -166,7 +166,7 @@ export const COMPONENT_ROUTES = {
 		}
 	},
 	tooltips: {
-		componentDirectory: ['tooltips'],
+		componentDirectory: ['tooltips', 'hover-cards'],
 		header: {
 			description:
 				'A growing collection of ${count} tooltip and hover card components built with Svelte and TailwindCSS.',
