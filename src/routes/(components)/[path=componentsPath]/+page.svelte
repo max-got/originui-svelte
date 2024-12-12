@@ -49,37 +49,40 @@
 	<meta name="twitter:description" content={data.routeMetadata.seo.twitterDescription} />
 </svelte:head>
 
-<DemoComponents.Wrapper
-	{componentCategories}
-	data-path={data.routeMetadata.path}
-	class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
-	data-directory={data.routeMetadata.componentDirectory.join('_')}
->
-	{#snippet availableComponent({ data })}
-		<DemoComponents.Demo
-			class="demo"
-			data-component={data.id}
-			data-directory={data.directory}
-			componentData={data}
-			onShallowRouteClick={(e, { componentUrl, data }) => showComponentModal(e, componentUrl, data)}
-		/>
-	{/snippet}
-	{#snippet todoComponent({ data })}
-		<DemoComponents.DemoNotDone componentData={data} />
-	{/snippet}
-	{#snippet unavailableComponent()}
-		<DemoComponents.DemoUnavailable />
-	{/snippet}
-</DemoComponents.Wrapper>
+<div class="components-wrapper">
+	<DemoComponents.Wrapper
+		{componentCategories}
+		data-path={data.routeMetadata.path}
+		class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
+		data-directory={data.routeMetadata.componentDirectory.join('_')}
+	>
+		{#snippet availableComponent({ data })}
+			<DemoComponents.Demo
+				class="demo"
+				data-component={data.id}
+				data-directory={data.directory}
+				componentData={data}
+				onShallowRouteClick={(e, { componentUrl, data }) =>
+					showComponentModal(e, componentUrl, data)}
+			/>
+		{/snippet}
+		{#snippet todoComponent({ data })}
+			<DemoComponents.DemoNotDone componentData={data} />
+		{/snippet}
+		{#snippet unavailableComponent()}
+			<DemoComponents.DemoUnavailable />
+		{/snippet}
+	</DemoComponents.Wrapper>
+</div>
 
 <style>
-	:global {
-		.wrapper {
+	.components-wrapper {
+		:global .wrapper {
 			&[data-path='buttons'] {
 				text-align: center;
 			}
 		}
-		.demo {
+		:global .demo {
 			&[data-directory='banners'] {
 				grid-column: 1 / -1;
 			}
