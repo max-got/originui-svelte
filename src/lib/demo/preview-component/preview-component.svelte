@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { AvailableComponentMetadata } from '$data/api/components.handler';
-	import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types';
-	import type { Component } from 'svelte';
 
+	import AsyncComponentLoader from '../async-component-loader.svelte';
 	import PreviewComponentDependency from './preview-component-dependency.svelte';
 	import Button from '$lib/components/ui/button.svelte';
 	import CodePreview from '$lib/demo/code-preview.svelte';
@@ -21,9 +20,6 @@
 
 	const overviewUrl = $derived($page.url.pathname.split('/').slice(0, -1).join('/'));
 
-	type PaginationComponentProps = {
-		componentMetadata: AvailableComponentMetadata;
-	};
 	type Props = {
 		componentMetadata: AvailableComponentMetadata;
 		isPreview?: boolean;
@@ -59,29 +55,13 @@
 
 	let showComponentPaginationNav = $state(false);
 
-	// const Component = $derived(componentMetadata.component);
-
 	// Add keyboard navigation
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'ArrowLeft' && prevComponentMetadata?.available) {
+		if (e.key === 'ArrowLeft' && prevComponentMetadata) {
 			goto(`${overviewUrl}/${prevComponentMetadata.id}`);
-		} else if (e.key === 'ArrowRight' && nextComponentMetadata?.available) {
+		} else if (e.key === 'ArrowRight' && nextComponentMetadata) {
 			goto(`${overviewUrl}/${nextComponentMetadata.id}`);
 		}
-	}
-
-	// function importComponent(
-	// 	directory: AvailableOUIComponent['directory'],
-	// 	id: AvailableOUIComponent['id']
-	// ): Promise<{ default: ComponentType }> {
-	// 	return import(`$lib/components/${directory}/${id}.svelte`);
-	// }
-
-	function importComponent(
-		directory: OUIDirectory,
-		id: OUIComponent
-	): Promise<{ default: Component }> {
-		return import(`$lib/components/${directory}/${id}.svelte`);
 	}
 </script>
 
@@ -94,31 +74,55 @@
 	></div>
 {/if}
 
-<!-- {#snippet paginationComponent({ componentMetadata }: PaginationComponentProps)}
-	<div
-		class="relative w-full content-center overflow-hidden rounded-md border border-input/50 bg-card p-4 shadow-sm transition-all duration-200 hover:border-input hover:shadow-md"
-	>
-		<div class="flex scale-90 items-center justify-center transition-transform duration-200">
-			{#if componentMetadata.available}
-				{#await importComponent(componentMetadata.directory, componentMetadata.id)}
-					<div class="h-12 w-32 animate-pulse rounded-md bg-muted"></div>
-				{:then { default: Component }}
-					<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
-						<Component />
-					</div>
-				{:catch}
-					<div class="flex h-12 w-32 items-center justify-center rounded-md bg-destructive/10">
-						<span class="text-xs text-destructive">Failed to load</span>
-					</div>
-				{/await}
-			{:else}
-				<div class="flex h-12 w-32 items-center justify-center rounded-md bg-destructive/10">
-					<span class="text-xs text-destructive">Failed to load</span>
+{#snippet paginationComponent(
+	componentMetadata: AvailableComponentMetadata,
+	direction: 'next' | 'prev'
+)}
+	<li class="group/link flex min-h-[200px] flex-col gap-2">
+		<Button
+			href="{overviewUrl}/{componentMetadata.id}"
+			class="group {direction === 'prev' ? 'self-start' : 'self-end'}"
+			variant="ghost"
+			size="sm"
+			aria-label="{direction === 'prev' ? 'Previous' : 'Next'} component: {componentMetadata.id}"
+		>
+			<kbd class="inline-flex items-center gap-2">
+				{#if direction === 'prev'}
+					<KbdLeft size={16} />
+					<span class="hidden md:inline">Previous</span>
+				{:else}
+					<KbdRight size={16} />
+					<span class="hidden md:inline">Next</span>
+				{/if}
+			</kbd>
+			<span class="sr-only"
+				>{direction === 'prev' ? 'Previous' : 'Next'} component: {componentMetadata.id}</span
+			>
+		</Button>
+		<a
+			class="inline-flex flex-1"
+			href="{overviewUrl}/{componentMetadata.id}"
+			aria-label="{direction === 'prev' ? 'Previous' : 'Next'} component: {componentMetadata.id}"
+		>
+			<div
+				class="relative w-full content-center overflow-hidden rounded-md border border-input/50 bg-card shadow-sm transition-all duration-200 hover:border-input hover:shadow-md"
+			>
+				<div class="flex scale-75 items-center justify-center transition-transform duration-200">
+					<AsyncComponentLoader
+						componentId={componentMetadata.id}
+						directory={componentMetadata.directory}
+					>
+						{#snippet child({ Component })}
+							<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
+								<Component />
+							</div>
+						{/snippet}
+					</AsyncComponentLoader>
 				</div>
-			{/if}
-		</div>
-	</div>
-{/snippet} -->
+			</div>
+		</a>
+	</li>
+{/snippet}
 
 <div class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
 	<header class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -169,15 +173,16 @@
 				<div
 					class="z-0 flex items-center justify-center rounded-lg border border-muted bg-background p-6 shadow-sm"
 				>
-					{#await importComponent(componentMetadata.directory, componentMetadata.id)}
-						<div class="h-12 w-32 animate-pulse rounded-md bg-muted"></div>
-					{:then { default: Component }}
-						<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
-							<Component />
-						</div>
-					{:catch error}
-						{error}
-					{/await}
+					<AsyncComponentLoader
+						componentId={componentMetadata.id}
+						directory={componentMetadata.directory}
+					>
+						{#snippet child({ Component })}
+							<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
+								<Component />
+							</div>
+						{/snippet}
+					</AsyncComponentLoader>
 				</div>
 			</div>
 		</div>
@@ -246,7 +251,7 @@
 	</section>
 </div>
 
-<!-- {#if prevComponentMetadata?.available || nextComponentMetadata?.available}
+{#if prevComponentMetadata || nextComponentMetadata}
 	<div
 		class="group/wrapper fixed bottom-[env(safe-area-inset-bottom)] left-0 isolate z-[calc(infinity)] w-full transition-opacity duration-200"
 		role="complementary"
@@ -262,59 +267,17 @@
 				aria-hidden={showComponentPaginationNav ? 'false' : 'true'}
 			>
 				<ul class="grid grid-cols-2 place-items-stretch gap-12">
-					<li class="group/link flex flex-col gap-2">
+					{#key prevComponentMetadata}
 						{#if prevComponentMetadata}
-							<Button
-								href="{overviewUrl}/{prevComponentMetadata.id}"
-								class="group self-start"
-								variant="ghost"
-								size="sm"
-								aria-label="Previous component: {prevComponentMetadata.id}"
-							>
-								<kbd class="inline-flex items-center gap-2">
-									<KbdLeft size={16} />
-									<span class="hidden md:inline">Previous</span>
-								</kbd>
-								<span class="sr-only">Previous component: {prevComponentMetadata.id}</span>
-							</Button>
-							<a
-								class="inline-flex flex-1"
-								href="{overviewUrl}/{prevComponentMetadata.id}"
-								aria-label="Previous component: {prevComponentMetadata.id}"
-							>
-								{@render paginationComponent({
-									componentMetadata: prevComponentMetadata
-								})} 
-							</a>
+							{@render paginationComponent(prevComponentMetadata, 'prev')}
 						{/if}
-					</li>
+					{/key}
 
-					<li class="group/link flex flex-col gap-2">
+					{#key nextComponentMetadata}
 						{#if nextComponentMetadata}
-							<Button
-								href="{overviewUrl}/{nextComponentMetadata.id}"
-								class="group self-end"
-								variant="ghost"
-								size="sm"
-								aria-label="Next component: {nextComponentMetadata.id}"
-							>
-								<kbd class="inline-flex items-center gap-2">
-									<span class="hidden md:inline">Next</span>
-									<KbdRight size={16} />
-								</kbd>
-								<span class="sr-only">Next component: {nextComponentMetadata.id}</span>
-							</Button>
-							<a
-								class="inline-flex flex-1"
-								href="{overviewUrl}/{nextComponentMetadata.id}"
-								aria-label="Next component: {nextComponentMetadata.id}"
-							>
-								 {@render paginationComponent({
-									componentMetadata: nextComponentMetadata
-								})} 
-							</a>
+							{@render paginationComponent(nextComponentMetadata, 'next')}
 						{/if}
-					</li>
+					{/key}
 				</ul>
 			</nav>
 
@@ -341,7 +304,7 @@
 			</div>
 		</div>
 	</div>
-{/if} -->
+{/if}
 
 <style lang="postcss">
 	._grid {
