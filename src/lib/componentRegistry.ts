@@ -5,32 +5,35 @@ import {
 	type OUIDirectoryToComponent
 } from '$lib/componentRegistry.types';
 
-const files = import.meta.glob<OUIComponent>(
-	['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
-	{ eager: true }
-);
-
 class ComponentRegistry {
-	#instance: ComponentRegistry | null = null;
 	#components: Map<OUIDirectory, Set<OUIComponent>>;
 
 	constructor() {
-		this.#components = this.#initializeComponents();
+		this.#components = new Map();
+		this.refresh();
 	}
 
-	getInstance(): ComponentRegistry {
-		if (!this.#instance) {
-			this.#instance = new ComponentRegistry();
-		}
-		return this.#instance;
+	async refresh() {
+		this.#components = await this.#initializeComponents();
 	}
 
-	#initializeComponents(): Map<OUIDirectory, Set<OUIComponent>> {
+	#getFileImports = () => {
+		return import.meta.glob<OUIComponent>(
+			['$lib/components/**/*.svelte', '!$lib/components/ui/**/*.svelte'],
+			{ eager: true, import: 'default' }
+		);
+	};
+
+	async #initializeComponents(): Promise<Map<OUIDirectory, Set<OUIComponent>>> {
+		const files = this.#getFileImports();
 		const componentMap = new Map<OUIDirectory, Set<OUIComponent>>();
 
-		Object.keys(files).forEach((path) => {
+		// In dev mode, we just need the paths
+		const paths = Object.keys(files);
+
+		for (const path of paths) {
 			const match = path.match(/\/components\/([^/]+)\/([^/]+)\.svelte$/);
-			if (!match) return;
+			if (!match) continue;
 
 			const [, directory, filename] = match as [string, OUIDirectory, OUIComponent];
 
@@ -38,10 +41,11 @@ class ComponentRegistry {
 				componentMap.set(directory, new Set());
 			}
 			componentMap.get(directory)?.add(filename);
-		});
+		}
 
 		return componentMap;
 	}
+
 	#getFile<T extends OUIDirectory>(directory: T): OUIDirectoryToComponent[T][] {
 		const components = this.#components.get(directory);
 		if (!components?.size) {
@@ -65,31 +69,29 @@ class ComponentRegistry {
 	}
 }
 
-export const componentRegistry = new ComponentRegistry().getInstance();
+export const initComponentRegistry = async () => {
+	const registry = new ComponentRegistry();
+	await registry.refresh();
+	return registry;
+};
+
+let componentRegistryInstance: ComponentRegistry | null = null;
+
+export const getComponentRegistry = async () => {
+	if (!componentRegistryInstance) {
+		componentRegistryInstance = await initComponentRegistry();
+	}
+	return componentRegistryInstance;
+};
 
 /* Helper functions */
-export const getComponentDirectories = () => componentRegistry.getAllDirectories();
-export type Directory = ReturnType<typeof getComponentDirectories>[number];
+export const getComponentDirectories = async () =>
+	(await getComponentRegistry()).getAllDirectories();
+export type Directory = Awaited<ReturnType<typeof getComponentDirectories>>[number];
 
-export const getComponentFileNames = <T extends OUIDirectory>(
+export const getComponentFileNames = async <T extends OUIDirectory>(
 	directory: T
-): OUIDirectoryToComponent[T][] => componentRegistry.getFiles([directory]);
-export type DirectoryFileNames<T extends OUIDirectory> = ReturnType<
-	typeof getComponentFileNames<T>
+): Promise<OUIDirectoryToComponent[T][]> => (await getComponentRegistry()).getFiles([directory]);
+export type DirectoryFileNames<T extends OUIDirectory> = Awaited<
+	ReturnType<typeof getComponentFileNames<T>>
 >;
-
-/* Buttons */
-export const getButtonsDirectories = () => componentRegistry.getDirectories(['BUTTONS']);
-export const getButtonsFileNames = () => componentRegistry.getFiles(getButtonsDirectories());
-export type ButtonComponents = DirectoryFileNames<'buttons'>;
-
-/* Checks, Radios, Switches */
-export const getChecksDirectories = () =>
-	componentRegistry.getDirectories(['CHECKBOXES', 'RADIOS', 'SWITCHES']);
-export const getChecksFileNames = () => componentRegistry.getFiles(getChecksDirectories());
-export type CheckComponents = DirectoryFileNames<'checkboxes' | 'radios' | 'switches'>;
-
-/* Inputs, Textareas */
-export const getInputsDirectories = () => componentRegistry.getDirectories(['INPUTS', 'TEXTAREAS']);
-export const getInputsFileNames = () => componentRegistry.getFiles(getInputsDirectories());
-export type InputComponents = DirectoryFileNames<'inputs' | 'textareas'>;
