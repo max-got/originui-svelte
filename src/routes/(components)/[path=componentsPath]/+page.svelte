@@ -49,64 +49,58 @@
 	<meta name="twitter:description" content={data.routeMetadata.seo.twitterDescription} />
 </svelte:head>
 
-<div class="_component-directory-wrapper">
-	<DemoComponents.Wrapper
-		{componentCategories}
-		data-path={data.routeMetadata.path}
-		class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
-		data-directory={data.routeMetadata.componentDirectory.join('_')}
-	>
-		{#snippet availableComponent({ data })}
-			<DemoComponents.Demo
-				class="demo"
-				data-component={data.id}
-				data-directory={data.directory}
-				componentData={data}
-				onShallowRouteClick={(e, { componentUrl, data }) =>
-					showComponentModal(e, componentUrl, data)}
-			/>
-		{/snippet}
-		{#snippet todoComponent({ data })}
-			<DemoComponents.DemoNotDone componentData={data} />
-		{/snippet}
-		{#snippet unavailableComponent()}
-			<DemoComponents.DemoUnavailable />
-		{/snippet}
-	</DemoComponents.Wrapper>
-</div>
+<DemoComponents.Wrapper
+	{componentCategories}
+	data-path={data.routeMetadata.path}
+	class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
+	data-directory={data.routeMetadata.componentDirectory.join('_')}
+>
+	{#snippet availableComponent({ data })}
+		<DemoComponents.Demo
+			class="demo"
+			data-component={data.id}
+			data-directory={data.directory}
+			componentData={data}
+			onShallowRouteClick={(e, { componentUrl, data }) => showComponentModal(e, componentUrl, data)}
+		/>
+	{/snippet}
+	{#snippet todoComponent({ data })}
+		<DemoComponents.DemoNotDone componentData={data} />
+	{/snippet}
+	{#snippet unavailableComponent()}
+		<DemoComponents.DemoUnavailable />
+	{/snippet}
+</DemoComponents.Wrapper>
 
 <style>
-	._component-directory-wrapper {
-		display: contents;
-		:global {
-			.wrapper {
-				&[data-path='buttons'] {
-					text-align: center;
-				}
+	:global {
+		.wrapper {
+			&[data-path='buttons'] {
+				text-align: center;
 			}
-			.demo {
-				&[data-directory='banners'] {
-					grid-column: 1 / -1;
-				}
+		}
+		.demo {
+			&[data-directory='banners'] {
+				grid-column: 1 / -1;
+			}
 
-				&[data-directory='tooltips'],
-				&[data-directory='switches'],
-				&[data-directory='notifications'],
-				&[data-directory='alerts'],
-				&[data-directory='hover-cards'] {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
+			&[data-directory='tooltips'],
+			&[data-directory='switches'],
+			&[data-directory='notifications'],
+			&[data-directory='alerts'],
+			&[data-directory='hover-cards'] {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 
-				&[data-directory='dialogs'] {
-					text-align: center;
-				}
+			&[data-directory='dialogs'] {
+				text-align: center;
+			}
 
-				&[data-component='notification-23'] {
-					grid-column: 1 / -1;
-					display: block;
-				}
+			&[data-component='notification-23'] {
+				grid-column: 1 / -1;
+				display: block;
 			}
 		}
 	}
