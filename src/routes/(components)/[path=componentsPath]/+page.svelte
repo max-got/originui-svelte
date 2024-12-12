@@ -90,7 +90,10 @@
 				}
 
 				&[data-directory='tooltips'],
-				&[data-directory='switches'] {
+				&[data-directory='switches'],
+				&[data-directory='notifications'],
+				&[data-directory='alerts'],
+				&[data-directory='hover-cards'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -98,14 +101,6 @@
 
 				&[data-directory='dialogs'] {
 					text-align: center;
-				}
-
-				&[data-directory='notifications'],
-				&[data-directory='alerts'],
-				&[data-directory='hover-cards'] {
-					display: flex;
-					justify-content: center;
-					align-items: center;
 				}
 
 				&[data-component='notification-23'] {
