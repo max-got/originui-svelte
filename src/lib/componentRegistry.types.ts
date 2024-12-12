@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/10/2024, 7:00:19 PM
+ * Last generated at: 12/12/2024, 7:10:00 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -10,6 +10,31 @@
 import type { Prettify } from '$lib/types/helpers';
 
 export const OUI_DIRECTORIES = {
+	ACCORDIONS: {
+		directory: 'accordions',
+		components: [
+			'accordion-01.svelte',
+			'accordion-02.svelte',
+			'accordion-03.svelte',
+			'accordion-04.svelte',
+			'accordion-05.svelte',
+			'accordion-06.svelte',
+			'accordion-07.svelte',
+			'accordion-08.svelte',
+			'accordion-09.svelte',
+			'accordion-10.svelte',
+			'accordion-11.svelte',
+			'accordion-12.svelte',
+			'accordion-13.svelte',
+			'accordion-14.svelte',
+			'accordion-15.svelte',
+			'accordion-16.svelte',
+			'accordion-17.svelte',
+			'accordion-18.svelte',
+			'accordion-19.svelte',
+			'accordion-20.svelte'
+		]
+	},
 	ALERTS: {
 		directory: 'alerts',
 		components: [
@@ -343,6 +368,7 @@ export const OUI_DIRECTORIES = {
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];
 
+export type OUIAccordionsComponents = (typeof OUI_DIRECTORIES)['ACCORDIONS']['components'][number];
 export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components'][number];
 export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
@@ -357,6 +383,7 @@ export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['compon
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
 
 export type OUIComponent = Prettify<
+	| OUIAccordionsComponents
 	| OUIAlertsComponents
 	| OUIBannersComponents
 	| OUIButtonsComponents
@@ -371,6 +398,7 @@ export type OUIComponent = Prettify<
 >;
 
 export interface OUIDirectoryToComponent {
+	accordions: OUIAccordionsComponents;
 	alerts: OUIAlertsComponents;
 	banners: OUIBannersComponents;
 	buttons: OUIButtonsComponents;

@@ -1,5 +1,6 @@
 /* eslint-disable perfectionist/sort-named-exports */
-import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
+
+import type { AvailableOUIComponent } from '$data/api/components.handler';
 
 import preview from './preview-component-dialog.svelte';
 import component from './preview-component.svelte';

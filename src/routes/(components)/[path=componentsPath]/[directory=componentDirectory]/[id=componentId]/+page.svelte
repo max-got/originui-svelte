@@ -8,43 +8,44 @@
 
 <svelte:head>
 	<title
-		>{data.component.id}.svelte | {data.component.directory} | Component | Origin UI - Svelte</title
+		>{data.componentMetadata.id}.svelte | {data.componentMetadata.directory} | Component | Origin UI
+		- Svelte</title
 	>
 	<meta
 		name="description"
-		content="Overview of the {data.component.id}.svelte component from the {data.component
-			.directory} directory."
+		content="Overview of the {data.componentMetadata.id}.svelte component from the {data
+			.componentMetadata.directory} directory."
 	/>
 	<meta
 		name="keywords"
-		content="svelte, component, {data.component.id}, {data.component
+		content="svelte, component, {data.componentMetadata.id}, {data.componentMetadata
 			.directory}, origin ui, tailwindcss, ui, library"
 	/>
 	<meta
 		name="twitter:title"
-		content="{data.component.id}.svelte | {data.component
+		content="{data.componentMetadata.id}.svelte | {data.componentMetadata
 			.directory} | Component | Origin UI - Svelte"
 	/>
 	<meta
 		name="twitter:description"
-		content="Overview of the {data.component.id}.svelte component from the {data.component
-			.directory} directory."
+		content="Overview of the {data.componentMetadata.id}.svelte component from the {data
+			.componentMetadata.directory} directory."
 	/>
 
 	<meta
 		property="og:title"
-		content="{data.component.id}.svelte | {data.component
+		content="{data.componentMetadata.id}.svelte | {data.componentMetadata
 			.directory} | Component | Origin UI - Svelte"
 	/>
 	<meta
 		property="og:description"
-		content="Overview of the {data.component.id}.svelte component from the {data.component
-			.directory} directory."
+		content="Overview of the {data.componentMetadata.id}.svelte component from the {data
+			.componentMetadata.directory} directory."
 	/>
 </svelte:head>
 
 <Preview.Component
-	componentMetadata={data.component}
+	componentMetadata={data.componentMetadata}
 	nextComponentMetadata={data.nextComponentMetadata}
 	prevComponentMetadata={data.prevComponentMetadata}
 	isPreview={false}

@@ -25,6 +25,26 @@ type ComponentRoutes = {
 };
 
 export const COMPONENT_ROUTES = {
+	accordions: {
+		componentDirectory: ['accordions'],
+		header: {
+			description:
+				'A growing collection of ${count} accordion components built with Svelte and TailwindCSS.',
+			title: 'Accordion'
+		},
+		label: 'Accordions',
+		order: 8,
+		path: 'accordions',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'accordion, collapsible, component, svelte, tailwindcss',
+			title: 'Accordions',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Accordions'
+		}
+	},
 	alertsNotificationsBanners: {
 		componentDirectory: ['alerts', 'notifications', 'banners'],
 		header: {
@@ -147,9 +167,10 @@ export const COMPONENT_ROUTES = {
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 
-type ComponentRoutePath = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES]['path'];
+export type ComponentRoute = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES];
+export type ComponentRoutePath = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES]['path'];
 
-function assertRouteExists(path: ComponentRoutePath) {
+function assertRouteExists(path: ComponentRoutePath): ComponentRoute {
 	const route = Object.values(COMPONENT_ROUTES).find((route) => route.path === path);
 	if (!route) throw new Error(`Route for ${path} not found`);
 	return route;
@@ -163,9 +184,13 @@ export function getComponentRouteDirectories(path: ComponentRoutePath) {
 export function getComponentRouteMetadata(
 	path: ComponentRoutePath,
 	variables?: Partial<MetadataVariables>
-) {
+): Omit<ComponentRoute, 'header'> & {
+	header: {
+		description: string;
+		title: string;
+	};
+} {
 	const routeMetadata = assertRouteExists(path);
-
 	if (!variables) return routeMetadata;
 
 	let description = routeMetadata.header.description;
