@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/10/2024, 7:00:19 PM
+ * Last generated at: 12/11/2024, 7:24:27 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -25,7 +25,8 @@ export const OUI_DIRECTORIES = {
 			'alert-10.svelte',
 			'alert-11.svelte',
 			'alert-12.svelte'
-		]
+		],
+		path: 'alerts'
 	},
 	BANNERS: {
 		directory: 'banners',
@@ -41,7 +42,8 @@ export const OUI_DIRECTORIES = {
 			'banner-09.svelte',
 			'banner-10.svelte',
 			'banner-11.svelte'
-		]
+		],
+		path: 'banners'
 	},
 	BUTTONS: {
 		directory: 'buttons',
@@ -97,7 +99,8 @@ export const OUI_DIRECTORIES = {
 			'button-49.svelte',
 			'button-50.svelte',
 			'button-51.svelte'
-		]
+		],
+		path: 'buttons'
 	},
 	CHECKBOXES: {
 		directory: 'checkboxes',
@@ -120,7 +123,8 @@ export const OUI_DIRECTORIES = {
 			'checkbox-16.svelte',
 			'checkbox-17.svelte',
 			'checkbox-18.svelte'
-		]
+		],
+		path: 'checkboxes'
 	},
 	INPUTS: {
 		directory: 'inputs',
@@ -182,7 +186,8 @@ export const OUI_DIRECTORIES = {
 			'input-55.svelte',
 			'input-56.todo.svelte',
 			'input-57.todo.svelte'
-		]
+		],
+		path: 'inputs'
 	},
 	NOTIFICATIONS: {
 		directory: 'notifications',
@@ -210,7 +215,8 @@ export const OUI_DIRECTORIES = {
 			'notification-21.svelte',
 			'notification-22.svelte',
 			'notification-23.svelte'
-		]
+		],
+		path: 'notifications'
 	},
 	RADIOS: {
 		directory: 'radios',
@@ -234,7 +240,8 @@ export const OUI_DIRECTORIES = {
 			'radio-17.svelte',
 			'radio-18.svelte',
 			'radio-19.svelte'
-		]
+		],
+		path: 'radios'
 	},
 	SLIDERS: {
 		directory: 'sliders',
@@ -265,8 +272,10 @@ export const OUI_DIRECTORIES = {
 			'slider-24.svelte',
 			'slider-25.svelte',
 			'slider-26.svelte',
-			'slider-27.svelte'
-		]
+			'slider-27.svelte',
+			'slider-28.svelte'
+		],
+		path: 'sliders'
 	},
 	SWITCHES: {
 		directory: 'switches',
@@ -288,7 +297,8 @@ export const OUI_DIRECTORIES = {
 			'switch-15.svelte',
 			'switch-16.svelte',
 			'switch-17.svelte'
-		]
+		],
+		path: 'switches'
 	},
 	TEXTAREAS: {
 		directory: 'textareas',
@@ -312,7 +322,8 @@ export const OUI_DIRECTORIES = {
 			'textarea-17.svelte',
 			'textarea-18.svelte',
 			'textarea-19.svelte'
-		]
+		],
+		path: 'textareas'
 	}
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];

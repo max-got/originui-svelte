@@ -127,9 +127,10 @@ export const COMPONENT_ROUTES = {
 	}
 } as const satisfies Record<string, ComponentRoutes>;
 
-type ComponentRoutePath = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES]['path'];
+export type ComponentRoute = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES];
+export type ComponentRoutePath = (typeof COMPONENT_ROUTES)[keyof typeof COMPONENT_ROUTES]['path'];
 
-function assertRouteExists(path: ComponentRoutePath) {
+function assertRouteExists(path: ComponentRoutePath): ComponentRoute {
 	const route = Object.values(COMPONENT_ROUTES).find((route) => route.path === path);
 	if (!route) throw new Error(`Route for ${path} not found`);
 	return route;
@@ -143,9 +144,13 @@ export function getComponentRouteDirectories(path: ComponentRoutePath) {
 export function getComponentRouteMetadata(
 	path: ComponentRoutePath,
 	variables?: Partial<MetadataVariables>
-) {
+): Omit<ComponentRoute, 'header'> & {
+	header: {
+		description: string;
+		title: string;
+	};
+} {
 	const routeMetadata = assertRouteExists(path);
-
 	if (!variables) return routeMetadata;
 
 	let description = routeMetadata.header.description;

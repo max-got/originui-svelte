@@ -3,6 +3,8 @@ import type {
 	RequestHandler
 } from '../../../routes/(api)/api/v1/components/[directory=componentDirectory].json/$types';
 
+import type { Component } from 'svelte';
+
 import { getComponentDirectories, getComponentFileNames } from '$lib/componentRegistry';
 import { getComponentSource } from '$lib/utils/handleComponentSource';
 
@@ -19,7 +21,8 @@ export class ComponentAPIError extends Error {
 
 export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 	entries: (async () => {
-		return getComponentDirectories().map((directory) => ({ directory }));
+		const directories = await getComponentDirectories();
+		return directories.map((directory) => ({ directory }));
 	}) satisfies EntryGenerator,
 	fallback: (async () => {
 		return Response.json(
@@ -33,7 +36,7 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 	GET: (async ({ params, setHeaders }) => {
 		const { directory } = params;
 
-		const componentFiles = getComponentFileNames(directory);
+		const componentFiles = await getComponentFileNames(directory);
 		const components = await Promise.all(
 			componentFiles.map((file) => getComponentSource(directory, file))
 		);
@@ -63,3 +66,16 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 export type ComponentAPIResponseJSON = Awaited<
 	ReturnType<Awaited<ReturnType<typeof API_V1_COMPONENTS_ENDPOINT_HANDLER.GET>>['json']>
 >;
+
+export type ComponentMetadata = ComponentAPIResponseJSON['components'][number];
+export type AvailableComponentMetadata = ComponentMetadata & {
+	available: true;
+};
+export type AvailableOUIComponent = AvailableComponentMetadata & {
+	component: Component;
+};
+
+export type UnavailableOUIComponent = UnavailableComponentMetadata;
+export type UnavailableComponentMetadata = ComponentMetadata & {
+	available: false;
+};

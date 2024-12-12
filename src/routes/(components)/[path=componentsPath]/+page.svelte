@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { AvailableOUIComponent } from '$data/api/components.handler.js';
 
 	import * as DemoComponents from '$lib/demo/demo-component/index.js';
 	import PageHeader from '$lib/demo/page-header.svelte';
@@ -24,14 +23,8 @@
 		previewComponentDialogCtx.openDialog(component);
 	}
 
-	const componentDirectoryDataAttributes = $derived.by(() => {
-		return data.routeMetadata.componentDirectory.reduce(
-			(acc: HTMLAttributes<HTMLDivElement>, directory) => {
-				acc[`data-directory-${directory}`] = '';
-				return acc;
-			},
-			{}
-		);
+	const componentCategories = $derived.by(() => {
+		return data.componentsCategories.map((category) => category.components);
 	});
 </script>
 
@@ -42,7 +35,7 @@
 <svelte:head>
 	<title>{data.routeMetadata.seo.title} | Svelte Components | Origin UI - Svelte</title>
 	<meta name="description" content={data.routeMetadata.seo.description} />
-	<meta name="keywords" content={data.routeMetadata.seo.keywords} />
+
 	<meta
 		property="og:title"
 		content="{data.routeMetadata.seo.title} | Svelte Components  | Origin UI - Svelte"
@@ -58,25 +51,25 @@
 
 <div class="_component-directory-wrapper">
 	<DemoComponents.Wrapper
-		componentCategories={[data.components]}
+		{componentCategories}
 		data-path={data.routeMetadata.path}
 		class="wrapper data-[path=buttons]:text-center data-[path=alerts-notifications-banners]:lg:grid-cols-2"
-		{...componentDirectoryDataAttributes}
+		data-directory={data.routeMetadata.componentDirectory.join('_')}
 	>
-		{#snippet availableComponent({ availableComponentData })}
+		{#snippet availableComponent({ data })}
 			<DemoComponents.Demo
-				class="demo"
-				data-component={availableComponentData.id}
-				data-directory={availableComponentData.directory}
-				componentData={availableComponentData}
-				onShallowRouteClick={(e, componentUrl) =>
-					showComponentModal(e, componentUrl, availableComponentData)}
+				class="demo data-[directory=switches]:flex data-[directory=switches]:justify-center"
+				data-component={data.id}
+				data-directory={data.directory}
+				componentData={data}
+				onShallowRouteClick={(e, { componentUrl, data }) =>
+					showComponentModal(e, componentUrl, data)}
 			/>
 		{/snippet}
-		{#snippet notDoneComponent({ componentData })}
-			<DemoComponents.DemoNotDone {componentData} />
+		{#snippet todoComponent({ data })}
+			<DemoComponents.DemoNotDone componentData={data} />
 		{/snippet}
-		{#snippet notAvailableComponent()}
+		{#snippet unavailableComponent()}
 			<DemoComponents.DemoUnavailable />
 		{/snippet}
 	</DemoComponents.Wrapper>
