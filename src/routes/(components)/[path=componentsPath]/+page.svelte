@@ -53,12 +53,12 @@
 	<DemoComponents.Wrapper
 		{componentCategories}
 		data-path={data.routeMetadata.path}
-		class="wrapper data-[path=buttons]:text-center data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
+		class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
 		data-directory={data.routeMetadata.componentDirectory.join('_')}
 	>
 		{#snippet availableComponent({ data })}
 			<DemoComponents.Demo
-				class="demo data-[directory=switches]:flex data-[directory=switches]:justify-center data-[directory=dialogs]:text-center"
+				class="demo"
 				data-component={data.id}
 				data-directory={data.directory}
 				componentData={data}
@@ -79,12 +79,29 @@
 	._component-directory-wrapper {
 		display: contents;
 		:global {
+			.wrapper {
+				&[data-path='buttons'] {
+					text-align: center;
+				}
+			}
 			.demo {
 				&[data-directory='banners'] {
 					grid-column: 1 / -1;
 				}
+
+				&[data-directory='tooltips'],
+				&[data-directory='switches'] {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+
+				&[data-directory='dialogs'] {
+					text-align: center;
+				}
+
 				&[data-directory='notifications'],
-				[data-directory='alerts'] {
+				&[data-directory='alerts'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;
