@@ -38,7 +38,7 @@ export const COMPONENT_ROUTES = {
 		seo: {
 			description:
 				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'button, component, svelte, tailwindcss',
+			keywords: 'accordion, collapsible, component, svelte, tailwindcss',
 			title: 'Accordions',
 			twitterDescription:
 				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
