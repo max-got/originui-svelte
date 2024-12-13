@@ -92,7 +92,8 @@
 				&[data-directory='switches'],
 				&[data-directory='notifications'],
 				&[data-directory='alerts'],
-				&[data-directory='hover-cards'] {
+				&[data-directory='hover-cards'],
+				&[data-directory='badges'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;

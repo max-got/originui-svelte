@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 9:36:14 AM
+ * Last generated at: 12/13/2024, 9:54:46 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -83,19 +83,19 @@ export const OUI_DIRECTORIES = {
 	BADGES: {
 		directory: 'badges',
 		components: [
-			'badge-01.todo.svelte',
-			'badge-02.todo.svelte',
-			'badge-03.todo.svelte',
-			'badge-04.todo.svelte',
-			'badge-05.todo.svelte',
-			'badge-06.todo.svelte',
-			'badge-07.todo.svelte',
-			'badge-08.todo.svelte',
-			'badge-09.todo.svelte',
-			'badge-10.todo.svelte',
-			'badge-11.todo.svelte',
-			'badge-12.todo.svelte',
-			'badge-13.todo.svelte'
+			'badge-01.svelte',
+			'badge-02.svelte',
+			'badge-03.svelte',
+			'badge-04.svelte',
+			'badge-05.svelte',
+			'badge-06.svelte',
+			'badge-07.svelte',
+			'badge-08.svelte',
+			'badge-09.svelte',
+			'badge-10.svelte',
+			'badge-11.svelte',
+			'badge-12.svelte',
+			'badge-13.svelte'
 		]
 	},
 	BANNERS: {
