@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AvailableComponentMetadata } from '$data/api/components.handler';
+	import type { ComingSoonComponentMetadata } from '$data/api/components.handler';
 
 	import AsyncComponentLoader from '../async-component-loader.svelte';
 	import { cn } from '$lib/utils.js';
@@ -9,7 +9,7 @@
 		componentData
 	}: {
 		class?: string;
-		componentData: AvailableComponentMetadata;
+		componentData: ComingSoonComponentMetadata;
 		onShallowRoute?: (e: MouseEvent) => void;
 	} = $props();
 </script>

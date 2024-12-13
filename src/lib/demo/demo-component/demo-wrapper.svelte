@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type {
 		AvailableComponentMetadata,
+		ComingSoonComponentMetadata,
 		ComponentMetadata,
 		UnavailableComponentMetadata
 	} from '$data/api/components.handler';
@@ -12,17 +13,17 @@
 
 	type Props = WithElementRef<HTMLAttributes<HTMLDivElement>> & {
 		availableComponent: Snippet<[{ data: AvailableComponentMetadata }]>;
+		comingSoonComponent: Snippet<[{ data: ComingSoonComponentMetadata }]>;
 		componentCategories: ComponentMetadata[][];
-		todoComponent: Snippet<[{ data: AvailableComponentMetadata }]>;
 		unavailableComponent: Snippet<[{ data: UnavailableComponentMetadata }]>;
 	};
 
 	let {
 		availableComponent,
 		class: className,
+		comingSoonComponent,
 		componentCategories,
 		ref = $bindable(null),
-		todoComponent,
 		unavailableComponent,
 		...restProps
 	}: Props = $props();
@@ -38,18 +39,18 @@
 >
 	{#each componentCategories as componentCategory}
 		{#each componentCategory as component (component.id)}
-			{@const componentIsDone = component.available && !component.id.includes('.todo')}
-			{@const componentIsInTodoState = component.available && component.id.includes('.todo')}
-			{@const componentIsNotAvailable = !component.available}
+			{@const componentIsAvailable = component.availability === 'available'}
+			{@const componentIsComingSoon = component.availability === 'soon'}
+			{@const componentIsUnavailable = component.availability === 'todo'}
 
-			{#if componentIsNotAvailable}
+			{#if componentIsUnavailable}
 				{@render unavailableComponent({ data: component })}
-			{:else if componentIsDone}
-				{@render availableComponent({ data: component })}
-			{:else if componentIsInTodoState}
-				{@render todoComponent({
+			{:else if componentIsComingSoon}
+				{@render comingSoonComponent({
 					data: component
 				})}
+			{:else if componentIsAvailable}
+				{@render availableComponent({ data: component })}
 			{/if}
 		{/each}
 	{/each}

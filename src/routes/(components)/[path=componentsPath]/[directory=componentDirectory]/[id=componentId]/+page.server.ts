@@ -16,17 +16,13 @@ export const load = (async ({ fetch, params }) => {
 		id
 	});
 
-	//strictly speaking, this should never happen, because the param matcher should prevent it
-	//but its here to make typescript happy :)
-	if (!componentMetadata.available) error(404, 'Component not found');
+	if (componentMetadata.availability !== 'available') error(404, 'Component not found');
 
-	const nextComponentMetadata = unknownNextComponentMetadata?.available
-		? unknownNextComponentMetadata
-		: undefined;
+	const nextComponentMetadata =
+		unknownNextComponentMetadata?.availability === 'available' && unknownNextComponentMetadata;
 
-	const prevComponentMetadata = unknownPrevComponentMetadata?.available
-		? unknownPrevComponentMetadata
-		: undefined;
+	const prevComponentMetadata =
+		unknownPrevComponentMetadata?.availability === 'available' && unknownPrevComponentMetadata;
 
 	return {
 		componentMetadata,

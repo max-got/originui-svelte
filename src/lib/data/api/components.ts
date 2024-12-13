@@ -28,14 +28,14 @@ export const fetchComponentFromAPI = async (
 ) => {
 	const { components } = await fetchFromAPI<ComponentAPIResponseJSON>(fetch, directory);
 	const idx = components.findIndex(
-		(component) => component.id === id && !component.id.includes('.todo.')
+		(component) => component.id === id && component.availability === 'available'
 	);
 	if (idx === -1) throw new ComponentAPIError(`Component ${id} not found in ${directory}`);
 
 	function getPaginationComponentMetadata(idx: number, direction: 'backwards' | 'forwards') {
 		if (idx < 0 || idx >= components.length) return undefined;
 		let component = components[idx];
-		while (component && component.id.includes('.todo.')) {
+		while (component && component.availability !== 'available') {
 			idx += direction === 'backwards' ? -1 : 1;
 			if (idx < 0 || idx >= components.length) return undefined;
 			component = components[idx];

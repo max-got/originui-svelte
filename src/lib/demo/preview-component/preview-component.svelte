@@ -23,8 +23,8 @@
 	type Props = {
 		componentMetadata: AvailableComponentMetadata;
 		isPreview?: boolean;
-		nextComponentMetadata?: AvailableComponentMetadata;
-		prevComponentMetadata?: AvailableComponentMetadata;
+		nextComponentMetadata?: AvailableComponentMetadata | false;
+		prevComponentMetadata?: AvailableComponentMetadata | false;
 	};
 	let {
 		componentMetadata,

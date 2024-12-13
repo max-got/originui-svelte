@@ -44,8 +44,8 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 		const meta = {
 			directory,
 			fileStats: {
-				completed: components.filter((c) => !c.path.includes('.todo.')).length,
-				todo: components.filter((c) => c.path.includes('.todo.')).length
+				completed: components.filter((c) => c.availability === 'available').length,
+				todo: components.filter((c) => c.availability === 'todo').length
 			},
 			total: components.length
 		};
@@ -69,7 +69,7 @@ export type ComponentAPIResponseJSON = Awaited<
 
 export type ComponentMetadata = ComponentAPIResponseJSON['components'][number];
 export type AvailableComponentMetadata = ComponentMetadata & {
-	available: true;
+	availability: 'available';
 };
 export type AvailableOUIComponent = AvailableComponentMetadata & {
 	component: Component;
@@ -77,5 +77,8 @@ export type AvailableOUIComponent = AvailableComponentMetadata & {
 
 export type UnavailableOUIComponent = UnavailableComponentMetadata;
 export type UnavailableComponentMetadata = ComponentMetadata & {
-	available: false;
+	availability: 'todo';
+};
+export type ComingSoonComponentMetadata = ComponentMetadata & {
+	availability: 'soon';
 };

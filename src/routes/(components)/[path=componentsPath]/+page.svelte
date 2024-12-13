@@ -66,8 +66,8 @@
 					showComponentModal(e, componentUrl, data)}
 			/>
 		{/snippet}
-		{#snippet todoComponent({ data })}
-			<DemoComponents.DemoNotDone componentData={data} />
+		{#snippet comingSoonComponent({ data })}
+			<DemoComponents.DemoComingSoon componentData={data} />
 		{/snippet}
 		{#snippet unavailableComponent()}
 			<DemoComponents.DemoUnavailable />

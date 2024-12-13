@@ -159,21 +159,43 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 	const imports = getImports();
 	const importFn = imports.source[path];
 
-	if (!importFn) {
+	const processedComponentSource = await processComponentSource(await importFn(), path);
+
+	const hasContent = Boolean(processedComponentSource.code.raw.content?.trim());
+	const componentState = {
+		isAvailable: hasContent && !componentName.includes('.soon') && !componentName.includes('.todo'),
+		isComingSoon: componentName.includes('.soon') && hasContent,
+		isTodo: componentName.includes('.todo')
+	};
+
+	if (componentState.isTodo) {
 		return {
-			available: false,
+			...processedComponentSource,
+			availability: 'todo',
 			directory,
 			id: componentName,
+			name: componentName.replace('.todo', ''),
 			path
 		} as const;
 	}
 
-	const componentSource = await importFn();
+	if (componentState.isComingSoon) {
+		return {
+			...processedComponentSource,
+			availability: 'soon',
+			directory,
+			id: componentName,
+			name: componentName.replace('.soon', ''),
+			path
+		} as const;
+	}
+
 	return {
-		...(await processComponentSource(componentSource, path)),
-		available: true,
+		...processedComponentSource,
+		availability: 'available',
 		directory,
 		id: componentName,
+		name: componentName,
 		path
 	} as const;
 }
