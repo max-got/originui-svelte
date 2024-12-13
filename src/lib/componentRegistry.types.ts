@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 10:16:02 AM
+ * Last generated at: 12/13/2024, 10:31:22 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -65,19 +65,19 @@ export const OUI_DIRECTORIES = {
 			'avatar-08.svelte',
 			'avatar-09.svelte',
 			'avatar-10.svelte',
-			'avatar-11.todo.svelte',
-			'avatar-12.todo.svelte',
-			'avatar-13.todo.svelte',
-			'avatar-14.todo.svelte',
-			'avatar-15.todo.svelte',
-			'avatar-16.todo.svelte',
-			'avatar-17.todo.svelte',
-			'avatar-18.todo.svelte',
-			'avatar-19.todo.svelte',
-			'avatar-20.todo.svelte',
-			'avatar-21.todo.svelte',
-			'avatar-22.todo.svelte',
-			'avatar-23.todo.svelte'
+			'avatar-11.svelte',
+			'avatar-12.svelte',
+			'avatar-13.svelte',
+			'avatar-14.svelte',
+			'avatar-15.svelte',
+			'avatar-16.svelte',
+			'avatar-17.svelte',
+			'avatar-18.svelte',
+			'avatar-19.svelte',
+			'avatar-20.svelte',
+			'avatar-21.svelte',
+			'avatar-22.svelte',
+			'avatar-23.svelte'
 		]
 	},
 	BADGES: {
