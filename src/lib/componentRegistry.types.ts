@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 6:01:58 PM
+ * Last generated at: 12/13/2024, 8:19:11 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -336,15 +336,15 @@ export const OUI_DIRECTORIES = {
 	POPOVERS: {
 		directory: 'popovers',
 		components: [
-			'popover-01.todo.svelte',
-			'popover-02.todo.svelte',
-			'popover-03.todo.svelte',
-			'popover-04.todo.svelte',
-			'popover-05.todo.svelte',
-			'popover-06.todo.svelte',
-			'popover-07.todo.svelte',
-			'popover-08.todo.svelte',
-			'popover-09.todo.svelte'
+			'popover-01.svelte',
+			'popover-02.svelte',
+			'popover-03.svelte',
+			'popover-04.svelte',
+			'popover-05.svelte',
+			'popover-06.svelte',
+			'popover-07.svelte',
+			'popover-08.svelte',
+			'popover-09.svelte'
 		]
 	},
 	RADIOS: {
