@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
+	import AvatarImg from '$assets/avatar.jpg?w=64&h=64&enhanced';
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -29,7 +30,7 @@
 	</DropdownMenuTrigger>
 	<DropdownMenuContent class="max-w-64">
 		<DropdownMenuLabel class="flex items-start gap-3">
-			<enhanced:img src="/static/avatar.jpg" class="size-8 shrink-0 rounded-full" alt="Avatar" />
+			<enhanced:img src={AvatarImg} class="size-8 shrink-0 rounded-full" alt="Avatar" />
 			<div class="flex min-w-0 flex-col">
 				<span class="truncate text-sm font-medium text-foreground">Keith Kennedy</span>
 				<span class="truncate text-xs font-normal text-muted-foreground">
