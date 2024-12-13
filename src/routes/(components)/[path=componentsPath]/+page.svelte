@@ -94,7 +94,9 @@
 				&[data-directory='alerts'],
 				&[data-directory='hover-cards'],
 				&[data-directory='badges'],
-				&[data-directory='avatars'] {
+				&[data-directory='avatars'],
+				&[data-directory='dropdowns'],
+				&[data-directory='popovers'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;

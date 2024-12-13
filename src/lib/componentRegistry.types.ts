@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 3:18:13 PM
+ * Last generated at: 12/13/2024, 6:01:58 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -222,21 +222,21 @@ export const OUI_DIRECTORIES = {
 	DROPDOWNS: {
 		directory: 'dropdowns',
 		components: [
-			'dropdown-01.todo.svelte',
-			'dropdown-02.todo.svelte',
-			'dropdown-03.todo.svelte',
-			'dropdown-04.todo.svelte',
-			'dropdown-05.todo.svelte',
-			'dropdown-06.todo.svelte',
-			'dropdown-07.todo.svelte',
-			'dropdown-08.todo.svelte',
-			'dropdown-09.todo.svelte',
-			'dropdown-10.todo.svelte',
-			'dropdown-11.todo.svelte',
-			'dropdown-12.todo.svelte',
-			'dropdown-13.todo.svelte',
-			'dropdown-14.todo.svelte',
-			'dropdown-15.todo.svelte'
+			'dropdown-01.svelte',
+			'dropdown-02.svelte',
+			'dropdown-03.svelte',
+			'dropdown-04.svelte',
+			'dropdown-05.svelte',
+			'dropdown-06.svelte',
+			'dropdown-07.svelte',
+			'dropdown-08.svelte',
+			'dropdown-09.svelte',
+			'dropdown-10.svelte',
+			'dropdown-11.svelte',
+			'dropdown-12.svelte',
+			'dropdown-13.svelte',
+			'dropdown-14.svelte',
+			'dropdown-15.svelte'
 		]
 	},
 	'HOVER-CARDS': {
