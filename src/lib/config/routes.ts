@@ -65,6 +65,26 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Alerts, Notifications, and Banners'
 		}
 	},
+	avatarAndBadges: {
+		componentDirectory: ['avatars', 'badges'],
+		header: {
+			description:
+				'A growing collection of ${count} avatar and badge components built with Svelte and TailwindCSS.',
+			title: 'Avatar and Badges'
+		},
+		label: 'Avatar and Badges',
+		order: 10,
+		path: 'avatar-badges',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'avatar, badge, component, svelte, tailwindcss',
+			title: 'Avatar and Badges',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Avatar and Badge components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Avatar and Badges'
+		}
+	},
 	buttons: {
 		componentDirectory: ['buttons'],
 		header: {
@@ -85,7 +105,7 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Buttons'
 		}
 	},
-	checkboxes: {
+	checkboxesRadiosSwitches: {
 		componentDirectory: ['checkboxes', 'radios', 'switches'],
 		header: {
 			description:
@@ -125,7 +145,7 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Dialogs'
 		}
 	},
-	inputs: {
+	inputsTextareas: {
 		componentDirectory: ['inputs', 'textareas'],
 		header: {
 			description:
@@ -165,7 +185,7 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Sliders'
 		}
 	},
-	tooltips: {
+	tooltipsHovercards: {
 		componentDirectory: ['tooltips', 'hover-cards'],
 		header: {
 			description:
