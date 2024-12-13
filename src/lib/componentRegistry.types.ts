@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 9:54:46 AM
+ * Last generated at: 12/13/2024, 10:16:02 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -55,16 +55,16 @@ export const OUI_DIRECTORIES = {
 	AVATARS: {
 		directory: 'avatars',
 		components: [
-			'avatar-01.todo.svelte',
-			'avatar-02.todo.svelte',
-			'avatar-03.todo.svelte',
-			'avatar-04.todo.svelte',
-			'avatar-05.todo.svelte',
-			'avatar-06.todo.svelte',
-			'avatar-07.todo.svelte',
-			'avatar-08.todo.svelte',
-			'avatar-09.todo.svelte',
-			'avatar-10.todo.svelte',
+			'avatar-01.svelte',
+			'avatar-02.svelte',
+			'avatar-03.svelte',
+			'avatar-04.svelte',
+			'avatar-05.svelte',
+			'avatar-06.svelte',
+			'avatar-07.svelte',
+			'avatar-08.svelte',
+			'avatar-09.svelte',
+			'avatar-10.svelte',
 			'avatar-11.todo.svelte',
 			'avatar-12.todo.svelte',
 			'avatar-13.todo.svelte',

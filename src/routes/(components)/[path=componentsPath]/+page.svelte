@@ -93,7 +93,8 @@
 				&[data-directory='notifications'],
 				&[data-directory='alerts'],
 				&[data-directory='hover-cards'],
-				&[data-directory='badges'] {
+				&[data-directory='badges'],
+				&[data-directory='avatars'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;
