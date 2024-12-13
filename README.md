@@ -273,9 +273,9 @@ The project includes an automated dependency detection system that analyzes comp
    ] as const;
    ```
 
-   > [!IMPORTANT]
-   > When using a new dependency in your component, you MUST add it to `POSSIBLE_DEPENDENCIES` first.
-   > This ensures the dependency detection system can find and document it correctly.
+> [!IMPORTANT]
+> When using a new dependency in your component, you MUST add it to `POSSIBLE_DEPENDENCIES` first.
+> This ensures the dependency detection system can find and document it correctly.
 
 2. **Adding New Dependencies**
 
@@ -521,8 +521,8 @@ The project includes an automatic code collapsing system for better readability 
     path: 'combined-category'
     ```
 
-    > [!NOTE]
-    > The `order` property determines the navigation menu order. Check existing routes for the next available number.
+> [!NOTE]
+> The `order` property determines the navigation menu order. Check existing routes for the next available number.
 
 2. **Component Requirements**
 
