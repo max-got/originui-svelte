@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://originui-svelte.pages.dev/
+    about: Check our documentation for guides and examples
+  - name: 💬 Discussions
+    url: https://github.com/max-got/originui-svelte/discussions
+    about: Ask questions and share ideas
+  - name: 🎨 Original Origin UI
+    url: https://originui.com/
+    about: View the original components we're recreating
