@@ -11,7 +11,6 @@
 		checked = $bindable(false),
 		children: childrenProp,
 		class: className,
-		indeterminate = $bindable(false),
 		ref = $bindable(null),
 		...restProps
 	}: WithoutChildrenOrChild<DropdownMenuPrimitive.CheckboxItemProps> & {
@@ -22,7 +21,6 @@
 <DropdownMenuPrimitive.CheckboxItem
 	bind:ref
 	bind:checked
-	bind:indeterminate
 	class={cn(
 		'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 		className
