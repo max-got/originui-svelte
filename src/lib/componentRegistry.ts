@@ -20,7 +20,7 @@ class ComponentRegistry {
 	#getFileImports = () => {
 		return import.meta.glob<OUIComponent>(
 			['$lib/components/**/*.svelte', '!$lib/components/ui/**/*.svelte'],
-			{ eager: true, import: 'default' }
+			{ eager: false, import: 'default' }
 		);
 	};
 

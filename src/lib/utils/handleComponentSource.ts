@@ -13,8 +13,8 @@ const IMPORTS_REGEX =
 	/(?<=(?:import|export)[^`'"]*from\s+[`'"])(?<path1>[^`'"]+)(?=[`'"])|(?:import|export)(?:\s+|\s*\(\s*)[`'"](?<path2>[|'"`])/g;
 
 interface ComponentImports {
-	compiled: Record<string, Component>;
-	source: Record<string, string>;
+	compiled: Record<string, () => Promise<Component>>;
+	source: Record<string, () => Promise<string>>;
 }
 
 const getImports = (): ComponentImports => {
@@ -22,18 +22,18 @@ const getImports = (): ComponentImports => {
 		compiled: import.meta.glob(
 			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 			{
-				eager: true,
+				eager: false,
 				import: 'default'
 			}
-		) as Record<string, Component>,
+		) as Record<string, () => Promise<Component>>,
 		source: import.meta.glob(
 			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
 			{
-				eager: true,
+				eager: false,
 				import: 'default',
 				query: '?raw'
 			}
-		) as Record<string, string>
+		) as Record<string, () => Promise<string>>
 	};
 };
 
@@ -149,14 +149,17 @@ async function processComponentSource(rawSource: string, path: string) {
 }
 
 export async function getCompiledComponent(path: string) {
-	return getImports().compiled[path] ?? null;
+	const imports = getImports();
+	if (!imports.compiled[path]) return null;
+	return (await imports.compiled[path]()) ?? null;
 }
 
 export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
 	const path = buildComponentPath(directory, componentName);
-	const componentSource = getImports().source[path];
+	const imports = getImports();
+	const importFn = imports.source[path];
 
-	if (!componentSource) {
+	if (!importFn) {
 		return {
 			available: false,
 			directory,
@@ -165,6 +168,7 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 		} as const;
 	}
 
+	const componentSource = await importFn();
 	return {
 		...(await processComponentSource(componentSource, path)),
 		available: true,
