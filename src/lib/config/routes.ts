@@ -73,7 +73,7 @@ export const COMPONENT_ROUTES = {
 			title: 'Avatar and Badges'
 		},
 		label: 'Avatar and Badges',
-		order: 10,
+		order: 11,
 		path: 'avatar-badges',
 		seo: {
 			description:
@@ -143,6 +143,26 @@ export const COMPONENT_ROUTES = {
 			twitterDescription:
 				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
 			twitterTitle: 'Dialogs'
+		}
+	},
+	dropdownsPopovers: {
+		componentDirectory: ['dropdowns', 'popovers'],
+		header: {
+			description:
+				'A growing collection of ${count} dropdown and popover components built with Svelte and TailwindCSS.',
+			title: 'Dropdown and Popover'
+		},
+		label: 'Dropdowns and Popovers',
+		order: 10,
+		path: 'dropdowns-popovers',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'dropdown, popover, component, svelte, tailwindcss',
+			title: 'Dropdowns and Popovers',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Dropdowns and Popovers'
 		}
 	},
 	inputsTextareas: {
