@@ -476,50 +476,48 @@ The project includes an automatic code collapsing system for better readability 
     └── category-04.soon.svelte
     ```
 
-    > [!NOTE]
-    > The component should have content. For example:
-    >
-    > ```html
-    > <p class="text-center text-sm text-muted-foreground">
-    > 	waiting for
-    > 	<a
-    > 		class="underline hover:text-foreground"
-    > 		href="https://github.com/huntabyte/bits-ui/pull/582"
-    > 		>Bits UI TimeField</a
-    > 	>
-    > </p>
-    > ```
+> [!NOTE]
+> The component should have content. For example:
+>
+> ```html
+> <p class="text-center text-sm text-muted-foreground">
+> 	waiting for
+> 	<a class="underline hover:text-foreground" href="https://github.com/huntabyte/bits-ui/pull/582"
+> 		>Bits UI TimeField</a
+> 	>
+> </p>
+> ```
 
-  - 1.3\. **Route Configuration**
+- 1.3\. **Route Configuration**
 
-    When adding a new component category, you must configure its routing in `src/lib/config/routes.ts`:
+  When adding a new component category, you must configure its routing in `src/lib/config/routes.ts`:
 
-    ```typescript
-    {
-      componentDirectory: ['your-category'], // Directory name(s) containing components
-      header: {
-        description: 'A growing collection of ${count} components built with Svelte and TailwindCSS.',
-        title: 'Your Category'
-      },
-      label: 'Your Category', // Navigation label
-      order: 12, // Navigation order (increment from last)
-      path: 'your-category', // URL path
-      seo: {
-        description: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
-        keywords: 'your, keywords, component, svelte, tailwindcss',
-        title: 'Your Category',
-        twitterDescription: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
-        twitterTitle: 'Your Category'
-      }
+  ```typescript
+  {
+    componentDirectory: ['your-category'], // Directory name(s) containing components
+    header: {
+      description: 'A growing collection of ${count} components built with Svelte and TailwindCSS.',
+      title: 'Your Category'
+    },
+    label: 'Your Category', // Navigation label
+    order: 12, // Navigation order (increment from last)
+    path: 'your-category', // URL path
+    seo: {
+      description: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
+      keywords: 'your, keywords, component, svelte, tailwindcss',
+      title: 'Your Category',
+      twitterDescription: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
+      twitterTitle: 'Your Category'
     }
-    ```
+  }
+  ```
 
-    For combined categories (like inputs/textareas), use multiple directories:
+  For combined categories (like inputs/textareas), use multiple directories:
 
-    ```typescript
-    componentDirectory: ['category1', 'category2'],
-    path: 'combined-category'
-    ```
+  ```typescript
+  componentDirectory: ['category1', 'category2'],
+  path: 'combined-category'
+  ```
 
 > [!NOTE]
 > The `order` property determines the navigation menu order. Check existing routes for the next available number.
