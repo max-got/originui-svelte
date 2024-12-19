@@ -6,7 +6,7 @@
 
 <div class="relative">
 	<Avatar class="rounded-lg">
-		<AvatarImage src="./avatar-80-07.jpg" alt="Kelly King" />
+		<AvatarImage src="/avatar-80-07.jpg" alt="Kelly King" />
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
 	<Badge class="absolute -top-2 left-full min-w-5 -translate-x-3 border-background px-1">6</Badge>

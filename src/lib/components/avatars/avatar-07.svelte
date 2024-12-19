@@ -4,7 +4,7 @@
 
 <div class="relative">
 	<Avatar class="rounded-lg">
-		<AvatarImage src="./avatar-80-07.jpg" alt="Kelly King" />
+		<AvatarImage src="/avatar-80-07.jpg" alt="Kelly King" />
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
 	<span

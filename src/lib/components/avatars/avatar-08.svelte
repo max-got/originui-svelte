@@ -4,7 +4,7 @@
 
 <div class="relative">
 	<Avatar>
-		<AvatarImage src="./avatar-80-07.jpg" alt="Kelly King" />
+		<AvatarImage src="/avatar-80-07.jpg" alt="Kelly King" />
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
 	<span class="absolute -end-1 -top-1">
