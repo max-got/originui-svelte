@@ -4,8 +4,10 @@
 	import * as DemoComponents from '$lib/demo/demo-component/index.js';
 	import PageHeader from '$lib/demo/page-header.svelte';
 	import { getPreviewComponentDialogCtx } from '$lib/demo/preview-component/index.svelte.js';
+	import { createPreviousAccessedStorage } from '$lib/demo/utils/previous-accessed-storage.svelte.js';
 
 	import { pushState } from '$app/navigation';
+	import { toast } from 'svelte-sonner';
 
 	let { data } = $props();
 
@@ -25,6 +27,46 @@
 
 	const componentCategories = $derived.by(() => {
 		return data.componentsCategories.map((category) => category.components);
+	});
+
+	const componentMetadataLocalStorage = createPreviousAccessedStorage({
+		value: {
+			[data.routeMetadata.path]: {
+				completed: data.completed,
+				todo: data.todo,
+				total: data.total
+			}
+		}
+	});
+
+	function updateLocalStorage() {
+		componentMetadataLocalStorage.updateComponents({
+			[data.routeMetadata.path]: {
+				completed: data.completed,
+				todo: data.todo,
+				total: data.total
+			}
+		});
+	}
+
+	$effect(() => {
+		if (!componentMetadataLocalStorage.isMismatch) return;
+
+		const { completed, todo, total } = data;
+		const storedTotal =
+			componentMetadataLocalStorage.getCurrentComponents()[data.routeMetadata.path]?.total ?? 0;
+		const newComponentCount = total - storedTotal;
+
+		if (newComponentCount <= 0) return;
+
+		toast.info(`${newComponentCount} new components added to ${data.routeMetadata.header.title}!`, {
+			description: `Now featuring ${completed} completed components${
+				todo > 0 ? ` with ${todo} more coming soon!` : '.'
+			}`,
+			duration: 10000,
+			onAutoClose: updateLocalStorage,
+			onDismiss: updateLocalStorage
+		});
 	});
 </script>
 

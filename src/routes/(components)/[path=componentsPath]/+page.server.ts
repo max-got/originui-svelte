@@ -9,22 +9,27 @@ export const load = (async ({ fetch, params }) => {
 	const componentDirectories = getComponentRouteDirectories(path);
 	const componentsCategories = await fetchComponentsFromAPI(fetch, componentDirectories);
 
+	const { completed, todo, total } = componentsCategories.reduce(
+		(acc, comp) => ({
+			completed: acc.completed + comp.meta.fileStats.completed,
+			todo: acc.todo + comp.meta.fileStats.todo,
+			total: acc.total + comp.meta.total
+		}),
+		{ completed: 0, todo: 0, total: 0 }
+	);
+
 	const routeMetadata = getComponentRouteMetadata(path, {
 		count: (() => {
-			const total = componentsCategories.reduce((sum, comp) => sum + comp.meta.total, 0);
-			const completed = componentsCategories.reduce(
-				(sum, comp) => sum + comp.meta.fileStats.completed,
-				0
-			);
-			const todo = componentsCategories.reduce((sum, comp) => sum + comp.meta.fileStats.todo, 0);
-
 			if (todo === 0) return `${total}`;
 			return `${completed} / ${total}`;
 		})()
 	});
 
 	return {
+		completed,
 		componentsCategories,
-		routeMetadata
+		routeMetadata,
+		todo,
+		total
 	};
 }) satisfies PageServerLoad;
