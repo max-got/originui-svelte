@@ -26,7 +26,7 @@
 		>
 			<Dialog.Portal>
 				<Dialog.Overlay />
-				<Dialog.Content class="max-w-6xl ">
+				<Dialog.Content class="max-h-[calc(100vh-5rem)] max-w-6xl overflow-y-auto">
 					<Component {componentMetadata} />
 				</Dialog.Content>
 			</Dialog.Portal>
