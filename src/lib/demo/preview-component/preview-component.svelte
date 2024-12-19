@@ -16,7 +16,6 @@
 	import Share from 'lucide-svelte/icons/share-2';
 	import KbdLeft from 'lucide-svelte/icons/square-arrow-left';
 	import KbdRight from 'lucide-svelte/icons/square-arrow-right';
-	import { fade } from 'svelte/transition';
 
 	const overviewUrl = $derived($page.url.pathname.split('/').slice(0, -1).join('/'));
 
@@ -53,10 +52,12 @@
 		}
 	}
 
+	let componentLoaded = $state(false);
 	let showComponentPaginationNav = $state(false);
 
 	// Add keyboard navigation
 	function handleKeydown(e: KeyboardEvent) {
+		if (!componentLoaded || $navigating) return;
 		if (e.key === 'ArrowLeft' && prevComponentMetadata) {
 			goto(`${overviewUrl}/${prevComponentMetadata.id}`);
 		} else if (e.key === 'ArrowRight' && nextComponentMetadata) {
@@ -66,13 +67,6 @@
 </script>
 
 <svelte:document onkeydown={handleKeydown} />
-
-{#if $navigating}
-	<div
-		transition:fade
-		class="fixed inset-0 z-[calc(infinity)] bg-background/50 backdrop-blur-sm"
-	></div>
-{/if}
 
 {#snippet paginationComponent(
 	componentMetadata: AvailableComponentMetadata,
@@ -107,10 +101,16 @@
 			<div
 				class="relative w-full content-center overflow-hidden rounded-md border border-input/50 bg-card shadow-sm transition-all duration-200 hover:border-input hover:shadow-md"
 			>
-				<div class="flex scale-75 items-center justify-center transition-transform duration-200">
+				<div
+					class="mx-auto flex max-w-fit scale-75 items-center justify-center overflow-hidden transition-transform duration-200"
+				>
 					<AsyncComponentLoader
+						loadEagerly
 						componentId={componentMetadata.id}
 						directory={componentMetadata.directory}
+						onComponentLoaded={() => (componentLoaded = true)}
+						onComponentLoad={() => (componentLoaded = false)}
+						onComponentError={() => (componentLoaded = false)}
 					>
 						{#snippet child({ Component })}
 							<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
@@ -124,7 +124,7 @@
 	</li>
 {/snippet}
 
-<div class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
+<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6">
 	<header class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 		<div class="flex flex-col gap-1">
 			<div class="flex items-center gap-2">
@@ -163,41 +163,36 @@
 		</div>
 	</header>
 
-	<section class="_grid">
-		<div
-			class="_preview col-span-full grid h-fit max-h-[800px] gap-8 lg:sticky lg:top-4 lg:col-span-5"
-		>
+	<section class="flex flex-col gap-8">
+		<div class="flex flex-col gap-4">
 			<!-- Preview Section -->
 			<div class="flex flex-col gap-2">
 				<h2 class="font-semibold">Preview</h2>
 				<div
-					class="z-0 flex items-center justify-center rounded-lg border border-muted bg-background p-6 shadow-sm"
+					class="z-0 flex min-h-[300px] items-center justify-center overflow-auto rounded-lg border border-muted bg-background p-4 shadow-sm"
 				>
-					<AsyncComponentLoader
-						componentId={componentMetadata.id}
-						directory={componentMetadata.directory}
-					>
-						{#snippet child({ Component })}
-							<div inert class="[&_*]:!pointer-events-none [&_*]:!select-none">
+					{#key componentMetadata}
+						<AsyncComponentLoader
+							data-component-preview
+							class="relative size-auto max-w-[350px] md:max-w-[500px] lg:max-w-[700px]"
+							componentId={componentMetadata.id}
+							directory={componentMetadata.directory}
+						>
+							{#snippet child({ Component })}
 								<Component />
-							</div>
-						{/snippet}
-					</AsyncComponentLoader>
+							{/snippet}
+						</AsyncComponentLoader>
+					{/key}
 				</div>
 			</div>
 		</div>
 
 		<!-- Code Section -->
-		<div class="_code col-span-full grid gap-2">
+		<div class="flex flex-col gap-4">
 			<div class="flex items-center">
 				<h2 class=" font-semibold">Code</h2>
 			</div>
-			<div
-				class="relative grid rounded-lg border border-muted {isPreview
-					? 'max-h-[50vh] overflow-y-auto'
-					: ''}"
-				data-vaul-no-drag
-			>
+			<div class="relative grid rounded-lg border border-muted" data-vaul-no-drag>
 				<CodePreview code={componentMetadata.code.highlighted.content} />
 				<div class="absolute right-1 top-1">
 					<CopyButton code={componentMetadata.code.highlighted.content} />
@@ -206,7 +201,7 @@
 		</div>
 
 		<!-- Dependencies Section -->
-		<div class="_dependencies flex h-fit flex-col gap-2">
+		<div class="flex flex-col gap-2">
 			<div class="flex items-center">
 				<h2
 					class="font-semibold data-[has-dependencies=false]:text-muted-foreground data-[has-dependencies=false]:line-through"
@@ -217,7 +212,7 @@
 			</div>
 
 			{#if hasDependencies}
-				<div class="grid h-full gap-2 lg:grid-cols-2">
+				<div class="grid h-full gap-4 lg:grid-cols-2">
 					<div class="flex flex-col gap-2">
 						<h3 class="text-sm font-semibold">Command</h3>
 						<div
@@ -305,38 +300,3 @@
 		</div>
 	</div>
 {/if}
-
-<style lang="postcss">
-	._grid {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			'preview'
-			'code'
-			'dependencies';
-
-		& > ._preview {
-			grid-area: preview;
-		}
-
-		& > ._code {
-			grid-area: code;
-		}
-
-		& > ._dependencies {
-			grid-area: dependencies;
-		}
-	}
-
-	@media (min-width: theme('screens.lg')) {
-		._grid {
-			grid-template-columns: 0.5fr 1fr;
-			grid-template-rows: 1fr 0.5fr;
-			grid-template-areas:
-				'preview code code'
-				'preview code code'
-				'dependencies dependencies dependencies';
-		}
-	}
-</style>
