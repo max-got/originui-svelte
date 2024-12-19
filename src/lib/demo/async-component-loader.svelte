@@ -17,6 +17,7 @@
 		loadEagerly?: boolean;
 		loading?: Snippet<[{ loading: boolean }]>;
 		onComponentError?: (error: Error) => void;
+		onComponentLoad?: () => void;
 		onComponentLoaded?: (component: Component) => void;
 	};
 
@@ -30,12 +31,14 @@
 		loadEagerly = false,
 		loading,
 		onComponentError,
+		onComponentLoad,
 		onComponentLoaded,
 		ref = $bindable(null),
 		...restProps
 	}: AsyncComponentLoaderProps = $props();
 
 	async function loadComponent(): Promise<{ default: Component }> {
+		onComponentLoad?.();
 		return import(`$lib/components/${directory}/${componentId}.svelte`)
 			.then((module) => {
 				onComponentLoaded?.(module.default);
