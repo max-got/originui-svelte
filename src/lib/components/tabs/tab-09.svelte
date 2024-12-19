@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { ScrollArea, Scrollbar } from '$lib/components/ui/scroll-area';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import BookMarked from 'lucide-svelte/icons/bookmark';
 	import Box from 'lucide-svelte/icons/box';
 	import House from 'lucide-svelte/icons/house';
+	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
 <Tabs value="tab-1">
@@ -20,7 +20,7 @@
 				value="tab-2"
 				class="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none"
 			>
-				<BookMarked
+				<PanelsTopLeft
 					class="-ms-0.5 me-1.5 opacity-60"
 					size={16}
 					stroke-width={2}

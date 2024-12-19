@@ -3,10 +3,10 @@
 
 	import { ScrollArea, Scrollbar } from '$lib/components/ui/scroll-area';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import BookMarked from 'lucide-svelte/icons/bookmark';
 	import Box from 'lucide-svelte/icons/box';
 	import ChartLine from 'lucide-svelte/icons/chart-line';
 	import House from 'lucide-svelte/icons/house';
+	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 	import Settings from 'lucide-svelte/icons/settings';
 	import UsersRound from 'lucide-svelte/icons/users-round';
 </script>
@@ -27,7 +27,7 @@
 				value="tab-2"
 				class="relative after:absolute after:inset-x-0 after:bottom-0 after:-mb-1 after:h-0.5 hover:bg-accent hover:text-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:after:bg-primary data-[state=active]:hover:bg-accent"
 			>
-				<BookMarked
+				<PanelsTopLeft
 					class="-ms-0.5 me-1.5 opacity-60"
 					size={16}
 					stroke-width={2}

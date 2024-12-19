@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import BookMarked from 'lucide-svelte/icons/bookmark';
 	import Box from 'lucide-svelte/icons/box';
 	import House from 'lucide-svelte/icons/house';
+	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
 <Tabs value="tab-1" orientation="vertical" class="flex w-full gap-2">
@@ -18,7 +18,12 @@
 			value="tab-2"
 			class="relative w-full justify-start after:absolute after:inset-y-0 after:start-0 after:-ms-1 after:w-0.5 hover:bg-accent hover:text-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:after:bg-primary data-[state=active]:hover:bg-accent"
 		>
-			<BookMarked class="-ms-0.5 me-1.5 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+			<PanelsTopLeft
+				class="-ms-0.5 me-1.5 opacity-60"
+				size={16}
+				stroke-width={2}
+				aria-hidden="true"
+			/>
 			Repositories
 		</TabsTrigger>
 		<TabsTrigger

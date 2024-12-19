@@ -8,9 +8,9 @@
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
-	import BookMarked from 'lucide-svelte/icons/bookmark';
 	import Box from 'lucide-svelte/icons/box';
 	import House from 'lucide-svelte/icons/house';
+	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
 <Tabs value="tab-1">
@@ -36,7 +36,7 @@
 						<span {...props}>
 							<TabsTrigger value="tab-2" class="group py-3">
 								<span class="relative">
-									<BookMarked size={16} stroke-width={2} aria-hidden="true" />
+									<PanelsTopLeft size={16} stroke-width={2} aria-hidden="true" />
 									<Badge
 										class="absolute -top-2.5 left-full min-w-4 -translate-x-1.5 border-background px-0.5 text-[10px]/[.875rem] transition-opacity group-data-[state=inactive]:opacity-50"
 									>
