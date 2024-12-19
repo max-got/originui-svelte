@@ -79,7 +79,8 @@
 	<style>
 		.components-wrapper {
 			.wrapper {
-				&[data-path='buttons'] {
+				&[data-path='buttons'],
+				&[data-path='tabs'] {
 					text-align: center;
 				}
 			}

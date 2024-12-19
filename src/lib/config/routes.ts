@@ -205,6 +205,26 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Sliders'
 		}
 	},
+	tabs: {
+		componentDirectory: ['tabs'],
+		header: {
+			description:
+				'A growing collection of ${count} tab components built with Svelte and TailwindCSS.',
+			title: 'Tabs'
+		},
+		label: 'Tabs',
+		order: 11,
+		path: 'tabs',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Tab components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'tabs, component, svelte, tailwindcss',
+			title: 'Tabs',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Tab components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Tabs'
+		}
+	},
 	tooltipsHovercards: {
 		componentDirectory: ['tooltips', 'hover-cards'],
 		header: {

@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 8:19:11 PM
+ * Last generated at: 12/19/2024, 11:23:18 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -425,6 +425,31 @@ export const OUI_DIRECTORIES = {
 			'switch-17.svelte'
 		]
 	},
+	TABS: {
+		directory: 'tabs',
+		components: [
+			'tab-01.svelte',
+			'tab-02.svelte',
+			'tab-03.svelte',
+			'tab-04.svelte',
+			'tab-05.svelte',
+			'tab-06.svelte',
+			'tab-07.svelte',
+			'tab-08.svelte',
+			'tab-09.svelte',
+			'tab-10.svelte',
+			'tab-11.svelte',
+			'tab-12.svelte',
+			'tab-13.svelte',
+			'tab-14.svelte',
+			'tab-15.svelte',
+			'tab-16.svelte',
+			'tab-17.svelte',
+			'tab-18.svelte',
+			'tab-19.svelte',
+			'tab-20.svelte'
+		]
+	},
 	TEXTAREAS: {
 		directory: 'textareas',
 		components: [
@@ -483,6 +508,7 @@ export type OUIPopoversComponents = (typeof OUI_DIRECTORIES)['POPOVERS']['compon
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
+export type OUITabsComponents = (typeof OUI_DIRECTORIES)['TABS']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
 export type OUITooltipsComponents = (typeof OUI_DIRECTORIES)['TOOLTIPS']['components'][number];
 
@@ -503,6 +529,7 @@ export type OUIComponent = Prettify<
 	| OUIRadiosComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
+	| OUITabsComponents
 	| OUITextareasComponents
 	| OUITooltipsComponents
 >;
@@ -524,6 +551,7 @@ export interface OUIDirectoryToComponent {
 	radios: OUIRadiosComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
+	tabs: OUITabsComponents;
 	textareas: OUITextareasComponents;
 	tooltips: OUITooltipsComponents;
 }
