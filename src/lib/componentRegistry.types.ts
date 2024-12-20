@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/20/2024, 9:47:23 AM
+ * Last generated at: 12/20/2024, 10:13:11 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -117,13 +117,13 @@ export const OUI_DIRECTORIES = {
 	BREADCRUMBS: {
 		directory: 'breadcrumbs',
 		components: [
-			'breadcrumb-01.todo.svelte',
-			'breadcrumb-02.todo.svelte',
-			'breadcrumb-03.todo.svelte',
-			'breadcrumb-04.todo.svelte',
-			'breadcrumb-05.todo.svelte',
-			'breadcrumb-06.todo.svelte',
-			'breadcrumb-07.todo.svelte',
+			'breadcrumb-01.svelte',
+			'breadcrumb-02.svelte',
+			'breadcrumb-03.svelte',
+			'breadcrumb-04.svelte',
+			'breadcrumb-05.svelte',
+			'breadcrumb-06.svelte',
+			'breadcrumb-07.svelte',
 			'breadcrumb-08.todo.svelte'
 		]
 	},
