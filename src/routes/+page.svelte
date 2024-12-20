@@ -78,7 +78,7 @@
 				<h2 class="mb-5 text-muted-foreground">Latest components</h2>
 				<nav>
 					<ul class="flex flex-col gap-2">
-						{#each Object.values(COMPONENT_ROUTES).sort((a, b) => a.order - b.order) as route (route.path)}
+						{#each Object.values(COMPONENT_ROUTES) as route (route.path)}
 							<li>
 								<a
 									href={route.path}

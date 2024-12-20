@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 import type { OUIDirectory } from '$lib/componentRegistry.types';
 
 type MetadataVariables = {
@@ -19,152 +20,11 @@ type ComponentRoutes = {
 		title: string;
 	};
 	label: string;
-	order: number;
 	path: string;
 	seo: SEOMetadata;
 };
 
 export const COMPONENT_ROUTES = {
-	accordions: {
-		componentDirectory: ['accordions'],
-		header: {
-			description:
-				'A growing collection of ${count} accordion components built with Svelte and TailwindCSS.',
-			title: 'Accordion'
-		},
-		label: 'Accordions',
-		order: 8,
-		path: 'accordions',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'accordion, collapsible, component, svelte, tailwindcss',
-			title: 'Accordions',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Accordions'
-		}
-	},
-	alertsNotificationsBanners: {
-		componentDirectory: ['alerts', 'notifications', 'banners'],
-		header: {
-			description:
-				'A growing collection of ${count} alert, notification, and banner components built with Svelte and TailwindCSS.',
-			title: 'Alert, Notification, and Banner'
-		},
-		label: 'Alerts, Notifications, and Banners',
-		order: 6,
-		path: 'alerts-notifications-banners',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'alert, notification, banner, component, svelte, tailwindcss',
-			title: 'Alerts, Notifications, and Banners',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Alerts, Notifications, and Banners'
-		}
-	},
-	avatarAndBadges: {
-		componentDirectory: ['avatars', 'badges'],
-		header: {
-			description:
-				'A growing collection of ${count} avatar and badge components built with Svelte and TailwindCSS.',
-			title: 'Avatar and Badges'
-		},
-		label: 'Avatar and Badges',
-		order: 11,
-		path: 'avatar-badges',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'avatar, badge, component, svelte, tailwindcss',
-			title: 'Avatar and Badges',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Avatar and Badge components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Avatar and Badges'
-		}
-	},
-	buttons: {
-		componentDirectory: ['buttons'],
-		header: {
-			description:
-				'A growing collection of over ${count} button components built with Svelte and TailwindCSS.',
-			title: 'Button'
-		},
-		label: 'Buttons',
-		order: 2,
-		path: 'buttons',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'button, component, svelte, tailwindcss',
-			title: 'Buttons',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Buttons'
-		}
-	},
-	checkboxesRadiosSwitches: {
-		componentDirectory: ['checkboxes', 'radios', 'switches'],
-		header: {
-			description:
-				'A growing collection of over ${count} checkbox components built with Svelte and TailwindCSS.',
-			title: 'Checkbox'
-		},
-		label: 'Checkboxes, Radios, and Switches',
-		order: 3,
-		path: 'checks-radios-switches',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'checkbox, radio, switch, component, svelte, tailwindcss',
-			title: 'Checkboxes, Radios, and Switches',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Checkboxes, Radios, and Switches'
-		}
-	},
-	dialogs: {
-		componentDirectory: ['dialogs'],
-		header: {
-			description:
-				'A growing collection of over ${count} dialog components built with Svelte and TailwindCSS.',
-			title: 'Dialog'
-		},
-		label: 'Dialogs',
-		order: 7,
-		path: 'dialogs',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'dialog, component, svelte, tailwindcss',
-			title: 'Dialogs',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Dialogs'
-		}
-	},
-	dropdownsPopovers: {
-		componentDirectory: ['dropdowns', 'popovers'],
-		header: {
-			description:
-				'A growing collection of ${count} dropdown and popover components built with Svelte and TailwindCSS.',
-			title: 'Dropdown and Popover'
-		},
-		label: 'Dropdowns and Popovers',
-		order: 10,
-		path: 'dropdowns-popovers',
-		seo: {
-			description:
-				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'dropdown, popover, component, svelte, tailwindcss',
-			title: 'Dropdowns and Popovers',
-			twitterDescription:
-				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Dropdowns and Popovers'
-		}
-	},
 	inputsTextareas: {
 		componentDirectory: ['inputs', 'textareas'],
 		header: {
@@ -173,7 +33,6 @@ export const COMPONENT_ROUTES = {
 			title: 'Input'
 		},
 		label: 'Inputs',
-		order: 1,
 		path: 'inputs',
 		seo: {
 			description:
@@ -185,6 +44,49 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Inputs and Textareas'
 		}
 	},
+	buttons: {
+		componentDirectory: ['buttons'],
+		header: {
+			description:
+				'A growing collection of over ${count} button components built with Svelte and TailwindCSS.',
+			title: 'Button'
+		},
+		label: 'Buttons',
+		path: 'buttons',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'button, component, svelte, tailwindcss',
+			title: 'Buttons',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Button components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Buttons'
+		}
+	},
+
+	checkboxesRadiosSwitches: {
+		componentDirectory: ['checkboxes', 'radios', 'switches'],
+		header: {
+			description:
+				'A growing collection of over ${count} checkbox components built with Svelte and TailwindCSS.',
+			title: 'Checkbox'
+		},
+		label: 'Checkboxes, Radios, and Switches',
+		path: 'checks-radios-switches',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'checkbox, radio, switch, component, svelte, tailwindcss',
+			title: 'Checkboxes, Radios, and Switches',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Checkbox, Radio, and Switch components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Checkboxes, Radios, and Switches'
+		}
+	},
+	/*
+	 TODO: Add Selects
+	 */
+
 	sliders: {
 		componentDirectory: ['sliders'],
 		header: {
@@ -193,7 +95,6 @@ export const COMPONENT_ROUTES = {
 			title: 'Slider'
 		},
 		label: 'Sliders',
-		order: 5,
 		path: 'sliders',
 		seo: {
 			description:
@@ -205,6 +106,121 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Sliders'
 		}
 	},
+
+	alertsNotificationsBanners: {
+		componentDirectory: ['alerts', 'notifications', 'banners'],
+		header: {
+			description:
+				'A growing collection of ${count} alert, notification, and banner components built with Svelte and TailwindCSS.',
+			title: 'Alert, Notification, and Banner'
+		},
+		label: 'Alerts, Notifications, and Banners',
+		path: 'alerts-notifications-banners',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'alert, notification, banner, component, svelte, tailwindcss',
+			title: 'Alerts, Notifications, and Banners',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Alert, Notification, and Banner components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Alerts, Notifications, and Banners'
+		}
+	},
+	dialogs: {
+		componentDirectory: ['dialogs'],
+		header: {
+			description:
+				'A growing collection of over ${count} dialog components built with Svelte and TailwindCSS.',
+			title: 'Dialog'
+		},
+		label: 'Dialogs',
+		path: 'dialogs',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'dialog, component, svelte, tailwindcss',
+			title: 'Dialogs',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Dialog components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Dialogs'
+		}
+	},
+	accordions: {
+		componentDirectory: ['accordions'],
+		header: {
+			description:
+				'A growing collection of ${count} accordion components built with Svelte and TailwindCSS.',
+			title: 'Accordion'
+		},
+		label: 'Accordions',
+		path: 'accordions',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'accordion, collapsible, component, svelte, tailwindcss',
+			title: 'Accordions',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Accordion components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Accordions'
+		}
+	},
+	tooltipsHovercards: {
+		componentDirectory: ['tooltips', 'hover-cards'],
+		header: {
+			description:
+				'A growing collection of ${count} tooltip and hover card components built with Svelte and TailwindCSS.',
+			title: 'Tooltip'
+		},
+		label: 'Tooltips',
+		path: 'tooltips',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'tooltip, hover card, component, svelte, tailwindcss',
+			title: 'Tooltips and Hover Cards',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Tooltips and Hover Cards'
+		}
+	},
+	dropdownsPopovers: {
+		componentDirectory: ['dropdowns', 'popovers'],
+		header: {
+			description:
+				'A growing collection of ${count} dropdown and popover components built with Svelte and TailwindCSS.',
+			title: 'Dropdown and Popover'
+		},
+		label: 'Dropdowns and Popovers',
+		path: 'dropdowns-popovers',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'dropdown, popover, component, svelte, tailwindcss',
+			title: 'Dropdowns and Popovers',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Dropdown and Popover components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Dropdowns and Popovers'
+		}
+	},
+	avatarAndBadges: {
+		componentDirectory: ['avatars', 'badges'],
+		header: {
+			description:
+				'A growing collection of ${count} avatar and badge components built with Svelte and TailwindCSS.',
+			title: 'Avatar and Badges'
+		},
+		label: 'Avatar and Badges',
+		path: 'avatar-badges',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'avatar, badge, component, svelte, tailwindcss',
+			title: 'Avatar and Badges',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Avatar and Badge components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Avatar and Badges'
+		}
+	},
 	tabs: {
 		componentDirectory: ['tabs'],
 		header: {
@@ -213,7 +229,6 @@ export const COMPONENT_ROUTES = {
 			title: 'Tabs'
 		},
 		label: 'Tabs',
-		order: 11,
 		path: 'tabs',
 		seo: {
 			description:
@@ -225,24 +240,23 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Tabs'
 		}
 	},
-	tooltipsHovercards: {
-		componentDirectory: ['tooltips', 'hover-cards'],
+	breadcrumbsAndPaginations: {
+		componentDirectory: ['breadcrumbs', 'paginations'],
 		header: {
 			description:
-				'A growing collection of ${count} tooltip and hover card components built with Svelte and TailwindCSS.',
-			title: 'Tooltip'
+				'A growing collection of ${count} breadcrumb and pagination components built with Svelte and TailwindCSS.',
+			title: 'Breadcrumb and Pagination'
 		},
-		label: 'Tooltips',
-		order: 9,
-		path: 'tooltips',
+		label: 'Breadcrumbs and Paginations',
+		path: 'breadcrumbs-paginations',
 		seo: {
 			description:
-				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			keywords: 'tooltip, hover card, component, svelte, tailwindcss',
-			title: 'Tooltips and Hover Cards',
+				'An extensive collection of copy-and-paste Breadcrumb and Pagination components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'breadcrumb, pagination, component, svelte, tailwindcss',
+			title: 'Breadcrumbs and Paginations',
 			twitterDescription:
-				'An extensive collection of copy-and-paste Tooltip and Hover Card components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
-			twitterTitle: 'Tooltips and Hover Cards'
+				'An extensive collection of copy-and-paste Breadcrumb and Pagination components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Breadcrumbs and Paginations'
 		}
 	}
 } as const satisfies Record<string, ComponentRoutes>;
