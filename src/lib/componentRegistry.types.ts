@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/20/2024, 10:13:11 AM
+ * Last generated at: 12/22/2024, 9:24:34 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -124,7 +124,7 @@ export const OUI_DIRECTORIES = {
 			'breadcrumb-05.svelte',
 			'breadcrumb-06.svelte',
 			'breadcrumb-07.svelte',
-			'breadcrumb-08.todo.svelte'
+			'breadcrumb-08.svelte'
 		]
 	},
 	BUTTONS: {
