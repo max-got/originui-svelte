@@ -145,6 +145,12 @@
 					align-items: center;
 				}
 
+				&[data-directory='breadcrumbs'] {
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+				}
+
 				&[data-directory='dialogs'] {
 					text-align: center;
 				}
