@@ -500,7 +500,6 @@ The project includes an automatic code collapsing system for better readability 
       title: 'Your Category'
     },
     label: 'Your Category', // Navigation label
-    order: 12, // Navigation order (increment from last)
     path: 'your-category', // URL path
     seo: {
       description: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
@@ -518,9 +517,6 @@ The project includes an automatic code collapsing system for better readability 
   componentDirectory: ['category1', 'category2'],
   path: 'combined-category'
   ```
-
-> [!NOTE]
-> The `order` property determines the navigation menu order. Check existing routes for the next available number.
 
 2. **Component Requirements**
 
@@ -578,7 +574,6 @@ The project includes an automatic code collapsing system for better readability 
    - If adding a new category:
      - Add entry to `src/lib/config/routes.ts`
      - Configure SEO metadata
-     - Set correct navigation order
    - For existing categories:
      - Ensure component follows naming pattern
      - Update component count in route description
