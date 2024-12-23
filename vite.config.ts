@@ -1,7 +1,9 @@
+import { defineConfig } from 'vitest/config';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import Icons from 'unplugin-icons/vite';
-import { defineConfig, type PluginOption, type ModuleNode } from 'vite';
+import type { PluginOption, ModuleNode } from 'vite';
+import { svelteTesting } from '@testing-library/svelte/vite';
 
 // Custom plugin for HMR optimization
 // This is my first plugin, so I'm not sure if it's the best way to do this
@@ -40,11 +42,13 @@ export default defineConfig({
 	plugins: [
 		enhancedImages(),
 		sveltekit(),
+		svelteTesting(),
 		Icons({
 			compiler: 'svelte'
 		}),
 		asyncComponentHMR()
 	],
+
 	build: {
 		rollupOptions: {
 			onwarn(warning, warn) {
@@ -60,6 +64,17 @@ export default defineConfig({
 
 				warn(warning);
 			}
+		}
+	},
+
+	test: {
+		include: ['src/**/*.{test,test.svelte,spec}.{js,ts}'],
+		environment: 'jsdom',
+		includeSource: ['src/**/*.{js,ts,svelte}'],
+		setupFiles: ['./setupTest.ts'],
+		globals: true,
+		coverage: {
+			exclude: ['./setupTest.ts']
 		}
 	}
 });
