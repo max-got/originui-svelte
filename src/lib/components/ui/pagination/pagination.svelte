@@ -1,27 +1,21 @@
 <script lang="ts">
+	import type { WithElementRef } from 'bits-ui';
+	import type { Snippet } from 'svelte';
+	import type { SvelteHTMLElements } from 'svelte/elements';
+
 	import { cn } from '$lib/utils.js';
 
-	import { Pagination as PaginationPrimitive } from 'bits-ui';
+	type Props = WithElementRef<SvelteHTMLElements['nav']> & {
+		children: Snippet;
+	};
 
-	let {
-		class: className,
-		count = 0,
-		page = $bindable(1),
-		perPage = 10,
-		ref = $bindable(null),
-		siblingCount = 1,
-		...restProps
-	}: PaginationPrimitive.RootProps = $props();
+	let { children, class: className, ref = $bindable(null), ...restProps }: Props = $props();
 </script>
 
-<PaginationPrimitive.Root
-	bind:ref
-	class={cn('mx-auto flex w-full justify-center', className)}
-	{count}
-	{perPage}
-	{siblingCount}
-	bind:page
-	role="navigation"
+<nav
 	aria-label="pagination"
+	class={cn('mx-auto flex w-full justify-center', className)}
 	{...restProps}
-/>
+>
+	{@render children()}
+</nav>

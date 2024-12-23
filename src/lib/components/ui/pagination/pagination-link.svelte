@@ -1,32 +1,31 @@
-<script lang="ts">
+<script module lang="ts">
+	import type { WithElementRef } from 'bits-ui';
+	import type { Snippet } from 'svelte';
+	import type { HTMLAnchorAttributes } from 'svelte/elements';
+
 	import { type ButtonProps, buttonVariants } from '$lib/components/ui/button.svelte';
+
+	export type Props = WithElementRef<HTMLAnchorAttributes> & {
+		children: Snippet;
+		isActive?: boolean;
+		isDisabled?: boolean;
+	} & Pick<ButtonProps, 'size'>;
+</script>
+
+<script lang="ts">
 	import { cn } from '$lib/utils.js';
-
-	import { Pagination as PaginationPrimitive, type WithoutChild } from 'bits-ui';
-
-	type Props = WithoutChild<PaginationPrimitive.PageProps> &
-		Pick<ButtonProps, 'size'> & {
-			isActive?: boolean;
-		};
 
 	let {
 		children,
 		class: className,
 		isActive = false,
-		page,
 		ref = $bindable(null),
 		size = 'icon',
 		...restProps
 	}: Props = $props();
 </script>
 
-{#snippet Fallback()}
-	{page.value}
-{/snippet}
-
-<PaginationPrimitive.Page
-	{page}
-	bind:ref
+<a
 	aria-current={isActive ? 'page' : undefined}
 	class={cn(
 		buttonVariants({
@@ -36,5 +35,6 @@
 		className
 	)}
 	{...restProps}
-	children={children || Fallback}
-/>
+>
+	{@render children()}
+</a>
