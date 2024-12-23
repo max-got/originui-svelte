@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/22/2024, 9:24:34 AM
+ * Last generated at: 12/23/2024, 12:32:27 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -349,18 +349,18 @@ export const OUI_DIRECTORIES = {
 	PAGINATIONS: {
 		directory: 'paginations',
 		components: [
-			'pagination-01.todo.svelte',
-			'pagination-02.todo.svelte',
-			'pagination-03.todo.svelte',
-			'pagination-04.todo.svelte',
-			'pagination-05.todo.svelte',
-			'pagination-06.todo.svelte',
-			'pagination-07.todo.svelte',
-			'pagination-08.todo.svelte',
-			'pagination-09.todo.svelte',
-			'pagination-10.todo.svelte',
-			'pagination-11.todo.svelte',
-			'pagination-12.todo.svelte'
+			'pagination-01.svelte',
+			'pagination-02.svelte',
+			'pagination-03.svelte',
+			'pagination-04.svelte',
+			'pagination-05.svelte',
+			'pagination-06.svelte',
+			'pagination-07.svelte',
+			'pagination-08.svelte',
+			'pagination-09.svelte',
+			'pagination-10.svelte',
+			'pagination-11.svelte',
+			'pagination-12.svelte'
 		]
 	},
 	POPOVERS: {
