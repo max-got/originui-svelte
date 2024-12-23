@@ -1,17 +1,18 @@
-import { tick } from 'svelte';
+import { on } from 'svelte/events';
+import { createSubscriber } from 'svelte/reactivity';
 
-export class LocalStorage<T> {
+export class LocalStorage<T extends object> {
 	#key: string;
-	#version = $state(0);
-	#listeners = 0;
 	#value: T | undefined;
-
-	#handler = (e: StorageEvent) => {
-		if (e.storageArea !== localStorage) return;
-		if (e.key !== this.#key) return;
-
-		this.#version += 1;
-	};
+	#update: (() => void) | undefined;
+	#subscribe = createSubscriber((update) => {
+		this.#update = update;
+		return on(window, 'storage', (e) => {
+			if (e.storageArea !== localStorage) return;
+			if (e.key !== this.#key) return;
+			update();
+		});
+	});
 
 	constructor(key: string, initial?: T) {
 		this.#key = key;
@@ -24,81 +25,58 @@ export class LocalStorage<T> {
 		}
 	}
 
-	get current() {
-		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-		this.#version;
+	get current(): T {
+		this.#subscribe();
 
 		const root =
 			typeof localStorage !== 'undefined'
-				? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-					JSON.parse(localStorage.getItem(this.#key) as any)
-				: this.#value;
+				? (JSON.parse(localStorage.getItem(this.#key)!) as T)
+				: (this.#value as T);
 
-		const proxies = new WeakMap();
+		const proxies = new WeakMap<object, T>();
 
-		const proxy = (value: unknown) => {
+		const proxy = (value: T | unknown): T | unknown => {
 			if (typeof value !== 'object' || value === null) {
 				return value;
 			}
 
-			let p = proxies.get(value);
+			let p = proxies.get(value as object);
 
 			if (!p) {
-				p = new Proxy(value, {
+				p = new Proxy(value as T, {
 					get: (target, property) => {
-						// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-						this.#version;
+						this.#subscribe();
 						return proxy(Reflect.get(target, property));
 					},
 					set: (target, property, value) => {
-						this.#version += 1;
 						Reflect.set(target, property, value);
 
 						if (typeof localStorage !== 'undefined') {
 							localStorage.setItem(this.#key, JSON.stringify(root));
 						}
 
+						this.#update?.();
 						return true;
 					}
-				});
+				}) as T;
 
-				proxies.set(value, p);
+				proxies.set(value as object, p);
 			}
 
 			return p;
 		};
 
-		if ($effect.tracking()) {
-			$effect(() => {
-				if (this.#listeners === 0) {
-					window.addEventListener('storage', this.#handler);
-				}
-
-				this.#listeners += 1;
-
-				return () => {
-					tick().then(() => {
-						this.#listeners -= 1;
-						if (this.#listeners === 0) {
-							window.removeEventListener('storage', this.#handler);
-						}
-					});
-				};
-			});
-		}
-
-		return proxy(root);
+		return proxy(root) as T;
 	}
 
-	set current(value) {
+	set current(value: T) {
 		if (typeof localStorage !== 'undefined') {
 			localStorage.setItem(this.#key, JSON.stringify(value));
 		}
-
-		this.#version += 1;
+		this.#update?.();
 	}
 }
 
-export function useLocalStorage<T>(key: string, initial?: T) {
+export function useLocalStorage<T extends object>(key: string, initial?: T) {
 	return new LocalStorage<T>(key, initial);
 }
