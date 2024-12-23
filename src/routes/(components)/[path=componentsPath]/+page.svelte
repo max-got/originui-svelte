@@ -95,7 +95,7 @@
 	<DemoComponents.Wrapper
 		{componentCategories}
 		data-path={data.routeMetadata.path}
-		class="wrapper data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
+		class="wrapper data-[path=breadcrumbs-paginations]:!grid-cols-1 data-[path=accordions]:lg:grid-cols-2 data-[path=alerts-notifications-banners]:lg:grid-cols-2"
 		data-directory={data.routeMetadata.componentDirectory.join('_')}
 	>
 		{#snippet availableComponent({ data })}
