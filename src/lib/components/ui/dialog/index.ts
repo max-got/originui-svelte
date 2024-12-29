@@ -1,5 +1,3 @@
-/* eslint-disable perfectionist/sort-named-exports */
-
 import Content from './dialog-content.svelte';
 import Description from './dialog-description.svelte';
 import Footer from './dialog-footer.svelte';
@@ -15,25 +13,24 @@ const Portal = DialogPrimitive.Portal;
 const Close = DialogPrimitive.Close;
 
 export {
-	Root,
-	Title,
-	Portal,
-	Footer,
-	Header,
-	Trigger,
-	Overlay,
-	Content,
-	Description,
 	Close,
-	//
-	Root as Dialog,
-	Title as DialogTitle,
-	Portal as DialogPortal,
-	Footer as DialogFooter,
-	Header as DialogHeader,
-	Trigger as DialogTrigger,
-	Overlay as DialogOverlay,
+	Close as DialogClose,
+	Content,
 	Content as DialogContent,
+	Description,
 	Description as DialogDescription,
-	Close as DialogClose
+	Footer,
+	Footer as DialogFooter,
+	Header,
+	Header as DialogHeader,
+	Overlay,
+	Overlay as DialogOverlay,
+	Portal,
+	Portal as DialogPortal,
+	Root,
+	Root as DialogRoot,
+	Title,
+	Title as DialogTitle,
+	Trigger,
+	Trigger as DialogTrigger
 };

@@ -12,7 +12,7 @@
 
 <CommandPrimitive.Item
 	class={cn(
-		'relative flex cursor-default select-none items-center gap-3 rounded-md px-2 py-1.5 text-sm outline-none aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-selected:bg-accent aria-selected:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0',
+		'relative flex cursor-default select-none items-center gap-3 rounded-md px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
 		className
 	)}
 	bind:ref

@@ -12,8 +12,8 @@
 	}: CommandPrimitive.InputProps = $props();
 </script>
 
-<div class="flex items-center border-b border-border px-5" data-command-input-wrapper="">
-	<Search class="mr-2 size-4 shrink-0 opacity-50" />
+<div class="flex items-center border-b border-input px-5" data-command-input-wrapper="">
+	<Search size={20} stroke-width={2} class="me-3 text-muted-foreground/80" />
 	<CommandPrimitive.Input
 		class={cn(
 			'flex h-10 w-full rounded-lg bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/70 disabled:cursor-not-allowed disabled:opacity-50',

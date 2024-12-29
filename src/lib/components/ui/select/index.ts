@@ -1,3 +1,5 @@
+/* eslint-disable perfectionist/sort-named-exports */
+
 import Content from './select-content.svelte';
 import GroupHeading from './select-group-heading.svelte';
 import Item from './select-item.svelte';
@@ -12,23 +14,23 @@ const Root = SelectPrimitive.Root;
 const Group = SelectPrimitive.Group;
 
 export {
-	Content,
-	Content as SelectContent,
-	Group,
-	Group as SelectGroup,
-	GroupHeading,
-	GroupHeading as SelectGroupHeading,
-	Item,
-	Item as SelectItem,
 	Root,
+	Item,
+	Group,
+	GroupHeading,
+	Content,
+	Trigger,
+	Separator,
+	ScrollDownButton,
+	ScrollUpButton,
 	//
 	Root as Select,
-	ScrollDownButton,
-	ScrollDownButton as SelectScrollDownButton,
-	ScrollUpButton,
-	ScrollUpButton as SelectScrollUpButton,
-	Separator,
+	Item as SelectItem,
+	Group as SelectGroup,
+	GroupHeading as SelectGroupHeading,
+	Content as SelectContent,
+	Trigger as SelectTrigger,
 	Separator as SelectSeparator,
-	Trigger,
-	Trigger as SelectTrigger
+	ScrollDownButton as SelectScrollDownButton,
+	ScrollUpButton as SelectScrollUpButton
 };

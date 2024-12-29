@@ -56,7 +56,7 @@
 	}: ButtonProps = $props();
 </script>
 
-{#if !href}
+{#if !href && restProps?.role !== 'link'}
 	<button
 		bind:this={ref}
 		type="button"

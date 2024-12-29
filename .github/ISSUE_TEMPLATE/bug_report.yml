@@ -1,0 +1,100 @@
+name: 🐛 Bug Report
+description: Found a bug? Let us help you fix it!
+title: 'bug: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Let's fix it together.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component Category
+      description: Which component type has the issue?
+      options:
+        - Inputs
+        - Buttons
+        - Accordions
+        - Alerts
+        - Avatars
+        - Badges
+        - Banners
+        - Checkboxes
+        - Dialogs
+        - Dropdowns
+        - 'Hover Cards'
+        - Notifications
+        - Popovers
+        - Radios
+        - Sliders
+        - Switches
+        - Textareas
+        - Tooltips
+        - Base UI Components
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: component-id
+    attributes:
+      label: Component ID
+      description: Which specific component? (e.g., input-01, button-02)
+      placeholder: 'input-01'
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: What's happening that shouldn't be?
+      placeholder: 'When I click the button...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: 'The button should...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Help us find the bug
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Affected Browsers
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Edge
+        - Other
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Any error messages in the console?
+      render: shell
+
+  - type: markdown
+    attributes:
+      value: |
+        > [!TIP]
+        > Include screenshots or screen recordings if possible - they're super helpful!

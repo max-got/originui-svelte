@@ -1,41 +1,44 @@
-<script module lang="ts">
+<script lang="ts" module>
 	import type { WithElementRef } from 'bits-ui';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	import { tv, type VariantProps } from 'tailwind-variants';
-	const badgeVariants = tv({
-		base: 'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
 
+	export const badgeVariants = tv({
+		base: 'inline-flex items-center justify-center rounded-full border px-1.5 text-xs font-medium leading-normal transition-colors outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70',
 		defaultVariants: {
 			variant: 'default'
 		},
 		variants: {
 			variant: {
-				default: 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80',
-				destructive:
-					'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
+				default: 'border-transparent bg-primary text-primary-foreground',
+				destructive: 'border-transparent bg-destructive text-destructive-foreground',
 				outline: 'text-foreground',
-				secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80'
+				secondary: 'border-transparent bg-secondary text-secondary-foreground'
 			}
 		}
 	});
 
 	export type BadgeVariant = VariantProps<typeof badgeVariants>['variant'];
 
-	export type BadgeProps = WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+	export type BadgeProps = WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
 		variant?: BadgeVariant;
 	};
 </script>
 
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
-
 	import { cn } from '$lib/utils.js';
+
 	let {
+		children,
 		class: className,
+
 		ref = $bindable(null),
 		variant = 'default',
 		...restProps
 	}: BadgeProps = $props();
 </script>
 
-<div bind:this={ref} class={cn(badgeVariants({ variant }), className)} {...restProps}></div>
+<div class={cn(badgeVariants({ className, variant }))} bind:this={ref} {...restProps}>
+	{@render children?.()}
+</div>

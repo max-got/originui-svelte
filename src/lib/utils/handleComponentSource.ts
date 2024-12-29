@@ -1,4 +1,3 @@
-import type { ComponentAPIResponseJSON } from '$data/api/components.handler.js';
 import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types.js';
 import type { Component } from 'svelte';
 
@@ -14,34 +13,28 @@ const IMPORTS_REGEX =
 	/(?<=(?:import|export)[^`'"]*from\s+[`'"])(?<path1>[^`'"]+)(?=[`'"])|(?:import|export)(?:\s+|\s*\(\s*)[`'"](?<path2>[|'"`])/g;
 
 interface ComponentImports {
-	compiled: Record<string, Component>;
-	source: Record<string, string>;
+	compiled: Record<string, () => Promise<Component>>;
+	source: Record<string, () => Promise<string>>;
 }
 
-// Cache for imports
-let importsCache: ComponentImports | null = null;
-
 const getImports = (): ComponentImports => {
-	if (!importsCache) {
-		importsCache = {
-			compiled: import.meta.glob(
-				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
-				{
-					eager: true,
-					import: 'default'
-				}
-			) as Record<string, Component>,
-			source: import.meta.glob(
-				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
-				{
-					eager: true,
-					import: 'default',
-					query: '?raw'
-				}
-			) as Record<string, string>
-		};
-	}
-	return importsCache;
+	return {
+		compiled: import.meta.glob(
+			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			{
+				eager: false,
+				import: 'default'
+			}
+		) as Record<string, () => Promise<Component>>,
+		source: import.meta.glob(
+			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			{
+				eager: false,
+				import: 'default',
+				query: '?raw'
+			}
+		) as Record<string, () => Promise<string>>
+	};
 };
 
 function removeShikiComments(source: string) {
@@ -156,63 +149,53 @@ async function processComponentSource(rawSource: string, path: string) {
 }
 
 export async function getCompiledComponent(path: string) {
-	return getImports().compiled[path] ?? null;
+	const imports = getImports();
+	if (!imports.compiled[path]) return null;
+	return (await imports.compiled[path]()) ?? null;
 }
 
 export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
 	const path = buildComponentPath(directory, componentName);
-	const componentSource = getImports().source[path];
+	const imports = getImports();
+	const importFn = imports.source[path];
 
-	if (!componentSource) {
+	const processedComponentSource = await processComponentSource(await importFn(), path);
+
+	const hasContent = Boolean(processedComponentSource.code.raw.content?.trim());
+	const componentState = {
+		isAvailable: hasContent && !componentName.includes('.soon') && !componentName.includes('.todo'),
+		isComingSoon: componentName.includes('.soon') && hasContent,
+		isTodo: componentName.includes('.todo')
+	};
+
+	if (componentState.isTodo) {
 		return {
-			available: false,
+			...processedComponentSource,
+			availability: 'todo',
 			directory,
 			id: componentName,
+			name: componentName.replace('.todo', ''),
+			path
+		} as const;
+	}
+
+	if (componentState.isComingSoon) {
+		return {
+			...processedComponentSource,
+			availability: 'soon',
+			directory,
+			id: componentName,
+			name: componentName.replace('.soon', ''),
 			path
 		} as const;
 	}
 
 	return {
-		...(await processComponentSource(componentSource, path)),
-		available: true,
+		...processedComponentSource,
+		availability: 'available',
 		directory,
 		id: componentName,
+		name: componentName,
 		path
 	} as const;
-}
-
-export type AvailableOUIComponent = Extract<
-	ComponentAPIResponseJSON['components'][number],
-	{ available: true }
-> & {
-	component: Awaited<ReturnType<typeof getCompiledComponent>>;
-};
-export type UnavailableOUIComponent = Extract<
-	ComponentAPIResponseJSON['components'][number],
-	{ available: false }
->;
-
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number] & { available: true }
-): Promise<AvailableOUIComponent>;
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number] & { available: false }
-): Promise<UnavailableOUIComponent>;
-export async function createComponent(
-	metadata: ComponentAPIResponseJSON['components'][number]
-): Promise<AvailableOUIComponent | UnavailableOUIComponent>;
-
-export async function createComponent(metadata: ComponentAPIResponseJSON['components'][number]) {
-	if (!metadata.available) {
-		return {
-			...metadata
-		};
-	}
-
-	const component = await getCompiledComponent(metadata.path);
-
-	return {
-		...metadata,
-		component: component
-	};
 }

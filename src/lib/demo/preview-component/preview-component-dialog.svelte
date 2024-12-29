@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AvailableOUIComponent } from '$lib/utils/handleComponentSource';
+	import type { AvailableOUIComponent } from '$data/api/components.handler';
 
 	import Component from './preview-component.svelte';
 	import * as Dialog from '$lib/demo/ui/dialog/index.js';
@@ -26,7 +26,7 @@
 		>
 			<Dialog.Portal>
 				<Dialog.Overlay />
-				<Dialog.Content class="max-w-6xl ">
+				<Dialog.Content class="max-h-[calc(100vh-5rem)] max-w-6xl overflow-y-auto">
 					<Component {componentMetadata} />
 				</Dialog.Content>
 			</Dialog.Portal>

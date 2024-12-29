@@ -1,16 +1,15 @@
-/* eslint-disable perfectionist/sort-imports */
-/* eslint-disable perfectionist/sort-named-exports */
-import { Command as CommandPrimitive } from 'bits-ui';
-
-import Root from './command.svelte';
 import Dialog from './command-dialog.svelte';
 import Empty from './command-empty.svelte';
 import Group from './command-group.svelte';
-import Item from './command-item.svelte';
 import Input from './command-input.svelte';
+import Item from './command-item.svelte';
 import List from './command-list.svelte';
 import Separator from './command-separator.svelte';
 import Shortcut from './command-shortcut.svelte';
+import Root from './command.svelte';
+
+/* eslint-disable perfectionist/sort-named-exports */
+import { Command as CommandPrimitive } from 'bits-ui';
 
 const Loading = CommandPrimitive.Loading;
 

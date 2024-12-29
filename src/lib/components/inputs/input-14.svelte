@@ -7,7 +7,7 @@
 	<Label for="input-14">Input with start add-on</Label>
 	<div class="flex rounded-lg shadow-sm shadow-black/5">
 		<span
-			class="-z-10 inline-flex items-center rounded-s-lg border border-input bg-background px-3 text-sm text-muted-foreground"
+			class="inline-flex items-center rounded-s-lg border border-input bg-background px-3 text-sm text-muted-foreground"
 		>
 			https://
 		</span>

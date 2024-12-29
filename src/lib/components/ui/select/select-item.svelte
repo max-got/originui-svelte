@@ -26,9 +26,7 @@
 	{#snippet children({ highlighted, selected })}
 		<span class="absolute left-2 flex size-3.5 items-center justify-center">
 			{#if selected}
-				<span aria-hidden="true">
-					<Check class="size-4 min-w-[16px]" />
-				</span>
+				<Check size={16} stroke-width={2} />
 			{/if}
 		</span>
 		<span>

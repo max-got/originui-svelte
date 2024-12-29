@@ -1,0 +1,105 @@
+name: 🧩 Component Request
+description: Have an idea for a new component? Let's build it!
+title: 'component: '
+labels: ['component']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new component! Let's make something awesome together.
+
+        > [!NOTE]
+        > This project is a copy of the original Origin UI, reimplemented in Svelte. New components should aim to match the original Origin UI's design and functionality.
+
+  - type: dropdown
+    id: component-type
+    attributes:
+      label: Request Type
+      description: What kind of component are you looking for?
+      options:
+        - New Component Category
+        - New Component in Existing Category
+        - Variation of Existing Component
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Component Category
+      description: Where should this component live?
+      options:
+        - Inputs
+        - Buttons
+        - Accordions
+        - Alerts
+        - Avatars
+        - Badges
+        - Banners
+        - Checkboxes
+        - Dialogs
+        - Dropdowns
+        - 'Hover Cards'
+        - Notifications
+        - Popovers
+        - Radios
+        - Sliders
+        - Switches
+        - Textareas
+        - Tooltips
+        - New Category (describe below)
+    validations:
+      required: true
+
+  - type: input
+    id: new-category
+    attributes:
+      label: New Category Name
+      description: If you selected "New Category", what should we call it?
+      placeholder: 'Date Pickers'
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Component Description
+      description: What should this component do?
+      placeholder: 'A component that...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use Cases
+      description: When would someone use this component?
+      value: |
+        1. When users need to...
+        2. In situations where...
+    validations:
+      required: true
+
+  - type: textarea
+    id: features
+    attributes:
+      label: Key Features
+      description: What features should it have?
+      value: |
+        - [ ] Feature 1
+        - [ ] Feature 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples & Inspiration
+      description: Share links to similar components
+      placeholder: |
+        - Design inspiration: ...
+        - Similar component: ...
+
+  - type: markdown
+    attributes:
+      value: |
+        > [!TIP]
+        > Add mockups or sketches if you have them - they help us understand your vision!

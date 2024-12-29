@@ -47,9 +47,9 @@ class ComponentRegistryGenerator {
 
 	async #validateDirectoryComponents(dir: string): Promise<void> {
 		const files = await fs.readdir(path.join(CONFIG.dirs.component, dir));
-		const svelteFiles = files.filter(
-			(file) => !CONFIG.files.exclude.includes(file) && file.endsWith('.svelte')
-		);
+		const svelteFiles = files
+			.filter((file) => !CONFIG.files.exclude.includes(file) && file.endsWith('.svelte'))
+			.sort();
 
 		if (!svelteFiles.length) {
 			throw new Error(`Directory "${dir}" does not contain any .svelte files`);
@@ -72,10 +72,11 @@ class ComponentRegistryGenerator {
 
 		const timestamp = new Date().toLocaleString();
 		const version = process.env.npm_package_version ?? 'unknown';
-		const components = Array.from(this.#dirComponentSet);
+		const components = Array.from(this.#dirComponentSet).sort((a, b) => a.dir.localeCompare(b.dir));
 
 		function generateDirName(dir: string) {
-			return `${GENERATED_TYPE_PREFIX}${dir.charAt(0).toUpperCase()}${dir.slice(1)}`;
+			const formattedDir = dir.replace(/[^a-zA-Z]/g, '');
+			return `${GENERATED_TYPE_PREFIX}${formattedDir.charAt(0).toUpperCase()}${formattedDir.slice(1)}`;
 		}
 
 		function directoryObject() {
@@ -83,7 +84,10 @@ class ComponentRegistryGenerator {
 			components.forEach(({ dir, files }) => {
 				output += `'${dir.toUpperCase()}': {
 					directory: '${dir}',
-					components: [${files.map((f) => `'${f}'`).join(', ')}]
+					components: [${files
+						.sort()
+						.map((f) => `'${f}'`)
+						.join(', ')}]
 				},`;
 			});
 			return `${output}} as const;`;
@@ -113,7 +117,7 @@ class ComponentRegistryGenerator {
 		function directoryToComponent() {
 			let output = `export interface ${DIRECTORY_TO_COMPONENT_NAME} {`;
 			components.forEach(({ dir }) => {
-				output += `  ${dir}: ${generateDirName(dir)}Components;`;
+				output += `  '${dir}': ${generateDirName(dir)}Components;`;
 			});
 			return `${output}}`;
 		}
@@ -155,7 +159,7 @@ ${directoryToComponent()}
 			}
 
 			const timeTaken = Math.round(performance.now() - startTime);
-			// eslint-disable-next-line no-console
+
 			console.info(`Component types generated successfully in ${timeTaken}ms`);
 		} catch (error) {
 			console.error('Failed to generate component types:', error as Error);
