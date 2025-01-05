@@ -1,6 +1,5 @@
 import type { RequestHandler } from './$types';
 
-
 import { API_V1_LLMS_ENDPOINT_HANDLER } from '$data/api/llms.handler';
 
 export const prerender = true;
@@ -21,7 +20,6 @@ export const GET = (async ({ setHeaders }) => {
 	sections.push('');
 
 	directories.forEach(({ directory }) => {
-
 		const url = `https://originui-svelte.pages.dev/llms/${directory}.txt`;
 
 		sections.push(`- [${directory}](${url})`);
