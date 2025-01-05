@@ -1,6 +1,6 @@
 import type {
-	EntryGenerator,
-	RequestHandler
+	EntryGenerator as DirectoryEntryGenerator,
+	RequestHandler as DirectoryRequestHandler
 } from '../../../routes/(api)/api/v1/components/[directory=componentDirectory].json/$types';
 
 import type { Component } from 'svelte';
@@ -23,7 +23,7 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 	entries: (async () => {
 		const directories = await getComponentDirectories();
 		return directories.map((directory) => ({ directory }));
-	}) satisfies EntryGenerator,
+	}) satisfies DirectoryEntryGenerator,
 	fallback: (async () => {
 		return Response.json(
 			{
@@ -32,7 +32,7 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 			},
 			{ status: 404 }
 		);
-	}) satisfies RequestHandler,
+	}) satisfies DirectoryRequestHandler,
 	GET: (async ({ params, setHeaders }) => {
 		const { directory } = params;
 
@@ -61,7 +61,7 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 			components: typeof components;
 			meta: typeof meta;
 		}>;
-	}) satisfies RequestHandler
+	}) satisfies DirectoryRequestHandler
 };
 export type ComponentAPIResponseJSON = Awaited<
 	ReturnType<Awaited<ReturnType<typeof API_V1_COMPONENTS_ENDPOINT_HANDLER.GET>>['json']>
