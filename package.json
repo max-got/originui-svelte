@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"dev": "vite dev",
-		"build": "SITE_URL=$CF_PAGES_URL vite build",
+		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
