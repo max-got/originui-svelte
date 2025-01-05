@@ -35,3 +35,8 @@ jobs:
           projectName: originui-svelte
           deploymentName: Preview
           directory: ${{ steps.preview-build-artifact.outputs.download-path }}
+
+      - name: print deployment-url
+        env:
+          SITE_URL: ${{ steps.preview-build-artifact.outputs.url }}
+        run: echo $SITE_URL

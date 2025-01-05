@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 
-import { building, dev } from '$app/environment';
+import { building } from '$app/environment';
 import { API_V1_LLMS_ENDPOINT_HANDLER } from '$data/api/llms.handler';
 
 export const prerender = true;
