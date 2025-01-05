@@ -28,9 +28,15 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: AdrianGonz97/refined-cf-pages-action@v1
         with:
+          name: deploy-production
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           projectName: originui-svelte
           directory: ./.svelte-kit/cloudflare
           deploymentName: Production
+
+      - name: print deployment-url
+        env:
+          SITE_URL: ${{ steps.deploy-production.outputs.url }}
+        run: echo $SITE_URL
