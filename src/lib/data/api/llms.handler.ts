@@ -1,7 +1,7 @@
 import type {
 	EntryGenerator as LLMSEntryGenerator,
 	RequestHandler as LLMSRequestHandler
-} from '../../../routes/(llms.txt)/llms/[directory=llmsDirectory].txt/$types';
+} from '../../../routes/(llms.txt)/llms/[directory=componentDirectory].txt/$types';
 
 import { getComponentDirectories } from '$lib/componentRegistry';
 
@@ -13,7 +13,7 @@ import { llmsMdGenerator } from './llms';
 export const API_V1_LLMS_ENDPOINT_HANDLER = {
 	entries: (async () => {
 		const directories = await getComponentDirectories();
-		return directories.map((directory) => ({ directory: `llms-${directory}` }));
+		return directories.map((directory) => ({ directory }));
 	}) satisfies LLMSEntryGenerator,
 	fallback: (async () => {
 		return Response.json(
@@ -28,9 +28,7 @@ export const API_V1_LLMS_ENDPOINT_HANDLER = {
 		return async ({ params, setHeaders }: Omit<Parameters<LLMSRequestHandler>[0], 'fetch'>) => {
 			const { directory } = params;
 
-			const directoryName = directory.replace('llms-', '');
-
-			const componentFiles = await fetch(`${API_V1_COMPONENTS_ROUTE}/${directoryName}.json`);
+			const componentFiles = await fetch(`${API_V1_COMPONENTS_ROUTE}/${directory}.json`);
 			const components = (await componentFiles.json()) as ComponentAPIResponseJSON;
 
 			const systemPrompt = `<SYSTEM>This is the documentation for the "${components.meta.directory}" component directory.</SYSTEM>`;

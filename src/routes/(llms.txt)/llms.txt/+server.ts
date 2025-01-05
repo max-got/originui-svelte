@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 
-import { dev } from '$app/environment';
+import { building, dev } from '$app/environment';
 import { API_V1_LLMS_ENDPOINT_HANDLER } from '$data/api/llms.handler';
 
 export const prerender = true;
@@ -21,11 +21,11 @@ export const GET = (async ({ setHeaders }) => {
 	sections.push('');
 
 	directories.forEach(({ directory }) => {
-		sections.push(
-			`- [${directory.replace('llms-', '')}](${
-				!dev ? process.env.SITE_URL : 'http://localhost:3000'
-			}/llms/${directory}.txt)`
-		);
+		const url =
+			building && process.env.SITE_URL
+				? `${process.env.SITE_URL}/llms/${directory}.txt`
+				: `http://localhost:5173/llms/${directory}.txt`;
+		sections.push(`- [${directory}](${url})`);
 	});
 
 	setHeaders({
