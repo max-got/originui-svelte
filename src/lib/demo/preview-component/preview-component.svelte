@@ -10,6 +10,7 @@
 	import { goto } from '$app/navigation';
 	import { navigating, page } from '$app/stores';
 	import { clickOutside } from '$lib/actions/clickOutside';
+	import { GITHUB_REPO_URL } from '$lib/constants';
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import Code from 'lucide-svelte/icons/code';
 	import ExternalLink from 'lucide-svelte/icons/external-link';
@@ -142,7 +143,7 @@
 				size="sm"
 				target="_blank"
 				rel="noopener noreferrer"
-				href="https://github.com/max-got/originui-svelte/tree/main{componentMetadata.path}"
+				href="{GITHUB_REPO_URL}tree/main{componentMetadata.path}"
 			>
 				Component Source
 				<Code size={16} aria-hidden />

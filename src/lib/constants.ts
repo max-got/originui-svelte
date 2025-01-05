@@ -1,4 +1,5 @@
 export const ENHANCED_IMAGE_REGEX = /<enhanced:img/;
+export const GITHUB_REPO_URL = 'https://github.com/max-got/originui-svelte/' as const;
 
 export const POSSIBLE_DEPENDENCIES = [
 	{
