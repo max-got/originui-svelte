@@ -44,10 +44,6 @@ function removeShikiComments(source: string) {
 		.join('\n');
 }
 
-function addPathComment(source: string, path: string) {
-	return `${source}\n<!-- Path: ${path} -->`;
-}
-
 function getDependencies(source: string): PossibleDependency[] {
 	const dependencies = new Set<PossibleDependency>();
 	const matches = source.matchAll(IMPORTS_REGEX);
@@ -79,20 +75,6 @@ function getDependencies(source: string): PossibleDependency[] {
 	return sortedDependencies;
 }
 
-function addDependenciesComments(source: string, dependencies: PossibleDependency[]) {
-	if (dependencies.length === 0) return source;
-
-	const deps = dependencies.filter((d) => !d.dev).map((d) => d.packageName);
-	const devDeps = dependencies.filter((d) => d.dev).map((d) => d.packageName);
-
-	let comment = '<!--\nDependencies:\n';
-	if (devDeps.length) comment += `pnpm i -D ${devDeps.join(' ')}\n`;
-	if (deps.length) comment += `pnpm i ${deps.join(' ')}\n`;
-	comment += '-->';
-
-	return `${source}\n\n${comment}`;
-}
-
 function getDependenciesInstallCommand(dependencies: PossibleDependency[]) {
 	if (dependencies.length === 0) return '';
 
@@ -116,27 +98,21 @@ function buildComponentPath(
 	return `/src/lib/components/${directory}/${componentName}.svelte`;
 }
 
-async function processComponentSource(rawSource: string, path: string) {
+async function processComponentSource(rawSource: string) {
 	const dependencies = getDependencies(rawSource);
 	const dependenciesInstallCommand = getDependenciesInstallCommand(dependencies);
 
 	const cleanedSource = removeShikiComments(rawSource);
-	const sourceWithDeps = addDependenciesComments(cleanedSource, dependencies);
-	const previewSource = addPathComment(addDependenciesComments(rawSource, dependencies), path);
 
-	const [highlightedSource, highlightedCleanedSource, highlightedInstallCommand] =
-		await Promise.all([
-			highlighterSvelte(previewSource),
-			highlighterSvelte(rawSource),
-			highlighterZsh(dependenciesInstallCommand)
-		]);
+	const [highlightedCleanedSource, highlightedInstallCommand] = await Promise.all([
+		highlighterSvelte(rawSource),
+		highlighterZsh(dependenciesInstallCommand)
+	]);
 
 	return {
 		code: {
 			highlighted: { content: highlightedCleanedSource },
-			highlightedWithDeps: { content: highlightedSource },
-			raw: { content: sourceWithDeps },
-			rawWithDeps: { content: previewSource }
+			raw: { content: cleanedSource }
 		},
 		componentDependencies: {
 			command: {
@@ -159,7 +135,7 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 	const imports = getImports();
 	const importFn = imports.source[path];
 
-	const processedComponentSource = await processComponentSource(await importFn(), path);
+	const processedComponentSource = await processComponentSource(await importFn());
 
 	const hasContent = Boolean(processedComponentSource.code.raw.content?.trim());
 	const componentState = {
