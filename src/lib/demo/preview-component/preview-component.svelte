@@ -196,7 +196,7 @@
 			<div class="relative grid rounded-lg border border-muted" data-vaul-no-drag>
 				<CodePreview code={componentMetadata.code.highlighted.content} />
 				<div class="absolute right-1 top-1">
-					<CopyButton code={componentMetadata.code.highlighted.content} />
+					<CopyButton code={componentMetadata.code.raw.content} />
 				</div>
 			</div>
 		</div>
