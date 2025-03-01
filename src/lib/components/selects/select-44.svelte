@@ -69,12 +69,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-44">Options with flag and search</Label>
+	<Label>Options with flag and search</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-44"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}

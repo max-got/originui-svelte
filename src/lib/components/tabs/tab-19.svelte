@@ -5,7 +5,7 @@
 	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
-<Tabs value="tab-1" orientation="vertical" class="flex w-full gap-2">
+<Tabs value="tab-1" orientation="vertical" class="w-full flex-row">
 	<TabsList class="flex-col gap-1 rounded-none bg-transparent px-1 py-0 text-foreground">
 		<TabsTrigger
 			value="tab-1"

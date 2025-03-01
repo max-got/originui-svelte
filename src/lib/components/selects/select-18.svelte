@@ -12,12 +12,14 @@
 	let value = $state('s3');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-18">Select with helper text</Label>
+	<Label for={uid}>Select with helper text</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-18">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

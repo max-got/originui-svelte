@@ -12,13 +12,13 @@
 		#isInitialLoad = $state(true);
 		#value = $state(0);
 		#displayValue = $derived.by(() => this.#formatCurrency(this.#value));
-
+		#id = '';
 		#setValue: (val: string) => void;
 
-		constructor(initialValue: number = 0, setValue?: (val: string) => void) {
+		constructor(id: string, initialValue: number = 0, setValue?: (val: string) => void) {
 			this.#value = initialValue;
 			this.#setValue = setValue ?? (() => {});
-
+			this.#id = id;
 			this.#setValue(this.#formatCurrency(initialValue));
 			this.#isInitialLoad = false;
 
@@ -129,7 +129,7 @@
 					'aria-roledescription': 'Currency input',
 					autocomplete: 'off',
 					autocorrect: 'off',
-					id: 'input-29',
+					id: this.#id,
 					inputmode: 'numeric',
 					onblur: this.#handleBlur,
 					onfocus: this.#handleFocus,
@@ -142,9 +142,9 @@
 		);
 
 		decrementProps = $derived.by(() => ({
-			'aria-controls': this.inputProps.id,
+			'aria-controls': this.#id,
 			'aria-label': 'Decrease value',
-			'aria-labelledby': this.inputProps.id,
+			'aria-labelledby': this.#id,
 			id: 'decrement',
 			onclick: this.decrement,
 			tabindex: -1
@@ -168,11 +168,12 @@
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 
-	const currencyInput = new CurrencyInput(99);
+	const uid = $props.id();
+	const currencyInput = new CurrencyInput(uid, 99);
 </script>
 
 <div class="space-y-2">
-	<Label for="input-29" class="text-sm font-medium text-foreground">
+	<Label for={currencyInput.inputProps.id} class="text-sm font-medium text-foreground">
 		Number input with chevrons
 	</Label>
 	<div

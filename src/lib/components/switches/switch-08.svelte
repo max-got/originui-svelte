@@ -3,11 +3,13 @@
 	import Switch from '$lib/components/ui/switch.svelte';
 
 	let checked = $state(true);
+
+	const uid = $props.id();
 </script>
 
 <div class="inline-flex items-center gap-2">
-	<Switch id="switch-08" bind:checked aria-label="Toggle switch" />
-	<Label for="switch-08" class="text-sm font-medium">
+	<Switch id={uid} bind:checked aria-label="Toggle switch" />
+	<Label for={uid} class="text-sm font-medium">
 		{checked ? 'On' : 'Off'}
 	</Label>
 </div>

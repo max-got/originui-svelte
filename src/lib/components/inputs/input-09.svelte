@@ -3,12 +3,14 @@
 	import Label from '$lib/components/ui/label.svelte';
 
 	import AtSign from 'lucide-svelte/icons/at-sign';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-09">Input with start icon</Label>
+	<Label for={uid}>Input with start icon</Label>
 	<div class="relative">
-		<Input id="input-09" class="peer ps-9" placeholder="Email" type="email" />
+		<Input id={uid} class="peer ps-9" placeholder="Email" type="email" />
 		<div
 			class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"
 		>

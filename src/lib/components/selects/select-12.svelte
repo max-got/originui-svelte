@@ -19,11 +19,13 @@
 			};
 		})
 		.sort((a, b) => a.numericOffset - b.numericOffset);
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-12">Timezone select (native)</Label>
-	<SelectNative id="select-12">
+	<Label for={uid}>Timezone select (native)</Label>
+	<SelectNative id={uid}>
 		{#each timezones as item (item.value)}
 			<option value={item.value} selected={item.value == 'Europe/London'}>
 				{item.label}

@@ -10,19 +10,20 @@
 {#if visible}
 	<div class="dark bg-muted px-4 py-3 text-foreground md:py-2">
 		<div class="flex gap-2 md:items-center">
-			<div class="flex grow gap-3 md:items-center md:justify-center">
+			<div class="flex grow gap-3 md:items-center">
 				<Eclipse
 					class="shrink-0 opacity-60 max-md:mt-0.5"
 					size={16}
 					strokeWidth={2}
 					aria-hidden="true"
 				/>
-				<div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
+				<div class="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
 					<p class="text-sm">
 						It&lsquo;s live and ready to use! Start exploring the latest addition to your toolkit.
 					</p>
 					<div class="flex gap-2 max-md:flex-wrap">
-						<Button size="sm" class="rounded-full">Learn more</Button>
+						<Button size="sm" class="text-sm">Download</Button>
+						<Button variant="link" size="sm" class="text-sm">Learn more</Button>
 					</div>
 				</div>
 			</div>

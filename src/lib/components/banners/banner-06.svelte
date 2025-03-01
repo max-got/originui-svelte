@@ -23,7 +23,7 @@
 					</p>
 					<div class="flex gap-2 max-md:flex-wrap">
 						<Button size="sm" class="text-sm">Download</Button>
-						<Button variant="link" size="sm" class="text-sm">Learn more</Button>
+						<Button variant="outline" size="sm" class="text-sm">Learn more</Button>
 					</div>
 				</div>
 			</div>

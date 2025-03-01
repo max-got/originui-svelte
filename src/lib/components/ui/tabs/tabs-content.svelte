@@ -13,10 +13,7 @@
 
 <TabsPrimitive.Content
 	bind:ref
-	class={cn(
-		'mt-2 outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70',
-		className
-	)}
+	class={cn('flex-1 outline-none', className)}
 	{value}
 	{...restProps}
 />

@@ -3,9 +3,11 @@
 	import Label from '$lib/components/ui/label.svelte';
 
 	let checked = $state(false);
+
+	const uid = $props.id();
 </script>
 
 <div class="flex items-center gap-2">
-	<Checkbox id="checkbox-02" bind:checked indeterminate />
-	<Label for="checkbox-02">Indeterminate checkbox</Label>
+	<Checkbox id={uid} bind:checked indeterminate />
+	<Label for={uid}>Indeterminate checkbox</Label>
 </div>

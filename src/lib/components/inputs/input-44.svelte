@@ -5,6 +5,7 @@
 	import { PinInput, type PinInputCell } from 'bits-ui';
 
 	let value = $state('');
+	const uid = $props.id();
 </script>
 
 {#snippet Cell(cell: PinInputCell)}
@@ -22,10 +23,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="input-44">OTP input single</Label>
+	<Label for={uid}>OTP input single</Label>
 	<PinInput.Root
 		bind:value
-		id="input-44"
+		id={uid}
 		class="flex items-center gap-3 has-[:disabled]:opacity-50"
 		maxlength={4}
 	>

@@ -14,7 +14,7 @@
 <Tabs value="tab-1">
 	<ScrollArea>
 		<TabsList
-			class="mb-3 h-auto gap-2 rounded-none border-b border-border bg-transparent px-0 py-1 text-foreground"
+			class="mb-3 h-auto gap-2 rounded-none border-b bg-transparent px-0 py-1 text-foreground"
 		>
 			<TabsTrigger
 				value="tab-1"

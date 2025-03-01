@@ -24,17 +24,19 @@
 			copied = false;
 		}, 1500);
 	}
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-53">Copy to clipboard</Label>
+	<Label for={uid}>Copy to clipboard</Label>
 	<div class="relative">
 		<Input
 			bind:ref={inputElement}
-			id="input-53"
+			id={uid}
 			class="pe-9"
 			type="text"
-			value="pnpm install origin-ui-svelte"
+			value="npx sv create my-app"
 			readonly
 		/>
 		<TooltipProvider>

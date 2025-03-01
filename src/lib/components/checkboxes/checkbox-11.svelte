@@ -13,23 +13,25 @@
 			inputElement.focus();
 		}
 	};
+
+	const uid = $props.id();
 </script>
 
 <div>
 	<div class="flex items-start gap-2">
-		<Checkbox id="checkbox-11" bind:checked aria-controls="checkbox-input-11" class="h-4 w-4" />
+		<Checkbox id={uid} bind:checked aria-controls="{uid}-input" class="h-4 w-4" />
 		<div class="grow">
 			<div class="grid gap-2">
-				<Label for="checkbox-11">Checkbox with expansion</Label>
-				<p id="checkbox-11-description" class="text-xs text-muted-foreground">
+				<Label for={uid}>Checkbox with expansion</Label>
+				<p id="{uid}-description" class="text-xs text-muted-foreground">
 					You can use this checkbox with a label and a description.
 				</p>
 			</div>
 			<!-- Expandable field -->
 			<div
 				role="region"
-				id="checkbox-input-11"
-				aria-labelledby="checkbox-11"
+				id="{uid}-input"
+				aria-labelledby={uid}
 				class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=expanded]:grid-rows-[1fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:opacity-100"
 				data-state={checked ? 'expanded' : 'collapsed'}
 				ontransitionend={handleTransitionEnd}
@@ -39,7 +41,7 @@
 						<Input
 							bind:ref={inputElement}
 							type="text"
-							id="checkbox-11-additional-info"
+							id="{uid}-additional-info"
 							placeholder="Enter details"
 							aria-label="Additional Information"
 							disabled={!checked}

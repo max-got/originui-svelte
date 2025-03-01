@@ -9,8 +9,8 @@
 		class: className,
 		orientation = 'vertical',
 		ref = $bindable(null),
-		scrollbarXClasses = '',
-		scrollbarYClasses = '',
+		scrollbarXClasses = 'h-2.5 flex-col border-t border-t-transparent p-px',
+		scrollbarYClasses = 'h-full w-2.5 border-l border-l-transparent p-px',
 		...restProps
 	}: WithoutChild<ScrollAreaPrimitive.RootProps> & {
 		orientation?: 'both' | 'horizontal' | 'vertical' | undefined;
@@ -20,7 +20,7 @@
 </script>
 
 <ScrollAreaPrimitive.Root bind:ref {...restProps} class={cn('relative overflow-hidden', className)}>
-	<ScrollAreaPrimitive.Viewport class="h-full w-full rounded-[inherit]">
+	<ScrollAreaPrimitive.Viewport class="h-full w-full  rounded-[inherit]">
 		{@render children?.()}
 	</ScrollAreaPrimitive.Viewport>
 	{#if orientation === 'vertical' || orientation === 'both'}

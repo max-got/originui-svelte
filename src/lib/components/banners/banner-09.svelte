@@ -1,42 +1,13 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import TicketPercent from 'lucide-svelte/icons/ticket-percent';
+	import Rocket from 'lucide-svelte/icons/rocket';
 	import X from 'lucide-svelte/icons/x';
 
-	// Setting 9h 45m 24s from now for demo purposes
-	const saleEndDate = new Date(Date.now() + 9 * 60 * 60 * 1000 + 45 * 60 * 1000 + 24 * 1000);
-
 	let visible = $state(true);
-	let timeLeft = $state(calculateTimeLeft());
-
-	function calculateTimeLeft() {
-		const difference = saleEndDate.getTime() - new Date().getTime();
-
-		if (difference <= 0) return { days: 0, hours: 0, isExpired: true, minutes: 0, seconds: 0 };
-
-		return {
-			days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-			hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-			isExpired: false,
-			minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-			seconds: Math.floor((difference % (1000 * 60)) / 1000)
-		};
-	}
-
-	$effect(() => {
-		const timer = setInterval(() => {
-			timeLeft = calculateTimeLeft();
-			if (timeLeft.isExpired) {
-				clearInterval(timer);
-			}
-		}, 1000);
-
-		return () => clearInterval(timer);
-	});
 </script>
 
-{#if visible && !timeLeft.isExpired}
+{#if visible}
 	<div class="dark bg-muted px-4 py-3 text-foreground">
 		<div class="flex gap-2 md:items-center">
 			<div class="flex grow gap-3 md:items-center">
@@ -44,40 +15,17 @@
 					class="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15 max-md:mt-0.5"
 					aria-hidden="true"
 				>
-					<TicketPercent class="opacity-80" size={16} strokeWidth={2} />
+					<Rocket class="opacity-80" size={16} strokeWidth={2} />
 				</div>
 				<div class="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
 					<div class="space-y-0.5">
-						<p class="text-sm font-medium">Black Friday Sale!</p>
+						<p class="text-sm font-medium">Boost your experience with Origin UI</p>
 						<p class="text-sm text-muted-foreground">
-							It kicks off today and is available for just 24 hours—don&lsquo;t miss out!
+							The new feature is live! Try it out and let us know what you think.
 						</p>
 					</div>
-					<div class="flex gap-3 max-md:flex-wrap">
-						<div
-							class="flex items-center divide-x divide-primary-foreground rounded-lg bg-primary/15 text-sm tabular-nums"
-						>
-							{#if timeLeft.days > 0}
-								<span class="flex h-8 items-center justify-center p-2">
-									{timeLeft.days}
-									<span class="text-muted-foreground">d</span>
-								</span>
-							{/if}
-
-							<span class="flex h-8 items-center justify-center p-2">
-								{timeLeft.hours.toString().padStart(2, '0')}
-								<span class="text-muted-foreground">h</span>
-							</span>
-							<span class="flex h-8 items-center justify-center p-2">
-								{timeLeft.minutes.toString().padStart(2, '0')}
-								<span class="text-muted-foreground">m</span>
-							</span>
-							<span class="flex h-8 items-center justify-center p-2">
-								{timeLeft.seconds.toString().padStart(2, '0')}
-								<span class="text-muted-foreground">s</span>
-							</span>
-						</div>
-						<Button size="sm" class="text-sm">Buy now</Button>
+					<div class="flex gap-2 max-md:flex-wrap">
+						<Button size="sm" class="text-sm">Try now</Button>
 					</div>
 				</div>
 			</div>

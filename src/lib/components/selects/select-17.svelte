@@ -14,12 +14,14 @@
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-17">Select with icon</Label>
+	<Label for={uid}>Select with icon</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger class="relative ps-9" id="select-17">
+		<Select.Trigger class="relative ps-9" id={uid}>
 			<div
 				class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[[disabled]]:opacity-50"
 			>

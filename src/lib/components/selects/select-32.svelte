@@ -8,11 +8,13 @@
 		{ class: 'text-amber-500', label: 'Pending', value: 's3' },
 		{ class: 'text-gray-500', label: 'Cancelled', value: 's4' },
 		{ class: 'text-red-500', label: 'Failed', value: 's5' }
-	];
+	] as const;
 
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet status(item: (typeof items)[number])}
@@ -33,10 +35,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-32">Status select</Label>
+	<Label for={uid}>Status select</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-32"
+			id={uid}
 			class="[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0"
 		>
 			{#if selected}

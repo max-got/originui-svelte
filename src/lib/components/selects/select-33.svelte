@@ -10,12 +10,14 @@
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-33">Select with left text</Label>
+	<Label for={uid}>Select with left text</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-33">
+		<Select.Trigger id={uid}>
 			{#if selected}
 				Language: {selected.label}
 			{:else}

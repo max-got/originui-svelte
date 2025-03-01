@@ -1,55 +1,23 @@
-<script module lang="ts">
-	// [!code collapse-start]
-	/**
-	 * IMPORTANT: This component was built for demo purposes only and has not been tested in production.
-	 * It serves as a proof of concept for a character limit input.
-	 * If you're interested in collaborating to create a more robust, production-ready
-	 * headless component, your contributions are welcome!
-	 */
-	export class CharacterLimit {
-		#value = $state('');
-
-		characterCount = $derived(this.#value.length);
-		maxLength: number;
-
-		constructor(maxLength: number) {
-			this.maxLength = maxLength;
-		}
-
-		set value(value: string) {
-			this.#value = value.slice(0, this.maxLength);
-		}
-
-		get value() {
-			return this.#value;
-		}
-	}
-	// [!code collapse-end]
-</script>
-
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+	import { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';
 
 	const maxLength = 8;
-	const characterLimit = new CharacterLimit(maxLength);
+	const characterLimit = useCharacterLimit(maxLength);
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-35">Input with characters left</Label>
+	<Label for={uid}>Input with characters left</Label>
 	<Input
-		id="input-35"
+		id={uid}
 		type="text"
 		bind:value={characterLimit.value}
 		maxlength={characterLimit.maxLength}
-		aria-describedby="characters-left"
+		aria-describedby={uid}
 	/>
-	<p
-		id="characters-left"
-		class="mt-2 text-xs text-muted-foreground"
-		role="status"
-		aria-live="polite"
-	>
+	<p id={uid} class="mt-2 text-xs text-muted-foreground" role="status" aria-live="polite">
 		<span class="tabular-nums">{characterLimit.maxLength - characterLimit.characterCount}</span> characters
 		left
 	</p>

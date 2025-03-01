@@ -12,14 +12,16 @@
 	let value = $state('s4');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-23">
+	<Label for={uid}>
 		Required select <span class="text-destructive">*</span>
 	</Label>
 	<Select.Root type="single" bind:value required>
-		<Select.Trigger id="select-23">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

@@ -7,11 +7,13 @@
 		{ class: 'bg-indigo-400/20 text-indigo-500', name: 'Frank Morris', value: 's1' },
 		{ class: 'bg-purple-400/20 text-purple-500', name: 'Xavier Guerra', value: 's2' },
 		{ class: 'bg-rose-400/20 text-rose-500', name: 'Anne Kelley', value: 's3' }
-	];
+	] as const;
 
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet user(item: (typeof items)[number])}
@@ -29,10 +31,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-39">Options with placeholder avatar</Label>
+	<Label for={uid}>Options with placeholder avatar</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-39"
+			id={uid}
 			class={cn(
 				'[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_img]:shrink-0',
 				selected && 'ps-2'

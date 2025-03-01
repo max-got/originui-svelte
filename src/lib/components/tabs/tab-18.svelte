@@ -2,7 +2,7 @@
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 </script>
 
-<Tabs value="tab-1" orientation="vertical" class="flex w-full gap-2">
+<Tabs value="tab-1" orientation="vertical" class="w-full flex-row">
 	<TabsList class="flex-col rounded-none border-l border-border bg-transparent p-0">
 		<TabsTrigger
 			value="tab-1"

@@ -12,12 +12,14 @@
 	let value = $state('s2');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-21">Select with gray background</Label>
+	<Label for={uid}>Select with gray background</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-21" class="border-transparent bg-muted shadow-none">
+		<Select.Trigger id={uid} class="border-transparent bg-muted shadow-none">
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

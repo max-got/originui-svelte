@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 	import SelectNative from '$lib/components/ui/select-native.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2 [&_svg]:text-destructive/80">
-	<Label for="select-06">Select with error (native)</Label>
+	<Label for={uid}>Select with error (native)</Label>
 	<SelectNative
-		id="select-06"
+		id={uid}
 		class="border-destructive/80 text-destructive focus-visible:border-destructive/80 focus-visible:ring-destructive/20"
 	>
 		<option value="s1">Svelte</option>

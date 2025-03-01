@@ -26,10 +26,12 @@
 			input.value = value.toString();
 		}
 	}
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-28" class="text-sm font-medium text-foreground">
+	<Label for={uid} class="text-sm font-medium text-foreground">
 		Number input with plus/minus buttons
 	</Label>
 	<div
@@ -40,18 +42,18 @@
 			onclick={decrement}
 			class="-ms-px flex aspect-square h-[inherit] items-center justify-center rounded-s-lg border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Decrease value"
-			aria-labelledby="decrement-button input-28"
-			aria-controls="input-28"
+			aria-labelledby="decrement-button {uid}"
+			aria-controls={uid}
 			disabled={value <= minValue}
 		>
 			<Minus size={16} stroke-width={2} aria-hidden="true" />
 		</button>
 		<input
-			id="input-28"
+			id={uid}
 			type="text"
 			bind:value
 			oninput={handleInput}
-			aria-labelledby="input-28"
+			aria-labelledby={uid}
 			autocomplete="off"
 			inputmode="numeric"
 			autocorrect="off"
@@ -65,8 +67,8 @@
 			onclick={increment}
 			class="-me-px flex aspect-square h-[inherit] items-center justify-center rounded-e-lg border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Increase value"
-			aria-labelledby="increment-button input-28"
-			aria-controls="input-28"
+			aria-labelledby="increment-button {uid}"
+			aria-controls={uid}
 		>
 			<Plus size={16} stroke-width={2} aria-hidden="true" />
 		</button>

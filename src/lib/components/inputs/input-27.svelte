@@ -28,16 +28,18 @@
 		}, 500);
 	};
 
+	const uid = $props.id();
+
 	onDestroy(() => {
 		if (timer) clearTimeout(timer);
 	});
 </script>
 
 <div class="space-y-2">
-	<Label for="input-27">Search input with loader</Label>
+	<Label for={uid}>Search input with loader</Label>
 	<div class="relative">
 		<Input
-			id="input-27"
+			id={uid}
 			class="peer pe-9 ps-9"
 			placeholder="Search..."
 			type="search"

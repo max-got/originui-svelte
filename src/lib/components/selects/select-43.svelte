@@ -44,12 +44,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-43">Timezone select with search</Label>
+	<Label>Timezone select with search</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-43"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}

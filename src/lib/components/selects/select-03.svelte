@@ -3,12 +3,14 @@
 	import SelectNative from '$lib/components/ui/select-native.svelte';
 
 	import Clock from 'lucide-svelte/icons/clock';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-03">Select with icon (native)</Label>
+	<Label for={uid}>Select with icon (native)</Label>
 	<div class="group relative">
-		<SelectNative id="select-03" class="ps-9">
+		<SelectNative id={uid} class="ps-9">
 			<option value="s1">00:00 AM - 11:59 PM</option>
 			<option value="s2">01:00 AM - 12:59 PM</option>
 			<option value="s3">02:00 AM - 01:59 PM</option>

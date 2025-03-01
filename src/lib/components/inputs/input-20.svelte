@@ -3,13 +3,15 @@
 	import Label from '$lib/components/ui/label.svelte';
 
 	import Download from 'lucide-svelte/icons/download';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-20">Input with end icon button</Label>
+	<Label for={uid}>Input with end icon button</Label>
 	<div class="flex rounded-lg shadow-sm shadow-black/[.04]">
 		<Input
-			id="input-20"
+			id={uid}
 			class="-me-px flex-1 rounded-e-none shadow-none focus-visible:z-10"
 			placeholder="Email"
 			type="email"
