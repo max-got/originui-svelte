@@ -8,12 +8,12 @@
 		ref = $bindable(null),
 		value,
 		...restProps
-	}: TabsPrimitive.ContentProps = $props();
+	}: TabsPrimitive.RootProps = $props();
 </script>
 
-<TabsPrimitive.Content
+<TabsPrimitive.Root
 	bind:ref
-	class={cn('flex-1 outline-none', className)}
+	class={cn('flex min-w-0 flex-col gap-2', className)}
 	{value}
 	{...restProps}
 />
