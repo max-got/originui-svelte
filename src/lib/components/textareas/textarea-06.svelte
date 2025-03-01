@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 	import Textarea from '$lib/components/ui/textarea.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="textarea-06">Textarea with error</Label>
+	<Label for={uid}>Textarea with error</Label>
 	<Textarea
-		id="textarea-06"
+		id={uid}
 		class="border-destructive/80 text-destructive focus-visible:border-destructive/80 focus-visible:ring-destructive/30"
 		placeholder="Leave a comment"
 		value="Hello!"
