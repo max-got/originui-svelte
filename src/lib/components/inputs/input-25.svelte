@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-25">Search input with &lt;kbd&gt;</Label>
+	<Label for={uid}>Search input with &lt;kbd&gt;</Label>
 	<div class="relative">
-		<Input id="input-25" class="pe-11" placeholder="Search..." type="search" />
+		<Input id={uid} class="pe-11" placeholder="Search..." type="search" />
 		<div
 			class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2 text-muted-foreground"
 		>

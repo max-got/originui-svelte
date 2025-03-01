@@ -10,24 +10,21 @@
 	function toggleVisibility() {
 		isVisible = !isVisible;
 	}
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-23">Show/hide password input</Label>
+	<Label for={uid}>Show/hide password input</Label>
 	<div class="relative">
-		<Input
-			id="input-23"
-			class="pe-9"
-			placeholder="Password"
-			type={isVisible ? 'text' : 'password'}
-		/>
+		<Input id={uid} class="pe-9" placeholder="Password" type={isVisible ? 'text' : 'password'} />
 		<button
 			class="absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 			type="button"
 			onclick={toggleVisibility}
 			aria-label={isVisible ? 'Hide password' : 'Show password'}
 			aria-pressed={isVisible}
-			aria-controls="password"
+			aria-controls={uid}
 		>
 			{#if isVisible}
 				<EyeOff size={16} stroke-width={2} aria-hidden="true" />

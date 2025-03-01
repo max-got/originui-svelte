@@ -3,13 +3,15 @@
 	import Label from '$lib/components/ui/label.svelte';
 
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-18">Input with end select</Label>
+	<Label for={uid}>Input with end select</Label>
 	<div class="flex rounded-lg shadow-sm shadow-black/[.04]">
 		<Input
-			id="input-18"
+			id={uid}
 			class="-me-px rounded-e-none shadow-none focus-visible:z-10"
 			placeholder="google"
 			type="text"

@@ -9,15 +9,16 @@
 
 	function handleClearInput() {
 		inputValue = '';
-		inputElement.focus();
 	}
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-24">Input with clear button</Label>
+	<Label for={uid}>Input with clear button</Label>
 	<div class="relative">
 		<Input
-			id="input-24"
+			id={uid}
 			bind:ref={inputElement}
 			bind:value={inputValue}
 			class="pe-9"

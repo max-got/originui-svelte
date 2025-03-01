@@ -6,6 +6,7 @@
 	import Minus from 'lucide-svelte/icons/minus';
 
 	let value = $state('');
+	const uid = $props.id();
 </script>
 
 {#snippet Cell(cell: PinInputCell)}
@@ -23,10 +24,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="input-45">OTP input double</Label>
+	<Label for={uid}>OTP input double</Label>
 	<PinInput.Root
 		bind:value
-		id="input-45"
+		id={uid}
 		class="flex items-center gap-3 has-[:disabled]:opacity-50"
 		maxlength={6}
 	>

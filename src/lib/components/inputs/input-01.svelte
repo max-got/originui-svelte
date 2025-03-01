@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-01">Simple input</Label>
-	<Input id="input-01" placeholder="Email" type="email" />
+	<Label for={uid}>Simple input</Label>
+	<Input id={uid} placeholder="Email" type="email" />
 </div>

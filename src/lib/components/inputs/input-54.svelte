@@ -15,11 +15,13 @@
 
 		return () => im.remove();
 	});
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-54">Input with mask</Label>
-	<Input id="input-54" placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
+	<Label for={uid}>Input with mask</Label>
+	<Input id={uid} placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
 		Built with <a
 			class="underline hover:text-foreground"

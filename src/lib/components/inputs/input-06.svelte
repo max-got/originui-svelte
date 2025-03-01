@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-06">Input with error</Label>
+	<Label for={uid}>Input with error</Label>
 	<Input
-		id="input-06"
+		id={uid}
 		class="border-destructive/80 text-destructive focus-visible:border-destructive/80 focus-visible:ring-destructive/30"
 		placeholder="Email"
 		type="email"

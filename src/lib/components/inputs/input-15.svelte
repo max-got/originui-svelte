@@ -1,13 +1,15 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-15">Input with end add-on</Label>
+	<Label for={uid}>Input with end add-on</Label>
 	<div class="flex rounded-lg shadow-sm shadow-black/[.04]">
 		<Input
-			id="input-15"
+			id={uid}
 			class="z-10 -me-px rounded-e-none shadow-none"
 			placeholder="google"
 			type="text"

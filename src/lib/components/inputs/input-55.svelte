@@ -15,11 +15,13 @@
 
 		return () => im.remove();
 	});
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="input-55">Timestamp</Label>
-	<Input id="input-55" placeholder="00:00:00" type="text" bind:ref={inputElement} />
+	<Label for={uid}>Timestamp</Label>
+	<Input id={uid} placeholder="00:00:00" type="text" bind:ref={inputElement} />
 	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
 		Built with <a
 			class="underline hover:text-foreground"
