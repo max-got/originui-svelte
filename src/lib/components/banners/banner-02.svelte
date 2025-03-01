@@ -1,16 +1,17 @@
 <script lang="ts">
-	import Eclipse from 'lucide-svelte/icons/eclipse';
+	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 </script>
 
 <div class="dark bg-muted px-4 py-3 text-foreground">
-	<p class="text-center text-sm">
-		<Eclipse
-			class="-mt-0.5 me-3 inline-flex opacity-60"
-			size={16}
-			strokeWidth={2}
-			aria-hidden="true"
-		/>Get the most out of your app with real-time updates and analytics
-		<span class="text-muted-foreground">·</span>
-		<a href="#title" class="font-medium underline hover:no-underline">Upgrade</a>
+	<p class="flex justify-center text-sm">
+		<a href="#title" class="group">
+			<span class="me-1 text-base leading-none">✨</span>Introducing transactional and marketing
+			emails
+			<ArrowRight
+				class="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
+				size={16}
+				aria-hidden="true"
+			/>
+		</a>
 	</p>
 </div>

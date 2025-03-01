@@ -1,17 +1,15 @@
 <script lang="ts">
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import Button from '$lib/components/ui/button.svelte';
 </script>
 
-<div class="dark bg-muted px-4 py-3 text-foreground">
-	<p class="flex justify-center text-sm">
-		<a href="#title" class="group">
-			<span class="me-1 text-base leading-none">✨</span>Introducing transactional and marketing
-			emails<ArrowRight
-				class="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
-				size={16}
-				strokeWidth={2}
-				aria-hidden="true"
-			/>
-		</a>
-	</p>
+<div class="z-50 rounded-md border bg-background px-4 py-3 shadow-lg">
+	<div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
+		<p class="text-sm">
+			We use cookies to improve your experience, analyze site usage, and show personalized content.
+		</p>
+		<div class="flex gap-2 max-md:flex-wrap">
+			<Button size="sm">Accept</Button>
+			<Button variant="outline" size="sm">Decline</Button>
+		</div>
+	</div>
 </div>

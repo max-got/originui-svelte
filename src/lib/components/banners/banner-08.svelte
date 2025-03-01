@@ -1,31 +1,28 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import Rocket from 'lucide-svelte/icons/rocket';
+	import Eclipse from 'lucide-svelte/icons/eclipse';
 	import X from 'lucide-svelte/icons/x';
 
 	let visible = $state(true);
 </script>
 
 {#if visible}
-	<div class="dark bg-muted px-4 py-3 text-foreground">
+	<div class="dark bg-muted px-4 py-3 text-foreground md:py-2">
 		<div class="flex gap-2 md:items-center">
-			<div class="flex grow gap-3 md:items-center">
-				<div
-					class="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15 max-md:mt-0.5"
+			<div class="flex grow gap-3 md:items-center md:justify-center">
+				<Eclipse
+					class="shrink-0 opacity-60 max-md:mt-0.5"
+					size={16}
+					strokeWidth={2}
 					aria-hidden="true"
-				>
-					<Rocket class="opacity-80" size={16} strokeWidth={2} />
-				</div>
-				<div class="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
-					<div class="space-y-0.5">
-						<p class="text-sm font-medium">Boost your experience with Origin UI</p>
-						<p class="text-sm text-muted-foreground">
-							The new feature is live! Try it out and let us know what you think.
-						</p>
-					</div>
+				/>
+				<div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
+					<p class="text-sm">
+						It&lsquo;s live and ready to use! Start exploring the latest addition to your toolkit.
+					</p>
 					<div class="flex gap-2 max-md:flex-wrap">
-						<Button size="sm" class="text-sm">Try now</Button>
+						<Button size="sm" class="rounded-full">Learn more</Button>
 					</div>
 				</div>
 			</div>
