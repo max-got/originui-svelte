@@ -58,7 +58,8 @@ export default {
 			},
 			fontFamily: {
 				mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
-				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans]
+				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+				serif: ['DM Serif Display', ...defaultTheme.fontFamily.serif]
 			},
 			keyframes: {
 				'accordion-down': {
