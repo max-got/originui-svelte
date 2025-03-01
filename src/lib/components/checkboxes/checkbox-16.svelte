@@ -19,6 +19,7 @@
 	{#each items as item (item.id)}
 		<label
 			class="relative flex cursor-pointer flex-col gap-4 rounded-lg border border-input p-4 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
+			for={item.id}
 		>
 			<div class="flex justify-between gap-2">
 				<Checkbox
