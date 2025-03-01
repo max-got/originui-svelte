@@ -6,11 +6,13 @@
 	import IconSun from 'lucide-svelte/icons/sun';
 
 	let checked = $state(true);
+
+	const uid = $props.id();
 </script>
 
 <div class="inline-flex items-center gap-2">
-	<Switch id="switch-10" bind:checked aria-label="Toggle switch" />
-	<Label for="switch-10">
+	<Switch id={uid} bind:checked aria-label="Toggle switch" />
+	<Label for={uid}>
 		<span class="sr-only">Toggle switch</span>
 		{#if checked}
 			<IconSun size={16} stroke-width={2} aria-hidden="true" />
