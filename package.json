@@ -2,11 +2,8 @@
 	"name": "originui-svelte",
 	"type": "module",
 	"version": "0.0.1",
-	"packageManager": "pnpm@9.12.2",
-	"engines": {
-		"node": ">=20.10.0"
-	},
 	"scripts": {
+		"prepare": "svelte-kit sync",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -66,5 +63,6 @@
 		"unplugin-icons": "^0.19.3",
 		"vite": "^5.4.11",
 		"vitest": "^2.0.4"
-	}
+	},
+	"packageManager": "pnpm@10.5.2"
 }
