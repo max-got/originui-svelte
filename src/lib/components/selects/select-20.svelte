@@ -12,13 +12,15 @@
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2 [&_svg]:text-destructive/80">
-	<Label for="select-20">Select with error</Label>
+	<Label for={uid}>Select with error</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-20"
+			id={uid}
 			class="border-destructive/80 text-destructive focus:border-destructive/80 focus:ring-destructive/20"
 		>
 			{selected?.label ?? 'Select a framework'}

@@ -7,21 +7,23 @@
 		{ label: 'Next.js', value: 's2' },
 		{ label: 'Astro', value: 's3' },
 		{ label: 'Gatsby', value: 's4' }
-	];
+	] as const;
 
 	let value = $state('');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="group relative">
 	<Label
-		for="select-28"
+		for={uid}
 		class="absolute start-1 top-0 z-10 block -translate-y-1/2 bg-background px-2 text-xs font-medium text-foreground group-has-[:disabled]:opacity-50"
 		>Select with overlapping label</Label
 	>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-28">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

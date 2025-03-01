@@ -12,12 +12,14 @@
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-22">Disabled select</Label>
+	<Label for={uid}>Disabled select</Label>
 	<Select.Root type="single" bind:value disabled>
-		<Select.Trigger id="select-22">{selected?.label ?? 'Select a framework'}</Select.Trigger>
+		<Select.Trigger id={uid}>{selected?.label ?? 'Select a framework'}</Select.Trigger>
 		<Select.Content>
 			{#each items as item (item.value)}
 				<Select.Item value={item.value}>

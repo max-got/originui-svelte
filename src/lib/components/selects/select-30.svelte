@@ -23,12 +23,14 @@
 	let value = $state('Europe/London');
 
 	const selected = $derived(timezones.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-30">Timezone select</Label>
+	<Label for={uid}>Timezone select</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-30">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a timezone'}
 		</Select.Trigger>
 		<Select.Content>

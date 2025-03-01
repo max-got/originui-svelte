@@ -6,17 +6,19 @@
 		{ description: 'Ideal for individuals', label: 'Standard Plan', value: 's1' },
 		{ description: 'For professional users', label: 'Pro Plan', value: 's2' },
 		{ description: 'Built for large teams', label: 'Enterprise Plan', value: 's3' }
-	];
+	] as const;
 
 	let value = $state('s2');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-36">Select with description and right indicator</Label>
+	<Label for={uid}>Select with description and right indicator</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-36">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a plan'}
 		</Select.Trigger>
 		<Select.Content

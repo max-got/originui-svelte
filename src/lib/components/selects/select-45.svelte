@@ -73,7 +73,7 @@
 			number: 123,
 			value: 'frontend services'
 		}
-	];
+	] as const;
 	// [!code collapse-end]
 </script>
 
@@ -96,12 +96,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-45">Options with icon and number</Label>
+	<Label>Options with icon and number</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-45"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}

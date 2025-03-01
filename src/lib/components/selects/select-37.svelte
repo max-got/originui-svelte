@@ -57,6 +57,8 @@
 	let value = $state('s2');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet country(item: (typeof items)[number])}
@@ -65,10 +67,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-37">Options with flag</Label>
+	<Label for={uid}>Options with flag</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-37"
+			id={uid}
 			class="[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0 [&>span_svg]:text-muted-foreground/80"
 		>
 			<span>

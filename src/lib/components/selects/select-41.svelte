@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	// [!code collapse-start]
 	const frameworks = [
 		{ label: 'SvelteKit', value: 'sveltekit' },
@@ -31,8 +31,8 @@
 	import Check from 'lucide-svelte/icons/check';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 
-	let open = false;
-	let value = '';
+	let open = $state(false);
+	let value = $state('');
 
 	function handleSelect(currentValue: string) {
 		value = currentValue === value ? '' : currentValue;
@@ -41,12 +41,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-41">Select with search</Label>
+	<Label>Select with search</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-41"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}

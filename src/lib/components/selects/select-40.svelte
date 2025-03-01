@@ -11,11 +11,13 @@
 		{ avatar: Avatar01, name: 'Jenny Hamilton', username: '@jennycodes', value: 's1' },
 		{ avatar: Avatar02, name: 'Paul Smith', username: '@paulsmith', value: 's2' },
 		{ avatar: Avatar03, name: 'Luna Wyen', username: '@wyen.luna', value: 's3' }
-	];
+	] as const;
 
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet user(item: (typeof items)[number])}
@@ -29,10 +31,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-40">Options with portrait</Label>
+	<Label for={uid}>Options with portrait</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-40"
+			id={uid}
 			class={cn(
 				'h-auto [&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_img]:shrink-0',
 				selected && 'ps-2'

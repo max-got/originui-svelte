@@ -6,25 +6,27 @@
 		{ label: 'Svelte', value: 's1' },
 		{ label: 'Vue', value: 's2' },
 		{ label: 'Angular', value: 's3' }
-	];
+	] as const;
 
 	const backend = [
 		{ label: 'Node.js', value: 's4' },
 		{ label: 'Python', value: 's5' },
 		{ label: 'Java', value: 's6' }
-	];
+	] as const;
 
 	const items = [...frontend, ...backend];
 
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <div class="space-y-2">
-	<Label for="select-26">Select with separator</Label>
+	<Label for={uid}>Select with separator</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-26">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

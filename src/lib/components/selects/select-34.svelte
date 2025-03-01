@@ -10,11 +10,13 @@
 		{ icon: Sun, label: 'Light', value: 's1' },
 		{ icon: Moon, label: 'Dark', value: 's2' },
 		{ icon: MonitorCog, label: 'System', value: 's3' }
-	];
+	] as const;
 
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet theme(item: (typeof items)[number])}
@@ -23,10 +25,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-34">Options with icon</Label>
+	<Label for={uid}>Options with icon</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-34"
+			id={uid}
 			class="[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0 [&>span_svg]:text-muted-foreground/80"
 		>
 			{#if selected}

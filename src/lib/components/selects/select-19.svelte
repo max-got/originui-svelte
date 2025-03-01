@@ -12,13 +12,15 @@
 	let value = $state('s1');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 <!-- NOTE: This inline style is to show how to set the --ring variable in your CSS file in order to change the focus ring color. -->
 <div class="space-y-2" style="--ring: 234 89% 74%;">
-	<Label for="select-19">Select with colored border and ring</Label>
+	<Label for={uid}>Select with colored border and ring</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id="select-19">
+		<Select.Trigger id={uid}>
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

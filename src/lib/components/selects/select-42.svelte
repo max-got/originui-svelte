@@ -21,7 +21,7 @@
 			label: 'Bits UI',
 			value: 'bitsui'
 		}
-	];
+	] as const;
 
 	function handleSelect(currentValue: string) {
 		value = currentValue === value ? '' : currentValue;
@@ -30,12 +30,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-42">Select with search and button</Label>
+	<Label>Select with search and button</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-42"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}
