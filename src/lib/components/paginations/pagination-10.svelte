@@ -20,18 +20,26 @@
 
 	let { currentPage = 1, totalPages = 10 }: PaginationProps = $props();
 
-	const paginationItemsToDisplayOptions = ['10', '20', '50', '100'];
+	const paginationItemsToDisplayOptions = [10, 20, 50, 100];
 	let selectedPaginationItemsToDisplay = $state(paginationItemsToDisplayOptions[0]);
+
+	function getValue() {
+		return selectedPaginationItemsToDisplay.toString();
+	}
+
+	function setValue(newValue: string) {
+		selectedPaginationItemsToDisplay = parseInt(newValue);
+	}
 </script>
 
 <div class="flex items-center justify-between gap-8">
 	<!-- Results per page -->
 	<div class="flex items-center gap-3">
-		<Label for="rows-per-page">Rows per page</Label>
-		<Select bind:value={selectedPaginationItemsToDisplay} type="single">
+		<Label for="rows-per-page" class="w-fit whitespace-nowrap">Rows per page</Label>
+		<Select bind:value={getValue, setValue} type="single">
 			<SelectTrigger id="rows-per-page" class="w-fit whitespace-nowrap">
 				{#if selectedPaginationItemsToDisplay}
-					{selectedPaginationItemsToDisplay} / page
+					{selectedPaginationItemsToDisplay}
 				{:else}
 					Select number of results
 				{/if}
@@ -40,7 +48,7 @@
 				class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
 			>
 				{#each paginationItemsToDisplayOptions as option}
-					<SelectItem value={option}>{option}</SelectItem>
+					<SelectItem value={option.toString()}>{option}</SelectItem>
 				{/each}
 			</SelectContent>
 		</Select>
@@ -49,7 +57,7 @@
 	<!-- Page number information -->
 	<div class="flex grow justify-end whitespace-nowrap text-sm text-muted-foreground">
 		<p class="whitespace-nowrap text-sm text-muted-foreground" aria-live="polite">
-			<span class="text-foreground">1-25</span> of{' '}
+			<span class="text-foreground">1-10</span> of
 			<span class="text-foreground">100</span>
 		</p>
 	</div>
