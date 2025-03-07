@@ -8,7 +8,7 @@
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
 	<span
-		class="absolute bottom-0 end-0 size-3 rounded-full border-2 border-background bg-muted-foreground"
+		class="absolute -bottom-0.5 -end-0.5 size-3 rounded-full border-2 border-background bg-muted-foreground"
 	>
 		<span class="sr-only">Offline</span>
 	</span>

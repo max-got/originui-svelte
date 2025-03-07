@@ -10,28 +10,28 @@
 >
 	<div class="flex -space-x-1.5">
 		<enhanced:img
-			class="size-10 rounded-full ring-1 ring-background"
+			class="size-5 rounded-full ring-1 ring-background"
 			src={AvatarImg01}
 			alt="Avatar 01"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-1 ring-background"
+			class="size-5 rounded-full ring-1 ring-background"
 			src={AvatarImg02}
 			alt="Avatar 02"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-1 ring-background"
+			class="size-5 rounded-full ring-1 ring-background"
 			src={AvatarImg03}
 			alt="Avatar 03"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-1 ring-background"
+			class="size-5 rounded-full ring-1 ring-background"
 			src={AvatarImg04}
 			alt="Avatar 04"
 			loading="lazy"
