@@ -5,7 +5,7 @@
 	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
-<Tabs value="tab-1">
+<Tabs value="tab-1" class="items-center">
 	<TabsList class="h-auto rounded-none border-b border-border bg-transparent p-0">
 		<TabsTrigger
 			value="tab-1"

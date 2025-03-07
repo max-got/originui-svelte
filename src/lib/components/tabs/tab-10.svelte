@@ -6,7 +6,7 @@
 	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
-<Tabs value="tab-1">
+<Tabs value="tab-1" class="items-center">
 	<ScrollArea>
 		<TabsList
 			class="mb-3 h-auto -space-x-px bg-background p-0 shadow-sm shadow-black/5 rtl:space-x-reverse"

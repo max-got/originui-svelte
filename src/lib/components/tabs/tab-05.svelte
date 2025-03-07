@@ -2,7 +2,7 @@
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 </script>
 
-<Tabs value="tab-1">
+<Tabs value="tab-1" class="items-center">
 	<TabsList
 		class="h-auto gap-2 rounded-none border-b border-border bg-transparent px-0 py-1 text-foreground"
 	>

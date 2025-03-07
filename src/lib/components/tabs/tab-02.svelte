@@ -2,7 +2,7 @@
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 </script>
 
-<Tabs value="tab-1">
+<Tabs value="tab-1" class="items-center">
 	<TabsList class="bg-transparent">
 		<TabsTrigger value="tab-1" class="data-[state=active]:bg-muted data-[state=active]:shadow-none">
 			Tab 1

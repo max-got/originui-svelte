@@ -13,7 +13,7 @@
 	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
-<Tabs value="tab-1">
+<Tabs value="tab-1" class="items-center">
 	<TabsList>
 		<TooltipProvider delayDuration={0}>
 			<Tooltip>
