@@ -9,7 +9,6 @@
 		PaginationLink
 	} from '$lib/components/ui/pagination';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
-	import ChevronFirst from 'lucide-svelte/icons/chevron-first';
 	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
@@ -45,19 +44,6 @@
 	<div>
 		<Pagination>
 			<PaginationContent>
-				<!-- First page button -->
-				<PaginationItem>
-					<PaginationLink
-						class="aria-disabled:pointer-events-none aria-disabled:opacity-50"
-						href={currentPage === 1 ? undefined : `#/page/${currentPage - 1}`}
-						aria-label="Go to first page"
-						aria-disabled={currentPage === 1 ? true : undefined}
-						role={currentPage === 1 ? 'link' : undefined}
-					>
-						<ChevronFirst size={16} stroke-width={2} aria-hidden="true" />
-					</PaginationLink>
-				</PaginationItem>
-
 				<!-- Previous page button -->
 				<PaginationItem>
 					<PaginationLink
@@ -112,7 +98,11 @@
 
 	<div class="flex flex-1 justify-end">
 		<Select bind:value={selectedPaginationItemsToDisplay} type="single">
-			<SelectTrigger id="results-per-page" class="w-fit whitespace-nowrap">
+			<SelectTrigger
+				id="results-per-page"
+				class="w-fit whitespace-nowrap"
+				aria-label="Results per page"
+			>
 				{#if selectedPaginationItemsToDisplay}
 					{selectedPaginationItemsToDisplay} / page
 				{:else}
