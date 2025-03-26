@@ -1,9 +1,39 @@
-import {
-	OUI_DIRECTORIES,
-	type OUIComponent,
-	type OUIDirectory,
-	type OUIDirectoryToComponent
+import type {
+	OUIComponent,
+	OUIDirectory,
+	OUIDirectoryToComponent
 } from '$lib/componentRegistry.types';
+
+import { type ComponentState, OUI_DIRECTORIES } from '$lib/componentRegistry.components';
+
+import { GITHUB_REPO_URL } from './constants';
+
+interface ComponentMetadata {
+	githubUrl: string;
+	name: string;
+	path: string;
+	state: ComponentState;
+}
+
+interface DirectoryMetadata {
+	componentCount: number;
+	components: ComponentMetadata[];
+	directoryPath: string;
+	githubUrl: string;
+	stateBreakdown: Record<ComponentState, number>;
+	apiUrl: string;
+	llmsTextUrl: string;
+}
+
+interface RegistryMetadata {
+	directoriesBreakdown: Record<OUIDirectory, DirectoryMetadata>;
+	totalComponents: number;
+	totalDirectories: number;
+}
+
+// =========================================
+// Component Registry Implementation
+// =========================================
 
 class ComponentRegistry {
 	#components: Map<OUIDirectory, Set<OUIComponent>>;
@@ -12,6 +42,10 @@ class ComponentRegistry {
 		this.#components = new Map();
 		this.refresh();
 	}
+
+	// =========================================
+	// Initialization
+	// =========================================
 
 	async refresh() {
 		this.#components = await this.#initializeComponents();
@@ -46,10 +80,27 @@ class ComponentRegistry {
 		return componentMap;
 	}
 
+	/**
+	 * Determines the state of a component based on its filename
+	 */
+	#getComponentState(filename: string): ComponentState {
+		if (filename.includes('.todo')) return 'todo';
+		if (filename.includes('.soon')) return 'soon';
+		return 'ready';
+	}
+
+	/**
+	 * Gets the GitHub URL for a directory or component
+	 */
+	#generateGithubUrl(directory: OUIDirectory, filename?: string): string {
+		const basePath = `${GITHUB_REPO_URL}/tree/main/src/lib/components/${directory}`;
+		return filename ? `${basePath}/${filename}.svelte` : basePath;
+	}
+
 	#getFile<T extends OUIDirectory>(directory: T): OUIDirectoryToComponent[T][] {
 		const components = this.#components.get(directory);
 		if (!components?.size) {
-			throw new Error(`Components ${directory} not found. components/${directory}.json/+server.ts`);
+			throw new Error(`Components ${directory} not found in components/${directory}`);
 		}
 		return Array.from(components) as OUIDirectoryToComponent[T][];
 	}
@@ -67,15 +118,61 @@ class ComponentRegistry {
 	getFiles<T extends OUIDirectory>(directories: T[]): OUIDirectoryToComponent[T][] {
 		return directories.flatMap((directory) => this.#getFile(directory));
 	}
+
+	getRegistryMetaData(): RegistryMetadata {
+		const metadata: RegistryMetadata = {
+			directoriesBreakdown: {} as Record<OUIDirectory, DirectoryMetadata>,
+			totalComponents: 0,
+			totalDirectories: Object.keys(OUI_DIRECTORIES).length
+		};
+
+		Object.values(OUI_DIRECTORIES).forEach((directoryConfig) => {
+			const directory = directoryConfig.directory;
+			const directoryPath = `src/lib/components/${directory}`;
+			const components = this.#components.get(directory);
+			const componentsMetadata: ComponentMetadata[] = [];
+			const stateBreakdown = {
+				ready: 0,
+				soon: 0,
+				todo: 0
+			};
+
+			components?.forEach((component) => {
+				const state = this.#getComponentState(component);
+				stateBreakdown[state]++;
+
+				componentsMetadata.push({
+					githubUrl: this.#generateGithubUrl(directory, component),
+					name: component,
+					path: `${directoryPath}/${component}`,
+					state
+				});
+			});
+
+			metadata.directoriesBreakdown[directory as OUIDirectory] = {
+				componentCount: components?.size || 0,
+				components: componentsMetadata,
+				directoryPath,
+				githubUrl: this.#generateGithubUrl(directory),
+				stateBreakdown,
+				apiUrl: `/api/v1/components/${directory}.json`,
+				llmsTextUrl: `/llms/${directory}.txt`
+			};
+
+			metadata.totalComponents += components?.size || 0;
+		});
+
+		return metadata;
+	}
 }
+
+let componentRegistryInstance: ComponentRegistry | null = null;
 
 export const initComponentRegistry = async () => {
 	const registry = new ComponentRegistry();
 	await registry.refresh();
 	return registry;
 };
-
-let componentRegistryInstance: ComponentRegistry | null = null;
 
 export const getComponentRegistry = async () => {
 	if (!componentRegistryInstance) {
@@ -84,7 +181,6 @@ export const getComponentRegistry = async () => {
 	return componentRegistryInstance;
 };
 
-/* Helper functions */
 export const getComponentDirectories = async () =>
 	(await getComponentRegistry()).getAllDirectories();
 export type Directory = Awaited<ReturnType<typeof getComponentDirectories>>[number];

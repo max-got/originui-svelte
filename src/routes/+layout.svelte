@@ -1,13 +1,17 @@
 <script lang="ts">
-	import Header from '$lib/demo/header.svelte';
+	import Header from '$lib/demo/layout/header.svelte';
+	import Footer from '$lib/demo/layout/footer.svelte';
 
 	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
 
 	import '../app.css';
 
-	import { ModeWatcher } from 'mode-watcher';
+	import type { Snippet } from 'svelte';
 
-	let { children } = $props();
+	import { page } from '$app/state';
+	import { ModeWatcher } from 'mode-watcher';
+	import type { LayoutData } from './$types';
+	let { children, data }: { data: LayoutData; children: Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -23,9 +27,17 @@
 <ModeWatcher defaultMode="system" />
 
 <div
-	class="relative z-0 flex min-h-screen flex-col overflow-hidden !bg-background supports-[overflow:clip]:overflow-clip"
+	class="overflow-hidden px-4 supports-[overflow:clip]:overflow-clip sm:px-6"
 	data-vaul-drawer-wrapper
+	data-home={page.url.pathname === '/'}
 >
-	<Header />
-	{@render children()}
+	<div
+		class="relative mx-auto w-full max-w-6xl before:absolute before:inset-y-0 before:-left-12 before:w-px before:bg-[linear-gradient(to_bottom,theme(colors.svelte/.3),theme(colors.border)_200px,theme(colors.border)_calc(100%-200px),theme(colors.svelte/.3))] after:absolute after:inset-y-0 after:-right-12 after:w-px after:bg-[linear-gradient(to_bottom,theme(colors.svelte/.3),theme(colors.border)_200px,theme(colors.border)_calc(100%-200px),theme(colors.svelte/.3))]"
+	>
+		<div class="relative flex min-h-screen flex-col">
+			<Header />
+			{@render children()}
+			<Footer footerLinks={data.footerLinks} />
+		</div>
+	</div>
 </div>

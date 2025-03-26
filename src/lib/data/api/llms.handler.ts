@@ -5,9 +5,9 @@ import type {
 
 import { getComponentDirectories } from '$lib/componentRegistry';
 
-import type { ComponentAPIResponseJSON } from './components.handler';
+import type { ComponentAPIResponseJSON } from './components/components.handler';
 
-import { API_V1_COMPONENTS_ROUTE } from './components.route';
+import { API_V1_COMPONENTS_ROUTE } from './components/components.route';
 import { llmsMdGenerator } from './llms';
 
 export const API_V1_LLMS_ENDPOINT_HANDLER = {
@@ -31,19 +31,27 @@ export const API_V1_LLMS_ENDPOINT_HANDLER = {
 			const componentFiles = await fetch(`${API_V1_COMPONENTS_ROUTE}/${directory}.json`);
 			const components = (await componentFiles.json()) as ComponentAPIResponseJSON;
 
-			const systemPrompt = `<SYSTEM>This is the documentation for the "${components.meta.directory}" component directory.</SYSTEM>`;
-			const introSection = `# Start of the "${components.meta.directory}" component documentation`;
-			let descriptionSection =
-				"> This is a copy-and-paste component for quickly building app UIs. It's free, open-source, and ready to drop into your projects. Built with Tailwind CSS and Svelte.";
-			descriptionSection += `\nThis text contains the documentation for all ${components.meta.total} components in this directory.`;
+			const systemPrompt = `<SYSTEM>This is the llms.txt documentation for the "${components.meta.directory}" directory of the Origin UI - Svelte project.</SYSTEM>`;
+
+			// Main title and description following llms.txt spec
+			const sections = [
+				`# "${components.meta.directory}" directory`,
+				'',
+				'> A collection of production-ready, accessible UI components built with Svelte 5 and Tailwind CSS. These components are designed to be drop-in solutions for rapidly building modern web applications.',
+				'',
+				`This documentation covers ${components.meta.fileStats.total} components, each following best practices for accessibility, performance, and type safety.`,
+				'',
+				'## Components',
+				''
+			];
 
 			const md = components.components.map((c) => llmsMdGenerator(c)).join('\n\n');
 
-			const response =
-				systemPrompt + '\n\n' + introSection + '\n\n' + descriptionSection + '\n\n' + md;
+			const response = systemPrompt + '\n\n' + sections.join('\n') + '\n\n' + md;
+
 			setHeaders({
-				cacheControl: 'public, max-age=0, must-revalidate',
-				contentType: 'text/markdown'
+				'Cache-Control': 'public, max-age=3600',
+				'Content-Type': 'text/markdown'
 			});
 
 			return new Response(response);

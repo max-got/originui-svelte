@@ -1,6 +1,6 @@
 import type { ParamMatcher } from '@sveltejs/kit';
 
-import { OUI_DIRECTORIES } from '$lib/componentRegistry.types';
+import { OUI_DIRECTORIES } from '$lib/componentRegistry.components';
 
 export const match = ((
 	param: string

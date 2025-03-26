@@ -1,6 +1,6 @@
 import { GITHUB_REPO_URL } from '$lib/constants';
 
-import type { ComponentAPIResponseJSON } from './components.handler';
+import type { ComponentAPIResponseJSON } from './components/components.handler';
 
 export function llmsMdGenerator(component: ComponentAPIResponseJSON['components'][number]) {
 	const {
@@ -16,34 +16,42 @@ export function llmsMdGenerator(component: ComponentAPIResponseJSON['components'
 
 	const sections: string[] = [];
 
-	// Title and description
-	sections.push(`# Component: ${name}`);
+	// Title and description following llms.txt spec
+	sections.push(`## ${name}`);
 	sections.push('');
-	sections.push(`> A reusable UI component built with Svelte and Tailwind CSS`);
+	sections.push(
+		`> A type-safe, accessible ${name} component for building modern UIs. This component is part of the ${directory} collection.`
+	);
 	sections.push('');
 
-	// Key metadata
-	sections.push('## Component Information');
+	// Core information section
+	sections.push('### Core Information');
 	sections.push('');
-	sections.push(`- **Directory**: \`${directory}\``);
 	sections.push(`- **Component ID**: \`${id}\``);
-	sections.push(`- **File Path**: \`${path}\``);
+	sections.push(`- **Location**: \`${path}\``);
+	sections.push(`- **Type**: UI Component`);
 	sections.push('');
 
-	//Dependencies section if any
-	if (componentDependencies && componentDependencies.length > 0) {
-		sections.push('## Dependencies');
+	// Usage section
+	sections.push('### Usage');
+	sections.push('');
+	sections.push('```svelte');
+
+	// Dependencies section if any
+	if (componentDependencies?.length) {
+		sections.push('### Dependencies');
+		sections.push('');
+		sections.push('Required packages and components:');
 		sections.push('');
 		componentDependencies.forEach((dep) => {
-			sections.push(
-				`- [${dep.name}](${dep.url}): ${dep.dev ? 'Development Dependency' : 'Production Dependency'}`
-			);
+			sections.push(`- [\`${dep.name}\`](${dep.url})${dep.dev ? ' (dev dependency)' : ''}`);
 		});
 		sections.push('');
 	}
 
-	// Source code section
-	sections.push('## Implementation');
+	// Optional section for full implementation
+
+	sections.push('Full component implementation:');
 	sections.push('');
 	sections.push('```svelte');
 	sections.push(content);
@@ -51,9 +59,10 @@ export function llmsMdGenerator(component: ComponentAPIResponseJSON['components'
 	sections.push('');
 
 	// Links section
-	sections.push('## Links');
+	sections.push('### Links');
 	sections.push('');
-	sections.push(`- [View Source on GitHub](${GITHUB_REPO_URL}tree/main${path})`);
+	sections.push(`- [View Source](${GITHUB_REPO_URL}tree/main${path})`);
+	sections.push('');
 
 	return sections.join('\n');
 }
