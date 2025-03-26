@@ -3,8 +3,6 @@ import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import githubDarkDefault from 'shiki/themes/github-dark-default.mjs';
 import githubLightDefault from 'shiki/themes/github-light-default.mjs';
 
-import { collapsibleSectionTransformer } from './shiki-transformer/collapsible';
-
 let highlighterInstance: HighlighterCore | null = null;
 let highlighterPromise: null | Promise<HighlighterCore> = null;
 
@@ -43,7 +41,6 @@ export async function highlighterSvelte(
 			dark: 'github-dark-default',
 			light: 'github-light-default'
 		},
-		transformers: [collapsibleSectionTransformer],
 		...options
 	});
 

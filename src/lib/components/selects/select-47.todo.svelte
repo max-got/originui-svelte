@@ -1,7 +1,10 @@
-<script module lang="ts">
+<script lang="ts">
+	import Label from '../ui/label.svelte';
+
+	import * as MultipleSelect from '$lib/components/ui/multiple-select';
 	import type { Option } from '$lib/components/ui/multiple-select/multiple-select.svelte';
 
-	const frameworks: Option[] = [
+	const frameworks = [
 		{
 			label: 'Next.js',
 			value: 'next.js'
@@ -68,13 +71,7 @@
 			label: 'Lit',
 			value: 'lit'
 		}
-	];
-</script>
-
-<script lang="ts">
-	import Label from '../ui/label.svelte';
-
-	import * as MultipleSelect from '$lib/components/ui/multiple-select';
+	] as const satisfies Option[];
 </script>
 
 <div class="space-y-2">

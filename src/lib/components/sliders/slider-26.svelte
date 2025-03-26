@@ -1,5 +1,4 @@
 <script module lang="ts">
-	// [!code collapse-start]
 	const items = [
 		{ id: 1, price: 80 },
 		{ id: 2, price: 95 },
@@ -122,7 +121,6 @@
 		{ id: 119, price: 898 },
 		{ id: 120, price: 900 }
 	] as const;
-	// [!code collapse-end]
 </script>
 
 <script lang="ts">

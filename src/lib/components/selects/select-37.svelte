@@ -1,5 +1,7 @@
-<script module lang="ts">
-	// [!code collapse-start]
+<script lang="ts">
+	import Label from '$lib/components/ui/label.svelte';
+	import * as Select from '$lib/components/ui/select/index.js';
+
 	const continents = [
 		{
 			countries: [
@@ -40,17 +42,10 @@
 			],
 			label: 'Oceania'
 		}
-	];
-	// [!code collapse-end]
-</script>
+	] as const;
 
-<script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
-
-	const items = continents.reduce(
-		(previous: (typeof continents)[number]['countries'], current) =>
-			previous.concat(current.countries),
+	const items = continents.reduce<(typeof continents)[number]['countries'][number][]>(
+		(previous, current) => [...previous, ...current.countries],
 		[]
 	);
 

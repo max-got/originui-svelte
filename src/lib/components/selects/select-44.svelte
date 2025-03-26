@@ -1,5 +1,19 @@
 <script module lang="ts">
-	// [!code collapse-start]
+</script>
+
+<script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
+	import * as Command from '$lib/components/ui/command';
+	import * as Popover from '$lib/components/ui/popover';
+	import { cn } from '$lib/utils';
+	import Check from 'lucide-svelte/icons/check';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+
+	let open = $state(false);
+	let value = $state('');
+
 	const countries = [
 		{
 			continent: 'Europe',
@@ -41,26 +55,15 @@
 				{ flag: '🇳🇿', value: 'New Zealand' }
 			]
 		}
-	];
-	// [!code collapse-end]
-</script>
+	] as const;
 
-<script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	const selectedCountry = $derived.by(() => {
+		const items = countries.flatMap<(typeof countries)[number]['items'][number]>(
+			(group) => group.items
+		);
 
-	import * as Command from '$lib/components/ui/command';
-	import * as Popover from '$lib/components/ui/popover';
-	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-
-	let open = $state(false);
-	let value = $state('');
-
-	const selectedCountry = $derived(
-		countries.flatMap((group) => group.items).find((item) => item.value === value)
-	);
+		return items.find((item) => item.value === value);
+	});
 
 	function handleSelect(currentValue: string) {
 		value = currentValue;
