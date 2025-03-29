@@ -8,7 +8,7 @@ export const load = (async () => {
 	const entries = Object.entries(files.directoriesBreakdown);
 	const links = entries.map(([directory, metadata]) => ({
 		llms: {
-			label: directory + '.txt',
+			label: 'llms/' + directory + '.txt',
 			href: metadata.llmsTextUrl,
 			ariaLabel: 'LLMs.txt for ' + directory
 		},
