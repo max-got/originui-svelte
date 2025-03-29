@@ -17,10 +17,8 @@ const fetchFromAPI = async <T>(fetch: typeof globalThis.fetch, directory: OUIDir
 //Cloudflare Pages has a limit of 100 routes, so we need to make sure we don't hit that limit.
 //With this way, we just mimic that for better DX.
 
-export const fetchComponentsFromAPI = (
-	fetch: typeof globalThis.fetch,
-	directories: OUIDirectory[]
-) => Promise.all(directories.map((d) => fetchFromAPI<ComponentAPIResponseJSON>(fetch, d)));
+export const fetchComponentsFromAPI = (fetch: typeof globalThis.fetch, directory: OUIDirectory) =>
+	fetchFromAPI<ComponentAPIResponseJSON>(fetch, directory);
 
 export const fetchComponentFromAPI = async (
 	fetch: typeof globalThis.fetch,

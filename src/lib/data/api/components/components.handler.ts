@@ -1,16 +1,14 @@
 import type {
 	EntryGenerator as DirectoryEntryGenerator,
 	RequestHandler as DirectoryRequestHandler
-} from '../../../routes/(api)/api/v1/components/[directory=componentDirectory].json/$types';
+} from '../../../../routes/(api)/api/v1/components/[directory=componentDirectory].json/$types';
 
 import type { Component } from 'svelte';
 
 import { getComponentDirectories, getComponentFileNames } from '$lib/componentRegistry';
 import { getComponentSource } from '$lib/utils/handleComponentSource';
 
-interface TypedResponse<O> extends Response {
-	json(): Promise<O>;
-}
+import type { TypedResponse } from '../helpers/types';
 
 export class ComponentAPIError extends Error {
 	constructor(message: string) {
@@ -45,9 +43,9 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 			directory,
 			fileStats: {
 				completed: components.filter((c) => c.availability === 'available').length,
-				todo: components.filter((c) => c.availability === 'todo').length
-			},
-			total: components.length
+				todo: components.filter((c) => c.availability === 'todo').length,
+				total: components.length
+			}
 		};
 
 		setHeaders({
@@ -72,7 +70,7 @@ export type AvailableComponentMetadata = ComponentMetadata & {
 	availability: 'available';
 };
 export type AvailableOUIComponent = AvailableComponentMetadata & {
-	component: Component;
+	Component: Component;
 };
 
 export type UnavailableOUIComponent = UnavailableComponentMetadata;
