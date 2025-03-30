@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { Option } from '$lib/components/ui/multiple-select/multiple-select.svelte';
+
 	import Label from '../ui/label.svelte';
 
 	import * as MultipleSelect from '$lib/components/ui/multiple-select';
-	import type { Option } from '$lib/components/ui/multiple-select/multiple-select.svelte';
 
 	const frameworks = [
 		{

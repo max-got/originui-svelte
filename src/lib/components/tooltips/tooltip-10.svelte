@@ -26,7 +26,7 @@
 			<div class="space-y-1">
 				<p class="text-sm font-medium">@Origin_UI</p>
 				<p class="text-sm text-muted-foreground">
-					Beautiful UI components built with Tailwind CSS and Next.js.
+					Beautiful UI components built with Tailwind CSS and Svelte
 				</p>
 			</div>
 		</div>

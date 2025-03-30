@@ -4,7 +4,6 @@
 
 	import * as Command from '$lib/components/ui/command';
 	import * as Popover from '$lib/components/ui/popover';
-
 	import Blocks from 'lucide-svelte/icons/blocks';
 	import Brain from 'lucide-svelte/icons/brain';
 	import LineChart from 'lucide-svelte/icons/chart-line';
