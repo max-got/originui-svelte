@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 3/26/2025, 7:30:03 PM
+ * Last generated at: 3/30/2025, 6:08:55 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -26,19 +26,10 @@ export type OUITodoComponent<T extends keyof OUIDirectories> = Extract<
 	OUIDirectories[T]['components'][number],
 	`${string}todo.svelte`
 >;
-export type OUISoonComponent<T extends keyof OUIDirectories> = Extract<
-	OUIDirectories[T]['components'][number],
-	`${string}soon.svelte`
->;
 
 // Get all todo components
 export type OUITodoComponents = {
 	[K in keyof OUIDirectories]: OUITodoComponent<K>;
-}[keyof OUIDirectories];
-
-// Get all soon components
-export type OUISoonComponents = {
-	[K in keyof OUIDirectories]: OUISoonComponent<K>;
 }[keyof OUIDirectories];
 
 // Get todo components by directory
@@ -49,18 +40,10 @@ export type OUIDirectoryTodoComponents = {
 	};
 };
 
-// Get soon components by directory
-export type OUIDirectorySoonComponents = {
-	[K in keyof OUIDirectories]: {
-		directory: K;
-		components: OUISoonComponent<K>[];
-	};
-};
-
 // Ready Component Helpers
 export type OUIReadyComponent<T extends keyof OUIDirectories> = Exclude<
 	OUIDirectories[T]['components'][number],
-	`${string}todo.svelte` | `${string}soon.svelte`
+	`${string}todo.svelte`
 >;
 
 // Get all ready components
@@ -88,12 +71,6 @@ export type OUIDirectoryComponentCounts = {
 // Directory Status Filters
 export type OUIDirectoriesWithTodo = {
 	[K in keyof OUIDirectories as OUIDirectories[K]['status']['todo'] extends 0
-		? never
-		: K]: OUIDirectories[K];
-};
-
-export type OUIDirectoriesWithSoon = {
-	[K in keyof OUIDirectories as OUIDirectories[K]['status']['soon'] extends 0
 		? never
 		: K]: OUIDirectories[K];
 };

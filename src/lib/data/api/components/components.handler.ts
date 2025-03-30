@@ -77,6 +77,3 @@ export type UnavailableOUIComponent = UnavailableComponentMetadata;
 export type UnavailableComponentMetadata = ComponentMetadata & {
 	availability: 'todo';
 };
-export type ComingSoonComponentMetadata = ComponentMetadata & {
-	availability: 'soon';
-};

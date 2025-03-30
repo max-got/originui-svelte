@@ -9,7 +9,6 @@ import path from 'node:path';
 const CONSTANTS = {
 	COMPONENT_STATES: {
 		READY: 'ready',
-		SOON: 'soon',
 		TODO: 'todo'
 	},
 	FILE_EXTENSIONS: {
@@ -19,29 +18,29 @@ const CONSTANTS = {
 } as const;
 
 interface ComponentConfig {
-	readonly dirs: {
+	dirs: {
 		/** Root directory containing all component directories */
-		readonly component: string;
+		component: string;
 		/** Directories to exclude from processing */
-		readonly exclude: readonly string[];
-		readonly object: {
+		exclude: string[];
+		object: {
 			/** Output path for the components registry object */
-			readonly output: string;
+			output: string;
 		};
-		readonly types: {
+		types: {
 			/** Output path for the TypeScript type definitions */
-			readonly output: string;
+			output: string;
 		};
 	};
-	readonly files: {
+	files: {
 		/** Files to exclude from component processing */
-		readonly exclude: readonly string[];
+		exclude: string[];
 	};
-	readonly validation?: {
+	validation?: {
 		/** Whether to enforce component naming conventions */
-		readonly enforceNaming?: boolean;
+		enforceNaming?: boolean;
 		/** Pattern that component names must match */
-		readonly namingPattern?: RegExp;
+		namingPattern?: RegExp;
 	};
 }
 
@@ -79,7 +78,6 @@ interface ComponentDirectory {
 
 interface ComponentStatus {
 	ready: number;
-	soon: number;
 	todo: number;
 }
 
@@ -140,7 +138,6 @@ class ComponentRegistryGenerator {
 		},
 		status: {
 			ready: 0,
-			soon: 0,
 			todo: 0
 		},
 		totalComponents: 0,
@@ -158,7 +155,6 @@ class ComponentRegistryGenerator {
 
 		// Update status counts
 		this.#stats.status.ready += directory.status.ready;
-		this.#stats.status.soon += directory.status.soon;
 		this.#stats.status.todo += directory.status.todo;
 
 		// Update directory size records
@@ -182,9 +178,7 @@ class ComponentRegistryGenerator {
 			(this.#stats.status.ready / this.#stats.totalComponents) *
 			100
 		).toFixed(1);
-		const soonPercentage = ((this.#stats.status.soon / this.#stats.totalComponents) * 100).toFixed(
-			1
-		);
+
 		const todoPercentage = ((this.#stats.status.todo / this.#stats.totalComponents) * 100).toFixed(
 			1
 		);
@@ -196,7 +190,6 @@ class ComponentRegistryGenerator {
 
 		console.info('\n📈 Component Status:');
 		console.info(`   ✅ Ready: ${this.#stats.status.ready} (${readyPercentage}%)`);
-		console.info(`   🔜 Soon: ${this.#stats.status.soon} (${soonPercentage}%)`);
 		console.info(`   📝 Todo: ${this.#stats.status.todo} (${todoPercentage}%)`);
 
 		console.info('\n📊 Directory Insights:');
@@ -248,8 +241,7 @@ class ComponentRegistryGenerator {
 
 		const baseName = path
 			.basename(file, CONSTANTS.FILE_EXTENSIONS.SVELTE)
-			.replace(`.${CONSTANTS.COMPONENT_STATES.TODO}`, '')
-			.replace(`.${CONSTANTS.COMPONENT_STATES.SOON}`, '');
+			.replace(`.${CONSTANTS.COMPONENT_STATES.TODO}`, '');
 
 		return CONFIG.validation.namingPattern?.test(baseName) ?? true;
 	}
@@ -259,14 +251,12 @@ class ComponentRegistryGenerator {
 			(acc, file) => {
 				if (file.includes(CONSTANTS.COMPONENT_STATES.TODO)) {
 					acc.todo++;
-				} else if (file.includes(CONSTANTS.COMPONENT_STATES.SOON)) {
-					acc.soon++;
 				} else {
 					acc.ready++;
 				}
 				return acc;
 			},
-			{ ready: 0, soon: 0, todo: 0 }
+			{ ready: 0, todo: 0 }
 		);
 	}
 
@@ -280,9 +270,6 @@ class ComponentRegistryGenerator {
 						(file.endsWith(CONSTANTS.FILE_EXTENSIONS.SVELTE) ||
 							file.endsWith(
 								`${CONSTANTS.COMPONENT_STATES.TODO}${CONSTANTS.FILE_EXTENSIONS.SVELTE}`
-							) ||
-							file.endsWith(
-								`${CONSTANTS.COMPONENT_STATES.SOON}${CONSTANTS.FILE_EXTENSIONS.SVELTE}`
 							));
 
 					if (isValid && !this.#validateComponentName(file)) {
@@ -356,7 +343,6 @@ class ComponentRegistryGenerator {
 			.join(', ')}],
     status: {
       todo: ${status.todo},
-      soon: ${status.soon},
       ready: ${status.ready}
     }
   },`;
@@ -372,7 +358,6 @@ class ComponentRegistryGenerator {
 		const componentsObjectType = `\nexport type ${TYPES.objectTypeName} = typeof ${TYPES.objectName};`;
 		const componentStates = `
 export const COMPONENT_STATES = {
-	SOON: '${CONSTANTS.COMPONENT_STATES.SOON}',
 	TODO: '${CONSTANTS.COMPONENT_STATES.TODO}',
 	READY: '${CONSTANTS.COMPONENT_STATES.READY}'
 } as const;
@@ -406,7 +391,7 @@ export type ComponentState = (typeof COMPONENT_STATES)[keyof typeof COMPONENT_ST
 // Ready Component Helpers
 export type OUIReadyComponent<T extends keyof ${TYPES.objectTypeName}> = Exclude<
   ${TYPES.objectTypeName}[T]['components'][number],
-  \`\${string}${CONSTANTS.COMPONENT_STATES.TODO}${CONSTANTS.FILE_EXTENSIONS.SVELTE}\` | \`\${string}${CONSTANTS.COMPONENT_STATES.SOON}${CONSTANTS.FILE_EXTENSIONS.SVELTE}\`
+  \`\${string}${CONSTANTS.COMPONENT_STATES.TODO}${CONSTANTS.FILE_EXTENSIONS.SVELTE}\`
 >;
 
 // Get all ready components
@@ -440,10 +425,6 @@ export type OUIDirectoryComponentCounts = {
 // Directory Status Filters
 export type OUIDirectoriesWithTodo = {
   [K in keyof ${TYPES.objectTypeName} as ${TYPES.objectTypeName}[K]['status']['todo'] extends 0 ? never : K]: ${TYPES.objectTypeName}[K]
-};
-
-export type OUIDirectoriesWithSoon = {
-  [K in keyof ${TYPES.objectTypeName} as ${TYPES.objectTypeName}[K]['status']['soon'] extends 0 ? never : K]: ${TYPES.objectTypeName}[K]
 };`;
 		}
 
@@ -465,16 +446,10 @@ export type OUIComponentMetadata = {
 			return `
 // Status Type Helpers
 export type OUITodoComponent<T extends keyof ${TYPES.objectTypeName}> = Extract<${TYPES.objectTypeName}[T]['components'][number], \`\${string}${CONSTANTS.COMPONENT_STATES.TODO}${CONSTANTS.FILE_EXTENSIONS.SVELTE}\`>;
-export type OUISoonComponent<T extends keyof ${TYPES.objectTypeName}> = Extract<${TYPES.objectTypeName}[T]['components'][number], \`\${string}${CONSTANTS.COMPONENT_STATES.SOON}${CONSTANTS.FILE_EXTENSIONS.SVELTE}\`>;
 
 // Get all todo components
 export type OUITodoComponents = {
   [K in keyof ${TYPES.objectTypeName}]: OUITodoComponent<K>
-}[keyof ${TYPES.objectTypeName}];
-
-// Get all soon components
-export type OUISoonComponents = {
-  [K in keyof ${TYPES.objectTypeName}]: OUISoonComponent<K>
 }[keyof ${TYPES.objectTypeName}];
 
 // Get todo components by directory
@@ -482,14 +457,6 @@ export type OUIDirectoryTodoComponents = {
   [K in keyof ${TYPES.objectTypeName}]: {
     directory: K;
     components: OUITodoComponent<K>[];
-  }
-};
-
-// Get soon components by directory
-export type OUIDirectorySoonComponents = {
-  [K in keyof ${TYPES.objectTypeName}]: {
-    directory: K;
-    components: OUISoonComponent<K>[];
   }
 };`;
 		}

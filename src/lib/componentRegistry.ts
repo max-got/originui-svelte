@@ -16,13 +16,13 @@ interface ComponentMetadata {
 }
 
 interface DirectoryMetadata {
+	apiUrl: string;
 	componentCount: number;
 	components: ComponentMetadata[];
 	directoryPath: string;
 	githubUrl: string;
-	stateBreakdown: Record<ComponentState, number>;
-	apiUrl: string;
 	llmsTextUrl: string;
+	stateBreakdown: Record<ComponentState, number>;
 }
 
 interface RegistryMetadata {
@@ -85,7 +85,6 @@ class ComponentRegistry {
 	 */
 	#getComponentState(filename: string): ComponentState {
 		if (filename.includes('.todo')) return 'todo';
-		if (filename.includes('.soon')) return 'soon';
 		return 'ready';
 	}
 
@@ -150,13 +149,13 @@ class ComponentRegistry {
 			});
 
 			metadata.directoriesBreakdown[directory as OUIDirectory] = {
+				apiUrl: `/api/v1/components/${directory}.json`,
 				componentCount: components?.size || 0,
 				components: componentsMetadata,
 				directoryPath,
 				githubUrl: this.#generateGithubUrl(directory),
-				stateBreakdown,
-				apiUrl: `/api/v1/components/${directory}.json`,
-				llmsTextUrl: `/llms/${directory}.txt`
+				llmsTextUrl: `/llms/${directory}.txt`,
+				stateBreakdown
 			};
 
 			metadata.totalComponents += components?.size || 0;

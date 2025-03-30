@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 3/26/2025, 7:30:03 PM
+ * Last generated at: 3/30/2025, 6:08:55 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -35,7 +35,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 20
 		}
 	},
@@ -58,7 +57,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 12
 		}
 	},
@@ -92,7 +90,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 23
 		}
 	},
@@ -116,7 +113,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 13
 		}
 	},
@@ -139,7 +135,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 12
 		}
 	},
@@ -158,7 +153,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 8
 		}
 	},
@@ -220,7 +214,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 51
 		}
 	},
@@ -249,7 +242,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 18
 		}
 	},
@@ -281,7 +273,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 3,
-			soon: 0,
 			ready: 18
 		}
 	},
@@ -307,7 +298,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 15
 		}
 	},
@@ -351,11 +341,11 @@ export const OUI_DIRECTORIES = {
 			'input-34.svelte',
 			'input-35.svelte',
 			'input-36.svelte',
-			'input-37.soon.svelte',
-			'input-38.soon.svelte',
-			'input-39.soon.svelte',
-			'input-40.soon.svelte',
-			'input-41.soon.svelte',
+			'input-37.todo.svelte',
+			'input-38.todo.svelte',
+			'input-39.todo.svelte',
+			'input-40.todo.svelte',
+			'input-41.todo.svelte',
 			'input-42.svelte',
 			'input-43.svelte',
 			'input-44.svelte',
@@ -370,15 +360,14 @@ export const OUI_DIRECTORIES = {
 			'input-53.svelte',
 			'input-54.svelte',
 			'input-55.svelte',
-			'input-56.todo.svelte',
+			'input-56.svelte',
 			'input-57.todo.svelte',
 			'input-58.todo.svelte',
 			'input-59.todo.svelte'
 		],
 		status: {
-			todo: 8,
-			soon: 5,
-			ready: 46
+			todo: 12,
+			ready: 47
 		}
 	},
 	NOTIFICATIONS: {
@@ -411,7 +400,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 2,
-			soon: 0,
 			ready: 21
 		}
 	},
@@ -434,7 +422,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 12
 		}
 	},
@@ -454,7 +441,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 9
 		}
 	},
@@ -484,7 +470,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 19
 		}
 	},
@@ -546,7 +531,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 5,
-			soon: 0,
 			ready: 46
 		}
 	},
@@ -584,7 +568,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 27
 		}
 	},
@@ -612,7 +595,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 17
 		}
 	},
@@ -643,7 +625,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 20
 		}
 	},
@@ -673,7 +654,6 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 19
 		}
 	},
@@ -696,14 +676,12 @@ export const OUI_DIRECTORIES = {
 		],
 		status: {
 			todo: 0,
-			soon: 0,
 			ready: 12
 		}
 	}
 } as const;
 export type OUIDirectories = typeof OUI_DIRECTORIES;
 export const COMPONENT_STATES = {
-	SOON: 'soon',
 	TODO: 'todo',
 	READY: 'ready'
 } as const;
