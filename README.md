@@ -25,7 +25,6 @@ Origin UI - Svelte is a collection of copy-and-paste components for quickly buil
   - [Project Structure](#project-structure)
   - [Component Registry System](#component-registry-system)
   - [Dependency Detection System](#dependency-detection-system)
-  - [Code Collapsing System](#code-collapsing-system)
   - [Component Guidelines](#component-guidelines)
   - [Pull Request Process](#pull-request-process)
 - [Need Help?](#need-help)
@@ -61,7 +60,7 @@ If you want to use the components in your project, you need to setup the followi
 
 - [Svelte](https://svelte.dev)
 - [TailwindCSS](https://tailwindcss.com)
-- [Bits UI (Next)](https://next.bits-ui.com/docs/introduction)
+- [Bits UI](https://bits-ui.com/docs/introduction)
 - or other dependencies (see [src/lib/constants.ts](src/lib/constants.ts))
 
 ### Development
@@ -302,27 +301,7 @@ The project includes an automated dependency detection system that analyzes comp
    - Generates installation commands
    - Adds dependency information to component metadata
 
-4. **Example Output**
-
-   When a component uses dependencies:
-
-   ```svelte
-   <script>
-   	import * as Accordion from 'bits-ui/accordion';
-   	import { Icon } from '@iconify-json/ri';
-   </script>
-   ```
-
-   The system automatically:
-
-   ```markdown
-   <!-- Dependencies:
-   pnpm i -D @iconify-json/ri
-   pnpm i bits-ui@next
-   -->
-   ```
-
-5. **Special Cases**
+4. **Special Cases**
 
    - Enhanced Images:
 
@@ -337,7 +316,7 @@ The project includes an automated dependency detection system that analyzes comp
      pnpm i -D @iconify-json/ri unplugin-icons && pnpm i bits-ui@next
      ```
 
-6. **Integration**
+5. **Integration**
 
    The system integrates with:
 
@@ -352,80 +331,6 @@ The project includes an automated dependency detection system that analyzes comp
 > 2. Then create your component with the imports
 > 3. The system will automatically detect and document the dependencies
 
-### Code Collapsing System
-
-The project includes an automatic code collapsing system for better readability in the documentation. This feature is implemented in `src/lib/utils/shiki-transformer/collapsible.ts`.
-
-1. **How to Use**
-
-   Add collapse markers in your component code:
-
-   ```svelte
-   <script module lang="ts">
-   	// [!code collapse-start]
-   	const longDataArray = [
-   		// ... many items
-   	];
-   	// [!code collapse-end]
-   </script>
-   ```
-
-2. **Supported Comment Types**
-
-   The system recognizes collapse markers, like this:
-
-   ```typescript
-   // JavaScript/TypeScript style
-   // [!code collapse-start]
-   // long code
-   // [!code collapse-end]
-   ```
-
-3. **How It Works**
-
-   The system:
-
-   - Detects collapse markers in source code
-   - Wraps the content in a collapsible section
-   - Adds an "Expand/Collapse" button
-   - Preserves code highlighting and formatting
-
-4. **Example Use Case**
-
-   Perfect for:
-
-   - Large data arrays
-   - Configuration objects
-   - Repetitive code sections
-   - Long utility functions
-
-   ```svelte
-   <script module lang="ts">
-   	// [!code collapse-start]
-   	const items = [
-   		{ id: 1, value: '...' },
-   		{ id: 2, value: '...' }
-   		// ... many more items
-   	];
-   	// [!code collapse-end]
-   </script>
-
-   <script lang="ts">
-   	// This code remains visible by default
-   	let selectedItem = items[0];
-   </script>
-   ```
-
-5. **Best Practices**
-
-   - Use for non-essential code sections
-   - Keep critical implementation details visible
-   - Collapse large data structures
-   - Use in documentation and examples
-
-> [!TIP]
-> Use code collapsing to improve the readability of your components in the documentation while keeping all code accessible when needed.
-
 ### Component Guidelines
 
 - 1\. **Component Organization**
@@ -439,7 +344,7 @@ The project includes an automatic code collapsing system for better readability 
     ```
     component-category/
     ├── index.ts			# Exports
-    ├── component.svelte	# Main component
+    └── component.svelte	# Main component
     ```
 
     If a component is a simple one, it can be placed in the `src/lib/components/ui` folder.
@@ -468,25 +373,6 @@ The project includes an automatic code collapsing system for better readability 
     component-category/
     └── category-03.todo.svelte
     ```
-
-    If a component is just waiting for a library to be implemented, you need to add a placeholder component in the `src/lib/components` folder. In this case the component should be named `category-04.soon.svelte`.
-
-    ```
-    component-category/
-    └── category-04.soon.svelte
-    ```
-
-> [!NOTE]
-> The component should have content. For example:
->
-> ```html
-> <p class="text-center text-sm text-muted-foreground">
-> 	waiting for
-> 	<a class="underline hover:text-foreground" href="https://github.com/huntabyte/bits-ui/pull/582"
-> 		>Bits UI TimeField</a
-> 	>
-> </p>
-> ```
 
 - 1.3\. **Route Configuration**
 
@@ -552,8 +438,7 @@ The project includes an automatic code collapsing system for better readability 
      ```
      component-category/
      ├── category-XX.svelte      # Regular component
-     ├── category-XX.todo.svelte # Not yet possible
-     └── category-XX.soon.svelte # Waiting for dependency
+     └── category-XX.todo.svelte # Not yet possible
      ```
    - Run `pnpm generate:registry` after adding/modifying components
 
@@ -581,7 +466,6 @@ The project includes an automatic code collapsing system for better readability 
 5. **Documentation**
 
    - Include example usage
-   - Add placeholder content for `.todo` and `.soon` components
 
 6. **Submitting the PR**
 
