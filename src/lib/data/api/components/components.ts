@@ -1,6 +1,10 @@
 import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types';
 
-import { ComponentAPIError, type ComponentAPIResponseJSON } from './components.handler';
+import {
+	type AvailableOUIComponent,
+	ComponentAPIError,
+	type ComponentAPIResponseJSON
+} from './components.handler';
 import { API_V1_COMPONENTS_ROUTE } from './components.route';
 
 const fetchFromAPI = async <T>(fetch: typeof globalThis.fetch, directory: OUIDirectory) => {
@@ -25,25 +29,15 @@ export const fetchComponentFromAPI = async (
 	{ directory, id }: { directory: OUIDirectory; id: OUIComponent }
 ) => {
 	const { components } = await fetchFromAPI<ComponentAPIResponseJSON>(fetch, directory);
-	const idx = components.findIndex(
-		(component) => component.id === id && component.availability === 'available'
-	);
-	if (idx === -1) throw new ComponentAPIError(`Component ${id} not found in ${directory}`);
+	const [component] = components.filter((c): c is AvailableOUIComponent => {
+		if (c.id !== id) return false;
+		if (c.availability !== 'available') return false;
+		return true;
+	});
 
-	function getPaginationComponentMetadata(idx: number, direction: 'backwards' | 'forwards') {
-		if (idx < 0 || idx >= components.length) return undefined;
-		let component = components[idx];
-		while (component && component.availability !== 'available') {
-			idx += direction === 'backwards' ? -1 : 1;
-			if (idx < 0 || idx >= components.length) return undefined;
-			component = components[idx];
-		}
-		return component;
-	}
+	if (!component) throw new ComponentAPIError(`Component ${id} not found in ${directory}`);
 
 	return {
-		componentMetadata: components[idx],
-		nextComponentMetadata: getPaginationComponentMetadata(idx + 1, 'forwards'),
-		prevComponentMetadata: getPaginationComponentMetadata(idx - 1, 'backwards')
+		componentMetadata: component
 	};
 };
