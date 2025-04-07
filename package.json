@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@iconify-json/ri": "^1.2.5",
-		"@sveltejs/adapter-cloudflare": "^6.0.1",
+		"@sveltejs/adapter-cloudflare": "^4.9.0",
 		"@sveltejs/enhanced-img": "^0.4.4",
 		"@sveltejs/kit": "^2.20.2",
 		"@sveltejs/vite-plugin-svelte": "^4.0.3",
