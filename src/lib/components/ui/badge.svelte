@@ -22,6 +22,7 @@
 	export type BadgeVariant = VariantProps<typeof badgeVariants>['variant'];
 
 	export type BadgeProps = WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+		class?: string;
 		variant?: BadgeVariant;
 	};
 </script>
@@ -32,7 +33,6 @@
 	let {
 		children,
 		class: className,
-
 		ref = $bindable(null),
 		variant = 'default',
 		...restProps

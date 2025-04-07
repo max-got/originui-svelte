@@ -27,6 +27,7 @@
 	export type ToggleSize = VariantProps<typeof toggleVariants>['size'];
 	export type ToggleVariants = VariantProps<typeof toggleVariants>;
 	export type ToggleProps = ToggleRootProps & {
+		class?: string;
 		size?: ToggleSize;
 		variant?: ToggleVariant;
 	};
