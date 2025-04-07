@@ -1,47 +1,45 @@
-<div class="my-16 px-4 text-center sm:px-6">
-	<h2 class="mb-3 text-3xl font-bold text-foreground">
-		<span class="block"> Check out the original Origin UI library </span>
-		<span class="mt-1 block text-lg font-medium text-muted-foreground"> or send a suggestion </span>
-	</h2>
-	<p class="mb-6 text-balance text-muted-foreground">
-		Suggest a component or improvements you'd like to see & check out the original Origin UI!
-	</p>
-	<div class="flex flex-wrap items-center justify-center gap-4">
-		<a
-			class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-secondary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-black/[.04] transition-shadow hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-input disabled:pointer-events-none disabled:opacity-50"
-			href="https://github.com/max-got/originui-svelte/discussions"
-			target="_blank"
-			aria-label="Send a suggestion to the Origin UI - Svelte repository"
-		>
-			<span class="text-secondary-foreground">Send Suggestion</span>
-		</a>
-		<a
-			class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-black/[.04] transition-shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-			href="https://originui.com/"
-			target="_blank"
-			aria-label="Visit the original Origin UI website"
-		>
-			<span class="text-primary-foreground">Check out the original</span>
-		</a>
-	</div>
-</div>
+<script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
+</script>
 
-<div class="mb-12 flex items-center justify-center gap-2 text-sm">
-	<span class="text-muted-foreground">Brought to you by</span>
-	<span class="-ml-0.5 flex -space-x-2">
-		<a
-			class="group relative h-7 w-7 overflow-hidden rounded-full border-2 border-background"
-			href="https://x.com/max_gotts"
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label="Max's profile image"
-		>
-			<enhanced:img
-				class="absolute inset-0 object-cover object-center transition-transform duration-300 group-hover:scale-110"
-				src="/static/avatar.jpg"
-				alt="Max's profile image"
-				loading="lazy"
-			/>
-		</a>
-	</span>
-</div>
+<section class="relative isolate overflow-hidden border-t border-border">
+	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24">
+		<div class="relative">
+			<div class="absolute left-32 top-0 size-28 rounded-full bg-svelte/15 blur-2xl"></div>
+			<div class="absolute bottom-0 right-32 size-44 rounded-full bg-svelte/15 blur-2xl"></div>
+
+			<div class="relative z-10 text-center">
+				<h2
+					class="font-heading mb-4 text-balance font-serif text-3xl/[1.1] tracking-tight text-foreground md:text-4xl/[1.1]"
+				>
+					<span class="block">Discover/Contribute</span>
+				</h2>
+
+				<p class="mx-auto max-w-xl text-balance text-base text-muted-foreground">
+					Explore the original Origin UI or contribute by suggesting new components and
+					improvements.
+				</p>
+
+				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+					<Button
+						variant="secondary"
+						href="https://github.com/max-got/originui-svelte/discussions"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Send a suggestion to the Origin UI - Svelte repository"
+					>
+						Visit Original
+					</Button>
+					<Button
+						href="https://originui.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Visit the original Origin UI website"
+					>
+						Send Suggestion
+					</Button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

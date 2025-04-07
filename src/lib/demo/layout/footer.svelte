@@ -1,5 +1,5 @@
 <script lang="ts">
-	type Link = { title: string; links: { label: string; href: string; ariaLabel: string }[] };
+	type Link = { links: { 'aria-label': string; href: string; label: string }[]; title: string };
 
 	type Props = {
 		footerLinks: Link[];
@@ -18,16 +18,16 @@
 
 	<div class="grid w-full max-w-6xl items-start gap-24 py-6 md:grid-cols-2">
 		{#each footerLinks as section (section.title)}
-			<div class="flex flex-col gap-3">
+			<div class="flex flex-col items-center gap-3 text-center">
 				<h3 class="text-md font-serif tracking-wider text-muted-foreground">
 					{section.title}
 				</h3>
-				<ul class="space-y-3">
+				<ul class="flex flex-col items-center gap-3">
 					{#each section.links as link (link.href)}
 						<li class="relative w-fit text-muted-foreground">
 							<a
 								href={link.href}
-								aria-label={link.ariaLabel}
+								aria-label={link['aria-label']}
 								class="relative z-20 text-sm text-muted-foreground transition-colors hover:text-foreground"
 							>
 								{link.label}

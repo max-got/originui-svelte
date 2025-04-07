@@ -1,4 +1,4 @@
-import { API_V1_COMPONENTS_ENDPOINT_HANDLER } from '$data/api/components.handler';
+import { API_V1_COMPONENTS_ENDPOINT_HANDLER } from '$data/api/components/components.handler';
 
 export const prerender = true;
 

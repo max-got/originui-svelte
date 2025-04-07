@@ -7,8 +7,20 @@
 		children,
 		class: className,
 		ref = $bindable(null),
+
 		...restProps
 	}: DialogContentProps = $props();
+
+	let closeRef: HTMLButtonElement | null = $state(null);
+
+	function handleOpenAutoFocus(e: Event) {
+		if (restProps.onOpenAutoFocus) {
+			restProps.onOpenAutoFocus(e);
+		} else {
+			e.preventDefault();
+			closeRef?.focus();
+		}
+	}
 </script>
 
 <DialogPrimitive.Content
@@ -18,9 +30,11 @@
 		className
 	)}
 	{...restProps}
+	onOpenAutoFocus={handleOpenAutoFocus}
 >
 	{@render children?.()}
 	<DialogPrimitive.Close
+		bind:ref={closeRef}
 		class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
 	>
 		<svg
@@ -41,3 +55,23 @@
 		<span class="sr-only">Close</span>
 	</DialogPrimitive.Close>
 </DialogPrimitive.Content>
+
+<style>
+	:global(div[data-dialog-content]) {
+		overflow: auto;
+	}
+
+	:global(div[data-dialog-content]::-webkit-scrollbar) {
+		width: 5px;
+	}
+
+	:global(div[data-dialog-content]::-webkit-scrollbar-thumb) {
+		background: hsl(var(--border));
+		border-radius: 5px;
+	}
+
+	:global(div[data-dialog-content]) {
+		scrollbar-width: thin;
+		scrollbar-color: hsl(var(--border)) transparent;
+	}
+</style>

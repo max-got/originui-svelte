@@ -1,9 +1,10 @@
 <script lang="ts">
+	import CategoryCard from '$lib/demo/category-card.svelte';
 	import Illustration from '$lib/demo/illustration.svelte';
 
-	import { COMPONENT_ROUTES } from '$lib/config/routes';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import { mode } from 'mode-watcher';
+
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -45,53 +46,53 @@
 
 <Illustration />
 
-<main>
-	<div class="px-4 sm:px-6">
-		<div class="mx-auto w-full max-w-3xl">
-			<div class="my-16">
-				<h1
-					class="mx-auto mb-4 max-w-3xl text-4xl/[1.1] font-extrabold tracking-tight text-foreground md:text-5xl/[1.1]"
-				>
-					Beautiful UI components built with Tailwind CSS and
-					<span class="text-svelte"> Svelte </span>
-				</h1>
-				<p class="mb-4 text-lg text-muted-foreground">
-					Origin UI - Svelte is an extensive collection of copy-and-paste components for quickly
-					building app UIs. It's free, open-source, and ready to drop into your projects.
-				</p>
-				<p
-					class="w-fit max-w-prose text-pretty border-t border-border pt-4 text-sm text-accent-foreground"
-				>
-					This project is not affiliated with the original <a
-						class="underline"
-						href="https://originui.com/"
-						rel="noreferrer">Origin UI</a
-					>. <br />
-					<span class="text-xs text-muted-foreground">
-						I'm grateful for their work and have created these Svelte components copied from their
-						design.
-					</span>
-				</p>
-			</div>
+<main data-home>
+	<div class="max-w-3xl max-sm:text-center">
+		<h1
+			class="font-heading mb-4 text-balance font-serif text-4xl/[1.1] tracking-tight text-foreground md:text-5xl/[1.1]"
+		>
+			Beautiful UI components built with Tailwind CSS and
+			<span class="text-svelte"> Svelte </span>
+		</h1>
 
-			<div class="mb-16">
-				<h2 class="mb-5 text-muted-foreground">Latest components</h2>
-				<nav>
-					<ul class="flex flex-col gap-2">
-						{#each Object.values(COMPONENT_ROUTES) as route (route.path)}
-							<li>
-								<a
-									href={route.path}
-									class="inline-flex w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background p-4 font-bold shadow-sm shadow-black/[0.04] ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:h-14"
-								>
-									{route.header.title}
-									<ArrowRight size={16} stroke-width={2} class="-mr-1 ml-2 opacity-60" />
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</nav>
-			</div>
+		<p class="text-md mb-4 text-muted-foreground">
+			A collection of copy-and-paste components for quickly build application UIs.
+		</p>
+		<p
+			class="w-fit max-w-prose text-balance border-t border-border pt-4 text-left text-sm text-accent-foreground"
+		>
+			This project is not affiliated with the original <a
+				class="underline"
+				href="https://originui.com/"
+				rel="noreferrer">Origin UI</a
+			>. <br />
+			<span class="text-xs text-muted-foreground">
+				I appreciate their work and have developed these Svelte 5 components based on their design.
+			</span>
+		</p>
+	</div>
+	<div class="relative my-16">
+		<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+			{#each Object.entries(data.componentsMeta.directoriesBreakdown) as [directory, { componentCount, stateBreakdown }]}
+				{@const readableName = directory.charAt(0).toUpperCase() + directory.slice(1)}
+				{@const isReady = stateBreakdown.ready === componentCount}
+				<CategoryCard slug={directory} alt="{readableName} demo">
+					{#snippet details()}
+						<h2 class="_component-directory">
+							<a href="/{directory}" class="text-sm font-medium hover:underline">
+								{readableName}
+							</a>
+						</h2>
+						<p class="text-[13px] text-muted-foreground">
+							{#if isReady}
+								{stateBreakdown.ready} Components
+							{:else}
+								{stateBreakdown.ready}/{componentCount} Components
+							{/if}
+						</p>
+					{/snippet}
+				</CategoryCard>
+			{/each}
 		</div>
 	</div>
 </main>

@@ -1,11 +1,11 @@
 import { tick } from 'svelte';
 
 interface CurrencyInputOptions {
+	currency?: string;
 	id: string;
 	initialValue?: number;
-	setValue?: (val: string) => void;
 	locale?: string;
-	currency?: string;
+	setValue?: (val: string) => void;
 }
 
 export class CurrencyInput {
@@ -17,11 +17,11 @@ export class CurrencyInput {
 	#displayValue = $state('');
 
 	constructor({
+		currency = 'EUR',
 		id,
 		initialValue = 0,
-		setValue,
 		locale = 'de-DE',
-		currency = 'EUR'
+		setValue
 	}: CurrencyInputOptions) {
 		this.#value = initialValue;
 		this.#setValue = setValue ?? (() => {});
@@ -47,12 +47,12 @@ export class CurrencyInput {
 		});
 	}
 
-	decrement = (event?: MouseEvent | KeyboardEvent) => {
+	decrement = (event?: KeyboardEvent | MouseEvent) => {
 		const step = event?.shiftKey ? 0.1 : 1;
 		this.#value = Math.max(0, this.#value - step);
 	};
 
-	increment = (event?: MouseEvent | KeyboardEvent) => {
+	increment = (event?: KeyboardEvent | MouseEvent) => {
 		const step = event?.shiftKey ? 0.1 : 1;
 		this.#value += step;
 	};
@@ -154,9 +154,9 @@ export class CurrencyInput {
 
 	get inputProps() {
 		return {
-			'aria-roledescription': 'Currency input',
-			'aria-label': 'Currency amount',
 			'aria-describedby': `${this.#id}-description`,
+			'aria-label': 'Currency amount',
+			'aria-roledescription': 'Currency input',
 			autocomplete: 'off',
 			autocorrect: 'off',
 			id: this.#id,
@@ -174,8 +174,8 @@ export class CurrencyInput {
 	get decrementProps() {
 		return {
 			'aria-controls': this.#id,
-			'aria-label': 'Decrease value',
 			'aria-description': 'Hold Shift to decrease by 10 cents',
+			'aria-label': 'Decrease value',
 			'aria-labelledby': this.#id,
 			id: 'decrement',
 			onclick: (e: MouseEvent) => this.decrement(e),
@@ -186,8 +186,8 @@ export class CurrencyInput {
 	get incrementProps() {
 		return {
 			'aria-controls': this.inputProps.id,
-			'aria-label': 'Increase value',
 			'aria-description': 'Hold Shift to increase by 10 cents',
+			'aria-label': 'Increase value',
 			'aria-labelledby': this.inputProps.id,
 			id: 'increment',
 			onclick: (e: MouseEvent) => this.increment(e),

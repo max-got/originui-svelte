@@ -167,7 +167,7 @@ class ComponentRegistry {
 
 let componentRegistryInstance: ComponentRegistry | null = null;
 
-export const initComponentRegistry = async () => {
+const initComponentRegistry = async () => {
 	const registry = new ComponentRegistry();
 	await registry.refresh();
 	return registry;
@@ -182,11 +182,7 @@ export const getComponentRegistry = async () => {
 
 export const getComponentDirectories = async () =>
 	(await getComponentRegistry()).getAllDirectories();
-export type Directory = Awaited<ReturnType<typeof getComponentDirectories>>[number];
 
 export const getComponentFileNames = async <T extends OUIDirectory>(
 	directory: T
 ): Promise<OUIDirectoryToComponent[T][]> => (await getComponentRegistry()).getFiles([directory]);
-export type DirectoryFileNames<T extends OUIDirectory> = Awaited<
-	ReturnType<typeof getComponentFileNames<T>>
->;

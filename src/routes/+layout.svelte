@@ -1,17 +1,18 @@
 <script lang="ts">
-	import Header from '$lib/demo/layout/header.svelte';
-	import Footer from '$lib/demo/layout/footer.svelte';
-
-	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
-
-	import '../app.css';
+	import type { LayoutData } from './$types';
 
 	import type { Snippet } from 'svelte';
 
+	import Footer from '$lib/demo/layout/footer.svelte';
+
+	import '../app.css';
+
+	import Header from '$lib/demo/layout/header.svelte';
+
+	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
 	import { page } from '$app/state';
 	import { ModeWatcher } from 'mode-watcher';
-	import type { LayoutData } from './$types';
-	let { children, data }: { data: LayoutData; children: Snippet } = $props();
+	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 </script>
 
 <svelte:head>

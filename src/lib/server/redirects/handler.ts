@@ -2,7 +2,7 @@ import { redirect } from '@sveltejs/kit';
 
 import type { RedirectMap } from './config';
 
-export interface RedirectResult {
+interface RedirectResult {
 	destination?: string;
 	shouldRedirect: boolean;
 }

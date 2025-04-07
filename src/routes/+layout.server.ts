@@ -1,5 +1,6 @@
-import { getComponentRegistry } from '$lib/componentRegistry';
 import type { LayoutServerLoad } from './$types';
+
+import { getComponentRegistry } from '$lib/componentRegistry';
 
 export const load = (async () => {
 	const instance = await getComponentRegistry();
@@ -7,33 +8,40 @@ export const load = (async () => {
 
 	const entries = Object.entries(files.directoriesBreakdown);
 	const links = entries.map(([directory, metadata]) => ({
-		llms: {
-			label: 'llms/' + directory + '.txt',
-			href: metadata.llmsTextUrl,
-			ariaLabel: 'LLMs.txt for ' + directory
-		},
 		components: {
-			label: directory + '.json',
+			'aria-label': 'Raw JSON for ' + directory,
 			href: metadata.apiUrl,
-			ariaLabel: 'Raw JSON for ' + directory
+			label: directory + '.json'
+		},
+		llms: {
+			'aria-label': 'LLMs.txt for ' + directory,
+			href: metadata.llmsTextUrl,
+			label: 'llms/' + directory + '.txt'
 		}
 	}));
 
 	const footerLinks = [
 		{
-			title: 'llms.txt',
 			links: [
 				{
-					label: 'llms.txt',
+					'aria-label': 'LLMs.txt for all components',
 					href: '/llms.txt',
-					ariaLabel: 'LLMs.txt for all components'
+					label: 'llms.txt'
 				},
 				...links.map((link) => link.llms)
-			]
+			],
+			title: 'llms.txt'
 		},
 		{
-			title: 'components.json',
-			links: links.map((link) => link.components)
+			links: [
+				{
+					'aria-label': 'Raw JSON for all components',
+					href: '/api/v1/components/_meta.json',
+					label: '_meta.json'
+				},
+				...links.map((link) => link.components)
+			],
+			title: 'components.json'
 		}
 	];
 
