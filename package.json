@@ -38,7 +38,8 @@
 		"@sveltejs/enhanced-img": "^0.4.4",
 		"@sveltejs/kit": "^2.20.5",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
-		"@testing-library/svelte": "^5.2.7",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/svelte": "^5.2.4",
 		"@types/inputmask": "^5.0.7",
 		"@types/node": "^22.14.1",
 		"autoprefixer": "^10.4.21",
@@ -61,7 +62,12 @@
 		"typescript-eslint": "^8.29.1",
 		"unplugin-icons": "^22.1.0",
 		"vite": "^6.2.6",
-		"vitest": "^2.0.4"
+		"vitest": "^3.0.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
 	},
 	"packageManager": "pnpm@10.5.2"
 }

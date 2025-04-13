@@ -6,8 +6,10 @@ import perfectionist from 'eslint-plugin-perfectionist';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
 export default tseslint.config(
+	includeIgnoreFile(gitignorePath),
 	jseslint.configs.recommended,
 	...tseslint.configs.recommended,
 	...svelte.configs.recommended,
