@@ -23,7 +23,7 @@
 				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 					<Button
 						variant="secondary"
-						href="https://github.com/max-got/originui-svelte/discussions"
+						href="https://originui.com/"
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Send a suggestion to the Origin UI - Svelte repository"
@@ -31,7 +31,7 @@
 						Visit Original
 					</Button>
 					<Button
-						href="https://originui.com/"
+						href="https://github.com/max-got/originui-svelte/discussions"
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Visit the original Origin UI website"
