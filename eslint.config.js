@@ -1,3 +1,6 @@
+import svelteConfig from './svelte.config.js';
+
+import jseslint from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import perfectionist from 'eslint-plugin-perfectionist';
 import svelte from 'eslint-plugin-svelte';
@@ -5,10 +8,10 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
+	jseslint.configs.recommended,
 	...tseslint.configs.recommended,
-	...svelte.configs['flat/recommended'],
+	...svelte.configs.recommended,
 	prettier,
-	...svelte.configs['flat/prettier'],
 	perfectionist.configs['recommended-natural'],
 
 	{
@@ -30,10 +33,13 @@ export default tseslint.config(
 		}
 	},
 	{
-		files: ['**/*.svelte'],
+		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
 		languageOptions: {
 			parserOptions: {
-				parser: tseslint.parser
+				extraFileExtensions: ['.svelte'], // Add support for additional file extensions, such as .svelte
+				parser: tseslint.parser,
+				projectService: true,
+				svelteConfig
 			}
 		}
 	},
@@ -80,8 +86,7 @@ export default tseslint.config(
 						'object',
 
 						'unknown'
-					],
-					matcher: 'regex'
+					]
 				}
 			],
 			'perfectionist/sort-intersection-types': 'off',
