@@ -5,5 +5,5 @@
 
 <div class="space-y-4">
 	<Label>Disabled slider</Label>
-	<Slider value={[25]} disabled aria-label="Disabled slider" />
+	<Slider type="single" value={25} disabled aria-label="Disabled slider" />
 </div>

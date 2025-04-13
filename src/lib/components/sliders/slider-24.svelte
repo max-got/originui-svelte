@@ -7,6 +7,7 @@
 	<Label>Vertical dual range slider and tooltip</Label>
 	<div class="flex h-40 justify-center">
 		<Slider
+			type="multiple"
 			value={[2, 7]}
 			max={10}
 			orientation="vertical"

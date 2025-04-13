@@ -14,7 +14,7 @@
 
 	const min = 0;
 	const max = 2;
-	const initialValue = [1.25];
+	const initialValue = 1.25;
 
 	let value = $state(initialValue);
 
@@ -23,7 +23,7 @@
 	}
 
 	function handleInputChange(e: Event & { currentTarget: HTMLInputElement }) {
-		value[0] = parseFloat(e.currentTarget.value) || 0;
+		value = parseFloat(e.currentTarget.value) || 0;
 	}
 </script>
 
@@ -55,7 +55,7 @@
 				</Tooltip>
 			</TooltipProvider>
 			<Input
-				value={value[0]}
+				{value}
 				class="h-7 w-12 px-2 py-0 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 				type="number"
 				inputmode="decimal"
@@ -68,6 +68,14 @@
 		</div>
 	</div>
 	<div class="flex items-center gap-4">
-		<Slider bind:value {min} {max} class="flex-grow" step={0.01} aria-label="Temperature" />
+		<Slider
+			type="single"
+			bind:value
+			{min}
+			{max}
+			class="flex-grow"
+			step={0.01}
+			aria-label="Temperature"
+		/>
 	</div>
 </div>

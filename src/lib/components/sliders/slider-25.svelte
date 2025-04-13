@@ -11,22 +11,22 @@
 	const max = 10;
 
 	let value = $state({
-		x: [-2],
-		y: [4],
-		z: [2]
+		x: -2,
+		y: 4,
+		z: 2
 	});
 
 	function reset() {
-		value.x[0] = defaultValue;
-		value.y[0] = defaultValue;
-		value.z[0] = defaultValue;
+		value.x = defaultValue;
+		value.y = defaultValue;
+		value.z = defaultValue;
 	}
 
 	function handleInputChange(
 		e: Event & { currentTarget: HTMLInputElement },
 		key: keyof typeof value
 	) {
-		value[key][0] = parseFloat(e.currentTarget.value) || 0;
+		value[key] = parseFloat(e.currentTarget.value) || 0;
 	}
 </script>
 
@@ -36,6 +36,7 @@
 		<div class="flex items-center gap-4">
 			<Label class="text-xs text-muted-foreground">X</Label>
 			<Slider
+				type="single"
 				class="flex-grow [&>[data-slider-thumb]]:rounded"
 				bind:value={value.x}
 				min={-10}
@@ -49,13 +50,14 @@
 				onchange={(e) => handleInputChange(e, 'x')}
 				{min}
 				{max}
-				value={value.x[0]}
+				value={value.x}
 				aria-label="Enter value"
 			/>
 		</div>
 		<div class="flex items-center gap-4">
 			<Label class="text-xs text-muted-foreground">Y</Label>
 			<Slider
+				type="single"
 				class="flex-grow [&>[data-slider-thumb]]:rounded"
 				bind:value={value.y}
 				min={-10}
@@ -69,13 +71,14 @@
 				onchange={(e) => handleInputChange(e, 'y')}
 				{min}
 				{max}
-				value={value.y[0]}
+				value={value.y}
 				aria-label="Enter value"
 			/>
 		</div>
 		<div class="flex items-center gap-4">
 			<Label class="text-xs text-muted-foreground">Z</Label>
 			<Slider
+				type="single"
 				class="flex-grow [&>[data-slider-thumb]]:rounded"
 				bind:value={value.z}
 				min={-10}
@@ -89,7 +92,7 @@
 				onchange={(e) => handleInputChange(e, 'z')}
 				{min}
 				{max}
-				value={value.z[0]}
+				value={value.z}
 				aria-label="Enter value"
 			/>
 		</div>

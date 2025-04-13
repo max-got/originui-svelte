@@ -8,7 +8,8 @@
 	<div class="flex h-48 justify-center gap-8">
 		<div class="flex flex-col items-center gap-2">
 			<Slider
-				value={[2]}
+				type="single"
+				value={2}
 				min={-5}
 				max={5}
 				orientation="vertical"
@@ -20,7 +21,8 @@
 		</div>
 		<div class="flex flex-col items-center gap-2">
 			<Slider
-				value={[1]}
+				type="single"
+				value={1}
 				min={-5}
 				max={5}
 				orientation="vertical"
@@ -32,7 +34,8 @@
 		</div>
 		<div class="flex flex-col items-center gap-2">
 			<Slider
-				value={[-1]}
+				type="single"
+				value={-1}
 				min={-5}
 				max={5}
 				orientation="vertical"
@@ -44,7 +47,8 @@
 		</div>
 		<div class="flex flex-col items-center gap-2">
 			<Slider
-				value={[-3]}
+				type="single"
+				value={-3}
 				min={-5}
 				max={5}
 				orientation="vertical"
@@ -56,7 +60,8 @@
 		</div>
 		<div class="flex flex-col items-center gap-2">
 			<Slider
-				value={[2]}
+				type="single"
+				value={2}
 				min={-5}
 				max={5}
 				orientation="vertical"

@@ -5,13 +5,14 @@
 	const emojis = ['😡', '🙁', '😐', '🙂', '😍'];
 	const labels = ['Awful', 'Poor', 'Okay', 'Good', 'Amazing'];
 
-	let value = $state([3]);
+	let value = $state(3);
 </script>
 
 <div class="space-y-3">
 	<Label>Rate your experience</Label>
 	<div class="flex items-center gap-3">
 		<Slider
+			type="single"
 			bind:value
 			min={1}
 			max={5}
@@ -19,6 +20,6 @@
 			tooltipContent={(value) => labels[value - 1]}
 			aria-label="Rate your experience"
 		/>
-		<span class="text-2xl">{emojis[value[0] - 1]}</span>
+		<span class="text-2xl">{emojis[value - 1]}</span>
 	</div>
 </div>

@@ -6,10 +6,10 @@
 	const min = 0;
 	const max = 100;
 
-	let value = $state([25]);
+	let value = $state(25);
 
 	function handleInputChange(e: Event & { currentTarget: HTMLInputElement }) {
-		value[0] = parseFloat(e.currentTarget.value) || 0;
+		value = parseFloat(e.currentTarget.value) || 0;
 	}
 </script>
 
@@ -17,6 +17,7 @@
 	<Label>Vertical slider with input</Label>
 	<div class="flex h-40 flex-col items-center justify-center gap-4">
 		<Slider
+			type="single"
 			class="data-[orientation=vertical]:min-h-0"
 			orientation="vertical"
 			bind:value
@@ -31,7 +32,7 @@
 			onchange={handleInputChange}
 			{min}
 			{max}
-			value={value[0]}
+			{value}
 			aria-label="Enter value"
 		/>
 	</div>

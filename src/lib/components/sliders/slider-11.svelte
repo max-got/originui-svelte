@@ -5,5 +5,5 @@
 
 <div class="space-y-4">
 	<Label>Dual range slider</Label>
-	<Slider value={[25, 75]} step={5} aria-label="Dual range slider" />
+	<Slider type="multiple" value={[25, 75]} step={5} aria-label="Dual range slider" />
 </div>

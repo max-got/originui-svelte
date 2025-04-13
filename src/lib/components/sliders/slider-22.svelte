@@ -6,6 +6,6 @@
 <div class="space-y-4">
 	<Label>Vertical slider</Label>
 	<div class="flex h-40 justify-center">
-		<Slider value={[5]} max={10} orientation="vertical" aria-label="Vertical slider" />
+		<Slider type="single" value={5} max={10} orientation="vertical" aria-label="Vertical slider" />
 	</div>
 </div>

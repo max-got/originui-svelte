@@ -10,7 +10,7 @@
 <div class="space-y-4">
 	<Label>Slider with ticks</Label>
 	<div>
-		<Slider value={[5]} {max} aria-label="Slider with ticks" />
+		<Slider type="single" value={5} {max} aria-label="Slider with ticks" />
 		<span
 			class="mt-3 flex w-full items-center justify-between gap-1 text-xs font-medium text-muted-foreground"
 			aria-hidden="true"

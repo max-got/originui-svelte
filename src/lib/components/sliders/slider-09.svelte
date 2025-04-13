@@ -13,6 +13,6 @@
 			<span>Low</span>
 			<span>High</span>
 		</span>
-		<Slider value={[50]} step={10} aria-label="Slider with labels" />
+		<Slider type="single" value={50} step={10} aria-label="Slider with labels" />
 	</div>
 </div>

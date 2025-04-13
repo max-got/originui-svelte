@@ -6,7 +6,8 @@
 <div class="space-y-4">
 	<Label>Slider with tiny thumb</Label>
 	<Slider
-		value={[25]}
+		type="single"
+		value={25}
 		class="[&>[data-slider-thumb]]:h-6 [&>[data-slider-thumb]]:w-2.5 [&>[data-slider-thumb]]:border-[3px] [&>[data-slider-thumb]]:border-background [&>[data-slider-thumb]]:bg-primary [&>[data-slider-thumb]]:ring-offset-0"
 		aria-label="Slider with tiny thumb"
 	/>

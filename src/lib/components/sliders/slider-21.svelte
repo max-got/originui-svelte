@@ -15,7 +15,7 @@
 		From {price[0]} to {price[1]}
 	</Label>
 	<div class="flex items-center gap-4">
-		<Slider bind:value {max} {min} aria-label="Price range slider" />
+		<Slider type="multiple" bind:value {max} {min} aria-label="Price range slider" />
 		<Button variant="outline">Go</Button>
 	</div>
 </div>

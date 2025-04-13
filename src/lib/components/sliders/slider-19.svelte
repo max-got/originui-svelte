@@ -29,7 +29,14 @@
 			onchange={(e) => handleInputChange(e, 0)}
 			aria-label="Enter minimum value"
 		/>
-		<Slider class="flex-grow" bind:value {min} {max} aria-label="Dual range slider with input" />
+		<Slider
+			type="multiple"
+			class="flex-grow"
+			bind:value
+			{min}
+			{max}
+			aria-label="Dual range slider with input"
+		/>
 		<Input
 			class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 			type="number"

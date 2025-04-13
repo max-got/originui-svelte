@@ -5,5 +5,5 @@
 
 <div class="space-y-4">
 	<Label>Simple slider</Label>
-	<Slider value={[25]} aria-label="Simple slider" />
+	<Slider type="single" value={25} aria-label="Simple slider" />
 </div>

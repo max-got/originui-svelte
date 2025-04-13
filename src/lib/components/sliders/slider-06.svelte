@@ -6,7 +6,7 @@
 <div class="space-y-4">
 	<Label>Slider with reference labels</Label>
 	<div>
-		<Slider value={[15]} min={5} max={35} aria-label="Slider with reference labels" />
+		<Slider type="single" value={15} min={5} max={35} aria-label="Slider with reference labels" />
 		<span
 			class="mt-4 flex w-full items-center justify-between gap-1 text-xs font-medium text-muted-foreground"
 			aria-hidden="true"

@@ -6,7 +6,8 @@
 <div class="space-y-4">
 	<Label>Slider with square thumb</Label>
 	<Slider
-		value={[25]}
+		type="single"
+		value={25}
 		max={100}
 		step={5}
 		class="[&>[data-slider-thumb]]:rounded"

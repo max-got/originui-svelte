@@ -10,19 +10,19 @@
 	const max = 200;
 	const steps = 5;
 
-	let value = $state([100]);
+	let value = $state(100);
 
 	function decrement() {
-		value[0] -= steps;
+		value -= steps;
 	}
 
 	function increment() {
-		value[0] += steps;
+		value += steps;
 	}
 </script>
 
 <div class="space-y-3">
-	<Label class="tabular-nums">{value[0]} credits/mo</Label>
+	<Label class="tabular-nums">{value} credits/mo</Label>
 	<div class="flex items-center gap-4">
 		<div>
 			<Button
@@ -30,13 +30,14 @@
 				size="icon"
 				class="size-8"
 				aria-label="Decrease value"
-				disabled={value[0] === min}
+				disabled={value === min}
 				onclick={decrement}
 			>
 				<Minus size={16} strokeWidth={2} aria-hidden="true" />
 			</Button>
 		</div>
 		<Slider
+			type="single"
 			class="flex-grow"
 			bind:value
 			{min}
@@ -50,7 +51,7 @@
 				size="icon"
 				class="size-8"
 				aria-label="Increase value"
-				disabled={value[0] === max}
+				disabled={value === max}
 				onclick={increment}
 			>
 				<Plus size={16} strokeWidth={2} aria-hidden="true" />

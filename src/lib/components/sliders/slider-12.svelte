@@ -12,5 +12,5 @@
 			{value[0]} - {value[1]}
 		</output>
 	</div>
-	<Slider bind:value aria-label="Dual range slider with output" />
+	<Slider type="multiple" bind:value aria-label="Dual range slider with output" />
 </div>

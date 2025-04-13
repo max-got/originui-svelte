@@ -4,17 +4,17 @@
 
 	const labels = ['Awful', 'Poor', 'Okay', 'Good', 'Amazing'];
 
-	let value = $state([3]);
+	let value = $state(3);
 </script>
 
 <div class="space-y-3">
 	<div class="flex items-center justify-between gap-2">
 		<Label class="leading-6">Rate your experience</Label>
-		<span class="text-sm font-medium">{labels[value[0] - 1]}</span>
+		<span class="text-sm font-medium">{labels[value - 1]}</span>
 	</div>
 	<div class="flex items-center gap-3">
 		<span class="text-2xl">😡</span>
-		<Slider bind:value min={1} max={5} aria-label="Rate your experience" />
+		<Slider type="single" bind:value min={1} max={5} aria-label="Rate your experience" />
 		<span class="text-2xl">😍</span>
 	</div>
 </div>

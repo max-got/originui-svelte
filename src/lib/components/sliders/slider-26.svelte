@@ -171,7 +171,7 @@
 				</div>
 			{/each}
 		</div>
-		<Slider bind:value {min} {max} aria-label="Price range" />
+		<Slider bind:value {min} {max} aria-label="Price range" type="multiple" />
 	</div>
 	<div class="flex items-center justify-between gap-4">
 		<div class="space-y-1">

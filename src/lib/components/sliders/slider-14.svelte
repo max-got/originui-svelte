@@ -6,6 +6,7 @@
 <div class="space-y-4">
 	<Label>Slider with multiple thumbs</Label>
 	<Slider
+		type="multiple"
 		value={[25, 50, 100]}
 		aria-label="Slider with multiple thumbs"
 		showTooltip

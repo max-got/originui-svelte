@@ -6,7 +6,8 @@
 <div class="space-y-4">
 	<Label>Slider with solid thumb</Label>
 	<Slider
-		value={[25]}
+		type="single"
+		value={25}
 		class="[&>[data-slider-range]]:opacity-70 [&>[data-slider-thumb]]:bg-primary"
 		aria-label="Slider with solid thumb"
 	/>
