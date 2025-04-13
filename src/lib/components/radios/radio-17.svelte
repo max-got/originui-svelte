@@ -12,12 +12,12 @@
 		class="flex gap-0 -space-x-px rounded-lg shadow-sm shadow-black/[.04]"
 		bind:value={selectedValue}
 	>
-		{#each [0, 1, 2, 3, 4, 5] as number}
+		{#each [0, 1, 2, 3, 4, 5] as number (number)}
 			<label
 				class="relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border border-input text-center text-sm font-medium ring-offset-background transition-colors first:rounded-s-lg last:rounded-e-lg has-[[data-state=checked]]:z-10 has-[[data-disabled]]:cursor-not-allowed has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent has-[[data-disabled]]:opacity-50 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/70 has-[:focus-visible]:ring-offset-2"
 			>
 				<RadioGroupItem
-					id={`radio-17-r${number}`}
+					id="radio-17-r{number}"
 					value={number.toString()}
 					class="sr-only after:absolute after:inset-0"
 				/>

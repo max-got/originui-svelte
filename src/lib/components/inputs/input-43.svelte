@@ -59,9 +59,10 @@
 		<div
 			class="inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 pe-9 text-sm shadow-sm shadow-black/[.04] ring-offset-background transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-2 data-[focus-within]:ring-ring/30 data-[focus-within]:ring-offset-2"
 		>
-			{#each ['start', 'end'] as const as type}
+			{#each ['start', 'end'] as const as type (type)}
 				<DateRangePicker.Input {type}>
 					{#snippet children({ segments })}
+						<!-- eslint-disable-next-line svelte/require-each-key -->
 						{#each segments as { part, value }}
 							<DateRangePicker.Segment
 								{part}
@@ -107,11 +108,11 @@
 
 				<!-- Calendar grid -->
 				<div class="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-					{#each months as month}
+					{#each months as month (month.value)}
 						<DateRangePicker.Grid class="w-fit border-collapse select-none space-y-1">
 							<DateRangePicker.GridHead>
 								<DateRangePicker.GridRow class="flex w-full justify-between">
-									{#each weekdays as day}
+									{#each weekdays as day (day)}
 										<DateRangePicker.HeadCell
 											class="size-9 rounded-lg p-0 text-xs font-medium text-muted-foreground/80"
 										>
@@ -122,9 +123,9 @@
 							</DateRangePicker.GridHead>
 
 							<DateRangePicker.GridBody class="[&_td]:px-0">
-								{#each month.weeks as weekDates}
+								{#each month.weeks as weekDates (weekDates.join('-'))}
 									<DateRangePicker.GridRow class="flex w-full">
-										{#each weekDates as date}
+										{#each weekDates as date (date.day)}
 											<DateRangePicker.Cell
 												{date}
 												month={month.value}

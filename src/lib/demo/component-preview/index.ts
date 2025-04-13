@@ -2,7 +2,7 @@ import ComponentDialogContextProvider from './component-dialog-context-provider.
 import ComponentDialog from './component-dialog.svelte';
 export {
 	ComponentDialog,
+	ComponentDialogContextProvider,
 	ComponentDialog as Dialog,
-	ComponentDialogContextProvider as DialogContextProvider,
-	ComponentDialogContextProvider
+	ComponentDialogContextProvider as DialogContextProvider
 };

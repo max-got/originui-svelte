@@ -61,7 +61,7 @@
 					{/if}
 				</SelectTrigger>
 				<SelectContent>
-					{#each Array.from({ length: totalPages }, (_, i) => i + 1) as page}
+					{#each Array.from({ length: totalPages }, (_, i) => i + 1) as page (page)}
 						<SelectItem value={String(page)}>
 							Page {page}
 						</SelectItem>

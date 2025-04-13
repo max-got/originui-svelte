@@ -54,7 +54,7 @@
 			</Dialog.Header>
 			<div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
 				<div class="flex justify-center space-x-1.5 max-sm:order-1">
-					{#each { length: steps.length } as _, index}
+					{#each { length: steps.length } as _, index (index)}
 						<div
 							class={cn(
 								'h-1.5 w-1.5 rounded-full bg-primary',

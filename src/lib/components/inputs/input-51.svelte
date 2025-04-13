@@ -66,7 +66,7 @@
 
 	<!-- Password requirements list -->
 	<ul class="space-y-1.5" aria-label="Password requirements">
-		{#each passwordStrength.strength as req}
+		{#each passwordStrength.strength as req (req.text)}
 			<li class="flex items-center space-x-2">
 				{#if req.met}
 					<Check size={16} class="text-emerald-500" aria-hidden="true" />

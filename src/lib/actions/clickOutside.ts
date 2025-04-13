@@ -2,7 +2,7 @@ import type { Action } from 'svelte/action';
 
 export const clickOutside: Action<
 	HTMLElement,
-	{ ignore?: string } | undefined,
+	undefined | { ignore?: string },
 	{ onclickoutside: (e: CustomEvent<boolean>) => void }
 > = (node: HTMLElement, { ignore = '' } = {}) => {
 	const handleClick = (event: Event) => {

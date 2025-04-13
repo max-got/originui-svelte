@@ -61,6 +61,8 @@ const OLD_COMPONENT_ROUTES = {
 	}
 } as const satisfies Record<string, OLDComponentRoute>;
 
+export type RedirectMap = Record<string, RedirectConfig>;
+
 interface RedirectConfig {
 	componentDirectories?: {
 		[oldDirectory: string]: string; // maps from old directory to new base path
@@ -68,8 +70,6 @@ interface RedirectConfig {
 	destination: string;
 	dynamic?: boolean;
 }
-
-export type RedirectMap = Record<string, RedirectConfig>;
 
 // Create redirects from COMPONENT_ROUTES
 function createRedirectsFromRoutes(): RedirectMap {

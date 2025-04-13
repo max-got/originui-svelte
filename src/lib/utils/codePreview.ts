@@ -6,26 +6,6 @@ import githubLightDefault from 'shiki/themes/github-light-default.mjs';
 let highlighterInstance: HighlighterCore | null = null;
 let highlighterPromise: null | Promise<HighlighterCore> = null;
 
-async function createHighlighterInstance() {
-	// Return existing instance if available
-	if (highlighterInstance) return highlighterInstance;
-
-	// Return in-progress initialization if one exists
-	if (highlighterPromise) return highlighterPromise;
-
-	// Create new initialization promise
-	highlighterPromise = createHighlighterCore({
-		engine: createOnigurumaEngine(import('shiki/wasm')),
-		langs: [import('shiki/langs/svelte.mjs'), import('shiki/langs/zsh.mjs')],
-		themes: [githubDarkDefault, githubLightDefault]
-	}).then((instance) => {
-		highlighterInstance = instance;
-		return instance;
-	});
-
-	return highlighterPromise;
-}
-
 export async function highlighterSvelte(
 	code: string,
 	options: Omit<Partial<CodeToHastOptions>, 'lang' | 'theme' | 'themes'> = {}
@@ -63,4 +43,24 @@ export async function highlighterZsh(
 		},
 		...options
 	});
+}
+
+async function createHighlighterInstance() {
+	// Return existing instance if available
+	if (highlighterInstance) return highlighterInstance;
+
+	// Return in-progress initialization if one exists
+	if (highlighterPromise) return highlighterPromise;
+
+	// Create new initialization promise
+	highlighterPromise = createHighlighterCore({
+		engine: createOnigurumaEngine(import('shiki/wasm')),
+		langs: [import('shiki/langs/svelte.mjs'), import('shiki/langs/zsh.mjs')],
+		themes: [githubDarkDefault, githubLightDefault]
+	}).then((instance) => {
+		highlighterInstance = instance;
+		return instance;
+	});
+
+	return highlighterPromise;
 }

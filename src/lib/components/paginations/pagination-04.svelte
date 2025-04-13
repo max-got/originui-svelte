@@ -31,7 +31,7 @@
 		</PaginationItem>
 		<PaginationItem>
 			<p class="text-sm text-muted-foreground" aria-live="polite">
-				Page <span class="text-foreground">{currentPage}</span> of{' '}
+				Page <span class="text-foreground">{currentPage}</span> of
 				<span class="text-foreground">{totalPages}</span>
 			</p>
 		</PaginationItem>

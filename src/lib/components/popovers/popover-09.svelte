@@ -60,7 +60,7 @@
 		}}
 	>
 		<div class="grid grid-cols-2 place-items-center gap-4">
-			{#each tourSteps as _, index}
+			{#each tourSteps as _, index (index)}
 				<div
 					class="flex size-10 items-center justify-center rounded-lg bg-secondary text-sm font-medium text-muted-foreground"
 					bind:this={anchors[index]}

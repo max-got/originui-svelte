@@ -79,7 +79,7 @@
 		<Select.Content
 			class="[&_*[data-select-item]>span>svg]:shrink-0 [&_*[data-select-item]>span>svg]:text-muted-foreground/80 [&_*[data-select-item]>span]:end-2 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]>span]:flex [&_*[data-select-item]>span]:items-center [&_*[data-select-item]>span]:gap-2 [&_*[data-select-item]]:pe-8 [&_*[data-select-item]]:ps-2"
 		>
-			{#each continents as continent}
+			{#each continents as continent (continent.label)}
 				<Select.Group>
 					<Select.GroupHeading class="ps-2">
 						{continent.label}

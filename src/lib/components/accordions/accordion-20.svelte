@@ -96,7 +96,7 @@
 <div class="space-y-4">
 	<h2 class="text-xl font-bold">Table w/ left plus-minus</h2>
 	<Accordion.Root type="single" class="w-full -space-y-px" value="3">
-		{#each items as item}
+		{#each items as item (item.id)}
 			<Accordion.Item
 				value={item.id}
 				class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg"
@@ -114,7 +114,7 @@
 				</AccordionPrimitive.Trigger>
 
 				<Accordion.Content class="p-0">
-					{#each item.collapsibles as collapsible}
+					{#each item.collapsibles as collapsible (collapsible.title)}
 						{@render CollapsibleDemo({
 							content: collapsible.content,
 							Icon: collapsible.icon,

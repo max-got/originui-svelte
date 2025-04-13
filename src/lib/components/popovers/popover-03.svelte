@@ -128,7 +128,7 @@
 			{/if}
 		</div>
 		<div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-border"></div>
-		{#each notifications as notification}
+		{#each notifications as notification (notification.id)}
 			<div class="rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent">
 				<div class="relative flex items-start gap-3 pe-3">
 					<enhanced:img
@@ -143,8 +143,8 @@
 						>
 							<span class="font-medium text-foreground hover:underline">
 								{notification.user}
-							</span>{' '}
-							{notification.action}{' '}
+							</span>
+							{notification.action}
 							<span class="font-medium text-foreground hover:underline">
 								{notification.target}
 							</span>

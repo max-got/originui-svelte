@@ -7,19 +7,6 @@ interface RedirectResult {
 	shouldRedirect: boolean;
 }
 
-export function createRedirectResponse(destination: string, status = 301): Response {
-	redirect(status, destination);
-}
-
-function getComponentParts(path: string): { directory?: string; id?: string } {
-	const parts = path.split('/').filter(Boolean);
-	if (parts.length < 2) return {};
-	return {
-		directory: parts[1],
-		id: parts[2]
-	};
-}
-
 export function checkRedirect(path: string, redirects: RedirectMap): RedirectResult {
 	// Check for exact matches first
 	const exactMatch = redirects[path];
@@ -57,5 +44,18 @@ export function checkRedirect(path: string, redirects: RedirectMap): RedirectRes
 
 	return {
 		shouldRedirect: false
+	};
+}
+
+export function createRedirectResponse(destination: string, status = 301): Response {
+	redirect(status, destination);
+}
+
+function getComponentParts(path: string): { directory?: string; id?: string } {
+	const parts = path.split('/').filter(Boolean);
+	if (parts.length < 2) return {};
+	return {
+		directory: parts[1],
+		id: parts[2]
 	};
 }

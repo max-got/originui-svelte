@@ -53,7 +53,7 @@
 				<div class="space-y-2">
 					<Label>Invite via email</Label>
 					<div class="space-y-3">
-						{#each emails as _, index}
+						{#each emails as _, index (index)}
 							<Input
 								id={`team-email-${index + 1}`}
 								placeholder="hi@yourcompany.com"

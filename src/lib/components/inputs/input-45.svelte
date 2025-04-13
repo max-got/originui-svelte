@@ -33,6 +33,7 @@
 	>
 		{#snippet children({ cells })}
 			<div class="flex">
+				<!-- eslint-disable-next-line svelte/require-each-key -->
 				{#each cells.slice(0, 3) as cell}
 					{@render Cell(cell)}
 				{/each}
@@ -43,6 +44,7 @@
 			</div>
 
 			<div class="flex">
+				<!-- eslint-disable-next-line svelte/require-each-key -->
 				{#each cells.slice(3) as cell}
 					{@render Cell(cell)}
 				{/each}

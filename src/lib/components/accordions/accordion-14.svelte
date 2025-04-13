@@ -35,7 +35,7 @@
 <div class="space-y-4">
 	<h2 class="text-xl font-bold">Tabs w/ left plus-minus</h2>
 	<Accordion.Root type="single" class="w-full space-y-2" value="3">
-		{#each items as item}
+		{#each items as item (item.id)}
 			<Accordion.Item value={item.id} class="rounded-lg border bg-background px-4 py-1">
 				<AccordionPrimitive.Header class="flex">
 					<AccordionPrimitive.Trigger

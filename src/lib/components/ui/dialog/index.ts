@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-named-exports */
 import Content from './dialog-content.svelte';
 import Description from './dialog-description.svelte';
 import Footer from './dialog-footer.svelte';

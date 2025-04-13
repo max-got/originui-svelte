@@ -65,7 +65,7 @@
 				{/if}
 
 				<!-- Page number links  -->
-				{#each pagination.pages as page}
+				{#each pagination.pages as page (page)}
 					<PaginationItem>
 						<PaginationLink href="#/page/{page}" isActive={page === currentPage}>
 							{page}
@@ -110,7 +110,7 @@
 				{/if}
 			</SelectTrigger>
 			<SelectContent>
-				{#each paginationItemsToDisplayOptions as option}
+				{#each paginationItemsToDisplayOptions as option (option)}
 					<SelectItem value={option}>{option} / page</SelectItem>
 				{/each}
 			</SelectContent>

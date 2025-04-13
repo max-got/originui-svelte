@@ -73,7 +73,7 @@
 	</div>
 	<div class="relative my-16">
 		<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-			{#each Object.entries(data.componentsMeta.directoriesBreakdown) as [directory, { componentCount, stateBreakdown }]}
+			{#each Object.entries(data.componentsMeta.directoriesBreakdown) as [directory, { componentCount, stateBreakdown }] (directory)}
 				{@const readableName = directory.charAt(0).toUpperCase() + directory.slice(1)}
 				{@const isReady = stateBreakdown.ready === componentCount}
 				<CategoryCard slug={directory} alt="{readableName} demo">

@@ -32,6 +32,7 @@
 	>
 		{#snippet children({ cells })}
 			<div class="flex">
+				<!-- eslint-disable-next-line svelte/require-each-key -->
 				{#each cells as cell}
 					{@render Cell(cell)}
 				{/each}

@@ -1,4 +1,4 @@
-type UsePaginationProps = {
+export type UsePaginationProps = {
 	currentPage: number;
 	paginationItemsToDisplay: number;
 	totalPages: number;

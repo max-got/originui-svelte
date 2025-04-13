@@ -47,7 +47,7 @@
 			<SelectContent
 				class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
 			>
-				{#each paginationItemsToDisplayOptions as option}
+				{#each paginationItemsToDisplayOptions as option (option)}
 					<SelectItem value={option.toString()}>{option}</SelectItem>
 				{/each}
 			</SelectContent>

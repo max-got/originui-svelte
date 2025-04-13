@@ -61,14 +61,14 @@ export const API_V1_COMPONENTS_ENDPOINT_HANDLER = {
 		}>;
 	}) satisfies DirectoryRequestHandler
 };
-export type ComponentAPIResponseJSON = Awaited<
-	ReturnType<Awaited<ReturnType<typeof API_V1_COMPONENTS_ENDPOINT_HANDLER.GET>>['json']>
->;
-
-type ComponentMetadata = ComponentAPIResponseJSON['components'][number];
 export type AvailableComponentMetadata = ComponentMetadata & {
 	availability: 'available';
 };
+
 export type AvailableOUIComponent = AvailableComponentMetadata & {
 	Component: Component;
 };
+export type ComponentAPIResponseJSON = Awaited<
+	ReturnType<Awaited<ReturnType<typeof API_V1_COMPONENTS_ENDPOINT_HANDLER.GET>>['json']>
+>;
+type ComponentMetadata = ComponentAPIResponseJSON['components'][number];

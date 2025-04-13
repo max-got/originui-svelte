@@ -36,6 +36,46 @@ const getImports = (): ComponentImports => {
 	};
 };
 
+export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
+	const path = buildComponentPath(directory, componentName);
+	const imports = getImports();
+	const importFn = imports.source[path];
+
+	const processedComponentSource = await processComponentSource(await importFn());
+
+	const componentState = {
+		isAvailable: !componentName.includes('.todo'),
+		isTodo: componentName.includes('.todo')
+	};
+
+	if (componentState.isTodo) {
+		return {
+			...processedComponentSource,
+			availability: 'todo',
+			directory,
+			id: componentName,
+			name: componentName.replace('.todo', ''),
+			path
+		} as const;
+	}
+
+	return {
+		...processedComponentSource,
+		availability: 'available',
+		directory,
+		id: componentName,
+		name: componentName,
+		path
+	} as const;
+}
+
+function buildComponentPath(
+	directory: string,
+	componentName: string
+): `/src/lib/components/${string}/${string}.svelte` {
+	return `/src/lib/components/${directory}/${componentName}.svelte`;
+}
+
 function getDependencies(source: string): PossibleDependency[] {
 	const dependencies = new Set<PossibleDependency>();
 	const matches = source.matchAll(IMPORTS_REGEX);
@@ -83,13 +123,6 @@ function getDependenciesInstallCommand(dependencies: PossibleDependency[]) {
 	return command;
 }
 
-function buildComponentPath(
-	directory: string,
-	componentName: string
-): `/src/lib/components/${string}/${string}.svelte` {
-	return `/src/lib/components/${directory}/${componentName}.svelte`;
-}
-
 async function processComponentSource(rawSource: string) {
 	const dependencies = getDependencies(rawSource);
 	const dependenciesInstallCommand = getDependenciesInstallCommand(dependencies);
@@ -111,38 +144,5 @@ async function processComponentSource(rawSource: string) {
 			},
 			list: dependencies
 		}
-	} as const;
-}
-
-export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
-	const path = buildComponentPath(directory, componentName);
-	const imports = getImports();
-	const importFn = imports.source[path];
-
-	const processedComponentSource = await processComponentSource(await importFn());
-
-	const componentState = {
-		isAvailable: !componentName.includes('.todo'),
-		isTodo: componentName.includes('.todo')
-	};
-
-	if (componentState.isTodo) {
-		return {
-			...processedComponentSource,
-			availability: 'todo',
-			directory,
-			id: componentName,
-			name: componentName.replace('.todo', ''),
-			path
-		} as const;
-	}
-
-	return {
-		...processedComponentSource,
-		availability: 'available',
-		directory,
-		id: componentName,
-		name: componentName,
-		path
 	} as const;
 }

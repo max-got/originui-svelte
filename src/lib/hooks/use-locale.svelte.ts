@@ -5,13 +5,6 @@ interface LocaleOptions {
 	locale?: string;
 }
 
-function getDefaultLocale(): string {
-	if (typeof navigator !== 'undefined' && navigator.language) {
-		return navigator.language;
-	}
-	return 'en-US';
-}
-
 export class LocaleManager {
 	#locale = $state<string>('');
 
@@ -39,4 +32,11 @@ export function useLocale(options: LocaleOptions = {}): LocaleManager {
 	setContext(LOCALE_CONTEXT_KEY, localeManager);
 
 	return localeManager;
+}
+
+function getDefaultLocale(): string {
+	if (typeof navigator !== 'undefined' && navigator.language) {
+		return navigator.language;
+	}
+	return 'en-US';
 }

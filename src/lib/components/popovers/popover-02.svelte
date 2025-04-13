@@ -120,7 +120,7 @@
 		</div>
 		<div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-border"></div>
 
-		{#each notifications as notification}
+		{#each notifications as notification (notification.id)}
 			<div class="rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent">
 				<div class="relative flex items-start pe-3">
 					<div class="flex-1 space-y-1">

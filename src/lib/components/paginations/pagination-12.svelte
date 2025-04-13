@@ -58,7 +58,7 @@
 				{/if}
 
 				<!-- Page number links -->
-				{#each pagination.pages as page}
+				{#each pagination.pages as page (page)}
 					<PaginationItem>
 						<PaginationLink href="#/page/{page}" isActive={page === currentPage}>
 							{page}

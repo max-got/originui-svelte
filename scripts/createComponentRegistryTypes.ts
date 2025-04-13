@@ -76,6 +76,15 @@ interface ComponentDirectory {
 	readonly status: ComponentStatus;
 }
 
+interface ComponentStats {
+	directorySizes: Map<string, number>;
+	largestDirectory: DirectoryStats;
+	smallestDirectory: DirectoryStats;
+	status: ComponentStatus;
+	totalComponents: number;
+	totalDirectories: number;
+}
+
 interface ComponentStatus {
 	ready: number;
 	todo: number;
@@ -84,15 +93,6 @@ interface ComponentStatus {
 interface DirectoryStats {
 	count: number;
 	name: string;
-}
-
-interface ComponentStats {
-	directorySizes: Map<string, number>;
-	largestDirectory: DirectoryStats;
-	smallestDirectory: DirectoryStats;
-	status: ComponentStatus;
-	totalComponents: number;
-	totalDirectories: number;
 }
 
 interface GeneratedTypes {

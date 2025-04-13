@@ -109,7 +109,7 @@
 					{#if component.componentDependencies.list.length > 0}
 						<Tab.TabsContent value="dependencies">
 							<div class="grid grid-cols-2 gap-4 pt-4">
-								{#each component.componentDependencies.list as dependency}
+								{#each component.componentDependencies.list as dependency (dependency.name)}
 									<ComponentDependency {dependency} />
 								{/each}
 							</div>
