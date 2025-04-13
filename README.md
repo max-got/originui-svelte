@@ -42,7 +42,7 @@ Origin UI - Svelte is a collection of copy-and-paste components for quickly buil
 - [Svelte](https://svelte.dev)
 - [TailwindCSS](https://tailwindcss.com)
 - [Lucide Icons](https://lucide.dev)
-- [Bits UI](https://next.bits-ui.com)
+- [Bits UI](https://bits-ui.com)
 
 ## Differences from the original
 
@@ -50,7 +50,7 @@ The Original [Origin UI](https://originui.com/) is built with Next.js. This is a
 
 - [x] [Svelte](https://svelte.dev) instead of ~~Next.js~~
 - [x] [Lucide Svelte](https://lucide.dev/guide/packages/lucide-svelte) instead of ~~Lucide React~~
-- [x] [Bits UI](https://next.bits-ui.com/docs/introduction) instead of ~~Radix UI~~
+- [x] [Bits UI](https://bits-ui.com/docs/introduction) instead of ~~Radix UI~~
 
 ## Getting Started
 
