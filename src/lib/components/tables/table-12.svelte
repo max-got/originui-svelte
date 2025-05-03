@@ -1,14 +1,19 @@
 <script lang="ts">
 	import type { User } from '$data/api/data/users.handlers';
 
-	import TableHead from '../ui/table/table-head.svelte';
-	import TableHeader from '../ui/table/table-header.svelte';
 	import Badge from '$lib/components/ui/badge.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
-	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
+	import {
+		Table,
+		TableBody,
+		TableCell,
+		TableHead,
+		TableHeader,
+		TableRow
+	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
 
