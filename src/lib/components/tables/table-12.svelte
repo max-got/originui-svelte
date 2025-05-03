@@ -11,6 +11,7 @@
 
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import { fetchUsers } from '$data/api/data/users';
 	import {
 		createSvelteTable,
@@ -34,6 +35,9 @@
 
 	const columns: ColumnDef<User>[] = [
 =======
+=======
+	import { fetchUsers } from '$data/api/data/users';
+>>>>>>> 4eb3734 (refactor: rename endpoint and add query helper)
 	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
@@ -172,12 +176,18 @@
 	let data = $state<Item[]>([]);
 
 	$effect(() => {
+<<<<<<< HEAD
 		if (data.length > 0) return;
 		fetch('/api/v1/data/data-table')
 			.then((res) => res.json())
 			.then((d: { data: Item[] }) => {
 				data = d.data.slice(0, 5);
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+		fetchUsers()
+			.then((response) => {
+				data = response.slice(0, 5);
+>>>>>>> 4eb3734 (refactor: rename endpoint and add query helper)
 			})
 			.catch((err) => {
 				console.error(err);
