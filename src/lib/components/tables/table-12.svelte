@@ -1,10 +1,16 @@
 <script lang="ts">
+<<<<<<< HEAD
 	import type { User } from '$data/api/data/users.handlers';
 
+=======
+	import TableHead from '../ui/table/table-head.svelte';
+	import TableHeader from '../ui/table/table-header.svelte';
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 	import Badge from '$lib/components/ui/badge.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
+<<<<<<< HEAD
 	import { fetchUsers } from '$data/api/data/users';
 	import {
 		createSvelteTable,
@@ -27,6 +33,27 @@
 	let rowSelection = $state<RowSelectionState>({});
 
 	const columns: ColumnDef<User>[] = [
+=======
+	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
+	import { cn } from '$lib/utils';
+	import { createRawSnippet } from 'svelte';
+
+	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
+
+	type Item = {
+		balance: number;
+		email: string;
+		flag: string;
+		id: string;
+		location: string;
+		name: string;
+		status: 'Active' | 'Inactive' | 'Pending';
+	};
+
+	let rowSelection = $state<RowSelectionState>({});
+
+	const columns: ColumnDef<Item>[] = [
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 		{
 			cell: ({ row }) =>
 				renderComponent(Checkbox, {
@@ -85,12 +112,20 @@
 			cell: ({ row }) =>
 				renderComponent(Badge, {
 					children: createRawSnippet(() => {
+<<<<<<< HEAD
 						const status = row.getValue('status') as string;
 						return {
 							render: () => status
 						};
 					}),
 
+=======
+						const status = row.getValue('status');
+						return {
+							render: () => `${status}`
+						};
+					}),
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 					class: cn(
 						row.getValue('status') === 'Inactive' &&
 							'bg-muted-foreground/60 text-primary-foreground'
@@ -126,24 +161,45 @@
 		}
 	];
 
+<<<<<<< HEAD
 	let data = $state<User[]>([]);
 
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
 				data = response.slice(0, 5);
+=======
+	let data = $state<Item[]>([]);
+
+	$effect(() => {
+		if (data.length > 0) return;
+		fetch('/api/v1/data/data-table')
+			.then((res) => res.json())
+			.then((d: { data: Item[] }) => {
+				data = d.data.slice(0, 5);
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	});
 
+<<<<<<< HEAD
 	const table = createSvelteTable<User>({
+=======
+	const table = createSvelteTable<Item>({
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 		columns,
 		get data() {
 			return data;
 		},
+<<<<<<< HEAD
 		getCoreRowModel: getCoreRowModel(),
+=======
+		enableRowSelection: true,
+		getCoreRowModel: getCoreRowModel(),
+
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
@@ -192,6 +248,7 @@
 				</TableRow>
 			{/each}
 		</TableBody>
+<<<<<<< HEAD
 		<TableFooter class="bg-transparent">
 			<TableRow class="hover:bg-transparent">
 				<TableCell colspan={5}>Total</TableCell>
@@ -203,6 +260,8 @@
 				</TableCell>
 			</TableRow>
 		</TableFooter>
+=======
+>>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
 		Basic data table made with
