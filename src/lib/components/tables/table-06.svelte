@@ -10,59 +10,59 @@
 
 	const programmingLanguages = [
 		{
-			id: '1',
-			name: 'JavaScript',
-			releaseYear: '1995',
 			developer: 'Brendan Eich',
-			typing: 'Dynamic',
-			paradigm: 'Multi-paradigm',
 			extension: '.js',
+			id: '1',
 			latestVersion: 'ES2021',
-			popularity: 'High'
+			name: 'JavaScript',
+			paradigm: 'Multi-paradigm',
+			popularity: 'High',
+			releaseYear: '1995',
+			typing: 'Dynamic'
 		},
 		{
-			id: '2',
-			name: 'Python',
-			releaseYear: '1991',
 			developer: 'Guido van Rossum',
-			typing: 'Dynamic',
-			paradigm: 'Multi-paradigm',
 			extension: '.py',
+			id: '2',
 			latestVersion: '3.10',
-			popularity: 'High'
+			name: 'Python',
+			paradigm: 'Multi-paradigm',
+			popularity: 'High',
+			releaseYear: '1991',
+			typing: 'Dynamic'
 		},
 		{
-			id: '3',
-			name: 'Java',
-			releaseYear: '1995',
 			developer: 'James Gosling',
-			typing: 'Static',
-			paradigm: 'Object-oriented',
 			extension: '.java',
+			id: '3',
 			latestVersion: '17',
-			popularity: 'High'
-		},
-		{
-			id: '4',
-			name: 'C++',
-			releaseYear: '1985',
-			developer: 'Bjarne Stroustrup',
-			typing: 'Static',
-			paradigm: 'Multi-paradigm',
-			extension: '.cpp',
-			latestVersion: 'C++20',
-			popularity: 'High'
-		},
-		{
-			id: '5',
-			name: 'Ruby',
+			name: 'Java',
+			paradigm: 'Object-oriented',
+			popularity: 'High',
 			releaseYear: '1995',
-			developer: 'Yukihiro Matsumoto',
-			typing: 'Dynamic',
+			typing: 'Static'
+		},
+		{
+			developer: 'Bjarne Stroustrup',
+			extension: '.cpp',
+			id: '4',
+			latestVersion: 'C++20',
+			name: 'C++',
 			paradigm: 'Multi-paradigm',
+			popularity: 'High',
+			releaseYear: '1985',
+			typing: 'Static'
+		},
+		{
+			developer: 'Yukihiro Matsumoto',
 			extension: '.rb',
+			id: '5',
 			latestVersion: '3.0',
-			popularity: 'Low'
+			name: 'Ruby',
+			paradigm: 'Multi-paradigm',
+			popularity: 'Low',
+			releaseYear: '1995',
+			typing: 'Dynamic'
 		}
 	];
 </script>

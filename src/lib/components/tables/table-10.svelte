@@ -11,124 +11,124 @@
 
 	const items = [
 		{
-			id: '1',
-			name: 'Alex Thompson',
+			balance: '$1,250.00',
 			email: 'alex.t@company.com',
+			id: '1',
 			location: 'San Francisco, US',
-			status: 'Active',
-			balance: '$1,250.00'
+			name: 'Alex Thompson',
+			status: 'Active'
 		},
 		{
-			id: '2',
-			name: 'Sarah Chen',
+			balance: '$600.00',
 			email: 'sarah.c@company.com',
+			id: '2',
 			location: 'Singapore',
-			status: 'Active',
-			balance: '$600.00'
+			name: 'Sarah Chen',
+			status: 'Active'
 		},
 		{
-			id: '3',
-			name: 'James Wilson',
+			balance: '$650.00',
 			email: 'j.wilson@company.com',
+			id: '3',
 			location: 'London, UK',
-			status: 'Inactive',
-			balance: '$650.00'
+			name: 'James Wilson',
+			status: 'Inactive'
 		},
 		{
-			id: '4',
-			name: 'Maria Garcia',
+			balance: '$0.00',
 			email: 'm.garcia@company.com',
+			id: '4',
 			location: 'Madrid, Spain',
-			status: 'Active',
-			balance: '$0.00'
+			name: 'Maria Garcia',
+			status: 'Active'
 		},
 		{
-			id: '5',
-			name: 'David Kim',
+			balance: '-$1,000.00',
 			email: 'd.kim@company.com',
+			id: '5',
 			location: 'Seoul, KR',
-			status: 'Active',
-			balance: '-$1,000.00'
+			name: 'David Kim',
+			status: 'Active'
 		},
 		{
-			id: '6',
-			name: 'John Brown',
+			balance: '$1,500.00',
 			email: 'john.brown@company.com',
+			id: '6',
 			location: 'New York, US',
-			status: 'Active',
-			balance: '$1,500.00'
+			name: 'John Brown',
+			status: 'Active'
 		},
 		{
-			id: '7',
-			name: 'Jane Doe',
+			balance: '$200.00',
 			email: 'jane.doe@company.com',
+			id: '7',
 			location: 'Paris, FR',
-			status: 'Inactive',
-			balance: '$200.00'
+			name: 'Jane Doe',
+			status: 'Inactive'
 		},
 		{
-			id: '8',
-			name: 'Peter Smith',
+			balance: '$1,000.00',
 			email: 'peter.smith@company.com',
+			id: '8',
 			location: 'Berlin, DE',
-			status: 'Active',
-			balance: '$1,000.00'
+			name: 'Peter Smith',
+			status: 'Active'
 		},
 		{
-			id: '9',
-			name: 'Olivia Lee',
+			balance: '$500.00',
 			email: 'olivia.lee@company.com',
+			id: '9',
 			location: 'Tokyo, JP',
-			status: 'Active',
-			balance: '$500.00'
+			name: 'Olivia Lee',
+			status: 'Active'
 		},
 		{
-			id: '10',
-			name: 'Liam Chen',
+			balance: '$300.00',
 			email: 'liam.chen@company.com',
+			id: '10',
 			location: 'Shanghai, CN',
-			status: 'Inactive',
-			balance: '$300.00'
+			name: 'Liam Chen',
+			status: 'Inactive'
 		},
 		{
-			id: '11',
-			name: 'Ethan Kim',
+			balance: '$800.00',
 			email: 'ethan.kim@company.com',
+			id: '11',
 			location: 'Busan, KR',
-			status: 'Active',
-			balance: '$800.00'
+			name: 'Ethan Kim',
+			status: 'Active'
 		},
 		{
-			id: '12',
-			name: 'Ava Brown',
+			balance: '$1,200.00',
 			email: 'ava.brown@company.com',
+			id: '12',
 			location: 'London, UK',
-			status: 'Active',
-			balance: '$1,200.00'
+			name: 'Ava Brown',
+			status: 'Active'
 		},
 		{
-			id: '13',
-			name: 'Lily Lee',
+			balance: '$400.00',
 			email: 'lily.lee@company.com',
+			id: '13',
 			location: 'Seoul, KR',
-			status: 'Active',
-			balance: '$400.00'
+			name: 'Lily Lee',
+			status: 'Active'
 		},
 		{
-			id: '14',
-			name: 'Noah Smith',
+			balance: '$600.00',
 			email: 'noah.smith@company.com',
+			id: '14',
 			location: 'New York, US',
-			status: 'Inactive',
-			balance: '$600.00'
+			name: 'Noah Smith',
+			status: 'Inactive'
 		},
 		{
-			id: '15',
-			name: 'Eve Chen',
+			balance: '$1,800.00',
 			email: 'eve.chen@company.com',
+			id: '15',
 			location: 'Taipei, TW',
-			status: 'Active',
-			balance: '$1,800.00'
+			name: 'Eve Chen',
+			status: 'Active'
 		}
 	];
 </script>

@@ -10,48 +10,48 @@
 
 	const items = [
 		{
+			balance: '$1,250.00',
+			email: 'alex.t@company.com',
 			id: '1',
-			name: 'Alex Thompson',
-			username: '@alexthompson',
 			image:
 				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358071/avatar-40-02_upqrxi.jpg',
-			email: 'alex.t@company.com',
 			location: 'San Francisco, US',
+			name: 'Alex Thompson',
 			status: 'Active',
-			balance: '$1,250.00'
+			username: '@alexthompson'
 		},
 		{
+			balance: '$600.00',
+			email: 'sarah.c@company.com',
 			id: '2',
-			name: 'Sarah Chen',
-			username: '@sarahchen',
 			image:
 				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358073/avatar-40-01_ij9v7j.jpg',
-			email: 'sarah.c@company.com',
 			location: 'Singapore',
+			name: 'Sarah Chen',
 			status: 'Active',
-			balance: '$600.00'
+			username: '@sarahchen'
 		},
 		{
+			balance: '$0.00',
+			email: 'm.garcia@company.com',
 			id: '4',
-			name: 'Maria Garcia',
-			username: '@mariagarcia',
 			image:
 				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358072/avatar-40-03_dkeufx.jpg',
-			email: 'm.garcia@company.com',
 			location: 'Madrid, Spain',
+			name: 'Maria Garcia',
 			status: 'Active',
-			balance: '$0.00'
+			username: '@mariagarcia'
 		},
 		{
+			balance: '-$1,000.00',
+			email: 'd.kim@company.com',
 			id: '5',
-			name: 'David Kim',
-			username: '@davidkim',
 			image:
 				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358070/avatar-40-05_cmz0mg.jpg',
-			email: 'd.kim@company.com',
 			location: 'Seoul, KR',
+			name: 'David Kim',
 			status: 'Active',
-			balance: '-$1,000.00'
+			username: '@davidkim'
 		}
 	];
 </script>

@@ -1,9 +1,4 @@
 <script lang="ts">
-	import Check from 'lucide-svelte/icons/check';
-	import Monitor from 'lucide-svelte/icons/monitor';
-	import Smartphone from 'lucide-svelte/icons/smartphone';
-	import X from 'lucide-svelte/icons/x';
-
 	import {
 		Table,
 		TableBody,
@@ -12,10 +7,13 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
+	import Check from 'lucide-svelte/icons/check';
+	import Monitor from 'lucide-svelte/icons/monitor';
+	import Smartphone from 'lucide-svelte/icons/smartphone';
+	import X from 'lucide-svelte/icons/x';
 
 	const items = [
 		{
-			feature: 'scroll-timeline',
 			desktop: [
 				{ name: 'Chrome', supported: true, version: '115' },
 				{ name: 'Edge', supported: true, version: '115' },
@@ -23,6 +21,7 @@
 				{ name: 'Opera', supported: true, version: '101' },
 				{ name: 'Safari', supported: false, version: 'No' }
 			],
+			feature: 'scroll-timeline',
 			mobile: [
 				{ name: 'Chrome Android', supported: true, version: '115' },
 				{ name: 'Firefox Android', supported: false, version: 'No' },
@@ -32,7 +31,6 @@
 			]
 		},
 		{
-			feature: 'view-timeline',
 			desktop: [
 				{ name: 'Chrome', supported: true, version: '115' },
 				{ name: 'Edge', supported: true, version: '115' },
@@ -40,6 +38,7 @@
 				{ name: 'Opera', supported: true, version: '101' },
 				{ name: 'Safari', supported: false, version: 'No' }
 			],
+			feature: 'view-timeline',
 			mobile: [
 				{ name: 'Chrome Android', supported: true, version: '115' },
 				{ name: 'Firefox Android', supported: false, version: 'No' },
@@ -49,7 +48,6 @@
 			]
 		},
 		{
-			feature: 'font-size-adjust',
 			desktop: [
 				{ name: 'Chrome', supported: true, version: '127' },
 				{ name: 'Edge', supported: true, version: '127' },
@@ -57,6 +55,7 @@
 				{ name: 'Opera', supported: true, version: '113' },
 				{ name: 'Safari', supported: true, version: '16.4' }
 			],
+			feature: 'font-size-adjust',
 			mobile: [
 				{ name: 'Chrome Android', supported: true, version: '127' },
 				{ name: 'Firefox Android', supported: true, version: '4' },

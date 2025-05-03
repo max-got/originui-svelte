@@ -10,44 +10,44 @@
 
 	const items = [
 		{
-			id: '1',
-			name: 'Alex Thompson',
+			balance: '$1,250.00',
 			email: 'alex.t@company.com',
+			id: '1',
 			location: 'San Francisco, US',
-			status: 'Active',
-			balance: '$1,250.00'
+			name: 'Alex Thompson',
+			status: 'Active'
 		},
 		{
-			id: '2',
-			name: 'Sarah Chen',
+			balance: '$600.00',
 			email: 'sarah.c@company.com',
+			id: '2',
 			location: 'Singapore',
-			status: 'Active',
-			balance: '$600.00'
+			name: 'Sarah Chen',
+			status: 'Active'
 		},
 		{
-			id: '3',
-			name: 'James Wilson',
+			balance: '$650.00',
 			email: 'j.wilson@company.com',
+			id: '3',
 			location: 'London, UK',
-			status: 'Inactive',
-			balance: '$650.00'
+			name: 'James Wilson',
+			status: 'Inactive'
 		},
 		{
-			id: '4',
-			name: 'Maria Garcia',
+			balance: '$0.00',
 			email: 'm.garcia@company.com',
+			id: '4',
 			location: 'Madrid, Spain',
-			status: 'Active',
-			balance: '$0.00'
+			name: 'Maria Garcia',
+			status: 'Active'
 		},
 		{
-			id: '5',
-			name: 'David Kim',
+			balance: '-$1,000.00',
 			email: 'd.kim@company.com',
+			id: '5',
 			location: 'Seoul, KR',
-			status: 'Active',
-			balance: '-$1,000.00'
+			name: 'David Kim',
+			status: 'Active'
 		}
 	];
 </script>
