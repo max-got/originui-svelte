@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 3/30/2025, 6:08:55 PM
+ * Last generated at: 5/3/2025, 1:05:58 AM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -105,6 +105,7 @@ export type OUIRadiosComponents = OUIComponentHelper<'RADIOS'>;
 export type OUISelectsComponents = OUIComponentHelper<'SELECTS'>;
 export type OUISlidersComponents = OUIComponentHelper<'SLIDERS'>;
 export type OUISwitchesComponents = OUIComponentHelper<'SWITCHES'>;
+export type OUITablesComponents = OUIComponentHelper<'TABLES'>;
 export type OUITabsComponents = OUIComponentHelper<'TABS'>;
 export type OUITextareasComponents = OUIComponentHelper<'TEXTAREAS'>;
 export type OUITooltipsComponents = OUIComponentHelper<'TOOLTIPS'>;
@@ -129,6 +130,7 @@ export type OUIComponent = Prettify<
 	| OUISelectsComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
+	| OUITablesComponents
 	| OUITabsComponents
 	| OUITextareasComponents
 	| OUITooltipsComponents
@@ -154,6 +156,7 @@ export type OUIDirectoryToComponent = Prettify<{
 	selects: OUISelectsComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
+	tables: OUITablesComponents;
 	tabs: OUITabsComponents;
 	textareas: OUITextareasComponents;
 	tooltips: OUITooltipsComponents;
