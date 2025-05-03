@@ -455,6 +455,7 @@ const USERS_DATA = [
 	}
 ] as const;
 
+export type User = (typeof USERS_DATA)[number];
 export const API_V1_USERS_ENDPOINT_HANDLER = {
 	GET: (async ({ setHeaders }) => {
 		setHeaders({

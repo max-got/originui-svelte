@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { User } from '$data/api/data/users.handlers';
+
 	import TableHead from '../ui/table/table-head.svelte';
 	import TableHeader from '../ui/table/table-header.svelte';
 	import Badge from '$lib/components/ui/badge.svelte';
@@ -12,19 +14,9 @@
 
 	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
 
-	type Item = {
-		balance: number;
-		email: string;
-		flag: string;
-		id: string;
-		location: string;
-		name: string;
-		status: 'Active' | 'Inactive' | 'Pending';
-	};
-
 	let rowSelection = $state<RowSelectionState>({});
 
-	const columns: ColumnDef<Item>[] = [
+	const columns: ColumnDef<User>[] = [
 		{
 			cell: ({ row }) =>
 				renderComponent(Checkbox, {
@@ -124,7 +116,7 @@
 		}
 	];
 
-	let data = $state<Item[]>([]);
+	let data = $state<User[]>([]);
 
 	$effect(() => {
 		fetchUsers()
@@ -136,7 +128,7 @@
 			});
 	});
 
-	const table = createSvelteTable<Item>({
+	const table = createSvelteTable<User>({
 		columns,
 		get data() {
 			return data;
