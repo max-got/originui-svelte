@@ -1,8 +1,13 @@
 <script lang="ts">
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import type { User } from '$data/api/data/users.handlers';
 
 =======
+=======
+	import type { User } from '$data/api/data/users.handlers';
+
+>>>>>>> 802ec4b (cleanup)
 	import TableHead from '../ui/table/table-head.svelte';
 	import TableHeader from '../ui/table/table-header.svelte';
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
@@ -44,20 +49,14 @@
 
 	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
 
-	type Item = {
-		balance: number;
-		email: string;
-		flag: string;
-		id: string;
-		location: string;
-		name: string;
-		status: 'Active' | 'Inactive' | 'Pending';
-	};
-
 	let rowSelection = $state<RowSelectionState>({});
 
+<<<<<<< HEAD
 	const columns: ColumnDef<Item>[] = [
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+	const columns: ColumnDef<User>[] = [
+>>>>>>> 802ec4b (cleanup)
 		{
 			cell: ({ row }) =>
 				renderComponent(Checkbox, {
@@ -174,6 +173,9 @@
 	];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 802ec4b (cleanup)
 	let data = $state<User[]>([]);
 
 	$effect(() => {
@@ -203,10 +205,14 @@
 	});
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	const table = createSvelteTable<User>({
 =======
 	const table = createSvelteTable<Item>({
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+	const table = createSvelteTable<User>({
+>>>>>>> 802ec4b (cleanup)
 		columns,
 		get data() {
 			return data;

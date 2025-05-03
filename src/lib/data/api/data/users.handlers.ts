@@ -456,9 +456,13 @@ const USERS_DATA = [
 ] as const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type User = (typeof USERS_DATA)[number];
 =======
 >>>>>>> 4eb3734 (refactor: rename endpoint and add query helper)
+=======
+export type User = (typeof USERS_DATA)[number];
+>>>>>>> 802ec4b (cleanup)
 export const API_V1_USERS_ENDPOINT_HANDLER = {
 	GET: (async ({ setHeaders }) => {
 		setHeaders({
