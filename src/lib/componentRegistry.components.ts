@@ -613,7 +613,7 @@ export const OUI_DIRECTORIES = {
 			'table-09.svelte',
 			'table-10.svelte',
 			'table-11.svelte',
-			'table-12.todo.svelte',
+			'table-12.svelte',
 			'table-13.todo.svelte',
 			'table-14.svelte',
 			'table-15.svelte',
