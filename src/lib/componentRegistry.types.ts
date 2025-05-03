@@ -3,10 +3,14 @@
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
 =======
  * Last generated at: 3/30/2025, 6:08:55 PM
 >>>>>>> parent of d80c701 (feat: tables)
+=======
+ * Last generated at: 5/3/2025, 1:05:58 AM
+>>>>>>> d80c701 (feat: tables)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -109,6 +113,7 @@ export type OUIRadiosComponents = OUIComponentHelper<'RADIOS'>;
 export type OUISelectsComponents = OUIComponentHelper<'SELECTS'>;
 export type OUISlidersComponents = OUIComponentHelper<'SLIDERS'>;
 export type OUISwitchesComponents = OUIComponentHelper<'SWITCHES'>;
+export type OUITablesComponents = OUIComponentHelper<'TABLES'>;
 export type OUITabsComponents = OUIComponentHelper<'TABS'>;
 export type OUITextareasComponents = OUIComponentHelper<'TEXTAREAS'>;
 export type OUITooltipsComponents = OUIComponentHelper<'TOOLTIPS'>;
@@ -133,6 +138,7 @@ export type OUIComponent = Prettify<
 	| OUISelectsComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
+	| OUITablesComponents
 	| OUITabsComponents
 	| OUITextareasComponents
 	| OUITooltipsComponents
@@ -158,6 +164,7 @@ export type OUIDirectoryToComponent = Prettify<{
 	selects: OUISelectsComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
+	tables: OUITablesComponents;
 	tabs: OUITabsComponents;
 	textareas: OUITextareasComponents;
 	tooltips: OUITooltipsComponents;

@@ -3,10 +3,14 @@
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
 =======
  * Last generated at: 3/30/2025, 6:08:55 PM
 >>>>>>> parent of d80c701 (feat: tables)
+=======
+ * Last generated at: 5/3/2025, 1:05:58 AM
+>>>>>>> d80c701 (feat: tables)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -603,6 +607,9 @@ export const OUI_DIRECTORIES = {
 		}
 	},
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d80c701 (feat: tables)
 	TABLES: {
 		directory: 'tables',
 		name: 'Tables',
@@ -618,6 +625,7 @@ export const OUI_DIRECTORIES = {
 			'table-09.svelte',
 			'table-10.svelte',
 			'table-11.svelte',
+<<<<<<< HEAD
 			'table-12.svelte',
 			'table-13.todo.svelte',
 			'table-14.svelte',
@@ -635,6 +643,23 @@ export const OUI_DIRECTORIES = {
 	},
 =======
 >>>>>>> parent of d80c701 (feat: tables)
+=======
+			'table-12.todo.svelte',
+			'table-13.todo.svelte',
+			'table-14.todo.svelte',
+			'table-15.todo.svelte',
+			'table-16.todo.svelte',
+			'table-17.todo.svelte',
+			'table-18.todo.svelte',
+			'table-19.todo.svelte',
+			'table-20.todo.svelte'
+		],
+		status: {
+			todo: 9,
+			ready: 11
+		}
+	},
+>>>>>>> d80c701 (feat: tables)
 	TABS: {
 		directory: 'tabs',
 		name: 'Tabs',
