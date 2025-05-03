@@ -5,6 +5,7 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
+	import { fetchUsers } from '$data/api/data/users';
 	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
@@ -125,11 +126,9 @@
 	let data = $state<Item[]>([]);
 
 	$effect(() => {
-		if (data.length > 0) return;
-		fetch('/api/v1/data/data-table')
-			.then((res) => res.json())
-			.then((d: { data: Item[] }) => {
-				data = d.data.slice(0, 5);
+		fetchUsers()
+			.then((response) => {
+				data = response.slice(0, 5);
 			})
 			.catch((err) => {
 				console.error(err);
