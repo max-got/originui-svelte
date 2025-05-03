@@ -117,6 +117,7 @@
 				renderComponent(Badge, {
 					children: createRawSnippet(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 						const status = row.getValue('status') as string;
 						return {
 							render: () => status
@@ -125,11 +126,18 @@
 
 =======
 						const status = row.getValue('status');
+=======
+						const status = row.getValue('status') as string;
+>>>>>>> e66709a (cleanup)
 						return {
-							render: () => `${status}`
+							render: () => status
 						};
 					}),
+<<<<<<< HEAD
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+
+>>>>>>> e66709a (cleanup)
 					class: cn(
 						row.getValue('status') === 'Inactive' &&
 							'bg-muted-foreground/60 text-primary-foreground'
@@ -204,12 +212,16 @@
 			return data;
 		},
 <<<<<<< HEAD
+<<<<<<< HEAD
 		getCoreRowModel: getCoreRowModel(),
 =======
 		enableRowSelection: true,
 		getCoreRowModel: getCoreRowModel(),
 
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+		getCoreRowModel: getCoreRowModel(),
+>>>>>>> e66709a (cleanup)
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
