@@ -83,11 +83,12 @@
 			cell: ({ row }) =>
 				renderComponent(Badge, {
 					children: createRawSnippet(() => {
-						const status = row.getValue('status');
+						const status = row.getValue('status') as string;
 						return {
-							render: () => `${status}`
+							render: () => status
 						};
 					}),
+
 					class: cn(
 						row.getValue('status') === 'Inactive' &&
 							'bg-muted-foreground/60 text-primary-foreground'
@@ -140,9 +141,7 @@
 		get data() {
 			return data;
 		},
-		enableRowSelection: true,
 		getCoreRowModel: getCoreRowModel(),
-
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
