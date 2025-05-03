@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 	import type { User } from '$data/api/data/users.handlers';
 
+<<<<<<< HEAD
 =======
 =======
 	import type { User } from '$data/api/data/users.handlers';
@@ -11,6 +12,8 @@
 	import TableHead from '../ui/table/table-head.svelte';
 	import TableHeader from '../ui/table/table-header.svelte';
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+>>>>>>> 5097e30 (cleanup)
 	import Badge from '$lib/components/ui/badge.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
@@ -19,6 +22,7 @@
 <<<<<<< HEAD
 	import { fetchUsers } from '$data/api/data/users';
 	import {
+<<<<<<< HEAD
 		createSvelteTable,
 		FlexRender,
 		renderComponent,
@@ -29,10 +33,16 @@
 		TableBody,
 		TableCell,
 		TableFooter,
+=======
+		Table,
+		TableBody,
+		TableCell,
+>>>>>>> 5097e30 (cleanup)
 		TableHead,
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
+<<<<<<< HEAD
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
 
@@ -44,6 +54,8 @@
 	import { fetchUsers } from '$data/api/data/users';
 >>>>>>> 4eb3734 (refactor: rename endpoint and add query helper)
 	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
+=======
+>>>>>>> 5097e30 (cleanup)
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
 
