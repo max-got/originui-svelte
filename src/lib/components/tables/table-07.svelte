@@ -10,7 +10,6 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-	import { useId } from 'bits-ui';
 
 	const items = [
 		{
@@ -55,7 +54,7 @@
 		}
 	];
 
-	const id = useId();
+	const id = $props.id();
 </script>
 
 <div>
@@ -76,7 +75,7 @@
 			{#each items as item (item.id)}
 				<TableRow class="has-data-[state=checked]:bg-muted/50">
 					<TableCell>
-						<Checkbox id={`table-checkbox-${item.id}`} />
+						<Checkbox id="table-checkbox-{item.id}" />
 					</TableCell>
 					<TableCell class="font-medium">{item.name}</TableCell>
 					<TableCell>{item.email}</TableCell>
