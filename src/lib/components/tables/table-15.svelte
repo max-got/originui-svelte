@@ -221,10 +221,14 @@
 									: 'none'}
 							colspan={header.colSpan}
 <<<<<<< HEAD
+<<<<<<< HEAD
 							data-pinned={isPinned || undefined}
 =======
 							data-pinned={isPinned}
 >>>>>>> 2c45769 (feat: table 15)
+=======
+							data-pinned={isPinned || undefined}
+>>>>>>> 72b046f (try to make column resizing work)
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
 							style={getPinningStyles(header.column)}
 						>
@@ -238,9 +242,13 @@
 									</span>
 								{/if}
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<!-- Pin/Unpin column controls with enhanced accessibility -->
 =======
 >>>>>>> 2c45769 (feat: table 15)
+=======
+								<!-- Pin/Unpin column controls with enhanced accessibility -->
+>>>>>>> 72b046f (try to make column resizing work)
 								{#if !header.isPlaceholder && header.column.getCanPin() && header.column.getIsPinned()}
 									<Button
 										size="icon"
@@ -307,6 +315,9 @@
 				<TableRow data-state={row.getIsSelected() && 'selected'}>
 					{#each row.getVisibleCells() as cell (cell.id)}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 72b046f (try to make column resizing work)
 						{@const isPinned = cell.column.getIsPinned()}
 						{@const isLastLeftPinned = isPinned === 'left' && cell.column.getIsLastColumn('left')}
 						{@const isFirstRightPinned =
@@ -318,9 +329,12 @@
 							data-pinned={isPinned || undefined}
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
 						>
+<<<<<<< HEAD
 =======
 						<TableCell class="truncate">
 >>>>>>> 2c45769 (feat: table 15)
+=======
+>>>>>>> 72b046f (try to make column resizing work)
 							<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 						</TableCell>
 					{/each}
