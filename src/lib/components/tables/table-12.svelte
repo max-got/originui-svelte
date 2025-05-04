@@ -33,11 +33,14 @@
 		TableBody,
 		TableCell,
 		TableFooter,
+<<<<<<< HEAD
 =======
 		Table,
 		TableBody,
 		TableCell,
 >>>>>>> 5097e30 (cleanup)
+=======
+>>>>>>> 87a52b2 (add missing table footer)
 		TableHead,
 		TableHeader,
 		TableRow
@@ -289,19 +292,30 @@
 			{/each}
 		</TableBody>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 87a52b2 (add missing table footer)
 		<TableFooter class="bg-transparent">
 			<TableRow class="hover:bg-transparent">
 				<TableCell colspan={5}>Total</TableCell>
 				<TableCell class="text-right">
 					{new Intl.NumberFormat('en-US', {
+<<<<<<< HEAD
 						currency: 'USD',
 						style: 'currency'
+=======
+						style: 'currency',
+						currency: 'USD'
+>>>>>>> 87a52b2 (add missing table footer)
 					}).format(data.reduce((total, item) => total + item.balance, 0))}
 				</TableCell>
 			</TableRow>
 		</TableFooter>
+<<<<<<< HEAD
 =======
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+>>>>>>> 87a52b2 (add missing table footer)
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
 		Basic data table made with
