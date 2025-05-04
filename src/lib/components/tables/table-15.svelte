@@ -3,10 +3,14 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import Button from '$lib/components/ui/button.svelte';
 =======
 	import Button from '../ui/button.svelte';
 >>>>>>> 2c45769 (feat: table 15)
+=======
+	import Button from '$lib/components/ui/button.svelte';
+>>>>>>> 13f7f29 (fix: update import path)
 
 	import {
 		type Column,
