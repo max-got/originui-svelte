@@ -10,6 +10,7 @@
 		Table,
 		TableBody,
 		TableCell,
+		TableFooter,
 		TableHead,
 		TableHeader,
 		TableRow
@@ -187,6 +188,17 @@
 				</TableRow>
 			{/each}
 		</TableBody>
+		<TableFooter class="bg-transparent">
+			<TableRow class="hover:bg-transparent">
+				<TableCell colspan={5}>Total</TableCell>
+				<TableCell class="text-right">
+					{new Intl.NumberFormat('en-US', {
+						style: 'currency',
+						currency: 'USD'
+					}).format(data.reduce((total, item) => total + item.balance, 0))}
+				</TableCell>
+			</TableRow>
+		</TableFooter>
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
 		Basic data table made with
