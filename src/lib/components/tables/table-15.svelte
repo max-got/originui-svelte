@@ -216,7 +216,7 @@
 									? 'descending'
 									: 'none'}
 							colspan={header.colSpan}
-							data-pinned={isPinned}
+							data-pinned={isPinned || undefined}
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
 							style={getPinningStyles(header.column)}
 						>
@@ -229,6 +229,7 @@
 										/>
 									</span>
 								{/if}
+								<!-- Pin/Unpin column controls with enhanced accessibility -->
 								{#if !header.isPlaceholder && header.column.getCanPin() && header.column.getIsPinned()}
 									<Button
 										size="icon"
@@ -286,7 +287,17 @@
 			{#each table.getRowModel().rows as row (row.id)}
 				<TableRow data-state={row.getIsSelected() && 'selected'}>
 					{#each row.getVisibleCells() as cell (cell.id)}
-						<TableCell class="truncate">
+						{@const isPinned = cell.column.getIsPinned()}
+						{@const isLastLeftPinned = isPinned === 'left' && cell.column.getIsLastColumn('left')}
+						{@const isFirstRightPinned =
+							isPinned === 'right' && cell.column.getIsFirstColumn('right')}
+
+						<TableCell
+							class="data-pinned:bg-background/90 data-pinned:backdrop-blur-xs truncate [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+							style={getPinningStyles(cell.column)}
+							data-pinned={isPinned || undefined}
+							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
+						>
 							<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 						</TableCell>
 					{/each}
