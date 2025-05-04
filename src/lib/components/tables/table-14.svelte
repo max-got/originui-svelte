@@ -4,9 +4,13 @@
 	import {
 		type ColumnDef,
 <<<<<<< HEAD
+<<<<<<< HEAD
 		type ColumnSizingState,
 =======
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+		type ColumnSizingState,
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 		getCoreRowModel,
 		getSortedRowModel,
 		type SortingState
@@ -72,6 +76,7 @@
 		},
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			// cell: ({ row }) => {
 			// 	return renderSnippet(
@@ -89,6 +94,8 @@
 			// 	);
 			// },
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 			accessorKey: 'balance',
 			cell: ({ row }) => {
 				const amount = parseFloat(row.getValue('balance'));
@@ -129,6 +136,7 @@
 		}
 	]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	let columnSizing = $state<ColumnSizingState>({});
 
@@ -137,6 +145,12 @@
 	let data = $state<User[]>([]);
 
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+
+	let columnSizing = $state<ColumnSizingState>({});
+
+	let data = $state<User[]>([]);
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
@@ -154,6 +168,7 @@
 			return data;
 		},
 <<<<<<< HEAD
+<<<<<<< HEAD
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 		onColumnSizingChange: (updater) => {
@@ -168,6 +183,17 @@
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+		getCoreRowModel: getCoreRowModel(),
+		getSortedRowModel: getSortedRowModel(),
+		onColumnSizingChange: (updater) => {
+			if (typeof updater === 'function') {
+				columnSizing = updater(columnSizing);
+			} else {
+				columnSizing = updater;
+			}
+		},
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -177,11 +203,17 @@
 		},
 		state: {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			get columnSizing() {
 				return columnSizing;
 			},
 =======
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+			get columnSizing() {
+				return columnSizing;
+			},
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 			get sorting() {
 				return sorting;
 			}
@@ -208,10 +240,14 @@
 									: 'none'}
 							colspan={header.colSpan}
 <<<<<<< HEAD
+<<<<<<< HEAD
 							style="width: {header.getSize()}px"
 =======
 							style="width: {header.getSize()}"
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+							style="width: {header.getSize()}px"
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 						>
 							{#if !header.isPlaceholder}
 								<div
@@ -245,10 +281,14 @@
 							{#if header.column.getCanResize()}
 								<div
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 									class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
 									ondblclick={() => header.column.resetSize()}
 									onmousedown={header.getResizeHandler()}
 									ontouchstart={header.getResizeHandler()}
+<<<<<<< HEAD
 =======
 									{...{
 										className:
@@ -258,6 +298,8 @@
 										onTouchStart: header.getResizeHandler()
 									}}
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+>>>>>>> 7a24568 (refactor: enhance table-14 with column sizing state management and cleanup unused code)
 								/>
 							{/if}
 						</TableHead>
