@@ -161,7 +161,7 @@
 				<TableRow class="bg-muted/50">
 					{#each headerGroup.headers as header (header.id)}
 						<TableHead
-							class="relative h-10 select-none border-t last:[&>.cursor-col-resize]:opacity-0"
+							class="relative h-10 select-none border-t [&:last-child>.cursor-col-resize]:opacity-0"
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
