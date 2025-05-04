@@ -229,10 +229,14 @@
 					{#each headerGroup.headers as header (header.id)}
 						<TableHead
 <<<<<<< HEAD
+<<<<<<< HEAD
 							class="relative h-10 select-none border-t [&:last-child>.cursor-col-resize]:opacity-0"
 =======
 							class="relative h-10 select-none border-t last:[&>.cursor-col-resize]:opacity-0"
 >>>>>>> 3708e39 (add table-14 & lint files)
+=======
+							class="relative h-10 select-none border-t [&:last-child>.cursor-col-resize]:opacity-0"
+>>>>>>> f51a9a2 (fix: update cursor opacity for last child in table-14 header)
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
