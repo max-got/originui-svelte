@@ -3,7 +3,10 @@
 
 	import {
 		type ColumnDef,
+<<<<<<< HEAD
 		type ColumnSizingState,
+=======
+>>>>>>> 3708e39 (add table-14 & lint files)
 		getCoreRowModel,
 		getSortedRowModel,
 		type SortingState
@@ -68,6 +71,24 @@
 			header: 'Status'
 		},
 		{
+<<<<<<< HEAD
+=======
+			// cell: ({ row }) => {
+			// 	return renderSnippet(
+			// 		createRawSnippet((getBalance) => {
+			// 			const balance = getBalance() as string;
+			// 			const formatted = new Intl.NumberFormat('en-US', {
+			// 				currency: 'USD',
+			// 				style: 'currency'
+			// 			}).format(parseFloat(balance));
+			// 			return {
+			// 				render: () => `<div class="text-right">${formatted}</div>`
+			// 			};
+			// 		}),
+			// 		row.getValue('balance')
+			// 	);
+			// },
+>>>>>>> 3708e39 (add table-14 & lint files)
 			accessorKey: 'balance',
 			cell: ({ row }) => {
 				const amount = parseFloat(row.getValue('balance'));
@@ -107,10 +128,15 @@
 			id: 'name'
 		}
 	]);
+<<<<<<< HEAD
 
 	let columnSizing = $state<ColumnSizingState>({});
 
 	let data = $state<User[]>([]);
+=======
+	let data = $state<User[]>([]);
+
+>>>>>>> 3708e39 (add table-14 & lint files)
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
@@ -127,6 +153,7 @@
 		get data() {
 			return data;
 		},
+<<<<<<< HEAD
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 		onColumnSizingChange: (updater) => {
@@ -136,6 +163,11 @@
 				columnSizing = updater;
 			}
 		},
+=======
+		enableSortingRemoval: false,
+		getCoreRowModel: getCoreRowModel(),
+		getSortedRowModel: getSortedRowModel(),
+>>>>>>> 3708e39 (add table-14 & lint files)
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -144,9 +176,12 @@
 			}
 		},
 		state: {
+<<<<<<< HEAD
 			get columnSizing() {
 				return columnSizing;
 			},
+=======
+>>>>>>> 3708e39 (add table-14 & lint files)
 			get sorting() {
 				return sorting;
 			}
@@ -161,14 +196,22 @@
 				<TableRow class="bg-muted/50">
 					{#each headerGroup.headers as header (header.id)}
 						<TableHead
+<<<<<<< HEAD
 							class="relative h-10 select-none border-t [&:last-child>.cursor-col-resize]:opacity-0"
+=======
+							class="relative h-10 select-none border-t last:[&>.cursor-col-resize]:opacity-0"
+>>>>>>> 3708e39 (add table-14 & lint files)
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
 									? 'descending'
 									: 'none'}
 							colspan={header.colSpan}
+<<<<<<< HEAD
 							style="width: {header.getSize()}px"
+=======
+							style="width: {header.getSize()}"
+>>>>>>> 3708e39 (add table-14 & lint files)
 						>
 							{#if !header.isPlaceholder}
 								<div
@@ -201,10 +244,20 @@
 							{/if}
 							{#if header.column.getCanResize()}
 								<div
+<<<<<<< HEAD
 									class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
 									ondblclick={() => header.column.resetSize()}
 									onmousedown={header.getResizeHandler()}
 									ontouchstart={header.getResizeHandler()}
+=======
+									{...{
+										className:
+											'absolute top-0 h-full w-4 cursor-col-resize user-select-none touch-none -right-2 z-10 flex justify-center before:absolute before:w-px before:inset-y-0 before:bg-border before:translate-x-px',
+										onDoubleClick: () => header.column.resetSize(),
+										onMouseDown: header.getResizeHandler(),
+										onTouchStart: header.getResizeHandler()
+									}}
+>>>>>>> 3708e39 (add table-14 & lint files)
 								/>
 							{/if}
 						</TableHead>

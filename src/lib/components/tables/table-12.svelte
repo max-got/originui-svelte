@@ -23,6 +23,9 @@
 	import { fetchUsers } from '$data/api/data/users';
 	import {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3708e39 (add table-14 & lint files)
 		createSvelteTable,
 		FlexRender,
 		renderComponent,
@@ -61,8 +64,6 @@
 >>>>>>> 5097e30 (cleanup)
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
-
-	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
 
 	let rowSelection = $state<RowSelectionState>({});
 
@@ -301,12 +302,17 @@
 				<TableCell class="text-right">
 					{new Intl.NumberFormat('en-US', {
 <<<<<<< HEAD
+<<<<<<< HEAD
 						currency: 'USD',
 						style: 'currency'
 =======
 						style: 'currency',
 						currency: 'USD'
 >>>>>>> 87a52b2 (add missing table footer)
+=======
+						currency: 'USD',
+						style: 'currency'
+>>>>>>> 3708e39 (add table-14 & lint files)
 					}).format(data.reduce((total, item) => total + item.balance, 0))}
 				</TableCell>
 			</TableRow>

@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
 =======
  * Last generated at: 3/30/2025, 6:08:55 PM
@@ -15,6 +16,9 @@
 =======
  * Last generated at: 5/3/2025, 5:34:27 PM
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
+=======
+ * Last generated at: 5/4/2025, 1:21:09 AM
+>>>>>>> 3708e39 (add table-14 & lint files)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -634,6 +638,7 @@ export const OUI_DIRECTORIES = {
 			'table-12.svelte',
 			'table-13.todo.svelte',
 			'table-14.svelte',
+<<<<<<< HEAD
 			'table-15.svelte',
 			'table-16.svelte',
 			'table-17.svelte',
@@ -655,6 +660,8 @@ export const OUI_DIRECTORIES = {
 >>>>>>> 84bdadf (fet: table 12 - tanstack basic)
 			'table-13.todo.svelte',
 			'table-14.todo.svelte',
+=======
+>>>>>>> 3708e39 (add table-14 & lint files)
 			'table-15.todo.svelte',
 			'table-16.todo.svelte',
 			'table-17.todo.svelte',
@@ -663,8 +670,8 @@ export const OUI_DIRECTORIES = {
 			'table-20.todo.svelte'
 		],
 		status: {
-			todo: 8,
-			ready: 12
+			todo: 7,
+			ready: 13
 		}
 	},
 >>>>>>> d80c701 (feat: tables)
