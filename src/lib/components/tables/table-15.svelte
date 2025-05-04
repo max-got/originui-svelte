@@ -2,7 +2,7 @@
 	import type { User } from '$data/api/data/users.handlers';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import Button from '../ui/button.svelte';
+	import Button from '$lib/components/ui/button.svelte';
 
 	import {
 		type Column,
