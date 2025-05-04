@@ -3,6 +3,7 @@
 
 	import {
 		type ColumnDef,
+		type ColumnSizingState,
 		getCoreRowModel,
 		getSortedRowModel,
 		type SortingState
@@ -67,21 +68,6 @@
 			header: 'Status'
 		},
 		{
-			// cell: ({ row }) => {
-			// 	return renderSnippet(
-			// 		createRawSnippet((getBalance) => {
-			// 			const balance = getBalance() as string;
-			// 			const formatted = new Intl.NumberFormat('en-US', {
-			// 				currency: 'USD',
-			// 				style: 'currency'
-			// 			}).format(parseFloat(balance));
-			// 			return {
-			// 				render: () => `<div class="text-right">${formatted}</div>`
-			// 			};
-			// 		}),
-			// 		row.getValue('balance')
-			// 	);
-			// },
 			accessorKey: 'balance',
 			cell: ({ row }) => {
 				const amount = parseFloat(row.getValue('balance'));
@@ -121,8 +107,10 @@
 			id: 'name'
 		}
 	]);
-	let data = $state<User[]>([]);
 
+	let columnSizing = $state<ColumnSizingState>({});
+
+	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
@@ -139,9 +127,15 @@
 		get data() {
 			return data;
 		},
-		enableSortingRemoval: false,
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
+		onColumnSizingChange: (updater) => {
+			if (typeof updater === 'function') {
+				columnSizing = updater(columnSizing);
+			} else {
+				columnSizing = updater;
+			}
+		},
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -150,6 +144,9 @@
 			}
 		},
 		state: {
+			get columnSizing() {
+				return columnSizing;
+			},
 			get sorting() {
 				return sorting;
 			}
@@ -171,7 +168,7 @@
 									? 'descending'
 									: 'none'}
 							colspan={header.colSpan}
-							style="width: {header.getSize()}"
+							style="width: {header.getSize()}px"
 						>
 							{#if !header.isPlaceholder}
 								<div
@@ -204,13 +201,10 @@
 							{/if}
 							{#if header.column.getCanResize()}
 								<div
-									{...{
-										className:
-											'absolute top-0 h-full w-4 cursor-col-resize user-select-none touch-none -right-2 z-10 flex justify-center before:absolute before:w-px before:inset-y-0 before:bg-border before:translate-x-px',
-										onDoubleClick: () => header.column.resetSize(),
-										onMouseDown: header.getResizeHandler(),
-										onTouchStart: header.getResizeHandler()
-									}}
+									class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
+									ondblclick={() => header.column.resetSize()}
+									onmousedown={header.getResizeHandler()}
+									ontouchstart={header.getResizeHandler()}
 								/>
 							{/if}
 						</TableHead>
