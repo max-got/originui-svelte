@@ -2,7 +2,11 @@
 	import type { User } from '$data/api/data/users.handlers';
 	import type { HTMLAttributes } from 'svelte/elements';
 
+<<<<<<< HEAD
 	import Button from '$lib/components/ui/button.svelte';
+=======
+	import Button from '../ui/button.svelte';
+>>>>>>> 2c45769 (feat: table 15)
 
 	import {
 		type Column,
@@ -216,7 +220,11 @@
 									? 'descending'
 									: 'none'}
 							colspan={header.colSpan}
+<<<<<<< HEAD
 							data-pinned={isPinned || undefined}
+=======
+							data-pinned={isPinned}
+>>>>>>> 2c45769 (feat: table 15)
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
 							style={getPinningStyles(header.column)}
 						>
@@ -229,7 +237,10 @@
 										/>
 									</span>
 								{/if}
+<<<<<<< HEAD
 								<!-- Pin/Unpin column controls with enhanced accessibility -->
+=======
+>>>>>>> 2c45769 (feat: table 15)
 								{#if !header.isPlaceholder && header.column.getCanPin() && header.column.getIsPinned()}
 									<Button
 										size="icon"
@@ -271,7 +282,11 @@
 								{/if}
 								{#if header.column.getCanResize()}
 									<div
+<<<<<<< HEAD
 										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px before:bg-border"
+=======
+										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
+>>>>>>> 2c45769 (feat: table 15)
 										ondblclick={() => header.column.resetSize()}
 										onmousedown={header.getResizeHandler()}
 										ontouchstart={header.getResizeHandler()}
@@ -287,6 +302,7 @@
 			{#each table.getRowModel().rows as row (row.id)}
 				<TableRow data-state={row.getIsSelected() && 'selected'}>
 					{#each row.getVisibleCells() as cell (cell.id)}
+<<<<<<< HEAD
 						{@const isPinned = cell.column.getIsPinned()}
 						{@const isLastLeftPinned = isPinned === 'left' && cell.column.getIsLastColumn('left')}
 						{@const isFirstRightPinned =
@@ -298,6 +314,9 @@
 							data-pinned={isPinned || undefined}
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
 						>
+=======
+						<TableCell class="truncate">
+>>>>>>> 2c45769 (feat: table 15)
 							<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 						</TableCell>
 					{/each}
@@ -310,7 +329,11 @@
 		</TableBody>
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
+<<<<<<< HEAD
 		Pinnable columns made with
+=======
+		Resizable and sortable columns made with
+>>>>>>> 2c45769 (feat: table 15)
 		<a
 			class="underline hover:text-foreground"
 			href="https://tanstack.com/table"
