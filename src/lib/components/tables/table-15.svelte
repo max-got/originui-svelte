@@ -299,7 +299,7 @@
 		</TableBody>
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
-		Resizable and sortable columns made with
+		Pinnable columns made with
 		<a
 			class="underline hover:text-foreground"
 			href="https://tanstack.com/table"
