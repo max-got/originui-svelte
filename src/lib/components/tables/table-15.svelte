@@ -283,10 +283,14 @@
 								{#if header.column.getCanResize()}
 									<div
 <<<<<<< HEAD
+<<<<<<< HEAD
 										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px before:bg-border"
 =======
 										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
 >>>>>>> 2c45769 (feat: table 15)
+=======
+										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px before:bg-border"
+>>>>>>> 5865207 (fix: correct border table 15)
 										ondblclick={() => header.column.resetSize()}
 										onmousedown={header.getResizeHandler()}
 										ontouchstart={header.getResizeHandler()}
