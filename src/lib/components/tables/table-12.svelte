@@ -7,6 +7,12 @@
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
 	import {
+		createSvelteTable,
+		FlexRender,
+		renderComponent,
+		renderSnippet
+	} from '$lib/components/ui/data-table';
+	import {
 		Table,
 		TableBody,
 		TableCell,
@@ -17,8 +23,6 @@
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
-
-	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
 
 	let rowSelection = $state<RowSelectionState>({});
 
@@ -193,8 +197,8 @@
 				<TableCell colspan={5}>Total</TableCell>
 				<TableCell class="text-right">
 					{new Intl.NumberFormat('en-US', {
-						style: 'currency',
-						currency: 'USD'
+						currency: 'USD',
+						style: 'currency'
 					}).format(data.reduce((total, item) => total + item.balance, 0))}
 				</TableCell>
 			</TableRow>
