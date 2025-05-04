@@ -330,10 +330,14 @@
 	</Table>
 	<p class="mt-4 text-center text-sm text-muted-foreground">
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Pinnable columns made with
 =======
 		Resizable and sortable columns made with
 >>>>>>> 2c45769 (feat: table 15)
+=======
+		Pinnable columns made with
+>>>>>>> 9f0271b (fix: update desc table 15)
 		<a
 			class="underline hover:text-foreground"
 			href="https://tanstack.com/table"
