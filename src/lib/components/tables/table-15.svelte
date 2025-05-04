@@ -270,7 +270,7 @@
 								{/if}
 								{#if header.column.getCanResize()}
 									<div
-										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
+										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px before:bg-border"
 										ondblclick={() => header.column.resetSize()}
 										onmousedown={header.getResizeHandler()}
 										ontouchstart={header.getResizeHandler()}
