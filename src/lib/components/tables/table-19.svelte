@@ -160,7 +160,7 @@
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
-				data = response;
+				data = [...response];
 			})
 			.catch((err) => {
 				console.error(err);
@@ -353,12 +353,12 @@
 				onValueChange={(value) => {
 					table.setPageSize(Number(value));
 				}}
-				aria-label="Results per page"
 			>
 				<SelectTrigger
-					placeholder="Select number of results"
 					id="results-per-page"
 					class="w-fit whitespace-nowrap"
+					placeholder="Select number of results"
+					aria-label="Results per page"
 				>
 					{table.getState().pagination.pageSize.toString()} / page
 				</SelectTrigger>
