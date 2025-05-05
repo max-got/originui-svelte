@@ -622,6 +622,7 @@ export const OUI_DIRECTORIES = {
 			'table-18.svelte',
 			'table-19.svelte',
 			'table-20.svelte'
+			'table-20.svelte'
 		],
 		status: {
 			todo: 1,
