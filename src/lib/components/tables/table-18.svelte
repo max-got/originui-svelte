@@ -12,7 +12,10 @@
 		getPaginationRowModel,
 		getSortedRowModel,
 		type PaginationState,
+<<<<<<< HEAD
 		type RowSelectionState,
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 		type SortingState
 	} from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
@@ -154,8 +157,11 @@
 		}
 	]);
 
+<<<<<<< HEAD
 	let rowSelection = $state<RowSelectionState>({});
 
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
@@ -183,6 +189,7 @@
 				pagination = updater;
 			}
 		},
+<<<<<<< HEAD
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
@@ -190,6 +197,8 @@
 				rowSelection = updater;
 			}
 		},
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -201,9 +210,12 @@
 			get pagination() {
 				return pagination;
 			},
+<<<<<<< HEAD
 			get rowSelection() {
 				return rowSelection;
 			},
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 			get sorting() {
 				return sorting;
 			}

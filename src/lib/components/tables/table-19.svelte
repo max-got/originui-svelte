@@ -12,7 +12,10 @@
 		getPaginationRowModel,
 		getSortedRowModel,
 		type PaginationState,
+<<<<<<< HEAD
 		type RowSelectionState,
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 		type SortingState
 	} from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
@@ -157,13 +160,20 @@
 		}
 	]);
 
+<<<<<<< HEAD
 	let rowSelection = $state<RowSelectionState>({});
 
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
+<<<<<<< HEAD
 				data = [...response];
+=======
+				data = response;
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 			})
 			.catch((err) => {
 				console.error(err);
@@ -186,6 +196,7 @@
 				pagination = updater;
 			}
 		},
+<<<<<<< HEAD
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
@@ -193,6 +204,8 @@
 				rowSelection = updater;
 			}
 		},
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -204,15 +217,19 @@
 			get pagination() {
 				return pagination;
 			},
+<<<<<<< HEAD
 			get rowSelection() {
 				return rowSelection;
 			},
+=======
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 			get sorting() {
 				return sorting;
 			}
 		}
 	});
 
+<<<<<<< HEAD
 	const paginated = $derived(
 		usePagination({
 			currentPage: table.getState().pagination.pageIndex + 1,
@@ -220,6 +237,13 @@
 			totalPages: table.getPageCount()
 		})
 	);
+=======
+	const { pages, showLeftEllipsis, showRightEllipsis } = usePagination({
+		currentPage: table.getState().pagination.pageIndex + 1,
+		paginationItemsToDisplay: 5,
+		totalPages: table.getPageCount()
+	});
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 </script>
 
 <div class="space-y-4">
@@ -315,14 +339,22 @@
 					</PaginationItem>
 
 					<!-- Left ellipsis (...) -->
+<<<<<<< HEAD
 					{#if paginated.showLeftEllipsis}
+=======
+					{#if showLeftEllipsis}
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 					{/if}
 
 					<!-- Page number buttons -->
+<<<<<<< HEAD
 					{#each paginated.pages as page (page)}
+=======
+					{#each pages as page (page)}
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 						{@const isActive = page === table.getState().pagination.pageIndex + 1}
 						<PaginationItem>
 							<Button
@@ -334,12 +366,19 @@
 								{page}
 							</Button>
 						</PaginationItem>
+<<<<<<< HEAD
 					{:else}
 						<p>empty</p>
 					{/each}
 
 					<!-- Right ellipsis (...) -->
 					{#if paginated.showRightEllipsis}
+=======
+					{/each}
+
+					<!-- Right ellipsis (...) -->
+					{#if showRightEllipsis}
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
@@ -370,12 +409,21 @@
 				onValueChange={(value) => {
 					table.setPageSize(Number(value));
 				}}
+<<<<<<< HEAD
 			>
 				<SelectTrigger
 					id="results-per-page"
 					class="w-fit whitespace-nowrap"
 					placeholder="Select number of results"
 					aria-label="Results per page"
+=======
+				aria-label="Results per page"
+			>
+				<SelectTrigger
+					placeholder="Select number of results"
+					id="results-per-page"
+					class="w-fit whitespace-nowrap"
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
 				>
 					{table.getState().pagination.pageSize.toString()} / page
 				</SelectTrigger>

@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
 =======
  * Last generated at: 3/30/2025, 6:08:55 PM
@@ -23,6 +24,9 @@
 =======
  * Last generated at: 5/4/2025, 5:51:47 PM
 >>>>>>> 2c45769 (feat: table 15)
+=======
+ * Last generated at: 5/5/2025, 1:06:56 AM
+>>>>>>> 5b01c63 (add paginated tables 18 & 19)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -673,13 +677,13 @@ export const OUI_DIRECTORIES = {
 >>>>>>> 2c45769 (feat: table 15)
 			'table-16.todo.svelte',
 			'table-17.todo.svelte',
-			'table-18.todo.svelte',
-			'table-19.todo.svelte',
+			'table-18.svelte',
+			'table-19.svelte',
 			'table-20.todo.svelte'
 		],
 		status: {
-			todo: 6,
-			ready: 14
+			todo: 4,
+			ready: 16
 		}
 	},
 >>>>>>> d80c701 (feat: tables)
