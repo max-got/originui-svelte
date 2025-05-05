@@ -12,7 +12,6 @@
 		getPaginationRowModel,
 		getSortedRowModel,
 		type PaginationState,
-		type RowSelectionState,
 		type SortingState
 	} from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
@@ -157,13 +156,11 @@
 		}
 	]);
 
-	let rowSelection = $state<RowSelectionState>({});
-
 	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
-				data = [...response];
+				data = response;
 			})
 			.catch((err) => {
 				console.error(err);
@@ -186,13 +183,6 @@
 				pagination = updater;
 			}
 		},
-		onRowSelectionChange: (updater) => {
-			if (typeof updater === 'function') {
-				rowSelection = updater(rowSelection);
-			} else {
-				rowSelection = updater;
-			}
-		},
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -204,22 +194,17 @@
 			get pagination() {
 				return pagination;
 			},
-			get rowSelection() {
-				return rowSelection;
-			},
 			get sorting() {
 				return sorting;
 			}
 		}
 	});
 
-	const paginated = $derived(
-		usePagination({
-			currentPage: table.getState().pagination.pageIndex + 1,
-			paginationItemsToDisplay: 5,
-			totalPages: table.getPageCount()
-		})
-	);
+	const { pages, showLeftEllipsis, showRightEllipsis } = usePagination({
+		currentPage: table.getState().pagination.pageIndex + 1,
+		paginationItemsToDisplay: 5,
+		totalPages: table.getPageCount()
+	});
 </script>
 
 <div class="space-y-4">
@@ -315,14 +300,14 @@
 					</PaginationItem>
 
 					<!-- Left ellipsis (...) -->
-					{#if paginated.showLeftEllipsis}
+					{#if showLeftEllipsis}
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 					{/if}
 
 					<!-- Page number buttons -->
-					{#each paginated.pages as page (page)}
+					{#each pages as page (page)}
 						{@const isActive = page === table.getState().pagination.pageIndex + 1}
 						<PaginationItem>
 							<Button
@@ -334,12 +319,10 @@
 								{page}
 							</Button>
 						</PaginationItem>
-					{:else}
-						<p>empty</p>
 					{/each}
 
 					<!-- Right ellipsis (...) -->
-					{#if paginated.showRightEllipsis}
+					{#if showRightEllipsis}
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
@@ -370,12 +353,12 @@
 				onValueChange={(value) => {
 					table.setPageSize(Number(value));
 				}}
+				aria-label="Results per page"
 			>
 				<SelectTrigger
+					placeholder="Select number of results"
 					id="results-per-page"
 					class="w-fit whitespace-nowrap"
-					placeholder="Select number of results"
-					aria-label="Results per page"
 				>
 					{table.getState().pagination.pageSize.toString()} / page
 				</SelectTrigger>
