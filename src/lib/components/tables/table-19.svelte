@@ -170,10 +170,14 @@
 		fetchUsers()
 			.then((response) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 				data = [...response];
 =======
 				data = response;
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+				data = [...response];
+>>>>>>> 9af2500 (fix svelte-check)
 			})
 			.catch((err) => {
 				console.error(err);
@@ -410,6 +414,7 @@
 					table.setPageSize(Number(value));
 				}}
 <<<<<<< HEAD
+<<<<<<< HEAD
 			>
 				<SelectTrigger
 					id="results-per-page"
@@ -418,12 +423,18 @@
 					aria-label="Results per page"
 =======
 				aria-label="Results per page"
+=======
+>>>>>>> 9af2500 (fix svelte-check)
 			>
 				<SelectTrigger
-					placeholder="Select number of results"
 					id="results-per-page"
 					class="w-fit whitespace-nowrap"
+<<<<<<< HEAD
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+					placeholder="Select number of results"
+					aria-label="Results per page"
+>>>>>>> 9af2500 (fix svelte-check)
 				>
 					{table.getState().pagination.pageSize.toString()} / page
 				</SelectTrigger>
