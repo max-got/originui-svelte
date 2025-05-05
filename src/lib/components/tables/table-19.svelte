@@ -12,6 +12,7 @@
 		getPaginationRowModel,
 		getSortedRowModel,
 		type PaginationState,
+		type RowSelectionState,
 		type SortingState
 	} from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
@@ -156,6 +157,8 @@
 		}
 	]);
 
+	let rowSelection = $state<RowSelectionState>({});
+
 	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
@@ -183,6 +186,13 @@
 				pagination = updater;
 			}
 		},
+		onRowSelectionChange: (updater) => {
+			if (typeof updater === 'function') {
+				rowSelection = updater(rowSelection);
+			} else {
+				rowSelection = updater;
+			}
+		},
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -194,17 +204,22 @@
 			get pagination() {
 				return pagination;
 			},
+			get rowSelection() {
+				return rowSelection;
+			},
 			get sorting() {
 				return sorting;
 			}
 		}
 	});
 
-	const { pages, showLeftEllipsis, showRightEllipsis } = usePagination({
-		currentPage: table.getState().pagination.pageIndex + 1,
-		paginationItemsToDisplay: 5,
-		totalPages: table.getPageCount()
-	});
+	const paginated = $derived(
+		usePagination({
+			currentPage: table.getState().pagination.pageIndex + 1,
+			paginationItemsToDisplay: 5,
+			totalPages: table.getPageCount()
+		})
+	);
 </script>
 
 <div class="space-y-4">
@@ -300,14 +315,14 @@
 					</PaginationItem>
 
 					<!-- Left ellipsis (...) -->
-					{#if showLeftEllipsis}
+					{#if paginated.showLeftEllipsis}
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
 					{/if}
 
 					<!-- Page number buttons -->
-					{#each pages as page (page)}
+					{#each paginated.pages as page (page)}
 						{@const isActive = page === table.getState().pagination.pageIndex + 1}
 						<PaginationItem>
 							<Button
@@ -319,10 +334,12 @@
 								{page}
 							</Button>
 						</PaginationItem>
+					{:else}
+						<p>empty</p>
 					{/each}
 
 					<!-- Right ellipsis (...) -->
-					{#if showRightEllipsis}
+					{#if paginated.showRightEllipsis}
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
