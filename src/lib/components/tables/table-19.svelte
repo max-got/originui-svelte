@@ -13,9 +13,13 @@
 		getSortedRowModel,
 		type PaginationState,
 <<<<<<< HEAD
+<<<<<<< HEAD
 		type RowSelectionState,
 =======
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+		type RowSelectionState,
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 		type SortingState
 	} from '@tanstack/table-core';
 	import { fetchUsers } from '$data/api/data/users';
@@ -161,10 +165,15 @@
 	]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	let rowSelection = $state<RowSelectionState>({});
 
 =======
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+	let rowSelection = $state<RowSelectionState>({});
+
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 	let data = $state<User[]>([]);
 	$effect(() => {
 		fetchUsers()
@@ -201,6 +210,9 @@
 			}
 		},
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
@@ -208,8 +220,11 @@
 				rowSelection = updater;
 			}
 		},
+<<<<<<< HEAD
 =======
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -222,11 +237,17 @@
 				return pagination;
 			},
 <<<<<<< HEAD
+<<<<<<< HEAD
 			get rowSelection() {
 				return rowSelection;
 			},
 =======
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+			get rowSelection() {
+				return rowSelection;
+			},
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 			get sorting() {
 				return sorting;
 			}
@@ -234,6 +255,9 @@
 	});
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 	const paginated = $derived(
 		usePagination({
 			currentPage: table.getState().pagination.pageIndex + 1,
@@ -241,6 +265,7 @@
 			totalPages: table.getPageCount()
 		})
 	);
+<<<<<<< HEAD
 =======
 	const { pages, showLeftEllipsis, showRightEllipsis } = usePagination({
 		currentPage: table.getState().pagination.pageIndex + 1,
@@ -248,6 +273,8 @@
 		totalPages: table.getPageCount()
 	});
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 </script>
 
 <div class="space-y-4">
@@ -344,10 +371,14 @@
 
 					<!-- Left ellipsis (...) -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 					{#if paginated.showLeftEllipsis}
 =======
 					{#if showLeftEllipsis}
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+					{#if paginated.showLeftEllipsis}
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
@@ -355,10 +386,14 @@
 
 					<!-- Page number buttons -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 					{#each paginated.pages as page (page)}
 =======
 					{#each pages as page (page)}
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+					{#each paginated.pages as page (page)}
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 						{@const isActive = page === table.getState().pagination.pageIndex + 1}
 						<PaginationItem>
 							<Button
@@ -370,6 +405,7 @@
 								{page}
 							</Button>
 						</PaginationItem>
+<<<<<<< HEAD
 <<<<<<< HEAD
 					{:else}
 						<p>empty</p>
@@ -383,6 +419,14 @@
 					<!-- Right ellipsis (...) -->
 					{#if showRightEllipsis}
 >>>>>>> 5b01c63 (add paginated tables 18 & 19)
+=======
+					{:else}
+						<p>empty</p>
+					{/each}
+
+					<!-- Right ellipsis (...) -->
+					{#if paginated.showRightEllipsis}
+>>>>>>> 80fd1b1 (feat: add row selection state management to table 18, 19 and fix pagination)
 						<PaginationItem>
 							<PaginationEllipsis />
 						</PaginationItem>
