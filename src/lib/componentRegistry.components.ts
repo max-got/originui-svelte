@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
 =======
  * Last generated at: 3/30/2025, 6:08:55 PM
@@ -31,6 +32,9 @@
 =======
  * Last generated at: 5/5/2025, 9:25:30 PM
 >>>>>>> 8d4f5cb (wip: table 20)
+=======
+ * Last generated at: 5/5/2025, 8:21:12 PM
+>>>>>>> aeb672c (wip: add table 17)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -680,14 +684,14 @@ export const OUI_DIRECTORIES = {
 			'table-15.svelte',
 >>>>>>> 2c45769 (feat: table 15)
 			'table-16.todo.svelte',
-			'table-17.todo.svelte',
+			'table-17.svelte',
 			'table-18.svelte',
 			'table-19.svelte',
 			'table-20.svelte'
 		],
 		status: {
-			todo: 3,
-			ready: 17
+			todo: 2,
+			ready: 18
 		}
 	},
 >>>>>>> d80c701 (feat: tables)
