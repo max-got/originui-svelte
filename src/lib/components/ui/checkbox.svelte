@@ -25,7 +25,6 @@
 >
 	{#snippet children({ checked })}
 		<div class="flex items-center justify-center text-current">
->>>>>>> parent of d80c701 (feat: tables)
 			{#if checked === true}
 				<svg
 					width="9"
