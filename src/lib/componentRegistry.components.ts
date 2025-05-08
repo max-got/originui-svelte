@@ -2,43 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Last generated at: 5/8/2025, 12:26:40 AM
-=======
- * Last generated at: 3/30/2025, 6:08:55 PM
->>>>>>> parent of d80c701 (feat: tables)
-=======
- * Last generated at: 5/3/2025, 1:05:58 AM
->>>>>>> d80c701 (feat: tables)
-=======
- * Last generated at: 5/3/2025, 5:34:27 PM
->>>>>>> 84bdadf (fet: table 12 - tanstack basic)
-=======
- * Last generated at: 5/4/2025, 1:21:09 AM
->>>>>>> 3708e39 (add table-14 & lint files)
-=======
- * Last generated at: 5/4/2025, 5:51:47 PM
->>>>>>> 2c45769 (feat: table 15)
-=======
- * Last generated at: 5/5/2025, 1:06:56 AM
->>>>>>> 5b01c63 (add paginated tables 18 & 19)
-=======
- * Last generated at: 5/5/2025, 9:25:30 PM
->>>>>>> 8d4f5cb (wip: table 20)
-=======
- * Last generated at: 5/5/2025, 8:21:12 PM
->>>>>>> aeb672c (wip: add table 17)
-=======
- * Last generated at: 5/8/2025, 12:26:40 AM
->>>>>>> 58dff17 (wip: table 16)
+ * Last generated at: 5/8/2025, 2:14:03 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -634,10 +598,6 @@ export const OUI_DIRECTORIES = {
 			ready: 17
 		}
 	},
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d80c701 (feat: tables)
 	TABLES: {
 		directory: 'tables',
 		name: 'Tables',
@@ -653,16 +613,11 @@ export const OUI_DIRECTORIES = {
 			'table-09.svelte',
 			'table-10.svelte',
 			'table-11.svelte',
-<<<<<<< HEAD
-<<<<<<< HEAD
 			'table-12.svelte',
 			'table-13.todo.svelte',
 			'table-14.svelte',
-<<<<<<< HEAD
-<<<<<<< HEAD
 			'table-15.svelte',
 			'table-16.svelte',
-<<<<<<< HEAD
 			'table-17.svelte',
 			'table-18.svelte',
 			'table-19.svelte',
@@ -673,35 +628,6 @@ export const OUI_DIRECTORIES = {
 			ready: 19
 		}
 	},
-=======
->>>>>>> parent of d80c701 (feat: tables)
-=======
-			'table-12.todo.svelte',
-=======
-			'table-12.svelte',
->>>>>>> 84bdadf (fet: table 12 - tanstack basic)
-			'table-13.todo.svelte',
-			'table-14.todo.svelte',
-=======
->>>>>>> 3708e39 (add table-14 & lint files)
-			'table-15.todo.svelte',
-=======
-			'table-15.svelte',
->>>>>>> 2c45769 (feat: table 15)
-			'table-16.todo.svelte',
-=======
->>>>>>> 58dff17 (wip: table 16)
-			'table-17.svelte',
-			'table-18.svelte',
-			'table-19.svelte',
-			'table-20.svelte'
-		],
-		status: {
-			todo: 1,
-			ready: 19
-		}
-	},
->>>>>>> d80c701 (feat: tables)
 	TABS: {
 		directory: 'tabs',
 		name: 'Tabs',

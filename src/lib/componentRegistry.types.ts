@@ -2,43 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Last generated at: 5/8/2025, 12:26:40 AM
-=======
- * Last generated at: 3/30/2025, 6:08:55 PM
->>>>>>> parent of d80c701 (feat: tables)
-=======
- * Last generated at: 5/3/2025, 1:05:58 AM
->>>>>>> d80c701 (feat: tables)
-=======
- * Last generated at: 5/3/2025, 5:34:27 PM
->>>>>>> 84bdadf (fet: table 12 - tanstack basic)
-=======
- * Last generated at: 5/4/2025, 1:21:09 AM
->>>>>>> 3708e39 (add table-14 & lint files)
-=======
- * Last generated at: 5/4/2025, 5:51:47 PM
->>>>>>> 2c45769 (feat: table 15)
-=======
- * Last generated at: 5/5/2025, 1:06:56 AM
->>>>>>> 5b01c63 (add paginated tables 18 & 19)
-=======
- * Last generated at: 5/5/2025, 9:25:30 PM
->>>>>>> 8d4f5cb (wip: table 20)
-=======
- * Last generated at: 5/5/2025, 8:21:12 PM
->>>>>>> aeb672c (wip: add table 17)
-=======
- * Last generated at: 5/8/2025, 12:26:40 AM
->>>>>>> 58dff17 (wip: table 16)
+ * Last generated at: 5/8/2025, 2:14:03 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
