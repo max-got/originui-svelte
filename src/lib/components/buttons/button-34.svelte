@@ -1,20 +1,20 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import QrCode from 'lucide-svelte/icons/qr-code';
+	import QrCodeIcon from 'lucide-svelte/icons/qr-code';
 </script>
 
 <div
-	class="inline-flex -space-x-px divide-x divide-primary-foreground/30 rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse"
+	class="shadow-xs inline-flex divide-x divide-primary-foreground/30 rounded-md rtl:space-x-reverse"
 >
 	<Button
-		class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
+		class="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
 		size="icon"
 		aria-label="QR code"
 	>
-		<QrCode size={16} stroke-width={2} aria-hidden="true" />
+		<QrCodeIcon size={16} aria-hidden="true" />
 	</Button>
-	<Button class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10">
+	<Button class="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10">
 		Sign in
 	</Button>
 </div>
