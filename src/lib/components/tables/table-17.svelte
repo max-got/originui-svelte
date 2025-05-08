@@ -31,7 +31,7 @@
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import Info from 'lucide-svelte/icons/info';
-	import { createRawSnippet } from 'svelte';
+	import { createRawSnippet, mount, unmount } from 'svelte';
 
 	let rowSelection = $state<RowSelectionState>({});
 	let expanded = $state<ExpandedState>({});
@@ -39,51 +39,29 @@
 	const columns: ColumnDef<User>[] = [
 		{
 			cell: ({ row }) => {
-				// return row.getCanExpand() ? (
-				// 	<Button
-				// 		{...{
-				// 			class: 'size-7 shadow-none text-muted-foreground',
-				// 			onClick: row.getToggleExpandedHandler(),
-				// 			'aria-expanded': row.getIsExpanded(),
-				// 			'aria-label': row.getIsExpanded()
-				// 				? `Collapse details for ${row.original.name}`
-				// 				: `Expand details for ${row.original.name}`,
-				// 			size: 'icon',
-				// 			variant: 'ghost'
-				// 		}}
-				// 	>
-				// 		{row.getIsExpanded() ? (
-				// 			<ChevronUp class="opacity-60" size={16} aria-hidden="true" />
-				// 		) : (
-				// 			<ChevronDown class="opacity-60" size={16} aria-hidden="true" />
-				// 		)}
-				// 	</Button>
-				// ) : undefined;
 				if (!row.getCanExpand()) return;
-
-				const _ChevronIconSnippet = createRawSnippet((getIsExpanded) => {
-					const expanded = getIsExpanded();
-					const ChevronComponent = expanded ? ChevronUp : ChevronDown;
-					return {
-						render: () =>
-							renderComponent(ChevronComponent, {
-								'aria-hidden': true,
-								class: 'opacity-60',
-								size: 16
-							})
-					};
-				});
 
 				return renderComponent(Button, {
 					'aria-expanded': row.getIsExpanded(),
 					'aria-label': row.getIsExpanded()
 						? `Collapse details for ${row.original.name}`
 						: `Expand details for ${row.original.name}`,
+					children: createRawSnippet(() => {
+						return {
+							render: () => '<div class="contents"></div>',
+							setup: (target) => {
+								const icon = mount(row.getIsExpanded() ? ChevronUp : ChevronDown, {
+									props: { 'aria-hidden': true, class: 'opacity-60', size: 16 },
+									target
+								});
+								return () => unmount(icon);
+							}
+						};
+					}),
 					class: 'size-7 shadow-none text-muted-foreground',
 					onclick: row.getToggleExpandedHandler(),
 					size: 'icon',
 					variant: 'ghost'
-					// children: renderSnippet(_ChevronIconSnippet, row.getIsExpanded())
 				});
 			},
 			header: () => null,
