@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ContentImg from '$assets/dialog-content.png?w=382&h=216&enhanced';
+	import ContentImg from '$assets/dialog-content.png?w=764&h=432&enhanced';
 	import {
 		Tooltip,
 		TooltipContent,
@@ -11,14 +11,14 @@
 </script>
 
 <TooltipProvider delayDuration={0}>
-	<Tooltip>
+	<Tooltip open>
 		<TooltipTrigger>
 			{#snippet child({ props })}
 				<Button variant="outline" size="sm" {...props}>W/ image</Button>
 			{/snippet}
 		</TooltipTrigger>
 		<TooltipContent class=" py-3">
-			<div class="space-y-2">
+			<div class="max-w-[382px] space-y-2">
 				<enhanced:img class="w-full rounded" src={ContentImg} alt="Content image" />
 				<div class="space-y-1">
 					<p class="text-[13px] font-medium">Tooltip with title and icon</p>

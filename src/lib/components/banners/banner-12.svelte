@@ -27,15 +27,10 @@
 			class="min-w-24"
 		>
 			{#if isDownloading}
-				<LoaderCircle
-					class="-ms-0.5 me-2 animate-spin"
-					size={16}
-					strokeWidth={2}
-					aria-hidden="true"
-				/>
+				<LoaderCircle class="-ms-0.5 animate-spin" size={16} strokeWidth={2} aria-hidden="true" />
 				Updating...
 			{:else}
-				<Download size={16} class="-ms-0.5 me-2" aria-hidden="true" />
+				<Download size={16} class="-ms-0.5" aria-hidden="true" />
 				Update now
 			{/if}
 		</Button>
