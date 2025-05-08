@@ -5,6 +5,6 @@
 </script>
 
 <Button variant="secondary">
-	<X class="-ms-1 me-2 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+	<X class="-ms-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
 	Button
 </Button>

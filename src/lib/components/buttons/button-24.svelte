@@ -26,7 +26,7 @@
 				</Toggle>
 			{/snippet}
 		</TooltipTrigger>
-		<TooltipContent class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground">
+		<TooltipContent class="px-2 py-1 text-xs">
 			<p>{bookmarked ? 'Remove bookmark' : 'Bookmark this'}</p>
 		</TooltipContent>
 	</Tooltip>

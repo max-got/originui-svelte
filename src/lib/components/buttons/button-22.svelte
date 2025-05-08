@@ -19,8 +19,6 @@
 				</Button>
 			{/snippet}
 		</TooltipTrigger>
-		<TooltipContent class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground">
-			Tooltip
-		</TooltipContent>
+		<TooltipContent class="px-2 py-1 text-xs">Tooltip</TooltipContent>
 	</Tooltip>
 </TooltipProvider>
