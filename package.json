@@ -15,6 +15,10 @@
 		"test": "vitest --run"
 	},
 	"dependencies": {
+		"@dnd-kit-svelte/core": "^0.0.8",
+		"@dnd-kit-svelte/modifiers": "^0.0.8",
+		"@dnd-kit-svelte/sortable": "^0.0.8",
+		"@dnd-kit-svelte/utilities": "^0.0.8",
 		"@fontsource-variable/inter": "^5.2.5",
 		"@fontsource/dm-serif-display": "^5.2.5",
 		"@fontsource/jetbrains-mono": "^5.2.5",
