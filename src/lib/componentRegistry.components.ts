@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 5/3/2025, 1:05:58 AM
+ * Last generated at: 5/8/2025, 12:26:40 AM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -615,17 +615,17 @@ export const OUI_DIRECTORIES = {
 			'table-11.svelte',
 			'table-12.todo.svelte',
 			'table-13.todo.svelte',
-			'table-14.todo.svelte',
-			'table-15.todo.svelte',
-			'table-16.todo.svelte',
-			'table-17.todo.svelte',
-			'table-18.todo.svelte',
-			'table-19.todo.svelte',
-			'table-20.todo.svelte'
+			'table-14.svelte',
+			'table-15.svelte',
+			'table-16.svelte',
+			'table-17.svelte',
+			'table-18.svelte',
+			'table-19.svelte',
+			'table-20.svelte'
 		],
 		status: {
-			todo: 9,
-			ready: 11
+			todo: 1,
+			ready: 19
 		}
 	},
 	TABS: {
