@@ -5,28 +5,8 @@
 	import Button from '$lib/components/ui/button.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
-	import {
-		type ColumnDef,
-		type ExpandedState,
-		getCoreRowModel,
-		getExpandedRowModel,
-		type RowSelectionState
-	} from '@tanstack/table-core';
-	import { fetchUsers } from '$data/api/data/users';
-	import {
-		createSvelteTable,
-		FlexRender,
-		renderComponent,
-		renderSnippet
-	} from '$lib/components/ui/data-table';
-	import {
-		Table,
-		TableBody,
-		TableCell,
-		TableHead,
-		TableHeader,
-		TableRow
-	} from '$lib/components/ui/table';
+	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
+	import { Table, TableBody, TableCell, TableRow } from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
@@ -168,9 +148,11 @@
 
 	let data = $state<User[]>([]);
 	$effect(() => {
-		fetchUsers()
-			.then((response) => {
-				data = response.slice(0, 5);
+		if (data.length > 0) return;
+		fetch('/api/v1/data/data-table')
+			.then((res) => res.json())
+			.then((d: { data: Item[] }) => {
+				data = d.data.slice(0, 5);
 			})
 			.catch((err) => {
 				console.error(err);
