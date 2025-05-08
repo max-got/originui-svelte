@@ -23,10 +23,6 @@
 	)}
 	{...restProps}
 >
-<<<<<<< HEAD
-	{#snippet children({ checked, indeterminate })}
-		<div class="grid place-content-center text-current">
-=======
 	{#snippet children({ checked })}
 		<div class="flex items-center justify-center text-current">
 >>>>>>> parent of d80c701 (feat: tables)
