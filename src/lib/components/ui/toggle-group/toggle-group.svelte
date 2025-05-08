@@ -35,6 +35,9 @@
 <ToggleGroupPrimitive.Root
 	bind:value={value as never}
 	bind:ref
-	class={cn('flex items-center justify-center gap-1', className)}
+	class={cn(
+		'group/toggle-group data-[variant=outline]:shadow-xs flex items-center rounded-md',
+		className
+	)}
 	{...restProps}
 />

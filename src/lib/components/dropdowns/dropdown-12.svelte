@@ -28,7 +28,7 @@
 					<AvatarImage src="./avatar.jpg" alt="Profile image" />
 					<AvatarFallback>KK</AvatarFallback>
 				</Avatar>
-				<ChevronDown size={16} stroke-width={2} class="ms-2 opacity-60" aria-hidden="true" />
+				<ChevronDown size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
