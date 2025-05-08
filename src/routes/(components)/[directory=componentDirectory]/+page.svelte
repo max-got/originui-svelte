@@ -54,8 +54,6 @@
 				return { layout: 'default', style: 'default' };
 			case 'switches':
 				return { layout: 'default', style: 'centered' };
-			case 'tables':
-				return { layout: 'full', style: 'default' };
 			case 'tabs':
 				return { layout: 'wide', style: 'text-center' };
 			case 'tooltips':

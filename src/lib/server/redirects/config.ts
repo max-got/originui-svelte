@@ -51,10 +51,6 @@ const OLD_COMPONENT_ROUTES = {
 		componentDirectory: ['sliders'],
 		path: 'sliders'
 	},
-	tables: {
-		componentDirectory: ['tables'],
-		path: 'tables'
-	},
 	tabs: {
 		componentDirectory: ['tabs'],
 		path: 'tabs'
