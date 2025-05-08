@@ -48,11 +48,11 @@
 						: `Expand details for ${row.original.name}`,
 					children: createRawSnippet(() => {
 						return {
-							render: () => '<div class="contents"></div>',
+							render: () => '<!---->',
 							setup: (target) => {
 								const icon = mount(row.getIsExpanded() ? ChevronUp : ChevronDown, {
 									props: { 'aria-hidden': true, class: 'opacity-60', size: 16 },
-									target
+									target: target.parentElement as Element
 								});
 								return () => unmount(icon);
 							}
