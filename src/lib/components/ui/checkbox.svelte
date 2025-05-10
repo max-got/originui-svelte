@@ -23,8 +23,8 @@
 	)}
 	{...restProps}
 >
-	{#snippet children({ checked })}
-		<div class="flex items-center justify-center text-current">
+	{#snippet children({ checked, indeterminate })}
+		<div class="grid place-content-center text-current">
 			{#if checked === true}
 				<svg
 					width="9"
