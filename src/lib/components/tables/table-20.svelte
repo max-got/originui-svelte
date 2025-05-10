@@ -219,7 +219,6 @@
 			id: 'name'
 		}
 	]);
-
 	let data = $state<User[]>([]);
 
 	$effect(() => {

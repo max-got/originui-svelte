@@ -107,10 +107,9 @@
 			id: 'name'
 		}
 	]);
-
 	let columnSizing = $state<ColumnSizingState>({});
-
 	let data = $state<User[]>([]);
+
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {

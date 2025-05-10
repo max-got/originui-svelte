@@ -35,10 +35,15 @@
 	import PinOffIcon from 'lucide-svelte/icons/pin-off';
 	import { createRawSnippet } from 'svelte';
 
+	let sorting = $state<SortingState>([
+		{
+			desc: false,
+			id: 'name'
+		}
+	]);
+
 	// Helper function to compute pinning styles for columns
-	const getPinningStyles = (
-		column: Column<User>
-	): HTMLAttributes<HTMLTableCellElement>['style'] => {
+	function getPinningStyles(column: Column<User>): HTMLAttributes<HTMLTableCellElement>['style'] {
 		const isPinned = column.getIsPinned();
 		const properties = {
 			left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
@@ -52,7 +57,8 @@
 			.filter(([, value]) => value !== undefined)
 			.map(([key, value]) => `${key}: ${value}`)
 			.join(';');
-	};
+	}
+
 	const columns: ColumnDef<User>[] = [
 		{
 			accessorKey: 'name',
@@ -129,16 +135,10 @@
 		}
 	];
 
-	let sorting = $state<SortingState>([
-		{
-			desc: false,
-			id: 'name'
-		}
-	]);
-
 	let columnSizing = $state<ColumnSizingState>({});
 	let columnPinning = $state<ColumnPinningState>({});
 	let data = $state<User[]>([]);
+
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {

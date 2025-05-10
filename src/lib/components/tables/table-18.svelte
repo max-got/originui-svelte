@@ -23,13 +23,7 @@
 		renderSnippet
 	} from '$lib/components/ui/data-table';
 	import { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';
-	import {
-		Select,
-		SelectContent,
-		SelectItem,
-		SelectTrigger
-		// SelectValue
-	} from '$lib/components/ui/select';
+	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
 	import {
 		Table,
 		TableBody,
@@ -146,17 +140,15 @@
 		pageIndex: 0,
 		pageSize: 5
 	});
-
 	let sorting = $state<SortingState>([
 		{
 			desc: false,
 			id: 'name'
 		}
 	]);
-
 	let rowSelection = $state<RowSelectionState>({});
-
 	let data = $state<User[]>([]);
+
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {

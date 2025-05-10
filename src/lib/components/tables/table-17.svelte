@@ -33,9 +33,6 @@
 	import Info from 'lucide-svelte/icons/info';
 	import { createRawSnippet, mount, unmount } from 'svelte';
 
-	let rowSelection = $state<RowSelectionState>({});
-	let expanded = $state<ExpandedState>({});
-
 	const columns: ColumnDef<User>[] = [
 		{
 			cell: ({ row }) => {
@@ -166,7 +163,10 @@
 		}
 	];
 
+	let rowSelection = $state<RowSelectionState>({});
+	let expanded = $state<ExpandedState>({});
 	let data = $state<User[]>([]);
+
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {

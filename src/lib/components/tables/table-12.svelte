@@ -24,8 +24,6 @@
 	import { cn } from '$lib/utils';
 	import { createRawSnippet } from 'svelte';
 
-	let rowSelection = $state<RowSelectionState>({});
-
 	const columns: ColumnDef<User>[] = [
 		{
 			cell: ({ row }) =>
@@ -126,6 +124,7 @@
 		}
 	];
 
+	let rowSelection = $state<RowSelectionState>({});
 	let data = $state<User[]>([]);
 
 	$effect(() => {

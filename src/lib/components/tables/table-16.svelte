@@ -114,7 +114,7 @@
 			id: 'name'
 		}
 	]);
-	let columnOrder = $state<string[]>(columns.map((column) => column.id as string));
+	let columnOrder = $state<string[]>(columns.map((column) => column.id ?? ''));
 
 	$effect(() => {
 		fetchUsers()
@@ -238,6 +238,7 @@
 		id: header.column.id
 	})}
 	{@const style = `opacity: ${isDragging.current ? 0.8 : 1}; position: relative; transform: ${CSS.Translate.toString(transform.current)}; transition: ${transition.current ?? 'initial'}; whiteSpace: nowrap; width: ${header.column.getSize()}px; z-index: ${isDragging.current ? 1 : 0}`}
+
 	<TableHead
 		ref={setNodeRef}
 		class="relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-border first:before:bg-transparent"

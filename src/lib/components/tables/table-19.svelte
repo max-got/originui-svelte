@@ -144,22 +144,19 @@
 	];
 
 	let pageSize = $state(5);
-
 	let pagination = $state<PaginationState>({
 		pageIndex: 0,
 		pageSize: pageSize
 	});
-
 	let sorting = $state<SortingState>([
 		{
 			desc: false,
 			id: 'name'
 		}
 	]);
-
 	let rowSelection = $state<RowSelectionState>({});
-
 	let data = $state<User[]>([]);
+
 	$effect(() => {
 		fetchUsers()
 			.then((response) => {
