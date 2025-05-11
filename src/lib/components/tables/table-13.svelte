@@ -18,6 +18,8 @@
 		type ColumnDef,
 		type ColumnFiltersState,
 		getCoreRowModel,
+		getFacetedMinMaxValues,
+		getFacetedRowModel,
 		getFacetedUniqueValues,
 		getFilteredRowModel,
 		getSortedRowModel,
@@ -322,9 +324,10 @@
 		},
 		enableSortingRemoval: false,
 		getCoreRowModel: getCoreRowModel(),
-		getFacetedUniqueValues: getFacetedUniqueValues(),
-		getFilteredRowModel: getFilteredRowModel(),
-
+		getFacetedMinMaxValues: getFacetedMinMaxValues(), // generate min/max values for range filter
+		getFacetedRowModel: getFacetedRowModel(), // client-side faceting
+		getFacetedUniqueValues: getFacetedUniqueValues(), // generate unique values for select filter/autocomplete
+		getFilteredRowModel: getFilteredRowModel(), //client-side filtering
 		getSortedRowModel: getSortedRowModel(),
 		onColumnFiltersChange: (updater) => {
 			if (typeof updater === 'function') {
@@ -333,7 +336,6 @@
 				columnFilters = updater;
 			}
 		},
-
 		onRowSelectionChange: (updater) => {
 			if (typeof updater === 'function') {
 				rowSelection = updater(rowSelection);
@@ -500,7 +502,7 @@
 					id="{column.id}-range-1"
 					class="flex-1 rounded-e-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
 					value={(columnFilterValue as [number, number])?.[0] ?? ''}
-					oninput={(e) =>
+					onchange={(e) =>
 						column.setFilterValue((old: [number, number]) => [
 							e.currentTarget.value ? Number(e.currentTarget.value) : undefined,
 							old?.[1]
@@ -513,7 +515,7 @@
 					id="{column.id}-range-2"
 					class="-ms-px flex-1 rounded-s-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
 					value={(columnFilterValue as [number, number])?.[1] ?? ''}
-					oninput={(e) =>
+					onchange={(e) =>
 						column.setFilterValue((old: [number, number]) => [
 							old?.[0],
 							e.currentTarget.value ? Number(e.currentTarget.value) : undefined
@@ -553,7 +555,7 @@
 					id="{column.id}-input"
 					class="peer ps-9"
 					value={(columnFilterValue ?? '') as string}
-					oninput={(e) => column.setFilterValue(e.currentTarget.value)}
+					onchange={(e) => column.setFilterValue(e.currentTarget.value)}
 					placeholder={`Search ${columnHeader.toLowerCase()}`}
 					type="text"
 				/>
