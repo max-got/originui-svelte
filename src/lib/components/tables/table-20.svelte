@@ -701,7 +701,6 @@
 				</DropdownMenuItem>
 				<DropdownMenuSub>
 					<DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
-
 					<DropdownMenuSubContent>
 						<DropdownMenuItem>Move to project</DropdownMenuItem>
 						<DropdownMenuItem>Move to folder</DropdownMenuItem>
