@@ -17,6 +17,7 @@
 		getPaginationRowModel,
 		getSortedRowModel,
 		type PaginationState,
+		type RowSelectionState,
 		type SortingState,
 		type VisibilityState
 	} from '@tanstack/table-core';
@@ -213,6 +214,7 @@
 		pageIndex: 0,
 		pageSize: 10
 	});
+	let rowSelection = $state<RowSelectionState>({});
 	let sorting = $state<SortingState>([
 		{
 			desc: false,
@@ -270,6 +272,13 @@
 				pagination = updater;
 			}
 		},
+		onRowSelectionChange: (updater) => {
+			if (typeof updater === 'function') {
+				rowSelection = updater(rowSelection);
+			} else {
+				rowSelection = updater;
+			}
+		},
 		onSortingChange: (updater) => {
 			if (typeof updater === 'function') {
 				sorting = updater(sorting);
@@ -286,6 +295,9 @@
 			},
 			get pagination() {
 				return pagination;
+			},
+			get rowSelection() {
+				return rowSelection;
 			},
 			get sorting() {
 				return sorting;
@@ -419,7 +431,6 @@
 							class="capitalize"
 							checked={column.getIsVisible()}
 							onCheckedChange={(value) => column.toggleVisibility(!!value)}
-							onSelect={(event) => event.preventDefault()}
 						>
 							{column.id}
 						</DropdownMenuCheckboxItem>
