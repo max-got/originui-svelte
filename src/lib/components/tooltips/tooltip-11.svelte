@@ -30,8 +30,8 @@
 				</div>
 			</div>
 			<p class="text-sm text-muted-foreground">
-				Designer at <strong class="font-medium text-foreground">@Origin UI</strong>. Crafting web
-				experiences with Tailwind CSS.
+				Designer at <strong class="font-medium text-foreground">@Origin UI - Svelte</strong>.
+				Crafting web experiences with Tailwind CSS.
 			</p>
 			<div class="flex items-center gap-2">
 				<div class="flex -space-x-1.5">
