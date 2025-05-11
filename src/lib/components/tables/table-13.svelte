@@ -27,6 +27,12 @@
 		type RowSelectionState,
 		type SortingState
 	} from '@tanstack/table-core';
+	import {
+		createSvelteTable,
+		FlexRender,
+		renderComponent,
+		renderSnippet
+	} from '$lib/components/ui/data-table';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
 	import {
 		Table,
@@ -43,8 +49,6 @@
 	import SearchIcon from 'lucide-svelte/icons/search';
 	import { createRawSnippet, mount, unmount } from 'svelte';
 	import { render } from 'svelte/server';
-
-	import { createSvelteTable, FlexRender, renderComponent, renderSnippet } from '../ui/data-table';
 
 	type Item = {
 		cpc: number;
