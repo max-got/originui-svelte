@@ -240,7 +240,7 @@
 	{@const style = `opacity: ${isDragging.current ? 0.8 : 1}; position: relative; transform: ${CSS.Translate.toString(transform.current)}; transition: ${transition.current ?? 'initial'}; whiteSpace: nowrap; width: ${header.column.getSize()}px; z-index: ${isDragging.current ? 1 : 0}`}
 
 	<TableHead
-		ref={setNodeRef}
+		ref={setNodeRef as unknown as HTMLElement}
 		class="relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-border first:before:bg-transparent"
 		{style}
 		aria-sort={header.column.getIsSorted() === 'asc'
@@ -297,7 +297,7 @@
 {#snippet DragAlongCell(cell: Cell<User, unknown>)}
 	{@const { isDragging, setNodeRef, transform, transition } = useSortable({ id: cell.column.id })}
 	{@const style = `opacity: ${isDragging.current ? 0.8 : 1}; position: relative; transform: ${CSS.Translate.toString(transform.current)}; transition: ${transition.current ?? 'initial'}; width: ${cell.column.getSize()}px; z-index: ${isDragging.current ? 1 : 0}`}
-	<TableCell class="truncate" ref={setNodeRef} {style}>
+	<TableCell class="truncate" ref={setNodeRef as unknown as HTMLElement} {style}>
 		<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 	</TableCell>
 {/snippet}
