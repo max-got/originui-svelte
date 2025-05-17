@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { User } from '$data/api/data/users.handlers';
+	import type { Attachment } from 'svelte/attachments';
 
 	import Button from '$lib/components/ui/button.svelte';
 
@@ -20,7 +21,7 @@
 		SortableContext,
 		useSortable
 	} from '@dnd-kit-svelte/sortable';
-	import { CSS } from '@dnd-kit-svelte/utilities';
+	import { CSS, styleObjectToString } from '@dnd-kit-svelte/utilities';
 	import {
 		type Cell,
 		type ColumnDef,
@@ -43,6 +44,7 @@
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import GripVertical from 'lucide-svelte/icons/grip-vertical';
 	import { createRawSnippet } from 'svelte';
+	import { on } from 'svelte/events';
 
 	const columns: ColumnDef<User>[] = [
 		{
@@ -162,13 +164,15 @@
 	// reorder columns after drag & drop
 	function handleDragEnd(event: DragEndEvent) {
 		const { active, over } = event;
-		if (active && over && active.id !== over.id) {
-			// this is just a splice util
-			columnOrder = arrayMove(
-				columnOrder,
-				columnOrder.indexOf(active.id as string), // oldIndex
-				columnOrder.indexOf(over.id as string) // newIndex
-			);
+		const snapshottedActive = $state.snapshot(active);
+		const snapshottedOver = $state.snapshot(over);
+
+		if (snapshottedActive && snapshottedOver && snapshottedActive.id !== snapshottedOver.id) {
+			table.setColumnOrder((columnOrder) => {
+				const oldIndex = columnOrder.indexOf(snapshottedActive.id as string);
+				const newIndex = columnOrder.indexOf(snapshottedOver.id as string);
+				return arrayMove(columnOrder, oldIndex, newIndex); //this is just a splice util
+			});
 		}
 	}
 
@@ -178,7 +182,83 @@
 		useSensor(KeyboardSensor, {})
 	);
 
-	let id = $props.id();
+	function headerDragAttachment({ header }: { header: Header<User, unknown> }): {
+		buttonAttachment: Attachment;
+		thAttachment: Attachment;
+	} {
+		const { attributes, isDragging, isSorting, listeners, setNodeRef, transform, transition } =
+			useSortable({
+				id: header.column.id
+			});
+
+		const thAttachment: Attachment = (element) => {
+			setNodeRef(element as HTMLElement);
+
+			const style = $derived(
+				styleObjectToString({
+					opacity: isDragging.current ? 0.8 : 1,
+					position: 'relative',
+					transform: CSS.Transform.toString(transform.current),
+					transition: isSorting.current ? transition.current : undefined,
+					whiteSpace: 'nowrap',
+					width: header.column.getSize() + 'px',
+					zIndex: isDragging.current ? 1 : undefined
+				})
+			);
+
+			element.setAttribute('style', style);
+			return () => {
+				element.removeAttribute('style');
+			};
+		};
+
+		const buttonAttachment: Attachment = (element) => {
+			element.addEventListener('mousedown', listeners.current.onmousedown);
+			element.addEventListener('touchstart', listeners.current.ontouchstart);
+			element.addEventListener('keydown', listeners.current.onkeydown);
+
+			Object.entries(attributes.current).forEach(([key, value]) => {
+				element.setAttribute(key, value);
+			});
+			return () => {
+				element.removeEventListener('mousedown', listeners.current.onmousedown);
+				element.removeEventListener('touchstart', listeners.current.ontouchstart);
+				element.removeEventListener('keydown', listeners.current.onkeydown);
+			};
+		};
+
+		return {
+			buttonAttachment,
+			thAttachment
+		};
+	}
+
+	const dragAlongCellAttachment = (cell: Cell<User, unknown>): Attachment => {
+		return (element) => {
+			const { isDragging, isSorting, setNodeRef, transform, transition } = useSortable({
+				id: cell.column.id
+			});
+			setNodeRef(element as HTMLElement);
+
+			const style = $derived(
+				styleObjectToString({
+					opacity: isDragging.current ? 0.8 : 1,
+					position: 'relative',
+					transform: CSS.Transform.toString(transform.current),
+					transition: isSorting.current ? transition.current : undefined,
+					width: cell.column.getSize() + 'px',
+					zIndex: isDragging.current ? 1 : undefined
+				})
+			);
+
+			element.setAttribute('style', style);
+			return () => {
+				element.removeAttribute('style');
+			};
+		};
+	};
+
+	const id = $props.id();
 </script>
 
 <DndContext
@@ -234,32 +314,26 @@
 </DndContext>
 
 {#snippet DraggableTableHeader(header: Header<User, unknown>)}
-	{@const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
-		id: header.column.id
-	})}
-	{@const style = `opacity: ${isDragging.current ? 0.8 : 1}; position: relative; transform: ${CSS.Translate.toString(transform.current)}; transition: ${transition.current ?? 'initial'}; whiteSpace: nowrap; width: ${header.column.getSize()}px; z-index: ${isDragging.current ? 1 : 0}`}
-
 	<TableHead
-		ref={setNodeRef as unknown as HTMLElement}
 		class="relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-border first:before:bg-transparent"
-		{style}
 		aria-sort={header.column.getIsSorted() === 'asc'
 			? 'ascending'
 			: header.column.getIsSorted() === 'desc'
 				? 'descending'
 				: 'none'}
+			{@attach headerDragAttachment({ header }).thAttachment}
 	>
 		<div class="flex items-center justify-start gap-0.5">
 			<Button
 				size="icon"
 				variant="ghost"
 				class="-ml-2 size-7 shadow-none"
-				{...attributes.current}
-				{...listeners.current}
+				{@attach headerDragAttachment({ header }).buttonAttachment}
 				aria-label="Drag to reorder"
 			>
 				<GripVertical class="opacity-60" size={16} aria-hidden="true" />
 			</Button>
+
 			<span class="grow truncate">
 				{#if !header.isPlaceholder}
 					<FlexRender content={header.column.columnDef.header} context={header.getContext()} />
@@ -295,9 +369,7 @@
 {/snippet}
 
 {#snippet DragAlongCell(cell: Cell<User, unknown>)}
-	{@const { isDragging, setNodeRef, transform, transition } = useSortable({ id: cell.column.id })}
-	{@const style = `opacity: ${isDragging.current ? 0.8 : 1}; position: relative; transform: ${CSS.Translate.toString(transform.current)}; transition: ${transition.current ?? 'initial'}; width: ${cell.column.getSize()}px; z-index: ${isDragging.current ? 1 : 0}`}
-	<TableCell class="truncate" ref={setNodeRef as unknown as HTMLElement} {style}>
+	<TableCell class="truncate" {@attach dragAlongCellAttachment(cell)}>
 		<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 	</TableCell>
 {/snippet}
