@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 3/30/2025, 6:08:55 PM
+ * Last generated at: 5/11/2025, 3:38:22 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -596,6 +596,36 @@ export const OUI_DIRECTORIES = {
 		status: {
 			todo: 0,
 			ready: 17
+		}
+	},
+	TABLES: {
+		directory: 'tables',
+		name: 'Tables',
+		components: [
+			'table-01.svelte',
+			'table-02.svelte',
+			'table-03.svelte',
+			'table-04.svelte',
+			'table-05.svelte',
+			'table-06.svelte',
+			'table-07.svelte',
+			'table-08.svelte',
+			'table-09.svelte',
+			'table-10.svelte',
+			'table-11.svelte',
+			'table-12.svelte',
+			'table-13.svelte',
+			'table-14.svelte',
+			'table-15.svelte',
+			'table-16.svelte',
+			'table-17.svelte',
+			'table-18.svelte',
+			'table-19.svelte',
+			'table-20.svelte'
+		],
+		status: {
+			todo: 0,
+			ready: 20
 		}
 	},
 	TABS: {

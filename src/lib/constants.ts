@@ -43,6 +43,30 @@ export const POSSIBLE_DEPENDENCIES = [
 		name: 'svelte-sonner',
 		packageName: 'svelte-sonner',
 		url: 'https://github.com/wobsoriano/svelte-sonner'
+	},
+	{
+		dev: false,
+		name: '@dnd-kit-svelte/core',
+		packageName: '@dnd-kit-svelte/core',
+		url: 'https://github.com/HanielU/dnd-kit-svelte'
+	},
+	{
+		dev: false,
+		name: '@dnd-kit-svelte/modifiers',
+		packageName: '@dnd-kit-svelte/modifiers',
+		url: 'https://github.com/HanielU/dnd-kit-svelte'
+	},
+	{
+		dev: false,
+		name: '@dnd-kit-svelte/sortable',
+		packageName: '@dnd-kit-svelte/sortable',
+		url: 'https://github.com/HanielU/dnd-kit-svelte'
+	},
+	{
+		dev: false,
+		name: '@dnd-kit-svelte/utilities',
+		packageName: '@dnd-kit-svelte/utilities',
+		url: 'https://github.com/HanielU/dnd-kit-svelte'
 	}
 ] as const;
 

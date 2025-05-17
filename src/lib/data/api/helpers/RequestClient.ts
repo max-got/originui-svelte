@@ -13,3 +13,7 @@ export class RequestClient {
 		return response.json();
 	}
 }
+
+export const createRequestClient = (fetch: typeof globalThis.fetch = globalThis.fetch) => {
+	return new RequestClient(fetch);
+};
