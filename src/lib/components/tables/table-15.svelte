@@ -46,7 +46,7 @@
 	function getPinningStyles(column: Column<User>): HTMLAttributes<HTMLTableCellElement>['style'] {
 		const isPinned = column.getIsPinned();
 		const properties = {
-			left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
+			left: isPinned === 'left' ? `-${column.getStart('left')}px` : undefined,
 			position: isPinned ? 'sticky' : 'relative',
 			right: isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
 			width: column.getSize() + 'px',
@@ -84,7 +84,7 @@
 					const { flag, location } = args();
 					return {
 						render: () => `
-							<div>
+							<div class="truncate">
 								<span class="text-lg leading-none">${flag}</span>
 								${location}
 							</div>`
@@ -209,7 +209,7 @@
 							isPinned === 'right' && header.column.getIsFirstColumn('right')}
 
 						<TableHead
-							class="data-pinned:bg-muted/90 data-pinned:backdrop-blur-xs relative h-10 truncate border-t [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+							class="relative h-10 truncate border-t data-[pinned]:bg-muted/90 data-[pinned]:backdrop-blur-sm [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
@@ -293,7 +293,7 @@
 							isPinned === 'right' && cell.column.getIsFirstColumn('right')}
 
 						<TableCell
-							class="data-pinned:bg-background/90 data-pinned:backdrop-blur-xs truncate [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+							class="truncate data-[pinned]:bg-background/90 data-[pinned]:backdrop-blur-sm [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
 							style={getPinningStyles(cell.column)}
 							data-pinned={isPinned || undefined}
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
