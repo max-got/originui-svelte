@@ -191,39 +191,43 @@
 				id: header.column.id
 			});
 
+			const style = $derived(styleObjectToString({
+				opacity: isDragging.current ? 0.8 : 1,
+				position: 'relative',
+				transform: CSS.Transform.toString(transform.current),
+				transition: isSorting.current ? transition.current : undefined,
+				whiteSpace: 'nowrap',
+				width: header.column.getSize() + 'px',
+				zIndex: isDragging.current ? 1 : undefined
+			}))
+			
 		const thAttachment: Attachment = (element) => {
 			setNodeRef(element as HTMLElement);
-
-			const style = $derived(
-				styleObjectToString({
-					opacity: isDragging.current ? 0.8 : 1,
-					position: 'relative',
-					transform: CSS.Transform.toString(transform.current),
-					transition: isSorting.current ? transition.current : undefined,
-					whiteSpace: 'nowrap',
-					width: header.column.getSize() + 'px',
-					zIndex: isDragging.current ? 1 : undefined
+			const cleanup = $effect.root(() => {
+				$effect(() => {	
+					element.setAttribute('style', style);
 				})
-			);
-
-			element.setAttribute('style', style);
+					return () => {
+						element.removeAttribute('style');
+					}
+				})
 			return () => {
-				element.removeAttribute('style');
+				cleanup();
 			};
 		};
 
 		const buttonAttachment: Attachment = (element) => {
-			element.addEventListener('mousedown', listeners.current.onmousedown);
-			element.addEventListener('touchstart', listeners.current.ontouchstart);
-			element.addEventListener('keydown', listeners.current.onkeydown);
-
 			Object.entries(attributes.current).forEach(([key, value]) => {
 				element.setAttribute(key, value);
 			});
+			const mouseDownCleanup = on(element, 'mousedown', listeners.current.onmousedown);
+			const touchStartCleanup = on(element, 'touchstart', listeners.current.ontouchstart);
+			const keyDownCleanup = on(element, 'keydown', listeners.current.onkeydown);
+
 			return () => {
-				element.removeEventListener('mousedown', listeners.current.onmousedown);
-				element.removeEventListener('touchstart', listeners.current.ontouchstart);
-				element.removeEventListener('keydown', listeners.current.onkeydown);
+				mouseDownCleanup();
+				touchStartCleanup();
+				keyDownCleanup();
 			};
 		};
 
@@ -233,28 +237,37 @@
 		};
 	}
 
+
+
 	const dragAlongCellAttachment = (cell: Cell<User, unknown>): Attachment => {
-		return (element) => {
-			const { isDragging, isSorting, setNodeRef, transform, transition } = useSortable({
-				id: cell.column.id
-			});
-			setNodeRef(element as HTMLElement);
+		const { isDragging, isSorting, setNodeRef,  transform, transition } = useSortable({
+			id: cell.column.id,
 
-			const style = $derived(
-				styleObjectToString({
-					opacity: isDragging.current ? 0.8 : 1,
-					position: 'relative',
-					transform: CSS.Transform.toString(transform.current),
-					transition: isSorting.current ? transition.current : undefined,
-					width: cell.column.getSize() + 'px',
-					zIndex: isDragging.current ? 1 : undefined
+		});
+
+		const style = $derived.by(() => {
+			return styleObjectToString({
+				opacity: isDragging.current ? 0.8 : 1,
+				position: 'relative',
+				transform: CSS.Transform.toString(transform.current),
+				transition: isSorting.current ? transition.current : undefined,
+			})})
+			
+			return (element) => {
+				setNodeRef(element as HTMLElement);
+				console.log("SETTING STYLE")
+				const cleanup = $effect.root(() => {
+						$effect(() => {	
+					element.setAttribute('style', style);
 				})
-			);
-
-			element.setAttribute('style', style);
-			return () => {
-				element.removeAttribute('style');
-			};
+					return () => {
+						element.removeAttribute('style');
+					}
+				})
+				return () => {
+					cleanup();
+				}
+		
 		};
 	};
 
@@ -310,6 +323,7 @@
 		<a href="https://dnd-kit-svelte.vercel.app/" target="_blank" rel="noopener noreferrer">
 			dnd kit
 		</a>
+
 	</p>
 </DndContext>
 
