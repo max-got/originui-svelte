@@ -182,7 +182,7 @@
 		useSensor(KeyboardSensor, {})
 	);
 
-	function headerDragAttachment({ header }: { header: Header<User, unknown> }): {
+	function headerDragAttachment( header: Header<User, unknown> ): {
 		buttonAttachment: Attachment;
 		thAttachment: Attachment;
 	} {
@@ -319,16 +319,16 @@
 		aria-sort={header.column.getIsSorted() === 'asc'
 			? 'ascending'
 			: header.column.getIsSorted() === 'desc'
-				? 'descending'
-				: 'none'}
-			{@attach headerDragAttachment({ header }).thAttachment}
+			? 'descending'
+			: 'none'}
+		{@attach headerDragAttachment(header).thAttachment}
 	>
 		<div class="flex items-center justify-start gap-0.5">
 			<Button
 				size="icon"
 				variant="ghost"
 				class="-ml-2 size-7 shadow-none"
-				{@attach headerDragAttachment({ header }).buttonAttachment}
+				{@attach headerDragAttachment(header).buttonAttachment}
 				aria-label="Drag to reorder"
 			>
 				<GripVertical class="opacity-60" size={16} aria-hidden="true" />
