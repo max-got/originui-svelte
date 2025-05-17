@@ -100,8 +100,6 @@ In the `src/lib/utils.ts` folder you will find the common `cn` function for tail
 
 In the `src/lib/hooks` folder you will find the common hooks.
 
-In the `src/lib/actions` folder you will find the common actions.
-
 #### Base Components
 
 You need to copy the base components from the `src/lib/components/ui` folder to your project and adjust the imports accordingly.
@@ -189,9 +187,7 @@ src/
 │   │   └─ ...       							# Other component categories
 │   ├── utils/        							# Utility functions
 │   ├── types/        							# TypeScript type definitions
-│   ├── hooks/        							# Svelte hooks
-│   ├── actions/      							# Svelte actions
-│   └── config/       							# Configuration files
+│   └── hooks/        							# Svelte hooks
 ```
 
 ### Component Registry System
@@ -216,8 +212,9 @@ The project uses an automated component registry system that connects your compo
    src/
    ├── lib/
    │   ├── componentRegistry.types.ts  # Auto-generated types
+   │   ├── componentRegistry.components.ts  # Auto-generated variables
    │   ├── componentRegistry.ts        # Registry implementation
-   │   └── data/api/
+   │   └── data/api/components/
    │       ├── components.ts           # API endpoints
    │       ├── components.handler.ts   # Request handlers
    │       └── components.route.ts     # Route definitions
@@ -229,8 +226,7 @@ The project uses an automated component registry system that connects your compo
    │               └── +page.server.ts # Component page handling
    └── params/
        ├── componentDirectory.ts       # Directory parameter validation
-       ├── componentId.ts             # Component ID validation
-       └── componentsPath.ts          # Path parameter validation
+       └── componentId.ts             # Component ID validation
    ```
 
 3. **How It Works**
@@ -313,7 +309,7 @@ The project includes an automated dependency detection system that analyzes comp
    - Multiple Dependencies:
      ```bash
      # Combines dev and runtime dependencies
-     pnpm i -D @iconify-json/ri unplugin-icons && pnpm i bits-ui@next
+     pnpm i -D @iconify-json/ri unplugin-icons && pnpm i bits-ui
      ```
 
 5. **Integration**
@@ -374,36 +370,6 @@ The project includes an automated dependency detection system that analyzes comp
     └── category-03.todo.svelte
     ```
 
-- 1.3\. **Route Configuration**
-
-  When adding a new component category, you must configure its routing in `src/lib/config/routes.ts`:
-
-  ```typescript
-  {
-    componentDirectory: ['your-category'], // Directory name(s) containing components
-    header: {
-      description: 'A growing collection of ${count} components built with Svelte and TailwindCSS.',
-      title: 'Your Category'
-    },
-    label: 'Your Category', // Navigation label
-    path: 'your-category', // URL path
-    seo: {
-      description: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
-      keywords: 'your, keywords, component, svelte, tailwindcss',
-      title: 'Your Category',
-      twitterDescription: 'An extensive collection of copy-and-paste components built with Svelte and TailwindCSS.',
-      twitterTitle: 'Your Category'
-    }
-  }
-  ```
-
-  For combined categories (like inputs/textareas), use multiple directories:
-
-  ```typescript
-  componentDirectory: ['category1', 'category2'],
-  path: 'combined-category'
-  ```
-
 2. **Component Requirements**
 
    - Resemble the original component as closely as possible
@@ -456,12 +422,8 @@ The project includes an automated dependency detection system that analyzes comp
 
 4. **Route Configuration**
 
-   - If adding a new category:
-     - Add entry to `src/lib/config/routes.ts`
-     - Configure SEO metadata
    - For existing categories:
      - Ensure component follows naming pattern
-     - Update component count in route description
 
 5. **Documentation**
 
