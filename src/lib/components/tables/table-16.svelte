@@ -182,7 +182,7 @@
 		useSensor(KeyboardSensor, {})
 	);
 
-	function headerDragAttachment( header: Header<User, unknown> ): {
+	function headerDragAttachment(header: Header<User, unknown>): {
 		buttonAttachment: Attachment;
 		thAttachment: Attachment;
 	} {
@@ -191,7 +191,8 @@
 				id: header.column.id
 			});
 
-			const style = $derived(styleObjectToString({
+		const style = $derived(
+			styleObjectToString({
 				opacity: isDragging.current ? 0.8 : 1,
 				position: 'relative',
 				transform: CSS.Transform.toString(transform.current),
@@ -199,18 +200,18 @@
 				whiteSpace: 'nowrap',
 				width: header.column.getSize() + 'px',
 				zIndex: isDragging.current ? 1 : undefined
-			}))
-			
+			})
+		);
 		const thAttachment: Attachment = (element) => {
 			setNodeRef(element as HTMLElement);
 			const cleanup = $effect.root(() => {
-				$effect(() => {	
+				$effect(() => {
 					element.setAttribute('style', style);
-				})
-					return () => {
-						element.removeAttribute('style');
-					}
-				})
+				});
+				return () => {
+					element.removeAttribute('style');
+				};
+			});
 			return () => {
 				cleanup();
 			};
@@ -237,12 +238,9 @@
 		};
 	}
 
-
-
 	const dragAlongCellAttachment = (cell: Cell<User, unknown>): Attachment => {
-		const { isDragging, isSorting, setNodeRef,  transform, transition } = useSortable({
-			id: cell.column.id,
-
+		const { isDragging, isSorting, setNodeRef, transform, transition } = useSortable({
+			id: cell.column.id
 		});
 
 		const style = $derived.by(() => {
@@ -250,24 +248,23 @@
 				opacity: isDragging.current ? 0.8 : 1,
 				position: 'relative',
 				transform: CSS.Transform.toString(transform.current),
-				transition: isSorting.current ? transition.current : undefined,
-			})})
-			
-			return (element) => {
-				setNodeRef(element as HTMLElement);
-				console.log("SETTING STYLE")
-				const cleanup = $effect.root(() => {
-						$effect(() => {	
+				transition: isSorting.current ? transition.current : undefined
+			});
+		});
+
+		return (element) => {
+			setNodeRef(element as HTMLElement);
+			const cleanup = $effect.root(() => {
+				$effect(() => {
 					element.setAttribute('style', style);
-				})
-					return () => {
-						element.removeAttribute('style');
-					}
-				})
+				});
 				return () => {
-					cleanup();
-				}
-		
+					element.removeAttribute('style');
+				};
+			});
+			return () => {
+				cleanup();
+			};
 		};
 	};
 
@@ -323,7 +320,6 @@
 		<a href="https://dnd-kit-svelte.vercel.app/" target="_blank" rel="noopener noreferrer">
 			dnd kit
 		</a>
-
 	</p>
 </DndContext>
 
@@ -333,8 +329,8 @@
 		aria-sort={header.column.getIsSorted() === 'asc'
 			? 'ascending'
 			: header.column.getIsSorted() === 'desc'
-			? 'descending'
-			: 'none'}
+				? 'descending'
+				: 'none'}
 		{@attach headerDragAttachment(header).thAttachment}
 	>
 		<div class="flex items-center justify-start gap-0.5">
