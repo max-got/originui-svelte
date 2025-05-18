@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 5/18/2025, 8:59:09 PM
+ * Last generated at: 5/18/2025, 9:12:09 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -690,10 +690,16 @@ export const OUI_DIRECTORIES = {
 	TIMELINES: {
 		directory: 'timelines',
 		name: 'Timelines',
-		components: ['timeline-01.svelte', 'timeline-02.svelte'],
+		components: [
+			'timeline-01.svelte',
+			'timeline-02.svelte',
+			'timeline-03.svelte',
+			'timeline-04.svelte',
+			'timeline-05.svelte'
+		],
 		status: {
 			todo: 0,
-			ready: 2
+			ready: 5
 		}
 	},
 	TOOLTIPS: {
