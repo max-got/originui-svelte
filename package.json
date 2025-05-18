@@ -29,6 +29,7 @@
 		"inputmask": "^5.0.9",
 		"lucide-svelte": "^0.488.0",
 		"mode-watcher": "^0.5.1",
+		"runed": "^0.28.0",
 		"svelte-sonner": "^0.3.28",
 		"svelte-tel-input": "^3.6.0",
 		"tailwind-merge": "^2.5.4",

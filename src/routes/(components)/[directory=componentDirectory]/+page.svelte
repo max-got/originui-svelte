@@ -58,6 +58,8 @@
 				return { layout: 'full', style: 'default' };
 			case 'tabs':
 				return { layout: 'wide', style: 'text-center' };
+			case 'timelines':
+				return { layout: 'wide', style: 'default' };
 			case 'tooltips':
 				return { layout: 'default', style: 'centered' };
 			default:

@@ -50,6 +50,9 @@ importers:
       mode-watcher:
         specifier: ^0.5.1
         version: 0.5.1(svelte@5.30.2)
+      runed:
+        specifier: ^0.28.0
+        version: 0.28.0(svelte@5.30.2)
       svelte-sonner:
         specifier: ^0.3.28
         version: 0.3.28(svelte@5.30.2)
@@ -2462,6 +2465,11 @@ packages:
 
   runed@0.23.4:
     resolution: {integrity: sha512-9q8oUiBYeXIDLWNK5DfCWlkL0EW3oGbk845VdKlPeia28l751VpfesaB/+7pI6rnbx1I6rqoZ2fZxptOJLxILA==}
+    peerDependencies:
+      svelte: ^5.7.0
+
+  runed@0.28.0:
+    resolution: {integrity: sha512-k2xx7RuO9hWcdd9f+8JoBeqWtYrm5CALfgpkg2YDB80ds/QE4w0qqu34A7fqiAwiBBSBQOid7TLxwxVC27ymWQ==}
     peerDependencies:
       svelte: ^5.7.0
 
@@ -5141,6 +5149,11 @@ snapshots:
       queue-microtask: 1.2.3
 
   runed@0.23.4(svelte@5.30.2):
+    dependencies:
+      esm-env: 1.2.2
+      svelte: 5.30.2
+
+  runed@0.28.0(svelte@5.30.2):
     dependencies:
       esm-env: 1.2.2
       svelte: 5.30.2

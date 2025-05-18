@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 5/11/2025, 3:38:22 PM
+ * Last generated at: 5/18/2025, 8:59:09 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -108,6 +108,7 @@ export type OUISwitchesComponents = OUIComponentHelper<'SWITCHES'>;
 export type OUITablesComponents = OUIComponentHelper<'TABLES'>;
 export type OUITabsComponents = OUIComponentHelper<'TABS'>;
 export type OUITextareasComponents = OUIComponentHelper<'TEXTAREAS'>;
+export type OUITimelinesComponents = OUIComponentHelper<'TIMELINES'>;
 export type OUITooltipsComponents = OUIComponentHelper<'TOOLTIPS'>;
 
 // All Component Types
@@ -133,6 +134,7 @@ export type OUIComponent = Prettify<
 	| OUITablesComponents
 	| OUITabsComponents
 	| OUITextareasComponents
+	| OUITimelinesComponents
 	| OUITooltipsComponents
 >;
 
@@ -159,5 +161,6 @@ export type OUIDirectoryToComponent = Prettify<{
 	tables: OUITablesComponents;
 	tabs: OUITabsComponents;
 	textareas: OUITextareasComponents;
+	timelines: OUITimelinesComponents;
 	tooltips: OUITooltipsComponents;
 }>;
