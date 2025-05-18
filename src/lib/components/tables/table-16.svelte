@@ -186,17 +186,16 @@
 		buttonAttachment: Attachment;
 		thAttachment: Attachment;
 	} {
-		const { attributes, isDragging, isSorting, listeners, setNodeRef, transform, transition } =
-			useSortable({
-				id: header.column.id
-			});
+		const { attributes, isDragging, listeners, setNodeRef, transform, transition } = useSortable({
+			id: header.column.id
+		});
 
 		const style = $derived(
 			styleObjectToString({
 				opacity: isDragging.current ? 0.8 : 1,
 				position: 'relative',
 				transform: CSS.Transform.toString(transform.current),
-				transition: isSorting.current ? transition.current : undefined,
+				transition: transition.current,
 				whiteSpace: 'nowrap',
 				width: header.column.getSize() + 'px',
 				zIndex: isDragging.current ? 1 : undefined
@@ -248,7 +247,9 @@
 				opacity: isDragging.current ? 0.8 : 1,
 				position: 'relative',
 				transform: CSS.Transform.toString(transform.current),
-				transition: isSorting.current ? transition.current : undefined
+				transition: isSorting.current ? transition.current : undefined,
+				width: cell.column.getSize(),
+				zIndex: isDragging ? 1 : 0
 			});
 		});
 
