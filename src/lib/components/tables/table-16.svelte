@@ -182,7 +182,7 @@
 		useSensor(KeyboardSensor, {})
 	);
 
-	function headerDragAttachment(header: Header<User, unknown>): {
+	function createHeaderDragAttachment(header: Header<User, unknown>): {
 		buttonAttachment: Attachment;
 		thAttachment: Attachment;
 	} {
@@ -324,6 +324,7 @@
 </DndContext>
 
 {#snippet DraggableTableHeader(header: Header<User, unknown>)}
+	{@const { buttonAttachment, thAttachment } = createHeaderDragAttachment(header)}
 	<TableHead
 		class="relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-border first:before:bg-transparent"
 		aria-sort={header.column.getIsSorted() === 'asc'
@@ -331,14 +332,14 @@
 			: header.column.getIsSorted() === 'desc'
 				? 'descending'
 				: 'none'}
-		{@attach headerDragAttachment(header).thAttachment}
+		{@attach thAttachment}
 	>
 		<div class="flex items-center justify-start gap-0.5">
 			<Button
 				size="icon"
 				variant="ghost"
 				class="-ml-2 size-7 shadow-none"
-				{@attach headerDragAttachment(header).buttonAttachment}
+				{@attach buttonAttachment}
 				aria-label="Drag to reorder"
 			>
 				<GripVertical class="opacity-60" size={16} aria-hidden="true" />

@@ -430,6 +430,7 @@
 						<DropdownMenuCheckboxItem
 							class="capitalize"
 							checked={column.getIsVisible()}
+							closeOnSelect={false}
 							onCheckedChange={(value) => column.toggleVisibility(!!value)}
 						>
 							{column.id}
