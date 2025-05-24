@@ -29,6 +29,9 @@ importers:
       '@fontsource/jetbrains-mono':
         specifier: ^5.2.5
         version: 5.2.5
+      '@headless-tree/core':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@internationalized/date':
         specifier: ^3.8.0
         version: 3.8.0
@@ -823,6 +826,9 @@ packages:
 
   '@fontsource/jetbrains-mono@5.2.5':
     resolution: {integrity: sha512-TPZ9b/uq38RMdrlZZkl0RwN8Ju9JxuqMETrw76pUQFbGtE1QbwQaNsLlnUrACNNBNbd0NZRXiJJSkC8ajPgbew==}
+
+  '@headless-tree/core@1.0.1':
+    resolution: {integrity: sha512-HbkveX2B5jltHS+90uTgD1CrgTEexjszff4+PRB8onMnAFZJ/eYPGVHZF5sK2dui9dGmP5OwNYTP6r2YXGCe+w==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3610,6 +3616,8 @@ snapshots:
   '@fontsource/dm-serif-display@5.2.5': {}
 
   '@fontsource/jetbrains-mono@5.2.5': {}
+
+  '@headless-tree/core@1.0.1': {}
 
   '@humanfs/core@0.19.1': {}
 

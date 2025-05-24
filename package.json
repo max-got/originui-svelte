@@ -23,6 +23,7 @@
 		"@fontsource-variable/inter": "^5.2.5",
 		"@fontsource/dm-serif-display": "^5.2.5",
 		"@fontsource/jetbrains-mono": "^5.2.5",
+		"@headless-tree/core": "^1.0.1",
 		"@internationalized/date": "^3.8.0",
 		"@lucide/svelte": "^0.511.0",
 		"@tanstack/table-core": "^8.21.3",
