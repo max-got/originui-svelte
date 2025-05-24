@@ -2,44 +2,44 @@
 	import { Timeline, TimelineContent, TimelineItem } from '$lib/components/ui/timeline';
 	type ActionType = 'create' | 'edit' | 'post' | 'reply';
 
+	import Avatar02 from '$lib/assets/avatar-40-02.jpg?w=48&h=48&enhanced';
 	import BookOpenIcon from 'lucide-svelte/icons/book-open';
 	import MessageCircleIcon from 'lucide-svelte/icons/message-circle';
 	import PencilIcon from 'lucide-svelte/icons/pencil';
 	import PlusIcon from 'lucide-svelte/icons/plus';
-
 	const items: {
 		action: ActionType;
 		date: Date;
 		id: number;
-		image: string;
+		image: Picture;
 		user: string;
 	}[] = [
 		{
 			action: 'post',
 			date: new Date(Date.now() - 59000), // 59 seconds ago
 			id: 1,
-			image: '/avatar-40-02.jpg',
+			image: Avatar02,
 			user: 'Matt'
 		},
 		{
 			action: 'reply',
 			date: new Date(Date.now() - 180000), // 3 minutes ago
 			id: 2,
-			image: '/avatar-40-02.jpg',
+			image: Avatar02,
 			user: 'Matt'
 		},
 		{
 			action: 'edit',
 			date: new Date(Date.now() - 300000), // 5 minutes ago
 			id: 3,
-			image: '/avatar-40-02.jpg',
+			image: Avatar02,
 			user: 'Matt'
 		},
 		{
 			action: 'create',
 			date: new Date(Date.now() - 600000), // 10 minutes ago
 			id: 4,
-			image: '/avatar-40-02.jpg',
+			image: Avatar02,
 			user: 'Matt'
 		}
 	];
@@ -90,7 +90,7 @@
 			{@const ActionIcon = getActionIcon(item.action)}
 			<TimelineItem step={item.id} class="!m-0 flex-row items-center gap-3 !py-2.5">
 				<ActionIcon class="text-muted-foreground/80" size={16} />
-				<img src={item.image} alt={item.user} class="size-6 rounded-full" />
+				<enhanced:img src={item.image} alt={item.user} class="size-6 rounded-full" />
 				<TimelineContent class="text-foreground">
 					<a class="font-medium hover:underline" href="#">
 						{item.user}

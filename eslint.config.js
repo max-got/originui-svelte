@@ -18,7 +18,8 @@ export default tseslint.config(
 		languageOptions: {
 			globals: {
 				...globals.browser,
-				...globals.node
+				...globals.node,
+				Picture: 'readonly'
 			}
 		},
 		rules: {
