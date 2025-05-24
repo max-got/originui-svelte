@@ -1,4 +1,8 @@
 <script lang="ts">
+	import Avatar01 from '$lib/assets/avatar-40-01.jpg?w=48&h=48&enhanced';
+	import Avatar02 from '$lib/assets/avatar-40-02.jpg?w=48&h=48&enhanced';
+	import Avatar03 from '$lib/assets/avatar-40-03.jpg?w=48&h=48&enhanced';
+	import Avatar05 from '$lib/assets/avatar-40-05.jpg?w=48&h=48&enhanced';
 	import {
 		Timeline,
 		TimelineContent,
@@ -17,7 +21,7 @@
 			description:
 				"I'm having trouble with the new component library. It's not rendering properly.",
 			id: 1,
-			image: '/avatar-40-01.jpg',
+			image: Avatar01,
 			title: 'Hannah Kandell'
 		},
 		{
@@ -26,7 +30,7 @@
 			description:
 				"Hey Hannah, I'm having trouble with the new component library. It's not rendering properly.",
 			id: 2,
-			image: '/avatar-40-02.jpg',
+			image: Avatar02,
 			title: 'Chris Tompson'
 		},
 		{
@@ -34,7 +38,7 @@
 			date: '5 minutes ago',
 			description: 'The new component library is not rendering properly. Can you take a look?',
 			id: 3,
-			image: '/avatar-40-03.jpg',
+			image: Avatar03,
 			title: 'Emma Davis'
 		},
 		{
@@ -42,7 +46,7 @@
 			date: '2 minutes ago',
 			description: 'The issue has been fixed. Please review the changes.',
 			id: 4,
-			image: '/avatar-40-05.jpg',
+			image: Avatar05,
 			title: 'Alex Morgan'
 		}
 	];
@@ -68,7 +72,7 @@
 				<TimelineIndicator
 					class="flex size-6 items-center justify-center border-none bg-primary/10 group-data-[orientation=vertical]/timeline:-left-7 group-data-[completed]/timeline-item:bg-primary group-data-[completed]/timeline-item:text-primary-foreground"
 				>
-					<img src={item.image} alt={item.title} class="size-6 rounded-full" />
+					<enhanced:img src={item.image} alt={item.title} class="size-6 rounded-full" />
 				</TimelineIndicator>
 			</TimelineHeader>
 			<TimelineContent class="mt-2 rounded-lg border px-4 py-3 text-foreground">
