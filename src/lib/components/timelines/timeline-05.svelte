@@ -53,7 +53,7 @@
 				<TimelineIndicator
 					class="flex size-6 items-center justify-center group-data-[orientation=vertical]/timeline:-left-7 group-data-[completed]/timeline-item:border-none group-data-[completed]/timeline-item:bg-primary group-data-[completed]/timeline-item:text-primary-foreground"
 				>
-					<CheckIcon class="group-[&:not([data-completed])]/timeline-item:hidden" size={16} />
+					<CheckIcon class="group-[:not([data-completed])]/timeline-item:hidden" size={16} />
 				</TimelineIndicator>
 			</TimelineHeader>
 			<TimelineContent>{item.description}</TimelineContent>
