@@ -4,6 +4,10 @@
 
 	import Button from '$lib/components/ui/button.svelte';
 
+	import ArrowLeftToLineIcon from '@lucide/svelte/icons/arrow-left-to-line';
+	import ArrowRightToLineIcon from '@lucide/svelte/icons/arrow-right-to-line';
+	import EllipsisIcon from '@lucide/svelte/icons/ellipsis';
+	import PinOffIcon from '@lucide/svelte/icons/pin-off';
 	import {
 		type Column,
 		type ColumnDef,
@@ -29,10 +33,6 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-	import ArrowLeftToLineIcon from 'lucide-svelte/icons/arrow-left-to-line';
-	import ArrowRightToLineIcon from 'lucide-svelte/icons/arrow-right-to-line';
-	import EllipsisIcon from 'lucide-svelte/icons/ellipsis';
-	import PinOffIcon from 'lucide-svelte/icons/pin-off';
 	import { createRawSnippet } from 'svelte';
 
 	let sorting = $state<SortingState>([

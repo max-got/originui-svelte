@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { User } from '$data/api/data/users.handlers';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 	import {
 		type ColumnDef,
 		type ColumnSizingState,
@@ -19,8 +21,6 @@
 		TableRow
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import { createRawSnippet } from 'svelte';
 
 	const columns: ColumnDef<User>[] = [

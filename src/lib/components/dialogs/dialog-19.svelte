@@ -7,9 +7,9 @@
 	import { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';
 	import { useImageUpload } from '$lib/hooks/use-image-upload.svelte';
 
-	import Check from 'lucide-svelte/icons/check';
-	import ImagePlus from 'lucide-svelte/icons/image-plus';
-	import X from 'lucide-svelte/icons/x';
+	import Check from '@lucide/svelte/icons/check';
+	import ImagePlus from '@lucide/svelte/icons/image-plus';
+	import X from '@lucide/svelte/icons/x';
 
 	const bioLimit = useCharacterLimit(
 		180,

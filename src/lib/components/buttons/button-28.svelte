@@ -8,8 +8,8 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	import CheckIcon from 'lucide-svelte/icons/check';
-	import CopyIcon from 'lucide-svelte/icons/copy';
+	import CheckIcon from '@lucide/svelte/icons/check';
+	import CopyIcon from '@lucide/svelte/icons/copy';
 
 	let copied = $state(false);
 

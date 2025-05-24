@@ -2,7 +2,7 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import AtSign from 'lucide-svelte/icons/at-sign';
+	import AtSign from '@lucide/svelte/icons/at-sign';
 
 	const uid = $props.id();
 </script>

@@ -2,8 +2,8 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import Switch from '$lib/components/ui/switch.svelte';
 
-	import IconMoon from 'lucide-svelte/icons/moon';
-	import IconSun from 'lucide-svelte/icons/sun';
+	import IconMoon from '@lucide/svelte/icons/moon';
+	import IconSun from '@lucide/svelte/icons/sun';
 
 	let checked = $state(false);
 

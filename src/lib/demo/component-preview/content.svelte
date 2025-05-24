@@ -8,12 +8,12 @@
 	import CopyButton from '../copy-button.svelte';
 	import ShareButton from '../share-button.svelte';
 
+	import Box from '@lucide/svelte/icons/box';
+	import Code from '@lucide/svelte/icons/code';
+	import Folder from '@lucide/svelte/icons/folder';
+	import FolderTree from '@lucide/svelte/icons/folder-tree';
 	import { page } from '$app/state';
 	import * as Tab from '$lib/components/ui/tabs';
-	import Box from 'lucide-svelte/icons/box';
-	import Code from 'lucide-svelte/icons/code';
-	import Folder from 'lucide-svelte/icons/folder';
-	import FolderTree from 'lucide-svelte/icons/folder-tree';
 	import { tick } from 'svelte';
 
 	type PropsComponentPreview = HTMLAttributes<HTMLDivElement> & {

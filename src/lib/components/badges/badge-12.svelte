@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Badge from '$lib/components/ui/badge.svelte';
 
-	import X from 'lucide-svelte/icons/x';
+	import X from '@lucide/svelte/icons/x';
 
 	let isActive = $state(true);
 </script>

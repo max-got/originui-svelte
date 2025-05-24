@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -8,7 +9,6 @@
 		DropdownMenuRadioItem,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 
 	let framework = $state('sveltekit');
 </script>

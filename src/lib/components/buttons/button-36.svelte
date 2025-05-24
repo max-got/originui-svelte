@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ChevronDownIcon from 'lucide-svelte/icons/chevron-down';
-	import PinIcon from 'lucide-svelte/icons/pin';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import PinIcon from '@lucide/svelte/icons/pin';
 </script>
 
 <div

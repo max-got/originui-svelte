@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Folders from '@lucide/svelte/icons/folder';
 	import {
 		Breadcrumb,
 		BreadcrumbItem,
@@ -13,7 +14,6 @@
 		DropdownMenuItem,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
-	import Folders from 'lucide-svelte/icons/folder';
 </script>
 
 <Breadcrumb>

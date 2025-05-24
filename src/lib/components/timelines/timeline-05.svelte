@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CheckIcon from '@lucide/svelte/icons/check';
 	import {
 		Timeline,
 		TimelineContent,
@@ -9,7 +10,6 @@
 		TimelineSeparator,
 		TimelineTitle
 	} from '$lib/components/ui/timeline';
-	import CheckIcon from 'lucide-svelte/icons/check';
 	const items = [
 		{
 			date: 'Mar 15, 2024',

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import CircleCheck from 'lucide-svelte/icons/circle-check';
-	import X from 'lucide-svelte/icons/x';
+	import CircleCheck from '@lucide/svelte/icons/circle-check';
+	import X from '@lucide/svelte/icons/x';
 	import { toast, type ToastT } from 'svelte-sonner';
 
 	function openToast() {

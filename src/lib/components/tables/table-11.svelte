@@ -1,4 +1,8 @@
 <script lang="ts">
+	import Check from '@lucide/svelte/icons/check';
+	import Monitor from '@lucide/svelte/icons/monitor';
+	import Smartphone from '@lucide/svelte/icons/smartphone';
+	import X from '@lucide/svelte/icons/x';
 	import {
 		Table,
 		TableBody,
@@ -7,10 +11,6 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-	import Check from 'lucide-svelte/icons/check';
-	import Monitor from 'lucide-svelte/icons/monitor';
-	import Smartphone from 'lucide-svelte/icons/smartphone';
-	import X from 'lucide-svelte/icons/x';
 
 	const items = [
 		{

@@ -2,8 +2,8 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import { CurrencyInput } from '$lib/hooks/use-currency-input.svelte';
 
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 
 	const uid = $props.id();
 	const currencyInput = new CurrencyInput({ id: uid, initialValue: 99 });

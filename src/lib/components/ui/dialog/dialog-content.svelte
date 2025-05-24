@@ -4,8 +4,8 @@
 	import DialogOverlay from './dialog-overlay.svelte';
 	import { cn } from '$lib/utils.js';
 
+	import X from '@lucide/svelte/icons/x';
 	import { Dialog as DialogPrimitive, type WithoutChild } from 'bits-ui';
-	import X from 'lucide-svelte/icons/x';
 
 	let {
 		children,

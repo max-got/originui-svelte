@@ -3,8 +3,8 @@
 
 	import Button from '$lib/components/ui/button.svelte';
 
-	import IconCircleUserRound from 'lucide-svelte/icons/circle-user-round';
-	import IconX from 'lucide-svelte/icons/x';
+	import IconCircleUserRound from '@lucide/svelte/icons/circle-user-round';
+	import IconX from '@lucide/svelte/icons/x';
 
 	let fileInput: HTMLInputElement;
 	let fileName = $state<null | string>(null);

@@ -10,7 +10,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 
-	import RotateCcw from 'lucide-svelte/icons/rotate-ccw';
+	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
 
 	const min = 0;
 	const max = 2;

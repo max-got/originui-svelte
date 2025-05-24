@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ChevronDownIcon from 'lucide-svelte/icons/chevron-down';
-	import GitForkIcon from 'lucide-svelte/icons/git-fork';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import GitForkIcon from '@lucide/svelte/icons/git-fork';
 </script>
 
 <div

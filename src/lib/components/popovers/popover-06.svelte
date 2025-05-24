@@ -1,9 +1,9 @@
 <script>
 	import Button from '$lib/components/ui/button.svelte';
 
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	const tips = [
 		{

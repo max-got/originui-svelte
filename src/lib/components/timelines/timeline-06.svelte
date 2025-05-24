@@ -1,4 +1,8 @@
 <script lang="ts">
+	import GitCompare from '@lucide/svelte/icons/git-compare';
+	import GitFork from '@lucide/svelte/icons/git-fork';
+	import GitMerge from '@lucide/svelte/icons/git-merge';
+	import GitPullRequest from '@lucide/svelte/icons/git-pull-request';
 	import {
 		Timeline,
 		TimelineContent,
@@ -9,10 +13,6 @@
 		TimelineSeparator,
 		TimelineTitle
 	} from '$lib/components/ui/timeline';
-	import GitCompare from 'lucide-svelte/icons/git-compare';
-	import GitFork from 'lucide-svelte/icons/git-fork';
-	import GitMerge from 'lucide-svelte/icons/git-merge';
-	import GitPullRequest from 'lucide-svelte/icons/git-pull-request';
 
 	const items = [
 		{

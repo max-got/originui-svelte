@@ -1,8 +1,8 @@
 <script lang="ts">
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
+	import Plus from '@lucide/svelte/icons/plus';
 	import { Accordion as AccordionPrimitive } from 'bits-ui';
-	import Plus from 'lucide-svelte/icons/plus';
 
 	const items = [
 		{

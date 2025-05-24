@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Database from '@lucide/svelte/icons/database';
 	import {
 		Breadcrumb,
 		BreadcrumbItem,
@@ -7,7 +8,6 @@
 		BreadcrumbSeparator
 	} from '$lib/components/ui/breadcrumb';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
-	import Database from 'lucide-svelte/icons/database';
 
 	let value = $state('s1');
 	const items = [

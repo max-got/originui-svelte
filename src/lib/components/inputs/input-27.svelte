@@ -4,9 +4,9 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
-	import Mic from 'lucide-svelte/icons/mic';
-	import Search from 'lucide-svelte/icons/search';
+	import LoaderCircle from '@lucide/svelte/icons/loader-circle';
+	import Mic from '@lucide/svelte/icons/mic';
+	import Search from '@lucide/svelte/icons/search';
 	import { onDestroy } from 'svelte';
 
 	let inputValue = $state('');

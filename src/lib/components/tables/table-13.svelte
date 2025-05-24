@@ -13,6 +13,10 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
+	import ExternalLinkIcon from '@lucide/svelte/icons/external-link';
+	import SearchIcon from '@lucide/svelte/icons/search';
 	import {
 		type Column,
 		type ColumnDef,
@@ -43,10 +47,6 @@
 		TableRow
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
-	import ChevronDownIcon from 'lucide-svelte/icons/chevron-down';
-	import ChevronUpIcon from 'lucide-svelte/icons/chevron-up';
-	import ExternalLinkIcon from 'lucide-svelte/icons/external-link';
-	import SearchIcon from 'lucide-svelte/icons/search';
 	import { createRawSnippet, mount, unmount } from 'svelte';
 	import { render } from 'svelte/server';
 

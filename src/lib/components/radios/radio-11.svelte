@@ -2,10 +2,10 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
-	import IconBrush from 'lucide-svelte/icons/brush';
-	import IconEraser from 'lucide-svelte/icons/eraser';
-	import IconScissors from 'lucide-svelte/icons/scissors';
-	import IconSwatchBook from 'lucide-svelte/icons/swatch-book';
+	import IconBrush from '@lucide/svelte/icons/brush';
+	import IconEraser from '@lucide/svelte/icons/eraser';
+	import IconScissors from '@lucide/svelte/icons/scissors';
+	import IconSwatchBook from '@lucide/svelte/icons/swatch-book';
 
 	const items = [
 		{ Icon: IconSwatchBook, id: 'radio-11-r1', label: 'Palette', value: 'r1' },

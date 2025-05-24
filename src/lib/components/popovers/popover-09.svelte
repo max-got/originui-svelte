@@ -1,16 +1,18 @@
 <script lang="ts">
+	import type { Icon as IconType } from '@lucide/svelte';
+
 	import Button from '../ui/button.svelte';
 
-	import Club from 'lucide-svelte/icons/club';
-	import Diamond from 'lucide-svelte/icons/diamond';
-	import Heart from 'lucide-svelte/icons/heart';
-	import Spade from 'lucide-svelte/icons/spade';
+	import Club from '@lucide/svelte/icons/club';
+	import Diamond from '@lucide/svelte/icons/diamond';
+	import Heart from '@lucide/svelte/icons/heart';
+	import Spade from '@lucide/svelte/icons/spade';
 
 	import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
 	interface TourStep {
 		description: string;
-		icon: typeof Heart;
+		icon: typeof IconType;
 		title: string;
 	}
 

@@ -1,20 +1,20 @@
 <script lang="ts">
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
+	import AtSign from '@lucide/svelte/icons/at-sign';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import CircleDashed from '@lucide/svelte/icons/circle-dashed';
+	import Command from '@lucide/svelte/icons/command';
+	import Eclipse from '@lucide/svelte/icons/eclipse';
+	import Gauge from '@lucide/svelte/icons/gauge';
+	import Plus from '@lucide/svelte/icons/plus';
+	import Zap from '@lucide/svelte/icons/zap';
 	import {
 		Collapsible,
 		CollapsibleContent,
 		CollapsibleTrigger
 	} from '$lib/components/ui/collapsible';
 	import { Accordion as AccordionPrimitive } from 'bits-ui';
-	import AtSign from 'lucide-svelte/icons/at-sign';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import CircleDashed from 'lucide-svelte/icons/circle-dashed';
-	import Command from 'lucide-svelte/icons/command';
-	import Eclipse from 'lucide-svelte/icons/eclipse';
-	import Gauge from 'lucide-svelte/icons/gauge';
-	import Plus from 'lucide-svelte/icons/plus';
-	import Zap from 'lucide-svelte/icons/zap';
 
 	const items = [
 		{

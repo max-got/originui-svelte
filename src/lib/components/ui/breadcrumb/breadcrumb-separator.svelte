@@ -2,7 +2,7 @@
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLLiAttributes } from 'svelte/elements';
 
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 
 	let {
 		children,

@@ -2,7 +2,7 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import Download from 'lucide-svelte/icons/download';
+	import Download from '@lucide/svelte/icons/download';
 
 	const uid = $props.id();
 </script>

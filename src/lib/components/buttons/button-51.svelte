@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ChevronRightIcon from 'lucide-svelte/icons/chevron-right';
+	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
 </script>
 
 <Button class="group h-auto gap-4 py-3 text-left" variant="outline">

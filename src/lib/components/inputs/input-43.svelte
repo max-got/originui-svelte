@@ -4,10 +4,10 @@
 	import { cn } from '$lib/utils.js';
 
 	import { type DateValue, getLocalTimeZone, isWeekend, today } from '@internationalized/date';
+	import Calendar from '@lucide/svelte/icons/calendar';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import { type DateRange, DateRangePicker, type DateRangeValidator } from 'bits-ui';
-	import Calendar from 'lucide-svelte/icons/calendar';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	let now = today(getLocalTimeZone());
 	let value: DateRange = $state({ end: undefined, start: undefined });

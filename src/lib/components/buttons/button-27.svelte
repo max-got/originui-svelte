@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import MinusIcon from 'lucide-svelte/icons/minus';
-	import PlusIcon from 'lucide-svelte/icons/plus';
-	import VolumeIcon from 'lucide-svelte/icons/volume';
-	import Volume1Icon from 'lucide-svelte/icons/volume-1';
-	import Volume2Icon from 'lucide-svelte/icons/volume-2';
-	import VolumeXIcon from 'lucide-svelte/icons/volume-x';
+	import MinusIcon from '@lucide/svelte/icons/minus';
+	import PlusIcon from '@lucide/svelte/icons/plus';
+	import VolumeIcon from '@lucide/svelte/icons/volume';
+	import Volume1Icon from '@lucide/svelte/icons/volume-1';
+	import Volume2Icon from '@lucide/svelte/icons/volume-2';
+	import VolumeXIcon from '@lucide/svelte/icons/volume-x';
 
 	let volume = $state(3);
 

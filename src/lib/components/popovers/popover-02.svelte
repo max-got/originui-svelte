@@ -2,8 +2,8 @@
 	import Badge from '$lib/components/ui/badge.svelte';
 	import Button from '$lib/components/ui/button.svelte';
 
+	import Bell from '@lucide/svelte/icons/bell';
 	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import Bell from 'lucide-svelte/icons/bell';
 
 	const initialNotifications = [
 		{

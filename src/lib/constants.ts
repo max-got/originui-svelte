@@ -5,13 +5,13 @@ export const POSSIBLE_DEPENDENCIES = [
 	{
 		dev: false,
 		name: 'bits-ui',
-		packageName: 'bits-ui@next',
+		packageName: 'bits-ui',
 		url: 'https://github.com/huntabyte/bits-ui'
 	},
 	{
 		dev: false,
-		name: 'lucide-svelte',
-		packageName: 'lucide-svelte',
+		name: '@lucide/svelte',
+		packageName: '@lucide/svelte',
 		url: 'https://github.com/lucide-icons/lucide'
 	},
 	{

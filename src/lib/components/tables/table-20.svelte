@@ -7,6 +7,20 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronFirst from '@lucide/svelte/icons/chevron-first';
+	import ChevronLast from '@lucide/svelte/icons/chevron-last';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
+	import CircleAlert from '@lucide/svelte/icons/circle-alert';
+	import CircleX from '@lucide/svelte/icons/circle-x';
+	import Columns3 from '@lucide/svelte/icons/columns-3';
+	import Ellipsis from '@lucide/svelte/icons/ellipsis';
+	import Filter from '@lucide/svelte/icons/filter';
+	import ListFilter from '@lucide/svelte/icons/list-filter';
+	import Plus from '@lucide/svelte/icons/plus';
+	import Trash from '@lucide/svelte/icons/trash';
 	import {
 		type ColumnDef,
 		type ColumnFiltersState,
@@ -64,20 +78,6 @@
 		TableRow
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronFirst from 'lucide-svelte/icons/chevron-first';
-	import ChevronLast from 'lucide-svelte/icons/chevron-last';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
-	import CircleAlert from 'lucide-svelte/icons/circle-alert';
-	import CircleX from 'lucide-svelte/icons/circle-x';
-	import Columns3 from 'lucide-svelte/icons/columns-3';
-	import Ellipsis from 'lucide-svelte/icons/ellipsis';
-	import Filter from 'lucide-svelte/icons/filter';
-	import ListFilter from 'lucide-svelte/icons/list-filter';
-	import Plus from 'lucide-svelte/icons/plus';
-	import Trash from 'lucide-svelte/icons/trash';
 	import { createRawSnippet } from 'svelte';
 
 	// Custom filter function for multi-column searching

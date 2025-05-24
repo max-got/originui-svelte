@@ -1,8 +1,8 @@
 <script lang="ts">
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import { Accordion as AccordionPrimitive } from 'bits-ui';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 
 	const items = [
 		{

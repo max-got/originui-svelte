@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';
-	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	type PaginationProps = {
 		currentPage: number;

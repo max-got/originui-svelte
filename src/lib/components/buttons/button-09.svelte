@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 </script>
 
 <Button class="group">

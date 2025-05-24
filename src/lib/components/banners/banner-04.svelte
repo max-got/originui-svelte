@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
-	import Eclipse from 'lucide-svelte/icons/eclipse';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import Eclipse from '@lucide/svelte/icons/eclipse';
 </script>
 
 <div class="dark bg-muted px-4 py-3 text-foreground">

@@ -3,8 +3,8 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
+	import ListFilter from '@lucide/svelte/icons/list-filter';
 	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import ListFilter from 'lucide-svelte/icons/list-filter';
 </script>
 
 <div class="flex flex-col gap-4">

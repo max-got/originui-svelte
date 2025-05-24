@@ -3,8 +3,8 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
 
-	import Minus from 'lucide-svelte/icons/minus';
-	import Plus from 'lucide-svelte/icons/plus';
+	import Minus from '@lucide/svelte/icons/minus';
+	import Plus from '@lucide/svelte/icons/plus';
 
 	const min = 0;
 	const max = 200;

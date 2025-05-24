@@ -4,7 +4,7 @@
 	import Button from '$lib/components/ui/button.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 
-	import Link from 'lucide-svelte/icons/square-arrow-out-up-right';
+	import Link from '@lucide/svelte/icons/square-arrow-out-up-right';
 
 	type Props = ComponentProps<typeof Tooltip.TooltipTrigger> & {
 		description: string;

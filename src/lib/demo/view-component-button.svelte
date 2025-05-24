@@ -5,7 +5,7 @@
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	import Code from 'lucide-svelte/icons/code';
+	import Code from '@lucide/svelte/icons/code';
 
 	type Props = ComponentProps<typeof Tooltip.TooltipTrigger>;
 

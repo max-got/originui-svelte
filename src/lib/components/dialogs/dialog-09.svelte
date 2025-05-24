@@ -3,7 +3,7 @@
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Input from '$lib/components/ui/input.svelte';
 
-	import Mail from 'lucide-svelte/icons/mail';
+	import Mail from '@lucide/svelte/icons/mail';
 </script>
 
 <Dialog.Root>

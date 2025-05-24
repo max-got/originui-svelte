@@ -1,12 +1,12 @@
 <script lang="ts">
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import {
 		Pagination,
 		PaginationContent,
 		PaginationItem,
 		PaginationLink
 	} from '$lib/components/ui/pagination';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	type PaginationProps = {
 		currentPage: number;

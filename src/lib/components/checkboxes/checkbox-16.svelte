@@ -2,10 +2,10 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import Brush from 'lucide-svelte/icons/brush';
-	import Eraser from 'lucide-svelte/icons/eraser';
-	import Scissors from 'lucide-svelte/icons/scissors';
-	import SwatchBook from 'lucide-svelte/icons/swatch-book';
+	import Brush from '@lucide/svelte/icons/brush';
+	import Eraser from '@lucide/svelte/icons/eraser';
+	import Scissors from '@lucide/svelte/icons/scissors';
+	import SwatchBook from '@lucide/svelte/icons/swatch-book';
 
 	const items = [
 		{ defaultChecked: true, Icon: SwatchBook, id: 'checkbox-16-c1', label: 'Palette', value: 'c1' },

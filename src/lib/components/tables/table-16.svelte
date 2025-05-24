@@ -22,6 +22,9 @@
 		useSortable
 	} from '@dnd-kit-svelte/sortable';
 	import { CSS, styleObjectToString } from '@dnd-kit-svelte/utilities';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
+	import GripVertical from '@lucide/svelte/icons/grip-vertical';
 	import {
 		type Cell,
 		type ColumnDef,
@@ -40,9 +43,6 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
-	import GripVertical from 'lucide-svelte/icons/grip-vertical';
 	import { createRawSnippet } from 'svelte';
 	import { on } from 'svelte/events';
 

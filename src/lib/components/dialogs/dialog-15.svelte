@@ -10,10 +10,10 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 
+	import Check from '@lucide/svelte/icons/check';
+	import Copy from '@lucide/svelte/icons/copy';
+	import UserRoundPlus from '@lucide/svelte/icons/user-round-plus';
 	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
-	import Copy from 'lucide-svelte/icons/copy';
-	import UserRoundPlus from 'lucide-svelte/icons/user-round-plus';
 
 	let input = $state<HTMLInputElement | null>(null);
 	let emails = $state(['mark@yourcompany.com', 'jane@yourcompany.com', '']);

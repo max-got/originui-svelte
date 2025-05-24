@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { cn } from '$lib/utils.js';
 
+	import Search from '@lucide/svelte/icons/search';
 	import { Command as CommandPrimitive } from 'bits-ui';
-	import Search from 'lucide-svelte/icons/search';
 
 	let {
 		class: className,

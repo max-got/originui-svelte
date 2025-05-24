@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Info from 'lucide-svelte/icons/info';
+	import Info from '@lucide/svelte/icons/info';
 </script>
 
 <div class="rounded-lg border border-border px-4 py-3">

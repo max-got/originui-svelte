@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 
+	import ChevronFirst from '@lucide/svelte/icons/chevron-first';
+	import ChevronLast from '@lucide/svelte/icons/chevron-last';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import {
 		Pagination,
 		PaginationContent,
@@ -8,10 +12,6 @@
 		PaginationLink
 	} from '$lib/components/ui/pagination';
 	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
-	import ChevronFirst from 'lucide-svelte/icons/chevron-first';
-	import ChevronLast from 'lucide-svelte/icons/chevron-last';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	type PaginationProps = {
 		currentPage: number;

@@ -2,6 +2,8 @@
 	import Input from '../ui/input.svelte';
 	import Button from '$lib/components/ui/button.svelte';
 
+	import Check from '@lucide/svelte/icons/check';
+	import Copy from '@lucide/svelte/icons/copy';
 	import RiCodeFill from '~icons/ri/code-fill';
 	import RiFacebookFill from '~icons/ri/facebook-fill';
 	import RiMailLine from '~icons/ri/mail-line';
@@ -14,8 +16,6 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
 	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
-	import Copy from 'lucide-svelte/icons/copy';
 
 	let copied = $state(false);
 	let inputRef = $state<HTMLInputElement | null>(null);

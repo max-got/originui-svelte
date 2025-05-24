@@ -7,7 +7,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 
-	import Bookmark from 'lucide-svelte/icons/bookmark';
+	import Bookmark from '@lucide/svelte/icons/bookmark';
 
 	let bookmarked = $state(false);
 </script>

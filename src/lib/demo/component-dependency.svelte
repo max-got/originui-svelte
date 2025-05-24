@@ -10,8 +10,8 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	import ExternalLink from 'lucide-svelte/icons/external-link';
-	import Package from 'lucide-svelte/icons/package';
+	import ExternalLink from '@lucide/svelte/icons/external-link';
+	import Package from '@lucide/svelte/icons/package';
 	let { class: className, dependency }: { class?: string; dependency: PossibleDependency } =
 		$props();
 </script>

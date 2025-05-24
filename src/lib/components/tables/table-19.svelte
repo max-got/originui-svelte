@@ -6,6 +6,10 @@
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 	import { usePagination } from '$lib/hooks/use-pagination.svelte';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 	import {
 		type ColumnDef,
 		getCoreRowModel,
@@ -44,10 +48,6 @@
 		TableRow
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import { createRawSnippet } from 'svelte';
 
 	const columns: ColumnDef<User>[] = [

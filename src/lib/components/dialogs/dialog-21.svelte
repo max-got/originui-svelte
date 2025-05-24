@@ -1,4 +1,9 @@
 <script lang="ts">
+	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import CircleFadingPlus from '@lucide/svelte/icons/circle-fading-plus';
+	import FileInput from '@lucide/svelte/icons/file-input';
+	import FolderPlus from '@lucide/svelte/icons/folder-plus';
+	import Search from '@lucide/svelte/icons/search';
 	import {
 		CommandDialog,
 		CommandEmpty,
@@ -9,11 +14,6 @@
 		CommandSeparator,
 		CommandShortcut
 	} from '$lib/components/ui/command';
-	import ArrowUpRight from 'lucide-svelte/icons/arrow-up-right';
-	import CircleFadingPlus from 'lucide-svelte/icons/circle-fading-plus';
-	import FileInput from 'lucide-svelte/icons/file-input';
-	import FolderPlus from 'lucide-svelte/icons/folder-plus';
-	import Search from 'lucide-svelte/icons/search';
 
 	let open = $state(false);
 

@@ -9,8 +9,8 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	import Check from 'lucide-svelte/icons/check';
-	import Copy from 'lucide-svelte/icons/copy';
+	import Check from '@lucide/svelte/icons/check';
+	import Copy from '@lucide/svelte/icons/copy';
 
 	let copied = $state(false);
 	let inputElement = $state<HTMLInputElement | null>(null);

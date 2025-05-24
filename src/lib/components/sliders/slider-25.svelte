@@ -4,7 +4,7 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
 
-	import RotateCcw from 'lucide-svelte/icons/rotate-ccw';
+	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
 
 	const defaultValue = 0;
 	const min = -10;

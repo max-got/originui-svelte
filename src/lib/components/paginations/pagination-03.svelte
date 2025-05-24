@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { buttonVariants } from '$lib/components/ui/button.svelte';
 
+	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import {
 		Pagination,
 		PaginationContent,
@@ -8,8 +10,6 @@
 		PaginationLink
 	} from '$lib/components/ui/pagination';
 	import { cn } from '$lib/utils';
-	import ChevronLeft from 'lucide-svelte/icons/chevron-left';
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
 
 	type PaginationProps = {
 		currentPage: number;

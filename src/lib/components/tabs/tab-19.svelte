@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Box from '@lucide/svelte/icons/box';
+	import House from '@lucide/svelte/icons/house';
+	import PanelsTopLeft from '@lucide/svelte/icons/panels-top-left';
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import Box from 'lucide-svelte/icons/box';
-	import House from 'lucide-svelte/icons/house';
-	import PanelsTopLeft from 'lucide-svelte/icons/panels-top-left';
 </script>
 
 <Tabs value="tab-1" orientation="vertical" class="w-full flex-row">

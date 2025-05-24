@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import Radio from 'lucide-svelte/icons/radio';
-	import X from 'lucide-svelte/icons/x';
+	import Radio from '@lucide/svelte/icons/radio';
+	import X from '@lucide/svelte/icons/x';
 </script>
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->

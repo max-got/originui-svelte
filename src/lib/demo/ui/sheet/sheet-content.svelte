@@ -26,8 +26,8 @@
 	import SheetOverlay from './sheet-overlay.svelte';
 	import { cn } from '$lib/utils.js';
 
+	import X from '@lucide/svelte/icons/x';
 	import { Dialog as SheetPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
-	import X from 'lucide-svelte/icons/x';
 
 	let {
 		children,

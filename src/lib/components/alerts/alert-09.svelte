@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
-	import TriangleAlert from 'lucide-svelte/icons/triangle-alert';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import TriangleAlert from '@lucide/svelte/icons/triangle-alert';
 </script>
 
 <div class="rounded-lg border border-border px-4 py-3">

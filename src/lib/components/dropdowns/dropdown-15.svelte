@@ -1,15 +1,15 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
+	import Monitor from '@lucide/svelte/icons/monitor';
+	import Moon from '@lucide/svelte/icons/moon';
+	import Sun from '@lucide/svelte/icons/sun';
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
 		DropdownMenuItem,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
-	import Monitor from 'lucide-svelte/icons/monitor';
-	import Moon from 'lucide-svelte/icons/moon';
-	import Sun from 'lucide-svelte/icons/sun';
 
 	const systemPreference = 'light';
 

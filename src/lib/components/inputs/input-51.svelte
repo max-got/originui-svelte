@@ -4,10 +4,10 @@
 	import { usePasswordStrength } from '$lib/hooks/use-password-strength.svelte';
 	import { cn } from '$lib/utils.js';
 
-	import Check from 'lucide-svelte/icons/check';
-	import Eye from 'lucide-svelte/icons/eye';
-	import EyeOff from 'lucide-svelte/icons/eye-off';
-	import X from 'lucide-svelte/icons/x';
+	import Check from '@lucide/svelte/icons/check';
+	import Eye from '@lucide/svelte/icons/eye';
+	import EyeOff from '@lucide/svelte/icons/eye-off';
+	import X from '@lucide/svelte/icons/x';
 
 	const uid = $props.id();
 	const passwordStrength = usePasswordStrength({ id: uid });

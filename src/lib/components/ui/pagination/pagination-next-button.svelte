@@ -2,7 +2,7 @@
 	import PaginationLink, { type Props as PaginationLinkProps } from './pagination-link.svelte';
 	import { cn } from '$lib/utils.js';
 
-	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	let {
 		class: className,
 		ref = $bindable(null),

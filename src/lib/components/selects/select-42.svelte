@@ -2,12 +2,12 @@
 	import Button from '$lib/components/ui/button.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
+	import Check from '@lucide/svelte/icons/check';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import Plus from '@lucide/svelte/icons/plus';
 	import * as Command from '$lib/components/ui/command';
 	import * as Popover from '$lib/components/ui/popover';
 	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import Plus from 'lucide-svelte/icons/plus';
 
 	let open = $state(false);
 	let value = $state('originui');

@@ -4,7 +4,7 @@
 
 	import { cn } from '$lib/utils.js';
 
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 
 	let {
 		children,

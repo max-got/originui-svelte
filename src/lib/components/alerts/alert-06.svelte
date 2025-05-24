@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CircleCheck from 'lucide-svelte/icons/circle-check';
+	import CircleCheck from '@lucide/svelte/icons/circle-check';
 </script>
 
 <div class="rounded-lg border border-emerald-500/50 px-4 py-3 text-emerald-600">

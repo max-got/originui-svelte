@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
+	import IconCheck from '@lucide/svelte/icons/check';
+	import IconMinus from '@lucide/svelte/icons/minus';
 	import UiDark from '$assets/ui-dark.png?enhanced';
 	import UiLight from '$assets/ui-light.png?enhanced';
 	import UiSystem from '$assets/ui-system.png?enhanced';
-	import IconCheck from 'lucide-svelte/icons/check';
-	import IconMinus from 'lucide-svelte/icons/minus';
 
 	const items = [
 		{ id: 'radio-18-r1', image: UiLight, label: 'Light', value: 'r1' },

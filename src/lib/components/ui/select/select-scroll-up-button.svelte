@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { cn } from '$lib/utils.js';
 
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 	import { Select as SelectPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 
 	let {
 		class: className,

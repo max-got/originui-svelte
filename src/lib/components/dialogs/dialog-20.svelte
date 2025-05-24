@@ -2,9 +2,9 @@
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import DialogImg from '$lib/assets/dialog-content.png';
 	import { cn } from '$lib/utils';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	const steps = [
 		{

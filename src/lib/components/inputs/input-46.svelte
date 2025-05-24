@@ -4,8 +4,8 @@
 
 	import Label from '$lib/components/ui/label.svelte';
 
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import Phone from 'lucide-svelte/icons/phone';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import Phone from '@lucide/svelte/icons/phone';
 	import { normalizedCountries, TelInput } from 'svelte-tel-input';
 	import 'svelte-tel-input/styles/flags.css';
 

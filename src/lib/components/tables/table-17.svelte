@@ -5,6 +5,9 @@
 	import Button from '$lib/components/ui/button.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
+	import Info from '@lucide/svelte/icons/info';
 	import {
 		type ColumnDef,
 		type ExpandedState,
@@ -28,9 +31,6 @@
 		TableRow
 	} from '$lib/components/ui/table';
 	import { cn } from '$lib/utils';
-	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import ChevronUp from 'lucide-svelte/icons/chevron-up';
-	import Info from 'lucide-svelte/icons/info';
 	import { createRawSnippet, mount, unmount } from 'svelte';
 
 	const columns: ColumnDef<User>[] = [

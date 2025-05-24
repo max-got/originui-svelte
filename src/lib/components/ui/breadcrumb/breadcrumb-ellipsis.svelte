@@ -4,7 +4,7 @@
 
 	import { cn } from '$lib/utils.js';
 
-	import MoreHorizontal from 'lucide-svelte/icons/more-horizontal';
+	import MoreHorizontal from '@lucide/svelte/icons/more-horizontal';
 
 	let {
 		class: className,

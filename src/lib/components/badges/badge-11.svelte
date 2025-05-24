@@ -2,8 +2,8 @@
 	import { badgeVariants } from '$lib/components/ui/badge.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
 
+	import Check from '@lucide/svelte/icons/check';
 	import { cn } from '$lib/utils';
-	import Check from 'lucide-svelte/icons/check';
 </script>
 
 <label

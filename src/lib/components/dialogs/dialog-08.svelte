@@ -4,9 +4,8 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
-	import CircleAlert from 'lucide-svelte/icons/circle-alert';
-
-	const PROJECT_NAME = 'Origin UI';
+	import CircleAlert from '@lucide/svelte/icons/circle-alert';
+	import { PROJECT_NAME } from '$lib/config';
 
 	let inputValue = $state('');
 </script>

@@ -7,7 +7,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 
-	import Plus from 'lucide-svelte/icons/plus';
+	import Plus from '@lucide/svelte/icons/plus';
 </script>
 
 <TooltipProvider>

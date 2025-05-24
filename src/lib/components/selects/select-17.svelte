@@ -2,7 +2,7 @@
 	import Label from '$lib/components/ui/label.svelte';
 	import * as Select from '$lib/components/ui/select/index.js';
 
-	import Clock from 'lucide-svelte/icons/clock';
+	import Clock from '@lucide/svelte/icons/clock';
 
 	const items = [
 		{ label: '00:00 AM - 11:59 PM', value: 's1' },

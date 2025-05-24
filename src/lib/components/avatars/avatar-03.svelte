@@ -1,6 +1,6 @@
 <script lang="ts">
+	import UserRound from '@lucide/svelte/icons/user-round';
 	import { Avatar, AvatarFallback } from '$lib/components/ui/avatar';
-	import UserRound from 'lucide-svelte/icons/user-round';
 </script>
 
 <Avatar>

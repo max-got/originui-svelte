@@ -3,7 +3,7 @@
 
 	import Button from '$lib/components/ui/button.svelte';
 
-	import IconCircleUserRound from 'lucide-svelte/icons/circle-user-round';
+	import IconCircleUserRound from '@lucide/svelte/icons/circle-user-round';
 
 	let fileInput: HTMLInputElement;
 	let files = $state<FileList | null>(null);

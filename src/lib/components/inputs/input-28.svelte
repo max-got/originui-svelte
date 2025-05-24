@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 
-	import Minus from 'lucide-svelte/icons/minus';
-	import Plus from 'lucide-svelte/icons/plus';
+	import Minus from '@lucide/svelte/icons/minus';
+	import Plus from '@lucide/svelte/icons/plus';
 
 	let value = $state(2048);
 	const minValue = 0;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import Sparkles from 'lucide-svelte/icons/sparkles';
+	import Sparkles from '@lucide/svelte/icons/sparkles';
 </script>
 
 <Button variant="outline">
