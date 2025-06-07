@@ -40,6 +40,8 @@
 				return { layout: 'default', style: 'centered' };
 			case 'inputs':
 				return { layout: 'default', style: 'centered' };
+			case 'navbars':
+				return { layout: 'full', style: 'default' };
 			case 'notifications':
 				return { layout: 'wide', style: 'centered' };
 			case 'paginations':

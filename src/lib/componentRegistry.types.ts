@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 5/24/2025, 7:36:58 PM
+ * Last generated at: 6/7/2025, 7:27:03 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -98,6 +98,7 @@ export type OUICheckboxesComponents = OUIComponentHelper<'CHECKBOXES'>;
 export type OUIDialogsComponents = OUIComponentHelper<'DIALOGS'>;
 export type OUIDropdownsComponents = OUIComponentHelper<'DROPDOWNS'>;
 export type OUIInputsComponents = OUIComponentHelper<'INPUTS'>;
+export type OUINavbarsComponents = OUIComponentHelper<'NAVBARS'>;
 export type OUINotificationsComponents = OUIComponentHelper<'NOTIFICATIONS'>;
 export type OUIPaginationsComponents = OUIComponentHelper<'PAGINATIONS'>;
 export type OUIPopoversComponents = OUIComponentHelper<'POPOVERS'>;
@@ -124,6 +125,7 @@ export type OUIComponent = Prettify<
 	| OUIDialogsComponents
 	| OUIDropdownsComponents
 	| OUIInputsComponents
+	| OUINavbarsComponents
 	| OUINotificationsComponents
 	| OUIPaginationsComponents
 	| OUIPopoversComponents
@@ -151,6 +153,7 @@ export type OUIDirectoryToComponent = Prettify<{
 	dialogs: OUIDialogsComponents;
 	dropdowns: OUIDropdownsComponents;
 	inputs: OUIInputsComponents;
+	navbars: OUINavbarsComponents;
 	notifications: OUINotificationsComponents;
 	paginations: OUIPaginationsComponents;
 	popovers: OUIPopoversComponents;
