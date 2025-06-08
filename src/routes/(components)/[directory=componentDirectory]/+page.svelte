@@ -45,7 +45,7 @@
 			case 'notifications':
 				return { layout: 'wide', style: 'centered' };
 			case 'paginations':
-				return { layout: 'wide', style: 'default' };
+				return { layout: 'wide', overflow: true, style: 'default' };
 			case 'popovers':
 				return { layout: 'default', style: 'centered' };
 			case 'radios':
@@ -90,6 +90,7 @@
 			data-component-id={rest.id}
 			data-component-directory={rest.directory}
 			data-component-availability={rest.availability}
+			{...rest}
 		>
 			{#if rest.availability === 'todo'}
 				<ComponentUnavailable />

@@ -10,6 +10,7 @@
 
 	interface ComponentMeta {
 		layout?: Layout;
+		overflow?: boolean;
 		style?: Style;
 	}
 
@@ -21,7 +22,7 @@
 		HTMLDivElement
 	>;
 
-	let { children, meta, ref = $bindable(), ...rest }: Props = $props();
+	let { children, class: className, meta, ref = $bindable(), ...rest }: Props = $props();
 
 	const layoutClasses = $derived.by(() => {
 		switch (meta?.layout) {
@@ -44,21 +45,21 @@
 				return '';
 		}
 	});
+
+	const overflowClasses = $derived.by(() => {
+		return meta?.overflow ? 'overflow-auto' : '';
+	});
 </script>
 
 <div
 	bind:this={ref}
-	class={cn('group/item relative border', layoutClasses, styleClasses, rest.class)}
+	class={cn('group/item relative border', layoutClasses, styleClasses, overflowClasses, className)}
 	{...rest}
 >
 	{@render children()}
 </div>
 
 <style>
-	div {
-		overflow: auto;
-	}
-
 	div::-webkit-scrollbar {
 		width: 5px;
 	}
