@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 6/7/2025, 7:38:46 PM
+ * Last generated at: 6/8/2025, 12:42:06 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -376,7 +376,7 @@ export const OUI_DIRECTORIES = {
 		components: [
 			'navbar-01.svelte',
 			'navbar-02.svelte',
-			'navbar-03.todo.svelte',
+			'navbar-03.svelte',
 			'navbar-04.todo.svelte',
 			'navbar-05.todo.svelte',
 			'navbar-06.todo.svelte',
@@ -395,8 +395,8 @@ export const OUI_DIRECTORIES = {
 			'navbar-19.todo.svelte'
 		],
 		status: {
-			todo: 17,
-			ready: 2
+			todo: 16,
+			ready: 3
 		}
 	},
 	NOTIFICATIONS: {
