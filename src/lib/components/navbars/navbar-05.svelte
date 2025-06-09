@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import { Logo } from '$lib/components/_extras/navbars';
+	import { InfoMenu, Logo, NotificationMenu, UserMenu } from '$lib/components/_extras/navbars';
 	import {
 		NavigationMenuItem,
 		NavigationMenuLink,
@@ -12,7 +12,7 @@
 
 	// Navigation links array to be used in both desktop and mobile menus
 	const navigationLinks = [
-		{ active: true, href: '#', label: 'Home' },
+		{ href: '#', label: 'Home' },
 		{ href: '#', label: 'Features' },
 		{ href: '#', label: 'Pricing' },
 		{ href: '#', label: 'About' }
@@ -21,9 +21,9 @@
 
 <header class="border-b px-4 md:px-6">
 	<div class="flex h-16 items-center justify-between gap-4">
-		<!-- Left side  -->
+		<!-- Left side -->
 		<div class="flex items-center gap-2">
-			<!-- Mobile menu trigger  -->
+			<!-- Mobile menu trigger -->
 			<Popover>
 				<PopoverTrigger>
 					{#snippet child({ props })}
@@ -61,7 +61,7 @@
 						<NavigationMenuList class="flex-col items-start gap-0 md:gap-2">
 							{#each navigationLinks as link (link.label)}
 								<NavigationMenuItem class="w-full">
-									<NavigationMenuLink href={link.href} class="py-1.5" active={link.active}>
+									<NavigationMenuLink href={link.href} class="py-1.5">
 										{link.label}
 									</NavigationMenuLink>
 								</NavigationMenuItem>
@@ -77,11 +77,10 @@
 				</a>
 				<!-- Navigation menu  -->
 				<NavigationMenuRoot class="max-md:hidden">
-					<NavigationMenuList class="gap-2">
+					<NavigationMenuList class=" gap-2">
 						{#each navigationLinks as link (link.label)}
 							<NavigationMenuItem>
 								<NavigationMenuLink
-									active={link.active}
 									href={link.href}
 									class="py-1.5 font-medium text-muted-foreground hover:text-primary"
 								>
@@ -93,10 +92,16 @@
 				</NavigationMenuRoot>
 			</div>
 		</div>
-		<!-- Right side  -->
-		<div class="flex items-center gap-2">
-			<Button href="#" variant="ghost" size="sm" class="text-sm">Sign In</Button>
-			<Button href="#" size="sm" class="text-sm">Get Started</Button>
+		<!-- Right side -->
+		<div class="flex items-center gap-4">
+			<div class="flex items-center gap-2">
+				<!-- Info menu -->
+				<InfoMenu />
+				<!-- Notification -->
+				<NotificationMenu />
+			</div>
+			<!-- User menu -->
+			<UserMenu />
 		</div>
 	</div>
 </header>

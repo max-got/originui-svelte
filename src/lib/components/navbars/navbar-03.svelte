@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
+	import { Logo } from '$lib/components/_extras/navbars';
 	import {
 		NavigationMenuItem,
 		NavigationMenuLink,
@@ -74,7 +75,7 @@
 			<!-- Main nav  -->
 			<div class="flex items-center gap-6">
 				<a href="#" class="text-primary hover:text-primary/90">
-					{@render Logo()}
+					<Logo />
 				</a>
 				<!-- Navigation menu  -->
 				<NavigationMenuRoot class="h-full *:h-full max-md:hidden">
@@ -101,18 +102,3 @@
 		</div>
 	</div>
 </header>
-
-{#snippet Logo()}
-	<svg
-		class="size-6 stroke-svelte"
-		xmlns="http://www.w3.org/2000/svg"
-		width="28"
-		height="28"
-		viewBox="0 0 32 32"
-		aria-hidden="true"
-	>
-		<circle cx="16" cy="16" r="13" fill="none" stroke-width="2" />
-		<circle cx="16" cy="16" r="9" fill="none" stroke-width="2" />
-	</svg>
-	<span class="sr-only">Origin UI - Svelte</span>
-{/snippet}
