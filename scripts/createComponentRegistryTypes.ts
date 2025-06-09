@@ -47,7 +47,7 @@ interface ComponentConfig {
 const CONFIG: ComponentConfig = {
 	dirs: {
 		component: path.join(process.cwd(), 'src', 'lib', 'components'),
-		exclude: ['ui', '.', 'index.svelte'],
+		exclude: ['ui', '.', 'index.svelte', '_extras'],
 		object: {
 			output: path.join(process.cwd(), 'src', 'lib', 'componentRegistry.components.ts')
 		},

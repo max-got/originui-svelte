@@ -19,14 +19,22 @@ interface ComponentImports {
 const getImports = (): ComponentImports => {
 	return {
 		compiled: import.meta.glob(
-			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			[
+				'/src/lib/components/**/*.svelte',
+				'!$lib/components/_extras/**/*.svelte',
+				'!/src/lib/components/ui/**/*.svelte'
+			],
 			{
 				eager: false,
 				import: 'default'
 			}
 		) as Record<string, () => Promise<Component>>,
 		source: import.meta.glob(
-			['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+			[
+				'/src/lib/components/**/*.svelte',
+				'!$lib/components/_extras/**/*.svelte',
+				'!/src/lib/components/ui/**/*.svelte'
+			],
 			{
 				eager: false,
 				import: 'default',
