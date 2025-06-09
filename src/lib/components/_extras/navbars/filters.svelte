@@ -13,7 +13,7 @@
 		<PopoverTrigger>
 			{#snippet child({ props })}
 				<Button variant="outline" size="sm" class="text-sm" {...props}>
-					<ListFilterIcon size={16} class="-ms-1 text-muted-foreground/80" aria-hidden="true" />
+					<ListFilterIcon size={16} class="text-muted-foreground/80 -ms-1" aria-hidden="true" />
 					Filters
 				</Button>
 			{/snippet}
@@ -43,7 +43,7 @@
 					<div
 						role="separator"
 						aria-orientation="horizontal"
-						class="-mx-3 my-3 h-px bg-border"
+						class="bg-border -mx-3 my-3 h-px"
 					></div>
 					<div class="flex justify-between gap-2">
 						<Button size="sm" variant="outline" class="h-7 px-2">Clear</Button>

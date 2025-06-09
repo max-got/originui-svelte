@@ -14,5 +14,5 @@
 		type="email"
 		value="invalid@email.com"
 	/>
-	<p class="text-xs text-destructive" role="alert" aria-live="polite">Email is invalid</p>
+	<p class="text-destructive text-xs" role="alert" aria-live="polite">Email is invalid</p>
 </div>

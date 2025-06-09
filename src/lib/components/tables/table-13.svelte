@@ -417,7 +417,7 @@
 				<TableRow>
 					{#each headerGroup.headers as header (header.id)}
 						<TableHead
-							class="relative h-10 select-none border-t"
+							class="relative h-10 border-t select-none"
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
@@ -428,7 +428,7 @@
 								<div
 									class={cn(
 										header.column.getCanSort() &&
-											'flex h-full cursor-pointer select-none items-center justify-between gap-2'
+											'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
 									)}
 									onclick={header.column.getToggleSortingHandler()}
 									onkeydown={(e) => {
@@ -479,10 +479,10 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Data table with filters made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"
@@ -504,7 +504,7 @@
 			<div class="flex">
 				<Input
 					id="{column.id}-range-1"
-					class="flex-1 rounded-e-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+					class="flex-1 rounded-e-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
 					value={(columnFilterValue as [number, number])?.[0] ?? ''}
 					onchange={(e) =>
 						column.setFilterValue((old: [number, number]) => [
@@ -517,7 +517,7 @@
 				/>
 				<Input
 					id="{column.id}-range-2"
-					class="-ms-px flex-1 rounded-s-none [-moz-appearance:_textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+					class="-ms-px flex-1 rounded-s-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
 					value={(columnFilterValue as [number, number])?.[1] ?? ''}
 					onchange={(e) =>
 						column.setFilterValue((old: [number, number]) => [
@@ -564,7 +564,7 @@
 					type="text"
 				/>
 				<div
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"
+					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50"
 				>
 					<SearchIcon size={16} />
 				</div>

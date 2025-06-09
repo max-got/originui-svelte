@@ -18,5 +18,5 @@
 	{...restProps}
 >
 	<span>Next</span>
-	<ChevronRight size={16} stroke-width={2} />
+	<ChevronRight size={16} />
 </PaginationLink>

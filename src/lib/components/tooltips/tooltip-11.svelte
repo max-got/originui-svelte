@@ -17,7 +17,7 @@
 					</a>
 				{/snippet}
 			</HoverCardTrigger>
-			<p class="text-xs text-muted-foreground">@k.kennedy</p>
+			<p class="text-muted-foreground text-xs">@k.kennedy</p>
 		</div>
 	</div>
 	<HoverCardContent>
@@ -26,32 +26,32 @@
 				<enhanced:img class="shrink-0 rounded-full" src={AvatarImg} alt="Avatar" />
 				<div class="space-y-0.5">
 					<p class="text-sm font-medium">Keith Kennedy</p>
-					<p class="text-xs text-muted-foreground">@k.kennedy</p>
+					<p class="text-muted-foreground text-xs">@k.kennedy</p>
 				</div>
 			</div>
-			<p class="text-sm text-muted-foreground">
-				Designer at <strong class="font-medium text-foreground">@Origin UI - Svelte</strong>.
+			<p class="text-muted-foreground text-sm">
+				Designer at <strong class="text-foreground font-medium">@Origin UI - Svelte</strong>.
 				Crafting web experiences with Tailwind CSS.
 			</p>
 			<div class="flex items-center gap-2">
 				<div class="flex -space-x-1.5">
 					<enhanced:img
-						class="rounded-full ring-1 ring-background"
+						class="ring-background rounded-full ring-1"
 						src={FriendImg01}
 						alt="Friend 01"
 					/>
 					<enhanced:img
-						class="rounded-full ring-1 ring-background"
+						class="ring-background rounded-full ring-1"
 						src={FriendImg02}
 						alt="Friend 02"
 					/>
 					<enhanced:img
-						class="rounded-full ring-1 ring-background"
+						class="ring-background rounded-full ring-1"
 						src={FriendImg03}
 						alt="Friend 03"
 					/>
 				</div>
-				<div class="text-xs text-muted-foreground">3 mutual friends</div>
+				<div class="text-muted-foreground text-xs">3 mutual friends</div>
 			</div>
 		</div>
 	</HoverCardContent>

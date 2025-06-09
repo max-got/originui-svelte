@@ -3,11 +3,11 @@
 	import Slider from '$lib/components/ui/slider.svelte';
 </script>
 
-<div class="space-y-4">
+<div class="*:not-first:mt-4">
 	<Label>Slider with labels</Label>
 	<div>
 		<span
-			class="mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium text-muted-foreground"
+			class="text-muted-foreground mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium"
 			aria-hidden="true"
 		>
 			<span>Low</span>

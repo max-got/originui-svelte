@@ -39,7 +39,7 @@
 				>
 					{item.title}
 				</Accordion.Trigger>
-				<Accordion.Content class="pb-2 ps-7 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground ps-7 pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

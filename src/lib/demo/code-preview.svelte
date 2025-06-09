@@ -10,7 +10,7 @@
 
 <div
 	class={cn(
-		'[&_code]:py-4 [&_pre]:overflow-x-auto [&_pre]:overflow-y-auto [&_pre]:rounded-md [&_pre]:px-6 [&_pre]:py-4 [&_pre]:text-left [&_pre]:text-sm [&_pre]:text-foreground',
+		'[&_pre]:text-foreground [&_code]:py-4 [&_pre]:overflow-x-auto [&_pre]:overflow-y-auto [&_pre]:rounded-md [&_pre]:px-6 [&_pre]:py-4 [&_pre]:text-left [&_pre]:text-sm',
 		className
 	)}
 	{...restProps}

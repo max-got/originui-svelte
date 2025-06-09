@@ -13,7 +13,7 @@
 		<option value="s3">Astro</option>
 		<option value="s4">Gatsby</option>
 	</SelectNative>
-	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Tell us what&lsquo;s your favorite
 	</p>
 </div>

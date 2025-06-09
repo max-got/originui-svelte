@@ -13,7 +13,7 @@
 <AvatarPrimitive.Fallback
 	bind:ref
 	class={cn(
-		'flex size-full items-center justify-center rounded-[inherit] bg-secondary text-xs',
+		'bg-secondary flex size-full items-center justify-center rounded-[inherit] text-xs',
 		className
 	)}
 	{...restProps}

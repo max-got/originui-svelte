@@ -13,11 +13,11 @@
 </script>
 
 <fieldset class="space-y-4">
-	<legend class="text-sm font-medium leading-none text-foreground">How did it go?</legend>
+	<legend class="text-foreground text-sm leading-none font-medium">How did it go?</legend>
 	<RadioGroup class="flex gap-1.5" bind:value={selectedValue}>
 		{#each items as item (item.id)}
 			<label
-				class="relative flex size-9 cursor-pointer flex-col items-center justify-center rounded-full border border-input text-center text-xl shadow-sm shadow-black/[.04] ring-offset-background transition-colors has-[[data-disabled]]:cursor-not-allowed has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent has-[[data-disabled]]:opacity-50 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/70 has-[:focus-visible]:ring-offset-2"
+				class="border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex size-9 cursor-pointer flex-col items-center justify-center rounded-full border text-center text-xl shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2 has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"
 			>
 				<RadioGroupItem
 					id={item.id}

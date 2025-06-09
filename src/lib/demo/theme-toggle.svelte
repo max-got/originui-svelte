@@ -23,7 +23,7 @@
 		aria-label="Toggle dark mode"
 	/>
 	<label
-		class="relative inline-flex size-9 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-ring/70"
+		class="text-muted-foreground peer-focus-visible:outline-ring/70 relative inline-flex size-9 cursor-pointer items-center justify-center rounded-full transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-solid"
 		for="theme-toggle"
 		aria-hidden="true"
 	>

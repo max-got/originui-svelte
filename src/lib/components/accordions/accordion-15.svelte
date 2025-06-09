@@ -35,12 +35,12 @@
 		{#each items as item (item.id)}
 			<Accordion.Item
 				value={item.id}
-				class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg"
+				class="bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg"
 			>
 				<Accordion.Trigger class="py-2 text-[15px] leading-6 hover:no-underline">
 					{item.title}
 				</Accordion.Trigger>
-				<Accordion.Content class="pb-2 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

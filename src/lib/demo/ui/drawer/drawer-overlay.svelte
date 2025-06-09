@@ -12,6 +12,6 @@
 
 <DrawerPrimitive.Overlay
 	bind:ref
-	class={cn('fixed inset-0 z-50 bg-background/80', className)}
+	class={cn('bg-background/80 fixed inset-0 z-50', className)}
 	{...restProps}
 />

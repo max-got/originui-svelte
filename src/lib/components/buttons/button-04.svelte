@@ -5,6 +5,6 @@
 </script>
 
 <Button>
-	<Archive class="-ms-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+	<Archive class="-ms-1 opacity-60" size={16} aria-hidden="true" />
 	Button
 </Button>

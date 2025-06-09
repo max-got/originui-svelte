@@ -5,6 +5,6 @@
 </script>
 
 <Button disabled>
-	<LoaderCircle class="-ms-1 animate-spin" size={16} strokeWidth={2} aria-hidden="true" />
+	<LoaderCircle class="-ms-1 animate-spin" size={16} aria-hidden="true" />
 	Button
 </Button>

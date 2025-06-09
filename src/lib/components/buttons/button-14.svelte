@@ -23,7 +23,7 @@
 	<span class="group-data-[loading=true]:text-transparent">Click me</span>
 	{#if isLoading}
 		<div class="absolute inset-0 flex items-center justify-center">
-			<LoaderCircle class="animate-spin" size={16} stroke-width={2} aria-hidden="true" />
+			<LoaderCircle class="animate-spin" size={16} aria-hidden="true" />
 		</div>
 	{/if}
 </Button>

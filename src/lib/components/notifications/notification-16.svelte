@@ -7,19 +7,19 @@
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->
 <div
-	class="z-[100] max-w-[400px] rounded-lg border border-border bg-background p-4 shadow-lg shadow-black/5"
+	class="border-border bg-background z-100 max-w-[400px] rounded-lg border p-4 shadow-lg shadow-black/5"
 >
 	<div class="flex gap-3">
 		<div
-			class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+			class="border-border flex size-9 shrink-0 items-center justify-center rounded-full border"
 			aria-hidden="true"
 		>
-			<RefreshCw class="opacity-60" size={16} strokeWidth={2} />
+			<RefreshCw class="opacity-60" size={16} />
 		</div>
 		<div class="flex grow flex-col gap-3">
 			<div class="space-y-1">
 				<p class="text-sm font-medium">Version 1.4 is now available!</p>
-				<p class="text-sm text-muted-foreground">
+				<p class="text-muted-foreground text-sm">
 					This update contains several bug fixes and performance improvements.
 				</p>
 			</div>
@@ -35,7 +35,6 @@
 		>
 			<X
 				size={16}
-				strokeWidth={2}
 				class="opacity-60 transition-opacity group-hover:opacity-100"
 				aria-hidden="true"
 			/>

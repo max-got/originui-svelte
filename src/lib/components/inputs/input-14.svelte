@@ -7,9 +7,9 @@
 
 <div class="space-y-2">
 	<Label for={uid}>Input with start add-on</Label>
-	<div class="flex rounded-lg shadow-sm shadow-black/5">
+	<div class="flex rounded-lg shadow-xs shadow-black/5">
 		<span
-			class="inline-flex items-center rounded-s-lg border border-input bg-background px-3 text-sm text-muted-foreground"
+			class="border-input bg-background text-muted-foreground inline-flex items-center rounded-s-lg border px-3 text-sm"
 		>
 			https://
 		</span>

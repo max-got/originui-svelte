@@ -38,7 +38,7 @@
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}
-					class="w-full justify-between bg-background px-3 font-normal outline-offset-0 hover:bg-background focus-visible:border-ring focus-visible:outline-[3px] focus-visible:outline-ring/20"
+					class="bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]"
 					{...props}
 				>
 					<span class={cn('truncate', !value && 'text-muted-foreground')}>
@@ -48,16 +48,11 @@
 							Select organization
 						{/if}
 					</span>
-					<ChevronDown
-						size={16}
-						stroke-width={2}
-						class="shrink-0 text-muted-foreground/80"
-						aria-hidden="true"
-					/>
+					<ChevronDown size={16} class="text-muted-foreground/80 shrink-0" aria-hidden="true" />
 				</Button>
 			{/snippet}
 		</Popover.Trigger>
-		<Popover.Content class="w-full min-w-[var(--bits-popover-anchor-width)] p-0" align="start">
+		<Popover.Content class="w-full min-w-(--bits-popover-anchor-width) p-0" align="start">
 			<Command.Root>
 				<Command.Input placeholder="Find organization" />
 				<Command.List>
@@ -78,7 +73,7 @@
 					<Command.Separator />
 					<Command.Group>
 						<Button variant="ghost" class="w-full justify-start font-normal">
-							<Plus size={16} stroke-width={2} class="-ms-2 me-2 opacity-60" aria-hidden="true" />
+							<Plus size={16} class="-ms-2 me-2 opacity-60" aria-hidden="true" />
 							New organization
 						</Button>
 					</Command.Group>

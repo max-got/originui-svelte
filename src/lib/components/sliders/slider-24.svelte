@@ -3,7 +3,7 @@
 	import Slider from '$lib/components/ui/slider.svelte';
 </script>
 
-<div class="space-y-4">
+<div class="*:not-first:mt-4">
 	<Label>Vertical dual range slider and tooltip</Label>
 	<div class="flex h-40 justify-center">
 		<Slider

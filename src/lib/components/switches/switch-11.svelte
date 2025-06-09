@@ -19,10 +19,10 @@
 	<div class="group inline-flex items-center gap-2" data-state={checked ? 'checked' : 'unchecked'}>
 		<button
 			id="{uid}-off-label"
-			class="flex-1 cursor-pointer text-right text-sm font-medium group-data-[state=checked]:text-muted-foreground/70"
+			class="group-data-[state=checked]:text-muted-foreground/70 flex-1 cursor-pointer text-right text-sm font-medium"
 			onclick={toggleSwitch}
 		>
-			<IconMoon size={16} stroke-width={2} aria-hidden="true" />
+			<IconMoon size={16} aria-hidden="true" />
 		</button>
 		<Switch
 			id={uid}
@@ -32,10 +32,10 @@
 		/>
 		<button
 			id="{uid}-on-label"
-			class="flex-1 cursor-pointer text-left text-sm font-medium group-data-[state=unchecked]:text-muted-foreground/70"
+			class="group-data-[state=unchecked]:text-muted-foreground/70 flex-1 cursor-pointer text-left text-sm font-medium"
 			onclick={toggleSwitch}
 		>
-			<IconSun size={16} stroke-width={2} aria-hidden="true" />
+			<IconSun size={16} aria-hidden="true" />
 		</button>
 	</div>
 </div>

@@ -23,7 +23,7 @@
 			<Button
 				size="icon"
 				variant="ghost"
-				class="size-8 rounded-full text-muted-foreground shadow-none"
+				class="text-muted-foreground size-8 rounded-full shadow-none"
 				aria-label="History"
 			>
 				<HistoryIcon size={16} aria-hidden="true" />
@@ -32,7 +32,7 @@
 			<Button
 				size="icon"
 				variant="ghost"
-				class="size-8 rounded-full text-muted-foreground shadow-none"
+				class="text-muted-foreground size-8 rounded-full shadow-none"
 				aria-label="Save"
 			>
 				<MessageSquareText size={16} aria-hidden="true" />
@@ -41,7 +41,7 @@
 			<Button
 				size="icon"
 				variant="ghost"
-				class="size-8 rounded-full text-muted-foreground shadow-none"
+				class="text-muted-foreground size-8 rounded-full shadow-none"
 				aria-label="Add user"
 			>
 				<UserRoundPlus size={16} aria-hidden="true" />
@@ -54,7 +54,7 @@
 						<AvatarFallback>KK</AvatarFallback>
 					</Avatar>
 					<span
-						class="absolute -bottom-0.5 -end-0.5 size-3 rounded-full border-2 border-background bg-emerald-500"
+						class="border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-emerald-500"
 					>
 						<span class="sr-only">Online</span>
 					</span>
@@ -65,7 +65,7 @@
 						<AvatarFallback>KK</AvatarFallback>
 					</Avatar>
 					<span
-						class="absolute -bottom-0.5 -end-0.5 size-3 rounded-full border-2 border-background bg-muted-foreground"
+						class="border-background bg-muted-foreground absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2"
 					>
 						<span class="sr-only">Online</span>
 					</span>
@@ -76,14 +76,14 @@
 						<AvatarFallback>KK</AvatarFallback>
 					</Avatar>
 					<span
-						class="absolute -bottom-0.5 -end-0.5 size-3 rounded-full border-2 border-background bg-muted-foreground"
+						class="border-background bg-muted-foreground absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2"
 					>
 						<span class="sr-only">Online</span>
 					</span>
 				</div>
 				<Button
 					variant="secondary"
-					class="flex size-8 items-center justify-center rounded-full bg-secondary text-xs text-muted-foreground ring-background hover:bg-secondary hover:text-foreground"
+					class="bg-secondary text-muted-foreground ring-background hover:bg-secondary hover:text-foreground flex size-8 items-center justify-center rounded-full text-xs"
 					size="icon"
 				>
 					+3

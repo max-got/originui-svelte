@@ -13,11 +13,11 @@
 		<div class="grid grow gap-2">
 			<Label for="radio-04-small">
 				Small
-				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">
+				<span class="text-muted-foreground text-xs leading-[inherit] font-normal">
 					(Sublabel)
 				</span>
 			</Label>
-			<p id="radio-04-small-description" class="text-xs text-muted-foreground">
+			<p id="radio-04-small-description" class="text-muted-foreground text-xs">
 				You can use this card with a label and a description.
 			</p>
 		</div>
@@ -27,11 +27,11 @@
 		<div class="grid grow gap-2">
 			<Label for="radio-04-r2">
 				Large
-				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">
+				<span class="text-muted-foreground text-xs leading-[inherit] font-normal">
 					(Sublabel)
 				</span>
 			</Label>
-			<p id="radio-04-r2-description" class="text-xs text-muted-foreground">
+			<p id="radio-04-r2-description" class="text-muted-foreground text-xs">
 				You can use this card with a label and a description.
 			</p>
 		</div>

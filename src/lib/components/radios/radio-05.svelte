@@ -27,7 +27,7 @@
 			<div class="grow">
 				<div class="grid grow gap-2">
 					<Label for="radio-05-with-expansion">Radio with expansion</Label>
-					<p id="radio-05-with-expansion-description" class="text-xs text-muted-foreground">
+					<p id="radio-05-with-expansion-description" class="text-muted-foreground text-xs">
 						You can use this radio with a label and a description.
 					</p>
 				</div>
@@ -37,7 +37,7 @@
 					role="region"
 					id="radio-input-05"
 					aria-labelledby="radio-05-with-expansion"
-					class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=expanded]:grid-rows-[1fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:opacity-100"
+					class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:grid-rows-[1fr] data-[state=expanded]:opacity-100"
 					data-state={selectedValue === 'with-expansion' ? 'expanded' : 'collapsed'}
 				>
 					<div class="-m-2 overflow-hidden p-2">
@@ -65,7 +65,7 @@
 		/>
 		<div class="grid grow gap-2">
 			<Label for="radio-05-without-expansion">Radio without expansion</Label>
-			<p id="radio-05-without-expansion-description" class="text-xs text-muted-foreground">
+			<p id="radio-05-without-expansion-description" class="text-muted-foreground text-xs">
 				You can use this checkbox with a label and a description.
 			</p>
 		</div>

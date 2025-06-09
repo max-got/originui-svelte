@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="shadow-xs inline-flex divide-x divide-primary-foreground/30 rounded-md rtl:space-x-reverse"
+	class="divide-primary-foreground/30 inline-flex divide-x rounded-md shadow-2xs rtl:space-x-reverse"
 >
 	<Button
 		class="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"

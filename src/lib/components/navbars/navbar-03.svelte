@@ -43,7 +43,7 @@
 								>
 									<path
 										d="M4 12L20 12"
-										class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+										class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 									/>
 									<path
 										d="M4 12H20"
@@ -51,7 +51,7 @@
 									/>
 									<path
 										d="M4 12H20"
-										class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+										class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 									/>
 								</svg>
 							</Button>
@@ -85,7 +85,7 @@
 								<NavigationMenuLink
 									active={link.active}
 									href={link.href}
-									class="h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium text-muted-foreground hover:border-b-primary hover:bg-transparent hover:text-primary data-[active]:border-b-primary data-[active]:!bg-transparent"
+									class="text-muted-foreground hover:border-b-primary hover:text-primary data-active:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-active:bg-transparent!"
 								>
 									{link.label}
 								</NavigationMenuLink>

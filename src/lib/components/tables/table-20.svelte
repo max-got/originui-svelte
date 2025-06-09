@@ -357,13 +357,13 @@
 					aria-label="Filter by name or email"
 				/>
 				<div
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"
+					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50"
 				>
 					<ListFilter size={16} aria-hidden="true" />
 				</div>
 				{#if Boolean(table.getColumn('name')?.getFilterValue())}
 					<button
-						class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md text-muted-foreground/80 outline-none transition-[color,box-shadow] hover:text-foreground focus:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+						class="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md outline-hidden transition-[color,box-shadow] focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 						aria-label="Clear filter"
 						onclick={() => {
 							table.getColumn('name')?.setFilterValue('');
@@ -382,7 +382,7 @@
 							Status
 							{#if selectedStatuses.length > 0}
 								<span
-									class="-me-1 inline-flex h-5 max-h-full items-center rounded border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+									class="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 								>
 									{selectedStatuses.length}
 								</span>
@@ -392,7 +392,7 @@
 				</PopoverTrigger>
 				<PopoverContent class="w-auto min-w-36 p-3" align="start">
 					<div class="space-y-3">
-						<div class="text-xs font-medium text-muted-foreground">Filters</div>
+						<div class="text-muted-foreground text-xs font-medium">Filters</div>
 						<div class="space-y-3">
 							{#each uniqueStatusValues as value (value)}
 								<div class="flex items-center gap-2">
@@ -402,7 +402,7 @@
 									/>
 									<Label class="flex grow justify-between gap-2 font-normal">
 										{value}
-										<span class="ms-2 text-xs text-muted-foreground">
+										<span class="text-muted-foreground ms-2 text-xs">
 											{statusCounts.get(value)}
 										</span>
 									</Label>
@@ -449,7 +449,7 @@
 								<Trash class="-ms-1 opacity-60" size={16} aria-hidden="true" />
 								Delete
 								<span
-									class="-me-1 inline-flex h-5 max-h-full items-center rounded border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+									class="bg-background text-muted-foreground/70 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 								>
 									{table.getSelectedRowModel().rows.length}
 								</span>
@@ -489,7 +489,7 @@
 	</div>
 
 	<!-- Table -->
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table class="table-fixed">
 			<TableHeader>
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
@@ -500,7 +500,7 @@
 									<div
 										class={cn(
 											header.column.getCanSort() &&
-												'flex h-full cursor-pointer select-none items-center justify-between gap-2'
+												'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
 										)}
 										onclick={header.column.getToggleSortingHandler()}
 										onkeydown={(e) => {
@@ -568,7 +568,7 @@
 					{table.getState().pagination.pageSize.toString() ?? 'Select number of results'}
 				</SelectTrigger>
 				<SelectContent
-					class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+					class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 				>
 					{#each [5, 10, 25, 50] as pageSize (pageSize)}
 						<SelectItem value={pageSize.toString()}>
@@ -579,8 +579,8 @@
 			</Select>
 		</div>
 		<!-- Page number information -->
-		<div class="flex grow justify-end whitespace-nowrap text-sm text-muted-foreground">
-			<p class="whitespace-nowrap text-sm text-muted-foreground" aria-live="polite">
+		<div class="text-muted-foreground flex grow justify-end text-sm whitespace-nowrap">
+			<p class="text-muted-foreground text-sm whitespace-nowrap" aria-live="polite">
 				<span class="text-foreground">
 					{table.getState().pagination.pageIndex * table.getState().pagination.pageSize +
 						1}-{Math.min(
@@ -659,10 +659,10 @@
 			</Pagination>
 		</div>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Example of a more complex table made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

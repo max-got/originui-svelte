@@ -12,26 +12,21 @@
 	<ScrollArea>
 		<TabsList class="mb-3">
 			<TabsTrigger value="tab-1">
-				<House class="-ms-0.5 me-1.5 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<House class="-ms-0.5 me-1.5 opacity-60" size={16} aria-hidden="true" />
 				Overview
 			</TabsTrigger>
 			<TabsTrigger value="tab-2" class="group">
-				<PanelsTopLeft
-					class="-ms-0.5 me-1.5 opacity-60"
-					size={16}
-					stroke-width={2}
-					aria-hidden="true"
-				/>
+				<PanelsTopLeft class="-ms-0.5 me-1.5 opacity-60" size={16} aria-hidden="true" />
 				Repositories
 				<Badge
-					class="ms-1.5 min-w-5 bg-primary/15 px-1 transition-opacity group-data-[state=inactive]:opacity-50"
+					class="bg-primary/15 ms-1.5 min-w-5 px-1 transition-opacity group-data-[state=inactive]:opacity-50"
 					variant="secondary"
 				>
 					3
 				</Badge>
 			</TabsTrigger>
 			<TabsTrigger value="tab-3" class="group">
-				<Box class="-ms-0.5 me-1.5 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<Box class="-ms-0.5 me-1.5 opacity-60" size={16} aria-hidden="true" />
 				Packages
 				<Badge class="ms-1.5 transition-opacity group-data-[state=inactive]:opacity-50">New</Badge>
 			</TabsTrigger>
@@ -39,12 +34,12 @@
 		<Scrollbar orientation="horizontal" />
 	</ScrollArea>
 	<TabsContent value="tab-1">
-		<p class="p-4 pt-1 text-center text-xs text-muted-foreground">Content for Tab 1</p>
+		<p class="text-muted-foreground p-4 pt-1 text-center text-xs">Content for Tab 1</p>
 	</TabsContent>
 	<TabsContent value="tab-2">
-		<p class="p-4 pt-1 text-center text-xs text-muted-foreground">Content for Tab 2</p>
+		<p class="text-muted-foreground p-4 pt-1 text-center text-xs">Content for Tab 2</p>
 	</TabsContent>
 	<TabsContent value="tab-3">
-		<p class="p-4 pt-1 text-center text-xs text-muted-foreground">Content for Tab 3</p>
+		<p class="text-muted-foreground p-4 pt-1 text-center text-xs">Content for Tab 3</p>
 	</TabsContent>
 </Tabs>

@@ -33,11 +33,11 @@
 	<h2 class="text-xl font-bold">Tabs w/ chevron</h2>
 	<Accordion.Root type="single" class="w-full space-y-2" value="3">
 		{#each items as item (item.id)}
-			<Accordion.Item value={item.id} class="rounded-lg border bg-background px-4 py-1">
+			<Accordion.Item value={item.id} class="bg-background rounded-lg border px-4 py-1">
 				<Accordion.Trigger class="py-2 text-[15px] leading-6 hover:no-underline">
 					{item.title}
 				</Accordion.Trigger>
-				<Accordion.Content class="pb-2 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

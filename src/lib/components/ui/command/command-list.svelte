@@ -11,7 +11,7 @@
 </script>
 
 <CommandPrimitive.List
-	class={cn('max-h-80 overflow-y-auto overflow-x-hidden', className)}
+	class={cn('max-h-80 overflow-x-hidden overflow-y-auto', className)}
 	{...restProps}
 	bind:ref
 />

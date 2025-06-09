@@ -5,5 +5,5 @@
 </script>
 
 <Button class="rounded-full" variant="outline" size="icon" aria-label="Add new item">
-	<Plus size={16} stroke-width={2} aria-hidden="true" />
+	<Plus size={16} aria-hidden="true" />
 </Button>

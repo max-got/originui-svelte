@@ -15,11 +15,11 @@
 		{#snippet child({ props })}
 			<Button variant="outline" {...props}>
 				Same width of trigger
-				<ChevronDown class="-me-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown class="-me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
-	<DropdownMenuContent class="min-w-[--bits-dropdown-menu-anchor-width]">
+	<DropdownMenuContent class="min-w-(--bits-dropdown-menu-anchor-width)">
 		<DropdownMenuItem>Option 1</DropdownMenuItem>
 		<DropdownMenuItem>Option 2</DropdownMenuItem>
 		<DropdownMenuItem>Option 3</DropdownMenuItem>

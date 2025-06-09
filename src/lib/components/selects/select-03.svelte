@@ -17,9 +17,9 @@
 			<option value="s4">03:00 AM - 02:59 PM</option>
 		</SelectNative>
 		<div
-			class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[[disabled]]:opacity-50"
+			class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[[disabled]]:opacity-50"
 		>
-			<Clock size={16} strokeWidth={2} aria-hidden="true" />
+			<Clock size={16} aria-hidden="true" />
 		</div>
 	</div>
 </div>

@@ -11,6 +11,6 @@
 	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
 </script>
 
-<div class={cn('flex flex-col space-y-1 text-center sm:text-left', className)} {...restProps}>
+<div class={cn('flex flex-col gap-1 text-center sm:text-left', className)} {...restProps}>
 	{@render children?.()}
 </div>

@@ -7,5 +7,5 @@
 
 <div class="space-y-2">
 	<Label for={uid}>Textarea with no resize</Label>
-	<Textarea id={uid} class="[resize:none]" placeholder="Leave a comment" />
+	<Textarea id={uid} class="resize-none" placeholder="Leave a comment" />
 </div>

@@ -58,7 +58,7 @@
 </script>
 
 <div>
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table>
 			<TableHeader>
 				<TableRow class="hover:bg-transparent">
@@ -94,5 +94,5 @@
 			</TableFooter>
 		</Table>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Card Table</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Card Table</p>
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import * as AlertDialog from '$lib/components/ui/alert-dialog/index.js';
 	import { buttonVariants } from '$lib/components/ui/button.svelte';
 
 	import CircleAlert from '@lucide/svelte/icons/circle-alert';
+	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 </script>
 
 <AlertDialog.Root>
@@ -12,10 +12,10 @@
 	<AlertDialog.Content>
 		<div class="flex flex-col gap-2 max-sm:items-center sm:flex-row sm:gap-4">
 			<div
-				class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+				class="border-border flex size-9 shrink-0 items-center justify-center rounded-full border"
 				aria-hidden="true"
 			>
-				<CircleAlert class="opacity-80" size={16} strokeWidth={2} />
+				<CircleAlert class="opacity-80" size={16} />
 			</div>
 			<AlertDialog.Header>
 				<AlertDialog.Title>Are you sure?</AlertDialog.Title>

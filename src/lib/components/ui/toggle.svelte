@@ -4,7 +4,7 @@
 	import { tv, type VariantProps } from 'tailwind-variants';
 
 	export const toggleVariants = tv({
-		base: 'inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground',
+		base: 'inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-muted focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground',
 		defaultVariants: {
 			size: 'default',
 			variant: 'default'
@@ -18,7 +18,7 @@
 			variant: {
 				default: 'bg-transparent',
 				outline:
-					'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground'
+					'border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground'
 			}
 		}
 	});

@@ -4,7 +4,7 @@
 	import SquareArrowOutUpRight from '@lucide/svelte/icons/square-arrow-out-up-right';
 </script>
 
-<div class="shadow-xs inline-flex -space-x-px rounded-md rtl:space-x-reverse">
+<div class="inline-flex -space-x-px rounded-md shadow-2xs rtl:space-x-reverse">
 	<Button
 		class="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
 		variant="outline"

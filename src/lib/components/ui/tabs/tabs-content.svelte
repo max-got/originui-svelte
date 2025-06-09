@@ -13,7 +13,7 @@
 
 <TabsPrimitive.Content
 	bind:ref
-	class={cn('flex-1 outline-none', className)}
+	class={cn('flex-1 outline-hidden', className)}
 	{value}
 	{...restProps}
 />

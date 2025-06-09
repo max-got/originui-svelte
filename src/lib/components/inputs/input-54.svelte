@@ -22,9 +22,9 @@
 <div class="space-y-2">
 	<Label for={uid}>Input with mask</Label>
 	<Input id={uid} placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
-	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://github.com/RobinHerbots/inputmask"
 			target="_blank"
 			rel="noopener nofollow">inputmask</a

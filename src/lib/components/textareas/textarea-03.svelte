@@ -8,7 +8,7 @@
 <div class="space-y-2">
 	<Label for={uid}>Textarea with helper text</Label>
 	<Textarea id={uid} placeholder="Leave a comment" />
-	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Please add as many details as you can
 	</p>
 </div>

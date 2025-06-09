@@ -1,5 +1,5 @@
 <a
-	class="inline-flex h-8 items-center justify-center whitespace-nowrap rounded-full bg-primary px-3 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-black/[.04] ring-offset-background transition-shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+	class="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring/70 inline-flex h-8 items-center justify-center rounded-full px-3 py-2 text-sm font-medium whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
 	href="https://github.com/max-got/originui-svelte"
 	target="_blank"
 >
@@ -17,7 +17,7 @@
 	</svg>
 	<span class="text-primary-foreground">Star</span>
 	<svg
-		class="-mt-0.5 ml-1.5 fill-current text-muted-foreground"
+		class="text-muted-foreground -mt-0.5 ml-1.5 fill-current"
 		xmlns="http://www.w3.org/2000/svg"
 		width="9"
 		height="9"

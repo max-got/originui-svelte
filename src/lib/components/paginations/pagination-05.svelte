@@ -11,7 +11,7 @@
 </script>
 
 <div class="flex items-center justify-between gap-3">
-	<p class="grow text-sm text-muted-foreground" aria-live="polite">
+	<p class="text-muted-foreground grow text-sm" aria-live="polite">
 		Page <span class="text-foreground">{currentPage}</span> of
 		<span class="text-foreground">{totalPages}</span>
 	</p>

@@ -32,8 +32,8 @@
 	</DropdownMenuTrigger>
 	<DropdownMenuContent class="max-w-64" align="end">
 		<DropdownMenuLabel class="flex min-w-0 flex-col">
-			<span class="truncate text-sm font-medium text-foreground"> Keith Kennedy </span>
-			<span class="truncate text-xs font-normal text-muted-foreground">
+			<span class="text-foreground truncate text-sm font-medium"> Keith Kennedy </span>
+			<span class="text-muted-foreground truncate text-xs font-normal">
 				k.kennedy@originui-svelte.com
 			</span>
 		</DropdownMenuLabel>

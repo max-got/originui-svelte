@@ -18,7 +18,7 @@
 	bind:ref
 	{value}
 	class={cn(
-		'relative flex w-full cursor-default select-none items-center rounded-md py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50',
+		'data-highlighted:bg-accent data-highlighted:text-accent-foreground relative flex w-full cursor-default items-center rounded-md py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50',
 		className
 	)}
 	{...restProps}
@@ -26,7 +26,7 @@
 	{#snippet children({ highlighted, selected })}
 		<span class="absolute left-2 flex size-3.5 items-center justify-center">
 			{#if selected}
-				<Check size={16} stroke-width={2} />
+				<Check size={16} />
 			{/if}
 		</span>
 		<span>

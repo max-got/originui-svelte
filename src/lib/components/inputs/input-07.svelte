@@ -9,7 +9,7 @@
 	<Label for={uid}>Input with gray background</Label>
 	<Input
 		id={uid}
-		class="border-transparent bg-muted shadow-none"
+		class="bg-muted border-transparent shadow-none"
 		placeholder="Email"
 		type="email"
 	/>

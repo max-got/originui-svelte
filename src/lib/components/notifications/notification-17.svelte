@@ -7,20 +7,20 @@
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->
 <div
-	class="z-[100] max-w-[400px] rounded-lg border border-border bg-background p-4 shadow-lg shadow-black/5"
+	class="border-border bg-background z-100 max-w-[400px] rounded-lg border p-4 shadow-lg shadow-black/5"
 >
 	<div class="flex gap-3">
 		<img class="size-9 rounded-full" src={Avatar} width={32} height={32} alt="Mary Palmer" />
 		<div class="flex grow flex-col gap-3">
 			<div class="space-y-1">
-				<p class="text-sm text-muted-foreground">
-					<a class="font-medium text-foreground hover:underline" href="#title"> Mary Palmer </a>
+				<p class="text-muted-foreground text-sm">
+					<a class="text-foreground font-medium hover:underline" href="#title"> Mary Palmer </a>
 					mentioned you in
-					<a class="font-medium text-foreground hover:underline" href="#title">
+					<a class="text-foreground font-medium hover:underline" href="#title">
 						project-campaign-02
 					</a>.
 				</p>
-				<p class="text-xs text-muted-foreground">2 min ago</p>
+				<p class="text-muted-foreground text-xs">2 min ago</p>
 			</div>
 			<div class="flex gap-2">
 				<Button size="sm">Accept</Button>
@@ -34,7 +34,6 @@
 		>
 			<X
 				size={16}
-				strokeWidth={2}
 				class="opacity-60 transition-opacity group-hover:opacity-100"
 				aria-hidden="true"
 			/>

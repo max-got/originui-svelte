@@ -1,6 +1,6 @@
-<p class="text-center text-sm text-muted-foreground">
+<p class="text-muted-foreground text-center text-sm">
 	waiting for <a
-		class="underline hover:text-foreground"
+		class="hover:text-foreground underline"
 		href="https://github.com/huntabyte/bits-ui/pull/582">Bits UI TimeField</a
 	>
 </p>

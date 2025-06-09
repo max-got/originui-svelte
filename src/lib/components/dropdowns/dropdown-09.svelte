@@ -32,14 +32,14 @@
 		{#snippet child({ props })}
 			<Button variant="outline" {...props}>
 				Rich menu with icons
-				<ChevronDown class="-me-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown class="-me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
 	<DropdownMenuContent>
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<Plus size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Plus size={16} class="opacity-60" aria-hidden="true" />
 				<span>New</span>
 				<DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
 			</DropdownMenuItem>
@@ -80,17 +80,17 @@
 		<DropdownMenuSeparator />
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<Share2 size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Share2 size={16} class="opacity-60" aria-hidden="true" />
 				<span>Share</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<ArchiveRestore size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<ArchiveRestore size={16} class="opacity-60" aria-hidden="true" />
 				<span>Archive</span>
 			</DropdownMenuItem>
 		</DropdownMenuGroup>
 		<DropdownMenuSeparator />
 		<DropdownMenuItem class="text-destructive focus:text-destructive">
-			<Trash size={16} stroke-width={2} aria-hidden="true" />
+			<Trash size={16} aria-hidden="true" />
 			<span>Delete</span>
 			<DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
 		</DropdownMenuItem>

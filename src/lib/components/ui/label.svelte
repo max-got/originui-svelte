@@ -12,6 +12,6 @@
 
 <LabelPrimitive.Root
 	bind:ref
-	class={cn('text-sm font-medium text-foreground', className)}
+	class={cn('text-foreground text-sm font-medium', className)}
 	{...restProps}
 />

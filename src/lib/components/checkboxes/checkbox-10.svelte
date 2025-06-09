@@ -10,9 +10,9 @@
 	<div class="grid grow gap-2">
 		<Label for={uid}>
 			Label
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (Sublabel) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (Sublabel) </span>
 		</Label>
-		<p id="{uid}-description" class="text-xs text-muted-foreground">
+		<p id="{uid}-description" class="text-muted-foreground text-xs">
 			You can use this checkbox with a label and a description.
 		</p>
 	</div>

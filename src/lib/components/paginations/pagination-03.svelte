@@ -25,18 +25,18 @@
 				class={cn(
 					'aria-disabled:pointer-events-none aria-disabled:opacity-50',
 					buttonVariants({
-						variant: 'outline'
+						variant: 'outline-solid'
 					})
 				)}
 				aria-label="Go to previous page"
 				aria-disabled={currentPage === 1 ? true : undefined}
 				role={currentPage === 1 ? 'link' : undefined}
 			>
-				<ChevronLeft size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronLeft size={16} aria-hidden="true" />
 			</PaginationLink>
 		</PaginationItem>
 		<PaginationItem>
-			<p class="text-sm text-muted-foreground" aria-live="polite">
+			<p class="text-muted-foreground text-sm" aria-live="polite">
 				Page <span class="text-foreground">{currentPage}</span> of
 				<span class="text-foreground">{totalPages}</span>
 			</p>
@@ -46,7 +46,7 @@
 				class={cn(
 					'aria-disabled:pointer-events-none aria-disabled:opacity-50',
 					buttonVariants({
-						variant: 'outline'
+						variant: 'outline-solid'
 					})
 				)}
 				href={currentPage === totalPages ? undefined : `#/page/${currentPage + 1}`}
@@ -54,7 +54,7 @@
 				aria-disabled={currentPage === totalPages ? true : undefined}
 				role={currentPage === totalPages ? 'link' : undefined}
 			>
-				<ChevronRight size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronRight size={16} aria-hidden="true" />
 			</PaginationLink>
 		</PaginationItem>
 	</PaginationContent>

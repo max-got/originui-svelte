@@ -56,15 +56,15 @@
 			{/if}
 		</div>
 		<div class="flex flex-col gap-1">
-			<div class="text-sm text-muted-foreground">
-				<Folder class="inline-block" size={16} stroke-width={2} aria-hidden="true" />
+			<div class="text-muted-foreground text-sm">
+				<Folder class="inline-block" size={16} aria-hidden="true" />
 				<span>Directory:</span>
 				<span>
 					{component.directory}
 				</span>
 			</div>
-			<div class="text-sm text-muted-foreground">
-				<FolderTree class="inline-block" size={16} stroke-width={2} aria-hidden="true" />
+			<div class="text-muted-foreground text-sm">
+				<FolderTree class="inline-block" size={16} aria-hidden="true" />
 				<span>Path:</span>
 				<span>
 					{component.path}
@@ -74,7 +74,7 @@
 	</div>
 
 	{#if isSinglePage}
-		<div class="flex scale-90 flex-col items-center gap-4 rounded-lg border bg-background p-6">
+		<div class="bg-background flex scale-90 flex-col items-center gap-4 rounded-lg border p-6">
 			<component.Component />
 		</div>
 	{/if}
@@ -83,25 +83,25 @@
 		<Tab.Tabs value="code" onValueChange={handleTabChange}>
 			<Tab.TabsList>
 				<Tab.TabsTrigger value="code">
-					<Code class="-ms-0.5 me-1.5 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+					<Code class="-ms-0.5 me-1.5 opacity-60" size={16} aria-hidden="true" />
 					Code
 				</Tab.TabsTrigger>
 				{#if component.componentDependencies.list.length > 0}
 					<Tab.TabsTrigger value="dependencies">
-						<Box class="-ms-0.5 me-1.5 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+						<Box class="-ms-0.5 me-1.5 opacity-60" size={16} aria-hidden="true" />
 						Dependencies
 					</Tab.TabsTrigger>
 				{/if}
 			</Tab.TabsList>
 			<div
 				bind:this={wrapperRef}
-				class="ease-[cubic-bezier(0.4, 0, 0.2, 1)] overflow-hidden transition-[height] duration-300"
+				class="overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.4,_0,_0.2,_1)]"
 			>
 				<div bind:this={dialogRef}>
 					<Tab.TabsContent value="code" class="relative pt-4">
-						<CopyButton class="absolute right-2 top-4" code={component.code.raw.content} />
+						<CopyButton class="absolute top-4 right-2" code={component.code.raw.content} />
 						<CodePreview
-							class="overflow-y-auto rounded-lg bg-muted py-4 data-[component=false]:[&_pre]:max-h-[440px] data-[component=true]:[&_pre]:max-h-[calc(100svh-25rem)]"
+							class="bg-muted overflow-y-auto rounded-lg py-4 [&_pre]:data-[component=false]:max-h-[440px] [&_pre]:data-[component=true]:max-h-[calc(100svh-25rem)]"
 							code={component.code.highlighted.content}
 							data-component={isSinglePage ? true : false}
 						/>

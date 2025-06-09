@@ -3,7 +3,7 @@
 	import Slider from '$lib/components/ui/slider.svelte';
 </script>
 
-<div class="space-y-4">
+<div class="*:not-first:mt-4">
 	<Label>Slider with multiple thumbs</Label>
 	<Slider
 		type="multiple"

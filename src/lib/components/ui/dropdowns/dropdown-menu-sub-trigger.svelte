@@ -18,12 +18,12 @@
 <DropdownMenuPrimitive.SubTrigger
 	bind:ref
 	class={cn(
-		'flex cursor-default select-none items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+		'focus:bg-accent data-[state=open]:bg-accent flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-hidden select-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
 		inset && 'pl-8',
 		className
 	)}
 	{...restProps}
 >
 	{@render children?.()}
-	<ChevronRight class="ml-auto text-muted-foreground/80" />
+	<ChevronRight class="text-muted-foreground/80 ml-auto" />
 </DropdownMenuPrimitive.SubTrigger>

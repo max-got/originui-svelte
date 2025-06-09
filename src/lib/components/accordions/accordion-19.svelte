@@ -79,7 +79,7 @@
 		{#each items as item (item.id)}
 			<Accordion.Item
 				value={item.id}
-				class="overflow-hidden border bg-background first:rounded-t-lg last:rounded-b-lg"
+				class="bg-background overflow-hidden border first:rounded-t-lg last:rounded-b-lg"
 			>
 				<Accordion.Trigger class="px-4 py-3 text-[15px] leading-6 hover:no-underline">
 					{item.title}
@@ -108,20 +108,19 @@
 	open: boolean;
 	title: string;
 })}
-	<Collapsible class="space-y-1 border-t border-border bg-accent px-4 py-3" {open}>
+	<Collapsible class="border-border bg-accent space-y-1 border-t px-4 py-3" {open}>
 		<CollapsibleTrigger
-			class="flex gap-2 text-[15px] font-semibold leading-6 [&[data-state=open]>svg]:rotate-180"
+			class="flex gap-2 text-[15px] leading-6 font-semibold [&[data-state=open]>svg]:rotate-180"
 		>
 			<ChevronDown
 				size={16}
-				strokeWidth={2}
 				class="mt-1 shrink-0 opacity-60 transition-transform duration-200"
 				aria-hidden="true"
 			/>
 			{title}
 		</CollapsibleTrigger>
 		<CollapsibleContent
-			class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
+			class="text-muted-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm transition-all"
 		>
 			{content}
 		</CollapsibleContent>

@@ -98,28 +98,23 @@
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}
-					class="w-full justify-between bg-background px-3 font-normal outline-offset-0 hover:bg-background focus-visible:border-ring focus-visible:outline-[3px] focus-visible:outline-ring/20"
+					class="bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]"
 					{...props}
 				>
 					{#if value && selectedItem}
 						{@const IconComponent = selectedItem.icon}
 						<span class="flex min-w-0 items-center gap-2">
-							<IconComponent class="h-4 w-4 text-muted-foreground" />
+							<IconComponent class="text-muted-foreground h-4 w-4" />
 							<span class="truncate">{selectedItem.label}</span>
 						</span>
 					{:else}
 						<span class="text-muted-foreground">Select service category</span>
 					{/if}
-					<ChevronDown
-						size={16}
-						stroke-width={2}
-						class="shrink-0 text-muted-foreground/80"
-						aria-hidden="true"
-					/>
+					<ChevronDown size={16} class="text-muted-foreground/80 shrink-0" aria-hidden="true" />
 				</Button>
 			{/snippet}
 		</Popover.Trigger>
-		<Popover.Content class="w-full min-w-[var(--bits-popover-anchor-width)] p-0" align="start">
+		<Popover.Content class="w-full min-w-(--bits-popover-anchor-width) p-0" align="start">
 			<Command.Root>
 				<Command.Input placeholder="Search services..." />
 				<Command.List>
@@ -128,10 +123,10 @@
 						{#each items as item (item.value)}
 							<Command.Item value={item.value} onSelect={() => handleSelect(item.value)}>
 								<div class="flex items-center gap-2">
-									<item.icon class="h-4 w-4 text-muted-foreground" />
+									<item.icon class="text-muted-foreground h-4 w-4" />
 									{item.label}
 								</div>
-								<span class="text-xs text-muted-foreground">
+								<span class="text-muted-foreground text-xs">
 									{item.number.toLocaleString()}
 								</span>
 							</Command.Item>

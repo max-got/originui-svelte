@@ -2,49 +2,53 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
+	import { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';
 
-	const min = 0;
-	const max = 200;
+	const minValue = 0;
+	const maxValue = 200;
+	const initialValue = [50, 150];
 
-	let value = $state([50, 150]);
-
-	function handleInputChange(e: Event & { currentTarget: HTMLInputElement }, index: number) {
-		const v = parseFloat(e.currentTarget.value) || 0;
-		if (index == 0 && v > value[1]) value = [value[1], value[1]];
-		else if (index == 1 && v < value[0]) value = [value[0], value[0]];
-		else value[index] = v;
-	}
+	const slider = useSliderWithInput({ initialValue, maxValue, minValue });
 </script>
 
-<div class="space-y-3">
+<div class="*:not-first:mt-3">
 	<Label>Dual range slider with input</Label>
 	<div class="flex items-center gap-4">
 		<Input
-			class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-			type="number"
+			class="h-8 w-12 px-2 py-1"
+			type="text"
 			inputmode="decimal"
-			{min}
-			max={value[1]}
-			value={value[0]}
-			onchange={(e) => handleInputChange(e, 0)}
+			value={slider.inputValues[0]}
+			onchange={(e) => slider.handleInputChange(e, 0)}
+			onblur={() => slider.validateAndUpdateValue(slider.inputValues[0], 0)}
+			onkeydown={(e) => {
+				if (e.key === 'Enter') {
+					slider.validateAndUpdateValue(slider.inputValues[0], 0);
+				}
+			}}
 			aria-label="Enter minimum value"
 		/>
 		<Slider
 			type="multiple"
-			class="flex-grow"
-			bind:value
-			{min}
-			{max}
+			class="grow"
+			bind:value={slider.sliderValue}
+			onValueChange={slider.handleSliderChange}
+			min={minValue}
+			max={maxValue}
 			aria-label="Dual range slider with input"
 		/>
 		<Input
-			class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-			type="number"
+			class="h-8 w-12 px-2 py-1"
+			type="text"
 			inputmode="decimal"
-			min={value[0]}
-			{max}
-			value={value[1]}
-			onchange={(e) => handleInputChange(e, 1)}
+			value={slider.inputValues[1]}
+			onchange={(e) => slider.handleInputChange(e, 1)}
+			onblur={() => slider.validateAndUpdateValue(slider.inputValues[1], 1)}
+			onkeydown={(e) => {
+				if (e.key === 'Enter') {
+					slider.validateAndUpdateValue(slider.inputValues[1], 1);
+				}
+			}}
 			aria-label="Enter maximum value"
 		/>
 	</div>

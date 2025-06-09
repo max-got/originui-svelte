@@ -9,7 +9,7 @@
 	<Label for={uid}>Textarea with gray background</Label>
 	<Textarea
 		id={uid}
-		class="border-transparent bg-muted shadow-none"
+		class="bg-muted border-transparent shadow-none"
 		placeholder="Leave a comment"
 	/>
 </div>

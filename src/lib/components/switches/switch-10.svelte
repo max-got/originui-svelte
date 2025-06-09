@@ -15,9 +15,9 @@
 	<Label for={uid}>
 		<span class="sr-only">Toggle switch</span>
 		{#if checked}
-			<IconSun size={16} stroke-width={2} aria-hidden="true" />
+			<IconSun size={16} aria-hidden="true" />
 		{:else}
-			<IconMoon size={16} stroke-width={2} aria-hidden="true" />
+			<IconMoon size={16} aria-hidden="true" />
 		{/if}
 	</Label>
 </div>

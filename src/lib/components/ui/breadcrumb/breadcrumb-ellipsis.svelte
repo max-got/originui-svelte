@@ -20,6 +20,6 @@
 	class={cn('flex size-5 items-center justify-center', className)}
 	{...restProps}
 >
-	<MoreHorizontal size={16} stroke-width={2} />
+	<MoreHorizontal size={16} />
 	<span class="sr-only">More</span>
 </span>

@@ -8,7 +8,7 @@
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
 	<span
-		class="absolute -end-1 -top-1 size-3 rounded-full border-2 border-background bg-emerald-500"
+		class="border-background absolute -end-1 -top-1 size-3 rounded-full border-2 bg-emerald-500"
 	>
 		<span class="sr-only">Online</span>
 	</span>

@@ -42,11 +42,11 @@
 
 <Timeline defaultValue={3}>
 	{#each items as item (item.id)}
-		<TimelineItem step={item.id} class="group-data-[orientation=vertical]/timeline:sm:ms-32">
+		<TimelineItem step={item.id} class="sm:group-data-[orientation=vertical]/timeline:ms-32">
 			<TimelineHeader>
 				<TimelineSeparator />
 				<TimelineDate
-					class="group-data-[orientation=vertical]/timeline:sm:absolute group-data-[orientation=vertical]/timeline:sm:-left-32 group-data-[orientation=vertical]/timeline:sm:w-20 group-data-[orientation=vertical]/timeline:sm:text-right"
+					class="sm:group-data-[orientation=vertical]/timeline:absolute sm:group-data-[orientation=vertical]/timeline:-left-32 sm:group-data-[orientation=vertical]/timeline:w-20 sm:group-data-[orientation=vertical]/timeline:text-right"
 				>
 					{item.date}
 				</TimelineDate>

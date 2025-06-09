@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
+
+	import * as Dialog from '$lib/components/ui/dialog';
 
 	let content = $state<HTMLDivElement | null>();
 	let hasReadToBottom = $state(false);
@@ -19,12 +20,12 @@
 		class="flex flex-col gap-0 p-0 sm:max-h-[min(640px,80vh)] sm:max-w-lg [&>button:last-child]:top-3.5"
 	>
 		<Dialog.Header class="contents space-y-0 text-left">
-			<Dialog.Title class="border-b border-border px-6 py-4 text-base">
+			<Dialog.Title class="border-border border-b px-6 py-4 text-base">
 				Terms & Conditions
 			</Dialog.Title>
 			<div bind:this={content} onscroll={handleScroll} class="overflow-y-auto">
 				<Dialog.Description class="px-6 py-4">
-					<div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+					<div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
 						<div class="space-y-4">
 							<div class="space-y-1">
 								<p>
@@ -120,9 +121,9 @@
 				</Dialog.Description>
 			</div>
 		</Dialog.Header>
-		<Dialog.Footer class="border-t border-border px-6 py-4 sm:items-center">
+		<Dialog.Footer class="border-border border-t px-6 py-4 sm:items-center">
 			{#if !hasReadToBottom}
-				<span class="grow text-xs text-muted-foreground max-sm:text-center">
+				<span class="text-muted-foreground grow text-xs max-sm:text-center">
 					Read all terms before accepting.
 				</span>
 			{/if}

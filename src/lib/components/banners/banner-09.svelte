@@ -8,19 +8,19 @@
 </script>
 
 {#if visible}
-	<div class="dark bg-muted px-4 py-3 text-foreground">
+	<div class="dark bg-muted text-foreground px-4 py-3">
 		<div class="flex gap-2 md:items-center">
 			<div class="flex grow gap-3 md:items-center">
 				<div
-					class="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15 max-md:mt-0.5"
+					class="bg-primary/15 flex size-9 shrink-0 items-center justify-center rounded-full max-md:mt-0.5"
 					aria-hidden="true"
 				>
-					<Rocket class="opacity-80" size={16} strokeWidth={2} />
+					<Rocket class="opacity-80" size={16} />
 				</div>
 				<div class="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
 					<div class="space-y-0.5">
 						<p class="text-sm font-medium">Boost your experience with Origin UI</p>
-						<p class="text-sm text-muted-foreground">
+						<p class="text-muted-foreground text-sm">
 							The new feature is live! Try it out and let us know what you think.
 						</p>
 					</div>
@@ -37,7 +37,6 @@
 			>
 				<X
 					size={16}
-					strokeWidth={2}
 					class="opacity-60 transition-opacity group-hover:opacity-100"
 					aria-hidden="true"
 				/>

@@ -43,7 +43,7 @@
 			<Tooltip>
 				<TooltipTrigger
 					onclick={handleCopy}
-					class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed"
+					class="text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed"
 					aria-label={copied ? 'Copied' : 'Copy to clipboard'}
 					disabled={copied}
 				>
@@ -52,7 +52,7 @@
 							<div
 								class={cn('transition-all', copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0')}
 							>
-								<Check class="stroke-emerald-500" size={16} stroke-width={2} aria-hidden="true" />
+								<Check class="stroke-emerald-500" size={16} aria-hidden="true" />
 							</div>
 							<div
 								class={cn(
@@ -60,13 +60,13 @@
 									copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
 								)}
 							>
-								<Copy size={16} stroke-width={2} aria-hidden="true" />
+								<Copy size={16} aria-hidden="true" />
 							</div>
 						</button>
 					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent
-					class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground"
+					class="border-input bg-popover text-muted-foreground border px-2 py-1 text-xs"
 				>
 					Copy to clipboard
 				</TooltipContent>

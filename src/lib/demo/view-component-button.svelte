@@ -17,7 +17,7 @@
 		<Tooltip.Tooltip>
 			<Tooltip.TooltipTrigger
 				{onclick}
-				class="text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+				class="text-muted-foreground/80 hover:text-foreground hover:bg-transparent"
 				aria-label="View component Details"
 				{...restProps}
 			>
@@ -30,7 +30,7 @@
 			</Tooltip.TooltipTrigger>
 
 			<Tooltip.TooltipContent
-				class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground"
+				class="border-input bg-popover text-muted-foreground border px-2 py-1 text-xs"
 			>
 				View component details
 			</Tooltip.TooltipContent>

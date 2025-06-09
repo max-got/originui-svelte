@@ -15,14 +15,14 @@
 	<BreadcrumbList>
 		<BreadcrumbItem>
 			<BreadcrumbLink href="#title" class="inline-flex items-center gap-1.5">
-				<Home size={16} stroke-width={2} aria-hidden="true" />
+				<Home size={16} aria-hidden="true" />
 				Home
 			</BreadcrumbLink>
 		</BreadcrumbItem>
 		<BreadcrumbSeparator />
 		<BreadcrumbItem>
 			<BreadcrumbLink href="#title" class="inline-flex items-center gap-1.5">
-				<Component size={16} stroke-width={2} aria-hidden="true" />
+				<Component size={16} aria-hidden="true" />
 				Components
 			</BreadcrumbLink>
 		</BreadcrumbItem>

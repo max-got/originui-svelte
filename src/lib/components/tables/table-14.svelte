@@ -160,7 +160,7 @@
 				<TableRow class="bg-muted/50">
 					{#each headerGroup.headers as header (header.id)}
 						<TableHead
-							class="relative h-10 select-none border-t [&:last-child>.cursor-col-resize]:opacity-0"
+							class="relative h-10 border-t select-none [&:last-child>.cursor-col-resize]:opacity-0"
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
@@ -173,7 +173,7 @@
 								<div
 									class={cn(
 										header.column.getCanSort() &&
-											'flex h-full cursor-pointer select-none items-center justify-between gap-2'
+											'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
 									)}
 									onclick={header.column.getToggleSortingHandler()}
 									onkeydown={(e) => {
@@ -200,7 +200,7 @@
 							{/if}
 							{#if header.column.getCanResize()}
 								<div
-									class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px before:bg-border"
+									class="user-select-none before:bg-border absolute top-0 -right-2 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:translate-x-px"
 									ondblclick={() => header.column.resetSize()}
 									onmousedown={header.getResizeHandler()}
 									ontouchstart={header.getResizeHandler()}
@@ -227,10 +227,10 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Resizable and sortable columns made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

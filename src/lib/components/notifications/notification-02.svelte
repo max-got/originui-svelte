@@ -7,16 +7,12 @@
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->
 <div
-	class="z-[100] max-w-[400px] rounded-lg border border-border bg-background px-4 py-3 shadow-lg shadow-black/5"
+	class="border-border bg-background z-100 max-w-[400px] rounded-lg border px-4 py-3 shadow-lg shadow-black/5"
 >
 	<div class="flex gap-2">
 		<p class="grow text-sm">
-			<CircleCheck
-				class="-mt-0.5 me-3 inline-flex text-red-500"
-				size={16}
-				strokeWidth={2}
-				aria-hidden="true"
-			/>An error occurred!
+			<CircleCheck class="me-3 -mt-0.5 inline-flex text-red-500" size={16} aria-hidden="true" />An
+			error occurred!
 		</p>
 		<Button
 			variant="ghost"
@@ -25,7 +21,6 @@
 		>
 			<X
 				size={16}
-				strokeWidth={2}
 				class="opacity-60 transition-opacity group-hover:opacity-100"
 				aria-hidden="true"
 			/>

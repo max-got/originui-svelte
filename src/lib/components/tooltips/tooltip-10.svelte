@@ -25,7 +25,7 @@
 			</div>
 			<div class="space-y-1">
 				<p class="text-sm font-medium">@Origin_UI</p>
-				<p class="text-sm text-muted-foreground">
+				<p class="text-muted-foreground text-sm">
 					Beautiful UI components built with Tailwind CSS and Svelte
 				</p>
 			</div>

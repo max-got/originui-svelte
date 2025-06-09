@@ -9,5 +9,5 @@
 		<AvatarImage src="/avatar-80-07.jpg" alt="Kelly King" />
 		<AvatarFallback>KK</AvatarFallback>
 	</Avatar>
-	<Badge class="absolute -top-2 left-full min-w-5 -translate-x-3 border-background px-1">6</Badge>
+	<Badge class="border-background absolute -top-2 left-full min-w-5 -translate-x-3 px-1">6</Badge>
 </div>

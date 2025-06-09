@@ -46,7 +46,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -54,7 +54,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -85,17 +85,17 @@
 		<div class="grow">
 			<!-- Search form -->
 			<div class="relative mx-auto w-full max-w-xs">
-				<Input {id} class="peer h-8 pe-10 ps-8" placeholder="Search..." type="search" />
+				<Input {id} class="peer h-8 ps-8 pe-10" placeholder="Search..." type="search" />
 				<div
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 text-muted-foreground/80 peer-disabled:opacity-50"
+					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 peer-disabled:opacity-50"
 				>
 					<SearchIcon size={16} />
 				</div>
 				<div
-					class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2 text-muted-foreground"
+					class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2"
 				>
 					<kbd
-						class="inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+						class="text-muted-foreground/70 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 					>
 						⌘K
 					</kbd>
@@ -120,7 +120,7 @@
 						<NavigationMenuLink
 							active={link.active}
 							href={link.href}
-							class="py-1.5 font-medium text-muted-foreground hover:text-primary"
+							class="text-muted-foreground hover:text-primary py-1.5 font-medium"
 						>
 							{link.label}
 						</NavigationMenuLink>

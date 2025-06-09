@@ -22,12 +22,12 @@
 			{selected?.label ?? 'Select a plan'}
 		</Select.Trigger>
 		<Select.Content
-			class="[&_*[data-select-item]>span]:end-2 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]]:pe-8 [&_*[data-select-item]]:ps-2"
+			class="[&_*[data-select-item]]:ps-2 [&_*[data-select-item]]:pe-8 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]>span]:end-2"
 		>
 			{#each items as item (item.value)}
 				<Select.Item value={item.value}>
 					{item.label}
-					<span class="mt-1 block text-xs text-muted-foreground">
+					<span class="text-muted-foreground mt-1 block text-xs">
 						{item.description}
 					</span>
 				</Select.Item>

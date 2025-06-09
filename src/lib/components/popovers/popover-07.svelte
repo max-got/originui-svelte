@@ -41,16 +41,16 @@
 				<div class="text-sm font-medium">Share code</div>
 				<div class="flex flex-wrap justify-center gap-2">
 					<Button size="icon" variant="outline" aria-label="Embed">
-						<RiCodeFill class="size-4" stroke-width={2} aria-hidden="true" />
+						<RiCodeFill class="size-4" aria-hidden="true" />
 					</Button>
 					<Button size="icon" variant="outline" aria-label="Share on Twitter">
-						<RiTwitterXFill class="size-4" stroke-width={2} aria-hidden="true" />
+						<RiTwitterXFill class="size-4" aria-hidden="true" />
 					</Button>
 					<Button size="icon" variant="outline" aria-label="Share on Facebook">
-						<RiFacebookFill class="size-4" stroke-width={2} aria-hidden="true" />
+						<RiFacebookFill class="size-4" aria-hidden="true" />
 					</Button>
 					<Button size="icon" variant="outline" aria-label="Share via email">
-						<RiMailLine class="size-4" stroke-width={2} aria-hidden="true" />
+						<RiMailLine class="size-4" aria-hidden="true" />
 					</Button>
 				</div>
 				<div class="space-y-2">
@@ -70,7 +70,7 @@
 									{#snippet child()}
 										<button
 											onclick={handleCopy}
-											class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 outline-offset-2 transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed"
+											class="text-muted-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:outline-ring/70 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent outline-offset-2 transition-colors focus-visible:outline-2 focus-visible:outline-solid disabled:pointer-events-none disabled:cursor-not-allowed"
 											aria-label={copied ? 'Copied' : 'Copy to clipboard'}
 											disabled={copied}
 										>
@@ -80,12 +80,7 @@
 													copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
 												)}
 											>
-												<Check
-													class="stroke-emerald-500"
-													size={16}
-													stroke-width={2}
-													aria-hidden="true"
-												/>
+												<Check class="stroke-emerald-500" size={16} aria-hidden="true" />
 											</div>
 											<div
 												class={cn(
@@ -93,7 +88,7 @@
 													copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
 												)}
 											>
-												<Copy size={16} stroke-width={2} aria-hidden="true" />
+												<Copy size={16} aria-hidden="true" />
 											</div>
 										</button>
 									{/snippet}

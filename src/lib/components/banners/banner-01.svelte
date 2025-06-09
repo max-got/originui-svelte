@@ -2,7 +2,7 @@
 	import Button from '$lib/components/ui/button.svelte';
 </script>
 
-<div class="z-50 rounded-md border bg-background px-4 py-3 shadow-lg">
+<div class="bg-background z-50 rounded-md border px-4 py-3 shadow-lg">
 	<div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
 		<p class="text-sm">
 			We use cookies to improve your experience, analyze site usage, and show personalized content.

@@ -25,7 +25,7 @@
 		{#snippet child({ props })}
 			<Button variant="ghost" class="p-0 hover:bg-transparent" {...props}>
 				<span
-					class="flex size-8 items-center justify-center rounded-full bg-primary text-primary-foreground"
+					class="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-full"
 				>
 					{selectedTeam.charAt(0).toUpperCase()}
 				</span>

@@ -3,7 +3,7 @@
 	import Slider from '$lib/components/ui/slider.svelte';
 </script>
 
-<div class="space-y-4">
+<div class="*:not-first:mt-4">
 	<Label>Vertical slider</Label>
 	<div class="flex h-40 justify-center">
 		<Slider type="single" value={5} max={10} orientation="vertical" aria-label="Vertical slider" />

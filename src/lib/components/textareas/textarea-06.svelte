@@ -13,7 +13,7 @@
 		placeholder="Leave a comment"
 		value="Hello!"
 	/>
-	<p class="mt-2 text-xs text-destructive" role="alert" aria-live="polite">
+	<p class="text-destructive mt-2 text-xs" role="alert" aria-live="polite">
 		Message should be at least 10 characters
 	</p>
 </div>

@@ -10,7 +10,7 @@
 <div class="flex flex-wrap gap-2">
 	<Button class="flex-1" variant="outline" aria-label="Login with Google" size="icon">
 		<RiGoogleFill
-			class="text-[#DB4437] dark:text-primary"
+			class="dark:text-primary text-[#DB4437]"
 			width="16"
 			height="16"
 			aria-hidden="true"
@@ -18,7 +18,7 @@
 	</Button>
 	<Button class="flex-1" variant="outline" aria-label="Login with Facebook" size="icon">
 		<RiFacebookFill
-			class="text-[#1877f2] dark:text-primary"
+			class="dark:text-primary text-[#1877f2]"
 			width="16"
 			height="16"
 			aria-hidden="true"
@@ -26,13 +26,13 @@
 	</Button>
 	<Button class="flex-1" variant="outline" aria-label="Login with X" size="icon">
 		<RiTwitterXFill
-			class="text-[#14171a] dark:text-primary"
+			class="dark:text-primary text-[#14171a]"
 			width="16"
 			height="16"
 			aria-hidden="true"
 		/>
 	</Button>
 	<Button class="flex-1" variant="outline" aria-label="Login with GitHub" size="icon">
-		<RiGithubFill class="text-black dark:text-primary" width="16" height="16" aria-hidden="true" />
+		<RiGithubFill class="dark:text-primary text-black" width="16" height="16" aria-hidden="true" />
 	</Button>
 </div>

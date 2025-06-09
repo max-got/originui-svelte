@@ -18,7 +18,7 @@
 
 <div
 	bind:this={ref}
-	class={cn('px-2 py-1.5 text-xs font-medium text-muted-foreground', inset && 'pl-8', className)}
+	class={cn('text-muted-foreground px-2 py-1.5 text-xs font-medium', inset && 'pl-8', className)}
 	{...restProps}
 >
 	{@render children?.()}

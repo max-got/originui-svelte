@@ -9,22 +9,17 @@
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
+	import { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';
 
 	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
+	import { cn } from '$lib/utils';
 
-	const min = 0;
-	const max = 2;
-	const initialValue = 1.25;
+	const minValue = 0;
+	const maxValue = 2;
+	const initialValue = [1.25];
+	const defaultValue = [1];
 
-	let value = $state(initialValue);
-
-	function reset() {
-		value = initialValue;
-	}
-
-	function handleInputChange(e: Event & { currentTarget: HTMLInputElement }) {
-		value = parseFloat(e.currentTarget.value) || 0;
-	}
+	const slider = useSliderWithInput({ defaultValue, initialValue, maxValue, minValue });
 </script>
 
 <div class="space-y-3">
@@ -38,42 +33,45 @@
 							<Button
 								size="icon"
 								variant="ghost"
-								class="size-7"
+								class={cn(
+									'size-7 transition-opacity',
+									slider.showReset ? 'opacity-100' : 'opacity-0'
+								)}
 								aria-label="Reset"
 								{...props}
-								onclick={reset}
+								onclick={slider.resetToDefault}
 							>
-								<RotateCcw size={16} strokeWidth={2} aria-hidden="true" />
+								<RotateCcw size={16} aria-hidden="true" />
 							</Button>
 						{/snippet}
 					</TooltipTrigger>
-					<TooltipContent
-						class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground"
-					>
-						Reset to default
-					</TooltipContent>
+					<TooltipContent class="px-2 py-1 text-xs">Reset to default</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
 			<Input
-				{value}
-				class="h-7 w-12 px-2 py-0 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-				type="number"
+				class="h-7 w-12 px-2 py-0"
+				type="text"
 				inputmode="decimal"
-				onchange={handleInputChange}
-				step="0.01"
-				{min}
-				{max}
+				value={slider.inputValues[0]}
+				oninput={(e) => slider.handleInputChange(e, 0)}
+				onblur={() => slider.validateAndUpdateValue(slider.inputValues[0], 0)}
+				onkeydown={(e) => {
+					if (e.key === 'Enter') {
+						slider.validateAndUpdateValue(slider.inputValues[0], 0);
+					}
+				}}
 				aria-label="Enter value"
 			/>
 		</div>
 	</div>
 	<div class="flex items-center gap-4">
 		<Slider
-			type="single"
-			bind:value
-			{min}
-			{max}
-			class="flex-grow"
+			type="multiple"
+			class="grow"
+			bind:value={slider.sliderValue}
+			onValueChange={slider.handleSliderChange}
+			min={minValue}
+			max={maxValue}
 			step={0.01}
 			aria-label="Temperature"
 		/>

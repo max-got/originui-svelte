@@ -8,7 +8,7 @@
 <div class="[*:not(:first-child)]:mt-2">
 	<div class="mb-2 flex justify-between gap-1">
 		<Label for={uid} class="leading-6">Input with hint</Label>
-		<span class="text-sm text-muted-foreground">Optional</span>
+		<span class="text-muted-foreground text-sm">Optional</span>
 	</div>
 	<Input id={uid} placeholder="Email" type="email" />
 </div>

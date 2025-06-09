@@ -51,14 +51,14 @@
 			<Accordion.Item value={item.id} class="py-2">
 				<AccordionPrimitive.Header class="flex">
 					<AccordionPrimitive.Trigger
-						class="flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all [&[data-state=open]>svg]:rotate-180"
+						class="flex flex-1 items-center justify-between py-2 text-left text-[15px] leading-6 font-semibold transition-all [&[data-state=open]>svg]:rotate-180"
 					>
 						<span class="flex items-center gap-3">
 							<span
-								class="flex size-10 shrink-0 items-center justify-center rounded-full border border-border"
+								class="border-border flex size-10 shrink-0 items-center justify-center rounded-full border"
 								aria-hidden="true"
 							>
-								<item.icon size={16} strokeWidth={2} class="opacity-60" />
+								<item.icon size={16} class="opacity-60" />
 							</span>
 							<span class="flex flex-col space-y-1">
 								<span>{item.title}</span>
@@ -69,13 +69,12 @@
 						</span>
 						<ChevronDown
 							size={16}
-							strokeWidth={2}
 							class="shrink-0 opacity-60 transition-transform duration-200"
 							aria-hidden="true"
 						/>
 					</AccordionPrimitive.Trigger>
 				</AccordionPrimitive.Header>
-				<Accordion.Content class="ms-3 pb-2 ps-10 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground ms-3 ps-10 pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

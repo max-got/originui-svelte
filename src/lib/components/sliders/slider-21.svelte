@@ -10,7 +10,7 @@
 	const price = $derived(value.map((v) => `$${v.toLocaleString()}${v == max ? '+' : ''}`));
 </script>
 
-<div class="space-y-3">
+<div class="*:not-first:mt-3">
 	<Label class="tabular-nums">
 		From {price[0]} to {price[1]}
 	</Label>

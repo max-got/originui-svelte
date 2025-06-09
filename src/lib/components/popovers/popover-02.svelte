@@ -100,7 +100,7 @@
 				aria-label="Open notifications"
 				{...props}
 			>
-				<Bell size={16} stroke-width={2} aria-hidden="true" />
+				<Bell size={16} aria-hidden="true" />
 				{#if unreadCount > 0}
 					<Badge class="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1">
 						{unreadCount > 99 ? '99+' : unreadCount}
@@ -118,26 +118,26 @@
 				</button>
 			{/if}
 		</div>
-		<div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-border"></div>
+		<div role="separator" aria-orientation="horizontal" class="bg-border -mx-1 my-1 h-px"></div>
 
 		{#each notifications as notification (notification.id)}
-			<div class="rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent">
+			<div class="hover:bg-accent rounded-md px-3 py-2 text-sm transition-colors">
 				<div class="relative flex items-start pe-3">
 					<div class="flex-1 space-y-1">
 						<button
-							class="text-left text-foreground/80 after:absolute after:inset-0"
+							class="text-foreground/80 text-left after:absolute after:inset-0"
 							onclick={() => handleNotificationClick(notification.id)}
 						>
-							<span class="font-medium text-foreground hover:underline">
+							<span class="text-foreground font-medium hover:underline">
 								{notification.user}
 							</span>
 							{notification.action}
-							<span class="font-medium text-foreground hover:underline">
+							<span class="text-foreground font-medium hover:underline">
 								{notification.target}
 							</span>
 							.
 						</button>
-						<div class="text-xs text-muted-foreground">{notification.timestamp}</div>
+						<div class="text-muted-foreground text-xs">{notification.timestamp}</div>
 					</div>
 					{#if notification.unread}
 						<div class="absolute end-0 self-center">

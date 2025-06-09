@@ -23,9 +23,9 @@
 	<Select.Root type="single" bind:value>
 		<Select.Trigger class="relative ps-9" id={uid}>
 			<div
-				class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[[disabled]]:opacity-50"
+				class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[[disabled]]:opacity-50"
 			>
-				<Clock size={16} strokeWidth={2} aria-hidden="true" />
+				<Clock size={16} aria-hidden="true" />
 			</div>
 			{selected?.label ?? 'Select a time'}
 		</Select.Trigger>

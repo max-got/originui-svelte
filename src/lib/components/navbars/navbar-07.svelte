@@ -77,7 +77,7 @@
 								{#snippet child({ props })}
 									<Button
 										variant="ghost"
-										class="h-8 px-1.5 text-foreground focus-visible:bg-accent focus-visible:ring-0"
+										class="text-foreground focus-visible:bg-accent h-8 px-1.5 focus-visible:ring-0"
 										{...props}
 									>
 										<span>
@@ -91,7 +91,7 @@
 								{/snippet}
 							</SelectPrimitive.Trigger>
 							<SelectContent
-								class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+								class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 							>
 								{#each projects as { label, value } (value)}
 									<SelectItem {value}>

@@ -28,7 +28,7 @@
 				aria-describedby={passwordStrength.id}
 			/>
 			<button
-				class="absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 transition-shadow hover:text-foreground focus-visible:border focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+				class="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg transition-shadow focus-visible:border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				type="button"
 				onclick={passwordStrength.toggleVisibility}
 				aria-label={passwordStrength.isVisible ? 'Hide password' : 'Show password'}
@@ -36,9 +36,9 @@
 				aria-controls={passwordStrength.id}
 			>
 				{#if passwordStrength.isVisible}
-					<EyeOff size={16} strokeWidth={2} aria-hidden="true" />
+					<EyeOff size={16} aria-hidden="true" />
 				{:else}
-					<Eye size={16} strokeWidth={2} aria-hidden="true" />
+					<Eye size={16} aria-hidden="true" />
 				{/if}
 			</button>
 		</div>
@@ -46,7 +46,7 @@
 
 	<!-- Password strength indicator -->
 	<div
-		class="mb-4 mt-3 h-1 w-full overflow-hidden rounded-full bg-border"
+		class="bg-border mt-3 mb-4 h-1 w-full overflow-hidden rounded-full"
 		role="progressbar"
 		aria-valuenow={passwordStrength.strengthScore}
 		aria-valuemin={0}
@@ -60,7 +60,7 @@
 	</div>
 
 	<!-- Password strength description -->
-	<p id="password-strength" class="mb-2 text-sm font-medium text-foreground">
+	<p id="password-strength" class="text-foreground mb-2 text-sm font-medium">
 		{passwordStrength.strengthText}. Must contain:
 	</p>
 

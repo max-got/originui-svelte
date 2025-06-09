@@ -45,11 +45,11 @@
 			<Accordion.Item value={item.id} class="py-2">
 				<Accordion.Trigger class="py-2 text-[15px] leading-6 hover:no-underline">
 					<span class="flex items-center gap-3">
-						<item.icon size={16} strokeWidth={2} class="shrink-0 opacity-60" aria-hidden="true" />
+						<item.icon size={16} class="shrink-0 opacity-60" aria-hidden="true" />
 						<span>{item.title}</span>
 					</span>
 				</Accordion.Trigger>
-				<Accordion.Content class="pb-2 ps-7 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground ps-7 pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

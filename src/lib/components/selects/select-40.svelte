@@ -25,7 +25,7 @@
 		<enhanced:img class=" size-10 rounded-full" src={item.avatar} alt={item.name} />
 		<span>
 			<span class="block font-medium">{item.name}</span>
-			<span class="mt-0.5 block text-xs text-muted-foreground">{item.username}</span>
+			<span class="text-muted-foreground mt-0.5 block text-xs">{item.username}</span>
 		</span>
 	</span>
 {/snippet}
@@ -47,7 +47,7 @@
 			{/if}
 		</Select.Trigger>
 		<Select.Content
-			class="[&_*[data-select-item]>span]:end-2 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]]:pe-8 [&_*[data-select-item]]:ps-2"
+			class="[&_*[data-select-item]]:ps-2 [&_*[data-select-item]]:pe-8 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]>span]:end-2"
 		>
 			{#each items as item (item.value)}
 				<Select.Item value={item.value}>

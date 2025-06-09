@@ -161,13 +161,13 @@
 	}
 </script>
 
-<div class="space-y-4">
+<div class="*:not-first:mt-4">
 	<Label>Price slider</Label>
 	<div>
 		<div class="flex h-12 w-full items-end px-3" aria-hidden="true">
 			{#each itemCounts as count, i (i)}
 				<div class="flex flex-1 justify-center" style="height: {(count / maxCount) * 100}%">
-					<span data-selected={isBarInSelectedRange(i)} class="h-full w-full bg-primary/20"></span>
+					<span data-selected={isBarInSelectedRange(i)} class="bg-primary/20 h-full w-full"></span>
 				</div>
 			{/each}
 		</div>
@@ -188,7 +188,7 @@
 					aria-label="Enter minimum price"
 				/>
 				<span
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+					class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
 				>
 					$
 				</span>
@@ -208,7 +208,7 @@
 					aria-label="Enter maximum price"
 				/>
 				<span
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50"
+					class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm peer-disabled:opacity-50"
 				>
 					$
 				</span>

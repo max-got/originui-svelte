@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2 [&_svg]:text-destructive/80">
+<div class="[&_svg]:text-destructive/80 space-y-2">
 	<Label for={uid}>Select with error (native)</Label>
 	<SelectNative
 		id={uid}
@@ -16,7 +16,7 @@
 		<option value="s3">Astro</option>
 		<option value="s4">Gatsby</option>
 	</SelectNative>
-	<p class="mt-2 text-xs text-destructive" role="alert" aria-live="polite">
+	<p class="text-destructive mt-2 text-xs" role="alert" aria-live="polite">
 		Selected option is invalid
 	</p>
 </div>

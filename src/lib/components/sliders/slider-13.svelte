@@ -14,8 +14,8 @@
 		<output class="text-sm font-medium tabular-nums">{value}</output>
 	</div>
 	<div class="flex items-center gap-2">
-		<VolumeX class="shrink-0 opacity-60" size={16} strokeWidth={2} aria-hidden="true" />
+		<VolumeX class="shrink-0 opacity-60" size={16} aria-hidden="true" />
 		<Slider type="single" bind:value aria-label="Volume slider" />
-		<Volume2 class="shrink-0 opacity-60" size={16} strokeWidth={2} aria-hidden="true" />
+		<Volume2 class="shrink-0 opacity-60" size={16} aria-hidden="true" />
 	</div>
 </div>

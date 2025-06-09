@@ -5,6 +5,6 @@
 
 <Avatar>
 	<AvatarFallback>
-		<UserRound size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+		<UserRound size={16} class="opacity-60" aria-hidden="true" />
 	</AvatarFallback>
 </Avatar>

@@ -26,21 +26,21 @@
 		<DropdownMenuTrigger>
 			{#snippet child({ props })}
 				<Button size="icon" variant="outline" aria-label="Select theme" {...props}>
-					<Icon size={16} stroke-width={2} aria-hidden="true" />
+					<Icon size={16} aria-hidden="true" />
 				</Button>
 			{/snippet}
 		</DropdownMenuTrigger>
 		<DropdownMenuContent class="min-w-32">
 			<DropdownMenuItem onSelect={() => (theme = 'light')}>
-				<Sun size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Sun size={16} class="opacity-60" aria-hidden="true" />
 				<span>Light</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem onSelect={() => (theme = 'dark')}>
-				<Moon size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Moon size={16} class="opacity-60" aria-hidden="true" />
 				<span>Dark</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem onSelect={() => (theme = 'system')}>
-				<Monitor size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Monitor size={16} class="opacity-60" aria-hidden="true" />
 				<span>System</span>
 			</DropdownMenuItem>
 		</DropdownMenuContent>

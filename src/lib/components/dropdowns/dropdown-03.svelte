@@ -20,25 +20,25 @@
 			<Button variant="outline" {...props}>
 				Menu with icons
 
-				<ChevronDown class="-me-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown class="-me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
 	<DropdownMenuContent>
 		<DropdownMenuItem>
-			<CopyPlus size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+			<CopyPlus size={16} class="opacity-60" aria-hidden="true" />
 			Copy
 		</DropdownMenuItem>
 		<DropdownMenuItem>
-			<Bolt size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+			<Bolt size={16} class="opacity-60" aria-hidden="true" />
 			Edit
 		</DropdownMenuItem>
 		<DropdownMenuItem>
-			<Layers2 size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+			<Layers2 size={16} class="opacity-60" aria-hidden="true" />
 			Group
 		</DropdownMenuItem>
 		<DropdownMenuItem>
-			<Files size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+			<Files size={16} class="opacity-60" aria-hidden="true" />
 			Clone
 		</DropdownMenuItem>
 	</DropdownMenuContent>

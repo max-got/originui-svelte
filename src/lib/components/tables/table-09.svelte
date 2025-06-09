@@ -3,7 +3,7 @@
 </script>
 
 <div class="mx-auto max-w-lg">
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table>
 			<TableBody>
 				<TableRow class="*:border-border hover:bg-transparent [&>:not(:last-child)]:border-r">
@@ -29,5 +29,5 @@
 			</TableBody>
 		</Table>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Vertical table</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Vertical table</p>
 </div>

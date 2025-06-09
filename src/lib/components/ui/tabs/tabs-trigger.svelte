@@ -14,7 +14,7 @@
 <TabsPrimitive.Trigger
 	bind:ref
 	class={cn(
-		'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium outline-none transition-all hover:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-[selected=true]:text-foreground aria-[selected=true]:shadow-sm data-[state=active]:bg-background [&_svg]:shrink-0',
+		'hover:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-selected:text-foreground data-[state=active]:bg-background inline-flex items-center justify-center rounded-sm px-3 py-1.5 text-sm font-medium whitespace-nowrap outline-hidden transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-selected:shadow-xs [&_svg]:shrink-0',
 		className
 	)}
 	{value}
