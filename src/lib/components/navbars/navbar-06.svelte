@@ -141,10 +141,10 @@
 			<Select type="single" onValueChange={(v) => (selectedLanguage = v)} items={languages}>
 				<SelectTrigger
 					id="language-{id}"
-					class="h-8 border-none px-2 shadow-none hover:bg-accent hover:text-accent-foreground [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80"
+					class="h-8 border-none px-2 shadow-none hover:bg-accent hover:text-accent-foreground "
 					aria-label="Select language"
 				>
-					<div class="flex items-center gap-2">
+					<div class="flex items-center gap-2 [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80">
 						<GlobeIcon size={16} aria-hidden="true" />
 						<span class="hidden truncate text-foreground sm:inline-flex">
 							{#if selectedLanguage}
