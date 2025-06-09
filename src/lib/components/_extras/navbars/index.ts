@@ -1,3 +1,5 @@
+export { default as AppToggle } from './app-toggle.svelte';
+export { default as Filters } from './filters.svelte';
 export { default as InfoMenu } from './info-menu.svelte';
 export { default as Logo } from './logo.svelte';
 export { default as NotificationMenu } from './notification-menu.svelte';
