@@ -90,7 +90,6 @@
 			data-component-id={rest.id}
 			data-component-directory={rest.directory}
 			data-component-availability={rest.availability}
-			{...rest}
 		>
 			{#if rest.availability === 'todo'}
 				<ComponentUnavailable />
