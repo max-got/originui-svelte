@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
+	import Input from '$lib/components/ui/input.svelte';
 
+	import SearchIcon from '@lucide/svelte/icons/search';
 	import {
 		NavigationMenuItem,
 		NavigationMenuLink,
@@ -11,18 +13,19 @@
 
 	// Navigation links array to be used in both desktop and mobile menus
 	const navigationLinks = [
-		{ active: true, href: '#', label: 'Home' },
-		{ href: '#', label: 'Features' },
-		{ href: '#', label: 'Pricing' },
-		{ href: '#', label: 'About' }
+		{ href: '#', label: 'Products' },
+		{ href: '#', label: 'Categories' },
+		{ href: '#', label: 'Deals' }
 	];
+
+	const id = $props.id();
 </script>
 
 <header class="border-b px-4 md:px-6">
 	<div class="flex h-16 items-center justify-between gap-4">
-		<!-- Left side  -->
-		<div class="flex items-center gap-2">
-			<!-- Mobile menu trigger  -->
+		<!-- Left side -->
+		<div class="flex flex-1 items-center gap-2">
+			<!-- Mobile menu trigger -->
 			<Popover>
 				<PopoverTrigger>
 					{#snippet child({ props })}
@@ -60,17 +63,35 @@
 						<NavigationMenuList class="flex-col items-start gap-0 md:gap-2">
 							{#each navigationLinks as link (link.label)}
 								<NavigationMenuItem class="w-full">
-									<NavigationMenuLink href={link.href} class="py-1.5" active={link.active}>
+									<NavigationMenuLink href={link.href} class="py-1.5">
 										{link.label}
 									</NavigationMenuLink>
 								</NavigationMenuItem>
 							{/each}
+							<NavigationMenuItem class="w-full" role="presentation" aria-hidden="true">
+								<div
+									role="separator"
+									aria-orientation="horizontal"
+									class="-mx-1 my-1 h-px bg-border"
+								></div>
+							</NavigationMenuItem>
+							<NavigationMenuItem class="w-full">
+								<NavigationMenuLink href="#" class="py-1.5">Sign In</NavigationMenuLink>
+							</NavigationMenuItem>
+							<NavigationMenuItem class="w-full">
+								<Button size="sm" class="mt-0.5 w-full text-left text-sm">
+									<span class="flex items-baseline gap-2">
+										Cart
+										<span class="text-xs text-primary-foreground/60"> 2 </span>
+									</span>
+								</Button>
+							</NavigationMenuItem>
 						</NavigationMenuList>
 					</NavigationMenuRoot>
 				</PopoverContent>
 			</Popover>
 			<!-- Main nav  -->
-			<div class="flex items-center gap-6">
+			<div class="flex flex-1 items-center gap-6 max-md:justify-between">
 				<a href="#" class="text-primary hover:text-primary/90">
 					{@render Logo()}
 				</a>
@@ -78,9 +99,8 @@
 				<NavigationMenuRoot class="max-md:hidden">
 					<NavigationMenuList class="gap-2">
 						{#each navigationLinks as link (link.label)}
-							<NavigationMenuItem>
+							<NavigationMenuItem class="h-full">
 								<NavigationMenuLink
-									active={link.active}
 									href={link.href}
 									class="py-1.5 font-medium text-muted-foreground hover:text-primary"
 								>
@@ -90,12 +110,27 @@
 						{/each}
 					</NavigationMenuList>
 				</NavigationMenuRoot>
+				<!-- Search form -->
+				<div class="relative">
+					<Input {id} class="peer h-8 pe-2 ps-8" placeholder="Search..." type="search" />
+					<div
+						class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 text-muted-foreground/80 peer-disabled:opacity-50"
+					>
+						<SearchIcon size={16} />
+					</div>
+				</div>
 			</div>
 		</div>
+
 		<!-- Right side  -->
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-2 max-md:hidden">
 			<Button href="#" variant="ghost" size="sm" class="text-sm">Sign In</Button>
-			<Button href="#" size="sm" class="text-sm">Get Started</Button>
+			<Button href="#" size="sm" class="text-sm">
+				<span class="flex items-baseline gap-2">
+					Cart
+					<span class="text-xs text-primary-foreground/60">2</span>
+				</span></Button
+			>
 		</div>
 	</div>
 </header>

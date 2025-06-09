@@ -148,7 +148,6 @@
 			<div class="flex items-center gap-6">
 				<a href="#" class="text-primary hover:text-primary/90">
 					{@render Logo()}
-					<span class="sr-only">Origin UI - Svelte</span>
 				</a>
 				<!-- Navigation menu  -->
 				<NavigationMenuRoot class="max-md:hidden" viewport={false}>
@@ -232,4 +231,5 @@
 		<circle cx="16" cy="16" r="13" fill="none" stroke-width="2" />
 		<circle cx="16" cy="16" r="9" fill="none" stroke-width="2" />
 	</svg>
+	<span class="sr-only">Origin UI - Svelte</span>
 {/snippet}
