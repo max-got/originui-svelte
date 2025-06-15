@@ -21,7 +21,7 @@
 	}
 </script>
 
-<div class="space-y-3">
+<div class="*:not-first:mt-3">
 	<Label class="tabular-nums">{value} credits/mo</Label>
 	<div class="flex items-center gap-4">
 		<div>
@@ -33,12 +33,12 @@
 				disabled={value === min}
 				onclick={decrement}
 			>
-				<Minus size={16} strokeWidth={2} aria-hidden="true" />
+				<Minus size={16} aria-hidden="true" />
 			</Button>
 		</div>
 		<Slider
 			type="single"
-			class="flex-grow"
+			class="grow"
 			bind:value
 			{min}
 			{max}
@@ -54,7 +54,7 @@
 				disabled={value === max}
 				onclick={increment}
 			>
-				<Plus size={16} strokeWidth={2} aria-hidden="true" />
+				<Plus size={16} aria-hidden="true" />
 			</Button>
 		</div>
 	</div>

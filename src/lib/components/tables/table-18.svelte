@@ -204,7 +204,7 @@
 </script>
 
 <div class="space-y-4">
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table class="table-fixed">
 			<TableHeader>
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
@@ -215,7 +215,7 @@
 									<div
 										class={cn(
 											header.column.getCanSort() &&
-												'flex h-full cursor-pointer select-none items-center justify-between gap-2'
+												'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
 										)}
 										onclick={header.column.getToggleSortingHandler()}
 										onkeydown={(e) => {
@@ -282,7 +282,7 @@
 					{table.getState().pagination.pageSize.toString()}
 				</SelectTrigger>
 				<SelectContent
-					class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+					class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 				>
 					{#each [5, 10, 25, 50] as pageSize (pageSize)}
 						<SelectItem value={pageSize.toString()}>
@@ -293,8 +293,8 @@
 			</Select>
 		</div>
 		<!-- Page number information -->
-		<div class="flex grow justify-end whitespace-nowrap text-sm text-muted-foreground">
-			<p class="whitespace-nowrap text-sm text-muted-foreground" aria-live="polite">
+		<div class="text-muted-foreground flex grow justify-end text-sm whitespace-nowrap">
+			<p class="text-muted-foreground text-sm whitespace-nowrap" aria-live="polite">
 				<span class="text-foreground">
 					{table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1}
 					-
@@ -373,10 +373,10 @@
 			</Pagination>
 		</div>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Paginated table made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

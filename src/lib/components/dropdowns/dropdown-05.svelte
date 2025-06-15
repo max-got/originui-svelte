@@ -24,7 +24,7 @@
 			<Button variant="outline" {...props}>
 				Grouped items
 
-				<ChevronDown class="-me-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown class="-me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
@@ -32,11 +32,11 @@
 		<DropdownMenuLabel>Label</DropdownMenuLabel>
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<CopyPlus size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<CopyPlus size={16} class="opacity-60" aria-hidden="true" />
 				Copy
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<Bolt size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Bolt size={16} class="opacity-60" aria-hidden="true" />
 				Edit
 			</DropdownMenuItem>
 		</DropdownMenuGroup>
@@ -44,15 +44,15 @@
 		<DropdownMenuLabel>Label</DropdownMenuLabel>
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<Layers2 size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Layers2 size={16} class="opacity-60" aria-hidden="true" />
 				Group
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<Files size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Files size={16} class="opacity-60" aria-hidden="true" />
 				Clone
 			</DropdownMenuItem>
 			<DropdownMenuItem class="text-destructive focus:text-destructive">
-				<Trash size={16} stroke-width={2} aria-hidden="true" />
+				<Trash size={16} aria-hidden="true" />
 				Delete
 			</DropdownMenuItem>
 		</DropdownMenuGroup>

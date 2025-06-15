@@ -28,46 +28,46 @@
 					<AvatarImage src="./avatar.jpg" alt="Profile image" />
 					<AvatarFallback>KK</AvatarFallback>
 				</Avatar>
-				<ChevronDown size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<ChevronDown size={16} class="opacity-60" aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
 	<DropdownMenuContent class="max-w-64">
 		<DropdownMenuLabel class="flex min-w-0 flex-col">
-			<span class="truncate text-sm font-medium text-foreground">Keith Kennedy</span>
-			<span class="truncate text-xs font-normal text-muted-foreground">
+			<span class="text-foreground truncate text-sm font-medium">Keith Kennedy</span>
+			<span class="text-muted-foreground truncate text-xs font-normal">
 				k.kennedy@originui-svelte.com
 			</span>
 		</DropdownMenuLabel>
 		<DropdownMenuSeparator />
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<Bolt size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Bolt size={16} class="opacity-60" aria-hidden="true" />
 				<span>Option 1</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<Layers2 size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Layers2 size={16} class="opacity-60" aria-hidden="true" />
 				<span>Option 2</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<BookOpen size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<BookOpen size={16} class="opacity-60" aria-hidden="true" />
 				<span>Option 3</span>
 			</DropdownMenuItem>
 		</DropdownMenuGroup>
 		<DropdownMenuSeparator />
 		<DropdownMenuGroup>
 			<DropdownMenuItem>
-				<Pin size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<Pin size={16} class="opacity-60" aria-hidden="true" />
 				<span>Option 4</span>
 			</DropdownMenuItem>
 			<DropdownMenuItem>
-				<UserPen size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+				<UserPen size={16} class="opacity-60" aria-hidden="true" />
 				<span>Option 5</span>
 			</DropdownMenuItem>
 		</DropdownMenuGroup>
 		<DropdownMenuSeparator />
 		<DropdownMenuItem>
-			<LogOut size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+			<LogOut size={16} class="opacity-60" aria-hidden="true" />
 			<span>Logout</span>
 		</DropdownMenuItem>
 	</DropdownMenuContent>

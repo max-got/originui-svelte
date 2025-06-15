@@ -16,7 +16,7 @@
 	<div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
 		<p class="text-sm">
 			<span class="font-medium">v2.1.0</span>
-			<span class="mx-2 text-muted-foreground">•</span>
+			<span class="text-muted-foreground mx-2">•</span>
 			New features and improvements available
 		</p>
 		<Button
@@ -27,7 +27,7 @@
 			class="min-w-24"
 		>
 			{#if isDownloading}
-				<LoaderCircle class="-ms-0.5 animate-spin" size={16} strokeWidth={2} aria-hidden="true" />
+				<LoaderCircle class="-ms-0.5 animate-spin" size={16} aria-hidden="true" />
 				Updating...
 			{:else}
 				<Download size={16} class="-ms-0.5" aria-hidden="true" />

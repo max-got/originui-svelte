@@ -32,7 +32,7 @@
 <div>
 	<div class="inline-flex items-center space-x-2 rtl:space-x-reverse">
 		<div
-			class="relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-input"
+			class="border-input relative flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border"
 			role="img"
 			aria-label={previewUrl ? 'Preview of uploaded file' : 'Default user avatar'}
 		>
@@ -67,7 +67,7 @@
 	</div>
 	{#if fileName}
 		<div class="mt-2 inline-flex gap-2 text-xs">
-			<p class="truncate text-muted-foreground" aria-live="polite">
+			<p class="text-muted-foreground truncate" aria-live="polite">
 				{fileName}
 			</p>
 			<button

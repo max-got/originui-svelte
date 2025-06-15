@@ -10,6 +10,6 @@
 	<Textarea
 		id={uid}
 		placeholder="Leave a comment"
-		class="max-h-29.5 min-h-[none] resize-none py-1.5 [field-sizing:content]"
+		class="field-sizing-content max-h-29.5 min-h-[none] resize-none py-1.5"
 	/>
 </div>

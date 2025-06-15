@@ -35,7 +35,7 @@
 <div class="flex flex-col items-center justify-center space-y-3 text-center">
 	<a
 		href="/{slug}"
-		class="dark:outline-svelte-700/80 group peer relative grid place-items-center overflow-hidden rounded-xl outline outline-[0.5px] outline-svelte/40 sm:flex"
+		class="dark:outline-svelte-700/80 group peer outline-svelte/40 relative grid place-items-center overflow-hidden rounded-xl outline-[0.5px] outline-solid sm:flex"
 		tabIndex={-1}
 	>
 		<enhanced:img
@@ -57,11 +57,11 @@
 
 		<span class="sr-only">{alt}</span>
 		<div
-			class="absolute inset-0 bg-svelte/60 mix-blend-overlay transition-colors group-hover:bg-svelte/80"
+			class="bg-svelte/60 group-hover:bg-svelte/80 absolute inset-0 mix-blend-overlay transition-colors"
 		></div>
 	</a>
 
-	<div class="mb-0.5 peer-hover:[&_a]:underline">
+	<div class="mb-0.5 [&_a]:peer-hover:underline">
 		{@render details()}
 	</div>
 </div>

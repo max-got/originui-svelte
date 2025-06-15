@@ -22,7 +22,7 @@
 				role={currentPage === 1 ? 'link' : undefined}
 				href={currentPage === 1 ? undefined : `#/page/${currentPage - 1}`}
 			>
-				<ChevronLeft class="-ms-1 me-2 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronLeft class="-ms-1 me-2 opacity-60" size={16} aria-hidden="true" />
 				Previous
 			</Button>
 		</PaginationItem>
@@ -35,7 +35,7 @@
 				href={currentPage === totalPages ? undefined : `#/page/${currentPage + 1}`}
 			>
 				Next
-				<ChevronRight class="-me-1 ms-2 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronRight class="ms-2 -me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		</PaginationItem>
 	</PaginationContent>

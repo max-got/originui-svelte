@@ -14,7 +14,7 @@
 	<BreadcrumbList>
 		<BreadcrumbItem>
 			<BreadcrumbLink href="#title">
-				<Home size={16} stroke-width={2} aria-hidden="true" />
+				<Home size={16} aria-hidden="true" />
 				<span class="sr-only">Home</span>
 			</BreadcrumbLink>
 		</BreadcrumbItem>

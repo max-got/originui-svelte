@@ -15,7 +15,7 @@
 <SelectPrimitive.Trigger
 	bind:ref
 	class={cn(
-		'flex h-9 w-full items-center justify-between gap-2 rounded-lg border border-input bg-background px-3 py-2 text-start text-sm text-foreground shadow-sm shadow-black/5 focus:border-ring focus:outline-none focus:ring-[3px] focus:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground/70 [&>span]:min-w-0',
+		'border-input bg-background text-foreground focus:border-ring focus:ring-ring/20 data-placeholder:text-muted-foreground/70 flex h-9 w-full items-center justify-between gap-2 rounded-lg border px-3 py-2 text-start text-sm shadow-xs shadow-black/5 focus:ring-[3px] focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 [&>span]:min-w-0',
 		className
 	)}
 	{...restProps}
@@ -23,5 +23,5 @@
 	<span class="pointer-events-none">
 		{@render children?.()}
 	</span>
-	<ChevronDown size={16} strokeWidth={2} class="shrink-0 text-muted-foreground/80" />
+	<ChevronDown size={16} class="text-muted-foreground/80 shrink-0" />
 </SelectPrimitive.Trigger>

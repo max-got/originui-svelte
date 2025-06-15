@@ -22,7 +22,7 @@
 					onPressedChange={() => (bookmarked = !bookmarked)}
 					{...props}
 				>
-					<Bookmark size={16} stroke-width={2} aria-hidden="true" {...props} />
+					<Bookmark size={16} aria-hidden="true" {...props} />
 				</Toggle>
 			{/snippet}
 		</TooltipTrigger>

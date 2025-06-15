@@ -67,7 +67,7 @@
 		<tbody aria-hidden="true" class="table-row h-2"></tbody>
 		<TableBody class="[&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg">
 			{#each items as item (item.id)}
-				<TableRow class="border-none odd:bg-muted/50 hover:bg-transparent odd:hover:bg-muted/50">
+				<TableRow class="odd:bg-muted/50 odd:hover:bg-muted/50 border-none hover:bg-transparent">
 					<TableCell class="py-2.5 font-medium">{item.name}</TableCell>
 					<TableCell class="py-2.5">{item.email}</TableCell>
 					<TableCell class="py-2.5">{item.location}</TableCell>
@@ -86,5 +86,5 @@
 			</TableRow>
 		</TableFooter>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Striped table</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Striped table</p>
 </div>

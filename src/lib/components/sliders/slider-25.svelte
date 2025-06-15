@@ -31,20 +31,20 @@
 </script>
 
 <div class="space-y-4">
-	<legend class="text-sm font-medium text-foreground">Object position</legend>
+	<legend class="text-foreground text-sm font-medium">Object position</legend>
 	<div class="space-y-2">
 		<div class="flex items-center gap-4">
-			<Label class="text-xs text-muted-foreground">X</Label>
+			<Label class="text-muted-foreground text-xs">X</Label>
 			<Slider
 				type="single"
-				class="flex-grow [&>[data-slider-thumb]]:rounded"
+				class="grow *:data-slider-thumb:rounded"
 				bind:value={value.x}
 				min={-10}
 				max={10}
 				aria-label="X"
 			/>
 			<Input
-				class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+				class="h-8 w-12 [appearance:textfield] px-2 py-1 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 				type="number"
 				inputmode="decimal"
 				onchange={(e) => handleInputChange(e, 'x')}
@@ -55,17 +55,17 @@
 			/>
 		</div>
 		<div class="flex items-center gap-4">
-			<Label class="text-xs text-muted-foreground">Y</Label>
+			<Label class="text-muted-foreground text-xs">Y</Label>
 			<Slider
 				type="single"
-				class="flex-grow [&>[data-slider-thumb]]:rounded"
+				class="grow *:data-slider-thumb:rounded"
 				bind:value={value.y}
 				min={-10}
 				max={10}
 				aria-label="Y"
 			/>
 			<Input
-				class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+				class="h-8 w-12 [appearance:textfield] px-2 py-1 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 				type="number"
 				inputmode="decimal"
 				onchange={(e) => handleInputChange(e, 'y')}
@@ -76,17 +76,17 @@
 			/>
 		</div>
 		<div class="flex items-center gap-4">
-			<Label class="text-xs text-muted-foreground">Z</Label>
+			<Label class="text-muted-foreground text-xs">Z</Label>
 			<Slider
 				type="single"
-				class="flex-grow [&>[data-slider-thumb]]:rounded"
+				class="grow *:data-slider-thumb:rounded"
 				bind:value={value.z}
 				min={-10}
 				max={10}
 				aria-label="Z"
 			/>
 			<Input
-				class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+				class="h-8 w-12 [appearance:textfield] px-2 py-1 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 				type="number"
 				inputmode="decimal"
 				onchange={(e) => handleInputChange(e, 'z')}
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 	<Button class="w-full" variant="outline" onclick={reset}>
-		<RotateCcw class="-ms-1 me-2 opacity-60" size={16} strokeWidth={2} aria-hidden="true" />
+		<RotateCcw class="-ms-1 me-2 opacity-60" size={16} aria-hidden="true" />
 		Reset
 	</Button>
 </div>

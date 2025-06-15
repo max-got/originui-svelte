@@ -43,7 +43,7 @@
 			<Accordion.Item value={item.id} class="py-2">
 				<AccordionPrimitive.Header class="flex">
 					<AccordionPrimitive.Trigger
-						class="flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180"
+						class="flex flex-1 items-center justify-between py-2 text-left text-[15px] leading-6 font-semibold transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0"
 					>
 						<span class="flex flex-col space-y-1">
 							<span>{item.title}</span>
@@ -53,13 +53,12 @@
 						</span>
 						<Plus
 							size={16}
-							strokeWidth={2}
 							class="shrink-0 opacity-60 transition-transform duration-200"
 							aria-hidden="true"
 						/>
 					</AccordionPrimitive.Trigger>
 				</AccordionPrimitive.Header>
-				<Accordion.Content class="pb-2 text-muted-foreground">
+				<Accordion.Content class="text-muted-foreground pb-2">
 					{item.content}
 				</Accordion.Content>
 			</Accordion.Item>

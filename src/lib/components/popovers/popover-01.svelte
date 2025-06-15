@@ -12,13 +12,13 @@
 		<PopoverTrigger>
 			{#snippet child({ props })}
 				<Button variant="outline" size="icon" aria-label="Filters" {...props}>
-					<ListFilter size={16} stroke-width={2} aria-hidden="true" />
+					<ListFilter size={16} aria-hidden="true" />
 				</Button>
 			{/snippet}
 		</PopoverTrigger>
 		<PopoverContent class="w-36 p-3">
 			<div class="space-y-3">
-				<div class="text-xs font-medium text-muted-foreground">Filters</div>
+				<div class="text-muted-foreground text-xs font-medium">Filters</div>
 				<form class="space-y-3">
 					<div class="flex items-center gap-2">
 						<Checkbox id="popover-filter-01" />
@@ -39,7 +39,7 @@
 					<div
 						role="separator"
 						aria-orientation="horizontal"
-						class="-mx-3 my-1 h-px bg-border"
+						class="bg-border -mx-3 my-1 h-px"
 					></div>
 					<div class="flex justify-between gap-2">
 						<Button size="sm" variant="outline" class="h-7 px-2">Clear</Button>

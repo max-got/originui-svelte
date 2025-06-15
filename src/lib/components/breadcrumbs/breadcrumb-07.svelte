@@ -12,11 +12,11 @@
 
 <Breadcrumb>
 	<BreadcrumbList
-		class="rounded-lg border border-border bg-background px-3 py-2 shadow-sm shadow-black/5"
+		class="border-border bg-background rounded-lg border px-3 py-2 shadow-xs shadow-black/5"
 	>
 		<BreadcrumbItem>
 			<BreadcrumbLink href="#title">
-				<Home size={16} stroke-width={2} aria-hidden="true" />
+				<Home size={16} aria-hidden="true" />
 				<span class="sr-only">Home</span>
 			</BreadcrumbLink>
 		</BreadcrumbItem>

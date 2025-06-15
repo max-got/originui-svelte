@@ -12,6 +12,6 @@
 
 <SeparatorPrimitive.Root
 	bind:ref
-	class={cn('-mx-1 my-1 h-px bg-border', className)}
+	class={cn('bg-border -mx-1 my-1 h-px', className)}
 	{...restProps}
 />

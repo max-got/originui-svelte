@@ -82,5 +82,5 @@
 			</TableRow>
 		</TableFooter>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Basic table</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Basic table</p>
 </div>

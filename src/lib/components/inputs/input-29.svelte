@@ -9,29 +9,29 @@
 	const currencyInput = new CurrencyInput({ id: uid, initialValue: 99 });
 </script>
 
-<div class="space-y-2">
-	<Label for={currencyInput.inputProps.id} class="text-sm font-medium text-foreground">
+<div class="*:not-first:mt-2">
+	<Label for={currencyInput.inputProps.id} class="text-foreground text-sm font-medium">
 		Number input with chevrons
 	</Label>
 	<div
-		class="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input text-sm shadow-sm shadow-black/[.04] ring-offset-background transition-shadow focus-within:border-ring focus-within:outline-none focus-within:ring-2 focus-within:ring-ring/30 focus-within:ring-offset-2"
+		class="border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden"
 	>
 		<input
-			class="flex-1 bg-background px-3 py-2 tabular-nums text-foreground focus:outline-none"
+			class="bg-background text-foreground flex-1 px-3 py-2 tabular-nums focus:outline-hidden"
 			{...currencyInput.inputProps}
 		/>
 		<div class="flex h-[calc(100%+2px)] flex-col">
 			<button
-				class="-me-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+				class="border-input bg-background text-muted-foreground/80 ring-offset-background hover:bg-accent hover:text-foreground -me-px flex h-1/2 w-6 flex-1 items-center justify-center border text-sm transition-shadow disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				{...currencyInput.incrementProps}
 			>
-				<ChevronUp size={12} strokeWidth={2} aria-hidden="true" />
+				<ChevronUp size={12} aria-hidden="true" />
 			</button>
 			<button
-				class="-me-px -mt-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-sm text-muted-foreground/80 ring-offset-background transition-shadow hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+				class="border-input bg-background text-muted-foreground/80 ring-offset-background hover:bg-accent hover:text-foreground -me-px -mt-px flex h-1/2 w-6 flex-1 items-center justify-center border text-sm transition-shadow disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				{...currencyInput.decrementProps}
 			>
-				<ChevronDown size={12} strokeWidth={2} aria-hidden="true" />
+				<ChevronDown size={12} aria-hidden="true" />
 			</button>
 		</div>
 	</div>

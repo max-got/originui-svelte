@@ -220,7 +220,7 @@
 </script>
 
 <div class="space-y-4">
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table class="table-fixed">
 			<TableHeader>
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
@@ -231,7 +231,7 @@
 									<div
 										class={cn(
 											header.column.getCanSort() &&
-												'flex h-full cursor-pointer select-none items-center justify-between gap-2'
+												'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
 										)}
 										onclick={header.column.getToggleSortingHandler()}
 										onkeydown={(e) => {
@@ -285,7 +285,7 @@
 	<!-- Pagination -->
 	<div class="flex items-center justify-between gap-3 max-sm:flex-col">
 		<!-- Page number information -->
-		<p class="flex-1 whitespace-nowrap text-sm text-muted-foreground" aria-live="polite">
+		<p class="text-muted-foreground flex-1 text-sm whitespace-nowrap" aria-live="polite">
 			Page
 			<span class="text-foreground">
 				{table.getState().pagination.pageIndex + 1}
@@ -324,7 +324,7 @@
 						<PaginationItem>
 							<Button
 								size="icon"
-								variant={`${isActive ? 'outline' : 'ghost'}`}
+								variant={isActive ? 'outline' : 'ghost'}
 								onclick={() => table.setPageIndex(page - 1)}
 								aria-current={isActive ? 'page' : undefined}
 							>
@@ -386,10 +386,10 @@
 			</Select>
 		</div>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Numeric pagination made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

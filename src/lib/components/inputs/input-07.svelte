@@ -5,11 +5,11 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with gray background</Label>
 	<Input
 		id={uid}
-		class="border-transparent bg-muted shadow-none"
+		class="bg-muted border-transparent shadow-none"
 		placeholder="Email"
 		type="email"
 	/>

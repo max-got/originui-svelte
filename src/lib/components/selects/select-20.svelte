@@ -16,7 +16,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2 [&_svg]:text-destructive/80">
+<div class="[&_svg]:text-destructive/80 space-y-2">
 	<Label for={uid}>Select with error</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
@@ -33,7 +33,7 @@
 			{/each}
 		</Select.Content>
 	</Select.Root>
-	<p class="mt-2 text-xs text-destructive" role="alert" aria-live="polite">
+	<p class="text-destructive mt-2 text-xs" role="alert" aria-live="polite">
 		Selected option is invalid
 	</p>
 </div>

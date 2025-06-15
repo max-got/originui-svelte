@@ -56,28 +56,28 @@
 	{#each items as item (item.id)}
 		<TimelineItem
 			step={item.id}
-			class="group-data-[orientation=vertical]/timeline:[&:not(:last-child)]:ms-10 group-data-[orientation=vertical]/timeline:[&:not(:last-child)]:pb-8"
+			class="not-last:group-data-[orientation=vertical]/timeline:ms-10 not-last:group-data-[orientation=vertical]/timeline:pb-8"
 		>
 			<TimelineHeader>
 				<TimelineSeparator
-					class="group-data-[orientation=vertical]/timeline:-left-[1.75rem] group-data-[orientation=vertical]/timeline:h-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=vertical]/timeline:translate-y-[1.625rem]"
+					class="group-data-[orientation=vertical]/timeline:-left-7 group-data-[orientation=vertical]/timeline:h-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=vertical]/timeline:translate-y-6.5"
 				/>
 
 				<TimelineTitle class="mt-0.5">
 					{item.title}
-					<span class="text-sm font-normal text-muted-foreground">
+					<span class="text-muted-foreground text-sm font-normal">
 						{item.action}
 					</span>
 				</TimelineTitle>
 				<TimelineIndicator
-					class="flex size-6 items-center justify-center border-none bg-primary/10 group-data-[orientation=vertical]/timeline:-left-7 group-data-[completed]/timeline-item:bg-primary group-data-[completed]/timeline-item:text-primary-foreground"
+					class="bg-primary/10 group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center border-none group-data-[orientation=vertical]/timeline:-left-7"
 				>
 					<enhanced:img src={item.image} alt={item.title} class="size-6 rounded-full" />
 				</TimelineIndicator>
 			</TimelineHeader>
-			<TimelineContent class="mt-2 rounded-lg border px-4 py-3 text-foreground">
+			<TimelineContent class="text-foreground mt-2 rounded-lg border px-4 py-3">
 				{item.description}
-				<TimelineDate class="mb-0 mt-1">{item.date}</TimelineDate>
+				<TimelineDate class="mt-1 mb-0">{item.date}</TimelineDate>
 			</TimelineContent>
 		</TimelineItem>
 	{/each}

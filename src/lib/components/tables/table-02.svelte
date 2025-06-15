@@ -75,7 +75,7 @@
 							<img class="rounded-full" src={item.image} width={40} height={40} alt={item.name} />
 							<div>
 								<div class="font-medium">{item.name}</div>
-								<span class="mt-0.5 text-xs text-muted-foreground">
+								<span class="text-muted-foreground mt-0.5 text-xs">
 									{item.username}
 								</span>
 							</div>
@@ -89,5 +89,5 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Table with images</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Table with images</p>
 </div>

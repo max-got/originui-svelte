@@ -75,5 +75,5 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Table with vertical lines</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Table with vertical lines</p>
 </div>

@@ -19,7 +19,7 @@
 	/>
 	<p
 		id="{uid}-characters-left-textarea"
-		class="mt-2 text-right text-xs text-muted-foreground"
+		class="text-muted-foreground mt-2 text-right text-xs"
 		role="status"
 		aria-live="polite"
 	>

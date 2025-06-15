@@ -7,6 +7,6 @@
 
 <div class="mb-2 flex items-center justify-between gap-1">
 	<Label for={uid} class="mb-0">Textarea with hint</Label>
-	<span class="text-sm text-muted-foreground">Optional</span>
+	<span class="text-muted-foreground text-sm">Optional</span>
 </div>
 <Textarea id={uid} placeholder="Leave a comment" />

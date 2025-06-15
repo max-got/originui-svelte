@@ -14,7 +14,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with clear button</Label>
 	<div class="relative">
 		<Input
@@ -27,11 +27,11 @@
 		/>
 		{#if inputValue}
 			<button
-				class="absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow animate-in fade-in zoom-in-75 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+				class="text-muted-foreground/80 ring-offset-background animate-in fade-in zoom-in-75 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				aria-label="Clear input"
 				onclick={handleClearInput}
 			>
-				<CircleX size={16} stroke-width={2} aria-hidden="true" />
+				<CircleX size={16} aria-hidden="true" />
 			</button>
 		{/if}
 	</div>

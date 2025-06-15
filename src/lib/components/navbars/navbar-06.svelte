@@ -65,7 +65,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -73,7 +73,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -141,12 +141,12 @@
 			<Select type="single" onValueChange={(v) => (selectedLanguage = v)} items={languages}>
 				<SelectTrigger
 					id="language-{id}"
-					class="h-8 border-none px-2 shadow-none hover:bg-accent hover:text-accent-foreground "
+					class="hover:bg-accent hover:text-accent-foreground h-8 border-none px-2 shadow-none "
 					aria-label="Select language"
 				>
-					<div class="flex items-center gap-2 [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80">
+					<div class="[&>svg]:text-muted-foreground/80 flex items-center gap-2 [&>svg]:shrink-0">
 						<GlobeIcon size={16} aria-hidden="true" />
-						<span class="hidden truncate text-foreground sm:inline-flex">
+						<span class="text-foreground hidden truncate sm:inline-flex">
 							{#if selectedLanguage}
 								{languages.find((lang) => lang.value === selectedLanguage)!.label}
 							{/if}
@@ -154,7 +154,7 @@
 					</div>
 				</SelectTrigger>
 				<SelectContent
-					class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2 [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+					class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2"
 				>
 					{#each languages as lang (lang)}
 						<SelectItem value={lang.value}>

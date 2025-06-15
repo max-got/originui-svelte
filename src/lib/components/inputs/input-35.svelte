@@ -8,7 +8,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with characters left</Label>
 	<Input
 		id={uid}
@@ -17,7 +17,7 @@
 		maxlength={characterLimit.maxLength}
 		aria-describedby={uid}
 	/>
-	<p id={uid} class="mt-2 text-xs text-muted-foreground" role="status" aria-live="polite">
+	<p id={uid} class="text-muted-foreground mt-2 text-xs" role="status" aria-live="polite">
 		<span class="tabular-nums">{characterLimit.maxLength - characterLimit.characterCount}</span> characters
 		left
 	</p>

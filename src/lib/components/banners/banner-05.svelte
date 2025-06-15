@@ -9,19 +9,18 @@
 </script>
 
 {#if visible}
-	<div class="dark bg-muted px-4 py-3 text-foreground">
+	<div class="dark bg-muted text-foreground px-4 py-3">
 		<div class="flex gap-2">
 			<div class="flex grow gap-3">
-				<Eclipse class="mt-0.5 shrink-0 opacity-60" size={16} strokeWidth={2} aria-hidden="true" />
+				<Eclipse class="mt-0.5 shrink-0 opacity-60" size={16} aria-hidden="true" />
 				<div class="flex grow flex-col justify-between gap-2 md:flex-row">
 					<p class="text-sm">
 						We just added something awesome to make your experience even better.
 					</p>
-					<a href="#title" class="group whitespace-nowrap text-sm font-medium">
+					<a href="#title" class="group text-sm font-medium whitespace-nowrap">
 						Learn more<ArrowRight
-							class="-mt-0.5 ms-1 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
+							class="ms-1 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
 							size={16}
-							strokeWidth={2}
 							aria-hidden="true"
 						/>
 					</a>
@@ -35,7 +34,6 @@
 			>
 				<X
 					size={16}
-					strokeWidth={2}
 					class="opacity-60 transition-opacity group-hover:opacity-100"
 					aria-hidden="true"
 				/>

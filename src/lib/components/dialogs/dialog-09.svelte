@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Input from '$lib/components/ui/input.svelte';
 
 	import Mail from '@lucide/svelte/icons/mail';
+	import * as Dialog from '$lib/components/ui/dialog';
 </script>
 
 <Dialog.Root>
@@ -11,18 +11,19 @@
 	<Dialog.Content>
 		<div class="mb-2 flex flex-col items-center gap-2">
 			<div
-				class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+				class="border-border flex size-11 shrink-0 items-center justify-center rounded-full border"
 				aria-hidden="true"
 			>
 				<svg
-					class="stroke-zinc-800 dark:stroke-zinc-100"
+					class="stroke-svelte size-6"
 					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
+					width="28"
+					height="28"
 					viewBox="0 0 32 32"
 					aria-hidden="true"
 				>
-					<circle cx="16" cy="16" r="12" fill="none" stroke-width="8" />
+					<circle cx="16" cy="16" r="13" fill="none" stroke-width="2" />
+					<circle cx="16" cy="16" r="9" fill="none" stroke-width="2" />
 				</svg>
 			</div>
 			<Dialog.Header>
@@ -44,16 +45,16 @@
 						aria-label="Email"
 					/>
 					<div
-						class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"
+						class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50"
 					>
-						<Mail size={16} strokeWidth={2} aria-hidden="true" />
+						<Mail size={16} aria-hidden="true" />
 					</div>
 				</div>
 			</div>
 			<Button type="button" class="w-full">Subscribe</Button>
 		</form>
 
-		<p class="text-center text-xs text-muted-foreground">
+		<p class="text-muted-foreground text-center text-xs">
 			By subscribing you agree to our
 			<a class="underline hover:no-underline" href="#title">Privacy Policy</a>.
 		</p>

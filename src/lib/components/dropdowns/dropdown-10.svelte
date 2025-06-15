@@ -17,14 +17,14 @@
 	<DropdownMenuTrigger>
 		{#snippet child({ props })}
 			<Button size="icon" variant="outline" aria-label="Open account menu" {...props}>
-				<CircleUserRound size={16} stroke-width={2} aria-hidden="true" />
+				<CircleUserRound size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
 	<DropdownMenuContent class="max-w-64">
 		<DropdownMenuLabel class="flex flex-col">
 			<span>Signed in as</span>
-			<span class="text-xs font-normal text-foreground">k.kennedy@originui-svelte.com</span>
+			<span class="text-foreground text-xs font-normal">k.kennedy@originui-svelte.com</span>
 		</DropdownMenuLabel>
 		<DropdownMenuSeparator />
 		<DropdownMenuGroup>

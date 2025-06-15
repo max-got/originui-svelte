@@ -23,7 +23,7 @@
 				<Button
 					{...props}
 					variant="ghost"
-					class={cn('grid h-fit items-start justify-stretch gap-2 border border-border', className)}
+					class={cn('border-border grid h-fit items-start justify-stretch gap-2 border', className)}
 					href={dependency.url}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -33,13 +33,13 @@
 							{dependency.packageName}
 						</span>
 						<span
-							class="justify-self-end rounded-full bg-muted px-2 py-1 text-xs text-muted-foreground"
+							class="bg-muted text-muted-foreground justify-self-end rounded-full px-2 py-1 text-xs"
 						>
 							{dependency.dev ? 'Dev' : 'Prod'}
 						</span>
 					</div>
 
-					<div class="flex items-center justify-between gap-4 text-xs text-muted-foreground">
+					<div class="text-muted-foreground flex items-center justify-between gap-4 text-xs">
 						<div class="flex items-center">
 							<Package class="mr-1 h-3 w-3" />
 							<span class="truncate" title={dependency.name}>{dependency.name}</span>
@@ -49,7 +49,7 @@
 				</Button>
 			{/snippet}
 		</TooltipTrigger>
-		<TooltipContent class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground">
+		<TooltipContent class="border-input bg-popover text-muted-foreground border px-2 py-1 text-xs">
 			<p>Package: {dependency.packageName}</p>
 			<p>Name: {dependency.name}</p>
 			<p>Type: {dependency.dev ? 'Dev Dependency' : 'Prod Dependency'}</p>

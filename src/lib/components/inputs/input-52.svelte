@@ -3,7 +3,7 @@
 	import Label from '$lib/components/ui/label.svelte';
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for="input-52">Read-only input</Label>
 	<Input
 		id="input-52"

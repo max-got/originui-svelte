@@ -242,7 +242,7 @@
 				{#if row.getIsExpanded()}
 					<TableRow>
 						<TableCell colspan={row.getVisibleCells().length}>
-							<div class="flex items-start py-2 text-primary/80">
+							<div class="text-primary/80 flex items-start py-2">
 								<span class="me-3 mt-0.5 flex w-7 shrink-0 justify-center" aria-hidden="true">
 									<Info class="opacity-60" size={16} />
 								</span>
@@ -258,10 +258,10 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Expanding sub-row made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	import Check from '@lucide/svelte/icons/check';
 	import RefreshCcw from '@lucide/svelte/icons/refresh-ccw';
+	import * as Dialog from '$lib/components/ui/dialog';
 </script>
 
 <Dialog.Root>
@@ -13,10 +13,10 @@
 	<Dialog.Content>
 		<div class="mb-2 flex flex-col gap-2">
 			<div
-				class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+				class="border-border flex size-11 shrink-0 items-center justify-center rounded-full border"
 				aria-hidden="true"
 			>
-				<RefreshCcw class="opacity-80" size={16} strokeWidth={2} />
+				<RefreshCcw class="opacity-80" size={16} />
 			</div>
 			<Dialog.Header>
 				<Dialog.Title class="text-left">Change your plan</Dialog.Title>
@@ -27,7 +27,7 @@
 		<form class="space-y-5">
 			<RadioGroup class="gap-2" value="plan-02">
 				<div
-					class="relative flex w-full items-center gap-2 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent"
+					class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5"
 				>
 					<RadioGroupItem
 						value="plan-01"
@@ -37,13 +37,13 @@
 					/>
 					<div class="grid grow gap-1">
 						<Label for="plan-01">Essential</Label>
-						<p id="plan-01-description" class="text-xs text-muted-foreground">
+						<p id="plan-01-description" class="text-muted-foreground text-xs">
 							$4 per member/month
 						</p>
 					</div>
 				</div>
 				<div
-					class="relative flex w-full items-center gap-2 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent"
+					class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5"
 				>
 					<RadioGroupItem
 						value="plan-02"
@@ -53,13 +53,13 @@
 					/>
 					<div class="grid grow gap-1">
 						<Label for="plan-02">Standard</Label>
-						<p id="plan-02-description" class="text-xs text-muted-foreground">
+						<p id="plan-02-description" class="text-muted-foreground text-xs">
 							$19 per member/month
 						</p>
 					</div>
 				</div>
 				<div
-					class="relative flex w-full items-center gap-2 rounded-lg border border-input px-4 py-3 shadow-sm shadow-black/5 has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent"
+					class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5"
 				>
 					<RadioGroupItem
 						value="plan-03"
@@ -69,7 +69,7 @@
 					/>
 					<div class="grid grow gap-1">
 						<Label for="plan-03">Enterprise</Label>
-						<p id="plan-03-description" class="text-xs text-muted-foreground">
+						<p id="plan-03-description" class="text-muted-foreground text-xs">
 							$32 per member/month
 						</p>
 					</div>
@@ -80,59 +80,29 @@
 				<p>
 					<strong class="text-sm font-medium">Features include:</strong>
 				</p>
-				<ul class="space-y-2 text-sm text-muted-foreground">
+				<ul class="text-muted-foreground space-y-2 text-sm">
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						Create unlimited projects.
 					</li>
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						Remove watermarks.
 					</li>
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						Add unlimited users and free viewers.
 					</li>
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						Upload unlimited files.
 					</li>
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						7-day money back guarantee.
 					</li>
 					<li class="flex gap-2">
-						<Check
-							size={16}
-							strokeWidth={2}
-							class="mt-0.5 shrink-0 text-primary"
-							aria-hidden="true"
-						/>
+						<Check size={16} class="text-primary mt-0.5 shrink-0" aria-hidden="true" />
 						Advanced permissions.
 					</li>
 				</ul>

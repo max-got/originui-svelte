@@ -18,6 +18,6 @@
 	class={cn('gap-1 pl-2.5', className)}
 	{...restProps}
 >
-	<ChevronLeft size={16} stroke-width={2} />
+	<ChevronLeft size={16} />
 	<span>Previous</span>
 </PaginationLink>

@@ -13,11 +13,11 @@
 </script>
 
 <fieldset class="space-y-4">
-	<legend class="text-sm font-medium leading-none text-foreground">Days of the week</legend>
+	<legend class="text-foreground text-sm leading-none font-medium">Days of the week</legend>
 	<div class="flex gap-1.5">
 		{#each items as item (item.id)}
 			<label
-				class="relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border border-input text-center shadow-sm shadow-black/[.04] ring-offset-background transition-colors has-[[data-disabled]]:cursor-not-allowed has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary has-[[data-state=checked]]:text-primary-foreground has-[[data-disabled]]:opacity-50 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/70 has-[:focus-visible]:ring-offset-2"
+				class="border-input ring-offset-background has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground has-focus-visible:ring-ring/70 relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2 has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"
 				for={item.id}
 			>
 				<Checkbox

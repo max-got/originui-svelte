@@ -15,7 +15,7 @@
 		<TooltipTrigger>
 			{#snippet child({ props })}
 				<Button variant="outline" size="icon" aria-label="Add new item" {...props}>
-					<Plus size={16} stroke-width={2} aria-hidden="true" />
+					<Plus size={16} aria-hidden="true" />
 				</Button>
 			{/snippet}
 		</TooltipTrigger>

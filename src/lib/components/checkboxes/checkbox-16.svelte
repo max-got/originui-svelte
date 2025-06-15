@@ -18,7 +18,7 @@
 <div class="grid grid-cols-2 gap-3">
 	{#each items as item (item.id)}
 		<label
-			class="relative flex cursor-pointer flex-col gap-4 rounded-lg border border-input p-4 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
+			class="border-input has-data-[state=checked]:border-ring relative flex cursor-pointer flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/[.04]"
 			for={item.id}
 		>
 			<div class="flex justify-between gap-2">
@@ -28,7 +28,7 @@
 					class="order-1 h-4 w-4 after:absolute after:inset-0"
 					checked={item.defaultChecked}
 				/>
-				<item.Icon class="opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<item.Icon class="opacity-60" size={16} aria-hidden="true" />
 			</div>
 			<Label for={item.id}>{item.label}</Label>
 		</label>

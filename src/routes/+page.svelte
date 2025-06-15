@@ -49,24 +49,24 @@
 <main data-home>
 	<div class="max-w-3xl max-sm:text-center">
 		<h1
-			class="font-heading mb-4 text-balance font-serif text-4xl/[1.1] tracking-tight text-foreground md:text-5xl/[1.1]"
+			class="font-heading text-foreground mb-4 font-serif text-4xl/[1.1] tracking-tight text-balance md:text-5xl/[1.1]"
 		>
 			Beautiful UI components built with Tailwind CSS and
 			<span class="text-svelte"> Svelte </span>
 		</h1>
 
-		<p class="text-md mb-4 text-muted-foreground">
+		<p class="text-md text-muted-foreground mb-4">
 			A collection of copy-and-paste components for quickly build application UIs.
 		</p>
 		<p
-			class="w-fit max-w-prose text-balance border-t border-border pt-4 text-left text-sm text-accent-foreground"
+			class="border-border text-accent-foreground w-fit max-w-prose border-t pt-4 text-left text-sm text-balance"
 		>
 			This project is not affiliated with the original <a
 				class="underline"
 				href="https://originui.com/"
 				rel="noreferrer">Origin UI</a
 			>. <br />
-			<span class="text-xs text-muted-foreground">
+			<span class="text-muted-foreground text-xs">
 				I appreciate their work and have developed these Svelte 5 components based on their design.
 			</span>
 		</p>
@@ -83,7 +83,7 @@
 								{readableName}
 							</a>
 						</h2>
-						<p class="text-[13px] text-muted-foreground">
+						<p class="text-muted-foreground text-[13px]">
 							{#if isReady}
 								{stateBreakdown.ready} Components
 							{:else}

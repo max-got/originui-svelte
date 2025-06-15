@@ -42,10 +42,10 @@
 		<div class="space-y-3">
 			<div class="space-y-1">
 				<p class="text-[13px] font-medium">{tips[currentTip].title}</p>
-				<p class="text-xs text-muted-foreground">{tips[currentTip].description}</p>
+				<p class="text-muted-foreground text-xs">{tips[currentTip].description}</p>
 			</div>
 			<div class="flex items-center justify-between gap-2">
-				<span class="text-xs text-muted-foreground">
+				<span class="text-muted-foreground text-xs">
 					{currentTip + 1}/{tips.length}
 				</span>
 				<button class="text-xs font-medium hover:underline" onclick={handleNavigation}>

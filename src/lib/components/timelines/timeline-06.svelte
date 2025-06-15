@@ -52,18 +52,18 @@
 		<TimelineItem step={item.id} class="group-data-[orientation=vertical]/timeline:ms-10">
 			<TimelineHeader>
 				<TimelineSeparator
-					class="group-data-[orientation=vertical]/timeline:-left-7 group-data-[orientation=vertical]/timeline:h-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=vertical]/timeline:translate-y-[1.625rem]"
+					class="group-data-[orientation=vertical]/timeline:-left-7 group-data-[orientation=vertical]/timeline:h-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=vertical]/timeline:translate-y-6.5"
 				/>
 				<TimelineTitle class="mt-0.5">{item.title}</TimelineTitle>
 				<TimelineIndicator
-					class="flex size-6 items-center justify-center border-none bg-primary/10 group-data-[orientation=vertical]/timeline:-left-7 group-data-[completed]/timeline-item:bg-primary group-data-[completed]/timeline-item:text-primary-foreground"
+					class="bg-primary/10 group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center border-none group-data-[orientation=vertical]/timeline:-left-7"
 				>
 					<item.icon size={14} />
 				</TimelineIndicator>
 			</TimelineHeader>
 			<TimelineContent>
 				{item.description}
-				<TimelineDate class="mb-0 mt-2">{item.date}</TimelineDate>
+				<TimelineDate class="mt-2 mb-0">{item.date}</TimelineDate>
 			</TimelineContent>
 		</TimelineItem>
 	{/each}

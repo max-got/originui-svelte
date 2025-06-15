@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with error</Label>
 	<Input
 		id={uid}
@@ -14,5 +14,5 @@
 		type="email"
 		value="invalid@email.com"
 	/>
-	<p class="text-xs text-destructive" role="alert" aria-live="polite">Email is invalid</p>
+	<p class="text-destructive text-xs" role="alert" aria-live="polite">Email is invalid</p>
 </div>

@@ -64,7 +64,7 @@
 		<div class="grid grid-cols-2 place-items-center gap-4">
 			{#each tourSteps as _, index (index)}
 				<div
-					class="flex size-10 items-center justify-center rounded-lg bg-secondary text-sm font-medium text-muted-foreground"
+					class="bg-secondary text-muted-foreground flex size-10 items-center justify-center rounded-lg text-sm font-medium"
 					bind:this={anchors[index]}
 				>
 					{index + 1}
@@ -87,10 +87,10 @@
 			<div class="space-y-3">
 				<div class="space-y-1">
 					<p class="text-[13px] font-medium">{tourSteps[currentStep].title}</p>
-					<p class="text-xs text-muted-foreground">{tourSteps[currentStep].description}</p>
+					<p class="text-muted-foreground text-xs">{tourSteps[currentStep].description}</p>
 				</div>
 				<div class="flex items-center justify-between gap-2">
-					<span class="text-xs text-muted-foreground">
+					<span class="text-muted-foreground text-xs">
 						{currentStep + 1}/{tourSteps.length}
 					</span>
 					<button class="text-xs font-medium hover:underline" onclick={handleNavigation}>

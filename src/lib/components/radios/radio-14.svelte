@@ -10,11 +10,11 @@
 </script>
 
 <fieldset class="space-y-4">
-	<legend class="text-sm font-medium leading-none text-foreground">Server location</legend>
+	<legend class="text-foreground text-sm leading-none font-medium">Server location</legend>
 	<RadioGroup class="flex flex-wrap gap-2" value="r1">
 		{#each items as item (item.id)}
 			<div
-				class="relative flex flex-col items-start gap-4 rounded-lg border border-input p-3 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
+				class="border-input has-data-[state=checked]:border-ring relative flex flex-col items-start gap-4 rounded-lg border p-3 shadow-xs shadow-black/[.04]"
 			>
 				<div class="flex items-center gap-2">
 					<RadioGroupItem id={item.id} value={item.value} class="after:absolute after:inset-0" />

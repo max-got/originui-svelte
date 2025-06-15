@@ -19,7 +19,7 @@
 <div class="space-y-2">
 	<Label for={uid}>Select with gray background</Label>
 	<Select.Root type="single" bind:value>
-		<Select.Trigger id={uid} class="border-transparent bg-muted shadow-none">
+		<Select.Trigger id={uid} class="bg-muted border-transparent shadow-none">
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

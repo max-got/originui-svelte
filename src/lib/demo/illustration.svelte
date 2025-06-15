@@ -32,8 +32,8 @@
 			y2="337"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
-			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
+			<stop stop-color="var(--svelte)" stop-opacity=".64" />
+			<stop offset="1" stop-color="var(--svelte)" stop-opacity="0" />
 		</linearGradient>
 		<linearGradient
 			id="ill-d"
@@ -43,8 +43,8 @@
 			y2="337"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
-			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
+			<stop stop-color="var(--svelte)" stop-opacity=".64" />
+			<stop offset="1" stop-color="var(--svelte)" stop-opacity="0" />
 		</linearGradient>
 		<filter
 			id="illf-a"
@@ -75,7 +75,7 @@
 	</defs>
 </svg>
 <svg
-	class="pointer-events-none absolute left-1/2 top-1/2 -z-10"
+	class="pointer-events-none absolute top-1/2 left-1/2 -z-10"
 	xmlns="http://www.w3.org/2000/svg"
 	width="520"
 	height="576"
@@ -100,8 +100,8 @@
 			y2="467"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color="hsl(var(--svelte-color))" stop-opacity=".64" />
-			<stop offset="1" stop-color="hsl(var(--svelte-color))" stop-opacity="0" />
+			<stop stop-color="var(--svelte)" stop-opacity=".64" />
+			<stop offset="1" stop-color="var(--svelte)" stop-opacity="0" />
 		</linearGradient>
 		<filter
 			id="ill2-a"

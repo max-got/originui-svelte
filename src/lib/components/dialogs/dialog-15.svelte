@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 	import {
@@ -13,6 +12,7 @@
 	import Check from '@lucide/svelte/icons/check';
 	import Copy from '@lucide/svelte/icons/copy';
 	import UserRoundPlus from '@lucide/svelte/icons/user-round-plus';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import { cn } from '$lib/utils';
 
 	let input = $state<HTMLInputElement | null>(null);
@@ -35,10 +35,10 @@
 	<Dialog.Content>
 		<div class="flex flex-col gap-2">
 			<div
-				class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+				class="border-border flex size-11 shrink-0 items-center justify-center rounded-full border"
 				aria-hidden="true"
 			>
-				<UserRoundPlus class="opacity-80" size={16} strokeWidth={2} />
+				<UserRoundPlus class="opacity-80" size={16} />
 			</div>
 			<Dialog.Header>
 				<Dialog.Title class="text-left">Invite team members</Dialog.Title>
@@ -70,7 +70,7 @@
 			<Button type="button" class="w-full">Send invites</Button>
 		</form>
 
-		<hr class="my-1 border-t border-border" />
+		<hr class="border-border my-1 border-t" />
 
 		<div class="space-y-2">
 			<Label for="input-53">Invite via magic link</Label>
@@ -90,7 +90,7 @@
 								<button
 									{...props}
 									onclick={handleCopy}
-									class="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 outline-offset-2 transition-colors hover:text-foreground focus-visible:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed"
+									class="text-muted-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:outline-ring/70 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent outline-offset-2 transition-colors focus-visible:outline-2 focus-visible:outline-solid disabled:pointer-events-none disabled:cursor-not-allowed"
 									aria-label={copied ? 'Copied' : 'Copy to clipboard'}
 									disabled={copied}
 								>
@@ -100,12 +100,7 @@
 											copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
 										)}
 									>
-										<Check
-											class="stroke-emerald-500"
-											size={16}
-											strokeWidth={2}
-											aria-hidden="true"
-										/>
+										<Check class="stroke-emerald-500" size={16} aria-hidden="true" />
 									</div>
 									<div
 										class={cn(
@@ -113,7 +108,7 @@
 											copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
 										)}
 									>
-										<Copy size={16} strokeWidth={2} aria-hidden="true" />
+										<Copy size={16} aria-hidden="true" />
 									</div>
 								</button>
 							{/snippet}

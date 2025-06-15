@@ -16,6 +16,6 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<ChevronRight size={16} stroke-width={2} />
+		<ChevronRight size={16} />
 	{/if}
 </li>

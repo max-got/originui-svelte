@@ -7,7 +7,7 @@
 
 <div class="space-y-2">
 	<Label for={uid}>Multiple select (native)</Label>
-	<div class="overflow-hidden rounded-lg border border-input">
+	<div class="border-input overflow-hidden rounded-lg border">
 		<SelectNative id={uid} class="rounded-none border-none" multiple value="">
 			<option value="s1">React</option>
 			<option value="s2">Next.js</option>

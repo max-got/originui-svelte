@@ -32,7 +32,7 @@
 
 <Timeline class="divide-y rounded-lg border">
 	{#each items as item (item.id)}
-		<TimelineItem step={item.id} class="!m-0 !px-4 !py-3">
+		<TimelineItem step={item.id} class="m-0! px-4! py-3!">
 			<TimelineContent class="text-foreground">
 				{item.description}
 				<TimelineDate class="mt-1">

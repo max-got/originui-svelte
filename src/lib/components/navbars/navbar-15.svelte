@@ -44,7 +44,7 @@
 		<div>
 			<Select type="single" items={aiModels} onValueChange={(value) => (selectedModel = value)}>
 				<SelectTrigger>
-					<div class="flex items-center gap-2 [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80">
+					<div class="[&>svg]:text-muted-foreground/80 flex items-center gap-2 [&>svg]:shrink-0">
 						{#if selectedModel}
 							<BotMessageSquareIcon size={16} aria-hidden="true" />
 							<span class="truncate">
@@ -55,7 +55,7 @@
 					</div>
 				</SelectTrigger>
 				<SelectContent
-					class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+					class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 				>
 					<SelectGroup>
 						<SelectGroupHeading class="ps-2">Models</SelectGroupHeading>
@@ -63,7 +63,7 @@
 						{#each aiModels as aiModel (aiModel.value)}
 							<SelectItem value={aiModel.value}>
 								{aiModel.label}
-								<span class="mt-1 block text-xs text-muted-foreground">
+								<span class="text-muted-foreground mt-1 block text-xs">
 									{aiModel.description}
 								</span>
 							</SelectItem>
@@ -79,7 +79,7 @@
 			<Button
 				size="icon"
 				variant="ghost"
-				class="size-8 rounded-full text-muted-foreground shadow-none"
+				class="text-muted-foreground size-8 rounded-full shadow-none"
 				aria-label="Temporary chat"
 			>
 				<MessageCircleDashedIcon size={16} aria-hidden="true" />

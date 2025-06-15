@@ -8,7 +8,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with character limit</Label>
 	<div class="relative">
 		<Input
@@ -20,7 +20,7 @@
 			aria-describedby={uid}
 		/>
 		<div
-			class="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-xs tabular-nums text-muted-foreground peer-disabled:opacity-50"
+			class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-xs tabular-nums peer-disabled:opacity-50"
 			aria-live="polite"
 			role="status"
 		>

@@ -57,7 +57,7 @@
 	</Dialog.Root>
 {:else}
 	<Drawer.Root bind:open onOpenChange={handleOpenChange}>
-		<Drawer.Content class="overflow-hidden after:![all:unset]">
+		<Drawer.Content class="overflow-hidden after:[all:unset]!">
 			<div class="block h-auto max-h-[calc(80svh)] overflow-y-auto sm:max-w-2xl">
 				<Content
 					component={componentDialogCtx.component!}

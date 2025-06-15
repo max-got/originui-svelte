@@ -23,7 +23,7 @@
 		<div class="grow">
 			<div class="grid gap-2">
 				<Label for={uid}>Checkbox with expansion</Label>
-				<p id="{uid}-description" class="text-xs text-muted-foreground">
+				<p id="{uid}-description" class="text-muted-foreground text-xs">
 					You can use this checkbox with a label and a description.
 				</p>
 			</div>
@@ -32,7 +32,7 @@
 				role="region"
 				id="{uid}-input"
 				aria-labelledby={uid}
-				class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=expanded]:grid-rows-[1fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:opacity-100"
+				class="grid transition-all ease-in-out data-[state=collapsed]:grid-rows-[0fr] data-[state=collapsed]:opacity-0 data-[state=expanded]:grid-rows-[1fr] data-[state=expanded]:opacity-100"
 				data-state={checked ? 'expanded' : 'collapsed'}
 				ontransitionend={handleTransitionEnd}
 			>

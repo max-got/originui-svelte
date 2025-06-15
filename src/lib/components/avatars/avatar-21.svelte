@@ -7,31 +7,31 @@
 	import AvatarImg04 from '$assets/avatar-80-07.jpg?w=80&h=80&enhanced';
 </script>
 
-<div class="flex items-center rounded-full bg-muted p-0.5">
+<div class="bg-muted flex items-center rounded-full p-0.5">
 	<div class="flex -space-x-3">
 		<enhanced:img
-			class="size-10 rounded-full ring-2 ring-muted"
+			class="ring-muted size-10 rounded-full ring-2"
 			src={AvatarImg01}
 			alt="Avatar 01"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-2 ring-muted"
+			class="ring-muted size-10 rounded-full ring-2"
 			src={AvatarImg02}
 			alt="Avatar 02"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-2 ring-muted"
+			class="ring-muted size-10 rounded-full ring-2"
 			src={AvatarImg03}
 			alt="Avatar 03"
 			loading="lazy"
 			decoding="async"
 		/>
 		<enhanced:img
-			class="size-10 rounded-full ring-2 ring-muted"
+			class="ring-muted size-10 rounded-full ring-2"
 			src={AvatarImg04}
 			alt="Avatar 04"
 			loading="lazy"
@@ -40,7 +40,7 @@
 	</div>
 	<Button
 		variant="secondary"
-		class="flex items-center justify-center rounded-full bg-transparent px-3 text-xs text-muted-foreground shadow-none hover:bg-transparent hover:text-foreground"
+		class="text-muted-foreground hover:text-foreground flex items-center justify-center rounded-full bg-transparent px-3 text-xs shadow-none hover:bg-transparent"
 	>
 		+3
 	</Button>

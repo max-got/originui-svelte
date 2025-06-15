@@ -1,16 +1,17 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 	import Textarea from '$lib/components/ui/textarea.svelte';
+
+	import * as Dialog from '$lib/components/ui/dialog';
 </script>
 
 <Dialog.Root>
 	<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Rating</Dialog.Trigger>
 	<Dialog.Content class="flex flex-col gap-0 p-0 [&>button:last-child]:top-3.5">
 		<Dialog.Header class="contents space-y-0 text-left">
-			<Dialog.Title class="border-b border-border px-6 py-4 text-base">
+			<Dialog.Title class="border-border border-b px-6 py-4 text-base">
 				Help us improve
 			</Dialog.Title>
 		</Dialog.Header>
@@ -19,17 +20,17 @@
 				<div class="space-y-4">
 					<div>
 						<fieldset class="space-y-4">
-							<legend class="text-lg font-semibold leading-none text-foreground">
+							<legend class="text-foreground text-lg leading-none font-semibold">
 								How hard was it to set up your account?
 							</legend>
 							<RadioGroup
 								value=""
-								class="flex gap-0 -space-x-px rounded-lg shadow-sm shadow-black/5"
+								class="flex gap-0 -space-x-px rounded-lg shadow-xs shadow-black/5"
 							>
 								{#each Array.from({ length: 9 }) as _, index (index)}
 									<label
 										for="radio-17-r{index}"
-										class="relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border border-input text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-[[data-state=checked]]:z-10 has-[[data-disabled]]:cursor-not-allowed has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent has-[[data-disabled]]:opacity-50 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70"
+										class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:outline-ring/70 relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-focus-visible:outline-2 has-focus-visible:outline-solid has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:z-10"
 									>
 										<RadioGroupItem
 											id="radio-17-r{index}"
@@ -41,7 +42,7 @@
 								{/each}
 							</RadioGroup>
 						</fieldset>
-						<div class="mt-2 flex justify-between text-xs text-muted-foreground">
+						<div class="text-muted-foreground mt-2 flex justify-between text-xs">
 							<p>Very easy</p>
 							<p>Very dificult</p>
 						</div>

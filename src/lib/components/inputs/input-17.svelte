@@ -7,12 +7,12 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with start select</Label>
-	<div class="flex rounded-lg shadow-sm shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
 		<div class="relative">
 			<select
-				class="peer inline-flex h-full appearance-none items-center rounded-s-lg border border-input bg-background pe-8 ps-3 text-sm text-muted-foreground ring-offset-background transition-shadow hover:bg-accent hover:text-foreground focus:z-10 focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+				class="peer border-input bg-background text-muted-foreground ring-offset-background hover:bg-accent hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 inline-flex h-full appearance-none items-center rounded-s-lg border ps-3 pe-8 text-sm transition-shadow focus:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
 				aria-label="Protocol"
 			>
 				<option value="https://">https://</option>
@@ -23,9 +23,9 @@
 				<option value="wss://">wss://</option>
 			</select>
 			<span
-				class="pointer-events-none absolute inset-y-0 end-px flex h-full w-9 items-center justify-center text-muted-foreground/80 peer-disabled:opacity-50"
+				class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-px flex h-full w-9 items-center justify-center peer-disabled:opacity-50"
 			>
-				<ChevronDown size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown size={16} aria-hidden="true" />
 			</span>
 		</div>
 		<Input

@@ -14,8 +14,8 @@
 	{...restProps}
 >
 	<div class="space-y-2">
-		<p class="text-sm text-muted-foreground">Component not available</p>
-		<p class="text-xs text-muted-foreground">Want to contribute and make it happen?</p>
+		<p class="text-muted-foreground text-sm">Component not available</p>
+		<p class="text-muted-foreground text-xs">Want to contribute and make it happen?</p>
 	</div>
 
 	<Button

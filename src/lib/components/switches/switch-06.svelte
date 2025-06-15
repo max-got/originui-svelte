@@ -6,6 +6,6 @@
 </script>
 
 <div class="inline-flex items-center gap-2">
-	<Switch id={uid} class="h-3 w-9 border-none [&_span]:border [&_span]:border-input" />
+	<Switch id={uid} class="[&_span]:border-input h-3 w-9 border-none [&_span]:border" />
 	<Label for={uid} class="sr-only">M2-style switch</Label>
 </div>

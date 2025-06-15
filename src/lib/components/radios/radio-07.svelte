@@ -5,7 +5,7 @@
 </script>
 
 <fieldset class="space-y-4">
-	<legend class="text-sm font-medium leading-none text-foreground">Choose a color</legend>
+	<legend class="text-foreground text-sm leading-none font-medium">Choose a color</legend>
 	<RadioGroup class="flex gap-1.5" bind:value={selectedColor}>
 		<RadioGroupItem
 			value="blue"

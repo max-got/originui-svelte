@@ -29,9 +29,9 @@
 			<Select type="single" bind:value allowDeselect={false}>
 				<SelectTrigger id="select-database" class="relative ps-9" aria-label="Select database">
 					<div
-						class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 group-has-[[disabled]]:opacity-50"
+						class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[[disabled]]:opacity-50"
 					>
-						<Database size={16} stroke-width={2} aria-hidden="true" />
+						<Database size={16} aria-hidden="true" />
 					</div>
 
 					{selectedItem?.label ?? 'Select database'}

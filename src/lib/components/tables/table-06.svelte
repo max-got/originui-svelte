@@ -68,7 +68,7 @@
 </script>
 
 <div>
-	<div class="overflow-hidden rounded-md border bg-background">
+	<div class="bg-background overflow-hidden rounded-md border">
 		<Table>
 			<TableHeader>
 				<TableRow class="bg-muted/50">
@@ -100,5 +100,5 @@
 			</TableBody>
 		</Table>
 	</div>
-	<p class="mt-4 text-center text-sm text-muted-foreground">Dense table</p>
+	<p class="text-muted-foreground mt-4 text-center text-sm">Dense table</p>
 </div>

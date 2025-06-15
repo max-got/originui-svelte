@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
 	import CircleAlert from '@lucide/svelte/icons/circle-alert';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import { PROJECT_NAME } from '$lib/config';
 
 	let inputValue = $state('');
@@ -15,10 +15,10 @@
 	<Dialog.Content>
 		<div class="flex flex-col items-center gap-2">
 			<div
-				class="flex size-9 shrink-0 items-center justify-center rounded-full border border-border"
+				class="border-border flex size-9 shrink-0 items-center justify-center rounded-full border"
 				aria-hidden="true"
 			>
-				<CircleAlert class="opacity-80" size={16} strokeWidth={2} />
+				<CircleAlert class="opacity-80" size={16} />
 			</div>
 			<Dialog.Header>
 				<Dialog.Title class="sm:text-center">Final confirmation</Dialog.Title>
@@ -35,7 +35,7 @@
 				<Input
 					id="project-name"
 					type="text"
-					placeholder="Type Origin UI to confirm"
+					placeholder="Type {PROJECT_NAME} to confirm"
 					bind:value={inputValue}
 				/>
 			</div>

@@ -20,7 +20,7 @@
 	<Label for={uid}>Select with auto-width</Label>
 	<Select.Root type="single" bind:value>
 		<!-- Adjust the min-width to fit the longest option -->
-		<Select.Trigger id={uid} class="w-auto min-w-48 max-w-full">
+		<Select.Trigger id={uid} class="w-auto max-w-full min-w-48">
 			{selected?.label ?? 'Select a framework'}
 		</Select.Trigger>
 		<Select.Content>

@@ -99,15 +99,14 @@
 		{#each items as item (item.id)}
 			<Accordion.Item
 				value={item.id}
-				class="border bg-background px-4 py-1 first:rounded-t-lg last:rounded-b-lg"
+				class="bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg"
 			>
 				<AccordionPrimitive.Trigger
-					class="flex flex-1 items-center gap-3 py-2 text-left text-[15px] font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&>svg]:-order-1 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180"
+					class="flex flex-1 items-center gap-3 py-2 text-left text-[15px] leading-6 font-semibold transition-all [&>svg]:-order-1 [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0"
 				>
 					{item.title}
 					<Plus
 						size={16}
-						strokeWidth={2}
 						class="shrink-0 opacity-60 transition-transform duration-200"
 						aria-hidden="true"
 					/>
@@ -139,23 +138,22 @@
 	open: boolean;
 	title: string;
 })}
-	<Collapsible class="space-y-1 border-t border-border py-3 pe-4 ps-6" {open}>
+	<Collapsible class="border-border space-y-1 border-t py-3 ps-6 pe-4" {open}>
 		<CollapsibleTrigger
-			class="flex gap-2 text-[15px] font-semibold leading-6 [&[data-state=open]>svg]:rotate-180"
+			class="flex gap-2 text-[15px] leading-6 font-semibold [&[data-state=open]>svg]:rotate-180"
 		>
 			<ChevronDown
 				size={16}
-				strokeWidth={2}
 				class="mt-1 shrink-0 opacity-60 transition-transform duration-200"
 				aria-hidden="true"
 			/>
 			<span class="flex items-center gap-3">
-				<Icon size={16} stroke-width={2} className="shrink-0 opacity-60" aria-hidden="true" />
+				<Icon size={16} className="shrink-0 opacity-60" aria-hidden="true" />
 				<span>{title}</span>
 			</span>
 		</CollapsibleTrigger>
 		<CollapsibleContent
-			class="overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down"
+			class="text-muted-foreground data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden ps-6 text-sm transition-all"
 		>
 			{content}
 		</CollapsibleContent>

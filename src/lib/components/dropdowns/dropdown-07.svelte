@@ -18,7 +18,7 @@
 		{#snippet child({ props })}
 			<Button variant="outline" {...props}>
 				Radio items
-				<ChevronDown class="-me-1 opacity-60" size={16} stroke-width={2} aria-hidden="true" />
+				<ChevronDown class="-me-1 opacity-60" size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>

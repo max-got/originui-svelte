@@ -7,7 +7,7 @@
 
 <div class="space-y-2">
 	<Label for={uid}>Select with gray background (native)</Label>
-	<SelectNative id={uid} class="border-transparent bg-muted shadow-none">
+	<SelectNative id={uid} class="bg-muted border-transparent shadow-none">
 		<option value="s1">Svelte</option>
 		<option value="s2">Next.js</option>
 		<option value="s3">Astro</option>

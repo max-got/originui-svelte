@@ -17,7 +17,7 @@
 <RadioGroup class="grid grid-cols-3 gap-2" bind:value={selectedValue}>
 	{#each items as item (item.id)}
 		<label
-			class="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/[.04] ring-offset-background transition-colors has-[[data-state=checked]]:border-ring has-[[data-state=checked]]:bg-accent has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring/70 has-[:focus-visible]:ring-offset-2"
+			class="border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2"
 		>
 			<RadioGroupItem
 				id={item.id}
@@ -25,7 +25,7 @@
 				class="sr-only after:absolute after:inset-0"
 			/>
 			<item.Icon class="opacity-60" width="20" height="20" aria-hidden="true" />
-			<p class="text-xs font-medium leading-none text-foreground">{item.label}</p>
+			<p class="text-foreground text-xs leading-none font-medium">{item.label}</p>
 		</label>
 	{/each}
 </RadioGroup>

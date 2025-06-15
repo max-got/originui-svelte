@@ -8,7 +8,7 @@
 	let value = $state(3);
 </script>
 
-<div class="space-y-3">
+<div class="*:not-first:mt-3">
 	<Label>Rate your experience</Label>
 	<div class="flex items-center gap-3">
 		<Slider

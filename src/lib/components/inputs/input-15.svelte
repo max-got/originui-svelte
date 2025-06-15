@@ -5,9 +5,9 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end add-on</Label>
-	<div class="flex rounded-lg shadow-sm shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
 		<Input
 			id={uid}
 			class="z-10 -me-px rounded-e-none shadow-none"
@@ -15,7 +15,7 @@
 			type="text"
 		/>
 		<span
-			class="inline-flex items-center rounded-e-lg border border-input bg-background px-3 text-sm text-muted-foreground"
+			class="border-input bg-background text-muted-foreground inline-flex items-center rounded-e-lg border px-3 text-sm"
 		>
 			.com
 		</span>

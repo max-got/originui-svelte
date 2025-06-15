@@ -11,10 +11,10 @@
 </script>
 
 <div bind:this={ref} class={cn('mb-16 text-center', restProps.class)}>
-	<h1 id="title" class="mb-3 font-serif text-4xl/[1.1] font-bold text-foreground md:text-5xl/[1.1]">
+	<h1 id="title" class="text-foreground mb-3 font-serif text-4xl/[1.1] font-bold md:text-5xl/[1.1]">
 		{title}
 	</h1>
-	<p class="text-lg text-muted-foreground">
+	<p class="text-muted-foreground text-lg">
 		{@render children?.()}
 	</p>
 </div>

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import DialogImg from '$lib/assets/dialog-content.png';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import { cn } from '$lib/utils';
 
 	const steps = [
@@ -47,7 +47,7 @@
 		<div class="p-2">
 			<img class="w-full rounded-lg" src={DialogImg} width={382} height={216} alt="dialog" />
 		</div>
-		<div class="space-y-6 px-6 pb-6 pt-3">
+		<div class="space-y-6 px-6 pt-3 pb-6">
 			<Dialog.Header>
 				<Dialog.Title>{steps[step - 1].title}</Dialog.Title>
 				<Dialog.Description>{steps[step - 1].description}</Dialog.Description>
@@ -57,7 +57,7 @@
 					{#each { length: steps.length } as _, index (index)}
 						<div
 							class={cn(
-								'h-1.5 w-1.5 rounded-full bg-primary',
+								'bg-primary h-1.5 w-1.5 rounded-full',
 								index + 1 === step ? 'bg-primary' : 'opacity-20'
 							)}
 						></div>
@@ -71,7 +71,6 @@
 							<ArrowRight
 								className="-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5"
 								size={16}
-								strokeWidth={2}
 								aria-hidden="true"
 							/>
 						</Button>

@@ -62,7 +62,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -70,7 +70,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -105,7 +105,7 @@
 								{#snippet child({ props })}
 									<Button
 										variant="ghost"
-										class="h-8 p-1.5 text-foreground focus-visible:bg-accent focus-visible:ring-0"
+										class="text-foreground focus-visible:bg-accent h-8 p-1.5 focus-visible:ring-0"
 										{...props}
 									>
 										<span>
@@ -119,7 +119,7 @@
 								{/snippet}
 							</SelectPrimitive.Trigger>
 							<SelectContent
-								class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+								class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 							>
 								{#each accountTypes as accountType (accountType.value)}
 									<SelectItem value={accountType.value}>{accountType.label}</SelectItem>
@@ -140,7 +140,7 @@
 								{#snippet child({ props })}
 									<Button
 										variant="ghost"
-										class="h-8 p-1.5 text-foreground focus-visible:bg-accent focus-visible:ring-0"
+										class="text-foreground focus-visible:bg-accent h-8 p-1.5 focus-visible:ring-0"
 										{...props}
 									>
 										<span>
@@ -154,7 +154,7 @@
 								{/snippet}
 							</SelectPrimitive.Trigger>
 							<SelectContent
-								class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+								class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 							>
 								{#each projects as project (project.value)}
 									<SelectItem value={project.value}>{project.label}</SelectItem>
@@ -175,7 +175,7 @@
 							<NavigationMenuItem>
 								<NavigationMenuLink
 									href={link.href}
-									class="py-1.5 font-medium text-muted-foreground hover:text-primary"
+									class="text-muted-foreground hover:text-primary py-1.5 font-medium"
 								>
 									{link.label}
 								</NavigationMenuLink>

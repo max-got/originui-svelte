@@ -30,7 +30,7 @@
 		{portalProps}
 	>
 		<Command
-			class="[&_[data-command-group-heading]]:px-2 [&_[data-command-group-heading]]:font-medium [&_[data-command-group-heading]]:text-muted-foreground [&_[data-command-group]]:px-2 [&_[data-command-input]]:h-12  [&_[data-command-item]]:px-3 [&_[data-command-item]]:py-2 "
+			class="**:data-command-group-heading:text-muted-foreground **:data-command-group:px-2 **:data-command-group-heading:px-2 **:data-command-group-heading:font-medium **:data-command-input:h-12  **:data-command-item:px-3 **:data-command-item:py-2 "
 			{...restProps}
 			bind:value
 			bind:ref

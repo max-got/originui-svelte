@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2" style:--ring="234 89% 74%">
+<div class="*:not-first:mt-2" style:--ring="234 89% 74%">
 	<Label for={uid}>Input with colored border and ring</Label>
 	<Input id={uid} placeholder="Email" type="email" />
 </div>

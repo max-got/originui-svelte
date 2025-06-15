@@ -24,7 +24,7 @@
 				aria-label="Open edit menu"
 				{...props}
 			>
-				<Info size={16} stroke-width={2} aria-hidden="true" />
+				<Info size={16} aria-hidden="true" />
 			</Button>
 		{/snippet}
 	</DropdownMenuTrigger>
@@ -33,7 +33,7 @@
 		<DropdownMenuItem class="cursor-pointer py-1 focus:bg-transparent focus:underline">
 			{#snippet child({ props })}
 				<a href="#title" {...props}>
-					<Book size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+					<Book size={16} class="opacity-60" aria-hidden="true" />
 					Documentation
 				</a>
 			{/snippet}
@@ -41,7 +41,7 @@
 		<DropdownMenuItem class="cursor-pointer py-1 focus:bg-transparent focus:underline">
 			{#snippet child({ props })}
 				<a href="#title" {...props}>
-					<LifeBuoy size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+					<LifeBuoy size={16} class="opacity-60" aria-hidden="true" />
 					Support
 				</a>
 			{/snippet}
@@ -49,7 +49,7 @@
 		<DropdownMenuItem class="cursor-pointer py-1 focus:bg-transparent focus:underline">
 			{#snippet child({ props })}
 				<a href="#title" {...props}>
-					<MessageCircleMore size={16} stroke-width={2} class="opacity-60" aria-hidden="true" />
+					<MessageCircleMore size={16} class="opacity-60" aria-hidden="true" />
 					Contact us
 				</a>
 			{/snippet}

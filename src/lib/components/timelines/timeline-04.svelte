@@ -50,7 +50,7 @@
 			</TimelineHeader>
 			<TimelineContent>
 				{item.description}
-				<TimelineDate class="mb-0 mt-2">{item.date}</TimelineDate>
+				<TimelineDate class="mt-2 mb-0">{item.date}</TimelineDate>
 			</TimelineContent>
 		</TimelineItem>
 	{/each}

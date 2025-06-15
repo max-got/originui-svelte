@@ -30,7 +30,7 @@
 		<Tooltip.TooltipTrigger
 			onclick={handleCopy}
 			class={cn(
-				'text-muted-foreground/80 hover:bg-transparent hover:text-foreground disabled:opacity-100',
+				'text-muted-foreground/80 hover:text-foreground hover:bg-transparent disabled:opacity-100',
 				className
 			)}
 			aria-label={copied ? 'Copied' : 'Copy component source'}
@@ -77,7 +77,7 @@
 		</Tooltip.TooltipTrigger>
 
 		<Tooltip.TooltipContent
-			class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground"
+			class="border-input bg-popover text-muted-foreground border px-2 py-1 text-xs"
 		>
 			Copy
 		</Tooltip.TooltipContent>

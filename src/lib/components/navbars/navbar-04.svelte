@@ -45,7 +45,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -53,7 +53,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -73,7 +73,7 @@
 								<div
 									role="separator"
 									aria-orientation="horizontal"
-									class="-mx-1 my-1 h-px bg-border"
+									class="bg-border -mx-1 my-1 h-px"
 								></div>
 							</NavigationMenuItem>
 							<NavigationMenuItem class="w-full">
@@ -83,7 +83,7 @@
 								<Button size="sm" class="mt-0.5 w-full text-left text-sm">
 									<span class="flex items-baseline gap-2">
 										Cart
-										<span class="text-xs text-primary-foreground/60"> 2 </span>
+										<span class="text-primary-foreground/60 text-xs"> 2 </span>
 									</span>
 								</Button>
 							</NavigationMenuItem>
@@ -103,7 +103,7 @@
 							<NavigationMenuItem class="h-full">
 								<NavigationMenuLink
 									href={link.href}
-									class="py-1.5 font-medium text-muted-foreground hover:text-primary"
+									class="text-muted-foreground hover:text-primary py-1.5 font-medium"
 								>
 									{link.label}
 								</NavigationMenuLink>
@@ -113,9 +113,9 @@
 				</NavigationMenuRoot>
 				<!-- Search form -->
 				<div class="relative">
-					<Input {id} class="peer h-8 pe-2 ps-8" placeholder="Search..." type="search" />
+					<Input {id} class="peer h-8 ps-8 pe-2" placeholder="Search..." type="search" />
 					<div
-						class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 text-muted-foreground/80 peer-disabled:opacity-50"
+						class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 peer-disabled:opacity-50"
 					>
 						<SearchIcon size={16} />
 					</div>
@@ -129,7 +129,7 @@
 			<Button href="#" size="sm" class="text-sm">
 				<span class="flex items-baseline gap-2">
 					Cart
-					<span class="text-xs text-primary-foreground/60">2</span>
+					<span class="text-primary-foreground/60 text-xs">2</span>
 				</span></Button
 			>
 		</div>

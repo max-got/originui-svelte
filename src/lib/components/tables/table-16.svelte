@@ -307,10 +307,10 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Draggable columns made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"
@@ -327,7 +327,7 @@
 {#snippet DraggableTableHeader(header: Header<User, unknown>)}
 	{@const { buttonAttachment, thAttachment } = createHeaderDragAttachment(header)}
 	<TableHead
-		class="relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-border first:before:bg-transparent"
+		class="before:bg-border relative h-10 border-t before:absolute before:inset-y-0 before:start-0 before:w-px first:before:bg-transparent"
 		aria-sort={header.column.getIsSorted() === 'asc'
 			? 'ascending'
 			: header.column.getIsSorted() === 'desc'

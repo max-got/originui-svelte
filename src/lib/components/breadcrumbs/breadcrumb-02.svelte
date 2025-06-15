@@ -30,7 +30,7 @@
 						aria-hidden="true"
 						class="flex size-5 items-center justify-center"
 					>
-						<Folders size={16} stroke-width={2} />
+						<Folders size={16} />
 					</span>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="start">

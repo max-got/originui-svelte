@@ -2,29 +2,41 @@
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
+	import { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';
 
-	const min = 0;
-	const max = 100;
+	const minValue = 0;
+	const maxValue = 100;
+	const initialValue = [25];
 
-	let value = $state(25);
-
-	function handleInputChange(e: Event & { currentTarget: HTMLInputElement }) {
-		value = parseFloat(e.currentTarget.value) || 0;
-	}
+	const slider = useSliderWithInput({ initialValue, maxValue, minValue });
 </script>
 
-<div class="space-y-3">
+<div class="*:not-first:mt-3">
 	<Label>Slider with input</Label>
 	<div class="flex items-center gap-4">
-		<Slider type="single" class="flex-grow" bind:value {min} {max} aria-label="Slider with input" />
+		<Slider
+			type="single"
+			class="grow"
+			bind:value={slider.sliderValue[0]}
+			onValueChange={slider.handleSliderChange}
+			min={minValue}
+			max={maxValue}
+			aria-label="Slider with input"
+		/>
 		<Input
-			class="h-8 w-12 px-2 py-1 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+			class="h-8 w-12 [appearance:textfield] px-2 py-1 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 			type="number"
 			inputmode="decimal"
-			{min}
-			{max}
-			{value}
-			onchange={handleInputChange}
+			min={minValue}
+			max={maxValue}
+			bind:value={slider.inputValues[0]}
+			oninput={(e) => slider.handleInputChange(e, 0)}
+			onblur={() => slider.validateAndUpdateValue(slider.inputValues[0], 0)}
+			onkeydown={(e) => {
+				if (e.key === 'Enter') {
+					slider.validateAndUpdateValue(slider.inputValues[0], 0);
+				}
+			}}
 			aria-label="Enter value"
 		/>
 	</div>

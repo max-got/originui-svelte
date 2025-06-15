@@ -26,14 +26,14 @@
 						aria-label="Pan camera up"
 						{...props}
 					>
-						<ChevronUp size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronUp size={16} aria-hidden="true" />
 					</Button>
 				{/snippet}
 			</TooltipTrigger>
 			<TooltipContent side="top" class="px-2 py-1 text-xs">
 				Pan top
 				<kbd
-					class="-me-1 ms-2 inline-flex h-5 max-h-full items-center rounded border border-border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+					class="border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 				>
 					⌘T
 				</kbd>
@@ -51,14 +51,14 @@
 						aria-label="Pan camera left"
 						{...props}
 					>
-						<ChevronLeft size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronLeft size={16} aria-hidden="true" />
 					</Button>
 				{/snippet}
 			</TooltipTrigger>
 			<TooltipContent side="left" class="px-2 py-1 text-xs">
 				Pan left
 				<kbd
-					class="-me-1 ms-2 inline-flex h-5 max-h-full items-center rounded border border-border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+					class="border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 				>
 					⌘L
 				</kbd>
@@ -66,21 +66,21 @@
 		</Tooltip>
 	</TooltipProvider>
 	<div class="flex items-center justify-center" aria-hidden="true">
-		<Circle class="opacity-60" size={16} stroke-width={2} />
+		<Circle class="opacity-60" size={16} />
 	</div>
 	<TooltipProvider delayDuration={0}>
 		<Tooltip>
 			<TooltipTrigger>
 				{#snippet child({ props })}
 					<Button variant="outline" size="icon" aria-label="Pan camera right" {...props}>
-						<ChevronRight size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronRight size={16} aria-hidden="true" />
 					</Button>
 				{/snippet}
 			</TooltipTrigger>
 			<TooltipContent side="right" class="px-2 py-1 text-xs">
 				Pan right
 				<kbd
-					class="-me-1 ms-2 inline-flex h-5 max-h-full items-center rounded border border-border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+					class="border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 				>
 					⌘R
 				</kbd>
@@ -98,14 +98,14 @@
 						aria-label="Pan camera down"
 						{...props}
 					>
-						<ChevronDown size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronDown size={16} aria-hidden="true" />
 					</Button>
 				{/snippet}
 			</TooltipTrigger>
 			<TooltipContent side="bottom" class="px-2 py-1 text-xs">
 				Pan bottom
 				<kbd
-					class="-me-1 ms-2 inline-flex h-5 max-h-full items-center rounded border border-border bg-background px-1 font-[inherit] text-[0.625rem] font-medium text-muted-foreground/70"
+					class="border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium"
 				>
 					⌘B
 				</kbd>

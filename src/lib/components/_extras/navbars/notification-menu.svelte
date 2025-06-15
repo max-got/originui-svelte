@@ -79,7 +79,7 @@
 			<Button
 				size="icon"
 				variant="ghost"
-				class="relative size-8 rounded-full text-muted-foreground shadow-none"
+				class="text-muted-foreground relative size-8 rounded-full shadow-none"
 				aria-label="Open notifications"
 				{...props}
 			>
@@ -88,7 +88,7 @@
 				{#if unreadCount > 0}
 					<div
 						aria-hidden="true"
-						class="absolute right-0.5 top-0.5 size-1 rounded-full bg-primary"
+						class="bg-primary absolute top-0.5 right-0.5 size-1 rounded-full"
 					/>
 				{/if}
 			</Button>
@@ -103,25 +103,25 @@
 				</button>
 			{/if}
 		</div>
-		<div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-border"></div>
+		<div role="separator" aria-orientation="horizontal" class="bg-border -mx-1 my-1 h-px"></div>
 		{#each notifications as notification (notification.id)}
-			<div class="rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent">
+			<div class="hover:bg-accent rounded-md px-3 py-2 text-sm transition-colors">
 				<div class="relative flex items-start pe-3">
 					<div class="flex-1 space-y-1">
 						<button
-							class="text-left text-foreground/80 after:absolute after:inset-0"
+							class="text-foreground/80 text-left after:absolute after:inset-0"
 							onclick={() => handleNotificationClick(notification.id)}
 						>
-							<span class="font-medium text-foreground hover:underline">
+							<span class="text-foreground font-medium hover:underline">
 								{notification.user}
 							</span>
 							{notification.action}
-							<span class="font-medium text-foreground hover:underline">
+							<span class="text-foreground font-medium hover:underline">
 								{notification.target}
 							</span>
 							.
 						</button>
-						<div class="text-xs text-muted-foreground">
+						<div class="text-muted-foreground text-xs">
 							{notification.timestamp}
 						</div>
 					</div>

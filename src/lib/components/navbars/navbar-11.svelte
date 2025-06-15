@@ -48,7 +48,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -56,7 +56,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -96,7 +96,7 @@
 						<NavigationMenuLink
 							active={link.active}
 							href={link.href}
-							class="flex-row items-center gap-2 py-1.5 font-medium text-foreground hover:text-primary"
+							class="text-foreground hover:text-primary flex-row items-center gap-2 py-1.5 font-medium"
 						>
 							<link.icon size={16} class="text-muted-foreground/80" aria-hidden="true" />
 							<span>{link.label}</span>
@@ -108,9 +108,9 @@
 		<!-- Right side -->
 		<div class="flex flex-1 items-center justify-end gap-2">
 			<div class="relative">
-				<Input {id} class="peer h-8 pe-2 ps-8" placeholder="Search..." type="search" />
+				<Input {id} class="peer h-8 ps-8 pe-2" placeholder="Search..." type="search" />
 				<div
-					class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 text-muted-foreground/80 peer-disabled:opacity-50"
+					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 peer-disabled:opacity-50"
 				>
 					<SearchIcon size={16} />
 				</div>

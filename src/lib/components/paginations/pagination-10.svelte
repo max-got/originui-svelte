@@ -45,7 +45,7 @@
 				{/if}
 			</SelectTrigger>
 			<SelectContent
-				class="[&_*[role=option]>span]:end-2 [&_*[role=option]>span]:start-auto [&_*[role=option]]:pe-8 [&_*[role=option]]:ps-2"
+				class="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2"
 			>
 				{#each paginationItemsToDisplayOptions as option (option)}
 					<SelectItem value={option.toString()}>{option}</SelectItem>
@@ -55,8 +55,8 @@
 	</div>
 
 	<!-- Page number information -->
-	<div class="flex grow justify-end whitespace-nowrap text-sm text-muted-foreground">
-		<p class="whitespace-nowrap text-sm text-muted-foreground" aria-live="polite">
+	<div class="text-muted-foreground flex grow justify-end text-sm whitespace-nowrap">
+		<p class="text-muted-foreground text-sm whitespace-nowrap" aria-live="polite">
 			<span class="text-foreground">1-10</span> of
 			<span class="text-foreground">100</span>
 		</p>
@@ -75,7 +75,7 @@
 						aria-disabled={currentPage === 1 ? true : undefined}
 						role={currentPage === 1 ? 'link' : undefined}
 					>
-						<ChevronFirst size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronFirst size={16} aria-hidden="true" />
 					</PaginationLink>
 				</PaginationItem>
 
@@ -88,7 +88,7 @@
 						aria-disabled={currentPage === 1 ? true : undefined}
 						role={currentPage === 1 ? 'link' : undefined}
 					>
-						<ChevronLeft size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronLeft size={16} aria-hidden="true" />
 					</PaginationLink>
 				</PaginationItem>
 
@@ -101,7 +101,7 @@
 						aria-disabled={currentPage === totalPages ? true : undefined}
 						role={currentPage === totalPages ? 'link' : undefined}
 					>
-						<ChevronRight size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronRight size={16} aria-hidden="true" />
 					</PaginationLink>
 				</PaginationItem>
 
@@ -114,7 +114,7 @@
 						aria-disabled={currentPage === totalPages ? true : undefined}
 						role={currentPage === totalPages ? 'link' : undefined}
 					>
-						<ChevronLast size={16} stroke-width={2} aria-hidden="true" />
+						<ChevronLast size={16} aria-hidden="true" />
 					</PaginationLink>
 				</PaginationItem>
 			</PaginationContent>

@@ -86,11 +86,11 @@
 </script>
 
 <div class="space-y-3">
-	<div class="text-xs font-medium text-muted-foreground">Activity</div>
+	<div class="text-muted-foreground text-xs font-medium">Activity</div>
 	<Timeline>
 		{#each items as item (item.id)}
 			{@const ActionIcon = getActionIcon(item.action)}
-			<TimelineItem step={item.id} class="!m-0 flex-row items-center gap-3 !py-2.5">
+			<TimelineItem step={item.id} class="m-0! flex-row items-center gap-3 py-2.5!">
 				<ActionIcon class="text-muted-foreground/80" size={16} />
 				<enhanced:img src={item.image} alt={item.user} class="size-6 rounded-full" />
 				<TimelineContent class="text-foreground">

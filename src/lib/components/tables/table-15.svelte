@@ -196,7 +196,7 @@
 
 <div>
 	<Table
-		class="table-fixed border-separate border-spacing-0 [&_td]:border-border [&_tfoot_td]:border-t [&_th]:border-b [&_th]:border-border [&_tr:not(:last-child)_td]:border-b [&_tr]:border-none"
+		class="[&_td]:border-border [&_th]:border-border table-fixed border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b"
 		style="width: {table.getCenterTotalSize()}px"
 	>
 		<TableHeader>
@@ -209,7 +209,7 @@
 							isPinned === 'right' && header.column.getIsFirstColumn('right')}
 
 						<TableHead
-							class="relative h-10 truncate border-t data-[pinned]:bg-muted/90 data-[pinned]:backdrop-blur-sm [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+							class="data-pinned:bg-muted/90 [&[data-pinned][data-last-col]]:border-border relative h-10 truncate border-t data-pinned:backdrop-blur-xs [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l"
 							aria-sort={header.column.getIsSorted() === 'asc'
 								? 'ascending'
 								: header.column.getIsSorted() === 'desc'
@@ -271,7 +271,7 @@
 								{/if}
 								{#if header.column.getCanResize()}
 									<div
-										class="user-select-none absolute -right-2 top-0 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px before:bg-border"
+										class="user-select-none before:bg-border absolute top-0 -right-2 z-10 flex h-full w-4 cursor-col-resize touch-none justify-center before:absolute before:inset-y-0 before:w-px before:-translate-x-px"
 										ondblclick={() => header.column.resetSize()}
 										onmousedown={header.getResizeHandler()}
 										ontouchstart={header.getResizeHandler()}
@@ -293,7 +293,7 @@
 							isPinned === 'right' && cell.column.getIsFirstColumn('right')}
 
 						<TableCell
-							class="truncate data-[pinned]:bg-background/90 data-[pinned]:backdrop-blur-sm [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+							class="data-pinned:bg-background/90 [&[data-pinned][data-last-col]]:border-border truncate data-pinned:backdrop-blur-xs [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l"
 							style={getPinningStyles(cell.column)}
 							data-pinned={isPinned || undefined}
 							data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
@@ -309,10 +309,10 @@
 			{/each}
 		</TableBody>
 	</Table>
-	<p class="mt-4 text-center text-sm text-muted-foreground">
+	<p class="text-muted-foreground mt-4 text-center text-sm">
 		Pinnable columns made with
 		<a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://tanstack.com/table"
 			target="_blank"
 			rel="noopener noreferrer"

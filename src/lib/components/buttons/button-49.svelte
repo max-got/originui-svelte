@@ -54,7 +54,7 @@
 				onclick={handleRemove}
 				size="icon"
 				variant="destructive"
-				class="absolute -right-2 -top-2 size-6 rounded-full border-2 border-background"
+				class="border-background absolute -top-2 -right-2 size-6 rounded-full border-2"
 				aria-label="Remove image"
 			>
 				<IconX size={16} />
@@ -71,7 +71,7 @@
 	</div>
 	{#if fileName}
 		<p
-			class="mt-2 text-xs text-muted-foreground lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100"
+			class="text-muted-foreground mt-2 text-xs lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100"
 		>
 			{fileName}
 		</p>

@@ -49,16 +49,16 @@
 			step={item.id}
 			class={[
 				'w-[calc(50%-1.5rem)]',
-				'group-data-[orientation=vertical]/timeline:odd:ms-auto',
-				'group-data-[orientation=vertical]/timeline:even:text-right',
-				'group-data-[orientation=vertical]/timeline:even:ml-0',
-				'group-data-[orientation=vertical]/timeline:even:mr-8',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:even:-right-6',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:even:left-auto',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:even:translate-x-1/2',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:even:-right-6',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:even:left-auto',
-				'group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:even:translate-x-1/2'
+				'odd:group-data-[orientation=vertical]/timeline:ms-auto',
+				'even:group-data-[orientation=vertical]/timeline:text-right',
+				'even:group-data-[orientation=vertical]/timeline:ml-0',
+				'even:group-data-[orientation=vertical]/timeline:mr-8',
+				'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:-right-6',
+				'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:left-auto',
+				'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:translate-x-1/2',
+				'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:-right-6',
+				'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:left-auto',
+				'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:translate-x-1/2'
 			]}
 		>
 			<TimelineHeader>

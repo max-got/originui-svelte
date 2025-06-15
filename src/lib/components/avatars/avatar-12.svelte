@@ -7,28 +7,28 @@
 
 <div class="flex -space-x-[0.45rem]">
 	<enhanced:img
-		class="size-6 rounded-full ring-1 ring-background"
+		class="ring-background size-6 rounded-full ring-1"
 		src={AvatarImg01}
 		alt="Avatar 01"
 		loading="lazy"
 		decoding="async"
 	/>
 	<enhanced:img
-		class="size-6 rounded-full ring-1 ring-background"
+		class="ring-background size-6 rounded-full ring-1"
 		src={AvatarImg02}
 		alt="Avatar 02"
 		loading="lazy"
 		decoding="async"
 	/>
 	<enhanced:img
-		class="size-6 rounded-full ring-1 ring-background"
+		class="ring-background size-6 rounded-full ring-1"
 		src={AvatarImg03}
 		alt="Avatar 03"
 		loading="lazy"
 		decoding="async"
 	/>
 	<enhanced:img
-		class="size-6 rounded-full ring-1 ring-background"
+		class="ring-background size-6 rounded-full ring-1"
 		src={AvatarImg04}
 		alt="Avatar 04"
 		loading="lazy"

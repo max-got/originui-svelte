@@ -12,8 +12,8 @@
 	<PinInput.Cell
 		{cell}
 		class={cn(
-			'relative flex size-9 items-center justify-center border-y border-e border-input bg-background font-medium text-foreground shadow-sm shadow-black/[.04] ring-offset-background transition-all first:rounded-s-lg first:border-s last:rounded-e-lg',
-			{ 'z-10 border border-ring ring-2 ring-ring/30 ring-offset-2': cell.isActive }
+			'border-input bg-background text-foreground ring-offset-background relative flex size-9 items-center justify-center border-y border-e font-medium shadow-xs shadow-black/[.04] transition-all first:rounded-s-lg first:border-s last:rounded-e-lg',
+			{ 'border-ring ring-ring/30 z-10 border ring-2 ring-offset-2': cell.isActive }
 		)}
 	>
 		{#if cell.char !== null}
@@ -22,12 +22,12 @@
 	</PinInput.Cell>
 {/snippet}
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>OTP input single</Label>
 	<PinInput.Root
 		bind:value
 		id={uid}
-		class="flex items-center gap-3 has-[:disabled]:opacity-50"
+		class="flex items-center gap-3 has-disabled:opacity-50"
 		maxlength={4}
 	>
 		{#snippet children({ cells })}
@@ -39,9 +39,9 @@
 			</div>
 		{/snippet}
 	</PinInput.Root>
-	<p class="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			href="https://next.bits-ui.com/docs/components/pin-input"
 			target="_blank"
 			rel="noopener nofollow"

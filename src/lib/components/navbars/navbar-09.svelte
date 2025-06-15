@@ -49,7 +49,7 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
@@ -57,7 +57,7 @@
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>
@@ -84,9 +84,9 @@
 				</a>
 				<!-- Search form -->
 				<div class="relative">
-					<Input {id} class="peer h-8 pe-2 ps-8" placeholder="Search..." type="search" />
+					<Input {id} class="peer h-8 ps-8 pe-2" placeholder="Search..." type="search" />
 					<div
-						class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 text-muted-foreground/80 peer-disabled:opacity-50"
+						class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 peer-disabled:opacity-50"
 					>
 						<SearchIcon size={16} />
 					</div>
@@ -117,13 +117,13 @@
 				<Button
 					size="icon"
 					variant="ghost"
-					class="relative size-8 rounded-full text-muted-foreground shadow-none"
+					class="text-muted-foreground relative size-8 rounded-full shadow-none"
 					aria-label="Open notifications"
 				>
 					<MailIcon size={16} aria-hidden="true" />
 					<div
 						aria-hidden="true"
-						class="absolute right-0.5 top-0.5 size-1 rounded-full bg-primary"
+						class="bg-primary absolute top-0.5 right-0.5 size-1 rounded-full"
 					/>
 				</Button>
 				<!-- Notification menu -->

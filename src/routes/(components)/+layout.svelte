@@ -10,7 +10,7 @@
 <Toaster position="top-right" theme={$mode} />
 
 <ComponentDialog.DialogContextProvider>
-	<main class="flex-grow">
+	<main class="grow">
 		{@render children()}
 		<Cta />
 	</main>

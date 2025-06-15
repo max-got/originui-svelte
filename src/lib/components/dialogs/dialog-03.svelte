@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { buttonVariants } from '$lib/components/ui/button.svelte';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
+
+	import * as Dialog from '$lib/components/ui/dialog';
 </script>
 
 <Dialog.Root>
@@ -14,7 +15,7 @@
 			<Dialog.Header class="contents space-y-0 text-left">
 				<Dialog.Title class="px-6 pt-6">Frequently Asked Questions (FAQ)</Dialog.Title>
 				<Dialog.Description class="p-6">
-					<div class="space-y-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+					<div class="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
 						<div class="space-y-1">
 							<p>
 								<strong>Account Management</strong>

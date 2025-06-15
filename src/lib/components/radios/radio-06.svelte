@@ -12,7 +12,7 @@
 		<RadioGroupItem value="all" id="radio-06-all" />
 		<Label for="radio-06-all">
 			All reviews
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (12,921) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (12,921) </span>
 		</Label>
 	</div>
 	<div class="flex items-center gap-2">
@@ -24,7 +24,7 @@
 				{/each}
 			</span>
 			<span class="sr-only">5 stars</span>
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (5,168) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (5,168) </span>
 		</Label>
 	</div>
 	<div class="flex items-center gap-2">
@@ -37,7 +37,7 @@
 				<IconStarFill width="16" height="16" aria-hidden="true" class="opacity-30" />
 			</span>
 			<span class="sr-only">4 stars</span>
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (4,726) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (4,726) </span>
 		</Label>
 	</div>
 	<div class="flex items-center gap-2">
@@ -52,7 +52,7 @@
 				{/each}
 			</span>
 			<span class="sr-only">3 stars</span>
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (3,234) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (3,234) </span>
 		</Label>
 	</div>
 	<div class="flex items-center gap-2">
@@ -67,7 +67,7 @@
 				{/each}
 			</span>
 			<span class="sr-only">2 stars</span>
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (1,842) </span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal"> (1,842) </span>
 		</Label>
 	</div>
 	<div class="flex items-center gap-2">
@@ -80,7 +80,7 @@
 				{/each}
 			</span>
 			<span class="sr-only">1 star</span>
-			<span class="text-xs font-normal leading-[inherit] text-muted-foreground">(452)</span>
+			<span class="text-muted-foreground text-xs leading-[inherit] font-normal">(452)</span>
 		</Label>
 	</div>
 </RadioGroup>

@@ -14,7 +14,7 @@
 	</head>
 
 	<body
-		class="font-sans antialiased has-[[data-home]]:bg-zinc-50 dark:has-[[data-home]]:bg-zinc-950 before:[&:has(:not([data-home]))]:absolute before:[&:has(:not([data-home]))]:inset-x-0 before:[&:has(:not([data-home]))]:h-[400px] before:[&:has(:not([data-home]))]:bg-gradient-to-b before:[&:has(:not([data-home]))]:from-zinc-100 dark:before:[&:has(:not([data-home]))]:content-[]"
+		class="font-sans antialiased has-not-data-home:before:absolute has-not-data-home:before:inset-x-0 has-not-data-home:before:h-100 has-not-data-home:before:bg-linear-to-b has-not-data-home:before:from-zinc-100 has-data-home:bg-zinc-50 dark:has-not-data-home:before:hidden dark:has-data-home:bg-zinc-950"
 		data-sveltekit-preload-data="hover"
 	>
 		<div style="display: contents">%sveltekit.body%</div>

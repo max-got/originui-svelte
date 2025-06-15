@@ -70,7 +70,7 @@
 <Table>
 	<TableHeader>
 		<TableRow
-			class="border-y-0 *:border-border hover:bg-transparent [&>:not(:last-child)]:border-r"
+			class="*:border-border border-y-0 hover:bg-transparent [&>:not(:last-child)]:border-r"
 		>
 			<TableCell></TableCell>
 			<TableHead class="border-b text-center" colspan={5}>
@@ -87,18 +87,18 @@
 		<TableRow class="*:border-border hover:bg-transparent [&>:not(:last-child)]:border-r">
 			<TableCell></TableCell>
 			{#each items[0].desktop as browser (browser.name)}
-				<TableHead class="h-auto py-3 align-bottom text-foreground">
+				<TableHead class="text-foreground h-auto py-3 align-bottom">
 					<span
-						class="relative left-[calc(50%-.5rem)] block rotate-180 whitespace-nowrap leading-4 [text-orientation:sideways] [writing-mode:vertical-rl]"
+						class="relative left-[calc(50%-.5rem)] block rotate-180 leading-4 whitespace-nowrap [text-orientation:sideways] [writing-mode:vertical-rl]"
 					>
 						{browser.name}
 					</span>
 				</TableHead>
 			{/each}
 			{#each items[0].mobile as browser (browser.name)}
-				<TableHead class="h-auto py-3 align-bottom text-foreground">
+				<TableHead class="text-foreground h-auto py-3 align-bottom">
 					<span
-						class="relative left-[calc(50%-.5rem)] block rotate-180 whitespace-nowrap leading-4 [text-orientation:sideways] [writing-mode:vertical-rl]"
+						class="relative left-[calc(50%-.5rem)] block rotate-180 leading-4 whitespace-nowrap [text-orientation:sideways] [writing-mode:vertical-rl]"
 					>
 						{browser.name}
 					</span>
@@ -109,7 +109,7 @@
 	<TableBody>
 		{#each items as item (item.feature)}
 			<TableRow class="*:border-border [&>:not(:last-child)]:border-r">
-				<TableHead class="font-medium text-foreground">
+				<TableHead class="text-foreground font-medium">
 					{item.feature}
 				</TableHead>
 				{#each [...item.desktop, ...item.mobile] as browser, index (`${browser.name}-${index}`)}
@@ -122,7 +122,7 @@
 						<span class="sr-only">
 							{browser.supported ? 'Supported' : 'Not supported'}
 						</span>
-						<div class="text-xs font-medium text-muted-foreground">
+						<div class="text-muted-foreground text-xs font-medium">
 							{browser.version}
 						</div>
 					</TableCell>
