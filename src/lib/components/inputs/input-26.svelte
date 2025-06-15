@@ -8,7 +8,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Search input with icon and button</Label>
 	<div class="relative">
 		<Input id={uid} class="peer ps-9 pe-9" placeholder="Search..." type="search" />

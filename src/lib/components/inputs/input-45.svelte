@@ -23,7 +23,7 @@
 	</PinInput.Cell>
 {/snippet}
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>OTP input double</Label>
 	<PinInput.Root
 		bind:value

@@ -8,7 +8,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with character limit</Label>
 	<div class="relative">
 		<Input

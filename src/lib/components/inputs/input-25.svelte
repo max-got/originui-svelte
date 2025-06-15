@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Search input with &lt;kbd&gt;</Label>
 	<div class="relative">
 		<Input id={uid} class="pe-11" placeholder="Search..." type="search" />

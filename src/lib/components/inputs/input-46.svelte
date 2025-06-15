@@ -20,7 +20,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2" dir="ltr">
+<div class="*:not-first:mt-2" dir="ltr">
 	<Label for={uid}>Phone number input</Label>
 	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
 		<div

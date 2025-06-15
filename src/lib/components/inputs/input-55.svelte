@@ -19,7 +19,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Timestamp</Label>
 	<Input id={uid} placeholder="00:00:00" type="text" bind:ref={inputElement} />
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">

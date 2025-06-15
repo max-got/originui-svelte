@@ -15,7 +15,7 @@
 
 <div>
 	<!-- Password input field with toggle visibility button -->
-	<div class="space-y-2">
+	<div class="*:not-first:mt-2">
 		<Label for={uid}>Input with password strength indicator</Label>
 		<div class="relative">
 			<Input

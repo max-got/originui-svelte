@@ -19,7 +19,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with mask</Label>
 	<Input id={uid} placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">

@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Simple input</Label>
 	<Input id={uid} placeholder="Email" type="email" />
 </div>

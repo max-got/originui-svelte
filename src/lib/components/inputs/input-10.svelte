@@ -7,7 +7,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end icon</Label>
 	<div class="relative">
 		<Input id={uid} class="peer pe-9" placeholder="Email" type="email" />

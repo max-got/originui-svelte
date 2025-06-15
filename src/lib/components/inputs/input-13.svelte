@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with inline add-ons</Label>
 	<div class="relative">
 		<Input id={uid} class="peer ps-6 pe-12" placeholder="0.00" type="text" />

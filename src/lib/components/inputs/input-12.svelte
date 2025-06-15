@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end inline add-on</Label>
 	<div class="relative">
 		<Input id={uid} class="peer pe-12" placeholder="google" type="text" />

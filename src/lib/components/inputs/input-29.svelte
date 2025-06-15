@@ -9,7 +9,7 @@
 	const currencyInput = new CurrencyInput({ id: uid, initialValue: 99 });
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={currencyInput.inputProps.id} class="text-foreground text-sm font-medium">
 		Number input with chevrons
 	</Label>

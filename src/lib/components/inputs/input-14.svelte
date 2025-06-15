@@ -5,7 +5,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid}>Input with start add-on</Label>
 	<div class="flex rounded-lg shadow-xs shadow-black/5">
 		<span

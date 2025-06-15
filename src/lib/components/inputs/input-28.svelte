@@ -30,7 +30,7 @@
 	const uid = $props.id();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label for={uid} class="text-foreground text-sm font-medium">
 		Number input with plus/minus buttons
 	</Label>

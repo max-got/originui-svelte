@@ -19,7 +19,7 @@
 	bind:value
 	weekdayFormat="short"
 	fixedWeeks={true}
-	class="space-y-2"
+	class="*:not-first:mt-2"
 >
 	<Label class="text-foreground text-sm font-medium">Date range picker</Label>
 	<div class="flex">

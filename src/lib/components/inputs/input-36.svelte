@@ -7,7 +7,7 @@
 	const localeCtx = useLocale();
 </script>
 
-<div class="space-y-2">
+<div class="*:not-first:mt-2">
 	<Label class="text-foreground text-sm font-medium">Date input</Label>
 	<DateField.Root locale={localeCtx.locale}>
 		<DateField.Input
