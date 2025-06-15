@@ -8,6 +8,7 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
 	import { Slider as SliderPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
+	import { on } from 'svelte/events';
 
 	let {
 		class: className,
@@ -36,8 +37,8 @@
 
 	$effect(() => {
 		if (showTooltip) {
-			document.addEventListener('pointerup', handlePointerUp);
-			return () => document.removeEventListener('pointerup', handlePointerUp);
+			const cleanup = on(document, 'pointerup', handlePointerUp);
+			return cleanup;
 		}
 	});
 </script>
@@ -59,7 +60,7 @@
 	)}
 	{...restProps}
 >
-	{#snippet children({ thumbs })}
+	{#snippet children({ thumbItems })}
 		<span
 			data-orientation={orientation}
 			class="bg-secondary relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-2 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2"
@@ -69,16 +70,16 @@
 				class="bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
 			/>
 		</span>
-		{#each thumbs as index (index)}
+		{#each thumbItems as thumbItem (thumbItem.index)}
 			{#if !showTooltip}
-				{@render thumb({ index })}
+				{@render thumb({ index: thumbItem.index })}
 			{:else}
 				<TooltipProvider>
 					<Tooltip bind:open={tooltipOpen}>
 						<TooltipTrigger>
 							{#snippet child({ props })}
 								{@render thumb({
-									index,
+									index: thumbItem.index,
 									...props,
 									onpointerdown: handlePointerDown
 								})}
@@ -90,7 +91,7 @@
 							class="border-input bg-popover text-muted-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 overflow-hidden rounded-md border px-2 py-1 text-xs outline-hidden"
 						>
 							{#if Array.isArray(value)}
-								{tooltipContent ? tooltipContent(value[index]!) : value[index]!}
+								{tooltipContent ? tooltipContent(value[thumbItem.index]!) : value[thumbItem.index]!}
 							{:else}
 								{tooltipContent ? tooltipContent(value!) : value!}
 							{/if}
