@@ -41,7 +41,7 @@
 			<PaginationLink
 				class={cn(
 					buttonVariants({
-						variant: 'outline-solid'
+						variant: 'outline'
 					}),
 					'rounded-none shadow-none focus-visible:z-10 aria-disabled:pointer-events-none [&[aria-disabled]>svg]:opacity-50'
 				)}
@@ -67,7 +67,7 @@
 				<PaginationLink
 					class={cn(
 						buttonVariants({
-							variant: 'outline-solid'
+							variant: 'outline'
 						}),
 						'rounded-none shadow-none focus-visible:z-10',
 						page === currentPage && 'bg-accent'
@@ -86,7 +86,7 @@
 				<PaginationEllipsis
 					class={cn(
 						buttonVariants({
-							variant: 'outline-solid'
+							variant: 'outline'
 						}),
 						'pointer-events-none rounded-none shadow-none'
 					)}
@@ -99,7 +99,7 @@
 			<PaginationLink
 				class={cn(
 					buttonVariants({
-						variant: 'outline-solid'
+						variant: 'outline'
 					}),
 					'rounded-none shadow-none focus-visible:z-10 aria-disabled:pointer-events-none [&[aria-disabled]>svg]:opacity-50'
 				)}

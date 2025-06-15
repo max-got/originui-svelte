@@ -324,7 +324,7 @@
 						<PaginationItem>
 							<Button
 								size="icon"
-								variant={`${isActive ? 'outline-solid' : 'ghost'}`}
+								variant={isActive ? 'outline' : 'ghost'}
 								onclick={() => table.setPageIndex(page - 1)}
 								aria-current={isActive ? 'page' : undefined}
 							>

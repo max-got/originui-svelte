@@ -25,7 +25,7 @@
 				class={cn(
 					'aria-disabled:pointer-events-none aria-disabled:opacity-50',
 					buttonVariants({
-						variant: 'outline-solid'
+						variant: 'outline'
 					})
 				)}
 				aria-label="Go to previous page"
@@ -46,7 +46,7 @@
 				class={cn(
 					'aria-disabled:pointer-events-none aria-disabled:opacity-50',
 					buttonVariants({
-						variant: 'outline-solid'
+						variant: 'outline'
 					})
 				)}
 				href={currentPage === totalPages ? undefined : `#/page/${currentPage + 1}`}

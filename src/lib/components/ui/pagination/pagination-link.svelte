@@ -30,7 +30,7 @@
 	class={cn(
 		buttonVariants({
 			size,
-			variant: isActive ? 'outline-solid' : 'ghost'
+			variant: isActive ? 'outline' : 'ghost'
 		}),
 		className
 	)}
