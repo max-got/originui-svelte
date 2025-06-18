@@ -1,26 +1,33 @@
 <script lang="ts">
-	import Input from '../ui/input.svelte';
-	import Label from '../ui/label.svelte';
+	import Input from '$lib/components/ui/input.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
+	import Inputmask from 'inputmask';
+
+	let inputElement = $state<HTMLInputElement | null>(null);
+
+	$effect(() => {
+		if (!inputElement) return;
+		const im = new Inputmask('99:99:99', {
+			placeholder: '-',
+			showMaskOnHover: false
+		}).mask(inputElement);
+
+		return () => im.remove();
+	});
 
 	const uid = $props.id();
 </script>
 
-<div class="[&>*:not(:first-child)]:mt-2">
-	<Label class="flex-1">Range</Label>
-	<div class="flex">
-		<Input
-			id="{uid}-1"
-			class="flex-1 rounded-e-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-			placeholder="From"
-			type="number"
-			aria-label="Min Value"
-		/>
-		<Input
-			id="{uid}-2"
-			class="-ms-px flex-1 rounded-s-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-			placeholder="To"
-			type="number"
-			aria-label="Max Value"
-		/>
-	</div>
+<div class="*:not-first:mt-2">
+	<Label for={uid}>Timestamp</Label>
+	<Input id={uid} placeholder="00:00:00" type="text" bind:ref={inputElement} />
+	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
+		Built with <a
+			class="hover:text-foreground underline"
+			href="https://github.com/RobinHerbots/inputmask"
+			target="_blank"
+			rel="noopener nofollow">inputmask</a
+		>
+	</p>
 </div>

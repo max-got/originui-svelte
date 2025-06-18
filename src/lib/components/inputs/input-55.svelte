@@ -8,8 +8,8 @@
 
 	$effect(() => {
 		if (!inputElement) return;
-		const im = new Inputmask('99:99:99', {
-			placeholder: '-',
+		const im = new Inputmask('AA99 AAA', {
+			placeholder: '',
 			showMaskOnHover: false
 		}).mask(inputElement);
 
@@ -20,8 +20,8 @@
 </script>
 
 <div class="*:not-first:mt-2">
-	<Label for={uid}>Timestamp</Label>
-	<Input id={uid} placeholder="00:00:00" type="text" bind:ref={inputElement} />
+	<Label for={uid}>Input with mask</Label>
+	<Input id={uid} placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
 			class="hover:text-foreground underline"

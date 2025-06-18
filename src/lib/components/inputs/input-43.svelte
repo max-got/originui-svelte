@@ -66,7 +66,10 @@
 						{#each segments as { part, value }}
 							<DateRangePicker.Segment
 								{part}
-								class="text-foreground data-focused:bg-accent data-invalid:data-focused:bg-destructive data-focused:data-placeholder:text-foreground data-focused:text-foreground data-invalid:data-focused:data-placeholder:text-destructive-foreground data-invalid:data-focused:text-destructive-foreground data-invalid:data-placeholder:text-destructive data-invalid:text-destructive data-placeholder:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 inline rounded p-0.5 caret-transparent outline-0 outline-solid data-disabled:cursor-not-allowed data-disabled:opacity-50 data-unavailable:opacity-50 data-[type=literal]:px-0"
+								class={[
+									'text-foreground focus:bg-accent data-invalid:focused:bg-destructive focused:aria-[valuetext=Empty]:text-foreground focused:text-foreground data-invalid:aria-[valuetext=Empty]:text-destructive data-invalid:text-destructive aria-[valuetext=Empty]:text-muted-foreground/70 data-invalid:focused:text-white data-invalid:focused:aria-[valuetext=Empty]:text-white inline rounded p-0.5 caret-transparent outline-hidden data-disabled:cursor-not-allowed data-disabled:opacity-50',
+									'data-[segment=literal]:text-muted-foreground/70  data-[segment=literal]:px-0'
+								]}
 							>
 								{value}
 							</DateRangePicker.Segment>

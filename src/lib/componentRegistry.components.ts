@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 6/9/2025, 1:09:23 PM
+ * Last generated at: 6/18/2025, 8:18:01 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -341,33 +341,33 @@ export const OUI_DIRECTORIES = {
 			'input-34.svelte',
 			'input-35.svelte',
 			'input-36.svelte',
-			'input-37.todo.svelte',
-			'input-38.todo.svelte',
-			'input-39.todo.svelte',
-			'input-40.todo.svelte',
+			'input-37.svelte',
+			'input-38.svelte',
+			'input-39.svelte',
+			'input-40.svelte',
 			'input-41.todo.svelte',
 			'input-42.svelte',
 			'input-43.svelte',
 			'input-44.svelte',
 			'input-45.svelte',
 			'input-46.svelte',
-			'input-47.todo.svelte',
+			'input-47.svelte',
 			'input-48.todo.svelte',
 			'input-49.todo.svelte',
 			'input-50.todo.svelte',
-			'input-51.svelte',
+			'input-51.todo.svelte',
 			'input-52.svelte',
 			'input-53.svelte',
 			'input-54.svelte',
 			'input-55.svelte',
 			'input-56.svelte',
-			'input-57.todo.svelte',
+			'input-57.svelte',
 			'input-58.todo.svelte',
 			'input-59.todo.svelte'
 		],
 		status: {
-			todo: 12,
-			ready: 47
+			todo: 7,
+			ready: 52
 		}
 	},
 	NAVBARS: {
