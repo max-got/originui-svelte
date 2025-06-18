@@ -40,7 +40,7 @@ Origin UI - Svelte is a collection of copy-and-paste components for quickly buil
 
 - [Origin UI](https://originui.com/) - The original project that this Svelte version is copied from
 - [Svelte](https://svelte.dev)
-- [TailwindCSS](https://tailwindcss.com)
+- [TailwindCSS v4](https://tailwindcss.com)
 - [Lucide Icons](https://lucide.dev)
 - [Bits UI](https://bits-ui.com)
 
@@ -109,50 +109,76 @@ You need to copy the base components from the `src/lib/components/ui` folder to 
 Import the CSS in your `src/lib/app.css` file (the following is based on tailwindcss):
 
 ```css
-@layer base {
-	:root {
-		--background: 0 0% 100%;
-		--foreground: 240 10% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 240 10% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 240 10% 3.9%;
-		--primary: 240 5.9% 10%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 240 4.8% 95.9%;
-		--secondary-foreground: 240 5.9% 10%;
-		--muted: 240 4.8% 95.9%;
-		--muted-foreground: 240 3.8% 46.1%;
-		--accent: 240 4.8% 95.9%;
-		--accent-foreground: 240 5.9% 10%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 100%;
-		--border: 240 5.9% 90%;
-		--input: 240 4.9% 83.9%;
-		--ring: 240 5% 64.9%;
-		--radius: 0.5rem;
-	}
-	.dark {
-		--background: 240 10% 3.9%;
-		--foreground: 0 0% 98%;
-		--card: 240 10% 3.9%;
-		--card-foreground: 0 0% 98%;
-		--popover: 240 10% 3.9%;
-		--popover-foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 240 5.9% 10%;
-		--secondary: 240 3.7% 15.9%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 240 5.9% 10%;
-		--muted-foreground: 240 4.4% 58%;
-		--accent: 240 5.9% 10%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 100%;
-		--border: 240 3.7% 15.9%;
-		--input: 240 3.7% 15.9%;
-		--ring: 240 3.8% 46.1%;
-	}
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+}
+:root {
+	--radius: 0.625rem;
+	--background: oklch(1 0 0); /* --color-white */
+	--foreground: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--card: oklch(1 0 0); /* --color-white */
+	--card-foreground: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--popover: oklch(1 0 0); /* --color-white */
+	--popover-foreground: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--primary: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--primary-foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--secondary: oklch(0.967 0.001 286.375); /* --color-zinc-100 */
+	--secondary-foreground: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--muted: oklch(0.967 0.001 286.375); /* --color-zinc-100 */
+	--muted-foreground: oklch(0.552 0.016 285.938); /* --color-zinc-500 */
+	--accent: oklch(0.967 0.001 286.375); /* --color-zinc-100 */
+	--accent-foreground: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--destructive: oklch(0.637 0.237 25.331); /* --color-red-500 */
+	--destructive-foreground: oklch(0.637 0.237 25.331); /* --color-red-500 */
+	--border: oklch(0.92 0.004 286.32); /* --color-zinc-200 */
+	--input: oklch(0.871 0.006 286.286); /* --color-zinc-300 */
+	--ring: oklch(0.871 0.006 286.286); /* --color-zinc-300 */
+}
+
+.dark {
+	--background: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--card: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--card-foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--popover: oklch(0.141 0.005 285.823); /* --color-zinc-950 */
+	--popover-foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--primary: oklch(0.985 0 0); /* --color-zinc-50 */
+	--primary-foreground: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--secondary: oklch(0.274 0.006 286.033); /* --color-zinc-800 */
+	--secondary-foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--muted: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--muted-foreground: oklch(0.65 0.01 286); /* 🔥 near --color-zinc-400 */
+	--accent: oklch(0.21 0.006 285.885); /* --color-zinc-900 */
+	--accent-foreground: oklch(0.985 0 0); /* --color-zinc-50 */
+	--destructive: oklch(0.396 0.141 25.723); /* --color-red-900 */
+	--destructive-foreground: oklch(0.637 0.237 25.331); /* --color-red-500 */
+	--border: oklch(0.274 0.006 286.033); /* --color-zinc-800 */
+	--input: oklch(0.274 0.006 286.033); /* --color-zinc-800 */
+	--ring: oklch(0.442 0.017 285.786); /* --color-zinc-600 */
 }
 ```
 
@@ -171,7 +197,7 @@ src/
 │   │   ├── ui/        							# Base UI components
 │   │   │   ├── badge.svelte 					# one component
 │   │   │   ├── button.svelte 					# one component
-│   │   │   ├── accordion.svelte 				# needs multiple components
+│   │   │   ├── accordion/ 						# needs multiple components
 │   │   │   │	│── accordion-item.svelte 		# Base component Accordion Item
 │   │   │   │	│── accordion-trigger.svelte	# Base component Accordion Trigger
 │   │   │   │	│── ...
