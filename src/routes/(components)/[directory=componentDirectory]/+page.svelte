@@ -39,7 +39,7 @@
 			case 'dropdowns':
 				return { layout: 'default', style: 'centered' };
 			case 'inputs':
-				return { layout: 'default', style: 'centered' };
+				return { layout: 'default', style: 'default' };
 			case 'navbars':
 				return { layout: 'full', style: 'default' };
 			case 'notifications':
