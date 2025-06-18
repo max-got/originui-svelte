@@ -27,7 +27,7 @@
 				<enhanced:img
 					src={item.image}
 					alt={item.label}
-					class="border-input ring-offset-background peer-focus-visible:ring-ring/70 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative h-[70px] w-[88px] cursor-pointer overflow-hidden rounded-lg border shadow-xs shadow-black/[.04] transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-data-disabled:cursor-not-allowed peer-data-disabled:opacity-50"
+					class="border-input ring-offset-background peer-focus-visible:ring-ring/70 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative h-[70px] w-[88px] cursor-pointer overflow-hidden rounded-lg border shadow-xs shadow-black/[.04] transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
 				/>
 				<span
 					class="group peer-data-[state=unchecked]:text-muted-foreground/70 mt-2 flex items-center gap-1"

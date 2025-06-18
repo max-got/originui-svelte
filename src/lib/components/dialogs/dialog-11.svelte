@@ -30,7 +30,7 @@
 								{#each Array.from({ length: 9 }) as _, index (index)}
 									<label
 										for="radio-17-r{index}"
-										class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:outline-ring/70 relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-focus-visible:outline-2 has-focus-visible:outline-solid has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-[state=checked]:z-10"
+										class="border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:outline-ring/70 relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-focus-visible:outline-2 has-focus-visible:outline-solid has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[state=checked]:z-10"
 									>
 										<RadioGroupItem
 											id="radio-17-r{index}"

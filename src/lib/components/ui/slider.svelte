@@ -55,7 +55,7 @@
 	bind:value={value as never}
 	{orientation}
 	class={cn(
-		'relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
+		'relative flex w-full touch-none items-center select-none disabled:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
 		className
 	)}
 	{...restProps}

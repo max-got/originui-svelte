@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 6/18/2025, 8:18:01 PM
+ * Last generated at: 6/18/2025, 8:46:01 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -345,7 +345,7 @@ export const OUI_DIRECTORIES = {
 			'input-38.svelte',
 			'input-39.svelte',
 			'input-40.svelte',
-			'input-41.todo.svelte',
+			'input-41.svelte',
 			'input-42.svelte',
 			'input-43.svelte',
 			'input-44.svelte',
@@ -366,8 +366,8 @@ export const OUI_DIRECTORIES = {
 			'input-59.todo.svelte'
 		],
 		status: {
-			todo: 7,
-			ready: 52
+			todo: 6,
+			ready: 53
 		}
 	},
 	NAVBARS: {
