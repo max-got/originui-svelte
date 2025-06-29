@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useLocale } from '$lib/hooks/use-locale.svelte';
+	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import { type DateValue, getLocalTimeZone, isWeekend, today } from '@internationalized/date';

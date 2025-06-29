@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Badge from '$lib/components/ui/badge.svelte';
+	import Badge from '$lib/registry/default/ui/badge.svelte';
 	import Button from '$lib/registry/default/ui/button.svelte';
 
 	import BellIcon from '@lucide/svelte/icons/bell';

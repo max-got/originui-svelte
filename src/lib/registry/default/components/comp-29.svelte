@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Label from '$lib/registry/default/ui/label.svelte';
-	import { CurrencyInput } from '$lib/hooks/use-currency-input.svelte';
+	import { CurrencyInput } from '$lib/registry/default/hooks/use-currency-input.svelte';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronUp from '@lucide/svelte/icons/chevron-up';

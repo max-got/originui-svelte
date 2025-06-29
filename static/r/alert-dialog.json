@@ -11,12 +11,12 @@
 	],
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { AlertDialog as AlertDialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AlertDialogPrimitive.ActionProps = $props();\n</script>\n\n<AlertDialogPrimitive.Action bind:ref class={cn(buttonVariants(), className)} {...restProps} />\n",
+			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/registry/default/ui/button.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { AlertDialog as AlertDialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AlertDialogPrimitive.ActionProps = $props();\n</script>\n\n<AlertDialogPrimitive.Action bind:ref class={cn(buttonVariants(), className)} {...restProps} />\n",
 			"type": "registry:ui",
 			"target": "alert-dialog/alert-dialog-action.svelte"
 		},
 		{
-			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { AlertDialog as AlertDialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AlertDialogPrimitive.CancelProps = $props();\n</script>\n\n<AlertDialogPrimitive.Cancel\n\tbind:ref\n\tclass={cn(buttonVariants({ variant: 'outline' }), className)}\n\t{...restProps}\n/>\n",
+			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/registry/default/ui/button.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { AlertDialog as AlertDialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AlertDialogPrimitive.CancelProps = $props();\n</script>\n\n<AlertDialogPrimitive.Cancel\n\tbind:ref\n\tclass={cn(buttonVariants({ variant: 'outline' }), className)}\n\t{...restProps}\n/>\n",
 			"type": "registry:ui",
 			"target": "alert-dialog/alert-dialog-cancel.svelte"
 		},

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Toggle from '$lib/components/ui/toggle.svelte';
+	import Toggle from '$lib/registry/default/ui/toggle.svelte';
 	import {
 		Tooltip,
 		TooltipContent,

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-130",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"dropdown"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Toggle from '$lib/registry/default/ui/toggle.svelte';\n\n\timport MoonIcon from '@lucide/svelte/icons/moon';\n\timport SunIcon from '@lucide/svelte/icons/sun';\n\n\tlet theme = $state('light');\n</script>\n\n<div>\n\t<Toggle\n\t\tvariant=\"outline\"\n\t\tclass=\"group data-[state=on]:hover:bg-muted size-9 data-[state=on]:bg-transparent\"\n\t\tpressed={theme === 'dark'}\n\t\tonPressedChange={() => (theme = theme === 'dark' ? 'light' : 'dark')}\n\t\taria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}\n\t>\n\t\t<!-- Note: After dark mode implementation, rely on dark: prefix rather than group-data-[state=on] -->\n\t\t<MoonIcon\n\t\t\tsize={16}\n\t\t\tclass=\"shrink-0 scale-0 opacity-0 transition-all group-data-[state=on]:scale-100 group-data-[state=on]:opacity-100\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t\t<SunIcon\n\t\t\tsize={16}\n\t\t\tclass=\"absolute shrink-0 scale-100 opacity-100 transition-all group-data-[state=on]:scale-0 group-data-[state=on]:opacity-0\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t</Toggle>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-130.svelte"
+		}
+	]
+}

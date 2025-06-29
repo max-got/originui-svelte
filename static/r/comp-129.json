@@ -18,7 +18,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport BellIcon from '@lucide/svelte/icons/bell';\n\n\tlet count = $state(3);\n\n\tfunction handleClick() {\n\t\tcount = 0;\n\t}\n</script>\n\n<Button\n\tvariant=\"outline\"\n\tsize=\"icon\"\n\tclass=\"relative\"\n\tonclick={handleClick}\n\taria-label=\"Notifications\"\n>\n\t<BellIcon size={16} aria-hidden=\"true\" />\n\t{#if count > 0}\n\t\t<Badge class=\"absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1\">\n\t\t\t{count > 99 ? '99+' : count}\n\t\t</Badge>\n\t{/if}\n</Button>\n",
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/registry/default/ui/badge.svelte';\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport BellIcon from '@lucide/svelte/icons/bell';\n\n\tlet count = $state(3);\n\n\tfunction handleClick() {\n\t\tcount = 0;\n\t}\n</script>\n\n<Button\n\tvariant=\"outline\"\n\tsize=\"icon\"\n\tclass=\"relative\"\n\tonclick={handleClick}\n\taria-label=\"Notifications\"\n>\n\t<BellIcon size={16} aria-hidden=\"true\" />\n\t{#if count > 0}\n\t\t<Badge class=\"absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1\">\n\t\t\t{count > 99 ? '99+' : count}\n\t\t</Badge>\n\t{/if}\n</Button>\n",
 			"type": "registry:component",
 			"target": "comp-129.svelte"
 		}

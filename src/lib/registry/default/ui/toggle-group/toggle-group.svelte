@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { ToggleVariants } from '$lib/components/ui/toggle.svelte';
+	import type { ToggleVariants } from '$lib/registry/default/ui/toggle.svelte';
 
 	import { getContext, setContext } from 'svelte';
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DateValue } from '@internationalized/date';
 
-	import { useLocale } from '$lib/hooks/use-locale.svelte';
+	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import CalendarIcon from '@lucide/svelte/icons/calendar';

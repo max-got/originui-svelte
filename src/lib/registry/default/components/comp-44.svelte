@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Label from '$lib/registry/default/ui/label.svelte';
-	import { cn } from '$lib/registry/default/lib/utils';
 
+	import { cn } from '$lib/registry/default/lib/utils';
 	import { PinInput, type PinInputCell } from 'bits-ui';
 
 	let value = $state('');

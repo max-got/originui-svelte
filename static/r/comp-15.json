@@ -14,7 +14,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with end add-on</Label>\n\t<div class=\"flex rounded-lg shadow-xs shadow-black/[.04]\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"z-10 -me-px rounded-e-none shadow-none\"\n\t\t\tplaceholder=\"google\"\n\t\t\ttype=\"text\"\n\t\t/>\n\t\t<span\n\t\t\tclass=\"border-input bg-background text-muted-foreground inline-flex items-center rounded-e-lg border px-3 text-sm\"\n\t\t>\n\t\t\t.com\n\t\t</span>\n\t</div>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/registry/default/ui/input.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with end add-on</Label>\n\t<div class=\"flex rounded-lg shadow-xs shadow-black/[.04]\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"z-10 -me-px rounded-e-none shadow-none\"\n\t\t\tplaceholder=\"google\"\n\t\t\ttype=\"text\"\n\t\t/>\n\t\t<span\n\t\t\tclass=\"border-input bg-background text-muted-foreground inline-flex items-center rounded-e-lg border px-3 text-sm\"\n\t\t>\n\t\t\t.com\n\t\t</span>\n\t</div>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-15.svelte"
 		}

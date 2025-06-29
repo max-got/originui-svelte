@@ -8,7 +8,7 @@
 
 	import Command from './command.svelte';
 
-	import * as Dialog from '$lib/components/ui/dialog';
+	import * as Dialog from '$lib/registry/default/ui/dialog';
 
 	let {
 		children,

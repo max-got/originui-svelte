@@ -2655,6 +2655,34 @@
 			"meta": {
 				"tags": ["button", "dropdown", "notification"]
 			}
+		},
+		{
+			"name": "comp-130",
+			"type": "registry:component",
+			"registryDependencies": ["button", "dropdown-menu"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-130.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["button", "dropdown"]
+			}
+		},
+		{
+			"name": "comp-131",
+			"type": "registry:component",
+			"registryDependencies": ["button", "dropdown-menu"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-131.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["button", "dropdown"]
+			}
 		}
 	]
 }

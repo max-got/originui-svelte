@@ -6,7 +6,7 @@
 		TooltipContent,
 		TooltipProvider,
 		TooltipTrigger
-	} from '$lib/components/ui/tooltip';
+	} from '$lib/registry/default/ui/tooltip';
 	import { Slider as SliderPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
 	import { on } from 'svelte/events';
 

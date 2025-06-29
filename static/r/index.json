@@ -2171,5 +2171,35 @@
 			]
 		},
 		"relativeUrl": "comp-129.json"
+	},
+	{
+		"name": "comp-130",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button",
+			"dropdown-menu"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-130.json"
+	},
+	{
+		"name": "comp-131",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button",
+			"dropdown-menu"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-131.json"
 	}
 ]

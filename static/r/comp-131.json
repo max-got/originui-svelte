@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-131",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"dropdown"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronDownIcon from '@lucide/svelte/icons/chevron-down';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuRadioGroup,\n\t\tDropdownMenuRadioItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/registry/default/ui/dropdown-menu';\n\n\tconst options = [\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'All commits from this branch will be added to the base branch via a commit version.',\n\t\t\tlabel: 'Merge pull request'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'The 6 commits from this branch will be combined into one commit in the base branch.',\n\t\t\tlabel: 'Squash and merge'\n\t\t},\n\t\t{\n\t\t\tdescription: 'The 6 commits from this branch will be rebased and added to the base branch.',\n\t\t\tlabel: 'Rebase and merge'\n\t\t}\n\t];\n\n\tlet selectedIndex = $state(0);\n</script>\n\n<div\n\tclass=\"divide-primary-foreground/30 inline-flex divide-x rounded-md shadow-xs rtl:space-x-reverse\"\n>\n\t<Button class=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\">\n\t\t{options[Number(selectedIndex)].label}\n\t</Button>\n\t<DropdownMenu>\n\t\t<DropdownMenuTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button\n\t\t\t\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\taria-label=\"Options\"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t<ChevronDownIcon size={16} aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</DropdownMenuTrigger>\n\t\t<DropdownMenuContent class=\"max-w-64 md:max-w-xs\" side=\"bottom\" sideOffset={4} align=\"end\">\n\t\t\t<DropdownMenuRadioGroup\n\t\t\t\tvalue={selectedIndex.toString()}\n\t\t\t\tonValueChange={(value) => (selectedIndex = Number(value))}\n\t\t\t>\n\t\t\t\t{#each options as option, index (option.label)}\n\t\t\t\t\t<DropdownMenuRadioItem value={String(index)} class=\"items-start [&>span]:pt-1.5\">\n\t\t\t\t\t\t<div class=\"flex flex-col gap-1\">\n\t\t\t\t\t\t\t<span class=\"text-sm font-medium\">{option.label}</span>\n\t\t\t\t\t\t\t<span class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t\t{option.description}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</DropdownMenuRadioItem>\n\t\t\t\t{/each}\n\t\t\t</DropdownMenuRadioGroup>\n\t\t</DropdownMenuContent>\n\t</DropdownMenu>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-131.svelte"
+		}
+	]
+}

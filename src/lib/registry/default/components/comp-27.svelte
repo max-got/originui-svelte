@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { EventHandler } from 'svelte/elements';
 
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import LoaderCircle from '@lucide/svelte/icons/loader-circle';
 	import Mic from '@lucide/svelte/icons/mic';

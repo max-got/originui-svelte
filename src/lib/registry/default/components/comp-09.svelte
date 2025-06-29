@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import AtSign from '@lucide/svelte/icons/at-sign';
 

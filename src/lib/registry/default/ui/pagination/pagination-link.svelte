@@ -3,7 +3,7 @@
 	import type { Snippet } from 'svelte';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-	import { type ButtonProps, buttonVariants } from '$lib/components/ui/button.svelte';
+	import { type ButtonProps, buttonVariants } from '$lib/registry/default/ui/button.svelte';
 
 	export type Props = WithElementRef<HTMLAnchorAttributes> & {
 		children: Snippet;

@@ -37,7 +37,12 @@ function generateTagsFileContent(
 }
 
 function getAllTags(): string[] {
-	const tags = registry.items.flatMap((item: unknown) => {
+	const filteredItems = registry.items.filter((item: unknown) => {
+		const registryItem = item as unknown as RegistryItem;
+		return registryItem.meta?.todo !== true;
+	});
+
+	const tags = filteredItems.flatMap((item: unknown) => {
 		const registryItem = item as unknown as RegistryItem;
 		return registryItem.meta?.tags ?? [];
 	});

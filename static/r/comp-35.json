@@ -15,7 +15,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';\n\n\tconst maxLength = 8;\n\tconst characterLimit = useCharacterLimit(maxLength);\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with characters left</Label>\n\t<Input\n\t\tid={uid}\n\t\ttype=\"text\"\n\t\tbind:value={characterLimit.value}\n\t\tmaxlength={characterLimit.maxLength}\n\t\taria-describedby={uid}\n\t/>\n\t<p id={uid} class=\"text-muted-foreground mt-2 text-xs\" role=\"status\" aria-live=\"polite\">\n\t\t<span class=\"tabular-nums\">{characterLimit.maxLength - characterLimit.characterCount}</span> characters\n\t\tleft\n\t</p>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';\n\timport Input from '$lib/registry/default/ui/input.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst maxLength = 8;\n\tconst characterLimit = useCharacterLimit(maxLength);\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with characters left</Label>\n\t<Input\n\t\tid={uid}\n\t\ttype=\"text\"\n\t\tbind:value={characterLimit.value}\n\t\tmaxlength={characterLimit.maxLength}\n\t\taria-describedby={uid}\n\t/>\n\t<p id={uid} class=\"text-muted-foreground mt-2 text-xs\" role=\"status\" aria-live=\"polite\">\n\t\t<span class=\"tabular-nums\">{characterLimit.maxLength - characterLimit.characterCount}</span> characters\n\t\tleft\n\t</p>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-35.svelte"
 		},
