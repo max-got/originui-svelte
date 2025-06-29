@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-82",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"delete"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport Trash from '@lucide/svelte/icons/trash';\n</script>\n\n<Button variant=\"destructive\">\n\t<Trash class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\tButton\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-82.svelte"
+		}
+	]
+}

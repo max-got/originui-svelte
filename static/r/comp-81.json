@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-81",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport Archive from '@lucide/svelte/icons/archive';\n</script>\n\n<Button>\n\t<Archive class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\tButton\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-81.svelte"
+		}
+	]
+}

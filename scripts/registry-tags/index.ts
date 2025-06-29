@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
+import type { RegistryItem } from '@shadcn-svelte/registry';
+
 import fs from 'node:fs';
 import path from 'node:path';
-
-import type { RegistryItem } from '../../src/lib/data/registry/schema';
 
 import registry from '../../registry.json' assert { type: 'json' };
 

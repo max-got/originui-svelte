@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-104",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"volume",
+			"controls"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport MinusIcon from '@lucide/svelte/icons/minus';\n\timport PlusIcon from '@lucide/svelte/icons/plus';\n\timport VolumeIcon from '@lucide/svelte/icons/volume';\n\timport Volume1Icon from '@lucide/svelte/icons/volume-1';\n\timport Volume2Icon from '@lucide/svelte/icons/volume-2';\n\timport VolumeXIcon from '@lucide/svelte/icons/volume-x';\n\n\tlet volume = $state(3);\n\n\tfunction decreaseVolume() {\n\t\tvolume = Math.max(0, volume - 1);\n\t}\n\n\tfunction increaseVolume() {\n\t\tvolume = Math.min(6, volume + 1);\n\t}\n\n\t// Reactive volume icon selection\n\tconst Icon = $derived(\n\t\tvolume === 0 ? VolumeXIcon : volume < 3 ? VolumeIcon : volume < 5 ? Volume1Icon : Volume2Icon\n\t);\n</script>\n\n<div class=\"inline-flex items-center\" role=\"group\" aria-labelledby=\"volume-control\">\n\t<span id=\"volume-control\" class=\"sr-only\"> Volume Control </span>\n\t<Button\n\t\tclass=\"rounded-full\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Decrease volume\"\n\t\tonclick={decreaseVolume}\n\t\tdisabled={volume === 0}\n\t>\n\t\t<MinusIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<div class=\"flex items-center px-3 text-sm font-medium tabular-nums\" aria-live=\"polite\">\n\t\t<Icon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t<span class=\"ms-2\" aria-label=\"Current volume is {volume}\">\n\t\t\t{volume}\n\t\t</span>\n\t</div>\n\t<Button\n\t\tclass=\"rounded-full\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Increase volume\"\n\t\tonclick={increaseVolume}\n\t\tdisabled={volume === 6}\n\t>\n\t\t<PlusIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-104.svelte"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-120",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"social",
+			"login",
+			"authentication"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport RiFacebookFill from '~icons/ri/facebook-fill';\n\timport RiGithubFill from '~icons/ri/github-fill';\n\timport RiGoogleFill from '~icons/ri/google-fill';\n\timport RiTwitterXFill from '~icons/ri/twitter-x-fill';\n</script>\n\n<div class=\"flex flex-wrap gap-2\">\n\t<Button class=\"flex-1\" variant=\"outline\" aria-label=\"Login with Google\" size=\"icon\">\n\t\t<RiGoogleFill\n\t\t\tclass=\"dark:text-primary text-[#DB4437]\"\n\t\t\twidth=\"16\"\n\t\t\theight=\"16\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t</Button>\n\t<Button class=\"flex-1\" variant=\"outline\" aria-label=\"Login with Facebook\" size=\"icon\">\n\t\t<RiFacebookFill\n\t\t\tclass=\"dark:text-primary text-[#1877f2]\"\n\t\t\twidth=\"16\"\n\t\t\theight=\"16\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t</Button>\n\t<Button class=\"flex-1\" variant=\"outline\" aria-label=\"Login with X\" size=\"icon\">\n\t\t<RiTwitterXFill\n\t\t\tclass=\"dark:text-primary text-[#14171a]\"\n\t\t\twidth=\"16\"\n\t\t\theight=\"16\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t</Button>\n\t<Button class=\"flex-1\" variant=\"outline\" aria-label=\"Login with GitHub\" size=\"icon\">\n\t\t<RiGithubFill class=\"dark:text-primary text-black\" width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-120.svelte"
+		}
+	]
+}

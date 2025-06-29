@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-91",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"loading"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport LoaderCircle from '@lucide/svelte/icons/loader-circle';\n\n\tlet isLoading = $state(false);\n\n\tfunction handleClick() {\n\t\tisLoading = true;\n\t\t// Simulate an async operation\n\t\tsetTimeout(() => {\n\t\t\tisLoading = false;\n\t\t}, 1000); // Reset after 1 second\n\t}\n</script>\n\n<Button\n\tonclick={handleClick}\n\tdisabled={isLoading}\n\tdata-loading={isLoading}\n\tclass=\"group relative disabled:opacity-100\"\n>\n\t<span class=\"group-data-[loading=true]:text-transparent\">Click me</span>\n\t{#if isLoading}\n\t\t<div class=\"absolute inset-0 flex items-center justify-center\">\n\t\t\t<LoaderCircle class=\"animate-spin\" size={16} aria-hidden=\"true\" />\n\t\t</div>\n\t{/if}\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-91.svelte"
+		}
+	]
+}

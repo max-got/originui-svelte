@@ -2,6 +2,9 @@
 	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
 	"name": "comp-53",
 	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
 	"registryDependencies": [
 		"input",
 		"label",
@@ -16,7 +19,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for=\"input-52\">Read-only input</Label>\n\t<Input\n\t\tid=\"input-52\"\n\t\tclass=\"read-only:bg-muted\"\n\t\tvalue=\"This is a read-only input\"\n\t\treadonly\n\t\tplaceholder=\"Email\"\n\t\ttype=\"email\"\n\t/>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/registry/default/ui/input.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport Copy from '@lucide/svelte/icons/copy';\n\timport { cn } from '$lib/registry/default/lib/utils';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/registry/default/ui/tooltip';\n\n\tlet copied = $state(false);\n\tlet inputElement = $state<HTMLInputElement | null>(null);\n\n\tasync function handleCopy() {\n\t\tif (!inputElement) return;\n\n\t\tawait navigator.clipboard.writeText(inputElement.value);\n\t\tcopied = true;\n\t\tsetTimeout(() => {\n\t\t\tcopied = false;\n\t\t}, 1500);\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Copy to clipboard</Label>\n\t<div class=\"relative\">\n\t\t<Input\n\t\t\tbind:ref={inputElement}\n\t\t\tid={uid}\n\t\t\tclass=\"pe-9\"\n\t\t\ttype=\"text\"\n\t\t\tvalue=\"npx sv create my-app\"\n\t\t\treadonly\n\t\t/>\n\t\t<TooltipProvider>\n\t\t\t<Tooltip>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\tonclick={handleCopy}\n\t\t\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed\"\n\t\t\t\t\taria-label={copied ? 'Copied' : 'Copy to clipboard'}\n\t\t\t\t\tdisabled={copied}\n\t\t\t\t>\n\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t<button {...props}>\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tclass={cn('transition-all', copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0')}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Check class=\"stroke-emerald-500\" size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t\t\t'absolute transition-all',\n\t\t\t\t\t\t\t\t\tcopied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Copy size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t{/snippet}\n\t\t\t\t</TooltipTrigger>\n\t\t\t\t<TooltipContent\n\t\t\t\t\tclass=\"border-input bg-popover text-muted-foreground border px-2 py-1 text-xs\"\n\t\t\t\t>\n\t\t\t\t\tCopy to clipboard\n\t\t\t\t</TooltipContent>\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t</div>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-53.svelte"
 		}

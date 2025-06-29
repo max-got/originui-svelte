@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-100",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"menu",
+			"hamburger"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\tlet open = $state(false);\n\n\tfunction toggleOpen() {\n\t\topen = !open;\n\t}\n</script>\n\n<Button\n\tclass=\"group\"\n\tvariant=\"outline\"\n\tsize=\"icon\"\n\tonclick={toggleOpen}\n\taria-expanded={open}\n\taria-label={open ? 'Close menu' : 'Open menu'}\n>\n\t<svg\n\t\tclass=\"pointer-events-none\"\n\t\twidth={16}\n\t\theight={16}\n\t\tviewBox=\"0 0 24 24\"\n\t\tfill=\"none\"\n\t\tstroke=\"currentColor\"\n\t\tstroke-width=\"2\"\n\t\tstroke-linecap=\"round\"\n\t\tstroke-linejoin=\"round\"\n\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t>\n\t\t<path\n\t\t\td=\"M4 12L20 12\"\n\t\t\tclass=\"origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315\"\n\t\t/>\n\t\t<path\n\t\t\td=\"M4 12H20\"\n\t\t\tclass=\"origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45\"\n\t\t/>\n\t\t<path\n\t\t\td=\"M4 12H20\"\n\t\t\tclass=\"origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135\"\n\t\t/>\n\t</svg>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-100.svelte"
+		}
+	]
+}

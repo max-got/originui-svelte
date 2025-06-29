@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-96",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport Plus from '@lucide/svelte/icons/plus';\n</script>\n\n<Button variant=\"outline\" class=\"aspect-square max-sm:p-0\">\n\t<Plus class=\"opacity-60 sm:-ms-1\" size={16} aria-hidden=\"true\" />\n\t<span class=\"max-sm:sr-only\">Add new</span>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-96.svelte"
+		}
+	]
+}

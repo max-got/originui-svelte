@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-94",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"user",
+			"avatar",
+			"profile"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n</script>\n\n<Button class=\"rounded-full py-0 ps-0\">\n\t<div class=\"me-0.5 flex aspect-square h-full p-1.5\">\n\t\t<enhanced:img\n\t\t\tclass=\"size-[24px] rounded-full\"\n\t\t\tsrc=\"/static/avatar.jpg\"\n\t\t\talt=\"Profile image\"\n\t\t\taria-hidden=\"true\"\n\t\t\tloading=\"lazy\"\n\t\t/>\n\t</div>\n\t@max_gotts\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-94.svelte"
+		}
+	]
+}

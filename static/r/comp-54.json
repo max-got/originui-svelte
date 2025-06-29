@@ -3,7 +3,10 @@
 	"name": "comp-54",
 	"type": "registry:component",
 	"dependencies": [
-		"@lucide/svelte@^0.513.0"
+		"inputmask@^5.0.9"
+	],
+	"devDependencies": [
+		"@types/inputmask@^5.0.7"
 	],
 	"registryDependencies": [
 		"input",
@@ -18,7 +21,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip/index.js';\n\timport { cn } from '$UTILS$.js';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport Copy from '@lucide/svelte/icons/copy';\n\n\tlet copied = $state(false);\n\tlet inputElement = $state<HTMLInputElement | null>(null);\n\n\tasync function handleCopy() {\n\t\tif (!inputElement) return;\n\n\t\tawait navigator.clipboard.writeText(inputElement.value);\n\t\tcopied = true;\n\t\tsetTimeout(() => {\n\t\t\tcopied = false;\n\t\t}, 1500);\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Copy to clipboard</Label>\n\t<div class=\"relative\">\n\t\t<Input\n\t\t\tbind:ref={inputElement}\n\t\t\tid={uid}\n\t\t\tclass=\"pe-9\"\n\t\t\ttype=\"text\"\n\t\t\tvalue=\"npx sv create my-app\"\n\t\t\treadonly\n\t\t/>\n\t\t<TooltipProvider>\n\t\t\t<Tooltip>\n\t\t\t\t<TooltipTrigger\n\t\t\t\t\tonclick={handleCopy}\n\t\t\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed\"\n\t\t\t\t\taria-label={copied ? 'Copied' : 'Copy to clipboard'}\n\t\t\t\t\tdisabled={copied}\n\t\t\t\t>\n\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t<button {...props}>\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tclass={cn('transition-all', copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0')}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Check class=\"stroke-emerald-500\" size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t\t\t'absolute transition-all',\n\t\t\t\t\t\t\t\t\tcopied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'\n\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<Copy size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t{/snippet}\n\t\t\t\t</TooltipTrigger>\n\t\t\t\t<TooltipContent\n\t\t\t\t\tclass=\"border-input bg-popover text-muted-foreground border px-2 py-1 text-xs\"\n\t\t\t\t>\n\t\t\t\t\tCopy to clipboard\n\t\t\t\t</TooltipContent>\n\t\t\t</Tooltip>\n\t\t</TooltipProvider>\n\t</div>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Inputmask from 'inputmask';\n\n\tlet inputElement = $state<HTMLInputElement | null>(null);\n\n\t$effect(() => {\n\t\tif (!inputElement) return;\n\t\tconst im = new Inputmask('AA99 AAA', {\n\t\t\tplaceholder: '',\n\t\t\tshowMaskOnHover: false\n\t\t}).mask(inputElement);\n\n\t\treturn () => im.remove();\n\t});\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with mask</Label>\n\t<Input id={uid} placeholder=\"AB12 CDE\" type=\"text\" bind:ref={inputElement} />\n\t<p class=\"text-muted-foreground mt-2 text-xs\" role=\"region\" aria-live=\"polite\">\n\t\tBuilt with <a\n\t\t\tclass=\"hover:text-foreground underline\"\n\t\t\thref=\"https://github.com/RobinHerbots/inputmask\"\n\t\t\ttarget=\"_blank\"\n\t\t\trel=\"noopener nofollow\">inputmask</a\n\t\t>\n\t</p>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-54.svelte"
 		}

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-92",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"counter"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n</script>\n\n<Button variant=\"outline\">\n\tMessages\n\t<span\n\t\tclass=\"border-border text-muted-foreground -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t>\n\t\t18\n\t</span>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-92.svelte"
+		}
+	]
+}

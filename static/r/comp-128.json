@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-128",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronRightIcon from '@lucide/svelte/icons/chevron-right';\n</script>\n\n<Button class=\"group h-auto gap-4 py-3 text-left\" variant=\"outline\">\n\t<div class=\"space-y-1\">\n\t\t<h3>Talent Agency</h3>\n\t\t<p class=\"text-muted-foreground font-normal whitespace-break-spaces\">Matches for your roster</p>\n\t</div>\n\t<ChevronRightIcon\n\t\tclass=\"opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\tsize={16}\n\t\taria-hidden=\"true\"\n\t/>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-128.svelte"
+		}
+	]
+}

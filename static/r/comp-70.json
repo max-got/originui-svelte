@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-70",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"textarea",
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"textarea",
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\timport Textarea from '$lib/registry/default/ui/textarea.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Textarea with button</Label>\n\t<Textarea id={uid} placeholder=\"Leave a comment\" />\n\t<Button variant=\"outline\" class=\"w-full\">Send</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-70.svelte"
+		}
+	]
+}

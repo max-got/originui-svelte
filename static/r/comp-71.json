@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-71",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"textarea"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"textarea"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\timport Textarea from '$lib/registry/default/ui/textarea.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"group relative\">\n\t<Label\n\t\tfor={uid}\n\t\tclass=\"bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-disabled:opacity-50\"\n\t>\n\t\tTextarea with overlapping label\n\t</Label>\n\t<Textarea id={uid} />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-71.svelte"
+		}
+	]
+}

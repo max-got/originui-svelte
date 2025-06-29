@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-127",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronDownIcon from '@lucide/svelte/icons/chevron-down';\n\timport ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';\n\timport ChevronRightIcon from '@lucide/svelte/icons/chevron-right';\n\timport ChevronUpIcon from '@lucide/svelte/icons/chevron-up';\n\timport CircleIcon from '@lucide/svelte/icons/circle';\n</script>\n\n<div class=\"inline-grid w-fit grid-cols-3 gap-1\">\n\t<Button class=\"col-start-2\" variant=\"outline\" size=\"icon\" aria-label=\"Pan camera up\">\n\t\t<ChevronUpIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<Button class=\"col-start-1\" variant=\"outline\" size=\"icon\" aria-label=\"Pan camera left\">\n\t\t<ChevronLeftIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<div class=\"flex items-center justify-center\" aria-hidden=\"true\">\n\t\t<CircleIcon class=\"opacity-60\" size={16} />\n\t</div>\n\t<Button variant=\"outline\" size=\"icon\" aria-label=\"Pan camera right\">\n\t\t<ChevronRightIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<Button class=\"col-start-2\" variant=\"outline\" size=\"icon\" aria-label=\"Pan camera down\">\n\t\t<ChevronDownIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-127.svelte"
+		}
+	]
+}

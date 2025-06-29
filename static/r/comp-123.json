@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-123",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"collapsible"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronDownIcon from '@lucide/svelte/icons/chevron-down';\n\timport ChevronUpIcon from '@lucide/svelte/icons/chevron-up';\n\n\tlet isExpanded = $state(false);\n\n\tfunction toggleExpand() {\n\t\tisExpanded = !isExpanded;\n\t}\n</script>\n\n<Button\n\tclass=\"gap-1\"\n\tvariant=\"ghost\"\n\tonclick={toggleExpand}\n\taria-expanded={isExpanded}\n\taria-controls=\"expandable-content\"\n>\n\t{#if isExpanded}\n\t\tShow less\n\t\t<ChevronUpIcon className=\"-me-1\" size={16} stroke-width=\"2\" aria-hidden=\"true\" />\n\t{:else}\n\t\tShow more\n\t\t<ChevronDownIcon className=\"-me-1\" size={16} stroke-width=\"2\" aria-hidden=\"true\" />\n\t{/if}\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-123.svelte"
+		}
+	]
+}

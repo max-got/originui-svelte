@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-99",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"tooltip"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/registry/default/ui/tooltip';\n\n\timport Plus from '@lucide/svelte/icons/plus';\n</script>\n\n<TooltipProvider>\n\t<Tooltip>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"icon\" aria-label=\"Add new item\" {...props}>\n\t\t\t\t\t<Plus size={16} aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"px-2 py-1 text-xs\">Tooltip</TooltipContent>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-99.svelte"
+		}
+	]
+}

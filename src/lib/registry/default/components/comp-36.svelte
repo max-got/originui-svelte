@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import { useLocale } from '$lib/hooks/use-locale.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import { DateField } from 'bits-ui';
 

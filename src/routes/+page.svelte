@@ -73,21 +73,20 @@
 	</div>
 	<div class="relative my-16">
 		<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-			{#each Object.entries(data.componentsMeta.directoriesBreakdown) as [directory, { componentCount, stateBreakdown }] (directory)}
-				{@const readableName = directory.charAt(0).toUpperCase() + directory.slice(1)}
-				{@const isReady = stateBreakdown.ready === componentCount}
-				<CategoryCard slug={directory} alt="{readableName} demo">
+			{#each data.categories as category (category.slug)}
+				{@const isFullyImplemented = category.total - category.totalWithTodo === category.total}
+				<CategoryCard slug={category.slug} alt="{category.name} demo">
 					{#snippet details()}
 						<h2 class="_component-directory">
-							<a href="/{directory}" class="text-sm font-medium hover:underline">
-								{readableName}
+							<a href="/{category.slug}" class="text-sm font-medium hover:underline">
+								{category.name}
 							</a>
 						</h2>
 						<p class="text-muted-foreground text-[13px]">
-							{#if isReady}
-								{stateBreakdown.ready} Components
+							{#if isFullyImplemented}
+								{category.total} Components
 							{:else}
-								{stateBreakdown.ready}/{componentCount} Components
+								{category.total - category.totalWithTodo} / {category.total} Components
 							{/if}
 						</p>
 					{/snippet}

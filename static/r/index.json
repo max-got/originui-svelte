@@ -932,26 +932,8 @@
 				"payment",
 				"credit card",
 				"form"
-			]
-		},
-		"relativeUrl": "comp-47.json"
-	},
-	{
-		"name": "comp-47",
-		"type": "registry:component",
-		"registryDependencies": [
-			"input",
-			"label"
-		],
-		"meta": {
-			"tags": [
-				"input",
-				"label",
-				"checkout",
-				"payment",
-				"credit card",
-				"form"
-			]
+			],
+			"todo": true
 		},
 		"relativeUrl": "comp-47.json"
 	},
@@ -1027,8 +1009,7 @@
 				"input",
 				"label",
 				"password"
-			],
-			"todo": true
+			]
 		},
 		"relativeUrl": "comp-51.json"
 	},
@@ -1047,22 +1028,6 @@
 			]
 		},
 		"relativeUrl": "comp-52.json"
-	},
-	{
-		"name": "comp-58",
-		"type": "registry:component",
-		"registryDependencies": [
-			"label"
-		],
-		"meta": {
-			"tags": [
-				"input",
-				"label",
-				"otp"
-			],
-			"todo": true
-		},
-		"relativeUrl": "comp-58.json"
 	},
 	{
 		"name": "comp-53",
@@ -1100,9 +1065,6 @@
 	{
 		"name": "comp-55",
 		"type": "registry:component",
-		"dependencies": [
-			"use-mask-input"
-		],
 		"registryDependencies": [
 			"input",
 			"label"
@@ -1128,7 +1090,8 @@
 				"input",
 				"label",
 				"tag"
-			]
+			],
+			"todo": true
 		},
 		"relativeUrl": "comp-56.json"
 	},
@@ -1143,12 +1106,13 @@
 				"input",
 				"label",
 				"tag"
-			]
+			],
+			"todo": true
 		},
 		"relativeUrl": "comp-57.json"
 	},
 	{
-		"name": "comp-59",
+		"name": "comp-58",
 		"type": "registry:component",
 		"registryDependencies": [
 			"label"
@@ -1157,10 +1121,1055 @@
 			"tags": [
 				"input",
 				"label",
+				"otp"
+			]
+		},
+		"relativeUrl": "comp-58.json"
+	},
+	{
+		"name": "comp-59",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
 				"textarea"
-			],
-			"todo": true
+			]
 		},
 		"relativeUrl": "comp-59.json"
+	},
+	{
+		"name": "comp-60",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"required"
+			]
+		},
+		"relativeUrl": "comp-60.json"
+	},
+	{
+		"name": "comp-61",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"helper"
+			]
+		},
+		"relativeUrl": "comp-61.json"
+	},
+	{
+		"name": "comp-62",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"hint"
+			]
+		},
+		"relativeUrl": "comp-62.json"
+	},
+	{
+		"name": "comp-63",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-63.json"
+	},
+	{
+		"name": "comp-64",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"error"
+			]
+		},
+		"relativeUrl": "comp-64.json"
+	},
+	{
+		"name": "comp-65",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-65.json"
+	},
+	{
+		"name": "comp-66",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-66.json"
+	},
+	{
+		"name": "comp-67",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"disabled"
+			]
+		},
+		"relativeUrl": "comp-67.json"
+	},
+	{
+		"name": "comp-68",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea",
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"button"
+			]
+		},
+		"relativeUrl": "comp-68.json"
+	},
+	{
+		"name": "comp-69",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea",
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"button"
+			]
+		},
+		"relativeUrl": "comp-69.json"
+	},
+	{
+		"name": "comp-70",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea",
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"button"
+			]
+		},
+		"relativeUrl": "comp-70.json"
+	},
+	{
+		"name": "comp-71",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-71.json"
+	},
+	{
+		"name": "comp-72",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-72.json"
+	},
+	{
+		"name": "comp-73",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-73.json"
+	},
+	{
+		"name": "comp-74",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-74.json"
+	},
+	{
+		"name": "comp-75",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-75.json"
+	},
+	{
+		"name": "comp-76",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea",
+				"read-only"
+			]
+		},
+		"relativeUrl": "comp-76.json"
+	},
+	{
+		"name": "comp-77",
+		"type": "registry:component",
+		"registryDependencies": [
+			"label",
+			"textarea"
+		],
+		"meta": {
+			"tags": [
+				"label",
+				"textarea"
+			]
+		},
+		"relativeUrl": "comp-77.json"
+	},
+	{
+		"name": "comp-78",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-78.json"
+	},
+	{
+		"name": "comp-79",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"disabled"
+			]
+		},
+		"relativeUrl": "comp-79.json"
+	},
+	{
+		"name": "comp-80",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-80.json"
+	},
+	{
+		"name": "comp-81",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-81.json"
+	},
+	{
+		"name": "comp-82",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"delete"
+			]
+		},
+		"relativeUrl": "comp-82.json"
+	},
+	{
+		"name": "comp-83",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-83.json"
+	},
+	{
+		"name": "comp-84",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-84.json"
+	},
+	{
+		"name": "comp-85",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"back"
+			]
+		},
+		"relativeUrl": "comp-85.json"
+	},
+	{
+		"name": "comp-86",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"next"
+			]
+		},
+		"relativeUrl": "comp-86.json"
+	},
+	{
+		"name": "comp-87",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-87.json"
+	},
+	{
+		"name": "comp-88",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-88.json"
+	},
+	{
+		"name": "comp-89",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-89.json"
+	},
+	{
+		"name": "comp-90",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"loading"
+			]
+		},
+		"relativeUrl": "comp-90.json"
+	},
+	{
+		"name": "comp-91",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"loading"
+			]
+		},
+		"relativeUrl": "comp-91.json"
+	},
+	{
+		"name": "comp-92",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-92.json"
+	},
+	{
+		"name": "comp-93",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"kbd"
+			]
+		},
+		"relativeUrl": "comp-93.json"
+	},
+	{
+		"name": "comp-94",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"user",
+				"avatar",
+				"profile"
+			]
+		},
+		"relativeUrl": "comp-94.json"
+	},
+	{
+		"name": "comp-95",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"user",
+				"avatar",
+				"profile",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-95.json"
+	},
+	{
+		"name": "comp-96",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-96.json"
+	},
+	{
+		"name": "comp-97",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-97.json"
+	},
+	{
+		"name": "comp-98",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"menu"
+			]
+		},
+		"relativeUrl": "comp-98.json"
+	},
+	{
+		"name": "comp-99",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button",
+			"tooltip"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"tooltip"
+			]
+		},
+		"relativeUrl": "comp-99.json"
+	},
+	{
+		"name": "comp-100",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"menu",
+				"hamburger"
+			]
+		},
+		"relativeUrl": "comp-100.json"
+	},
+	{
+		"name": "comp-101",
+		"type": "registry:component",
+		"registryDependencies": [
+			"toggle",
+			"tooltip"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle"
+			]
+		},
+		"relativeUrl": "comp-101.json"
+	},
+	{
+		"name": "comp-102",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"vote",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-102.json"
+	},
+	{
+		"name": "comp-103",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"vote",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-103.json"
+	},
+	{
+		"name": "comp-104",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"volume",
+				"controls"
+			]
+		},
+		"relativeUrl": "comp-104.json"
+	},
+	{
+		"name": "comp-105",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button",
+			"tooltip"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"copy"
+			]
+		},
+		"relativeUrl": "comp-105.json"
+	},
+	{
+		"name": "comp-106",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle group"
+			]
+		},
+		"relativeUrl": "comp-106.json"
+	},
+	{
+		"name": "comp-107",
+		"type": "registry:component",
+		"registryDependencies": [
+			"toggle-group"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle group"
+			]
+		},
+		"relativeUrl": "comp-107.json"
+	},
+	{
+		"name": "comp-108",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle group",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-108.json"
+	},
+	{
+		"name": "comp-109",
+		"type": "registry:component",
+		"registryDependencies": [
+			"toggle-group"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle group"
+			]
+		},
+		"relativeUrl": "comp-109.json"
+	},
+	{
+		"name": "comp-110",
+		"type": "registry:component",
+		"registryDependencies": [
+			"toggle-group"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"toggle group"
+			]
+		},
+		"relativeUrl": "comp-110.json"
+	},
+	{
+		"name": "comp-111",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-111.json"
+	},
+	{
+		"name": "comp-112",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-112.json"
+	},
+	{
+		"name": "comp-113",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown"
+			]
+		},
+		"relativeUrl": "comp-113.json"
+	},
+	{
+		"name": "comp-114",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-114.json"
+	},
+	{
+		"name": "comp-115",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"previous"
+			]
+		},
+		"relativeUrl": "comp-115.json"
+	},
+	{
+		"name": "comp-116",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"next"
+			]
+		},
+		"relativeUrl": "comp-116.json"
+	},
+	{
+		"name": "comp-117",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"like",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-117.json"
+	},
+	{
+		"name": "comp-118",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"like",
+				"counter"
+			]
+		},
+		"relativeUrl": "comp-118.json"
+	},
+	{
+		"name": "comp-119",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"social",
+				"login",
+				"authentication"
+			]
+		},
+		"relativeUrl": "comp-119.json"
+	},
+	{
+		"name": "comp-120",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"social",
+				"login",
+				"authentication"
+			]
+		},
+		"relativeUrl": "comp-120.json"
+	},
+	{
+		"name": "comp-121",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"social",
+				"login",
+				"authentication"
+			]
+		},
+		"relativeUrl": "comp-121.json"
+	},
+	{
+		"name": "comp-122",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"social",
+				"login",
+				"authentication"
+			]
+		},
+		"relativeUrl": "comp-122.json"
+	},
+	{
+		"name": "comp-123",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"collapsible"
+			]
+		},
+		"relativeUrl": "comp-123.json"
+	},
+	{
+		"name": "comp-124",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"back"
+			]
+		},
+		"relativeUrl": "comp-124.json"
+	},
+	{
+		"name": "comp-125",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"upload",
+				"user",
+				"avatar",
+				"profile",
+				"image"
+			]
+		},
+		"relativeUrl": "comp-125.json"
+	},
+	{
+		"name": "comp-126",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"upload",
+				"user",
+				"avatar",
+				"profile",
+				"image"
+			]
+		},
+		"relativeUrl": "comp-126.json"
+	},
+	{
+		"name": "comp-127",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-127.json"
+	},
+	{
+		"name": "comp-128",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button"
+		],
+		"meta": {
+			"tags": [
+				"button"
+			]
+		},
+		"relativeUrl": "comp-128.json"
+	},
+	{
+		"name": "comp-129",
+		"type": "registry:component",
+		"registryDependencies": [
+			"button",
+			"badge"
+		],
+		"meta": {
+			"tags": [
+				"button",
+				"dropdown",
+				"notification"
+			]
+		},
+		"relativeUrl": "comp-129.json"
 	}
 ]

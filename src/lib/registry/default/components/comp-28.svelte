@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import Minus from '@lucide/svelte/icons/minus';
 	import Plus from '@lucide/svelte/icons/plus';

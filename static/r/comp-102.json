@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-102",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"vote",
+			"counter"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport ChevronUp from '@lucide/svelte/icons/chevron-up';\n</script>\n\n<div class=\"inline-flex -space-x-px rounded-md shadow-2xs rtl:space-x-reverse\">\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Upvote\"\n\t>\n\t\t<ChevronUp size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<span class=\"border-input flex items-center border px-3 text-sm font-medium\">235</span>\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Downvote\"\n\t>\n\t\t<ChevronDown size={16} aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-102.svelte"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-107",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"toggle-group"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"toggle group"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';\n\n\timport AlignCenter from '@lucide/svelte/icons/align-center';\n\timport AlignJustify from '@lucide/svelte/icons/align-justify';\n\timport AlignLeft from '@lucide/svelte/icons/align-left';\n\timport AlignRight from '@lucide/svelte/icons/align-right';\n\n\tlet value = $state('center');\n</script>\n\n<ToggleGroup class=\"divide-background inline-flex divide-x\" type=\"single\" bind:value>\n\t<ToggleGroupItem\n\t\tclass=\"bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground\"\n\t\taria-label=\"Align Left\"\n\t\tvalue=\"left\"\n\t>\n\t\t<AlignLeft size={16} aria-hidden=\"true\" />\n\t</ToggleGroupItem>\n\t<ToggleGroupItem\n\t\tclass=\"bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground\"\n\t\taria-label=\"Align Center\"\n\t\tvalue=\"center\"\n\t>\n\t\t<AlignCenter size={16} aria-hidden=\"true\" />\n\t</ToggleGroupItem>\n\t<ToggleGroupItem\n\t\tclass=\"bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground\"\n\t\taria-label=\"Align Right\"\n\t\tvalue=\"right\"\n\t>\n\t\t<AlignRight size={16} aria-hidden=\"true\" />\n\t</ToggleGroupItem>\n\t<ToggleGroupItem\n\t\tclass=\"bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground\"\n\t\taria-label=\"Align Justify\"\n\t\tvalue=\"justify\"\n\t>\n\t\t<AlignJustify size={16} aria-hidden=\"true\" />\n\t</ToggleGroupItem>\n</ToggleGroup>\n",
+			"type": "registry:component",
+			"target": "comp-107.svelte"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-124",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"back"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';\n</script>\n\n<Button variant=\"link\" class=\"gap-1\">\n\t<ChevronLeftIcon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\tGo back\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-124.svelte"
+		}
+	]
+}

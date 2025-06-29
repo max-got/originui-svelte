@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import Inputmask from 'inputmask';
 
@@ -8,8 +8,8 @@
 
 	$effect(() => {
 		if (!inputElement) return;
-		const im = new Inputmask('AA99 AAA', {
-			placeholder: '',
+		const im = new Inputmask('99:99:99', {
+			placeholder: '-',
 			showMaskOnHover: false
 		}).mask(inputElement);
 
@@ -20,8 +20,8 @@
 </script>
 
 <div class="*:not-first:mt-2">
-	<Label for={uid}>Input with mask</Label>
-	<Input id={uid} placeholder="AB12 CDE" type="text" bind:ref={inputElement} />
+	<Label for={uid}>Timestamp</Label>
+	<Input id={uid} placeholder="00:00:00" type="text" bind:ref={inputElement} />
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
 			class="hover:text-foreground underline"

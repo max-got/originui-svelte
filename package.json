@@ -26,6 +26,7 @@
 		"@fontsource/jetbrains-mono": "^5.2.6",
 		"@internationalized/date": "^3.8.2",
 		"@lucide/svelte": "^0.513.0",
+		"@shadcn-svelte/registry": "^0.0.1",
 		"@tailwindcss/vite": "^4.1.8",
 		"@tanstack/table-core": "^8.21.3",
 		"bits-ui": "2.5.0",

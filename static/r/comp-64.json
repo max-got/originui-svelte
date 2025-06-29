@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-64",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"textarea"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"textarea",
+			"error"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Textarea from '$lib/components/ui/textarea.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Textarea with error</Label>\n\t<Textarea\n\t\tid={uid}\n\t\tclass=\"border-destructive/80 text-destructive focus-visible:border-destructive/80 focus-visible:ring-destructive/30\"\n\t\tplaceholder=\"Leave a comment\"\n\t\tvalue=\"Hello!\"\n\t/>\n\t<p class=\"text-destructive mt-2 text-xs\" role=\"alert\" aria-live=\"polite\">\n\t\tMessage should be at least 10 characters\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-64.svelte"
+		}
+	]
+}

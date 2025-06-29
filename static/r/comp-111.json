@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-111",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport QrCodeIcon from '@lucide/svelte/icons/qr-code';\n</script>\n\n<div\n\tclass=\"divide-primary-foreground/30 inline-flex divide-x rounded-md shadow-2xs rtl:space-x-reverse\"\n>\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tsize=\"icon\"\n\t\taria-label=\"QR code\"\n\t>\n\t\t<QrCodeIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n\t<Button class=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\">\n\t\tSign in\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-111.svelte"
+		}
+	]
+}

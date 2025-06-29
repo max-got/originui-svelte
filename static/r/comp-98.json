@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-98",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"menu"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport Plus from '@lucide/svelte/icons/plus';\n\n\tlet open = $state(false);\n</script>\n\n<Button\n\tclass=\"group rounded-full\"\n\tvariant=\"outline\"\n\tsize=\"icon\"\n\tonclick={() => (open = !open)}\n\taria-expanded={open}\n\taria-label={open ? 'Close menu' : 'Open menu'}\n>\n\t<Plus\n\t\tclass=\"transition-transform duration-500 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)] group-aria-expanded:rotate-135\"\n\t\tsize={16}\n\t\taria-hidden=\"true\"\n\t/>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-98.svelte"
+		}
+	]
+}

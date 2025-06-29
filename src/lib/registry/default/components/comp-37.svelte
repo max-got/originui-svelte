@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
-	import { TimeField, TimeInput } from '$lib/components/ui/datefield-rac';
+	import { TimeField, TimeInput } from '$lib/registry/default/ui/datefield-rac';
 </script>
 
 <TimeField class="*:not-first:mt-2">

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-108",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"toggle group",
+			"dropdown"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport EllipsisIcon from '@lucide/svelte/icons/ellipsis';\n\timport FilesIcon from '@lucide/svelte/icons/files';\n\timport FilmIcon from '@lucide/svelte/icons/film';\n</script>\n\n<div class=\"inline-flex -space-x-px rounded-md shadow-2xs rtl:space-x-reverse\">\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t>\n\t\t<FilesIcon class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\tFiles\n\t</Button>\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t>\n\t\t<FilmIcon class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\tMedia\n\t</Button>\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Menu\"\n\t>\n\t\t<EllipsisIcon size={16} aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-108.svelte"
+		}
+	]
+}

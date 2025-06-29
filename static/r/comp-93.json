@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-93",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"kbd"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport Printer from '@lucide/svelte/icons/printer';\n</script>\n\n<Button variant=\"outline\">\n\t<Printer class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\tPrint\n\t<kbd\n\t\tclass=\"bg-background text-muted-foreground/70 ms-1 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t>\n\t\t⌘P\n\t</kbd>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-93.svelte"
+		}
+	]
+}

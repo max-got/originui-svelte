@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-79",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"disabled"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n</script>\n\n<Button disabled>Button</Button>\n",
+			"type": "registry:component",
+			"target": "comp-79.svelte"
+		}
+	]
+}

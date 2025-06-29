@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-112",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport SquareArrowOutUpRight from '@lucide/svelte/icons/square-arrow-out-up-right';\n</script>\n\n<div class=\"inline-flex -space-x-px rounded-md shadow-2xs rtl:space-x-reverse\">\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t>\n\t\tPreview\n\t</Button>\n\t<Button\n\t\tclass=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n\t\tvariant=\"outline\"\n\t\tsize=\"icon\"\n\t\taria-label=\"Open link\"\n\t>\n\t\t<SquareArrowOutUpRight size={16} aria-hidden=\"true\" />\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-112.svelte"
+		}
+	]
+}

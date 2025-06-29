@@ -3,7 +3,10 @@
 	"name": "comp-55",
 	"type": "registry:component",
 	"dependencies": [
-		"use-mask-input"
+		"inputmask@^5.0.9"
+	],
+	"devDependencies": [
+		"@types/inputmask@^5.0.7"
 	],
 	"registryDependencies": [
 		"input",
@@ -19,7 +22,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Inputmask from 'inputmask';\n\n\tlet inputElement = $state<HTMLInputElement | null>(null);\n\n\t$effect(() => {\n\t\tif (!inputElement) return;\n\t\tconst im = new Inputmask('AA99 AAA', {\n\t\t\tplaceholder: '',\n\t\t\tshowMaskOnHover: false\n\t\t}).mask(inputElement);\n\n\t\treturn () => im.remove();\n\t});\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with mask</Label>\n\t<Input id={uid} placeholder=\"AB12 CDE\" type=\"text\" bind:ref={inputElement} />\n\t<p class=\"text-muted-foreground mt-2 text-xs\" role=\"region\" aria-live=\"polite\">\n\t\tBuilt with <a\n\t\t\tclass=\"hover:text-foreground underline\"\n\t\t\thref=\"https://github.com/RobinHerbots/inputmask\"\n\t\t\ttarget=\"_blank\"\n\t\t\trel=\"noopener nofollow\">inputmask</a\n\t\t>\n\t</p>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Inputmask from 'inputmask';\n\n\tlet inputElement = $state<HTMLInputElement | null>(null);\n\n\t$effect(() => {\n\t\tif (!inputElement) return;\n\t\tconst im = new Inputmask('99:99:99', {\n\t\t\tplaceholder: '-',\n\t\t\tshowMaskOnHover: false\n\t\t}).mask(inputElement);\n\n\t\treturn () => im.remove();\n\t});\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Timestamp</Label>\n\t<Input id={uid} placeholder=\"00:00:00\" type=\"text\" bind:ref={inputElement} />\n\t<p class=\"text-muted-foreground mt-2 text-xs\" role=\"region\" aria-live=\"polite\">\n\t\tBuilt with <a\n\t\t\tclass=\"hover:text-foreground underline\"\n\t\t\thref=\"https://github.com/RobinHerbots/inputmask\"\n\t\t\ttarget=\"_blank\"\n\t\t\trel=\"noopener nofollow\">inputmask</a\n\t\t>\n\t</p>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-55.svelte"
 		}

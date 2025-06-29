@@ -1,0 +1,33 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-126",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"upload",
+			"user",
+			"avatar",
+			"profile",
+			"image"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { EventHandler } from 'svelte/elements';\n\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport IconCircleUserRound from '@lucide/svelte/icons/circle-user-round';\n\timport IconX from '@lucide/svelte/icons/x';\n\n\tlet fileInput: HTMLInputElement;\n\tlet fileName = $state<null | string>(null);\n\tlet previewUrl = $state<null | string>(null);\n\n\tfunction handleThumbnailClick() {\n\t\tfileInput.click();\n\t}\n\n\tconst handleFileChange: EventHandler<Event, HTMLInputElement> = (e) => {\n\t\tconst file = e.currentTarget.files?.[0];\n\t\tif (file) {\n\t\t\tfileName = file.name;\n\t\t\tpreviewUrl = URL.createObjectURL(file);\n\t\t}\n\t};\n\n\tconst handleRemove: EventHandler<Event, HTMLAnchorElement | HTMLButtonElement> = () => {\n\t\tfileName = null;\n\t\tpreviewUrl = null;\n\t\tfileInput.value = '';\n\t};\n</script>\n\n<div>\n\t<div class=\"relative inline-flex\">\n\t\t<Button\n\t\t\tvariant=\"outline\"\n\t\t\tclass=\"relative size-16 overflow-hidden\"\n\t\t\tonclick={handleThumbnailClick}\n\t\t\taria-label={previewUrl ? 'Change image' : 'Upload image'}\n\t\t>\n\t\t\t{#if previewUrl}\n\t\t\t\t<img\n\t\t\t\t\tclass=\"absolute inset-0 h-full w-full object-cover\"\n\t\t\t\t\tsrc={previewUrl}\n\t\t\t\t\talt=\"Preview of uploaded file\"\n\t\t\t\t/>\n\t\t\t{:else}\n\t\t\t\t<div aria-hidden=\"true\">\n\t\t\t\t\t<IconCircleUserRound class=\"opacity-60\" width=\"16\" height=\"16\" stroke-width=\"2\" />\n\t\t\t\t</div>\n\t\t\t{/if}\n\t\t</Button>\n\t\t{#if previewUrl}\n\t\t\t<Button\n\t\t\t\tonclick={handleRemove}\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"destructive\"\n\t\t\t\tclass=\"border-background absolute -top-2 -right-2 size-6 rounded-full border-2\"\n\t\t\t\taria-label=\"Remove image\"\n\t\t\t>\n\t\t\t\t<IconX size={16} />\n\t\t\t</Button>\n\t\t{/if}\n\t\t<input\n\t\t\ttype=\"file\"\n\t\t\tbind:this={fileInput}\n\t\t\tonchange={handleFileChange}\n\t\t\tclass=\"hidden\"\n\t\t\taccept=\"image/*\"\n\t\t\taria-label=\"Upload image file\"\n\t\t/>\n\t</div>\n\t{#if fileName}\n\t\t<p\n\t\t\tclass=\"text-muted-foreground mt-2 text-xs lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100\"\n\t\t>\n\t\t\t{fileName}\n\t\t</p>\n\t{/if}\n\t<div class=\"sr-only\" aria-live=\"polite\" role=\"status\">\n\t\t{previewUrl ? 'Image uploaded and preview available' : 'No image uploaded'}\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-126.svelte"
+		},
+		{
+			"content": "export class ImageUpload {\n\t#previewUrl = $state<null | string>(null);\n\t#fileName = $state<null | string>(null);\n\t#fileInput = $state<HTMLInputElement | null>(null);\n\t#files = $state<FileList | null>(null);\n\t#onUpload?: (url: string) => void;\n\n\tconstructor(options: { initialImage?: string; onUpload?: (url: string) => void } = {}) {\n\t\tthis.#onUpload = options.onUpload;\n\t\tif (options.initialImage) {\n\t\t\tthis.#previewUrl = options.initialImage;\n\t\t}\n\t}\n\n\tget previewUrl() {\n\t\treturn this.#previewUrl;\n\t}\n\n\tget fileName() {\n\t\treturn this.#fileName;\n\t}\n\n\tget fileInput() {\n\t\treturn this.#fileInput;\n\t}\n\n\tset fileInput(input: HTMLInputElement | null) {\n\t\tthis.#fileInput = input;\n\t}\n\n\tget files() {\n\t\treturn this.#files;\n\t}\n\n\tset files(files: FileList | null) {\n\t\tthis.#files = files;\n\t\tconst file = files?.[0];\n\t\tif (file) {\n\t\t\tthis.#fileName = file.name;\n\t\t\tconst url = URL.createObjectURL(file);\n\t\t\tif (this.#previewUrl) {\n\t\t\t\tURL.revokeObjectURL(this.#previewUrl);\n\t\t\t}\n\t\t\tthis.#previewUrl = url;\n\t\t\tthis.#onUpload?.(url);\n\t\t}\n\t}\n\n\thandleThumbnailClick = () => {\n\t\tthis.#fileInput?.click();\n\t};\n\n\thandleRemove = () => {\n\t\tif (this.#previewUrl) {\n\t\t\tURL.revokeObjectURL(this.#previewUrl);\n\t\t}\n\t\tthis.#previewUrl = null;\n\t\tthis.#fileName = null;\n\t\tif (this.#fileInput) {\n\t\t\tthis.#fileInput.value = '';\n\t\t}\n\t\tthis.#files = null;\n\t};\n\n\tdestroy() {\n\t\tif (this.#previewUrl) {\n\t\t\tURL.revokeObjectURL(this.#previewUrl);\n\t\t}\n\t}\n}\n\nexport function useImageUpload(options?: {\n\tinitialImage?: string;\n\tonUpload?: (url: string) => void;\n}) {\n\treturn new ImageUpload(options);\n}\n",
+			"type": "registry:hook",
+			"target": "use-image-upload.svelte.ts"
+		}
+	]
+}

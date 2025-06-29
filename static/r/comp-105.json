@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-105",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"copy"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/registry/default/ui/tooltip';\n\timport { cn } from '$lib/registry/default/lib/utils';\n\n\timport CheckIcon from '@lucide/svelte/icons/check';\n\timport CopyIcon from '@lucide/svelte/icons/copy';\n\n\tlet copied = $state(false);\n\n\tfunction handleCopy() {\n\t\tcopied = true;\n\t\tsetTimeout(() => (copied = false), 1500);\n\t}\n</script>\n\n<TooltipProvider>\n\t<Tooltip>\n\t\t<TooltipTrigger\n\t\t\tclass=\"disabled:opacity-100\"\n\t\t\tonclick={handleCopy}\n\t\t\taria-label={copied ? 'Copied' : 'Copy component source'}\n\t\t\tdisabled={copied}\n\t\t>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"icon\" {...props}>\n\t\t\t\t\t<div class={cn('transition-all', copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0')}>\n\t\t\t\t\t\t<CheckIcon class=\"stroke-emerald-500\" size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div\n\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t'absolute transition-all',\n\t\t\t\t\t\t\tcopied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'\n\t\t\t\t\t\t)}\n\t\t\t\t\t>\n\t\t\t\t\t\t<CopyIcon size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</div>\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"px-2 py-1 text-xs\">Click to copy</TooltipContent>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-105.svelte"
+		}
+	]
+}

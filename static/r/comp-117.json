@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-117",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"like",
+			"counter"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';\n</script>\n\n<Button class=\"py-0 pe-0\" variant=\"outline\">\n\t<ThumbsUpIcon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\tLike\n\t<span\n\t\tclass=\"text-muted-foreground before:bg-input relative ms-1 inline-flex h-full items-center justify-center rounded-full px-3 text-xs font-medium before:absolute before:inset-0 before:left-0 before:w-px\"\n\t>\n\t\t86\n\t</span>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-117.svelte"
+		}
+	]
+}

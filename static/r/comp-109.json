@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-109",
+	"type": "registry:component",
+	"registryDependencies": [
+		"toggle-group"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"toggle group"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';\n</script>\n\n<ToggleGroup variant=\"outline\" class=\"inline-flex\" type=\"single\">\n\t<ToggleGroupItem value=\"left\">Left</ToggleGroupItem>\n\t<ToggleGroupItem value=\"center\">Center</ToggleGroupItem>\n\t<ToggleGroupItem value=\"right\">Right</ToggleGroupItem>\n</ToggleGroup>\n",
+			"type": "registry:component",
+			"target": "comp-109.svelte"
+		}
+	]
+}

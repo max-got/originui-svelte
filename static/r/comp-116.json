@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-116",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"next"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronRightIcon from '@lucide/svelte/icons/chevron-right';\n</script>\n\n<Button class=\"relative pe-12\">\n\tNext\n\t<span\n\t\tclass=\"bg-primary-foreground/15 pointer-events-none absolute inset-y-0 end-0 flex w-9 items-center justify-center\"\n\t>\n\t\t<ChevronRightIcon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\t</span>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-116.svelte"
+		}
+	]
+}

@@ -3,20 +3,21 @@
 	"name": "comp-60",
 	"type": "registry:component",
 	"registryDependencies": [
-		"label"
+		"label",
+		"textarea"
 	],
 	"meta": {
 		"tags": [
-			"input",
 			"label",
-			"tag"
+			"textarea",
+			"required"
 		]
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '../ui/input.svelte';\n\timport Label from '../ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"[&>*:not(:first-child)]:mt-2\">\n\t<Label class=\"flex-1\">Range</Label>\n\t<div class=\"flex\">\n\t\t<Input\n\t\t\tid=\"{uid}-1\"\n\t\t\tclass=\"flex-1 rounded-e-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none\"\n\t\t\tplaceholder=\"From\"\n\t\t\ttype=\"number\"\n\t\t\taria-label=\"Min Value\"\n\t\t/>\n\t\t<Input\n\t\t\tid=\"{uid}-2\"\n\t\t\tclass=\"-ms-px flex-1 rounded-s-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none\"\n\t\t\tplaceholder=\"To\"\n\t\t\ttype=\"number\"\n\t\t\taria-label=\"Max Value\"\n\t\t/>\n\t</div>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\timport Textarea from '$lib/registry/default/ui/textarea.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>\n\t\tRequired textarea <span class=\"text-destructive\">*</span>\n\t</Label>\n\t<Textarea id={uid} placeholder=\"Leave a message\" required />\n</div>\n",
 			"type": "registry:component",
-			"target": "comp-57.svelte"
+			"target": "comp-60.svelte"
 		}
 	]
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 	import { CurrencyInput } from '$lib/hooks/use-currency-input.svelte';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';

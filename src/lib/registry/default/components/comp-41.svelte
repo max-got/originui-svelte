@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { DateValue } from '@internationalized/date';
 
-	import Label from '../ui/label.svelte';
 	import { useLocale } from '$lib/hooks/use-locale.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import CalendarIcon from '@lucide/svelte/icons/calendar';
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
 	import ChevronRight from '@lucide/svelte/icons/chevron-right';
-	import { cn } from '$lib/utils';
+	import { cn } from '$lib/registry/default/lib/utils';
 	import { DatePicker } from 'bits-ui';
 
 	let value: DateValue | undefined = $state(undefined);

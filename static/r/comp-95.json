@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-95",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"user",
+			"avatar",
+			"profile",
+			"dropdown"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n</script>\n\n<Button variant=\"ghost\" class=\"h-auto p-0 hover:bg-transparent\">\n\t<enhanced:img\n\t\tclass=\"size-[40px] rounded-full\"\n\t\tsrc=\"/static/avatar.jpg\"\n\t\talt=\"Profile image\"\n\t\tloading=\"lazy\"\n\t\taria-hidden=\"true\"\n\t/>\n\n\t<ChevronDown size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-95.svelte"
+		}
+	]
+}

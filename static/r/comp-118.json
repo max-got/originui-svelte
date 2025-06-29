@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-118",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"like",
+			"counter"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport StarIcon from '@lucide/svelte/icons/star';\n</script>\n\n<Button>\n\t<StarIcon class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t<span class=\"flex items-baseline gap-2\">\n\t\tStar\n\t\t<span class=\"text-primary-foreground/60 text-xs\">729</span>\n\t</span>\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-118.svelte"
+		}
+	]
+}

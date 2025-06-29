@@ -1,60 +1,52 @@
 import type { PageServerLoad } from './$types';
 
-import type { ComponentAPIResponseJSON } from '$data/api/components/components.handler';
+import { error } from '@sveltejs/kit';
+import { PROJECT_NAME, SEO_DELIMITER } from '$lib/config';
+import {
+	type CategoryWithDetails,
+	getCategoryWithDetails,
+	getComponentsByNames
+} from '$lib/data/registry/query';
 
-import { dev } from '$app/environment';
-import { fetchComponentsFromAPI } from '$data/api/components/components';
-import { getCategory, PROJECT_NAME, SEO_DELIMITER } from '$lib/config';
-import { getComponents, getComponentsByNames } from '$lib/data/registry/query';
-
-function generatePageHeader(
-	directory: string,
-	componentData: Awaited<ReturnType<typeof fetchComponentsFromAPI>>
-) {
-	const { completed, total } = componentData.meta.fileStats;
+function generatePageHeader(data: CategoryWithDetails) {
+	const total = data.components.length;
+	const completed = data.components.filter((component) => !component.todo).length;
 
 	if (completed === total) {
 		return {
 			description: `A growing collection of ${total}
-		${directory} components built with Svelte and Tailwind CSS.`,
-			title: directory.charAt(0).toUpperCase() + directory.slice(1)
+		${data.name} components built with Svelte and Tailwind CSS.`,
+			title: data.name.charAt(0).toUpperCase() + data.name.slice(1)
 		};
 	}
 
 	return {
 		description: `A growing collection of ${completed}/${total}
-		${directory} components built with Svelte and Tailwind CSS.`,
-		title: directory.charAt(0).toUpperCase() + directory.slice(1)
+		${data.name} components built with Svelte and Tailwind CSS.`,
+		title: data.name.charAt(0).toUpperCase() + data.name.slice(1)
 	};
 }
 
-function generateSEO(directory: string, componentsData: ComponentAPIResponseJSON) {
+function generateSEO(data: CategoryWithDetails) {
+	const completed = data.components.filter((component) => !component.todo).length;
 	return {
-		description: `An extensive collection of ${componentsData.meta.fileStats.completed} copy-and-paste ${componentsData.meta.directory} components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.`,
-		title: `${directory} ${SEO_DELIMITER} Svelte Components ${SEO_DELIMITER} ${PROJECT_NAME}`
+		description: `An extensive collection of ${completed} copy-and-paste ${data.name} components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.`,
+		title: `${data.name} ${SEO_DELIMITER} Svelte Components ${SEO_DELIMITER} ${PROJECT_NAME}`
 	};
 }
 
-export const load = (async ({ fetch, params, setHeaders }) => {
+export const load = (async ({ params }) => {
 	const { directory } = params;
-	const category = getCategory(directory);
+	const category = getCategoryWithDetails(directory);
 	if (!category) {
-		return {
-			components: []
-		};
+		error(404, 'Category not found');
 	}
 
 	const components = getComponentsByNames(category.components.map((item) => item.name));
-	// const componentsData = await fetchComponentsFromAPI(fetch, directory);
 
 	return {
-		components: components ?? []
+		components: components ?? [],
+		pageHeader: generatePageHeader(category),
+		SEO: generateSEO(category)
 	};
-
-	// return {
-	// 	componentsData,
-	// 	pageHeader: generatePageHeader(directory, componentsData),
-	// 	path: directory,
-	// 	SEO: generateSEO(directory, componentsData)
-	// };
 }) satisfies PageServerLoad;

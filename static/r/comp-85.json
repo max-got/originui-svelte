@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-85",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"button",
+			"back"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport ArrowLeft from '@lucide/svelte/icons/arrow-left';\n</script>\n\n<Button variant=\"outline\">\n\t<ArrowLeft\n\t\tclass=\"-ms-1 opacity-60 transition-transform group-hover:-translate-x-0.5\"\n\t\tsize={16}\n\t\taria-hidden=\"true\"\n\t/>\n\tButton\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-85.svelte"
+		}
+	]
+}
