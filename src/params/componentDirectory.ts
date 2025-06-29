@@ -1,9 +1,7 @@
 import type { ParamMatcher } from '@sveltejs/kit';
 
-import { OUI_DIRECTORIES } from '$lib/componentRegistry.components';
+import { categories } from '$lib/config';
 
-export const match = ((
-	param: string
-): param is (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'] => {
-	return Object.values(OUI_DIRECTORIES).some(({ directory }) => directory === param);
+export const match = ((param: string): param is (typeof categories)[number]['slug'] => {
+	return categories.some((category) => category.slug === param);
 }) satisfies ParamMatcher;

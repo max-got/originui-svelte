@@ -1,0 +1,16 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-02",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>\n\t\tRequired input <span class=\"text-destructive\">*</span>\n\t</Label>\n\t<Input id={uid} placeholder=\"Email\" type=\"email\" required />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-02.svelte"
+		}
+	]
+}

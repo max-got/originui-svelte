@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "hover-card",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { Snippet } from 'svelte';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { LinkPreview as HoverCardPrimitive, type WithoutChildren } from 'bits-ui';\n\n\tlet {\n\t\talign = 'center',\n\t\tchildren,\n\t\tclass: className,\n\t\tportalProps,\n\t\tref = $bindable(null),\n\t\tshowArrow = false,\n\t\tsideOffset = 4,\n\t\t...restProps\n\t}: WithoutChildren<HoverCardPrimitive.ContentProps> & {\n\t\tchildren: Snippet;\n\t\tportalProps?: HoverCardPrimitive.PortalProps;\n\t\tshowArrow?: boolean;\n\t} = $props();\n</script>\n\n<HoverCardPrimitive.Portal {...portalProps}>\n\t<HoverCardPrimitive.Content\n\t\tbind:ref\n\t\t{sideOffset}\n\t\t{align}\n\t\tclass={cn(\n\t\t\t'border-border bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-64 rounded-lg border p-4 shadow-lg shadow-black/5 outline-hidden',\n\t\t\tclassName\n\t\t)}\n\t\t{...restProps}\n\t>\n\t\t{@render children()}\n\t\t{#if showArrow}\n\t\t\t<HoverCardPrimitive.Arrow\n\t\t\t\tclass=\"text-popover -my-px drop-shadow-[0_1px_0_hsl(var(--border))]\"\n\t\t\t/>\n\t\t{/if}\n\t</HoverCardPrimitive.Content>\n</HoverCardPrimitive.Portal>\n",
+			"type": "registry:ui",
+			"target": "hover-card/hover-card-content.svelte"
+		},
+		{
+			"content": "import Content from './hover-card-content.svelte';\n\n/* eslint-disable perfectionist/sort-named-exports */\nimport { LinkPreview as HoverCardPrimitive } from 'bits-ui';\nconst Root = HoverCardPrimitive.Root;\nconst Trigger = HoverCardPrimitive.Trigger;\n\nexport {\n\tRoot,\n\tContent,\n\tTrigger,\n\tRoot as HoverCard,\n\tContent as HoverCardContent,\n\tTrigger as HoverCardTrigger\n};\n",
+			"type": "registry:file",
+			"target": "hover-card/index.ts"
+		}
+	]
+}

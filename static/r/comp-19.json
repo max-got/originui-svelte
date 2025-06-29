@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-19",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Send from '@lucide/svelte/icons/send';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with end inline button</Label>\n\t<div class=\"relative\">\n\t\t<Input id={uid} class=\"pe-9\" placeholder=\"Email\" type=\"email\" />\n\t\t<button\n\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Subscribe\"\n\t\t>\n\t\t\t<Send size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-19.svelte"
+		}
+	]
+}

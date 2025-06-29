@@ -1,0 +1,17 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "badge",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"tailwind-variants@^1.0.0"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\" module>\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { tv, type VariantProps } from 'tailwind-variants';\n\n\texport const badgeVariants = tv({\n\t\tbase: 'inline-flex items-center justify-center rounded-full border px-1.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-[color,box-shadow] [&>svg]:shrink-0 leading-normal',\n\t\tdefaultVariants: {\n\t\t\tvariant: 'default'\n\t\t},\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: 'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',\n\t\t\t\tdestructive:\n\t\t\t\t\t'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',\n\t\t\t\toutline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',\n\t\t\t\tsecondary:\n\t\t\t\t\t'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90'\n\t\t\t}\n\t\t}\n\t});\n\n\texport type BadgeVariant = VariantProps<typeof badgeVariants>['variant'];\n\n\texport type BadgeProps = WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {\n\t\tclass?: string;\n\t\tvariant?: BadgeVariant;\n\t};\n</script>\n\n<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvariant = 'default',\n\t\t...restProps\n\t}: BadgeProps = $props();\n</script>\n\n<div class={cn(badgeVariants({ className, variant }))} bind:this={ref} {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "badge.svelte"
+		}
+	]
+}

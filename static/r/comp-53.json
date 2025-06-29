@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-53",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"mask"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for=\"input-52\">Read-only input</Label>\n\t<Input\n\t\tid=\"input-52\"\n\t\tclass=\"read-only:bg-muted\"\n\t\tvalue=\"This is a read-only input\"\n\t\treadonly\n\t\tplaceholder=\"Email\"\n\t\ttype=\"email\"\n\t/>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-53.svelte"
+		}
+	]
+}

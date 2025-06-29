@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-28",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button",
+			"number"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Minus from '@lucide/svelte/icons/minus';\n\timport Plus from '@lucide/svelte/icons/plus';\n\n\tlet value = $state(2048);\n\tconst minValue = 0;\n\n\tfunction increment() {\n\t\tvalue++;\n\t}\n\n\tfunction decrement() {\n\t\tif (value > minValue) {\n\t\t\tvalue--;\n\t\t}\n\t}\n\n\tfunction handleInput(event: Event) {\n\t\tconst input = event.target as HTMLInputElement;\n\t\tconst newValue = Number.parseInt(input.value, 10);\n\t\tif (!Number.isNaN(newValue) && newValue >= minValue) {\n\t\t\tvalue = newValue;\n\t\t} else {\n\t\t\tinput.value = value.toString();\n\t\t}\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid} class=\"text-foreground text-sm font-medium\">\n\t\tNumber input with plus/minus buttons\n\t</Label>\n\t<div\n\t\tclass=\"border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden\"\n\t>\n\t\t<button\n\t\t\tid=\"decrement-button\"\n\t\t\tonclick={decrement}\n\t\t\tclass=\"border-input bg-background text-muted-foreground/80 ring-offset-background hover:bg-accent hover:text-foreground -ms-px flex aspect-square h-[inherit] items-center justify-center rounded-s-lg border text-sm transition-shadow disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Decrease value\"\n\t\t\taria-labelledby=\"decrement-button {uid}\"\n\t\t\taria-controls={uid}\n\t\t\tdisabled={value <= minValue}\n\t\t>\n\t\t\t<Minus size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t\t<input\n\t\t\tid={uid}\n\t\t\ttype=\"text\"\n\t\t\tbind:value\n\t\t\toninput={handleInput}\n\t\t\taria-labelledby={uid}\n\t\t\tautocomplete=\"off\"\n\t\t\tinputmode=\"numeric\"\n\t\t\tautocorrect=\"off\"\n\t\t\taria-roledescription=\"Number input\"\n\t\t\tspellcheck=\"false\"\n\t\t\tmin={minValue}\n\t\t\tclass=\"bg-background text-foreground w-full grow px-3 py-2 text-center tabular-nums focus:outline-hidden\"\n\t\t/>\n\t\t<button\n\t\t\tid=\"increment-button\"\n\t\t\tonclick={increment}\n\t\t\tclass=\"border-input bg-background text-muted-foreground/80 ring-offset-background hover:bg-accent hover:text-foreground -me-px flex aspect-square h-[inherit] items-center justify-center rounded-e-lg border text-sm transition-shadow disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Increase value\"\n\t\t\taria-labelledby=\"increment-button {uid}\"\n\t\t\taria-controls={uid}\n\t\t>\n\t\t\t<Plus size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-28.svelte"
+		}
+	]
+}

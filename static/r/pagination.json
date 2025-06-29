@@ -1,0 +1,55 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "pagination",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"files": [
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\n\nimport Content from './pagination-content.svelte';\nimport Ellipsis from './pagination-ellipsis.svelte';\nimport Item from './pagination-item.svelte';\nimport Link from './pagination-link.svelte';\nimport NextButton from './pagination-next-button.svelte';\nimport PrevButton from './pagination-prev-button.svelte';\nimport Root from './pagination.svelte';\n\nexport {\n\tRoot,\n\tContent,\n\tItem,\n\tLink,\n\tPrevButton,\n\tNextButton,\n\tEllipsis,\n\t//\n\tRoot as Pagination,\n\tContent as PaginationContent,\n\tItem as PaginationItem,\n\tLink as PaginationLink,\n\tPrevButton as PaginationPrevButton,\n\tNextButton as PaginationNextButton,\n\tEllipsis as PaginationEllipsis\n};\n",
+			"type": "registry:file",
+			"target": "pagination/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLUListElement>> = $props();\n</script>\n\n<ul bind:this={ref} class={cn('flex items-center gap-1', className)} {...restProps}>\n\t{@render children?.()}\n</ul>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-content.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef, WithoutChildren } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport MoreHorizontal from '@lucide/svelte/icons/more-horizontal';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithoutChildren<WithElementRef<HTMLAttributes<HTMLSpanElement>>> = $props();\n</script>\n\n<span\n\tbind:this={ref}\n\taria-hidden=\"true\"\n\tclass={cn('flex size-9 items-center justify-center', className)}\n\t{...restProps}\n>\n\t<MoreHorizontal size={16} />\n\t<span class=\"sr-only\">More pages</span>\n</span>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-ellipsis.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLLiAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tchildren,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLLiAttributes> = $props();\n</script>\n\n<li bind:this={ref} {...restProps}>\n\t{@render children?.()}\n</li>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-item.svelte"
+		},
+		{
+			"content": "<script module lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { Snippet } from 'svelte';\n\timport type { HTMLAnchorAttributes } from 'svelte/elements';\n\n\timport { type ButtonProps, buttonVariants } from '$lib/components/ui/button.svelte';\n\n\texport type Props = WithElementRef<HTMLAnchorAttributes> & {\n\t\tchildren: Snippet;\n\t\tisActive?: boolean;\n\t\tisDisabled?: boolean;\n\t} & Pick<ButtonProps, 'size'>;\n</script>\n\n<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tisActive = false,\n\t\tref = $bindable(null),\n\t\tsize = 'icon',\n\t\t...restProps\n\t}: Props = $props();\n</script>\n\n<a\n\taria-current={isActive ? 'page' : undefined}\n\tclass={cn(\n\t\tbuttonVariants({\n\t\t\tsize,\n\t\t\tvariant: isActive ? 'outline' : 'ghost'\n\t\t}),\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{@render children()}\n</a>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-link.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport PaginationLink, { type Props as PaginationLinkProps } from './pagination-link.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport ChevronRight from '@lucide/svelte/icons/chevron-right';\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: Omit<PaginationLinkProps, 'children'> = $props();\n</script>\n\n<PaginationLink\n\tbind:ref\n\taria-label=\"Go to next page\"\n\tsize=\"default\"\n\tclass={cn('gap-1 pr-2.5', className)}\n\t{...restProps}\n>\n\t<span>Next</span>\n\t<ChevronRight size={16} />\n</PaginationLink>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-next-button.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport PaginationLink, { type Props as PaginationLinkProps } from './pagination-link.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport ChevronLeft from '@lucide/svelte/icons/chevron-left';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: Omit<PaginationLinkProps, 'children'> = $props();\n</script>\n\n<PaginationLink\n\tbind:ref\n\taria-label=\"Go to previous page\"\n\tsize=\"default\"\n\tclass={cn('gap-1 pl-2.5', className)}\n\t{...restProps}\n>\n\t<ChevronLeft size={16} />\n\t<span>Previous</span>\n</PaginationLink>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination-prev-button.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { Snippet } from 'svelte';\n\timport type { SvelteHTMLElements } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\ttype Props = WithElementRef<SvelteHTMLElements['nav']> & {\n\t\tchildren: Snippet;\n\t};\n\n\tlet { children, class: className, ref = $bindable(null), ...restProps }: Props = $props();\n</script>\n\n<nav\n\taria-label=\"pagination\"\n\tclass={cn('mx-auto flex w-full justify-center', className)}\n\t{...restProps}\n>\n\t{@render children()}\n</nav>\n",
+			"type": "registry:ui",
+			"target": "pagination/pagination.svelte"
+		}
+	]
+}

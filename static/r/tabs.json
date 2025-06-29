@@ -1,0 +1,36 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "tabs",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\n\nimport Content from './tabs-content.svelte';\nimport List from './tabs-list.svelte';\nimport Root from './tabs-root.svelte';\nimport Trigger from './tabs-trigger.svelte';\n\nexport {\n\tRoot,\n\tContent,\n\tList,\n\tTrigger,\n\t//\n\tRoot as Tabs,\n\tContent as TabsContent,\n\tList as TabsList,\n\tTrigger as TabsTrigger\n};\n",
+			"type": "registry:file",
+			"target": "tabs/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Tabs as TabsPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue,\n\t\t...restProps\n\t}: TabsPrimitive.ContentProps = $props();\n</script>\n\n<TabsPrimitive.Content\n\tbind:ref\n\tclass={cn('flex-1 outline-hidden', className)}\n\t{value}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "tabs/tabs-content.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Tabs as TabsPrimitive } from 'bits-ui';\n\n\tlet { class: className, ref = $bindable(null), ...restProps }: TabsPrimitive.ListProps = $props();\n</script>\n\n<TabsPrimitive.List\n\tbind:ref\n\tclass={cn(\n\t\t'bg-muted text-muted-foreground/70 inline-flex w-fit items-center justify-center rounded-md p-0.5',\n\t\tclassName\n\t)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "tabs/tabs-list.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Tabs as TabsPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue,\n\t\t...restProps\n\t}: TabsPrimitive.RootProps = $props();\n</script>\n\n<TabsPrimitive.Root\n\tbind:ref\n\tclass={cn('flex min-w-0 flex-col gap-2', className)}\n\t{value}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "tabs/tabs-root.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Tabs as TabsPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue,\n\t\t...restProps\n\t}: TabsPrimitive.TriggerProps = $props();\n</script>\n\n<TabsPrimitive.Trigger\n\tbind:ref\n\tclass={cn(\n\t\t'hover:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-selected:text-foreground data-[state=active]:bg-background inline-flex items-center justify-center rounded-sm px-3 py-1.5 text-sm font-medium whitespace-nowrap outline-hidden transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-selected:shadow-xs [&_svg]:shrink-0',\n\t\tclassName\n\t)}\n\t{value}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "tabs/tabs-trigger.svelte"
+		}
+	]
+}

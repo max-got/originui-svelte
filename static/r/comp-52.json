@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-52",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"read-only"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { usePasswordStrength } from '$lib/hooks/use-password-strength.svelte';\n\timport { cn } from '$UTILS$.js';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport Eye from '@lucide/svelte/icons/eye';\n\timport EyeOff from '@lucide/svelte/icons/eye-off';\n\timport X from '@lucide/svelte/icons/x';\n\n\tconst uid = $props.id();\n\tconst passwordStrength = usePasswordStrength({ id: uid });\n</script>\n\n<div>\n\t<!-- Password input field with toggle visibility button -->\n\t<div class=\"*:not-first:mt-2\">\n\t\t<Label for={uid}>Input with password strength indicator</Label>\n\t\t<div class=\"relative\">\n\t\t\t<Input\n\t\t\t\tid={passwordStrength.id}\n\t\t\t\tclass=\"pe-9\"\n\t\t\t\tplaceholder=\"Password\"\n\t\t\t\ttype={passwordStrength.isVisible ? 'text' : 'password'}\n\t\t\t\tbind:value={passwordStrength.password}\n\t\t\t\taria-describedby={passwordStrength.id}\n\t\t\t/>\n\t\t\t<button\n\t\t\t\tclass=\"text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md transition-[color,box-shadow] outline-none focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\t\ttype=\"button\"\n\t\t\t\tonclick={passwordStrength.toggleVisibility}\n\t\t\t\taria-label={passwordStrength.isVisible ? 'Hide password' : 'Show password'}\n\t\t\t\taria-pressed={passwordStrength.isVisible}\n\t\t\t\taria-controls={passwordStrength.id}\n\t\t\t>\n\t\t\t\t{#if passwordStrength.isVisible}\n\t\t\t\t\t<EyeOff size={16} aria-hidden=\"true\" />\n\t\t\t\t{:else}\n\t\t\t\t\t<Eye size={16} aria-hidden=\"true\" />\n\t\t\t\t{/if}\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\n\t<!-- Password strength indicator -->\n\t<div\n\t\tclass=\"bg-border mt-3 mb-4 h-1 w-full overflow-hidden rounded-full\"\n\t\trole=\"progressbar\"\n\t\taria-valuenow={passwordStrength.strengthScore}\n\t\taria-valuemin={0}\n\t\taria-valuemax={4}\n\t\taria-label=\"Password strength\"\n\t>\n\t\t<div\n\t\t\tclass={cn(`h-full transition-all duration-500 ease-out`, passwordStrength.strengthColor)}\n\t\t\tstyle:width=\"{(passwordStrength.strengthScore / 4) * 100}%\"\n\t\t></div>\n\t</div>\n\n\t<!-- Password strength description -->\n\t<p id=\"password-strength\" class=\"text-foreground mb-2 text-sm font-medium\">\n\t\t{passwordStrength.strengthText}. Must contain:\n\t</p>\n\n\t<!-- Password requirements list -->\n\t<ul class=\"space-y-1.5\" aria-label=\"Password requirements\">\n\t\t{#each passwordStrength.strength as req (req.text)}\n\t\t\t<li class=\"flex items-center space-x-2\">\n\t\t\t\t{#if req.met}\n\t\t\t\t\t<Check size={16} class=\"text-emerald-500\" aria-hidden=\"true\" />\n\t\t\t\t{:else}\n\t\t\t\t\t<X size={16} class=\"text-muted-foreground/80\" aria-hidden=\"true\" />\n\t\t\t\t{/if}\n\t\t\t\t<span class={`text-xs ${req.met ? 'text-emerald-600' : 'text-muted-foreground'}`}>\n\t\t\t\t\t{req.text}\n\t\t\t\t\t<span class=\"sr-only\">\n\t\t\t\t\t\t{req.met ? ' - Requirement met' : ' - Requirement not met'}\n\t\t\t\t\t</span>\n\t\t\t\t</span>\n\t\t\t</li>\n\t\t{/each}\n\t</ul>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-52.svelte"
+		}
+	]
+}

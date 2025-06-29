@@ -1,0 +1,1682 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry.json",
+	"name": "originui-svelte",
+	"homepage": "https://originui-svelte.pages.dev",
+	"items": [
+		{
+			"name": "utils",
+			"type": "registry:lib",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/lib/utils.ts",
+					"type": "registry:lib"
+				}
+			]
+		},
+		{
+			"name": "badge",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/badge.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "button",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/button.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "checkbox-tree",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/checkbox-tree.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "checkbox",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/checkbox.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "input",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/input.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "label",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/label.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "select-native",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/select-native.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "slider",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/slider.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "switch",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/switch.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "textarea",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/textarea.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "toggle",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/toggle.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "accordion",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/accordion/accordion-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/accordion/accordion-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/accordion/accordion-trigger.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/accordion/index.ts",
+					"type": "registry:file"
+				}
+			],
+			"css": {
+				"@keyframes accordion-down": {
+					"from": {
+						"height": "0"
+					},
+					"to": {
+						"height": "var(--bits-accordion-content-height)"
+					}
+				},
+				"@keyframes accordion-up": {
+					"from": {
+						"height": "var(--bits-accordion-content-height)"
+					},
+					"to": {
+						"height": "0"
+					}
+				}
+			},
+			"cssVars": {
+				"theme": {
+					"--animate-accordion-down": "accordion-down 0.2s ease-out",
+					"--animate-accordion-up": "accordion-up 0.2s ease-out"
+				}
+			}
+		},
+		{
+			"name": "alert-dialog",
+			"type": "registry:ui",
+			"registryDependencies": ["button"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-action.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-cancel.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-description.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-footer.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-header.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/alert-dialog-title.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/alert-dialog/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "avatar",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/avatar/avatar.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/avatar/avatar-fallback.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/avatar/avatar-image.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/avatar/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "breadcrumb",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-ellipsis.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-link.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-list.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-page.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb-separator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/breadcrumb.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/breadcrumb/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "collapsible",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/collapsible/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "command",
+			"type": "registry:ui",
+			"registryDependencies": ["dialog"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/command/command-dialog.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-empty.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-group.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-input.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-link-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-list.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-separator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command-shortcut.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/command.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/command/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "data-table",
+			"type": "registry:ui",
+			"registryDependencies": ["dialog"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/data-table/data-table.svelte.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/data-table/flex-render.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/data-table/index.ts",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/data-table/render-helpers.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "datefield-rac",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/date-field.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/date-input.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/date-segment.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/time-field.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/time-input.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/time-segment.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/datefield-rac/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "dialog",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-description.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-footer.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-header.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-overlay.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/dialog-title.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dialog/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "dropdown-menu",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-checkbox-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-label.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-radio-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-separator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-shortcut.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-sub-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/dropdown-menu-sub-trigger.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/dropdown-menu/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "hover-card",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/hover-card/hover-card-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/hover-card/index.ts",
+					"type": "registry:file"
+				}
+			]
+		},
+		{
+			"name": "navigation-menu",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-indicator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-link.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-list.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-trigger.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu-viewport.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/navigation-menu/navigation-menu.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "pagination",
+			"type": "registry:ui",
+			"registryDependencies": ["button"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/pagination/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-ellipsis.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-link.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-next-button.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination-prev-button.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/pagination/pagination.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "popover",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/popover/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/popover/popover-content.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "radio-group",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/radio-group/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/radio-group/radio-group-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/radio-group/radio-group.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "scroll-area",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/scroll-area/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/scroll-area/scroll-area-scrollbar.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/scroll-area/scroll-area.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "select",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/select/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-group-heading.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-scroll-down-button.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-scroll-up-button.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-separator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/select/select-trigger.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "table",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/table/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-body.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-caption.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-cell.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-footer.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-head.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-header.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table-row.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/table/table.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "tabs",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/tabs/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/tabs/tabs-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/tabs/tabs-list.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/tabs/tabs-root.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/tabs/tabs-trigger.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "timeline",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/timeline/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-content.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-context.svelte.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-date.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-header.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-indicator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-separator.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline-title.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/timeline/timeline.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "toggle-group",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/toggle-group/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/toggle-group/toggle-group-item.svelte",
+					"type": "registry:ui"
+				},
+				{
+					"path": "src/lib/registry/default/ui/toggle-group/toggle-group.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "tooltip",
+			"type": "registry:ui",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/ui/tooltip/index.ts",
+					"type": "registry:file"
+				},
+				{
+					"path": "src/lib/registry/default/ui/tooltip/tooltip-content.svelte",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "comp-01",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-01.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-02",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-02.svelte",
+					"type": "registry:component"
+				}
+			],
+			"tags": ["input", "label", "required"]
+		},
+		{
+			"name": "comp-03",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-03.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "helper"]
+			}
+		},
+		{
+			"name": "comp-04",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-04.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "hint"]
+			}
+		},
+		{
+			"name": "comp-05",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-05.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-06",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-06.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "error"]
+			}
+		},
+		{
+			"name": "comp-07",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-07.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-08",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-08.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "disabled"]
+			}
+		},
+		{
+			"name": "comp-09",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-09.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-10",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-10.svelte",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "comp-11",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-11.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-12",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-12.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-13",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-13.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-14",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-14.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-15",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-15.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-16",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-16.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-17",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label", "select-native"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-17.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "select", "native select"]
+			}
+		},
+		{
+			"name": "comp-18",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label", "select-native"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-18.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "select", "native select"]
+			}
+		},
+		{
+			"name": "comp-19",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-19.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button"]
+			}
+		},
+		{
+			"name": "comp-20",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-20.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button"]
+			}
+		},
+		{
+			"name": "comp-21",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-21.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button"]
+			}
+		},
+		{
+			"name": "comp-22",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-22.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button"]
+			}
+		},
+		{
+			"name": "comp-23",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-23.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button", "password"]
+			}
+		},
+		{
+			"name": "comp-24",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-24.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button"]
+			}
+		},
+		{
+			"name": "comp-25",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-25.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "search", "kbd"]
+			}
+		},
+		{
+			"name": "comp-26",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-26.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button", "search"]
+			}
+		},
+		{
+			"name": "comp-27",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-27.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button", "search"]
+			}
+		},
+		{
+			"name": "comp-28",
+			"type": "registry:component",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-28.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button", "number"]
+			}
+		},
+		{
+			"name": "comp-29",
+			"type": "registry:component",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-29.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "button", "number"]
+			}
+		},
+		{
+			"name": "comp-30",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-30.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "file"]
+			}
+		},
+		{
+			"name": "comp-31",
+			"type": "registry:component",
+			"registryDependencies": ["input"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-31.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-32",
+			"type": "registry:component",
+			"registryDependencies": ["input"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-32.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-33",
+			"type": "registry:component",
+			"registryDependencies": [],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-33.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label"]
+			}
+		},
+		{
+			"name": "comp-34",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-34.svelte",
+					"type": "registry:component"
+				},
+				{
+					"path": "src/lib/registry/default/hooks/use-character-limit.svelte.ts",
+					"type": "registry:hook"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "character limit"]
+			}
+		},
+		{
+			"name": "comp-35",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-35.svelte",
+					"type": "registry:component"
+				},
+				{
+					"path": "src/lib/registry/default/hooks/use-character-limit.svelte.ts",
+					"type": "registry:hook"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "character limit"]
+			}
+		},
+		{
+			"name": "comp-36",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-36.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date"]
+			}
+		},
+		{
+			"name": "comp-37",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-37.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date"]
+			}
+		},
+		{
+			"name": "comp-38",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-38.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date"]
+			}
+		},
+		{
+			"name": "comp-39",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-39.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date"]
+			}
+		},
+		{
+			"name": "comp-40",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-40.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date"]
+			}
+		},
+		{
+			"name": "comp-41",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-41.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date", "calendar", "picker"]
+			}
+		},
+		{
+			"name": "comp-42",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-42.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date", "calendar", "range calendar", "picker"]
+			}
+		},
+		{
+			"name": "comp-43",
+			"type": "registry:component",
+			"registryDependencies": ["datefield-rac"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-43.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "date", "calendar", "range calendar", "picker"]
+			}
+		},
+		{
+			"name": "comp-44",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-44.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "otp"]
+			}
+		},
+		{
+			"name": "comp-45",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-45.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "otp"]
+			}
+		},
+		{
+			"name": "comp-46",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-46.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "phone"]
+			}
+		},
+		{
+			"name": "comp-47",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-47.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "checkout", "payment", "credit card", "form"]
+			}
+		},
+		{
+			"name": "comp-47",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-47.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "checkout", "payment", "credit card", "form"]
+			}
+		},
+		{
+			"name": "comp-48",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-48.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "checkout", "payment", "credit card", "form"],
+				"todo": true
+			}
+		},
+		{
+			"name": "comp-49",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-49.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "checkout", "payment", "credit card", "form"],
+				"todo": true
+			}
+		},
+		{
+			"name": "comp-50",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-50.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "checkout", "payment", "credit card", "form"],
+				"todo": true
+			}
+		},
+		{
+			"name": "comp-51",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-51.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "password"],
+				"todo": true
+			}
+		},
+
+		{
+			"name": "comp-52",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-52.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "read-only"]
+			}
+		},
+		{
+			"name": "comp-53",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label", "tooltip"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-53.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "mask"]
+			}
+		},
+		{
+			"name": "comp-54",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-54.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "mask"]
+			}
+		},
+		{
+			"name": "comp-55",
+			"type": "registry:component",
+			"registryDependencies": ["input", "label"],
+			"dependencies": ["use-mask-input"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-55.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "mask", "time"]
+			}
+		},
+		{
+			"name": "comp-56",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-56.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "tag"]
+			}
+		},
+
+		{
+			"name": "comp-57",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-57.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "tag"]
+			}
+		},
+		{
+			"name": "comp-58",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-58.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "otp"],
+				"todo": true
+			}
+		},
+		{
+			"name": "comp-59",
+			"type": "registry:component",
+			"registryDependencies": ["label"],
+			"files": [
+				{
+					"path": "src/lib/registry/default/components/comp-59.todo.svelte",
+					"type": "registry:component"
+				}
+			],
+			"meta": {
+				"tags": ["input", "label", "textarea"],
+				"todo": true
+			}
+		}
+	]
+}

@@ -2,33 +2,32 @@ import type { PageLoad } from './$types';
 
 import type { Component } from 'svelte';
 
+import ComponentUnavailable from '$lib/demo/new/component-unavailable.svelte';
+
 export const load = (async ({ data }) => {
-	const { componentsData: serverComponentsData, ...rest } = data;
+	try {
+		const components = await Promise.all(
+			data.components.map(async (component) => {
+				if (component.meta?.todo) {
+					return {
+						...component,
+						Component: ComponentUnavailable
+					};
+				}
 
-	const componentPromises = serverComponentsData.components.map(async (componentData) => {
-		try {
-			const Component = (await import(
-				`$lib/components/${componentData.directory}/${componentData.id}.svelte`
-			).then((module) => module.default)) as Component;
+				const Component = (
+					await import(`$lib/registry/default/components/${component.name}.svelte`)
+				).default as Component;
+				return {
+					...component,
+					Component
+				};
+			})
+		);
 
-			return {
-				...componentData,
-				Component
-			};
-		} catch (error) {
-			console.error(`Failed to load component ${componentData.path}:`, error);
-			return {
-				...componentData,
-				Component: null
-			};
-		}
-	});
-
-	return {
-		componentsData: {
-			...serverComponentsData,
-			components: await Promise.all(componentPromises)
-		},
-		...rest
-	};
+		return { components };
+	} catch (error) {
+		console.error(`Failed to load component ${data.components[0].name}:`, error);
+		return { components: null };
+	}
 }) satisfies PageLoad;

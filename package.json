@@ -13,6 +13,7 @@
 		"lint:fix": "prettier --write . && eslint . --fix",
 		"format": "prettier --write .",
 		"generate:registry": "tsx scripts/createComponentRegistryTypes.ts",
+		"registry:build": "pnpm shadcn-svelte registry build && tsx scripts/registry-tags",
 		"test": "vitest --run"
 	},
 	"dependencies": {
@@ -32,12 +33,14 @@
 		"inputmask": "^5.0.9",
 		"mode-watcher": "^0.5.1",
 		"runed": "^0.28.0",
+		"shadcn-svelte": "^1.0.4",
 		"svelte-sonner": "^0.3.28",
 		"svelte-tel-input": "^3.6.0",
 		"tailwind-merge": "^3.3.0",
 		"tailwind-variants": "^1.0.0",
 		"vaul-svelte": "1.0.0-next.2",
-		"wrangler": "^3.83.0"
+		"wrangler": "^3.83.0",
+		"zod": "^3.25.67"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.28.0",

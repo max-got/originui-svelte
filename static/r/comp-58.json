@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-58",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"otp"
+		],
+		"todo": true
+	},
+	"files": [
+		{
+			"content": "<p>TODO</p>\n",
+			"type": "registry:component",
+			"target": "comp-58.todo.svelte"
+		}
+	]
+}

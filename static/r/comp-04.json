@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-04",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"hint"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"[*:not(:first-child)]:mt-2\">\n\t<div class=\"mb-2 flex justify-between gap-1\">\n\t\t<Label for={uid} class=\"leading-6\">Input with hint</Label>\n\t\t<span class=\"text-muted-foreground text-sm\">Optional</span>\n\t</div>\n\t<Input id={uid} placeholder=\"Email\" type=\"email\" />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-04.svelte"
+		}
+	]
+}

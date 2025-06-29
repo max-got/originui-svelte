@@ -1,0 +1,16 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "textarea",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLTextareaAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue = $bindable(),\n\t\t...restProps\n\t}: WithElementRef<HTMLTextareaAttributes> = $props();\n</script>\n\n<textarea\n\tbind:this={ref}\n\tbind:value\n\tclass={cn(\n\t\t'border-input placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex min-h-19.5 w-full rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50',\n\t\tclassName\n\t)}\n\t{...restProps}\n></textarea>\n",
+			"type": "registry:ui",
+			"target": "textarea.svelte"
+		}
+	]
+}

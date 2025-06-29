@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-20",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Download from '@lucide/svelte/icons/download';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with end icon button</Label>\n\t<div class=\"flex rounded-lg shadow-xs shadow-black/[.04]\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"-me-px flex-1 rounded-e-none shadow-none focus-visible:z-10\"\n\t\t\tplaceholder=\"Email\"\n\t\t\ttype=\"email\"\n\t\t/>\n\t\t<button\n\t\t\tclass=\"border-input bg-background text-muted-foreground/80 ring-offset-background hover:bg-accent hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 inline-flex w-9 items-center justify-center rounded-e-lg border text-sm transition-shadow focus:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Subscribe\"\n\t\t>\n\t\t\t<Download size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-20.svelte"
+		}
+	]
+}

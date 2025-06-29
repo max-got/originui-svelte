@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-24",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport CircleX from '@lucide/svelte/icons/circle-x';\n\n\tlet inputValue = $state('Click to clear');\n\tlet inputElement = $state<HTMLInputElement | null>(null)!;\n\n\tfunction handleClearInput() {\n\t\tinputValue = '';\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with clear button</Label>\n\t<div class=\"relative\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tbind:ref={inputElement}\n\t\t\tbind:value={inputValue}\n\t\t\tclass=\"pe-9\"\n\t\t\tplaceholder=\"Type something...\"\n\t\t\ttype=\"text\"\n\t\t/>\n\t\t{#if inputValue}\n\t\t\t<button\n\t\t\t\tclass=\"text-muted-foreground/80 ring-offset-background animate-in fade-in zoom-in-75 hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent transition-shadow focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\t\taria-label=\"Clear input\"\n\t\t\t\tonclick={handleClearInput}\n\t\t\t>\n\t\t\t\t<CircleX size={16} aria-hidden=\"true\" />\n\t\t\t</button>\n\t\t{/if}\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-24.svelte"
+		}
+	]
+}

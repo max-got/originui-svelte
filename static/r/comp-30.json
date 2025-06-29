@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-30",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"file"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>File input</Label>\n\t<Input id={uid} class=\"p-0 pe-3 file:me-3 file:border-0 file:border-e\" type=\"file\" />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-30.svelte"
+		}
+	]
+}

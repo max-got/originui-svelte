@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "tooltip",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "import TooltipContent from './tooltip-content.svelte';\n\nimport { Tooltip as TooltipPrimitive } from 'bits-ui';\n\nconst TooltipProvider = TooltipPrimitive.Provider;\n\nconst Tooltip = TooltipPrimitive.Root;\n\nconst TooltipTrigger = TooltipPrimitive.Trigger;\n\nexport { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };\n",
+			"type": "registry:file",
+			"target": "tooltip/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { TooltipContentProps } from 'bits-ui';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Tooltip } from 'bits-ui';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tshowArrow = false,\n\t\tsideOffset = 4,\n\t\t...restProps\n\t}: TooltipContentProps & { showArrow?: boolean } = $props();\n</script>\n\n<Tooltip.Portal>\n\t<Tooltip.Content\n\t\t{ref}\n\t\t{sideOffset}\n\t\tclass={cn(\n\t\t\t'bg-popover text-popover-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-w-70 rounded-md border px-3 py-1.5 text-sm',\n\t\t\tclassName\n\t\t)}\n\t\t{...restProps}\n\t>\n\t\t{@render children?.()}\n\t\t{#if showArrow}\n\t\t\t<Tooltip.Arrow class=\"text-popover -my-px drop-shadow-[0_1px_0_hsl(var(--border))]\" />\n\t\t{/if}\n\t</Tooltip.Content>\n</Tooltip.Portal>\n",
+			"type": "registry:ui",
+			"target": "tooltip/tooltip-content.svelte"
+		}
+	]
+}

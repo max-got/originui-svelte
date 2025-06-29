@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-25",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"search",
+			"kbd"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Search input with &lt;kbd&gt;</Label>\n\t<div class=\"relative\">\n\t\t<Input id={uid} class=\"pe-11\" placeholder=\"Search...\" type=\"search\" />\n\t\t<div\n\t\t\tclass=\"text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-2\"\n\t\t>\n\t\t\t<kbd\n\t\t\t\tclass=\"border-border text-muted-foreground/70 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t\t\t>\n\t\t\t\t⌘K\n\t\t\t</kbd>\n\t\t</div>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-25.svelte"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "toggle",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"tailwind-variants@^1.0.0"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\" module>\n\timport type { ToggleRootProps } from 'bits-ui';\n\n\timport { tv, type VariantProps } from 'tailwind-variants';\n\n\texport const toggleVariants = tv({\n\t\tbase: \"inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[color,box-shadow] hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n\t\tdefaultVariants: {\n\t\t\tsize: 'default',\n\t\t\tvariant: 'default'\n\t\t},\n\t\tvariants: {\n\t\t\tsize: {\n\t\t\t\tdefault: 'h-9 px-3',\n\t\t\t\tlg: 'h-10 px-3',\n\t\t\t\tsm: 'h-8 px-2'\n\t\t\t},\n\t\t\tvariant: {\n\t\t\t\tdefault: 'bg-transparent',\n\t\t\t\toutline:\n\t\t\t\t\t'border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground'\n\t\t\t}\n\t\t}\n\t});\n\n\texport type ToggleVariant = VariantProps<typeof toggleVariants>['variant'];\n\texport type ToggleSize = VariantProps<typeof toggleVariants>['size'];\n\texport type ToggleVariants = VariantProps<typeof toggleVariants>;\n\texport type ToggleProps = ToggleRootProps & {\n\t\tclass?: string;\n\t\tsize?: ToggleSize;\n\t\tvariant?: ToggleVariant;\n\t};\n</script>\n\n<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Toggle as TogglePrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tpressed = $bindable(false),\n\t\tref = $bindable(null),\n\t\tsize = 'default',\n\t\tvariant = 'default',\n\t\t...restProps\n\t}: ToggleProps = $props();\n</script>\n\n<TogglePrimitive.Root\n\tbind:ref\n\tbind:pressed\n\tclass={cn(toggleVariants({ className, size, variant }))}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "toggle.svelte"
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-31",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"group relative\">\n\t<label\n\t\tfor={uid}\n\t\tclass=\"bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-disabled:opacity-50\"\n\t>\n\t\tInput with overlapping label\n\t</label>\n\t<Input id={uid} class=\"h-10\" placeholder=\"Email\" type=\"email\" />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-31.svelte"
+		}
+	]
+}

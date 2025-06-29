@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-23",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button",
+			"password"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Eye from '@lucide/svelte/icons/eye';\n\timport EyeOff from '@lucide/svelte/icons/eye-off';\n\n\tlet isVisible = $state(false);\n\n\tfunction toggleVisibility() {\n\t\tisVisible = !isVisible;\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Show/hide password input</Label>\n\t<div class=\"relative\">\n\t\t<Input id={uid} class=\"pe-9\" placeholder=\"Password\" type={isVisible ? 'text' : 'password'} />\n\t\t<button\n\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg transition-shadow focus-visible:border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\ttype=\"button\"\n\t\t\tonclick={toggleVisibility}\n\t\t\taria-label={isVisible ? 'Hide password' : 'Show password'}\n\t\t\taria-pressed={isVisible}\n\t\t\taria-controls={uid}\n\t\t>\n\t\t\t{#if isVisible}\n\t\t\t\t<EyeOff size={16} aria-hidden=\"true\" />\n\t\t\t{:else}\n\t\t\t\t<Eye size={16} aria-hidden=\"true\" />\n\t\t\t{/if}\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-23.svelte"
+		}
+	]
+}

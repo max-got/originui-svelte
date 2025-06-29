@@ -39,6 +39,10 @@ const OLD_COMPONENT_ROUTES = {
 		componentDirectory: ['dropdowns', 'popovers'],
 		path: 'dropdowns-popovers'
 	},
+	inputs: {
+		componentDirectory: ['inputs'],
+		path: 'inputs'
+	},
 	inputsTextareas: {
 		componentDirectory: ['inputs', 'textareas'],
 		path: 'inputs'

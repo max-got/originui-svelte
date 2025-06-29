@@ -1,0 +1,52 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "breadcrumb",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"@lucide/svelte@^0.513.0"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef, WithoutChildren } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport MoreHorizontal from '@lucide/svelte/icons/more-horizontal';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithoutChildren<WithElementRef<HTMLAttributes<HTMLSpanElement>>> = $props();\n</script>\n\n<span\n\tbind:this={ref}\n\trole=\"presentation\"\n\taria-hidden=\"true\"\n\tclass={cn('flex size-5 items-center justify-center', className)}\n\t{...restProps}\n>\n\t<MoreHorizontal size={16} />\n\t<span class=\"sr-only\">More</span>\n</span>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-ellipsis.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLLiAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLLiAttributes> = $props();\n</script>\n\n<li bind:this={ref} class={cn('inline-flex items-center gap-1.5', className)} {...restProps}>\n\t{@render children?.()}\n</li>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-item.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { Snippet } from 'svelte';\n\timport type { HTMLAnchorAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchild,\n\t\tchildren,\n\t\tclass: className,\n\t\thref = undefined,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAnchorAttributes> & {\n\t\tchild?: Snippet<[{ props: HTMLAnchorAttributes }]>;\n\t} = $props();\n\n\tconst attrs = $derived({\n\t\tclass: cn('hover:text-foreground transition-colors', className),\n\t\thref,\n\t\t...restProps\n\t});\n</script>\n\n{#if child}\n\t{@render child({ props: attrs })}\n{:else}\n\t<a bind:this={ref} {...attrs}>\n\t\t{@render children?.()}\n\t</a>\n{/if}\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-link.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLOlAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLOlAttributes> = $props();\n</script>\n\n<ol\n\tbind:this={ref}\n\tclass={cn(\n\t\t'text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5',\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</ol>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-list.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLSpanElement>> = $props();\n</script>\n\n<span\n\tbind:this={ref}\n\trole=\"link\"\n\taria-disabled=\"true\"\n\taria-current=\"page\"\n\tclass={cn('text-foreground', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</span>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-page.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLLiAttributes } from 'svelte/elements';\n\n\timport ChevronRight from '@lucide/svelte/icons/chevron-right';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLLiAttributes> = $props();\n</script>\n\n<li role=\"presentation\" aria-hidden=\"true\" class={className} bind:this={ref} {...restProps}>\n\t{#if children}\n\t\t{@render children?.()}\n\t{:else}\n\t\t<ChevronRight size={16} />\n\t{/if}\n</li>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb-separator.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLElement>> = $props();\n</script>\n\n<nav class={className} bind:this={ref} aria-label=\"breadcrumb\" {...restProps}>\n\t{@render children?.()}\n</nav>\n",
+			"type": "registry:ui",
+			"target": "breadcrumb/breadcrumb.svelte"
+		},
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\n\nimport Ellipsis from './breadcrumb-ellipsis.svelte';\nimport Item from './breadcrumb-item.svelte';\nimport Link from './breadcrumb-link.svelte';\nimport List from './breadcrumb-list.svelte';\nimport Page from './breadcrumb-page.svelte';\nimport Separator from './breadcrumb-separator.svelte';\nimport Root from './breadcrumb.svelte';\n\nexport {\n\tRoot,\n\tEllipsis,\n\tItem,\n\tSeparator,\n\tLink,\n\tList,\n\tPage,\n\t//\n\tRoot as Breadcrumb,\n\tEllipsis as BreadcrumbEllipsis,\n\tItem as BreadcrumbItem,\n\tSeparator as BreadcrumbSeparator,\n\tLink as BreadcrumbLink,\n\tList as BreadcrumbList,\n\tPage as BreadcrumbPage\n};\n",
+			"type": "registry:file",
+			"target": "breadcrumb/index.ts"
+		}
+	]
+}

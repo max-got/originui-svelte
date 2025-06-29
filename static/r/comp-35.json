@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-35",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"character limit"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';\n\n\tconst maxLength = 8;\n\tconst characterLimit = useCharacterLimit(maxLength);\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with characters left</Label>\n\t<Input\n\t\tid={uid}\n\t\ttype=\"text\"\n\t\tbind:value={characterLimit.value}\n\t\tmaxlength={characterLimit.maxLength}\n\t\taria-describedby={uid}\n\t/>\n\t<p id={uid} class=\"text-muted-foreground mt-2 text-xs\" role=\"status\" aria-live=\"polite\">\n\t\t<span class=\"tabular-nums\">{characterLimit.maxLength - characterLimit.characterCount}</span> characters\n\t\tleft\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-35.svelte"
+		},
+		{
+			"content": "export class CharacterLimit {\n\t#value = $state('');\n\tcharacterCount = $derived(this.#value.length);\n\tmaxLength: number;\n\n\tconstructor(maxLength: number, initialValue = '') {\n\t\tthis.maxLength = maxLength;\n\t\tthis.#value = initialValue;\n\t}\n\n\tset value(value: string) {\n\t\tif (value.length <= this.maxLength) {\n\t\t\tthis.#value = value;\n\t\t}\n\t}\n\n\tget value() {\n\t\treturn this.#value;\n\t}\n}\n\nexport function useCharacterLimit(maxLength: number, initialValue = '') {\n\treturn new CharacterLimit(maxLength, initialValue);\n}\n",
+			"type": "registry:hook",
+			"target": "use-character-limit.svelte.ts"
+		}
+	]
+}

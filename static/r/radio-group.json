@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "radio-group",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "import Item from './radio-group-item.svelte';\nimport Root from './radio-group.svelte';\n\nexport { Root as RadioGroup, Item as RadioGroupItem };\n",
+			"type": "registry:file",
+			"target": "radio-group/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { RadioGroup as RadioGroupPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue = $bindable(''),\n\t\t...restProps\n\t}: RadioGroupPrimitive.ItemProps = $props();\n\n\texport { className as class };\n</script>\n\n<RadioGroupPrimitive.Item\n\t{value}\n\tbind:ref\n\tclass={cn(\n\t\t'border-input ring-offset-background focus-visible:ring-ring data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground aspect-square size-4 rounded-full border shadow-xs shadow-black/[.04] transition-shadow focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{#snippet children({ checked })}\n\t\t{#if checked}\n\t\t\t<div class=\"flex items-center justify-center text-current\">\n\t\t\t\t<svg\n\t\t\t\t\twidth=\"6\"\n\t\t\t\t\theight=\"6\"\n\t\t\t\t\tviewBox=\"0 0 6 6\"\n\t\t\t\t\tfill=\"currentcolor\"\n\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t>\n\t\t\t\t\t<circle cx=\"3\" cy=\"3\" r=\"3\" />\n\t\t\t\t</svg>\n\t\t\t</div>\n\t\t{/if}\n\t{/snippet}\n</RadioGroupPrimitive.Item>\n",
+			"type": "registry:ui",
+			"target": "radio-group/radio-group-item.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\" module>\n\timport { RadioGroup as RadioGroupPrimitive } from 'bits-ui';\n\n\texport const RadioGroupItem = RadioGroupPrimitive.Item;\n</script>\n\n<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue = $bindable(undefined),\n\t\t...restProps\n\t}: RadioGroupPrimitive.RootProps = $props();\n</script>\n\n<RadioGroupPrimitive.Root bind:ref bind:value class={cn('grid gap-3', className)} {...restProps}>\n\t{@render children?.()}\n</RadioGroupPrimitive.Root>\n",
+			"type": "registry:ui",
+			"target": "radio-group/radio-group.svelte"
+		}
+	]
+}

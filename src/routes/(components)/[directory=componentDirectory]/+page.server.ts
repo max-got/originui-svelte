@@ -4,7 +4,8 @@ import type { ComponentAPIResponseJSON } from '$data/api/components/components.h
 
 import { dev } from '$app/environment';
 import { fetchComponentsFromAPI } from '$data/api/components/components';
-import { PROJECT_NAME, SEO_DELIMITER } from '$lib/config';
+import { getCategory, PROJECT_NAME, SEO_DELIMITER } from '$lib/config';
+import { getComponents, getComponentsByNames } from '$lib/data/registry/query';
 
 function generatePageHeader(
 	directory: string,
@@ -36,20 +37,24 @@ function generateSEO(directory: string, componentsData: ComponentAPIResponseJSON
 
 export const load = (async ({ fetch, params, setHeaders }) => {
 	const { directory } = params;
-
-	const componentsData = await fetchComponentsFromAPI(fetch, directory);
-
-	// Set caching headers for production
-	if (!dev) {
-		setHeaders({
-			'cache-control': 'public, max-age=31536000, immutable, stale-while-revalidate=86400'
-		});
+	const category = getCategory(directory);
+	if (!category) {
+		return {
+			components: []
+		};
 	}
 
+	const components = getComponentsByNames(category.components.map((item) => item.name));
+	// const componentsData = await fetchComponentsFromAPI(fetch, directory);
+
 	return {
-		componentsData,
-		pageHeader: generatePageHeader(directory, componentsData),
-		path: directory,
-		SEO: generateSEO(directory, componentsData)
+		components: components ?? []
 	};
+
+	// return {
+	// 	componentsData,
+	// 	pageHeader: generatePageHeader(directory, componentsData),
+	// 	path: directory,
+	// 	SEO: generateSEO(directory, componentsData)
+	// };
 }) satisfies PageServerLoad;

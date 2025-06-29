@@ -1,0 +1,47 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "dialog",
+	"type": "registry:ui",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0",
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { Snippet } from 'svelte';\n\n\timport DialogOverlay from './dialog-overlay.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport XIcon from '@lucide/svelte/icons/x';\n\timport { Dialog as DialogPrimitive, type WithoutChild } from 'bits-ui';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tportalProps,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithoutChild<DialogPrimitive.ContentProps> & {\n\t\tchildren: Snippet;\n\t\tportalProps?: DialogPrimitive.PortalProps;\n\t} = $props();\n</script>\n\n<DialogPrimitive.Portal {...portalProps}>\n\t<DialogOverlay />\n\t<DialogPrimitive.Content\n\t\tbind:ref\n\t\tclass={cn(\n\t\t\t'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100%-2rem)] w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto rounded-xl border p-6 shadow-lg duration-200 sm:max-w-100',\n\t\t\tclassName\n\t\t)}\n\t\t{...restProps}\n\t>\n\t\t{@render children?.()}\n\t\t<DialogPrimitive.Close\n\t\t\tclass=\"group focus-visible:border-ring focus-visible:ring-ring/50 absolute top-3 right-3 flex size-7 items-center justify-center rounded transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none\"\n\t\t>\n\t\t\t<XIcon size={16} class=\"opacity-60 transition-opacity group-hover:opacity-100\" />\n\t\t\t<span class=\"sr-only\">Close</span>\n\t\t</DialogPrimitive.Close>\n\t</DialogPrimitive.Content>\n</DialogPrimitive.Portal>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-content.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Dialog as DialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: DialogPrimitive.DescriptionProps = $props();\n</script>\n\n<DialogPrimitive.Description\n\tbind:ref\n\tclass={cn('text-muted-foreground text-sm', className)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-description.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tclass={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end sm:gap-3', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-footer.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div class={cn('flex flex-col space-y-1.5 text-center sm:text-left', className)} {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-header.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Dialog as DialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: DialogPrimitive.OverlayProps = $props();\n</script>\n\n<DialogPrimitive.Overlay\n\tbind:ref\n\tclass={cn(\n\t\t'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80',\n\t\tclassName\n\t)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-overlay.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Dialog as DialogPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: DialogPrimitive.TitleProps = $props();\n</script>\n\n<DialogPrimitive.Title\n\tbind:ref\n\tclass={cn('text-lg font-semibold tracking-tight', className)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "dialog/dialog-title.svelte"
+		},
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\nimport Content from './dialog-content.svelte';\nimport Description from './dialog-description.svelte';\nimport Footer from './dialog-footer.svelte';\nimport Header from './dialog-header.svelte';\nimport Overlay from './dialog-overlay.svelte';\nimport Title from './dialog-title.svelte';\n\nimport { Dialog as DialogPrimitive } from 'bits-ui';\n\nconst Root = DialogPrimitive.Root;\nconst Trigger = DialogPrimitive.Trigger;\nconst Portal = DialogPrimitive.Portal;\nconst Close = DialogPrimitive.Close;\n\nexport {\n\tClose,\n\tClose as DialogClose,\n\tContent,\n\tContent as DialogContent,\n\tDescription,\n\tDescription as DialogDescription,\n\tFooter,\n\tFooter as DialogFooter,\n\tHeader,\n\tHeader as DialogHeader,\n\tOverlay,\n\tOverlay as DialogOverlay,\n\tPortal,\n\tPortal as DialogPortal,\n\tRoot,\n\tRoot as DialogRoot,\n\tTitle,\n\tTitle as DialogTitle,\n\tTrigger,\n\tTrigger as DialogTrigger\n};\n",
+			"type": "registry:file",
+			"target": "dialog/index.ts"
+		}
+	]
+}

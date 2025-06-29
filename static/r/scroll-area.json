@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "scroll-area",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "import Scrollbar from './scroll-area-scrollbar.svelte';\nimport Root from './scroll-area.svelte';\n\nexport { Root, Root as ScrollArea, Scrollbar as ScrollAreaScrollbar, Scrollbar };\n",
+			"type": "registry:file",
+			"target": "scroll-area/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { ScrollArea as ScrollAreaPrimitive, type WithoutChild } from 'bits-ui';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\torientation = 'vertical',\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithoutChild<ScrollAreaPrimitive.ScrollbarProps> = $props();\n</script>\n\n<ScrollAreaPrimitive.Scrollbar\n\tbind:ref\n\t{orientation}\n\tclass={cn(\n\t\t'flex touch-none transition-colors select-none',\n\t\torientation === 'vertical' && 'h-full w-2.5 border-l border-l-transparent p-px',\n\t\torientation === 'horizontal' && 'h-2.5 w-full border-t border-t-transparent p-px',\n\t\tclassName\n\t)}\n\t{...restProps}\n>\n\t{@render children?.()}\n\t<ScrollAreaPrimitive.Thumb\n\t\tclass={cn('bg-border relative rounded-full', orientation === 'vertical' && 'flex-1')}\n\t/>\n</ScrollAreaPrimitive.Scrollbar>\n",
+			"type": "registry:ui",
+			"target": "scroll-area/scroll-area-scrollbar.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport Scrollbar from './scroll-area-scrollbar.svelte';\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { ScrollArea as ScrollAreaPrimitive, type WithoutChild } from 'bits-ui';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\torientation = 'vertical',\n\t\tref = $bindable(null),\n\t\tscrollbarXClasses = 'h-2.5 flex-col border-t border-t-transparent p-px',\n\t\tscrollbarYClasses = 'h-full w-2.5 border-l border-l-transparent p-px',\n\t\t...restProps\n\t}: WithoutChild<ScrollAreaPrimitive.RootProps> & {\n\t\torientation?: 'both' | 'horizontal' | 'vertical' | undefined;\n\t\tscrollbarXClasses?: string | undefined;\n\t\tscrollbarYClasses?: string | undefined;\n\t} = $props();\n</script>\n\n<ScrollAreaPrimitive.Root bind:ref {...restProps} class={cn('relative overflow-hidden', className)}>\n\t<ScrollAreaPrimitive.Viewport class=\"h-full w-full  rounded-[inherit]\">\n\t\t{@render children?.()}\n\t</ScrollAreaPrimitive.Viewport>\n\t{#if orientation === 'vertical' || orientation === 'both'}\n\t\t<Scrollbar orientation=\"vertical\" class={scrollbarYClasses} />\n\t{/if}\n\t{#if orientation === 'horizontal' || orientation === 'both'}\n\t\t<Scrollbar orientation=\"horizontal\" class={scrollbarXClasses} />\n\t{/if}\n\t<ScrollAreaPrimitive.Corner />\n</ScrollAreaPrimitive.Root>\n",
+			"type": "registry:ui",
+			"target": "scroll-area/scroll-area.svelte"
+		}
+	]
+}

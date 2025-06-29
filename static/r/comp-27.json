@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-27",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"button",
+			"search"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { EventHandler } from 'svelte/elements';\n\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport LoaderCircle from '@lucide/svelte/icons/loader-circle';\n\timport Mic from '@lucide/svelte/icons/mic';\n\timport Search from '@lucide/svelte/icons/search';\n\timport { onDestroy } from 'svelte';\n\n\tlet inputValue = $state('');\n\tlet isLoading = $state(false);\n\tlet timer: null | ReturnType<typeof setTimeout> = $state(null);\n\n\tconst handleInput: EventHandler<Event, HTMLInputElement> = () => {\n\t\tif (timer) clearTimeout(timer);\n\n\t\tif (!inputValue) {\n\t\t\tisLoading = false;\n\t\t\treturn;\n\t\t}\n\n\t\tisLoading = true;\n\t\ttimer = setTimeout(() => {\n\t\t\tisLoading = false;\n\t\t\ttimer = null;\n\t\t}, 500);\n\t};\n\n\tconst uid = $props.id();\n\n\tonDestroy(() => {\n\t\tif (timer) clearTimeout(timer);\n\t});\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Search input with loader</Label>\n\t<div class=\"relative\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"peer ps-9 pe-9\"\n\t\t\tplaceholder=\"Search...\"\n\t\t\ttype=\"search\"\n\t\t\tbind:value={inputValue}\n\t\t\toninput={handleInput}\n\t\t/>\n\t\t<div\n\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50\"\n\t\t>\n\t\t\t{#if isLoading}\n\t\t\t\t<LoaderCircle class=\"animate-spin\" size={16} aria-hidden=\"true\" role=\"presentation\" />\n\t\t\t{:else}\n\t\t\t\t<Search size={16} aria-hidden=\"true\" />\n\t\t\t{/if}\n\t\t</div>\n\t\t<button\n\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg transition-shadow focus-visible:border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Press to speak\"\n\t\t\ttype=\"submit\"\n\t\t>\n\t\t\t<Mic size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-27.svelte"
+		}
+	]
+}

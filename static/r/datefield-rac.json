@@ -1,0 +1,46 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "datefield-rac",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { DateField, type WithChildren } from 'bits-ui';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\t...restProps\n\t}: WithChildren<DateField.RootProps> & { class?: string } = $props();\n</script>\n\n<DateField.Root {...restProps}>\n\t<div class={className}>\n\t\t{@render children?.()}\n\t</div>\n</DateField.Root>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/date-field.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport DateSegment from './date-segment.svelte';\n\n\timport { cn } from '$UTILS$';\n\timport { DateField } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tunstyled = false,\n\t\t...props\n\t} = $props<{\n\t\tclass?: string;\n\t\tunstyled?: boolean;\n\t}>();\n</script>\n\n<DateField.Input\n\t{...props}\n\tclass={cn(\n\t\t!unstyled &&\n\t\t\t'border-input bg-background focus-within:border-ring focus-within:ring-ring/50 focus-within:has-aria-invalid:ring-destructive/20 dark:focus-within:has-aria-invalid:ring-destructive/40 focus-within:has-aria-invalid:border-destructive relative inline-flex h-9 w-full items-center overflow-hidden rounded-md border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px]',\n\t\tclassName\n\t)}\n>\n\t{#snippet children({ segments })}\n\t\t{#each segments as segment, i (segment.part + i)}\n\t\t\t<DateSegment {segment} />\n\t\t{/each}\n\t{/snippet}\n</DateField.Input>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/date-input.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport { DateField, type SegmentPart } from 'bits-ui';\n\n\tinterface Props {\n\t\tclass?: string;\n\t\tsegment: {\n\t\t\tpart: SegmentPart;\n\t\t\tvalue: string;\n\t\t};\n\t}\n\n\tlet { class: className, segment }: Props = $props();\n</script>\n\n<DateField.Segment\n\tpart={segment.part}\n\tclass={cn(\n\t\t'text-foreground focus:bg-accent data-invalid:focused:bg-destructive focused:aria-[valuetext=Empty]:text-foreground focused:text-foreground data-invalid:aria-[valuetext=Empty]:text-destructive data-invalid:text-destructive aria-[valuetext=Empty]:text-muted-foreground/70 data-invalid:focused:text-white data-invalid:focused:aria-[valuetext=Empty]:text-white inline rounded p-0.5 caret-transparent outline-hidden disabled:cursor-not-allowed disabled:opacity-50',\n\t\t'data-[segment=literal]:text-muted-foreground/70 data-[segment=literal]:px-0',\n\t\tclassName\n\t)}\n>\n\t{segment.value}\n</DateField.Segment>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/date-segment.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { TimeField, type WithChildren } from 'bits-ui';\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\t...restProps\n\t}: WithChildren<TimeField.RootProps> & { class?: string } = $props();\n</script>\n\n<TimeField.Root {...restProps}>\n\t<div class={className}>\n\t\t{@render children?.()}\n\t</div>\n</TimeField.Root>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/time-field.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport TimeSegment from './time-segment.svelte';\n\n\timport { cn } from '$UTILS$';\n\timport { TimeField, type WithoutChildren } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tunstyled = false,\n\t\t...restProps\n\t}: WithoutChildren<TimeField.InputProps> & {\n\t\tclass?: string;\n\t\tunstyled?: boolean;\n\t} = $props();\n</script>\n\n<TimeField.Input\n\t{...restProps}\n\tclass={cn(\n\t\t!unstyled &&\n\t\t\t'border-input bg-background focus-within:border-ring focus-within:ring-ring/50 focus-within:has-aria-invalid:ring-destructive/20 dark:focus-within:has-aria-invalid:ring-destructive/40 focus-within:has-aria-invalid:border-destructive relative inline-flex h-9 w-full items-center overflow-hidden rounded-md border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-within:ring-[3px]',\n\t\tclassName\n\t)}\n>\n\t{#snippet children({ segments })}\n\t\t{#each segments as segment, i (segment.part + i)}\n\t\t\t<!-- Don't render the day period segment e.g. AM/PM -->\n\t\t\t{#if segment.part !== 'dayPeriod'}\n\t\t\t\t<TimeSegment {segment} />\n\t\t\t{/if}\n\t\t{/each}\n\t{/snippet}\n</TimeField.Input>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/time-input.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\timport { TimeField, type TimeSegmentPart } from 'bits-ui';\n\n\tinterface Props {\n\t\tclass?: string;\n\t\tsegment: {\n\t\t\tpart: TimeSegmentPart;\n\t\t\tvalue: string;\n\t\t};\n\t}\n\n\tlet { class: className, segment }: Props = $props();\n</script>\n\n<TimeField.Segment\n\tpart={segment.part}\n\tclass={cn(\n\t\t'text-foreground focus:bg-accent data-invalid:focused:bg-destructive focused:aria-[valuetext=Empty]:text-foreground focused:text-foreground data-invalid:aria-[valuetext=Empty]:text-destructive data-invalid:text-destructive aria-[valuetext=Empty]:text-muted-foreground/70 data-invalid:focused:text-white data-invalid:focused:aria-[valuetext=Empty]:text-white inline rounded p-0.5 caret-transparent outline-hidden disabled:cursor-not-allowed disabled:opacity-50',\n\t\t'data-[segment=literal]:text-muted-foreground/70 data-[segment=literal]:px-0',\n\t\tclassName\n\t)}\n>\n\t{segment.value}\n</TimeField.Segment>\n",
+			"type": "registry:ui",
+			"target": "datefield-rac/time-segment.svelte"
+		},
+		{
+			"content": "export { default as DateField } from './date-field.svelte';\nexport { default as DateInput } from './date-input.svelte';\nexport { default as DateSegment } from './date-segment.svelte';\nexport { default as TimeField } from './time-field.svelte';\nexport { default as TimeInput } from './time-input.svelte';\nexport { default as TimeSegment } from './time-segment.svelte';\n",
+			"type": "registry:file",
+			"target": "datefield-rac/index.ts"
+		}
+	]
+}

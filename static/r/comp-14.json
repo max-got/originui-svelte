@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-14",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with start add-on</Label>\n\t<div class=\"flex rounded-lg shadow-xs shadow-black/5\">\n\t\t<span\n\t\t\tclass=\"border-input bg-background text-muted-foreground inline-flex items-center rounded-s-lg border px-3 text-sm\"\n\t\t>\n\t\t\thttps://\n\t\t</span>\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"-ms-px rounded-s-none shadow-none\"\n\t\t\tplaceholder=\"google.com\"\n\t\t\ttype=\"text\"\n\t\t/>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-14.svelte"
+		}
+	]
+}

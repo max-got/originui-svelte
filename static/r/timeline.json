@@ -1,0 +1,62 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "timeline",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"runed@^0.28.0"
+	],
+	"files": [
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\n\nimport Content from './timeline-content.svelte';\nimport Date from './timeline-date.svelte';\nimport Header from './timeline-header.svelte';\nimport Indicator from './timeline-indicator.svelte';\nimport Item from './timeline-item.svelte';\nimport Separator from './timeline-separator.svelte';\nimport Title from './timeline-title.svelte';\nimport Timeline from './timeline.svelte';\n\nexport {\n\tTimeline,\n\tContent,\n\tDate,\n\tHeader,\n\tIndicator,\n\tItem,\n\tTitle,\n\tSeparator,\n\t//\n\tContent as TimelineContent,\n\tSeparator as TimelineSeparator,\n\tDate as TimelineDate,\n\tHeader as TimelineHeader,\n\tIndicator as TimelineIndicator,\n\tTitle as TimelineTitle,\n\tItem as TimelineItem\n};\n",
+			"type": "registry:file",
+			"target": "timeline/index.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tclass={cn('text-muted-foreground text-sm', className)}\n\tdata-slot=\"timeline-content\"\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-content.svelte"
+		},
+		{
+			"content": "import { Context } from 'runed';\n\ntype TimelineContextValue = {\n\tactiveStep: number;\n\tsetActiveStep: (step: number) => void;\n};\n\nexport const timelineContext = new Context<TimelineContextValue | undefined>('timeline:context');\n\nexport const useTimeline = () => {\n\tconst context = timelineContext.get();\n\n\tif (!context) {\n\t\tthrow new Error('useTimeline must be used within a Timeline');\n\t}\n\n\treturn context;\n};\n",
+			"type": "registry:file",
+			"target": "timeline/timeline-context.svelte.ts"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { Snippet } from 'svelte';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\timport { mergeProps, type WithElementRef } from 'bits-ui';\n\n\ttype Props = WithElementRef<HTMLAttributes<HTMLTimeElement>> & {\n\t\tchild?: Snippet<[{ props: HTMLAttributes<HTMLTimeElement> }]>;\n\t};\n\n\tlet { child, children, class: className, ref = $bindable(null), ...restProps }: Props = $props();\n\n\tconst mergedProps = $derived(\n\t\tmergeProps(restProps, {\n\t\t\tclass: cn(\n\t\t\t\t'text-muted-foreground mb-1 block text-xs font-medium max-sm:group-data-[orientation=vertical]/timeline:h-4',\n\t\t\t\tclassName\n\t\t\t),\n\t\t\t'data-slot': 'timeline-date'\n\t\t})\n\t);\n</script>\n\n{#if child}\n\t{@render child({ props: mergedProps })}\n{:else}\n\t<time {...mergedProps}>\n\t\t{@render children?.()}\n\t</time>\n{/if}\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-date.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div bind:this={ref} class={cn(className)} data-slot=\"timeline-header\" {...restProps}>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-header.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tclass={cn(\n\t\t'border-primary/20 group-data-completed/timeline-item:border-primary absolute size-4 rounded-full border-2 group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:left-0 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 group-data-[orientation=vertical]/timeline:top-0 group-data-[orientation=vertical]/timeline:-left-6 group-data-[orientation=vertical]/timeline:-translate-x-1/2',\n\t\tclassName\n\t)}\n\tdata-slot=\"timeline-indicator\"\n\taria-hidden=\"true\"\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-indicator.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { useTimeline } from './timeline-context.svelte';\n\n\timport { cn } from '$UTILS$';\n\n\ttype Props = WithElementRef<HTMLAttributes<HTMLDivElement>> & {\n\t\tstep: number;\n\t};\n\tlet { children, class: className, ref = $bindable(null), step, ...restProps }: Props = $props();\n\n\tconst { activeStep } = useTimeline();\n</script>\n\n<div\n\tbind:this={ref}\n\tclass={cn(\n\t\t'group/timeline-item relative flex flex-1 flex-col gap-0.5 group-data-[orientation=horizontal]/timeline:mt-8 not-last:group-data-[orientation=horizontal]/timeline:pe-8 group-data-[orientation=vertical]/timeline:ms-8 not-last:group-data-[orientation=vertical]/timeline:pb-12',\n\t\t'[&:has(+[data-completed=\"true\"])_[data-slot=timeline-separator]]:bg-primary',\n\t\tclassName\n\t)}\n\tdata-slot=\"timeline-item\"\n\tdata-completed={step <= activeStep || undefined}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-item.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();\n</script>\n\n<div\n\tbind:this={ref}\n\tclass={cn(\n\t\t'bg-primary/10 absolute self-start group-last/timeline-item:hidden group-data-[orientation=horizontal]/timeline:-top-6 group-data-[orientation=horizontal]/timeline:h-0.5 group-data-[orientation=horizontal]/timeline:w-[calc(100%-1rem-0.25rem)] group-data-[orientation=horizontal]/timeline:translate-x-4.5 group-data-[orientation=horizontal]/timeline:-translate-y-1/2 group-data-[orientation=vertical]/timeline:-left-6 group-data-[orientation=vertical]/timeline:h-[calc(100%-1rem-0.25rem)] group-data-[orientation=vertical]/timeline:w-0.5 group-data-[orientation=vertical]/timeline:-translate-x-1/2 group-data-[orientation=vertical]/timeline:translate-y-4.5',\n\t\tclassName\n\t)}\n\tdata-slot=\"timeline-separator\"\n\taria-hidden=\"true\"\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-separator.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: WithElementRef<HTMLAttributes<HTMLHeadingElement>> = $props();\n</script>\n\n<h3\n\tbind:this={ref}\n\tdata-slot=\"timeline-title\"\n\tclass={cn('text-sm font-medium', className)}\n\t{...restProps}\n>\n\t{@render children?.()}\n</h3>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline-title.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAttributes } from 'svelte/elements';\n\n\timport { timelineContext } from './timeline-context.svelte';\n\n\timport { cn } from '$UTILS$';\n\n\ttype TimelineProps = WithElementRef<HTMLAttributes<HTMLDivElement>> & {\n\t\tdefaultValue?: number;\n\t\tonValueChange?: (value: number) => void;\n\t\torientation?: 'horizontal' | 'vertical';\n\t\tvalue?: number;\n\t};\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tdefaultValue = 1,\n\t\tonValueChange,\n\t\torientation = 'vertical',\n\t\tref = $bindable(null),\n\t\tvalue,\n\t\t...restProps\n\t}: TimelineProps = $props();\n\n\tlet activeStep = $state(defaultValue);\n\n\tfunction setActiveStep(step: number) {\n\t\tif (value === undefined) {\n\t\t\tactiveStep = step;\n\t\t}\n\n\t\tonValueChange?.(step);\n\t}\n\n\tconst currentStep = $derived(value ?? activeStep);\n\n\ttimelineContext.set({\n\t\tactiveStep: currentStep,\n\t\tsetActiveStep\n\t});\n</script>\n\n<div\n\tbind:this={ref}\n\tdata-slot=\"timeline\"\n\tclass={cn(\n\t\t'group/timeline flex data-[orientation=horizontal]:w-full data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col',\n\t\tclassName\n\t)}\n\tdata-orientation={orientation}\n\t{...restProps}\n>\n\t{@render children?.()}\n</div>\n",
+			"type": "registry:ui",
+			"target": "timeline/timeline.svelte"
+		}
+	]
+}

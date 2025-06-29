@@ -1,0 +1,16 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "collapsible",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\nimport { Collapsible as CollapsiblePrimitive } from 'bits-ui';\n\nconst Root = CollapsiblePrimitive.Root;\nconst Trigger = CollapsiblePrimitive.Trigger;\nconst Content = CollapsiblePrimitive.Content;\n\nexport {\n\tRoot,\n\tContent,\n\tTrigger,\n\t//\n\tRoot as Collapsible,\n\tContent as CollapsibleContent,\n\tTrigger as CollapsibleTrigger\n};\n",
+			"type": "registry:file",
+			"target": "index.ts"
+		}
+	]
+}

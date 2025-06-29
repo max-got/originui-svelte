@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-59",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"textarea"
+		],
+		"todo": true
+	},
+	"files": [
+		{
+			"content": "<p>ss</p>\n",
+			"type": "registry:component",
+			"target": "comp-59.todo.svelte"
+		}
+	]
+}

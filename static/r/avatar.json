@@ -1,0 +1,31 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "avatar",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Avatar as AvatarPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AvatarPrimitive.RootProps = $props();\n</script>\n\n<AvatarPrimitive.Root\n\tbind:ref\n\tclass={cn('relative flex size-8 shrink-0 overflow-hidden rounded-full', className)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "avatar/avatar.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Avatar as AvatarPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AvatarPrimitive.FallbackProps = $props();\n</script>\n\n<AvatarPrimitive.Fallback\n\tbind:ref\n\tclass={cn(\n\t\t'bg-secondary flex size-full items-center justify-center rounded-[inherit] text-xs',\n\t\tclassName\n\t)}\n\t{...restProps}\n/>\n",
+			"type": "registry:ui",
+			"target": "avatar/avatar-fallback.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport { Avatar as AvatarPrimitive } from 'bits-ui';\n\n\tlet {\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\t...restProps\n\t}: AvatarPrimitive.ImageProps = $props();\n</script>\n\n<AvatarPrimitive.Image bind:ref class={cn('aspect-square size-full', className)} {...restProps} />\n",
+			"type": "registry:ui",
+			"target": "avatar/avatar-image.svelte"
+		},
+		{
+			"content": "/* eslint-disable perfectionist/sort-named-exports */\n\nimport Fallback from './avatar-fallback.svelte';\nimport Image from './avatar-image.svelte';\nimport Root from './avatar.svelte';\n\nexport {\n\tRoot,\n\tImage,\n\tFallback,\n\t//\n\tRoot as Avatar,\n\tImage as AvatarImage,\n\tFallback as AvatarFallback\n};\n",
+			"type": "registry:file",
+			"target": "avatar/index.ts"
+		}
+	]
+}

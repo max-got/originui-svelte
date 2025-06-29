@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-40",
+	"type": "registry:component",
+	"registryDependencies": [
+		"datefield-rac"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"date"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport { DateField, DateInput } from '$lib/components/ui/datefield-rac';\n</script>\n\n<DateField class=\"*:not-first:mt-2\" granularity=\"minute\" hourCycle={24}>\n\t<Label class=\"text-foreground text-sm font-medium\">Date and time input</Label>\n\t<DateInput />\n\t<p class=\"text-muted-foreground mt-2 text-xs\" role=\"region\" aria-live=\"polite\">\n\t\tBuilt with\n\t\t<a\n\t\t\tclass=\"hover:text-foreground underline\"\n\t\t\thref=\"https://bits-ui.com/docs/components/date-field\"\n\t\t\ttarget=\"_blank\"\n\t\t\trel=\"noopener nofollow\"\n\t\t>\n\t\t\tBits UI\n\t\t</a>\n\t</p>\n</DateField>\n",
+			"type": "registry:component",
+			"target": "comp-40.svelte"
+		}
+	]
+}

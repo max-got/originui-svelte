@@ -1,0 +1,17 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "button",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"tailwind-variants@^1.0.0"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\" module>\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';\n\n\timport { tv, type VariantProps } from 'tailwind-variants';\n\n\texport const buttonVariants = tv({\n\t\tbase: \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]\",\n\t\tdefaultVariants: {\n\t\t\tsize: 'default',\n\t\t\tvariant: 'default'\n\t\t},\n\t\tvariants: {\n\t\t\tsize: {\n\t\t\t\tdefault: 'h-9 px-4 py-2',\n\t\t\t\ticon: 'size-9',\n\t\t\t\tlg: 'h-10 rounded-md px-8',\n\t\t\t\tsm: 'h-8 rounded-md px-3 text-xs'\n\t\t\t},\n\t\t\tvariant: {\n\t\t\t\tdefault: 'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',\n\t\t\t\tdestructive:\n\t\t\t\t\t'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',\n\t\t\t\tghost: 'hover:bg-accent hover:text-accent-foreground',\n\t\t\t\tlink: 'text-primary underline-offset-4 hover:underline',\n\t\t\t\toutline:\n\t\t\t\t\t'border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',\n\t\t\t\tsecondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80'\n\t\t\t}\n\t\t}\n\t});\n\n\texport type ButtonVariant = VariantProps<typeof buttonVariants>['variant'];\n\texport type ButtonSize = VariantProps<typeof buttonVariants>['size'];\n\n\texport type ButtonProps = WithElementRef<HTMLButtonAttributes> &\n\t\tWithElementRef<HTMLAnchorAttributes> & {\n\t\t\tclass?: string;\n\t\t\tsize?: ButtonSize;\n\t\t\tvariant?: ButtonVariant;\n\t\t};\n</script>\n\n<script lang=\"ts\">\n\timport { cn } from '$UTILS$';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\thref = null,\n\t\tref = $bindable(null),\n\t\tsize = 'default',\n\t\tvariant = 'default',\n\t\t...restProps\n\t}: ButtonProps = $props();\n</script>\n\n{#if !href && restProps?.role !== 'link'}\n\t<button\n\t\tbind:this={ref}\n\t\ttype=\"button\"\n\t\tclass={cn(buttonVariants({ className, size, variant }))}\n\t\t{...restProps}\n\t>\n\t\t{@render children?.()}\n\t</button>\n{:else}\n\t<a bind:this={ref} {href} class={cn(buttonVariants({ className, size, variant }))} {...restProps}>\n\t\t{@render children?.()}\n\t</a>\n{/if}\n",
+			"type": "registry:ui",
+			"target": "button.svelte"
+		}
+	]
+}

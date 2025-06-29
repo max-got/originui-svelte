@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-18",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.513.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label",
+		"select-native"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label",
+			"select",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Input with end select</Label>\n\t<div class=\"flex rounded-lg shadow-xs shadow-black/[.04]\">\n\t\t<Input\n\t\t\tid={uid}\n\t\t\tclass=\"-me-px rounded-e-none shadow-none focus-visible:z-10\"\n\t\t\tplaceholder=\"google\"\n\t\t\ttype=\"text\"\n\t\t/>\n\t\t<div class=\"relative\">\n\t\t\t<select\n\t\t\t\tclass=\"peer border-input bg-background text-muted-foreground ring-offset-background hover:bg-accent hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 inline-flex h-full appearance-none items-center rounded-e-lg border ps-3 pe-8 text-sm transition-shadow focus:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\t\taria-label=\"Domain suffix\"\n\t\t\t>\n\t\t\t\t<option>.com</option>\n\t\t\t\t<option>.org</option>\n\t\t\t\t<option>.net</option>\n\t\t\t</select>\n\t\t\t<span\n\t\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-px flex h-full w-9 items-center justify-center peer-disabled:opacity-50\"\n\t\t\t>\n\t\t\t\t<ChevronDown size={16} aria-hidden=\"true\" />\n\t\t\t</span>\n\t\t</div>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-18.svelte"
+		}
+	]
+}

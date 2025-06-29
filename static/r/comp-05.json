@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-05",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"input",
+			"label"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\" style:--ring=\"234 89% 74%\">\n\t<Label for={uid}>Input with colored border and ring</Label>\n\t<Input id={uid} placeholder=\"Email\" type=\"email\" />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-05.svelte"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "select-native",
+	"type": "registry:ui",
+	"dependencies": [
+		"bits-ui@2.5.0",
+		"@internationalized/date@^3.8.2",
+		"@lucide/svelte@^0.513.0"
+	],
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { WithElementRef } from 'bits-ui';\n\timport type { HTMLSelectAttributes } from 'svelte/elements';\n\n\timport { cn } from '$lib/registry/default/lib/utils.js';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\n\tlet {\n\t\tchildren,\n\t\tclass: className,\n\t\tref = $bindable(null),\n\t\tvalue = $bindable(),\n\t\t...restProps\n\t}: WithElementRef<HTMLSelectAttributes> = $props();\n</script>\n\n<div class=\"relative\">\n\t<select\n\t\tbind:this={ref}\n\t\tbind:value\n\t\tclass={cn(\n\t\t\t'peer border-input bg-background text-foreground focus-visible:border-ring focus-visible:ring-ring/20 has-[option[disabled]:checked]:text-muted-foreground inline-flex w-full cursor-pointer appearance-none items-center rounded-lg border text-sm shadow-xs shadow-black/5 transition-shadow focus-visible:ring-[3px] focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',\n\t\t\trestProps.multiple ? '[&_option:checked]:bg-accent py-1 *:px-3 *:py-1' : 'h-9 ps-3 pe-8',\n\t\t\tclassName\n\t\t)}\n\t\t{...restProps}\n\t>\n\t\t{@render children?.()}\n\t</select>\n\t{#if !restProps.multiple}\n\t\t<span\n\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center peer-disabled:opacity-50\"\n\t\t>\n\t\t\t<ChevronDown size={16} aria-hidden=\"true\" />\n\t\t</span>\n\t{/if}\n</div>\n",
+			"type": "registry:ui",
+			"target": "select-native.svelte"
+		}
+	]
+}
