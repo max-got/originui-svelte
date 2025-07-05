@@ -6,7 +6,7 @@
 	import Check from '@lucide/svelte/icons/check';
 	import Eye from '@lucide/svelte/icons/eye';
 	import EyeOff from '@lucide/svelte/icons/eye-off';
-	import X from '@lucide/svelte/icons/x';
+	import XIcon from '@lucide/svelte/icons/x';
 	import { cn } from '$lib/registry/default/lib/utils';
 
 	const uid = $props.id();
@@ -70,7 +70,7 @@
 				{#if req.met}
 					<Check size={16} class="text-emerald-500" aria-hidden="true" />
 				{:else}
-					<X size={16} class="text-muted-foreground/80" aria-hidden="true" />
+					<XIcon size={16} class="text-muted-foreground/80" aria-hidden="true" />
 				{/if}
 				<span class={`text-xs ${req.met ? 'text-emerald-600' : 'text-muted-foreground'}`}>
 					{req.text}

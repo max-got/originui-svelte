@@ -2,7 +2,7 @@
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
 
-	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import Search from '@lucide/svelte/icons/search';
 
 	const uid = $props.id();
@@ -22,7 +22,7 @@
 			aria-label="Submit search"
 			type="submit"
 		>
-			<ArrowRight size={16} aria-hidden="true" />
+			<ArrowRightIcon size={16} aria-hidden="true" />
 		</button>
 	</div>
 </div>
