@@ -1,9 +1,27 @@
 <script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
 	import ThemeToggle from '$lib/demo/theme-toggle.svelte';
 
-	import LucideSearch from '@lucide/svelte/icons/search';
+	import SearchIcon from '@lucide/svelte/icons/search';
+	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import RiArrowRightUpLine from '~icons/ri/arrow-right-up-line';
 	import { page } from '$app/state';
+	import {
+		NavigationMenuItem,
+		NavigationMenuLink,
+		NavigationMenuList,
+		NavigationMenuRoot
+	} from '$lib/components/ui/navigation-menu';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+
+	const navigationLinks = [
+		{
+			active: page.url.pathname === '/search/llms',
+			href: '/search/llms',
+			icon: SparklesIcon,
+			label: 'LLMs.txt'
+		}
+	];
 </script>
 
 <header
@@ -30,31 +48,41 @@
 		</a>
 		<nav>
 			<ul class="flex items-center justify-center gap-4">
-				<li>
-					<a
-						href="/search/llms"
-						class={[
-							'group transition-colors duration-200',
-							'inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm hover:underline',
-							'dark:aria-[current]:bg-svelte/30 aria-[current]:bg-svelte/15 aria-[current]:underline',
-							'dark:aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-white)_70%)]',
-							'aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-black)_10%)]'
-						]}
-						aria-current={page.url.pathname === '/search/llms' ? 'page' : undefined}
-						aria-label="Search LLMs.txt directory"
-					>
-						llms.txt
-						<LucideSearch
-							class={[
-								'text-muted-foreground/80 size-4',
-								'dark:group-aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-white)_30%)]',
-								'group-aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-black)_10%)]',
-								'dark:text-white/60'
-							]}
-							aria-hidden="true"
-						/>
-					</a>
-				</li>
+				<Popover>
+					<PopoverTrigger>
+						{#snippet child({ props })}
+							<Button variant="outline" {...props}>
+								Search
+								<SearchIcon class={['text-muted-foreground/80 size-4']} aria-hidden="true" />
+							</Button>
+						{/snippet}
+					</PopoverTrigger>
+					<PopoverContent align="start" class="z-10 w-36 p-1 ">
+						<NavigationMenuRoot class="max-w-none *:w-full">
+							<NavigationMenuList class="flex-col items-start gap-0 md:gap-2">
+								{#each navigationLinks as link (link.href)}
+									<NavigationMenuItem class="w-full">
+										<NavigationMenuLink
+											href={link.href}
+											class={[
+												'group w-full flex-row items-center gap-2 py-1.5',
+												'aria-[current]:bg-muted-foreground/10 '
+											]}
+											aria-current={page.url.pathname === link.href ? 'page' : undefined}
+										>
+											<link.icon
+												class="text-muted-foreground/80 group-aria-[current]:text-svelte size-4"
+												aria-hidden="true"
+											/>
+											{link.label}
+										</NavigationMenuLink>
+									</NavigationMenuItem>
+								{/each}
+							</NavigationMenuList>
+						</NavigationMenuRoot>
+					</PopoverContent>
+				</Popover>
+
 				<li>
 					<a
 						href="https://github.com/max-got/originui-svelte"
