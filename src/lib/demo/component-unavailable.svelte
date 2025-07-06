@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
+	import { ComponentCardContext } from './new/component-card-context.svelte.js';
 	import Button from '$lib/components/ui/button.svelte';
 	import { cn } from '$lib/utils.js';
 
 	import IconGithub from '~icons/ri/github-fill';
-
-	let { class: className, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();
+	ps();
 </script>
 
 <div

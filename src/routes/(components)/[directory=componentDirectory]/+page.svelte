@@ -2,9 +2,9 @@
 	import type { AvailableOUIComponent } from '$data/api/components/components.handler.js';
 
 	import { getComponentDialogCtx } from '$lib/demo/component-preview/component-dialog-context.svelte.js';
-	import ComponentUnavailable from '$lib/demo/component-unavailable.svelte';
 	import Component from '$lib/demo/component.svelte';
 	import ComponentCard from '$lib/demo/new/component-card.svelte';
+	import ComponentUnavailable from '$lib/demo/new/component-unavailable.svelte';
 	import PageGrid from '$lib/demo/new/page-grid.svelte';
 	import PageHeader from '$lib/demo/page-header.svelte';
 
@@ -32,7 +32,11 @@
 <PageGrid>
 	{#each data.components as { Component, ...component } (component.name)}
 		<ComponentCard {component}>
-			<Component />
+			{#if Component}
+				<Component />
+			{:else}
+				<ComponentUnavailable />
+			{/if}
 		</ComponentCard>
 	{/each}
 </PageGrid>

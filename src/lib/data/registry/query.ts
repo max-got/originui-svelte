@@ -2,7 +2,7 @@
 import type { RegistryItem } from '@shadcn-svelte/registry';
 import type { RegistryTag } from '$lib/registry/tags';
 
-import { categories, type CategorySlugs } from '$lib/config';
+import { categories, type CategorySlugs } from '$lib/components';
 
 import registry from '../../../../registry.json' assert { type: 'json' };
 
@@ -55,15 +55,7 @@ export function getCategoriesWithDetails() {
 	return categoriesWithDetails;
 }
 
-export type CategoryWithDetails = {
-	components: {
-		available: boolean;
-		name: string;
-		todo: boolean;
-	}[];
-	name: string;
-	slug: CategorySlugs;
-};
+export type CategoryWithDetails = ReturnType<typeof getCategoriesWithDetails>[number];
 
 export function getCategoryWithDetails(slug: CategorySlugs): CategoryWithDetails {
 	const category = categories.find((category) => category.slug === slug);

@@ -10,7 +10,10 @@
 <svelte:head>
 	<title>Origin UI - Svelte | Beautiful UI components built with Tailwind CSS and Svelte</title>
 
-	<meta name="theme-color" content={$mode === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 100%)'} />
+	<meta
+		name="theme-color"
+		content={mode.current === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 100%)'}
+	/>
 	<meta
 		name="Description"
 		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
@@ -75,7 +78,7 @@
 		<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each data.categories as category (category.slug)}
 				{@const isFullyImplemented = category.total - category.totalWithTodo === category.total}
-				<CategoryCard slug={category.slug} alt="{category.name} demo">
+				<CategoryCard alt="{category.name} demo" {category}>
 					{#snippet details()}
 						<h2 class="_component-directory">
 							<a href="/{category.slug}" class="text-sm font-medium hover:underline">

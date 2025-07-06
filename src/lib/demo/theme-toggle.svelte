@@ -4,7 +4,7 @@
 	import { mode, setMode } from 'mode-watcher';
 
 	function handleModeChange() {
-		if ($mode === 'light') {
+		if (mode.current === 'light') {
 			setMode('dark');
 		} else {
 			setMode('light');
@@ -18,7 +18,7 @@
 		name="theme-toggle"
 		id="theme-toggle"
 		class="peer sr-only"
-		checked={$mode === 'light'}
+		checked={mode.current === 'light'}
 		onchange={handleModeChange}
 		aria-label="Toggle dark mode"
 	/>

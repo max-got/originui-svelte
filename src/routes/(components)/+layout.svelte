@@ -7,7 +7,7 @@
 	let { children } = $props();
 </script>
 
-<Toaster position="top-right" theme={$mode} />
+<Toaster position="top-right" theme={mode.current} />
 
 <ComponentDialog.DialogContextProvider>
 	<main class="grow">
