@@ -1,7 +1,9 @@
 <script lang="ts">
 	import ThemeToggle from '$lib/demo/theme-toggle.svelte';
 
+	import LucideSearch from '@lucide/svelte/icons/search';
 	import RiArrowRightUpLine from '~icons/ri/arrow-right-up-line';
+	import { page } from '$app/state';
 </script>
 
 <header
@@ -15,7 +17,7 @@
 		<a href="/" aria-label="Home" class="flex items-center gap-2">
 			<span class="sr-only">Origin UI - Svelte</span>
 			<svg
-				class="stroke-svelte size-6"
+				class="stroke-svelte size-8"
 				xmlns="http://www.w3.org/2000/svg"
 				width="28"
 				height="28"
@@ -27,12 +29,37 @@
 			</svg>
 		</a>
 		<nav>
-			<ul class="flex items-center gap-4">
+			<ul class="flex items-center justify-center gap-4">
+				<li>
+					<a
+						href="/search/llms"
+						class={[
+							'group transition-colors duration-200',
+							'inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm hover:underline',
+							'dark:aria-[current]:bg-svelte/30 aria-[current]:bg-svelte/15 aria-[current]:underline',
+							'dark:aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-white)_70%)]',
+							'aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-black)_10%)]'
+						]}
+						aria-current={page.url.pathname === '/search/llms' ? 'page' : undefined}
+						aria-label="Search LLMs.txt directory"
+					>
+						llms.txt
+						<LucideSearch
+							class={[
+								'text-muted-foreground/80 size-4',
+								'dark:group-aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-white)_30%)]',
+								'group-aria-[current]:text-[color-mix(in_srgb,var(--color-svelte),var(--color-black)_10%)]',
+								'dark:text-white/60'
+							]}
+							aria-hidden="true"
+						/>
+					</a>
+				</li>
 				<li>
 					<a
 						href="https://github.com/max-got/originui-svelte"
 						target="_blank"
-						class="inline-flex gap-0.5 text-sm hover:underline"
+						class="inline-flex gap-1 rounded-md px-2 py-1 text-sm hover:underline"
 						rel="noopener noreferrer"
 					>
 						GitHub

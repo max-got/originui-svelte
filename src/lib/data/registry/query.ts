@@ -1,12 +1,14 @@
-/* eslint-disable perfectionist/sort-modules */
 import type { RegistryItem } from '@shadcn-svelte/registry';
 import type { RegistryTag } from '$lib/registry/tags';
 
-import { categories, type CategorySlugs } from '$lib/components';
+import { type CategorySlugs, categories as componentCategories } from '$lib/components';
 
 import registry from '../../../../registry.json' assert { type: 'json' };
 
 const components = registry.items as unknown as RegistryItem[];
+
+const registryMap = new Map(components.map((comp) => [comp.name, comp]));
+const registryComponentNames = new Set(components.map((comp) => comp.name));
 
 export const getComponents = (selectedTags: RegistryTag[] = []): RegistryItem[] => {
 	if (selectedTags.length === 0) return components;
@@ -17,37 +19,69 @@ export const getComponents = (selectedTags: RegistryTag[] = []): RegistryItem[] 
 	return filteredComponents;
 };
 
-export const getComponentsByNames = (names: string[]): RegistryItem[] => {
-	const componentsMap = new Map(components.map((comp) => [comp.name, comp]));
-
-	return names
-		.map((name) => componentsMap.get(name))
-		.filter((comp): comp is RegistryItem => comp !== undefined);
+type ComponentWithDetails = RegistryItem & {
+	available: boolean;
 };
 
-export function getCategoriesWithDetails() {
-	const componentsMap = new Map(components.map((comp) => [comp.name, comp]));
+export const getComponentsByNames = (names: string[]): ComponentWithDetails[] => {
+	return names
+		.map((name) => {
+			const registryComp = registryMap.get(name);
+			if (!registryComp)
+				return {
+					available: false,
+					meta: {
+						colSpan: 1
+					},
+					name
+				};
 
-	const categoriesWithDetails = categories
+			return {
+				...registryComp,
+				available: registryComponentNames.has(name)
+			};
+		})
+		.filter((comp): comp is ComponentWithDetails => comp !== undefined);
+};
+
+export type CategoryWithDetails = {
+	components: {
+		available: boolean;
+		registryItem: null | RegistryItem;
+	}[];
+	meta: {
+		total: number;
+		totalAvailable: number;
+		totalNotAvailable: number;
+	};
+	name: string;
+	slug: CategorySlugs;
+};
+
+export function getCategoriesWithDetails(): CategoryWithDetails[] {
+	const categoriesWithDetails = componentCategories
 		.map((category) => {
 			const componentsWithDetails = category.components.map((component) => {
-				const compInRegistry = componentsMap.get(component.name);
-
+				const registryItem = registryMap.get(component.name) ?? null;
 				return {
-					...component,
-					available: !!compInRegistry,
-					todo: compInRegistry?.meta?.todo ?? false
+					available: !!registryItem,
+					registryItem
 				};
 			});
 
-			const availableComponents = componentsWithDetails.filter((c) => c.available);
+			const totalComponents = category.components.length;
+			const availableComponents = componentsWithDetails.filter((c) => c.available).length;
 
 			return {
 				...category,
 				components: componentsWithDetails,
-				total: category.components.length,
-				totalAvailable: availableComponents.length,
-				totalWithTodo: availableComponents.filter((c) => c.todo).length
+				meta: {
+					total: totalComponents,
+					totalAvailable: availableComponents,
+					totalNotAvailable: totalComponents - availableComponents
+				},
+				name: category.name,
+				slug: category.slug
 			};
 		})
 		.sort((a, b) => a.name.localeCompare(b.name));
@@ -55,22 +89,29 @@ export function getCategoriesWithDetails() {
 	return categoriesWithDetails;
 }
 
-export type CategoryWithDetails = ReturnType<typeof getCategoriesWithDetails>[number];
+export function getCategoryWithDetails(slug: CategorySlugs): CategoryWithDetails | undefined {
+	const category = componentCategories.find((category) => category.slug === slug);
+	if (!category) return undefined;
 
-export function getCategoryWithDetails(slug: CategorySlugs): CategoryWithDetails {
-	const category = categories.find((category) => category.slug === slug);
+	const components = category.components.map((component) => {
+		const registryItem = registryMap.get(component.name) ?? null;
+		return {
+			available: !!registryItem,
+			registryItem
+		};
+	});
 
-	const componentsMap = new Map(components.map((comp) => [comp.name, comp]));
+	const total = components.length;
+	const totalAvailable = components.filter((c) => c.available).length;
+	const totalNotAvailable = total - totalAvailable;
 
 	return {
-		...category!,
-		components: category!.components.map((component) => {
-			const compInRegistry = componentsMap.get(component.name)!;
-			return {
-				...component,
-				available: !!compInRegistry,
-				todo: compInRegistry?.meta?.todo ?? false
-			};
-		})
-	};
+		...category,
+		components,
+		meta: {
+			total,
+			totalAvailable,
+			totalNotAvailable
+		}
+	} satisfies CategoryWithDetails;
 }

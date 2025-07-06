@@ -1,4 +1,8 @@
 <script lang="ts">
+	import Avatar40_01 from '$lib/assets/avatar-40-01.jpg?enhanced';
+	import Avatar40_02 from '$lib/assets/avatar-40-02.jpg?enhanced';
+	import Avatar40_03 from '$lib/assets/avatar-40-03.jpg?enhanced';
+	import Avatar40_05 from '$lib/assets/avatar-40-05.jpg?enhanced';
 	import {
 		Table,
 		TableBody,
@@ -7,14 +11,12 @@
 		TableHeader,
 		TableRow
 	} from '$lib/components/ui/table';
-
 	const items = [
 		{
 			balance: '$1,250.00',
 			email: 'alex.t@company.com',
 			id: '1',
-			image:
-				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358071/avatar-40-02_upqrxi.jpg',
+			image: Avatar40_02,
 			location: 'San Francisco, US',
 			name: 'Alex Thompson',
 			status: 'Active',
@@ -24,8 +26,7 @@
 			balance: '$600.00',
 			email: 'sarah.c@company.com',
 			id: '2',
-			image:
-				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358073/avatar-40-01_ij9v7j.jpg',
+			image: Avatar40_01,
 			location: 'Singapore',
 			name: 'Sarah Chen',
 			status: 'Active',
@@ -35,8 +36,7 @@
 			balance: '$0.00',
 			email: 'm.garcia@company.com',
 			id: '4',
-			image:
-				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358072/avatar-40-03_dkeufx.jpg',
+			image: Avatar40_03,
 			location: 'Madrid, Spain',
 			name: 'Maria Garcia',
 			status: 'Active',
@@ -46,8 +46,7 @@
 			balance: '-$1,000.00',
 			email: 'd.kim@company.com',
 			id: '5',
-			image:
-				'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358070/avatar-40-05_cmz0mg.jpg',
+			image: Avatar40_05,
 			location: 'Seoul, KR',
 			name: 'David Kim',
 			status: 'Active',
@@ -72,7 +71,7 @@
 				<TableRow>
 					<TableCell>
 						<div class="flex items-center gap-3">
-							<img class="rounded-full" src={item.image} width={40} height={40} alt={item.name} />
+							<enhanced:img class="size-10 rounded-full" src={item.image} alt={item.name} />
 							<div>
 								<div class="font-medium">{item.name}</div>
 								<span class="text-muted-foreground mt-0.5 text-xs">

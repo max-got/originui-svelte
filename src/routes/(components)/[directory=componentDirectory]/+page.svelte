@@ -22,7 +22,7 @@
 	<meta property="og:title" content={data.SEO.title} />
 	<meta property="og:description" content={data.SEO.description} />
 	<meta name="twitter:title" content={data.SEO.title} />
-	<meta name="twitter:description" content={data.SEO.description} /> -->
+	<meta name="twitter:description" content={data.SEO.description} />
 </svelte:head>
 
 <PageHeader id="title" title={data.pageHeader.title}>

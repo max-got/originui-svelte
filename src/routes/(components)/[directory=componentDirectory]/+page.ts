@@ -5,7 +5,7 @@ import type { Component } from 'svelte';
 export const load = (async ({ data }) => {
 	const components = await Promise.all(
 		data.components.map(async (component) => {
-			if (component.meta?.todo) {
+			if (!component.available) {
 				return {
 					...component,
 					Component: null

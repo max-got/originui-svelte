@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
-
 	import type { Snippet } from 'svelte';
 
 	import Footer from '$lib/demo/layout/footer.svelte';
@@ -12,7 +10,7 @@
 	import interVariableWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
 	import { page } from '$app/state';
 	import { ModeWatcher } from 'mode-watcher';
-	let { children, data }: { children: Snippet; data: LayoutData } = $props();
+	let { children }: { children: Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -25,7 +23,7 @@
 	/>
 </svelte:head>
 
-<ModeWatcher defaultMode="system" />
+<ModeWatcher />
 
 <div
 	class="overflow-hidden px-4 supports-[overflow:clip]:overflow-clip sm:px-6"
@@ -38,7 +36,7 @@
 		<div class="relative flex min-h-screen flex-col">
 			<Header />
 			{@render children()}
-			<Footer footerLinks={data.footerLinks} />
+			<Footer />
 		</div>
 	</div>
 </div>

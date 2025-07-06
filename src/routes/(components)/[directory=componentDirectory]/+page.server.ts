@@ -10,7 +10,7 @@ import {
 
 function generatePageHeader(data: CategoryWithDetails) {
 	const total = data.components.length;
-	const completed = data.components.filter((component) => !component.todo).length;
+	const completed = data.components.filter((component) => component.available).length;
 
 	if (completed === total) {
 		return {
@@ -28,7 +28,7 @@ function generatePageHeader(data: CategoryWithDetails) {
 }
 
 function generateSEO(data: CategoryWithDetails) {
-	const completed = data.components.filter((component) => !component.todo).length;
+	const completed = data.components.filter((component) => component.available).length;
 	return {
 		description: `An extensive collection of ${completed} copy-and-paste ${data.name} components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.`,
 		title: `${data.name} ${SEO_DELIMITER} Svelte Components ${SEO_DELIMITER} ${PROJECT_NAME}`
@@ -38,11 +38,11 @@ function generateSEO(data: CategoryWithDetails) {
 export const load = (async ({ params }) => {
 	const { directory } = params;
 	const category = getCategoryWithDetails(directory);
-	if (!category) {
-		error(404, 'Category not found');
-	}
+	if (!category) error(404, 'Category not found');
 
-	const components = getComponentsByNames(category.components.map((item) => item.name));
+	const components = getComponentsByNames(
+		category.components.map((item) => item.registryItem?.name ?? '').filter(Boolean)
+	);
 
 	return {
 		components: components ?? [],

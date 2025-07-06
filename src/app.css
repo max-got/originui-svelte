@@ -169,6 +169,7 @@
 		Inter Variable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-serif: DM Serif Display, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-heading: DM Serif Display, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 :root {
@@ -290,17 +291,17 @@
 	}
 }
 @layer base {
-	pre::-webkit-scrollbar {
+	*::-webkit-scrollbar {
 		width: 5px;
 	}
-	pre::-webkit-scrollbar-track {
+	*::-webkit-scrollbar-track {
 		background: transparent;
 	}
-	pre::-webkit-scrollbar-thumb {
+	*::-webkit-scrollbar-thumb {
 		background: var(--border);
 		border-radius: 5px;
 	}
-	pre {
+	* {
 		scrollbar-width: thin;
 		scrollbar-color: var(--border) transparent;
 	}

@@ -11,15 +11,11 @@
 	function setHoverRating(value: string) {
 		hoverRating = value;
 	}
-
-	function setCurrentRating(value: string) {
-		currentRating = value;
-	}
 </script>
 
 <fieldset class="space-y-4">
 	<legend class="text-foreground text-sm leading-none font-medium"> Rate your experience </legend>
-	<RadioGroup class="inline-flex gap-0" onValueChange={setCurrentRating}>
+	<RadioGroup class="inline-flex gap-0" bind:value={currentRating}>
 		{#each ['1', '2', '3', '4', '5'] as value (value)}
 			<label
 				class="group has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative cursor-pointer rounded p-0.5 outline-none has-focus-visible:ring-[3px]"

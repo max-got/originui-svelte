@@ -1,15 +1,28 @@
 <script lang="ts">
+	import type { CategoryWithDetails } from '$data/registry/query.js';
+
 	import CategoryCard from '$lib/demo/category-card.svelte';
 	import Illustration from '$lib/demo/illustration.svelte';
 
 	import { mode } from 'mode-watcher';
 
 	let { data } = $props();
+
+	function getStatus(
+		category: CategoryWithDetails
+	): 'available' | 'not-available' | 'partially-available' {
+		if (category.meta.totalAvailable === 0) {
+			return 'not-available';
+		}
+		if (category.meta.totalNotAvailable === 0) {
+			return 'available';
+		}
+		return 'partially-available';
+	}
 </script>
 
 <svelte:head>
 	<title>Origin UI - Svelte | Beautiful UI components built with Tailwind CSS and Svelte</title>
-
 	<meta
 		name="theme-color"
 		content={mode.current === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 100%)'}
@@ -19,7 +32,6 @@
 		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
 	/>
 	<meta name="keywords" content="svelte, component, origin ui, tailwindcss, ui, library" />
-
 	<meta
 		property="og:title"
 		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
@@ -28,13 +40,10 @@
 		property="og:description"
 		content="An extensive collection of copy-and-paste Svelte components for quickly building app UIs."
 	/>
-	<meta property="og:image:type" content="image/jpeg" /><meta
-		property="og:image:width"
-		content="2400"
-	/>
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="2400" />
 	<meta property="og:image:height" content="1260" />
 	<meta property="og:image" content="/og-image.jpg" />
-
 	<meta name="twitter:title" content="Origin UI - Svelte" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta
@@ -77,23 +86,8 @@
 	<div class="relative my-16">
 		<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each data.categories as category (category.slug)}
-				{@const isFullyImplemented = category.total - category.totalWithTodo === category.total}
-				<CategoryCard alt="{category.name} demo" {category}>
-					{#snippet details()}
-						<h2 class="_component-directory">
-							<a href="/{category.slug}" class="text-sm font-medium hover:underline">
-								{category.name}
-							</a>
-						</h2>
-						<p class="text-muted-foreground text-[13px]">
-							{#if isFullyImplemented}
-								{category.total} Components
-							{:else}
-								{category.total - category.totalWithTodo} / {category.total} Components
-							{/if}
-						</p>
-					{/snippet}
-				</CategoryCard>
+				{@const status = getStatus(category)}
+				<CategoryCard alt="{category.name} demo" {category} {status} />
 			{/each}
 		</div>
 	</div>

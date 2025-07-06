@@ -1,6 +1,5 @@
 /* eslint-disable perfectionist/sort-objects */
 export interface ComponentCategory {
-	available: 'all' | 'none' | 'partial';
 	components: { name: string }[];
 	isNew?: boolean;
 	name: string;
@@ -10,7 +9,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'accordion',
 		name: 'Accordion',
-		available: 'all',
 		components: [
 			{ name: 'comp-334' },
 			{ name: 'comp-335' },
@@ -37,7 +35,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'alert',
 		name: 'Alert',
-		available: 'all',
 		components: [
 			{ name: 'comp-267' },
 			{ name: 'comp-268' },
@@ -56,7 +53,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'avatar',
 		name: 'Avatar',
-		available: 'all',
 		components: [
 			{ name: 'comp-390' },
 			{ name: 'comp-391' },
@@ -86,7 +82,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'badge',
 		name: 'Badge',
-		available: 'all',
 		components: [
 			{ name: 'comp-413' },
 			{ name: 'comp-414' },
@@ -106,7 +101,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'banner',
 		name: 'Banner',
-		available: 'all',
 		components: [
 			{ name: 'comp-301' },
 			{ name: 'comp-302' },
@@ -125,7 +119,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'breadcrumb',
 		name: 'Breadcrumb',
-		available: 'all',
 		components: [
 			{ name: 'comp-446' },
 			{ name: 'comp-447' },
@@ -140,7 +133,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'button',
 		name: 'Button',
-		available: 'all',
 		components: [
 			{ name: 'comp-78' },
 			{ name: 'comp-79' },
@@ -201,7 +193,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'calendar-date-picker',
 		name: 'Calendar & Date picker',
-		available: 'none',
 		components: [
 			{ name: 'comp-487' },
 			{ name: 'comp-488' },
@@ -236,7 +227,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'checkbox',
 		name: 'Checkbox',
-		available: 'all',
 		components: [
 			{ name: 'comp-132' },
 			{ name: 'comp-133' },
@@ -263,7 +253,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'image-cropper',
 		name: 'Image Cropper',
-		available: 'none',
 		components: [
 			{ name: 'comp-554' },
 			{ name: 'comp-555' },
@@ -281,7 +270,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'dialog',
 		name: 'Dialog',
-		available: 'all',
 		components: [
 			{ name: 'comp-313' },
 			{ name: 'comp-314' },
@@ -309,7 +297,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'dropdown',
 		name: 'Dropdown',
-		available: 'all',
 		components: [
 			{ name: 'comp-366' },
 			{ name: 'comp-367' },
@@ -331,7 +318,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'file-upload',
 		name: 'File upload',
-		available: 'none',
 		components: [
 			{ name: 'comp-125' },
 			{ name: 'comp-126' },
@@ -352,13 +338,11 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'event-calendar',
 		name: 'Event calendar',
-		available: 'none',
 		components: [{ name: 'comp-542' }]
 	},
 	{
 		slug: 'input',
 		name: 'Input',
-		available: 'partial',
 		components: [
 			{ name: 'comp-01' },
 			{ name: 'comp-02' },
@@ -424,7 +408,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'navbar',
 		name: 'Navbar',
-		available: 'partial',
 		components: [
 			{ name: 'comp-577' },
 			{ name: 'comp-578' },
@@ -452,7 +435,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'notification',
 		name: 'Notification',
-		available: 'all',
 		components: [
 			{ name: 'comp-279' },
 			{ name: 'comp-280' },
@@ -481,7 +463,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'pagination',
 		name: 'Pagination',
-		available: 'all',
 		components: [
 			{ name: 'comp-454' },
 			{ name: 'comp-455' },
@@ -500,7 +481,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'popover',
 		name: 'Popover',
-		available: 'all',
 		components: [
 			{ name: 'comp-381' },
 			{ name: 'comp-382' },
@@ -516,7 +496,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'radio',
 		name: 'Radio',
-		available: 'all',
 		components: [
 			{ name: 'comp-152' },
 			{ name: 'comp-153' },
@@ -543,7 +522,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'select',
 		name: 'Select',
-		available: 'all',
 		components: [
 			{ name: 'comp-189' },
 			{ name: 'comp-190' },
@@ -601,7 +579,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'slider',
 		name: 'Slider',
-		available: 'all',
 		components: [
 			{ name: 'comp-240' },
 			{ name: 'comp-241' },
@@ -635,7 +612,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'stepper',
 		name: 'Stepper',
-		available: 'all',
 		components: [
 			{ name: 'comp-513' },
 			{ name: 'comp-514' },
@@ -659,7 +635,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'switch',
 		name: 'Switch',
-		available: 'all',
 		components: [
 			{ name: 'comp-172' },
 			{ name: 'comp-173' },
@@ -683,7 +658,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'table',
 		name: 'Table',
-		available: 'all',
 		components: [
 			{ name: 'comp-466' },
 			{ name: 'comp-467' },
@@ -710,7 +684,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'tabs',
 		name: 'Tabs',
-		available: 'all',
 		components: [
 			{ name: 'comp-426' },
 			{ name: 'comp-427' },
@@ -737,7 +710,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'textarea',
 		name: 'Textarea',
-		available: 'all',
 		components: [
 			{ name: 'comp-59' },
 			{ name: 'comp-60' },
@@ -763,7 +735,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'timeline',
 		name: 'Timeline',
-		available: 'all',
 		components: [
 			{ name: 'comp-530' },
 			{ name: 'comp-531' },
@@ -782,7 +753,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'tooltip',
 		name: 'Tooltip',
-		available: 'all',
 		components: [
 			{ name: 'comp-354' },
 			{ name: 'comp-355' },
@@ -801,7 +771,6 @@ export const categories: ComponentCategory[] = [
 	{
 		slug: 'tree',
 		name: 'Tree',
-		available: 'none',
 		components: [
 			{ name: 'comp-565' },
 			{ name: 'comp-566' },
