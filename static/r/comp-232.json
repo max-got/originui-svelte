@@ -1,0 +1,34 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-232",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"command",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"command",
+			"combobox",
+			"popover",
+			"search",
+			"autocomplete",
+			"flag",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport * as Command from '$lib/components/ui/command';\n\timport * as Popover from '$lib/components/ui/popover';\n\timport { cn } from '$UTILS$';\n\n\tlet open = $state(false);\n\tlet value = $state('');\n\n\tconst countries = [\n\t\t{\n\t\t\tcontinent: 'Europe',\n\t\t\titems: [\n\t\t\t\t{ flag: '🇩🇪', value: 'Germany' },\n\t\t\t\t{ flag: '🇬🇧', value: 'United Kingdom' },\n\t\t\t\t{ flag: '🇫🇷', value: 'France' }\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\tcontinent: 'America',\n\t\t\titems: [\n\t\t\t\t{ flag: '🇺🇸', value: 'United States' },\n\t\t\t\t{ flag: '🇨🇦', value: 'Canada' },\n\t\t\t\t{ flag: '🇲🇽', value: 'Mexico' }\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\tcontinent: 'Africa',\n\t\t\titems: [\n\t\t\t\t{ flag: '🇿🇦', value: 'South Africa' },\n\t\t\t\t{ flag: '🇳🇬', value: 'Nigeria' },\n\t\t\t\t{ flag: '🇲🇦', value: 'Morocco' }\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\tcontinent: 'Asia',\n\t\t\titems: [\n\t\t\t\t{ flag: '🇨🇳', value: 'China' },\n\t\t\t\t{ flag: '🇯🇵', value: 'Japan' },\n\t\t\t\t{ flag: '🇮🇳', value: 'India' }\n\t\t\t]\n\t\t},\n\n\t\t{\n\t\t\tcontinent: 'Oceania',\n\t\t\titems: [\n\t\t\t\t{ flag: '🇦🇺', value: 'Australia' },\n\t\t\t\t{ flag: '🇳🇿', value: 'New Zealand' }\n\t\t\t]\n\t\t}\n\t] as const;\n\n\tconst selectedCountry = $derived.by(() => {\n\t\tconst items = countries.flatMap<(typeof countries)[number]['items'][number]>(\n\t\t\t(group) => group.items\n\t\t);\n\n\t\treturn items.find((item) => item.value === value);\n\t});\n\n\tfunction handleSelect(currentValue: string) {\n\t\tvalue = currentValue;\n\t\topen = false;\n\t}\n</script>\n\n<div class=\"space-y-2\">\n\t<Label>Options with flag and search</Label>\n\t<Popover.Root bind:open>\n\t\t<Popover.Trigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\trole=\"combobox\"\n\t\t\t\t\taria-expanded={open}\n\t\t\t\t\tclass=\"bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]\"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t{#if value && selectedCountry}\n\t\t\t\t\t\t<span class=\"flex min-w-0 items-center gap-2\">\n\t\t\t\t\t\t\t<span class=\"text-lg leading-none\">{selectedCountry.flag}</span>\n\t\t\t\t\t\t\t<span class=\"truncate\">{value}</span>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t{:else}\n\t\t\t\t\t\t<span class=\"text-muted-foreground\">Select country</span>\n\t\t\t\t\t{/if}\n\t\t\t\t\t<ChevronDown size={16} class=\"text-muted-foreground/80 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</Popover.Trigger>\n\t\t<Popover.Content class=\"w-full min-w-(--bits-popover-anchor-width) p-0\" align=\"start\">\n\t\t\t<Command.Root>\n\t\t\t\t<Command.Input placeholder=\"Search country...\" />\n\t\t\t\t<Command.List>\n\t\t\t\t\t<Command.Empty>No country found.</Command.Empty>\n\t\t\t\t\t{#each countries as group (group.continent)}\n\t\t\t\t\t\t<Command.Group heading={group.continent}>\n\t\t\t\t\t\t\t{#each group.items as country (country.value)}\n\t\t\t\t\t\t\t\t<Command.Item value={country.value} onSelect={() => handleSelect(country.value)}>\n\t\t\t\t\t\t\t\t\t<span class=\"text-lg leading-none\">{country.flag}</span>\n\t\t\t\t\t\t\t\t\t{country.value}\n\t\t\t\t\t\t\t\t\t<Check\n\t\t\t\t\t\t\t\t\t\tclass={cn('ml-auto', value === country.value ? 'opacity-100' : 'opacity-0')}\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</Command.Item>\n\t\t\t\t\t\t\t{/each}\n\t\t\t\t\t\t</Command.Group>\n\t\t\t\t\t{/each}\n\t\t\t\t</Command.List>\n\t\t\t</Command.Root>\n\t\t</Popover.Content>\n\t</Popover.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-232.svelte"
+		}
+	]
+}

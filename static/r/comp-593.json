@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-593",
+	"type": "registry:component",
+	"registryDependencies": [
+		"breadcrumb",
+		"button",
+		"calendar",
+		"checkbox",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"todo": true,
+		"tags": [
+			"navbar, navigation"
+		],
+		"colSpan": 3
+	},
+	"files": []
+}

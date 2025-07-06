@@ -1,6 +1,7 @@
+/// <reference types="vitest" />
+
 import { svelteTesting } from '@testing-library/svelte/vite';
 import { defineConfig } from 'vitest/config';
-
 export default defineConfig({
 	test: {
 		workspace: [

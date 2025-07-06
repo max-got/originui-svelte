@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-155",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n</script>\n\n<RadioGroup class=\"gap-6\" value=\"small\">\n\t<div class=\"flex items-start gap-2\">\n\t\t<RadioGroupItem\n\t\t\tvalue=\"small\"\n\t\t\tid=\"radio-04-small\"\n\t\t\taria-describedby=\"radio-04-small-description\"\n\t\t/>\n\t\t<div class=\"grid grow gap-2\">\n\t\t\t<Label for=\"radio-04-small\">\n\t\t\t\tSmall\n\t\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\">\n\t\t\t\t\t(Sublabel)\n\t\t\t\t</span>\n\t\t\t</Label>\n\t\t\t<p id=\"radio-04-small-description\" class=\"text-muted-foreground text-xs\">\n\t\t\t\tYou can use this card with a label and a description.\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\t<div class=\"flex items-start gap-2\">\n\t\t<RadioGroupItem value=\"r2\" id=\"radio-04-r2\" aria-describedby=\"radio-04-r2-description\" />\n\t\t<div class=\"grid grow gap-2\">\n\t\t\t<Label for=\"radio-04-r2\">\n\t\t\t\tLarge\n\t\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\">\n\t\t\t\t\t(Sublabel)\n\t\t\t\t</span>\n\t\t\t</Label>\n\t\t\t<p id=\"radio-04-r2-description\" class=\"text-muted-foreground text-xs\">\n\t\t\t\tYou can use this card with a label and a description.\n\t\t\t</p>\n\t\t</div>\n\t</div>\n</RadioGroup>\n",
+			"type": "registry:component",
+			"target": "comp-155.svelte"
+		}
+	]
+}

@@ -3,7 +3,7 @@
 	"name": "comp-83",
 	"type": "registry:component",
 	"dependencies": [
-		"@lucide/svelte@^0.513.0"
+		"@lucide/svelte@^0.525.0"
 	],
 	"registryDependencies": [
 		"button"
@@ -15,7 +15,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport X from '@lucide/svelte/icons/x';\n</script>\n\n<Button variant=\"secondary\">\n\t<X class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\tButton\n</Button>\n",
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/registry/default/ui/button.svelte';\n\n\timport XIcon from '@lucide/svelte/icons/x';\n</script>\n\n<Button variant=\"secondary\">\n\t<XIcon class=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\tButton\n</Button>\n",
 			"type": "registry:component",
 			"target": "comp-83.svelte"
 		}

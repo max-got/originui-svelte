@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-157",
+	"type": "registry:component",
+	"dependencies": [
+		"@remixicon/react"
+	],
+	"registryDependencies": [
+		"label",
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"rating",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport IconStarFill from '~icons/ri/star-fill';\n\n\tlet selectedValue = $state('all');\n</script>\n\n<RadioGroup bind:value={selectedValue}>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"all\" id=\"radio-06-all\" />\n\t\t<Label for=\"radio-06-all\">\n\t\t\tAll reviews\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (12,921) </span>\n\t\t</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"5-stars\" id=\"radio-06-5-stars\" />\n\t\t<Label for=\"radio-06-5-stars\" class=\"inline-flex items-center gap-1\">\n\t\t\t<span class=\"inline-flex items-center text-amber-500\" aria-hidden=\"true\">\n\t\t\t\t{#each Array.from({ length: 5 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t\t\t\t{/each}\n\t\t\t</span>\n\t\t\t<span class=\"sr-only\">5 stars</span>\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (5,168) </span>\n\t\t</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"4-stars\" id=\"radio-06-4-stars\" />\n\t\t<Label for=\"radio-06-4-stars\" class=\"inline-flex items-center gap-1\">\n\t\t\t<span class=\"inline-flex items-center text-amber-500\" aria-hidden=\"true\">\n\t\t\t\t{#each Array.from({ length: 4 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t\t\t\t{/each}\n\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" class=\"opacity-30\" />\n\t\t\t</span>\n\t\t\t<span class=\"sr-only\">4 stars</span>\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (4,726) </span>\n\t\t</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"3-stars\" id=\"radio-06-3-stars\" />\n\t\t<Label for=\"radio-06-3-stars\" class=\"inline-flex items-center gap-1\">\n\t\t\t<span class=\"inline-flex items-center text-amber-500\" aria-hidden=\"true\">\n\t\t\t\t{#each Array.from({ length: 3 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t\t\t\t{/each}\n\t\t\t\t{#each Array.from({ length: 2 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" class=\"opacity-30\" />\n\t\t\t\t{/each}\n\t\t\t</span>\n\t\t\t<span class=\"sr-only\">3 stars</span>\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (3,234) </span>\n\t\t</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"2-stars\" id=\"radio-06-2-stars\" />\n\t\t<Label for=\"radio-06-2-stars\" class=\"inline-flex items-center gap-1\">\n\t\t\t<span class=\"inline-flex items-center text-amber-500\" aria-hidden=\"true\">\n\t\t\t\t{#each Array.from({ length: 2 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t\t\t\t{/each}\n\t\t\t\t{#each Array.from({ length: 3 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" class=\"opacity-30\" />\n\t\t\t\t{/each}\n\t\t\t</span>\n\t\t\t<span class=\"sr-only\">2 stars</span>\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (1,842) </span>\n\t\t</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"1-star\" id=\"radio-06-1-star\" />\n\t\t<Label for=\"radio-06-1-star\" class=\"inline-flex items-center gap-1\">\n\t\t\t<span class=\"inline-flex items-center text-amber-500\" aria-hidden=\"true\">\n\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" />\n\t\t\t\t{#each Array.from({ length: 4 })}\n\t\t\t\t\t<IconStarFill width=\"16\" height=\"16\" aria-hidden=\"true\" class=\"opacity-30\" />\n\t\t\t\t{/each}\n\t\t\t</span>\n\t\t\t<span class=\"sr-only\">1 star</span>\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\">(452)</span>\n\t\t</Label>\n\t</div>\n</RadioGroup>\n",
+			"type": "registry:component",
+			"target": "comp-157.svelte"
+		}
+	]
+}

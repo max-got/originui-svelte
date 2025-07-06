@@ -3,7 +3,7 @@
 	"name": "dialog",
 	"type": "registry:ui",
 	"dependencies": [
-		"@lucide/svelte@^0.513.0",
+		"@lucide/svelte@^0.525.0",
 		"bits-ui@2.5.0",
 		"@internationalized/date@^3.8.2"
 	],

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-359",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"image",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ContentImg from '$assets/dialog-content.png?w=764&h=432&enhanced';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<TooltipProvider delayDuration={0}>\n\t<Tooltip open>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"sm\" {...props}>W/ image</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\" py-3\">\n\t\t\t<div class=\"max-w-[382px] space-y-2\">\n\t\t\t\t<enhanced:img class=\"w-full rounded\" src={ContentImg} alt=\"Content image\" />\n\t\t\t\t<div class=\"space-y-1\">\n\t\t\t\t\t<p class=\"text-[13px] font-medium\">Tooltip with title and icon</p>\n\t\t\t\t\t<p class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\tTooltips are made to be highly customizable, with features like dynamic placement, rich\n\t\t\t\t\t\tcontent, and a robust API.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div></TooltipContent\n\t\t>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-359.svelte"
+		}
+	]
+}

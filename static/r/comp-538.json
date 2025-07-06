@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-538",
+	"type": "registry:component",
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTimeline,\n\t\tTimelineContent,\n\t\tTimelineDate,\n\t\tTimelineItem\n\t} from '$lib/components/ui/timeline';\n\n\tconst items = [\n\t\t{\n\t\t\tdate: new Date('2024-01-09T10:55:00'),\n\t\t\tdescription: 'System backup completed successfully.',\n\t\t\tid: 1\n\t\t},\n\t\t{\n\t\t\tdate: new Date('2024-01-09T10:50:00'),\n\t\t\tdescription: 'User authentication service restarted due to configuration update.',\n\t\t\tid: 2\n\t\t},\n\t\t{\n\t\t\tdate: new Date('2024-01-09T10:45:00'),\n\t\t\tdescription: 'Warning: High CPU usage detected on worker node-03.',\n\t\t\tid: 3\n\t\t},\n\t\t{\n\t\t\tdate: new Date('2024-01-09T10:40:00'),\n\t\t\tdescription: 'New deployment initiated for api-service v2.1.0.',\n\t\t\tid: 4\n\t\t}\n\t];\n</script>\n\n<Timeline class=\"divide-y rounded-lg border\">\n\t{#each items as item (item.id)}\n\t\t<TimelineItem step={item.id} class=\"m-0! px-4! py-3!\">\n\t\t\t<TimelineContent class=\"text-foreground\">\n\t\t\t\t{item.description}\n\t\t\t\t<TimelineDate class=\"mt-1\">\n\t\t\t\t\t{item.date.toLocaleDateString('en-US', {\n\t\t\t\t\t\tday: 'numeric',\n\t\t\t\t\t\tmonth: 'long',\n\t\t\t\t\t\tyear: 'numeric'\n\t\t\t\t\t})}\n\t\t\t\t\tat\n\t\t\t\t\t{item.date.toLocaleTimeString('en-US', {\n\t\t\t\t\t\thour: 'numeric',\n\t\t\t\t\t\thour12: true,\n\t\t\t\t\t\tminute: '2-digit'\n\t\t\t\t\t})}\n\t\t\t\t</TimelineDate>\n\t\t\t</TimelineContent>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-538.svelte"
+		}
+	]
+}

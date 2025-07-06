@@ -1,0 +1,31 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-387",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"input",
+		"popover",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"share",
+			"social",
+			"copy",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '../ui/input.svelte';\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport Copy from '@lucide/svelte/icons/copy';\n\timport RiCodeFill from '~icons/ri/code-fill';\n\timport RiFacebookFill from '~icons/ri/facebook-fill';\n\timport RiMailLine from '~icons/ri/mail-line';\n\timport RiTwitterXFill from '~icons/ri/twitter-x-fill';\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n\timport { cn } from '$UTILS$';\n\n\tlet copied = $state(false);\n\tlet inputRef = $state<HTMLInputElement | null>(null);\n\n\tfunction handleCopy() {\n\t\tif (!inputRef) return;\n\n\t\tnavigator.clipboard.writeText(inputRef.value);\n\t\tcopied = true;\n\t\tsetTimeout(() => (copied = false), 1500);\n\t}\n</script>\n\n<div class=\"flex flex-col gap-4\">\n\t<Popover>\n\t\t<PopoverTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" {...props}>Share</Button>\n\t\t\t{/snippet}\n\t\t</PopoverTrigger>\n\t\t<PopoverContent class=\"w-72\">\n\t\t\t<div class=\"flex flex-col gap-3 text-center\">\n\t\t\t\t<div class=\"text-sm font-medium\">Share code</div>\n\t\t\t\t<div class=\"flex flex-wrap justify-center gap-2\">\n\t\t\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Embed\">\n\t\t\t\t\t\t<RiCodeFill class=\"size-4\" aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Share on Twitter\">\n\t\t\t\t\t\t<RiTwitterXFill class=\"size-4\" aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Share on Facebook\">\n\t\t\t\t\t\t<RiFacebookFill class=\"size-4\" aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Share via email\">\n\t\t\t\t\t\t<RiMailLine class=\"size-4\" aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"space-y-2\">\n\t\t\t\t\t<div class=\"relative\">\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\tbind:ref={inputRef}\n\t\t\t\t\t\t\tid=\"input-53\"\n\t\t\t\t\t\t\tclass=\"pe-9\"\n\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\tvalue=\"https://originui-svelte.pages.dev/\"\n\t\t\t\t\t\t\taria-label=\"Share link\"\n\t\t\t\t\t\t\treadonly\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<TooltipProvider delayDuration={0}>\n\t\t\t\t\t\t\t<Tooltip>\n\t\t\t\t\t\t\t\t<TooltipTrigger>\n\t\t\t\t\t\t\t\t\t{#snippet child()}\n\t\t\t\t\t\t\t\t\t\t<button\n\t\t\t\t\t\t\t\t\t\t\tonclick={handleCopy}\n\t\t\t\t\t\t\t\t\t\t\tclass=\"text-muted-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:outline-ring/70 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg border border-transparent outline-offset-2 transition-colors focus-visible:outline-2 focus-visible:outline-solid disabled:pointer-events-none disabled:cursor-not-allowed\"\n\t\t\t\t\t\t\t\t\t\t\taria-label={copied ? 'Copied' : 'Copy to clipboard'}\n\t\t\t\t\t\t\t\t\t\t\tdisabled={copied}\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t\t\t\t\t\t\t'transition-all',\n\t\t\t\t\t\t\t\t\t\t\t\t\tcopied ? 'scale-100 opacity-100' : 'scale-0 opacity-0'\n\t\t\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t\t<Check class=\"stroke-emerald-500\" size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t\t\t\t\t\t\t'absolute transition-all',\n\t\t\t\t\t\t\t\t\t\t\t\t\tcopied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'\n\t\t\t\t\t\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t\t\t<Copy size={16} aria-hidden=\"true\" />\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t{/snippet}\n\t\t\t\t\t\t\t\t</TooltipTrigger>\n\t\t\t\t\t\t\t\t<TooltipContent class=\"px-2 py-1 text-xs\">Copy to clipboard</TooltipContent>\n\t\t\t\t\t\t\t</Tooltip>\n\t\t\t\t\t\t</TooltipProvider>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</PopoverContent>\n\t</Popover>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-387.svelte"
+		}
+	]
+}

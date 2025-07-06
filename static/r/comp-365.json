@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-365",
+	"type": "registry:component",
+	"registryDependencies": [
+		"hover-card"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"hover card",
+			"image",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport ContentImg from '$assets/dialog-content.png?w=382&h=216&enhanced';\n\timport { HoverCard, HoverCardContent, HoverCardTrigger } from '$lib/components/ui/hover-card';\n</script>\n\n<HoverCard>\n\t<HoverCardTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<a\n\t\t\t\tclass=\"flex size-16 overflow-hidden rounded-lg p-0\"\n\t\t\t\taria-label=\"My profile\"\n\t\t\t\thref=\"#title\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<enhanced:img class=\"size-full object-cover\" src={ContentImg} alt=\"Content Image\" />\n\t\t\t</a>\n\t\t{/snippet}\n\t</HoverCardTrigger>\n\t<HoverCardContent class=\"w-[320px]\" showArrow>\n\t\t<div class=\"space-y-3\">\n\t\t\t<div class=\"space-y-1\">\n\t\t\t\t<h2 class=\"font-semibold\">Building a Design System with Svelte and Tailwind CSS</h2>\n\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\tLearn how to build a comprehensive design system using Tailwind CSS, including component\n\t\t\t\t\tarchitecture, and theme customization.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div class=\"text-muted-foreground flex items-center gap-2 text-xs\">\n\t\t\t\t<span>8 min read</span>\n\t\t\t\t<span>·</span>\n\t\t\t\t<span>Updated 2 days ago</span>\n\t\t\t</div>\n\t\t</div>\n\t</HoverCardContent>\n</HoverCard>\n",
+			"type": "registry:component",
+			"target": "comp-365.svelte"
+		}
+	]
+}

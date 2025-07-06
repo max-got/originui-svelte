@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-138",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"login",
+			"authentication",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"flex items-center gap-2\">\n\t<Checkbox id={uid} />\n\t<Label for={uid}>\n\t\tI agree to the\n\t\t<a class=\"underline\" href=\"https://originui.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n\t\t\tterms of service\n\t\t</a>\n\t</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-138.svelte"
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-274",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"alert",
+			"info"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport InfoIcon from '@lucide/svelte/icons/info';\n</script>\n\n<div class=\"rounded-lg border border-blue-500/50 px-4 py-3 text-blue-600\">\n\t<p class=\"text-sm\">\n\t\t<InfoIcon class=\"me-3 -mt-0.5 inline-flex opacity-60\" size={16} aria-hidden=\"true\" />Just a\n\t\tquick note!\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-274.svelte"
+		}
+	]
+}

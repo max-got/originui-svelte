@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-180",
+	"type": "registry:component",
+	"registryDependencies": [
+		"switch"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"label",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\tlet checked = $state(false);\n\n\tfunction toggleSwitch() {\n\t\tchecked = !checked;\n\t}\n\n\tconst uid = $props.id();\n</script>\n\n<div>\n\t<Label for={uid} class=\"sr-only\">Toggle switch</Label>\n\t<div class=\"group inline-flex items-center gap-2\" data-state={checked ? 'checked' : 'unchecked'}>\n\t\t<button\n\t\t\tid=\"{uid}-off-label\"\n\t\t\tclass=\"group-data-[state=checked]:text-muted-foreground/70 flex-1 cursor-pointer text-right text-sm font-medium\"\n\t\t\tonclick={toggleSwitch}\n\t\t>\n\t\t\tOff\n\t\t</button>\n\t\t<Switch id={uid} bind:checked aria-labelledby=\"${uid}-off-label ${uid}-on-label\" />\n\t\t<button\n\t\t\tid=\"{uid}-on-label\"\n\t\t\tclass=\"group-data-[state=unchecked]:text-muted-foreground/70 flex-1 cursor-pointer text-left text-sm font-medium\"\n\t\t\tonclick={toggleSwitch}\n\t\t>\n\t\t\tOn\n\t\t</button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-180.svelte"
+		}
+	]
+}

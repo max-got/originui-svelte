@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-280",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"error"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport CircleCheckIcon from '@lucide/svelte/icons/circle-check';\n\timport XIcon from '@lucide/svelte/icons/x';\n</script>\n\n<!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->\n<div\n\tclass=\"border-border bg-background z-100 max-w-[400px] rounded-lg border px-4 py-3 shadow-lg shadow-black/5\"\n>\n\t<div class=\"flex gap-2\">\n\t\t<p class=\"grow text-sm\">\n\t\t\t<CircleCheckIcon\n\t\t\t\tclass=\"me-3 -mt-0.5 inline-flex text-red-500\"\n\t\t\t\tsize={16}\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>An error occurred!\n\t\t</p>\n\t\t<Button\n\t\t\tvariant=\"ghost\"\n\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\taria-label=\"Close notification\"\n\t\t>\n\t\t\t<XIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-280.svelte"
+		}
+	]
+}

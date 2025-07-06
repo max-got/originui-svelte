@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-324",
+	"type": "registry:component",
+	"dependencies": [
+		"input-otp"
+	],
+	"registryDependencies": [
+		"button",
+		"dialog"
+	],
+	"meta": {
+		"todo": true,
+		"tags": [
+			"dialog",
+			"modal",
+			"otp",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "",
+			"type": "registry:component",
+			"target": "comp-324.todo.svelte"
+		}
+	]
+}

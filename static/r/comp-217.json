@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-217",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\tconst items = [\n\t\t{ label: 'Svelte', value: 's1' },\n\t\t{ label: 'Next.js', value: 's2' },\n\t\t{ label: 'Astro', value: 's3' },\n\t\t{ label: 'Gatsby', value: 's4' }\n\t] as const;\n\n\tlet value = $state('');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"border-input bg-background focus-within:border-ring focus-within:ring-ring/20 relative rounded-lg border shadow-xs shadow-black/5 transition-shadow focus-within:ring-[3px] focus-within:outline-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 [&:has(input:is(:disabled))_*]:pointer-events-none\"\n>\n\t<label for={uid} class=\"text-foreground block px-3 pt-2 text-xs font-medium\">\n\t\tSelect with inset label\n\t</label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger\n\t\t\tid={uid}\n\t\t\tclass=\"border-none bg-transparent shadow-none focus:ring-0 focus:ring-offset-0\"\n\t\t>\n\t\t\t{selected?.label ?? 'Select a framework'}\n\t\t</Select.Trigger>\n\t\t<Select.Content>\n\t\t\t{#each items as item (item.value)}\n\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t{item.label}\n\t\t\t\t</Select.Item>\n\t\t\t{/each}\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-217.svelte"
+		}
+	]
+}

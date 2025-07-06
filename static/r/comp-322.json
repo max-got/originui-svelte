@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-322",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"dialog",
+		"textarea"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"feedback",
+			"form",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport Textarea from '$lib/components/ui/textarea.svelte';\n\n\timport * as Dialog from '$lib/components/ui/dialog';\n</script>\n\n<Dialog.Root>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Feedback</Dialog.Trigger>\n\t<Dialog.Content>\n\t\t<Dialog.Header>\n\t\t\t<Dialog.Title>Send us feedback</Dialog.Title>\n\t\t\t<Dialog.Description>\n\t\t\t\tWatch\n\t\t\t\t<a class=\"text-foreground hover:underline\" href=\"#title\">tutorials</a>, read Origin\n\t\t\t\tUI&lsquo;s\n\t\t\t\t<a class=\"text-foreground hover:underline\" href=\"#title\">documentation</a>, or join our\n\t\t\t\t<a class=\"text-foreground hover:underline\" href=\"#title\">Discord</a>\n\t\t\t\tfor community help.\n\t\t\t</Dialog.Description>\n\t\t</Dialog.Header>\n\t\t<form class=\"space-y-5\">\n\t\t\t<Textarea\n\t\t\t\tid=\"feedback\"\n\t\t\t\tplaceholder=\"How can we improve Origin UI?\"\n\t\t\t\taria-label=\"Send feedback\"\n\t\t\t/>\n\t\t\t<div class=\"flex flex-col sm:flex-row sm:justify-end\">\n\t\t\t\t<Button type=\"button\">Send feedback</Button>\n\t\t\t</div>\n\t\t</form>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-322.svelte"
+		}
+	]
+}

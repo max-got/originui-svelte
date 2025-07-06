@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-350",
+	"type": "registry:component",
+	"registryDependencies": [
+		"accordion"
+	],
+	"meta": {
+		"tags": [
+			"accordion",
+			"bits ui"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport * as Accordion from '$lib/components/ui/accordion/index.js';\n\n\tconst items = [\n\t\t{\n\t\t\tcontent:\n\t\t\t\t'Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.',\n\t\t\tid: '1',\n\t\t\ttitle: 'What makes Origin UI - Svelte different?'\n\t\t},\n\t\t{\n\t\t\tcontent:\n\t\t\t\t'Use our CSS variables for global styling, or class and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.',\n\t\t\tid: '2',\n\t\t\ttitle: 'How can I customize the components?'\n\t\t},\n\t\t{\n\t\t\tcontent:\n\t\t\t\t'Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.',\n\t\t\tid: '3',\n\t\t\ttitle: 'Is Origin UI - Svelte optimized for performance?'\n\t\t},\n\t\t{\n\t\t\tcontent:\n\t\t\t\t'All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.',\n\t\t\tid: '4',\n\t\t\ttitle: 'How accessible are the components?'\n\t\t}\n\t];\n</script>\n\n<div class=\"space-y-4\">\n\t<h2 class=\"text-xl font-bold\">Table w/ left chevron</h2>\n\t<Accordion.Root type=\"single\" class=\"w-full -space-y-px\" value=\"3\">\n\t\t{#each items as item (item.id)}\n\t\t\t<Accordion.Item\n\t\t\t\tvalue={item.id}\n\t\t\t\tclass=\"bg-background border px-4 py-1 first:rounded-t-lg last:rounded-b-lg\"\n\t\t\t>\n\t\t\t\t<Accordion.Trigger\n\t\t\t\t\tclass=\"justify-start gap-3 py-2 text-[15px] leading-6 hover:no-underline [&>svg]:-order-1\"\n\t\t\t\t>\n\t\t\t\t\t{item.title}\n\t\t\t\t</Accordion.Trigger>\n\t\t\t\t<Accordion.Content class=\"text-muted-foreground ps-7 pb-2\">\n\t\t\t\t\t{item.content}\n\t\t\t\t</Accordion.Content>\n\t\t\t</Accordion.Item>\n\t\t{/each}\n\t</Accordion.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-350.svelte"
+		}
+	]
+}

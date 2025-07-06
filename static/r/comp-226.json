@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-226",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"user",
+			"avatar",
+			"profile",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\timport { cn } from '$UTILS$.js';\n\n\timport Avatar01 from '$lib/assets/avatar-40-01.jpg?w=40&h=40&enhanced';\n\timport Avatar02 from '$lib/assets/avatar-40-02.jpg?w=40&h=40&enhanced';\n\timport Avatar03 from '$lib/assets/avatar-40-03.jpg?w=40&h=40&enhanced';\n\n\tconst items = [\n\t\t{ avatar: Avatar01, name: 'Jenny Hamilton', value: 's1' },\n\t\t{ avatar: Avatar02, name: 'Paul Smith', value: 's2' },\n\t\t{ avatar: Avatar03, name: 'Luna Wyen', value: 's3' }\n\t] as const;\n\n\tlet value = $state('s1');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n{#snippet user(item: (typeof items)[number])}\n\t<enhanced:img class=\"size-5 rounded\" src={item.avatar} alt={item.name} />\n\t<span class=\"truncate\">{item.name}</span>\n{/snippet}\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Options with avatar</Label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger\n\t\t\tid={uid}\n\t\t\tclass={cn(\n\t\t\t\t'[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_img]:shrink-0',\n\t\t\t\tselected && 'ps-2'\n\t\t\t)}\n\t\t>\n\t\t\t{#if selected}\n\t\t\t\t{@render user(selected)}\n\t\t\t{:else}\n\t\t\t\tSelect a user\n\t\t\t{/if}\n\t\t</Select.Trigger>\n\t\t<Select.Content\n\t\t\tclass=\"[&_*[data-select-item]]:ps-2 [&_*[data-select-item]]:pe-8 [&_*[data-select-item]>span]:start-auto [&_*[data-select-item]>span]:end-2 [&_*[data-select-item]>span]:flex [&_*[data-select-item]>span]:items-center [&_*[data-select-item]>span]:gap-2\"\n\t\t>\n\t\t\t<Select.Group>\n\t\t\t\t<Select.GroupHeading class=\"ps-2\">Impersonate user</Select.GroupHeading>\n\t\t\t\t{#each items as item (item.value)}\n\t\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t\t{@render user(item)}\n\t\t\t\t\t</Select.Item>\n\t\t\t\t{/each}\n\t\t\t</Select.Group>\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-226.svelte"
+		}
+	]
+}

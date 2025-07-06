@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-174",
+	"type": "registry:component",
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"inline-flex items-center gap-2\"\n\tstyle:--primary=\"238.7 83.5% 66.7%\"\n\tstyle:--ring=\"238.7 83.5% 66.7%\"\n>\n\t<Switch id={uid} checked />\n\t<Label for={uid} class=\"sr-only\">Colored switch</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-174.svelte"
+		}
+	]
+}

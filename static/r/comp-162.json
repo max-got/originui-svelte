@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-162",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"radio-group",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"card",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport IconBrush from '@lucide/svelte/icons/brush';\n\timport IconEraser from '@lucide/svelte/icons/eraser';\n\timport IconScissors from '@lucide/svelte/icons/scissors';\n\timport IconSwatchBook from '@lucide/svelte/icons/swatch-book';\n\n\tconst items = [\n\t\t{ Icon: IconSwatchBook, id: 'radio-11-r1', label: 'Palette', value: 'r1' },\n\t\t{ Icon: IconBrush, id: 'radio-11-r2', label: 'Brush', value: 'r2' },\n\t\t{ Icon: IconEraser, id: 'radio-11-r3', label: 'Eraser', value: 'r3' },\n\t\t{ Icon: IconScissors, id: 'radio-11-r4', label: 'Cut', value: 'r4' }\n\t];\n\n\tlet selectedValue = $state('r1');\n</script>\n\n<RadioGroup class=\"grid grid-cols-2 gap-2\" bind:value={selectedValue}>\n\t{#each items as item (item.id)}\n\t\t<div\n\t\t\tclass=\"border-input has-data-[state=checked]:border-ring relative flex flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/[.04]\"\n\t\t>\n\t\t\t<div class=\"flex justify-between gap-2\">\n\t\t\t\t<RadioGroupItem\n\t\t\t\t\tid={item.id}\n\t\t\t\t\tvalue={item.value}\n\t\t\t\t\tclass=\"order-1 after:absolute after:inset-0\"\n\t\t\t\t/>\n\n\t\t\t\t<item.Icon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</div>\n\t\t\t<Label for={item.id}>{item.label}</Label>\n\t\t</div>\n\t{/each}\n</RadioGroup>\n",
+			"type": "registry:component",
+			"target": "comp-162.svelte"
+		}
+	]
+}

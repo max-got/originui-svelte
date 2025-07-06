@@ -3,7 +3,7 @@
 	"name": "comp-26",
 	"type": "registry:component",
 	"dependencies": [
-		"@lucide/svelte@^0.513.0"
+		"@lucide/svelte@^0.525.0"
 	],
 	"registryDependencies": [
 		"input",
@@ -19,7 +19,7 @@
 	},
 	"files": [
 		{
-			"content": "<script lang=\"ts\">\n\timport Input from '$lib/registry/default/ui/input.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n\timport Search from '@lucide/svelte/icons/search';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Search input with icon and button</Label>\n\t<div class=\"relative\">\n\t\t<Input id={uid} class=\"peer ps-9 pe-9\" placeholder=\"Search...\" type=\"search\" />\n\t\t<div\n\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50\"\n\t\t>\n\t\t\t<Search size={16} />\n\t\t</div>\n\t\t<button\n\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg transition-shadow focus-visible:border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Submit search\"\n\t\t\ttype=\"submit\"\n\t\t>\n\t\t\t<ArrowRight size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/registry/default/ui/input.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\timport ArrowRightIcon from '@lucide/svelte/icons/arrow-right';\n\timport Search from '@lucide/svelte/icons/search';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"*:not-first:mt-2\">\n\t<Label for={uid}>Search input with icon and button</Label>\n\t<div class=\"relative\">\n\t\t<Input id={uid} class=\"peer ps-9 pe-9\" placeholder=\"Search...\" type=\"search\" />\n\t\t<div\n\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50\"\n\t\t>\n\t\t\t<Search size={16} />\n\t\t</div>\n\t\t<button\n\t\t\tclass=\"text-muted-foreground/80 ring-offset-background hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:ring-ring/30 absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg transition-shadow focus-visible:border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\taria-label=\"Submit search\"\n\t\t\ttype=\"submit\"\n\t\t>\n\t\t\t<ArrowRightIcon size={16} aria-hidden=\"true\" />\n\t\t</button>\n\t</div>\n</div>\n",
 			"type": "registry:component",
 			"target": "comp-26.svelte"
 		}

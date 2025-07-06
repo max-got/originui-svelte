@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-411",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"avatar",
+			"avatar group"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport AvatarImg01 from '$assets/avatar-80-03.jpg?w=80&h=80&enhanced';\n\timport AvatarImg02 from '$assets/avatar-80-05.jpg?w=80&h=80&enhanced';\n\timport AvatarImg03 from '$assets/avatar-80-06.jpg?w=80&h=80&enhanced';\n\timport AvatarImg04 from '$assets/avatar-80-07.jpg?w=80&h=80&enhanced';\n</script>\n\n<div\n\tclass=\"border-border bg-background flex items-center rounded-full border p-1 shadow-sm shadow-black/5\"\n>\n\t<div class=\"flex -space-x-3\">\n\t\t<enhanced:img\n\t\t\tclass=\"ring-background size-10 rounded-full ring-2\"\n\t\t\tsrc={AvatarImg01}\n\t\t\talt=\"Avatar 01\"\n\t\t\tloading=\"lazy\"\n\t\t\tdecoding=\"async\"\n\t\t/>\n\t\t<enhanced:img\n\t\t\tclass=\"ring-background size-10 rounded-full ring-2\"\n\t\t\tsrc={AvatarImg02}\n\t\t\talt=\"Avatar 02\"\n\t\t\tloading=\"lazy\"\n\t\t\tdecoding=\"async\"\n\t\t/>\n\t\t<enhanced:img\n\t\t\tclass=\"ring-background size-10 rounded-full ring-2\"\n\t\t\tsrc={AvatarImg03}\n\t\t\talt=\"Avatar 03\"\n\t\t\tloading=\"lazy\"\n\t\t\tdecoding=\"async\"\n\t\t/>\n\t\t<enhanced:img\n\t\t\tclass=\"ring-background size-10 rounded-full ring-2\"\n\t\t\tsrc={AvatarImg04}\n\t\t\talt=\"Avatar 04\"\n\t\t\tloading=\"lazy\"\n\t\t\tdecoding=\"async\"\n\t\t/>\n\t</div>\n\t<Button\n\t\tvariant=\"secondary\"\n\t\tclass=\"text-muted-foreground hover:text-foreground flex items-center justify-center rounded-full bg-transparent px-3 text-xs shadow-none hover:bg-transparent\"\n\t>\n\t\t+3\n\t</Button>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-411.svelte"
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-218",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"timezone",
+			"time",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\tconst timezones = Intl.supportedValuesOf('timeZone')\n\t\t.map((timezone) => {\n\t\t\tconst formatter = new Intl.DateTimeFormat('en', {\n\t\t\t\ttimeZone: timezone,\n\t\t\t\ttimeZoneName: 'shortOffset'\n\t\t\t});\n\t\t\tconst parts = formatter.formatToParts(new Date());\n\t\t\tconst offset = parts.find((part) => part.type === 'timeZoneName')?.value || '';\n\t\t\tconst modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;\n\n\t\t\treturn {\n\t\t\t\tlabel: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,\n\t\t\t\tnumericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),\n\t\t\t\tvalue: timezone\n\t\t\t};\n\t\t})\n\t\t.sort((a, b) => a.numericOffset - b.numericOffset);\n\n\tlet value = $state('Europe/London');\n\n\tconst selected = $derived(timezones.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Timezone select</Label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger id={uid}>\n\t\t\t{selected?.label ?? 'Select a timezone'}\n\t\t</Select.Trigger>\n\t\t<Select.Content>\n\t\t\t{#each timezones as item (item.value)}\n\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t{item.label}\n\t\t\t\t</Select.Item>\n\t\t\t{/each}\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-218.svelte"
+		}
+	]
+}

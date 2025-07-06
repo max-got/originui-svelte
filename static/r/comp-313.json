@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-313",
+	"type": "registry:component",
+	"registryDependencies": [
+		"alert-dialog",
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"alert",
+			"alert dialog",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/components/ui/button.svelte';\n\n\timport * as AlertDialog from '$lib/components/ui/alert-dialog';\n</script>\n\n<AlertDialog.Root>\n\t<AlertDialog.Trigger class={buttonVariants({ variant: 'outline' })}>\n\t\tAlert dialog\n\t</AlertDialog.Trigger>\n\t<AlertDialog.Content>\n\t\t<AlertDialog.Header>\n\t\t\t<AlertDialog.Title>Are you sure?</AlertDialog.Title>\n\t\t\t<AlertDialog.Description>\n\t\t\t\tTake a moment to review the details provided to ensure you understand the implications.\n\t\t\t</AlertDialog.Description>\n\t\t</AlertDialog.Header>\n\t\t<AlertDialog.Footer>\n\t\t\t<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>\n\t\t\t<AlertDialog.Action>Okay</AlertDialog.Action>\n\t\t</AlertDialog.Footer>\n\t</AlertDialog.Content>\n</AlertDialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-313.svelte"
+		}
+	]
+}

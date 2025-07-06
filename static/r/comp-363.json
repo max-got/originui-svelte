@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-363",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"hover-card"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"hover card",
+			"user",
+			"avatar",
+			"profile",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport AvatarImg from '$assets/avatar-40-04.jpg?w=40&h=40&enhanced';\n\timport { HoverCard, HoverCardContent, HoverCardTrigger } from '$lib/components/ui/hover-card';\n</script>\n\n<HoverCard>\n\t<HoverCardTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button\n\t\t\t\tclass=\"size-auto overflow-hidden rounded-full bg-transparent p-0 hover:bg-transparent\"\n\t\t\t\taria-label=\"My profile\"\n\t\t\t\thref=\"#title\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<enhanced:img class=\" size-10\" src={AvatarImg} alt=\"Avatar\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</HoverCardTrigger>\n\t<HoverCardContent class=\"w-[340px]\">\n\t\t<div class=\"flex items-start gap-3\">\n\t\t\t<div class=\"shrink-0\">\n\t\t\t\t<enhanced:img class=\"size-10 rounded-full\" src={AvatarImg} alt=\"Avatar\" />\n\t\t\t</div>\n\t\t\t<div class=\"space-y-1\">\n\t\t\t\t<p class=\"text-sm font-medium\">@Origin_UI</p>\n\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\tBeautiful UI components built with Tailwind CSS and Svelte\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</HoverCardContent>\n</HoverCard>\n",
+			"type": "registry:component",
+			"target": "comp-363.svelte"
+		}
+	]
+}

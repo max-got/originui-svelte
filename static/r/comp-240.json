@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-240",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n</script>\n\n<div class=\"*:not-first:mt-4\">\n\t<Label>Simple slider</Label>\n\t<Slider type=\"single\" value={25} aria-label=\"Simple slider\" />\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-240.svelte"
+		}
+	]
+}

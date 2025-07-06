@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-257",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"vote",
+			"rating",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n\n\tconst emojis = ['😡', '🙁', '😐', '🙂', '😍'];\n\tconst labels = ['Awful', 'Poor', 'Okay', 'Good', 'Amazing'];\n\n\tlet value = $state(3);\n</script>\n\n<div class=\"*:not-first:mt-3\">\n\t<Label>Rate your experience</Label>\n\t<div class=\"flex items-center gap-3\">\n\t\t<Slider\n\t\t\ttype=\"single\"\n\t\t\tbind:value\n\t\t\tmin={1}\n\t\t\tmax={5}\n\t\t\tshowTooltip\n\t\t\ttooltipContent={(value) => labels[value - 1]}\n\t\t\taria-label=\"Rate your experience\"\n\t\t/>\n\t\t<span class=\"text-2xl\">{emojis[value - 1]}</span>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-257.svelte"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-158",
+	"type": "registry:component",
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"color",
+			"picker",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\tlet selectedColor = $state('blue');\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">Choose a color</legend>\n\t<RadioGroup class=\"flex gap-1.5\" bind:value={selectedColor}>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"blue\"\n\t\t\tid=\"radio-07-blue\"\n\t\t\taria-label=\"Blue\"\n\t\t\tclass=\"size-6 border-blue-500 bg-blue-500 shadow-none data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"indigo\"\n\t\t\tid=\"radio-07-indigo\"\n\t\t\taria-label=\"Indigo\"\n\t\t\tclass=\"size-6 border-indigo-500 bg-indigo-500 shadow-none data-[state=checked]:border-indigo-500 data-[state=checked]:bg-indigo-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"pink\"\n\t\t\tid=\"radio-07-pink\"\n\t\t\taria-label=\"Pink\"\n\t\t\tclass=\"size-6 border-pink-500 bg-pink-500 shadow-none data-[state=checked]:border-pink-500 data-[state=checked]:bg-pink-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"red\"\n\t\t\tid=\"radio-07-red\"\n\t\t\taria-label=\"Red\"\n\t\t\tclass=\"size-6 border-red-500 bg-red-500 shadow-none data-[state=checked]:border-red-500 data-[state=checked]:bg-red-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"orange\"\n\t\t\tid=\"radio-07-orange\"\n\t\t\taria-label=\"Orange\"\n\t\t\tclass=\"size-6 border-orange-500 bg-orange-500 shadow-none data-[state=checked]:border-orange-500 data-[state=checked]:bg-orange-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"yellow\"\n\t\t\tid=\"radio-07-yellow\"\n\t\t\taria-label=\"Yellow\"\n\t\t\tclass=\"size-6 border-yellow-500 bg-yellow-500 shadow-none data-[state=checked]:border-yellow-500 data-[state=checked]:bg-yellow-500\"\n\t\t/>\n\t\t<RadioGroupItem\n\t\t\tvalue=\"green\"\n\t\t\tid=\"radio-07-green\"\n\t\t\taria-label=\"Green\"\n\t\t\tclass=\"size-6 border-green-500 bg-green-500 shadow-none data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500\"\n\t\t/>\n\t</RadioGroup>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-158.svelte"
+		}
+	]
+}

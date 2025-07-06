@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-301",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"banner",
+			"cookies",
+			"gdpr",
+			"privacy"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n</script>\n\n<!-- To make the notification fixed, add classes like `fixed bottom-4 inset-x-4` to the container element. -->\n<div class=\"bg-background z-50 rounded-md border px-4 py-3 shadow-lg\">\n\t<div class=\"flex flex-col justify-between gap-3 md:flex-row md:items-center\">\n\t\t<p class=\"text-sm\">\n\t\t\tWe use cookies to improve your experience, analyze site usage, and show personalized content.\n\t\t</p>\n\t\t<div class=\"flex gap-2 max-md:flex-wrap\">\n\t\t\t<Button size=\"sm\">Accept</Button>\n\t\t\t<Button variant=\"outline\" size=\"sm\">Decline</Button>\n\t\t</div>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-301.svelte"
+		}
+	]
+}

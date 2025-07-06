@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-379",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"text editor",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Heading1 from '@lucide/svelte/icons/heading-1';\n\timport Heading2 from '@lucide/svelte/icons/heading-2';\n\timport Minus from '@lucide/svelte/icons/minus';\n\timport Plus from '@lucide/svelte/icons/plus';\n\timport TextQuote from '@lucide/svelte/icons/text-quote';\n\timport Type from '@lucide/svelte/icons/type';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuLabel,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"rounded-full shadow-none\"\n\t\t\t\taria-label=\"Open edit menu\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<Plus size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent class=\"pb-2\">\n\t\t<DropdownMenuLabel>Add block</DropdownMenuLabel>\n\t\t<DropdownMenuItem>\n\t\t\t<div\n\t\t\t\tclass=\"border-border bg-background flex size-8 items-center justify-center rounded-lg border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<Type size={16} class=\"opacity-60\" />\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<div class=\"text-sm font-medium\">Text</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">Start writing with plain text</div>\n\t\t\t</div>\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem>\n\t\t\t<div\n\t\t\t\tclass=\"border-border bg-background flex size-8 items-center justify-center rounded-lg border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<TextQuote size={16} class=\"opacity-60\" />\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<div class=\"text-sm font-medium\">Quote</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">Capture a quote</div>\n\t\t\t</div>\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem>\n\t\t\t<div\n\t\t\t\tclass=\"border-border bg-background flex size-8 items-center justify-center rounded-lg border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<Minus size={16} class=\"opacity-60\" />\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<div class=\"text-sm font-medium\">Divider</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">Visually divide blocks</div>\n\t\t\t</div>\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem>\n\t\t\t<div\n\t\t\t\tclass=\"border-border bg-background flex size-8 items-center justify-center rounded-lg border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<Heading1 size={16} class=\"opacity-60\" />\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<div class=\"text-sm font-medium\">Heading 1</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">Big section heading</div>\n\t\t\t</div>\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem>\n\t\t\t<div\n\t\t\t\tclass=\"border-border bg-background flex size-8 items-center justify-center rounded-lg border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<Heading2 size={16} class=\"opacity-60\" />\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<div class=\"text-sm font-medium\">Heading 2</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">Medium section subheading</div>\n\t\t\t</div>\n\t\t</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-379.svelte"
+		}
+	]
+}

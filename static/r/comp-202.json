@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-202",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select-native"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"border-input bg-background focus-within:border-ring focus-within:ring-ring/20 relative rounded-lg border shadow-xs shadow-black/5 transition-shadow focus-within:ring-[3px] focus-within:outline-hidden has-[select:disabled]:cursor-not-allowed has-[select:disabled]:opacity-50 [&:has(select:is(:disabled))_*]:pointer-events-none\"\n>\n\t<label for={uid} class=\"text-foreground block px-3 pt-2 text-xs font-medium\">\n\t\tSelect with inset label (native)\n\t</label>\n\t<SelectNative\n\t\tid={uid}\n\t\tclass=\"border-none bg-transparent shadow-none focus-visible:ring-0 focus-visible:ring-offset-0\"\n\t>\n\t\t<option value=\"\" disabled selected> Select framework </option>\n\t\t<option value=\"s1\">Svelte</option>\n\t\t<option value=\"s2\">Next.js</option>\n\t\t<option value=\"s3\">Astro</option>\n\t\t<option value=\"s4\">Gatsby</option>\n\t</SelectNative>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-202.svelte"
+		}
+	]
+}

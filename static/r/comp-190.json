@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-190",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select-native",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Select with placeholder (native)</Label>\n\t<SelectNative id={uid}>\n\t\t<option value=\"\" disabled selected> Please select a value </option>\n\t\t<option value=\"s1\">1 to 5</option>\n\t\t<option value=\"s2\">5 to 10</option>\n\t\t<option value=\"s3\">More than 10</option>\n\t</SelectNative>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-190.svelte"
+		}
+	]
+}

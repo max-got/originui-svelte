@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-530",
+	"type": "registry:component",
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTimeline,\n\t\tTimelineHeader,\n\t\tTimelineIndicator,\n\t\tTimelineItem,\n\t\tTimelineSeparator,\n\t\tTimelineTitle\n\t} from '$lib/components/ui/timeline';\n\tconst items = [\n\t\t{\n\t\t\tdate: 'Mar 15, 2024',\n\t\t\tdescription:\n\t\t\t\t'Initial team meeting and project scope definition. Established key milestones and resource allocation.',\n\t\t\tid: 1,\n\t\t\ttitle: 'Project Kickoff'\n\t\t},\n\t\t{\n\t\t\tdate: 'Mar 22, 2024',\n\t\t\tdescription:\n\t\t\t\t'Completed wireframes and user interface mockups. Stakeholder review and feedback incorporated.',\n\t\t\tid: 2,\n\t\t\ttitle: 'Design Phase'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 5, 2024',\n\t\t\tdescription: 'Backend API implementation and frontend component development in progress.',\n\t\t\tid: 3,\n\t\t\ttitle: 'Development Sprint'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 19, 2024',\n\t\t\tdescription:\n\t\t\t\t'Quality assurance testing, performance optimization, and production deployment preparation.',\n\t\t\tid: 4,\n\t\t\ttitle: 'Testing & Deployment'\n\t\t}\n\t];\n</script>\n\n<Timeline defaultValue={3}>\n\t{#each items as item (item.id)}\n\t\t<TimelineItem step={item.id}>\n\t\t\t<TimelineHeader>\n\t\t\t\t<TimelineSeparator />\n\t\t\t\t<TimelineTitle class=\"-mt-0.5\">{item.title}</TimelineTitle>\n\t\t\t\t<TimelineIndicator />\n\t\t\t</TimelineHeader>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-530.svelte"
+		}
+	]
+}

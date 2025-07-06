@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-216",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\tconst items = [\n\t\t{ label: 'Svelte', value: 's1' },\n\t\t{ label: 'Next.js', value: 's2' },\n\t\t{ label: 'Astro', value: 's3' },\n\t\t{ label: 'Gatsby', value: 's4' }\n\t] as const;\n\n\tlet value = $state('');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"group relative\">\n\t<Label\n\t\tfor={uid}\n\t\tclass=\"bg-background text-foreground absolute start-1 top-0 z-10 block -translate-y-1/2 px-2 text-xs font-medium group-has-disabled:opacity-50\"\n\t\t>Select with overlapping label</Label\n\t>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger id={uid}>\n\t\t\t{selected?.label ?? 'Select a framework'}\n\t\t</Select.Trigger>\n\t\t<Select.Content>\n\t\t\t{#each items as item (item.value)}\n\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t{item.label}\n\t\t\t\t</Select.Item>\n\t\t\t{/each}\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-216.svelte"
+		}
+	]
+}

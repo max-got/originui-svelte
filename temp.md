@@ -2,4 +2,4 @@
 $2
 
 (registry\/default\/components\/)(.\*)(\.tsx)
-$lib/registry/default/components/$2.svelte
+src/lib/registry/default/components/$2.svelte

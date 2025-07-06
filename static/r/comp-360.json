@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-360",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"button",
+			"kbd",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport ChevronLeft from '@lucide/svelte/icons/chevron-left';\n\timport ChevronRight from '@lucide/svelte/icons/chevron-right';\n\timport ChevronUp from '@lucide/svelte/icons/chevron-up';\n\timport Circle from '@lucide/svelte/icons/circle';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<div class=\"inline-grid w-fit grid-cols-3 gap-1\">\n\t<TooltipProvider delayDuration={0}>\n\t\t<Tooltip>\n\t\t\t<TooltipTrigger>\n\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t<Button\n\t\t\t\t\t\tclass=\"col-start-2\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\taria-label=\"Pan camera up\"\n\t\t\t\t\t\t{...props}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronUp size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t{/snippet}\n\t\t\t</TooltipTrigger>\n\t\t\t<TooltipContent side=\"top\" class=\"px-2 py-1 text-xs\">\n\t\t\t\tPan top\n\t\t\t\t<kbd\n\t\t\t\t\tclass=\"border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t\t\t\t>\n\t\t\t\t\t⌘T\n\t\t\t\t</kbd>\n\t\t\t</TooltipContent>\n\t\t</Tooltip>\n\t</TooltipProvider>\n\t<TooltipProvider delayDuration={0}>\n\t\t<Tooltip>\n\t\t\t<TooltipTrigger>\n\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t<Button\n\t\t\t\t\t\tclass=\"col-start-1\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\taria-label=\"Pan camera left\"\n\t\t\t\t\t\t{...props}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronLeft size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t{/snippet}\n\t\t\t</TooltipTrigger>\n\t\t\t<TooltipContent side=\"left\" class=\"px-2 py-1 text-xs\">\n\t\t\t\tPan left\n\t\t\t\t<kbd\n\t\t\t\t\tclass=\"border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t\t\t\t>\n\t\t\t\t\t⌘L\n\t\t\t\t</kbd>\n\t\t\t</TooltipContent>\n\t\t</Tooltip>\n\t</TooltipProvider>\n\t<div class=\"flex items-center justify-center\" aria-hidden=\"true\">\n\t\t<Circle class=\"opacity-60\" size={16} />\n\t</div>\n\t<TooltipProvider delayDuration={0}>\n\t\t<Tooltip>\n\t\t\t<TooltipTrigger>\n\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t<Button variant=\"outline\" size=\"icon\" aria-label=\"Pan camera right\" {...props}>\n\t\t\t\t\t\t<ChevronRight size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t{/snippet}\n\t\t\t</TooltipTrigger>\n\t\t\t<TooltipContent side=\"right\" class=\"px-2 py-1 text-xs\">\n\t\t\t\tPan right\n\t\t\t\t<kbd\n\t\t\t\t\tclass=\"border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t\t\t\t>\n\t\t\t\t\t⌘R\n\t\t\t\t</kbd>\n\t\t\t</TooltipContent>\n\t\t</Tooltip>\n\t</TooltipProvider>\n\t<TooltipProvider delayDuration={0}>\n\t\t<Tooltip>\n\t\t\t<TooltipTrigger>\n\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t<Button\n\t\t\t\t\t\tclass=\"col-start-2\"\n\t\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\taria-label=\"Pan camera down\"\n\t\t\t\t\t\t{...props}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronDown size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t{/snippet}\n\t\t\t</TooltipTrigger>\n\t\t\t<TooltipContent side=\"bottom\" class=\"px-2 py-1 text-xs\">\n\t\t\t\tPan bottom\n\t\t\t\t<kbd\n\t\t\t\t\tclass=\"border-border bg-background text-muted-foreground/70 ms-2 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t\t\t\t>\n\t\t\t\t\t⌘B\n\t\t\t\t</kbd>\n\t\t\t</TooltipContent>\n\t\t</Tooltip>\n\t</TooltipProvider>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-360.svelte"
+		}
+	]
+}

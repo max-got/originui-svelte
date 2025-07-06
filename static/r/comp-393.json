@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-393",
+	"type": "registry:component",
+	"registryDependencies": [
+		"avatar"
+	],
+	"meta": {
+		"tags": [
+			"avatar",
+			"user",
+			"profile"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';\n</script>\n\n<Avatar class=\"rounded-lg\">\n\t<AvatarImage src=\"./avatar-80-07.jpg\" alt=\"Kelly King\" />\n\t<AvatarFallback>KK</AvatarFallback>\n</Avatar>\n",
+			"type": "registry:component",
+			"target": "comp-393.svelte"
+		}
+	]
+}

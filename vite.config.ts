@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';

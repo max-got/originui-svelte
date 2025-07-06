@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-449",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"breadcrumb"
+	],
+	"meta": {
+		"tags": [
+			"breadcrumb",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Component from '@lucide/svelte/icons/component';\n\timport Home from '@lucide/svelte/icons/home';\n\timport {\n\t\tBreadcrumb,\n\t\tBreadcrumbItem,\n\t\tBreadcrumbLink,\n\t\tBreadcrumbList,\n\t\tBreadcrumbPage,\n\t\tBreadcrumbSeparator\n\t} from '$lib/components/ui/breadcrumb';\n</script>\n\n<Breadcrumb>\n\t<BreadcrumbList>\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbLink href=\"#title\" class=\"inline-flex items-center gap-1.5\">\n\t\t\t\t<Home size={16} aria-hidden=\"true\" />\n\t\t\t\tHome\n\t\t\t</BreadcrumbLink>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbLink href=\"#title\" class=\"inline-flex items-center gap-1.5\">\n\t\t\t\t<Component size={16} aria-hidden=\"true\" />\n\t\t\t\tComponents\n\t\t\t</BreadcrumbLink>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t</BreadcrumbItem>\n\t</BreadcrumbList>\n</Breadcrumb>\n",
+			"type": "registry:component",
+			"target": "comp-449.svelte"
+		}
+	]
+}

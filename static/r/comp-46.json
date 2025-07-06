@@ -4,7 +4,7 @@
 	"type": "registry:component",
 	"dependencies": [
 		"svelte-tel-input@^3.6.0",
-		"@lucide/svelte@^0.513.0"
+		"@lucide/svelte@^0.525.0"
 	],
 	"registryDependencies": [
 		"input",

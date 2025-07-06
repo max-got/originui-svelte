@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-354",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<TooltipProvider delayDuration={0}>\n\t<Tooltip>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"sm\" {...props}>Tiny</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"px-2 py-1 text-xs\">This is a simple tooltip</TooltipContent>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-354.svelte"
+		}
+	]
+}

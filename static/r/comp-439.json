@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-439",
+	"type": "registry:component",
+	"registryDependencies": [
+		"tabs"
+	],
+	"meta": {
+		"tags": [
+			"tabs",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\n\timport { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';\n</script>\n\n<Tabs value=\"tab-1\" class=\"items-center\">\n\t<TabsList class=\"mx-auto flex max-w-xs bg-transparent\">\n\t\t<TabsTrigger\n\t\t\tvalue=\"tab-1\"\n\t\t\tclass=\"group data-[state=active]:bg-muted flex-1 flex-col p-3 text-xs data-[state=active]:shadow-none\"\n\t\t>\n\t\t\t<Badge class=\"mb-1.5 min-w-5 px-1 transition-opacity group-data-[state=inactive]:opacity-50\">\n\t\t\t\t3\n\t\t\t</Badge>\n\t\t\tOverview\n\t\t</TabsTrigger>\n\t\t<TabsTrigger\n\t\t\tvalue=\"tab-2\"\n\t\t\tclass=\"group data-[state=active]:bg-muted flex-1 flex-col p-3 text-xs data-[state=active]:shadow-none\"\n\t\t>\n\t\t\t<Badge class=\"mb-1.5 min-w-5 px-1 transition-opacity group-data-[state=inactive]:opacity-50\">\n\t\t\t\t0\n\t\t\t</Badge>\n\t\t\tRepositories\n\t\t</TabsTrigger>\n\t\t<TabsTrigger\n\t\t\tvalue=\"tab-3\"\n\t\t\tclass=\"group data-[state=active]:bg-muted flex-1 flex-col p-3 text-xs data-[state=active]:shadow-none\"\n\t\t>\n\t\t\t<Badge class=\"mb-1.5 min-w-5 px-1 transition-opacity group-data-[state=inactive]:opacity-50\">\n\t\t\t\t7\n\t\t\t</Badge>\n\t\t\tPackages\n\t\t</TabsTrigger>\n\t</TabsList>\n\t<TabsContent value=\"tab-1\">\n\t\t<p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 1</p>\n\t</TabsContent>\n\t<TabsContent value=\"tab-2\">\n\t\t<p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 2</p>\n\t</TabsContent>\n\t<TabsContent value=\"tab-3\">\n\t\t<p class=\"text-muted-foreground p-4 text-center text-xs\">Content for Tab 3</p>\n\t</TabsContent>\n</Tabs>\n",
+			"type": "registry:component",
+			"target": "comp-439.svelte"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-357",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<TooltipProvider delayDuration={0}>\n\t<Tooltip>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"sm\" {...props}>W/ title</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"py-3\"\n\t\t\t><div class=\"space-y-1\">\n\t\t\t\t<p class=\"text-[13px] font-medium\">Tooltip with title</p>\n\t\t\t\t<p class=\"text-muted-foreground text-xs\">\n\t\t\t\t\tTooltips are made to be highly customizable, with features like dynamic placement, rich\n\t\t\t\t\tcontent, and a robust API. You can even use them as a full-featured dropdown menu by\n\t\t\t\t\tsetting the <code>trigger</code> prop to <code>click</code>.\n\t\t\t\t</p>\n\t\t\t</div></TooltipContent\n\t\t>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-357.svelte"
+		}
+	]
+}

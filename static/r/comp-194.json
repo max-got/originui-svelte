@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-194",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select-native",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"native select",
+			"error"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"[&_svg]:text-destructive/80 space-y-2\">\n\t<Label for={uid}>Select with error (native)</Label>\n\t<SelectNative\n\t\tid={uid}\n\t\tclass=\"border-destructive/80 text-destructive focus-visible:border-destructive/80 focus-visible:ring-destructive/20\"\n\t>\n\t\t<option value=\"s1\">Svelte</option>\n\t\t<option value=\"s2\">Next.js</option>\n\t\t<option value=\"s3\">Astro</option>\n\t\t<option value=\"s4\">Gatsby</option>\n\t</SelectNative>\n\t<p class=\"text-destructive mt-2 text-xs\" role=\"alert\" aria-live=\"polite\">\n\t\tSelected option is invalid\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-194.svelte"
+		}
+	]
+}

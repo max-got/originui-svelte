@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-246",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n\timport { cn } from '$UTILS$.js';\n\n\tconst max = 12;\n\tconst skipInterval = 2; // Set to 1 to allow no text skipping\n\tconst ticks = [...Array(max + 1)].map((_, i) => i);\n</script>\n\n<div class=\"*:not-first:mt-4\">\n\t<Label>Slider with ticks</Label>\n\t<div>\n\t\t<Slider type=\"single\" value={5} {max} step={ticks} aria-label=\"Slider with ticks\" />\n\t\t<span\n\t\t\tclass=\"text-muted-foreground mt-3 flex w-full items-center justify-between gap-1 px-2.5 text-xs font-medium\"\n\t\t\taria-hidden=\"true\"\n\t\t>\n\t\t\t{#each ticks as _, index (index)}\n\t\t\t\t<span class=\"flex w-0 flex-col items-center justify-center gap-2\">\n\t\t\t\t\t<span class={cn('bg-muted-foreground/70 h-1 w-px', index % skipInterval !== 0 && 'h-0.5')}\n\t\t\t\t\t></span>\n\t\t\t\t\t<span class={cn(index % skipInterval !== 0 && 'opacity-0')}>{index}</span>\n\t\t\t\t</span>\n\t\t\t{/each}\n\t\t</span>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-246.svelte"
+		}
+	]
+}

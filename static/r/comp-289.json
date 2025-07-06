@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-289",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"button",
+			"warning"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport TriangleAlertIcon from '@lucide/svelte/icons/triangle-alert';\n\timport XIcon from '@lucide/svelte/icons/x';\n</script>\n\n<!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->\n<div\n\tclass=\"border-border bg-background z-100 max-w-[400px] rounded-lg border p-4 shadow-lg shadow-black/5\"\n>\n\t<div class=\"flex gap-2\">\n\t\t<div class=\"flex grow gap-3\">\n\t\t\t<TriangleAlertIcon class=\"mt-0.5 shrink-0 text-amber-500\" size={16} aria-hidden=\"true\" />\n\t\t\t<div class=\"flex grow flex-col gap-3\">\n\t\t\t\t<div class=\"space-y-1\">\n\t\t\t\t\t<p class=\"text-sm font-medium\">Something requires your action!</p>\n\t\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\t\tIt conveys that a specific action is needed to resolve or address a situation.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<Button size=\"sm\">Learn more</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<Button\n\t\t\tvariant=\"ghost\"\n\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\taria-label=\"Close notification\"\n\t\t>\n\t\t\t<XIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-289.svelte"
+		}
+	]
+}

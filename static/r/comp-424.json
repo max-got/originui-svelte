@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-424",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"badge",
+			"chip"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\n\timport X from '@lucide/svelte/icons/x';\n\n\tlet isActive = $state(true);\n</script>\n\n{#if isActive}\n\t<Badge>\n\t\tRemovable\n\t\t<button\n\t\t\tclass=\"focus-visible:outline-ring/70 -my-px -ms-px -me-1.5 inline-flex size-5 shrink-0 items-center justify-center rounded-[inherit] p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-solid\"\n\t\t\tonclick={() => (isActive = false)}\n\t\t>\n\t\t\t<X size={12} aria-hidden=\"true\" />\n\t\t</button>\n\t</Badge>\n{/if}\n",
+			"type": "registry:component",
+			"target": "comp-424.svelte"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-453",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"breadcrumb",
+		"select"
+	],
+	"meta": {
+		"tags": [
+			"breadcrumb",
+			"select",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Database from '@lucide/svelte/icons/database';\n\timport {\n\t\tBreadcrumb,\n\t\tBreadcrumbItem,\n\t\tBreadcrumbLink,\n\t\tBreadcrumbList,\n\t\tBreadcrumbSeparator\n\t} from '$lib/components/ui/breadcrumb';\n\timport { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';\n\n\tlet value = $state('s1');\n\tconst items = [\n\t\t{ label: 'Orion', value: 's1' },\n\t\t{ label: 'Sigma', value: 's2' },\n\t\t{ label: 'Dorado', value: 's3' }\n\t];\n\n\tconst selectedItem = $derived(items.find((item) => item.value === value));\n</script>\n\n<Breadcrumb>\n\t<BreadcrumbList>\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbLink href=\"#\">Databases</BreadcrumbLink>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<Select type=\"single\" bind:value allowDeselect={false}>\n\t\t\t\t<SelectTrigger id=\"select-database\" class=\"relative ps-9\" aria-label=\"Select database\">\n\t\t\t\t\t<div\n\t\t\t\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 group-has-[[disabled]]:opacity-50\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Database size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</div>\n\n\t\t\t\t\t{selectedItem?.label ?? 'Select database'}\n\t\t\t\t</SelectTrigger>\n\t\t\t\t<SelectContent>\n\t\t\t\t\t{#each items as item (item.value)}\n\t\t\t\t\t\t<SelectItem value={item.value}>{item.label}</SelectItem>\n\t\t\t\t\t{/each}\n\t\t\t\t</SelectContent>\n\t\t\t</Select>\n\t\t</BreadcrumbItem>\n\t</BreadcrumbList>\n</Breadcrumb>\n",
+			"type": "registry:component",
+			"target": "comp-453.svelte"
+		}
+	]
+}

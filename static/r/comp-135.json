@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-135",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"disabled",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"flex items-center gap-2\">\n\t<Checkbox id={uid} disabled />\n\t<Label for={uid}>Disabled checkbox</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-135.svelte"
+		}
+	]
+}

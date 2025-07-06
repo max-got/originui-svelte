@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-314",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"alert-dialog",
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"alert",
+			"alert dialog",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/components/ui/button.svelte';\n\n\timport CircleAlert from '@lucide/svelte/icons/circle-alert';\n\timport * as AlertDialog from '$lib/components/ui/alert-dialog';\n</script>\n\n<AlertDialog.Root>\n\t<AlertDialog.Trigger class={buttonVariants({ variant: 'outline' })}>\n\t\tAlert dialog with icon\n\t</AlertDialog.Trigger>\n\t<AlertDialog.Content>\n\t\t<div class=\"flex flex-col gap-2 max-sm:items-center sm:flex-row sm:gap-4\">\n\t\t\t<div\n\t\t\t\tclass=\"border-border flex size-9 shrink-0 items-center justify-center rounded-full border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<CircleAlert class=\"opacity-80\" size={16} />\n\t\t\t</div>\n\t\t\t<AlertDialog.Header>\n\t\t\t\t<AlertDialog.Title>Are you sure?</AlertDialog.Title>\n\t\t\t\t<AlertDialog.Description>\n\t\t\t\t\tAre you sure you want to delete your account? All your data will be removed.\n\t\t\t\t</AlertDialog.Description>\n\t\t\t</AlertDialog.Header>\n\t\t</div>\n\t\t<AlertDialog.Footer>\n\t\t\t<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>\n\t\t\t<AlertDialog.Action>Confirm</AlertDialog.Action>\n\t\t</AlertDialog.Footer>\n\t</AlertDialog.Content>\n</AlertDialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-314.svelte"
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-594",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu",
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"navbar, navigation"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '../ui/button.svelte';\n\n\timport SparklesIcon from '@lucide/svelte/icons/sparkles';\n\timport UploadIcon from '@lucide/svelte/icons/upload';\n\timport { AppToggle, TeamSwitcher } from '$lib/components/_extras/navbars';\n\tconst teams = ['Acme Inc.', 'Origin UI - Svelte', 'Junon'];\n</script>\n\n<header class=\"border-b px-4 md:px-6\">\n\t<div class=\"flex h-16 items-center justify-between gap-4\">\n\t\t<!-- Left side -->\n\t\t<div class=\"flex flex-1 items-center gap-2\">\n\t\t\t<TeamSwitcher {teams} defaultTeam={teams[0]} />\n\t\t</div>\n\t\t<!-- Middle area -->\n\t\t<AppToggle />\n\t\t<!-- Right side -->\n\t\t<div class=\"flex flex-1 items-center justify-end gap-2\">\n\t\t\t<Button size=\"sm\" variant=\"ghost\" class=\"aspect-square text-sm max-sm:p-0\">\n\t\t\t\t<UploadIcon class=\"opacity-60 sm:-ms-1\" size={16} aria-hidden=\"true\" />\n\t\t\t\t<span class=\"max-sm:sr-only\">Export</span>\n\t\t\t</Button>\n\t\t\t<Button size=\"sm\" class=\"aspect-square text-sm max-sm:p-0\">\n\t\t\t\t<SparklesIcon class=\"opacity-60 sm:-ms-1\" size={16} aria-hidden=\"true\" />\n\t\t\t\t<span class=\"max-sm:sr-only\">Upgrade</span>\n\t\t\t</Button>\n\t\t</div>\n\t</div>\n</header>\n",
+			"type": "registry:component",
+			"target": "comp-594.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';\n\n\tconst id = $props.id();\n\tlet selectedValue = $state('off');\n</script>\n\n<div class=\"bg-input/50 inline-flex h-8 rounded-md p-0.5\">\n\t<RadioGroup\n\t\tvalue={selectedValue}\n\t\tonValueChange={(value) => {\n\t\t\tselectedValue = value;\n\t\t}}\n\t\tclass=\"group after:bg-background [&:has(:focus-visible)]:after:border-ring [&:has(:focus-visible)]:after:ring-ring/50 relative inline-grid grid-cols-[1fr_1fr] items-center gap-0 text-sm font-medium after:absolute after:inset-y-0 after:w-1/2 after:rounded-sm after:shadow-xs after:transition-[transform,box-shadow] after:duration-300 after:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] data-[state=off]:after:translate-x-0 data-[state=on]:after:translate-x-full [&:has(:focus-visible)]:after:ring-[3px]\"\n\t\tdata-state={selectedValue}\n\t>\n\t\t<label\n\t\t\tclass=\"group-data-[state=on]:text-muted-foreground/70 relative z-10 inline-flex h-full min-w-8 cursor-pointer items-center justify-center px-3 whitespace-nowrap transition-colors select-none\"\n\t\t>\n\t\t\tSitemap\n\t\t\t<RadioGroupItem id=\"{id}-1\" value=\"off\" class=\"sr-only\" />\n\t\t</label>\n\t\t<label\n\t\t\tclass=\"group-data-[state=off]:text-muted-foreground/70 relative z-10 inline-flex h-full min-w-8 cursor-pointer items-center justify-center px-3 whitespace-nowrap transition-colors select-none\"\n\t\t>\n\t\t\tWireframe\n\t\t\t<RadioGroupItem id=\"{id}-2\" value=\"on\" class=\"sr-only\" />\n\t\t</label>\n\t</RadioGroup>\n</div>\n",
+			"type": "registry:component",
+			"target": "app-toggle.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronUpIcon from '@lucide/svelte/icons/chevrons-up';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n\n\tlet {\n\t\tdefaultTeam,\n\t\tteams\n\t}: {\n\t\tdefaultTeam: string;\n\t\tteams: string[];\n\t} = $props();\n\n\tlet selectedTeam = $state(defaultTeam);\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"ghost\" class=\"p-0 hover:bg-transparent\" {...props}>\n\t\t\t\t<span\n\t\t\t\t\tclass=\"bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-full\"\n\t\t\t\t>\n\t\t\t\t\t{selectedTeam.charAt(0).toUpperCase()}\n\t\t\t\t</span>\n\t\t\t\t<div class=\"flex flex-col gap-0.5 leading-none\">\n\t\t\t\t\t<span class=\"\">{selectedTeam}</span>\n\t\t\t\t</div>\n\t\t\t\t<ChevronUpIcon size={14} class=\"text-muted-foreground/80\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent align=\"start\">\n\t\t{#each teams as team, i (i)}\n\t\t\t<DropdownMenuItem\n\t\t\t\tonSelect={() => {\n\t\t\t\t\tselectedTeam = team;\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t{team}\n\t\t\t</DropdownMenuItem>\n\t\t{/each}\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "team-switcher.svelte"
+		}
+	]
+}

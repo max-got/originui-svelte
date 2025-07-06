@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-236",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"select-native"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"multiselect",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Multiple select (native)</Label>\n\t<div class=\"border-input overflow-hidden rounded-lg border\">\n\t\t<SelectNative id={uid} class=\"rounded-none border-none\" multiple value=\"\">\n\t\t\t<option value=\"s1\">React</option>\n\t\t\t<option value=\"s2\">Next.js</option>\n\t\t\t<option value=\"s3\">Astro</option>\n\t\t\t<option value=\"s4\">Gatsby</option>\n\t\t\t<option value=\"s5\">Vue</option>\n\t\t\t<option value=\"s6\">Angular</option>\n\t\t</SelectNative>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-236.svelte"
+		}
+	]
+}

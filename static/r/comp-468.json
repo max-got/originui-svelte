@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-468",
+	"type": "registry:component",
+	"registryDependencies": [
+		"table"
+	],
+	"meta": {
+		"tags": [
+			"table"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTable,\n\t\tTableBody,\n\t\tTableCell,\n\t\tTableFooter,\n\t\tTableHead,\n\t\tTableHeader,\n\t\tTableRow\n\t} from '$lib/components/ui/table';\n\n\tconst items = [\n\t\t{\n\t\t\tbalance: '$1,250.00',\n\t\t\temail: 'alex.t@company.com',\n\t\t\tid: '1',\n\t\t\tlocation: 'San Francisco, US',\n\t\t\tname: 'Alex Thompson',\n\t\t\tstatus: 'Active'\n\t\t},\n\t\t{\n\t\t\tbalance: '$600.00',\n\t\t\temail: 'sarah.c@company.com',\n\t\t\tid: '2',\n\t\t\tlocation: 'Singapore',\n\t\t\tname: 'Sarah Chen',\n\t\t\tstatus: 'Active'\n\t\t},\n\t\t{\n\t\t\tbalance: '$650.00',\n\t\t\temail: 'j.wilson@company.com',\n\t\t\tid: '3',\n\t\t\tlocation: 'London, UK',\n\t\t\tname: 'James Wilson',\n\t\t\tstatus: 'Inactive'\n\t\t},\n\t\t{\n\t\t\tbalance: '$0.00',\n\t\t\temail: 'm.garcia@company.com',\n\t\t\tid: '4',\n\t\t\tlocation: 'Madrid, Spain',\n\t\t\tname: 'Maria Garcia',\n\t\t\tstatus: 'Active'\n\t\t},\n\t\t{\n\t\t\tbalance: '-$1,000.00',\n\t\t\temail: 'd.kim@company.com',\n\t\t\tid: '5',\n\t\t\tlocation: 'Seoul, KR',\n\t\t\tname: 'David Kim',\n\t\t\tstatus: 'Active'\n\t\t}\n\t];\n</script>\n\n<div>\n\t<Table>\n\t\t<TableHeader>\n\t\t\t<TableRow class=\"hover:bg-transparent\">\n\t\t\t\t<TableHead>Name</TableHead>\n\t\t\t\t<TableHead>Email</TableHead>\n\t\t\t\t<TableHead>Location</TableHead>\n\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t<TableHead class=\"text-right\">Balance</TableHead>\n\t\t\t</TableRow>\n\t\t</TableHeader>\n\t\t<tbody aria-hidden=\"true\" class=\"table-row h-2\"></tbody>\n\t\t<TableBody class=\"[&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg\">\n\t\t\t{#each items as item (item.id)}\n\t\t\t\t<TableRow class=\"border-none\">\n\t\t\t\t\t<TableCell class=\"py-2.5 font-medium\">{item.name}</TableCell>\n\t\t\t\t\t<TableCell class=\"py-2.5\">{item.email}</TableCell>\n\t\t\t\t\t<TableCell class=\"py-2.5\">{item.location}</TableCell>\n\t\t\t\t\t<TableCell class=\"py-2.5\">{item.status}</TableCell>\n\t\t\t\t\t<TableCell class=\"py-2.5 text-right\">\n\t\t\t\t\t\t{item.balance}\n\t\t\t\t\t</TableCell>\n\t\t\t\t</TableRow>\n\t\t\t{/each}\n\t\t</TableBody>\n\t\t<tbody aria-hidden=\"true\" class=\"table-row h-2\"></tbody>\n\t\t<TableFooter class=\"bg-transparent\">\n\t\t\t<TableRow class=\"hover:bg-transparent\">\n\t\t\t\t<TableCell colspan={4}>Total</TableCell>\n\t\t\t\t<TableCell class=\"text-right\">$2,500.00</TableCell>\n\t\t\t</TableRow>\n\t\t</TableFooter>\n\t</Table>\n\t<p class=\"text-muted-foreground mt-4 text-center text-sm\">Table without horizontal dividers</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-468.svelte"
+		}
+	]
+}

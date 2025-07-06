@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-535",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport GitCompare from '@lucide/svelte/icons/git-compare';\n\timport GitFork from '@lucide/svelte/icons/git-fork';\n\timport GitMerge from '@lucide/svelte/icons/git-merge';\n\timport GitPullRequest from '@lucide/svelte/icons/git-pull-request';\n\timport {\n\t\tTimeline,\n\t\tTimelineContent,\n\t\tTimelineDate,\n\t\tTimelineHeader,\n\t\tTimelineIndicator,\n\t\tTimelineItem,\n\t\tTimelineSeparator,\n\t\tTimelineTitle\n\t} from '$lib/components/ui/timeline';\n\n\tconst items = [\n\t\t{\n\t\t\tdate: '15 minutes ago',\n\t\t\tdescription: 'Forked the repository to create a new branch for development.',\n\t\t\ticon: GitFork,\n\t\t\tid: 1,\n\t\t\ttitle: 'Forked Repository'\n\t\t},\n\t\t{\n\t\t\tdate: '10 minutes ago',\n\t\t\tdescription:\n\t\t\t\t'Submitted PR #342 with new feature implementation. Waiting for code review from team leads.',\n\t\t\ticon: GitPullRequest,\n\t\t\tid: 2,\n\t\t\ttitle: 'Pull Request Submitted'\n\t\t},\n\t\t{\n\t\t\tdate: '5 minutes ago',\n\t\t\tdescription:\n\t\t\t\t'Received comments on PR. Minor adjustments needed in error handling and documentation.',\n\t\t\ticon: GitCompare,\n\t\t\tid: 3,\n\t\t\ttitle: 'Comparing Branches'\n\t\t},\n\t\t{\n\t\t\tdescription: 'Merged the feature branch into the main branch. Ready for deployment.',\n\t\t\ticon: GitMerge,\n\t\t\tid: 4,\n\t\t\ttitle: 'Merged Branch'\n\t\t}\n\t];\n</script>\n\n<Timeline defaultValue={3}>\n\t{#each items as item (item.id)}\n\t\t<TimelineItem step={item.id} class=\"group-data-[orientation=vertical]/timeline:ms-10\">\n\t\t\t<TimelineHeader>\n\t\t\t\t<TimelineSeparator\n\t\t\t\t\tclass=\"group-data-[orientation=vertical]/timeline:-left-7 group-data-[orientation=vertical]/timeline:h-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=vertical]/timeline:translate-y-6.5\"\n\t\t\t\t/>\n\t\t\t\t<TimelineTitle class=\"mt-0.5\">{item.title}</TimelineTitle>\n\t\t\t\t<TimelineIndicator\n\t\t\t\t\tclass=\"bg-primary/10 group-data-completed/timeline-item:bg-primary group-data-completed/timeline-item:text-primary-foreground flex size-6 items-center justify-center border-none group-data-[orientation=vertical]/timeline:-left-7\"\n\t\t\t\t>\n\t\t\t\t\t<item.icon size={14} />\n\t\t\t\t</TimelineIndicator>\n\t\t\t</TimelineHeader>\n\t\t\t<TimelineContent>\n\t\t\t\t{item.description}\n\t\t\t\t<TimelineDate class=\"mt-2 mb-0\">{item.date}</TimelineDate>\n\t\t\t</TimelineContent>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-535.svelte"
+		}
+	]
+}

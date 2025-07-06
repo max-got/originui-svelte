@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-373",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"kbd",
+			"delete",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuGroup,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuSeparator,\n\t\tDropdownMenuShortcut,\n\t\tDropdownMenuSub,\n\t\tDropdownMenuSubContent,\n\t\tDropdownMenuSubTrigger,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>\n\t\t\t\tRich menu\n\t\t\t\t<ChevronDown class=\"-me-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent>\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<span>Edit</span>\n\t\t\t\t<DropdownMenuShortcut>⌘E</DropdownMenuShortcut>\n\t\t\t</DropdownMenuItem>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<span>Duplicate</span>\n\t\t\t\t<DropdownMenuShortcut>⌘D</DropdownMenuShortcut>\n\t\t\t</DropdownMenuItem>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<span>Archive</span>\n\t\t\t\t<DropdownMenuShortcut>⌘A</DropdownMenuShortcut>\n\t\t\t</DropdownMenuItem>\n\t\t\t<DropdownMenuSub>\n\t\t\t\t<DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>\n\t\t\t\t<DropdownMenuSubContent>\n\t\t\t\t\t<DropdownMenuItem>Move to project</DropdownMenuItem>\n\t\t\t\t\t<DropdownMenuItem>Move to folder</DropdownMenuItem>\n\t\t\t\t\t<DropdownMenuSeparator />\n\t\t\t\t\t<DropdownMenuItem>Advanced options</DropdownMenuItem>\n\t\t\t\t</DropdownMenuSubContent>\n\t\t\t</DropdownMenuSub>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>Share</DropdownMenuItem>\n\t\t\t<DropdownMenuItem>Add to favorites</DropdownMenuItem>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuItem class=\"text-destructive focus:text-destructive\">\n\t\t\t<span>Delete</span>\n\t\t\t<DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>\n\t\t</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-373.svelte"
+		}
+	]
+}

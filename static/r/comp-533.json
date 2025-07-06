@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-533",
+	"type": "registry:component",
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTimeline,\n\t\tTimelineContent,\n\t\tTimelineDate,\n\t\tTimelineHeader,\n\t\tTimelineIndicator,\n\t\tTimelineItem,\n\t\tTimelineSeparator,\n\t\tTimelineTitle\n\t} from '$lib/components/ui/timeline';\n\tconst items = [\n\t\t{\n\t\t\tdate: '15 minutes ago',\n\t\t\tdescription:\n\t\t\t\t'Submitted PR #342 with new feature implementation. Waiting for code review from team leads.',\n\t\t\tid: 1,\n\t\t\ttitle: 'Pull Request Submitted'\n\t\t},\n\t\t{\n\t\t\tdate: '10 minutes ago',\n\t\t\tdescription:\n\t\t\t\t'Automated tests and build process initiated. Running unit tests and code quality checks.',\n\t\t\tid: 2,\n\t\t\ttitle: 'CI Pipeline Started'\n\t\t},\n\t\t{\n\t\t\tdate: '5 minutes ago',\n\t\t\tdescription:\n\t\t\t\t'Received comments on PR. Minor adjustments needed in error handling and documentation.',\n\t\t\tid: 3,\n\t\t\ttitle: 'Code Review Feedback'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Implemented requested changes and pushed updates to feature branch. Awaiting final approval.',\n\t\t\tid: 4,\n\t\t\ttitle: 'Changes Pushed'\n\t\t}\n\t];\n</script>\n\n<Timeline defaultValue={3}>\n\t{#each items as item (item.id)}\n\t\t<TimelineItem step={item.id}>\n\t\t\t<TimelineHeader>\n\t\t\t\t<TimelineSeparator />\n\t\t\t\t<TimelineTitle class=\"-mt-0.5\">{item.title}</TimelineTitle>\n\t\t\t\t<TimelineIndicator />\n\t\t\t</TimelineHeader>\n\t\t\t<TimelineContent>\n\t\t\t\t{item.description}\n\t\t\t\t<TimelineDate class=\"mt-2 mb-0\">{item.date}</TimelineDate>\n\t\t\t</TimelineContent>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-533.svelte"
+		}
+	]
+}

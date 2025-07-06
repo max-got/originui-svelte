@@ -1,0 +1,37 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-586",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"avatar",
+		"button",
+		"dropdown-menu",
+		"input"
+	],
+	"meta": {
+		"tags": [
+			"navbar, navigation"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Input from '$lib/components/ui/input.svelte';\n\n\timport MicIcon from '@lucide/svelte/icons/mic';\n\timport SearchIcon from '@lucide/svelte/icons/search';\n\timport { Logo, ThemeToggle } from '$lib/components/_extras/navbars';\n\n\tconst id = $props.id();\n</script>\n\n<header class=\"border-b px-4 md:px-6\">\n\t<div class=\"flex h-16 items-center justify-between gap-4\">\n\t\t<!-- Logo -->\n\t\t<div class=\"flex-1\">\n\t\t\t<a href=\"#\" class=\"text-primary hover:text-primary/90\">\n\t\t\t\t<Logo />\n\t\t\t</a>\n\t\t</div>\n\t\t<!-- Middle area -->\n\t\t<div class=\"grow max-sm:hidden\">\n\t\t\t<!-- Search form -->\n\t\t\t<div class=\"relative mx-auto w-full max-w-xs\">\n\t\t\t\t<Input {id} class=\"peer h-8 px-8\" placeholder=\"Search...\" type=\"search\" />\n\t\t\t\t<div\n\t\t\t\t\tclass=\"text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-2 peer-disabled:opacity-50\"\n\t\t\t\t>\n\t\t\t\t\t<SearchIcon size={16} />\n\t\t\t\t</div>\n\t\t\t\t<button\n\t\t\t\t\tclass=\"text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md outline-hidden transition-[color,box-shadow] focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\"\n\t\t\t\t\taria-label=\"Press to speak\"\n\t\t\t\t\ttype=\"submit\"\n\t\t\t\t>\n\t\t\t\t\t<MicIcon size={16} aria-hidden=\"true\" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Right side -->\n\t\t<div class=\"flex flex-1 items-center justify-end gap-2\">\n\t\t\t<Button variant=\"ghost\" href=\"#\" size=\"sm\" class=\"text-sm\">Community</Button>\n\t\t\t<Button size=\"sm\" href=\"#\" class=\"text-sm\">Get Started</Button>\n\t\t\t<ThemeToggle />\n\t\t</div>\n\t</div>\n</header>\n",
+			"type": "registry:component",
+			"target": "comp-586.svelte"
+		},
+		{
+			"content": "<svg\n\tclass=\"stroke-svelte size-6\"\n\txmlns=\"http://www.w3.org/2000/svg\"\n\twidth=\"28\"\n\theight=\"28\"\n\tviewBox=\"0 0 32 32\"\n\taria-hidden=\"true\"\n>\n\t<circle cx=\"16\" cy=\"16\" r=\"13\" fill=\"none\" stroke-width=\"2\" />\n\t<circle cx=\"16\" cy=\"16\" r=\"9\" fill=\"none\" stroke-width=\"2\" />\n</svg>\n<span class=\"sr-only\">Origin UI - Svelte</span>\n",
+			"type": "registry:component",
+			"target": "logo.svelte"
+		},
+		{
+			"content": "<script lang=\"ts\">\n\timport Toggle from '$lib/components/ui/toggle.svelte';\n\n\timport MoonIcon from '@lucide/svelte/icons/moon';\n\timport SunIcon from '@lucide/svelte/icons/sun';\n\n\tlet theme = $state('light');\n</script>\n\n<div>\n\t<Toggle\n\t\tvariant=\"outline\"\n\t\tclass=\"group text-muted-foreground data-[state=on]:text-muted-foreground data-[state=on]:hover:bg-muted data-[state=on]:hover:text-foreground size-8 rounded-full border-none shadow-none data-[state=on]:bg-transparent\"\n\t\tpressed={theme === 'dark'}\n\t\tonPressedChange={() => (theme = theme === 'dark' ? 'light' : 'dark')}\n\t\taria-label=\"Switch to {theme === 'dark' ? 'light' : 'dark'} mode\"\n\t>\n\t\t<!-- Note: After dark mode implementation, rely on dark: prefix rather than group-data-[state=on]: -->\n\t\t<MoonIcon\n\t\t\tsize={16}\n\t\t\tclass=\"shrink-0 scale-0 opacity-0 transition-all group-data-[state=on]:scale-100 group-data-[state=on]:opacity-100\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t\t<SunIcon\n\t\t\tsize={16}\n\t\t\tclass=\"absolute shrink-0 scale-100 opacity-100 transition-all group-data-[state=on]:scale-0 group-data-[state=on]:opacity-0\"\n\t\t\taria-hidden=\"true\"\n\t\t/>\n\t</Toggle>\n</div>\n",
+			"type": "registry:component",
+			"target": "theme-toggle.svelte"
+		}
+	]
+}

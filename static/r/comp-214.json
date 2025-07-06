@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-214",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\tconst frontend = [\n\t\t{ label: 'Svelte', value: 's1' },\n\t\t{ label: 'Vue', value: 's2' },\n\t\t{ label: 'Angular', value: 's3' }\n\t] as const;\n\n\tconst backend = [\n\t\t{ label: 'Node.js', value: 's4' },\n\t\t{ label: 'Python', value: 's5' },\n\t\t{ label: 'Java', value: 's6' }\n\t] as const;\n\n\tconst items = [...frontend, ...backend];\n\n\tlet value = $state('s1');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Select with separator</Label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger id={uid}>\n\t\t\t{selected?.label ?? 'Select a framework'}\n\t\t</Select.Trigger>\n\t\t<Select.Content>\n\t\t\t<Select.Group>\n\t\t\t\t<Select.GroupHeading>Frontend</Select.GroupHeading>\n\t\t\t\t{#each frontend as item (item.value)}\n\t\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t\t{item.label}\n\t\t\t\t\t</Select.Item>\n\t\t\t\t{/each}\n\t\t\t</Select.Group>\n\t\t\t<Select.Separator />\n\t\t\t<Select.Group>\n\t\t\t\t<Select.GroupHeading>Backend</Select.GroupHeading>\n\t\t\t\t{#each backend as item (item.value)}\n\t\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t\t{item.label}\n\t\t\t\t\t</Select.Item>\n\t\t\t\t{/each}\n\t\t\t</Select.Group>\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-214.svelte"
+		}
+	]
+}

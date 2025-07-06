@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-383",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"badge",
+		"button",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"notification",
+			"user",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Bell from '@lucide/svelte/icons/bell';\n\timport UserImg01 from '$assets/avatar-80-01.jpg?w=64&h=64&enhanced';\n\timport UserImg02 from '$assets/avatar-80-02.jpg?w=64&h=64&enhanced';\n\timport UserImg03 from '$assets/avatar-80-03.jpg?w=64&h=64&enhanced';\n\timport UserImg04 from '$assets/avatar-80-04.jpg?w=64&h=64&enhanced';\n\timport UserImg05 from '$assets/avatar-80-05.jpg?w=64&h=64&enhanced';\n\timport UserImg06 from '$assets/avatar-80-06.jpg?w=64&h=64&enhanced';\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n\tconst initialNotifications = [\n\t\t{\n\t\t\taction: 'requested review on',\n\t\t\tid: 1,\n\t\t\timage: UserImg01,\n\t\t\ttarget: 'PR #42: Feature implementation',\n\t\t\ttimestamp: '15 minutes ago',\n\t\t\tunread: true,\n\t\t\tuser: 'Chris Tompson'\n\t\t},\n\t\t{\n\t\t\taction: 'shared',\n\t\t\tid: 2,\n\t\t\timage: UserImg02,\n\t\t\ttarget: 'New component library',\n\t\t\ttimestamp: '45 minutes ago',\n\t\t\tunread: true,\n\t\t\tuser: 'Emma Davis'\n\t\t},\n\t\t{\n\t\t\taction: 'assigned you to',\n\t\t\tid: 3,\n\t\t\timage: UserImg03,\n\t\t\ttarget: 'API integration task',\n\t\t\ttimestamp: '4 hours ago',\n\t\t\tunread: false,\n\t\t\tuser: 'James Wilson'\n\t\t},\n\t\t{\n\t\t\taction: 'replied to your comment in',\n\t\t\tid: 4,\n\t\t\timage: UserImg04,\n\t\t\ttarget: 'Authentication flow',\n\t\t\ttimestamp: '12 hours ago',\n\t\t\tunread: false,\n\t\t\tuser: 'Alex Morgan'\n\t\t},\n\t\t{\n\t\t\taction: 'commented on',\n\t\t\tid: 5,\n\t\t\timage: UserImg05,\n\t\t\ttarget: 'Dashboard redesign',\n\t\t\ttimestamp: '2 days ago',\n\t\t\tunread: false,\n\t\t\tuser: 'Sarah Chen'\n\t\t},\n\t\t{\n\t\t\taction: 'mentioned you in',\n\t\t\tid: 6,\n\t\t\timage: UserImg06,\n\t\t\ttarget: 'Origin UI open graph image',\n\t\t\ttimestamp: '2 weeks ago',\n\t\t\tunread: false,\n\t\t\tuser: 'Miky Derya'\n\t\t}\n\t];\n\tlet notifications = $state(initialNotifications);\n\tconst unreadCount = $derived(notifications.filter((n) => n.unread).length);\n\n\tfunction handleMarkAllAsRead() {\n\t\tnotifications = notifications.map((n) => {\n\t\t\tn.unread = false;\n\t\t\treturn n;\n\t\t});\n\t}\n\n\tfunction handleNotificationClick(id: number) {\n\t\tnotifications = notifications.map((n) => {\n\t\t\tif (n.id === id) {\n\t\t\t\tn.unread = false;\n\t\t\t}\n\t\t\treturn n;\n\t\t});\n\t}\n</script>\n\n{#snippet Dot(className = '')}\n\t<svg\n\t\twidth=\"6\"\n\t\theight=\"6\"\n\t\tfill=\"currentColor\"\n\t\tviewBox=\"0 0 6 6\"\n\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\tclass={className}\n\t\taria-hidden=\"true\"\n\t>\n\t\t<circle cx=\"3\" cy=\"3\" r=\"3\" />\n\t</svg>\n{/snippet}\n<Popover>\n\t<PopoverTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tclass=\"relative\"\n\t\t\t\taria-label=\"Open notifications\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<Bell size={16} aria-hidden=\"true\" />\n\t\t\t\t{#if unreadCount > 0}\n\t\t\t\t\t<Badge class=\"absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1\">\n\t\t\t\t\t\t{unreadCount > 99 ? '99+' : unreadCount}\n\t\t\t\t\t</Badge>\n\t\t\t\t{/if}\n\t\t\t</Button>\n\t\t{/snippet}\n\t</PopoverTrigger>\n\t<PopoverContent class=\"w-80 p-1\">\n\t\t<div class=\"flex items-baseline justify-between gap-4 px-3 py-2\">\n\t\t\t<div class=\"text-sm font-semibold\">Notifications</div>\n\t\t\t{#if unreadCount > 0}\n\t\t\t\t<button class=\"text-xs font-medium hover:underline\" onclick={handleMarkAllAsRead}>\n\t\t\t\t\tMark all as read\n\t\t\t\t</button>\n\t\t\t{/if}\n\t\t</div>\n\t\t<div role=\"separator\" aria-orientation=\"horizontal\" class=\"bg-border -mx-1 my-1 h-px\"></div>\n\t\t{#each notifications as notification (notification.id)}\n\t\t\t<div class=\"hover:bg-accent rounded-md px-3 py-2 text-sm transition-colors\">\n\t\t\t\t<div class=\"relative flex items-start gap-3 pe-3\">\n\t\t\t\t\t<enhanced:img\n\t\t\t\t\t\tclass=\"size-8 rounded-md\"\n\t\t\t\t\t\tsrc={notification.image}\n\t\t\t\t\t\talt={notification.user}\n\t\t\t\t\t/>\n\t\t\t\t\t<div class=\"flex-1 space-y-1\">\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\tclass=\"text-foreground/80 text-left after:absolute after:inset-0\"\n\t\t\t\t\t\t\tonclick={() => handleNotificationClick(notification.id)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<span class=\"text-foreground font-medium hover:underline\">\n\t\t\t\t\t\t\t\t{notification.user}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t{notification.action}\n\t\t\t\t\t\t\t<span class=\"text-foreground font-medium hover:underline\">\n\t\t\t\t\t\t\t\t{notification.target}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t.\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<div class=\"text-muted-foreground text-xs\">{notification.timestamp}</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t{#if notification.unread}\n\t\t\t\t\t\t<div class=\"absolute end-0 self-center\">\n\t\t\t\t\t\t\t{@render Dot()}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t{/if}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t{/each}\n\t</PopoverContent>\n</Popover>\n",
+			"type": "registry:component",
+			"target": "comp-383.svelte"
+		}
+	]
+}

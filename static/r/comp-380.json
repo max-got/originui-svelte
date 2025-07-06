@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-380",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"darkmode",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Monitor from '@lucide/svelte/icons/monitor';\n\timport Moon from '@lucide/svelte/icons/moon';\n\timport Sun from '@lucide/svelte/icons/sun';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n\n\tconst systemPreference = 'light';\n\n\tlet theme = $state('light');\n\tconst displayTheme = $derived(theme === 'system' ? systemPreference : theme);\n\tconst Icon = $derived.by(() => {\n\t\tif (displayTheme === 'light') return Sun;\n\t\tif (displayTheme === 'dark') return Moon;\n\t});\n</script>\n\n<div>\n\t<DropdownMenu>\n\t\t<DropdownMenuTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Select theme\" {...props}>\n\t\t\t\t\t<Icon size={16} aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</DropdownMenuTrigger>\n\t\t<DropdownMenuContent class=\"min-w-32\">\n\t\t\t<DropdownMenuItem onSelect={() => (theme = 'light')}>\n\t\t\t\t<Sun size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Light</span>\n\t\t\t</DropdownMenuItem>\n\t\t\t<DropdownMenuItem onSelect={() => (theme = 'dark')}>\n\t\t\t\t<Moon size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Dark</span>\n\t\t\t</DropdownMenuItem>\n\t\t\t<DropdownMenuItem onSelect={() => (theme = 'system')}>\n\t\t\t\t<Monitor size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>System</span>\n\t\t\t</DropdownMenuItem>\n\t\t</DropdownMenuContent>\n\t</DropdownMenu>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-380.svelte"
+		}
+	]
+}

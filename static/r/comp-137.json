@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-137",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"flex items-center gap-2\">\n\t<Checkbox\n\t\tid={uid}\n\t\tclass=\"rounded-full data-[state=checked]:border-emerald-500 data-[state=checked]:bg-emerald-500\"\n\t\tchecked\n\t/>\n\t<Label\n\t\tfor={uid}\n\t\tclass=\"peer-data-[state=checked]:line-throgh after:bg-muted-foreground peer-data-[state=checked]:text-muted-foreground relative after:absolute after:top-1/2 after:left-0 after:h-px after:w-full after:origin-bottom after:-translate-y-1/2 after:scale-x-0 after:transition-transform after:ease-in-out peer-data-[state=checked]:after:origin-bottom peer-data-[state=checked]:after:scale-x-100\"\n\t>\n\t\tFancy todo item\n\t</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-137.svelte"
+		}
+	]
+}

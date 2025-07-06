@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-260",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"range slider",
+			"label",
+			"button",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n\n\tconst min = 5;\n\tconst max = 1240;\n\n\tlet value = $state([min, max]);\n\tconst price = $derived(value.map((v) => `$${v.toLocaleString()}${v == max ? '+' : ''}`));\n</script>\n\n<div class=\"*:not-first:mt-3\">\n\t<Label class=\"tabular-nums\">\n\t\tFrom {price[0]} to {price[1]}\n\t</Label>\n\t<div class=\"flex items-center gap-4\">\n\t\t<Slider type=\"multiple\" bind:value {max} {min} aria-label=\"Price range slider\" />\n\t\t<Button variant=\"outline\">Go</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-260.svelte"
+		}
+	]
+}

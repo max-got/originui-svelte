@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-358",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Globe from '@lucide/svelte/icons/globe';\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<TooltipProvider delayDuration={0}>\n\t<Tooltip>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"sm\" {...props}>W/ icon</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"dark py-3\"\n\t\t\t><div class=\"flex gap-3\">\n\t\t\t\t<Globe class=\"mt-0.5 shrink-0 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t\t<div class=\"space-y-1\">\n\t\t\t\t\t<p class=\"text-[13px] font-medium\">Tooltip with title and icon</p>\n\t\t\t\t\t<p class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\tTooltips are made to be highly customizable, with features like dynamic placement, rich\n\t\t\t\t\t\tcontent, and a robust API.\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div></TooltipContent\n\t\t>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-358.svelte"
+		}
+	]
+}

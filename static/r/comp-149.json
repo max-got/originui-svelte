@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-149",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"week",
+			"calendar",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\n\tconst items = [\n\t\t{ defaultChecked: true, id: 'checkbox-18-c1', label: 'Monday', value: 'c1' },\n\t\t{ defaultChecked: true, id: 'checkbox-18-c2', label: 'Tuesday', value: 'c2' },\n\t\t{ id: 'checkbox-18-c3', label: 'Wednesday', value: 'c3' },\n\t\t{ defaultChecked: true, id: 'checkbox-18-c4', label: 'Thursday', value: 'c4' },\n\t\t{ defaultChecked: true, id: 'checkbox-18-c5', label: 'Friday', value: 'c5' },\n\t\t{ id: 'checkbox-18-c6', label: 'Saturday', value: 'c6' },\n\t\t{ disabled: true, id: 'checkbox-18-c7', label: 'Sunday', value: 'c7' }\n\t];\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">Days of the week</legend>\n\t<div class=\"flex gap-1.5\">\n\t\t{#each items as item (item.id)}\n\t\t\t<label\n\t\t\t\tclass=\"border-input ring-offset-background has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary has-data-[state=checked]:text-primary-foreground has-focus-visible:ring-ring/70 relative flex size-9 cursor-pointer flex-col items-center justify-center gap-3 rounded-full border text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2 has-disabled:cursor-not-allowed has-disabled:opacity-50\"\n\t\t\t\tfor={item.id}\n\t\t\t>\n\t\t\t\t<Checkbox\n\t\t\t\t\tid={item.id}\n\t\t\t\t\tvalue={item.value}\n\t\t\t\t\tclass=\"sr-only after:absolute after:inset-0\"\n\t\t\t\t\tchecked={item.defaultChecked}\n\t\t\t\t\tdisabled={item.disabled}\n\t\t\t\t/>\n\t\t\t\t<span aria-hidden=\"true\" class=\"text-sm font-medium\">\n\t\t\t\t\t{item.label[0]}\n\t\t\t\t</span>\n\t\t\t\t<span class=\"sr-only\">{item.label}</span>\n\t\t\t</label>\n\t\t{/each}\n\t</div>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-149.svelte"
+		}
+	]
+}

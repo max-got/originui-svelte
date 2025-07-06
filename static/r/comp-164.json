@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-164",
+	"type": "registry:component",
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"card",
+			"pricing",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\tconst items = [\n\t\t{ id: 'radio-13-r1', label: '2 CPU', value: 'r1' },\n\t\t{ id: 'radio-13-r2', label: '4 CPU', value: 'r2' },\n\t\t{ id: 'radio-13-r3', label: '6 CPU', value: 'r3' },\n\t\t{ id: 'radio-13-r4', label: '8 CPU', value: 'r4' },\n\t\t{ id: 'radio-13-r5', label: '12 CPU', value: 'r5' },\n\t\t{ disabled: true, id: 'radio-13-r6', label: '16 CPU', value: 'r6' }\n\t];\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">CPU Cores</legend>\n\t<RadioGroup class=\"grid grid-cols-3 gap-2\" value=\"r1\">\n\t\t{#each items as item (item.id)}\n\t\t\t<label\n\t\t\t\tclass=\"border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2 has-disabled:cursor-not-allowed has-disabled:opacity-50\"\n\t\t\t>\n\t\t\t\t<RadioGroupItem\n\t\t\t\t\tid={item.id}\n\t\t\t\t\tvalue={item.value}\n\t\t\t\t\tclass=\"sr-only after:absolute after:inset-0\"\n\t\t\t\t\tdisabled={item.disabled}\n\t\t\t\t/>\n\t\t\t\t<p class=\"text-foreground text-sm leading-none font-medium\">{item.label}</p>\n\t\t\t</label>\n\t\t{/each}\n\t</RadioGroup>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-164.svelte"
+		}
+	]
+}

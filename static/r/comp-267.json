@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-267",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"alert",
+			"warning"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport TriangleAlertIcon from '@lucide/svelte/icons/triangle-alert';\n</script>\n\n<div class=\"border-border rounded-lg border px-4 py-3\">\n\t<p class=\"text-sm\">\n\t\t<TriangleAlertIcon\n\t\t\tclass=\"me-3 -mt-0.5 inline-flex text-amber-500\"\n\t\t\tsize={16}\n\t\t\taria-hidden=\"true\"\n\t\t/>Some information is missing!\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-267.svelte"
+		}
+	]
+}

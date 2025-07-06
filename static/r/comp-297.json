@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-297",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"toast"
+	],
+	"meta": {
+		"todo": true,
+		"tags": [
+			"notification",
+			"toast",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "",
+			"type": "registry:component",
+			"target": "comp-297.todo.svelte"
+		}
+	]
+}

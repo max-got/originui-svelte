@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-413",
+	"type": "registry:component",
+	"registryDependencies": [
+		"badge"
+	],
+	"meta": {
+		"tags": [
+			"badge",
+			"chip"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n</script>\n\n<Badge>Badge</Badge>\n",
+			"type": "registry:component",
+			"target": "comp-413.svelte"
+		}
+	]
+}

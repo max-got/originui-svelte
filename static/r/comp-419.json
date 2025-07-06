@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-419",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"badge"
+	],
+	"meta": {
+		"tags": [
+			"badge",
+			"chip",
+			"status"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n</script>\n\n<Badge variant=\"outline\" class=\"gap-1.5\">\n\t<Check class=\"text-emerald-500\" size={12} aria-hidden=\"true\" />\n\tBadge\n</Badge>\n",
+			"type": "registry:component",
+			"target": "comp-419.svelte"
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-366",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Ellipsis from '@lucide/svelte/icons/ellipsis';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"rounded-full shadow-none\"\n\t\t\t\taria-label=\"Open edit menu\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<Ellipsis size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent>\n\t\t<DropdownMenuItem>Option 1</DropdownMenuItem>\n\t\t<DropdownMenuItem>Option 2</DropdownMenuItem>\n\t\t<DropdownMenuItem>Option 3</DropdownMenuItem>\n\t\t<DropdownMenuItem>Option 4</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-366.svelte"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-400",
+	"type": "registry:component",
+	"meta": {
+		"tags": [
+			"avatar",
+			"user",
+			"profile"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport AvatarImg01 from '$assets/avatar-80-03.jpg?w=40&h=40&enhanced';\n\timport AvatarImg02 from '$assets/avatar-80-05.jpg?w=40&h=40&enhanced';\n\timport AvatarImg03 from '$assets/avatar-80-06.jpg?w=40&h=40&enhanced';\n\timport AvatarImg04 from '$assets/avatar-80-07.jpg?w=40&h=40&enhanced';\n</script>\n\n<div class=\"flex -space-x-1.5\">\n\t<enhanced:img\n\t\tclass=\"ring-background size-5 rounded-full ring-1\"\n\t\tsrc={AvatarImg01}\n\t\talt=\"Avatar 01\"\n\t\tloading=\"lazy\"\n\t\tdecoding=\"async\"\n\t/>\n\t<enhanced:img\n\t\tclass=\"ring-background size-5 rounded-full ring-1\"\n\t\tsrc={AvatarImg02}\n\t\talt=\"Avatar 02\"\n\t\tloading=\"lazy\"\n\t\tdecoding=\"async\"\n\t/>\n\t<enhanced:img\n\t\tclass=\"ring-background size-5 rounded-full ring-1\"\n\t\tsrc={AvatarImg03}\n\t\talt=\"Avatar 03\"\n\t\tloading=\"lazy\"\n\t\tdecoding=\"async\"\n\t/>\n\t<enhanced:img\n\t\tclass=\"ring-background size-5 rounded-full ring-1\"\n\t\tsrc={AvatarImg04}\n\t\talt=\"Avatar 04\"\n\t\tloading=\"lazy\"\n\t\tdecoding=\"async\"\n\t/>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-400.svelte"
+		}
+	]
+}

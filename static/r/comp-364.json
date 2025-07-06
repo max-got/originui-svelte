@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-364",
+	"type": "registry:component",
+	"registryDependencies": [
+		"hover-card"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"hover card",
+			"user",
+			"avatar",
+			"profile",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport FriendImg01 from '$assets/avatar-20-04.jpg?w=20&h=20&enhanced';\n\timport FriendImg02 from '$assets/avatar-20-05.jpg?w=20&h=20&enhanced';\n\timport FriendImg03 from '$assets/avatar-20-06.jpg?w=20&h=20&enhanced';\n\timport AvatarImg from '$assets/avatar-40-05.jpg?w=40&h=40&enhanced';\n\timport { HoverCard, HoverCardContent, HoverCardTrigger } from '$lib/components/ui/hover-card';\n</script>\n\n<HoverCard>\n\t<div class=\"flex items-center gap-3\">\n\t\t<enhanced:img class=\"shrink-0 rounded-full\" src={AvatarImg} alt=\"Avatar\" />\n\t\t<div class=\"space-y-0.5\">\n\t\t\t<HoverCardTrigger>\n\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t<a class=\"text-sm font-medium hover:underline\" href=\"#title\" {...props}>\n\t\t\t\t\t\tKeith Kennedy\n\t\t\t\t\t</a>\n\t\t\t\t{/snippet}\n\t\t\t</HoverCardTrigger>\n\t\t\t<p class=\"text-muted-foreground text-xs\">@k.kennedy</p>\n\t\t</div>\n\t</div>\n\t<HoverCardContent>\n\t\t<div class=\"space-y-3\">\n\t\t\t<div class=\"flex items-center gap-3\">\n\t\t\t\t<enhanced:img class=\"shrink-0 rounded-full\" src={AvatarImg} alt=\"Avatar\" />\n\t\t\t\t<div class=\"space-y-0.5\">\n\t\t\t\t\t<p class=\"text-sm font-medium\">Keith Kennedy</p>\n\t\t\t\t\t<p class=\"text-muted-foreground text-xs\">@k.kennedy</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\tDesigner at <strong class=\"text-foreground font-medium\">@Origin UI - Svelte</strong>.\n\t\t\t\tCrafting web experiences with Tailwind CSS.\n\t\t\t</p>\n\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t<div class=\"flex -space-x-1.5\">\n\t\t\t\t\t<enhanced:img\n\t\t\t\t\t\tclass=\"ring-background rounded-full ring-1\"\n\t\t\t\t\t\tsrc={FriendImg01}\n\t\t\t\t\t\talt=\"Friend 01\"\n\t\t\t\t\t/>\n\t\t\t\t\t<enhanced:img\n\t\t\t\t\t\tclass=\"ring-background rounded-full ring-1\"\n\t\t\t\t\t\tsrc={FriendImg02}\n\t\t\t\t\t\talt=\"Friend 02\"\n\t\t\t\t\t/>\n\t\t\t\t\t<enhanced:img\n\t\t\t\t\t\tclass=\"ring-background rounded-full ring-1\"\n\t\t\t\t\t\tsrc={FriendImg03}\n\t\t\t\t\t\talt=\"Friend 03\"\n\t\t\t\t\t/>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-muted-foreground text-xs\">3 mutual friends</div>\n\t\t\t</div>\n\t\t</div>\n\t</HoverCardContent>\n</HoverCard>\n",
+			"type": "registry:component",
+			"target": "comp-364.svelte"
+		}
+	]
+}

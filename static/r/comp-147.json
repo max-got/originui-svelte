@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-147",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"card",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\timport Brush from '@lucide/svelte/icons/brush';\n\timport Eraser from '@lucide/svelte/icons/eraser';\n\timport Scissors from '@lucide/svelte/icons/scissors';\n\timport SwatchBook from '@lucide/svelte/icons/swatch-book';\n\n\tconst items = [\n\t\t{ defaultChecked: true, Icon: SwatchBook, id: 'checkbox-16-c1', label: 'Palette', value: 'c1' },\n\t\t{ Icon: Brush, id: 'checkbox-16-c2', label: 'Brush', value: 'c2' },\n\t\t{ Icon: Eraser, id: 'checkbox-16-c3', label: 'Eraser', value: 'c3' },\n\t\t{ Icon: Scissors, id: 'checkbox-16-c4', label: 'Cut', value: 'c4' }\n\t];\n</script>\n\n<div class=\"grid grid-cols-2 gap-3\">\n\t{#each items as item (item.id)}\n\t\t<label\n\t\t\tclass=\"border-input has-data-[state=checked]:border-ring relative flex cursor-pointer flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/[.04]\"\n\t\t\tfor={item.id}\n\t\t>\n\t\t\t<div class=\"flex justify-between gap-2\">\n\t\t\t\t<Checkbox\n\t\t\t\t\tid={item.id}\n\t\t\t\t\tvalue={item.value}\n\t\t\t\t\tclass=\"order-1 h-4 w-4 after:absolute after:inset-0\"\n\t\t\t\t\tchecked={item.defaultChecked}\n\t\t\t\t/>\n\t\t\t\t<item.Icon class=\"opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</div>\n\t\t\t<Label for={item.id}>{item.label}</Label>\n\t\t</label>\n\t{/each}\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-147.svelte"
+		}
+	]
+}

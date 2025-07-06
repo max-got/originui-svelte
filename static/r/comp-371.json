@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-371",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"checkbox",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuCheckboxItem,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n\n\tlet sveltekit = $state(true);\n\tlet remix = $state(false);\n\tlet nextjs = $state(false);\n\tlet astro = $state(true);\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>\n\t\t\t\tCheckbox items\n\t\t\t\t<ChevronDown class=\"-me-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent>\n\t\t<DropdownMenuCheckboxItem\n\t\t\tchecked={sveltekit}\n\t\t\tonCheckedChange={(checked) => (sveltekit = checked)}\n\t\t>\n\t\t\tSvelteKit\n\t\t</DropdownMenuCheckboxItem>\n\t\t<DropdownMenuCheckboxItem checked={nextjs} onCheckedChange={(checked) => (nextjs = checked)}>\n\t\t\tNext.js\n\t\t</DropdownMenuCheckboxItem>\n\t\t<DropdownMenuCheckboxItem\n\t\t\tchecked={remix}\n\t\t\tonCheckedChange={(checked) => (remix = checked)}\n\t\t\tdisabled\n\t\t>\n\t\t\tRemix\n\t\t</DropdownMenuCheckboxItem>\n\t\t<DropdownMenuCheckboxItem checked={astro} onCheckedChange={(checked) => (astro = checked)}>\n\t\t\tAstro\n\t\t</DropdownMenuCheckboxItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-371.svelte"
+		}
+	]
+}

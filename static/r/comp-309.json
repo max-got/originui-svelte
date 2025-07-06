@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-309",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"banner"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Rocket from '@lucide/svelte/icons/rocket';\n\timport X from '@lucide/svelte/icons/x';\n\n\tlet visible = $state(true);\n</script>\n\n{#if visible}\n\t<div class=\"dark bg-muted text-foreground px-4 py-3\">\n\t\t<div class=\"flex gap-2 md:items-center\">\n\t\t\t<div class=\"flex grow gap-3 md:items-center\">\n\t\t\t\t<div\n\t\t\t\t\tclass=\"bg-primary/15 flex size-9 shrink-0 items-center justify-center rounded-full max-md:mt-0.5\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t>\n\t\t\t\t\t<Rocket class=\"opacity-80\" size={16} />\n\t\t\t\t</div>\n\t\t\t\t<div class=\"flex grow flex-col justify-between gap-3 md:flex-row md:items-center\">\n\t\t\t\t\t<div class=\"space-y-0.5\">\n\t\t\t\t\t\t<p class=\"text-sm font-medium\">Boost your experience with Origin UI</p>\n\t\t\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\t\t\tThe new feature is live! Try it out and let us know what you think.\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex gap-2 max-md:flex-wrap\">\n\t\t\t\t\t\t<Button size=\"sm\" class=\"text-sm\">Try now</Button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<Button\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\t\tonclick={() => (visible = false)}\n\t\t\t\taria-label=\"Close banner\"\n\t\t\t>\n\t\t\t\t<X\n\t\t\t\t\tsize={16}\n\t\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t</Button>\n\t\t</div>\n\t</div>\n{/if}\n",
+			"type": "registry:component",
+			"target": "comp-309.svelte"
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-231",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"command",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"command",
+			"combobox",
+			"popover",
+			"search",
+			"autocomplete",
+			"timezone",
+			"time",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport * as Command from '$lib/components/ui/command';\n\timport * as Popover from '$lib/components/ui/popover';\n\timport { cn } from '$UTILS$';\n\n\tlet open = $state(false);\n\tlet value = $state('Europe/Berlin');\n\n\tconst timezones = Intl.supportedValuesOf('timeZone');\n\n\tconst formattedTimezones = timezones\n\t\t.map((timezone) => {\n\t\t\tconst formatter = new Intl.DateTimeFormat('en', {\n\t\t\t\ttimeZone: timezone,\n\t\t\t\ttimeZoneName: 'shortOffset'\n\t\t\t});\n\t\t\tconst parts = formatter.formatToParts(new Date());\n\t\t\tconst offset = parts.find((part) => part.type === 'timeZoneName')?.value || '';\n\t\t\tconst modifiedOffset = offset === 'GMT' ? 'GMT+0' : offset;\n\n\t\t\treturn {\n\t\t\t\tlabel: `(${modifiedOffset}) ${timezone.replace(/_/g, ' ')}`,\n\t\t\t\tnumericOffset: parseInt(offset.replace('GMT', '').replace('+', '') || '0'),\n\t\t\t\tvalue: timezone\n\t\t\t};\n\t\t})\n\t\t.sort((a, b) => a.numericOffset - b.numericOffset);\n\n\tfunction handleSelect(currentValue: string) {\n\t\tvalue = currentValue === value ? '' : currentValue;\n\t\topen = false;\n\t}\n\n\tfunction filterFn(value: string, search: string) {\n\t\tconst normalizedValue = value.toLowerCase();\n\t\tconst normalizedSearch = search.toLowerCase().replace(/\\s+/g, '');\n\t\treturn normalizedValue.includes(normalizedSearch) ? 1 : 0;\n\t}\n</script>\n\n<div class=\"space-y-2\">\n\t<Label>Timezone select with search</Label>\n\t<Popover.Root bind:open>\n\t\t<Popover.Trigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\trole=\"combobox\"\n\t\t\t\t\taria-expanded={open}\n\t\t\t\t\tclass=\"bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]\"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t<span class={cn('truncate', !value && 'text-muted-foreground')}>\n\t\t\t\t\t\t{#if value}\n\t\t\t\t\t\t\t{formattedTimezones.find((timezone) => timezone.value === value)?.label}\n\t\t\t\t\t\t{:else}\n\t\t\t\t\t\t\tSelect timezone\n\t\t\t\t\t\t{/if}\n\t\t\t\t\t</span>\n\t\t\t\t\t<ChevronDown size={16} class=\"text-muted-foreground/80 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</Popover.Trigger>\n\t\t<Popover.Content class=\"w-full min-w-(--bits-popover-anchor-width) p-0\" align=\"start\">\n\t\t\t<Command.Root filter={filterFn}>\n\t\t\t\t<Command.Input placeholder=\"Search timezone...\" />\n\t\t\t\t<Command.List>\n\t\t\t\t\t<Command.Empty>No timezone found.</Command.Empty>\n\t\t\t\t\t<Command.Group>\n\t\t\t\t\t\t{#each formattedTimezones as { label, value: itemValue } (itemValue)}\n\t\t\t\t\t\t\t<Command.Item value={itemValue} onSelect={() => handleSelect(itemValue)}>\n\t\t\t\t\t\t\t\t{label}\n\t\t\t\t\t\t\t\t<Check class={cn('ml-auto', value === itemValue ? 'opacity-100' : 'opacity-0')} />\n\t\t\t\t\t\t\t</Command.Item>\n\t\t\t\t\t\t{/each}\n\t\t\t\t\t</Command.Group>\n\t\t\t\t</Command.List>\n\t\t\t</Command.Root>\n\t\t</Popover.Content>\n\t</Popover.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-231.svelte"
+		}
+	]
+}

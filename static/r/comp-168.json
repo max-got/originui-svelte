@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-168",
+	"type": "registry:component",
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"rating",
+			"vote",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\tlet selectedValue = $state('');\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">\n\t\tHow likely are you to recommend us?\n\t</legend>\n\t<RadioGroup\n\t\tclass=\"flex gap-0 -space-x-px rounded-lg shadow-xs shadow-black/[.04]\"\n\t\tbind:value={selectedValue}\n\t>\n\t\t{#each [0, 1, 2, 3, 4, 5] as number (number)}\n\t\t\t<label\n\t\t\t\tclass=\"border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm font-medium transition-colors first:rounded-s-lg last:rounded-e-lg has-focus-visible:ring-2 has-focus-visible:ring-offset-2 has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[state=checked]:z-10\"\n\t\t\t>\n\t\t\t\t<RadioGroupItem\n\t\t\t\t\tid=\"radio-17-r{number}\"\n\t\t\t\t\tvalue={number.toString()}\n\t\t\t\t\tclass=\"sr-only after:absolute after:inset-0\"\n\t\t\t\t/>\n\t\t\t\t{number}\n\t\t\t</label>\n\t\t{/each}\n\t</RadioGroup>\n</fieldset>\n<div class=\"mt-1 flex justify-between text-xs font-medium\">\n\t<p>\n\t\t<span class=\"text-base\">😡</span> Not likely\n\t</p>\n\t<p>\n\t\tVery Likely <span class=\"text-base\">😍</span>\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-168.svelte"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-177",
+	"type": "registry:component",
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"inline-flex items-center gap-2\">\n\t<Switch id={uid} class=\"[&_span]:border-input h-3 w-9 border-none [&_span]:border\" />\n\t<Label for={uid} class=\"sr-only\">M2-style switch</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-177.svelte"
+		}
+	]
+}

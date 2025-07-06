@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-455",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"pagination"
+	],
+	"meta": {
+		"tags": [
+			"pagination"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ArrowLeft from '@lucide/svelte/icons/arrow-left';\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n\timport { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';\n\n\ttype PaginationProps = {\n\t\tcurrentPage: number;\n\t\ttotalPages: number;\n\t};\n\tlet { currentPage = 1, totalPages = 10 }: PaginationProps = $props();\n</script>\n\n<Pagination>\n\t<PaginationContent class=\"w-full justify-between gap-3\">\n\t\t<PaginationItem>\n\t\t\t<Button\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"group aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n\t\t\t\taria-disabled={currentPage === 1 ? true : undefined}\n\t\t\t\trole={currentPage === 1 ? 'link' : undefined}\n\t\t\t>\n\t\t\t\t<ArrowLeft\n\t\t\t\t\tclass=\"-ms-1 me-2 opacity-60 transition-transform group-hover:-translate-x-0.5\"\n\t\t\t\t\tsize={16}\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t\tPrevious\n\t\t\t</Button>\n\t\t</PaginationItem>\n\t\t<PaginationItem>\n\t\t\t<Button\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"group aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n\t\t\t\taria-disabled={currentPage === totalPages ? true : undefined}\n\t\t\t\trole={currentPage === totalPages ? 'link' : undefined}\n\t\t\t>\n\t\t\t\tNext\n\t\t\t\t<ArrowRight\n\t\t\t\t\tclass=\"ms-2 -me-1 opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\t\t\t\tsize={16}\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t</Button>\n\t\t</PaginationItem>\n\t</PaginationContent>\n</Pagination>\n",
+			"type": "registry:component",
+			"target": "comp-455.svelte"
+		}
+	]
+}

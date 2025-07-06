@@ -5,7 +5,7 @@
 	"dependencies": [
 		"bits-ui@2.5.0",
 		"@internationalized/date@^3.8.2",
-		"runed@^0.28.0"
+		"runed@^0.29.1"
 	],
 	"files": [
 		{

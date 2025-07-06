@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-579",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"navigation-menu",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"navbar, navigation"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport { Logo } from '$lib/components/_extras/navbars';\n\timport {\n\t\tNavigationMenuItem,\n\t\tNavigationMenuLink,\n\t\tNavigationMenuList,\n\t\tNavigationMenuRoot\n\t} from '$lib/components/ui/navigation-menu';\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n\n\t// Navigation links array to be used in both desktop and mobile menus\n\tconst navigationLinks = [\n\t\t{ active: true, href: '#', label: 'Home' },\n\t\t{ href: '#', label: 'Features' },\n\t\t{ href: '#', label: 'Pricing' },\n\t\t{ href: '#', label: 'About' }\n\t];\n</script>\n\n<header class=\"border-b px-4 md:px-6\">\n\t<div class=\"flex h-16 justify-between gap-4\">\n\t\t<!-- Left side -->\n\t\t<div class=\"flex gap-2\">\n\t\t\t<div class=\"flex items-center md:hidden\">\n\t\t\t\t<!-- Mobile menu trigger -->\n\t\t\t\t<Popover>\n\t\t\t\t\t<PopoverTrigger>\n\t\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t\t<Button class=\"group size-8\" variant=\"ghost\" size=\"icon\" {...props}>\n\t\t\t\t\t\t\t\t<svg\n\t\t\t\t\t\t\t\t\tclass=\"pointer-events-none\"\n\t\t\t\t\t\t\t\t\twidth={16}\n\t\t\t\t\t\t\t\t\theight={16}\n\t\t\t\t\t\t\t\t\tviewBox=\"0 0 24 24\"\n\t\t\t\t\t\t\t\t\tfill=\"none\"\n\t\t\t\t\t\t\t\t\tstroke=\"currentColor\"\n\t\t\t\t\t\t\t\t\tstroke-width=\"2\"\n\t\t\t\t\t\t\t\t\tstroke-linecap=\"round\"\n\t\t\t\t\t\t\t\t\tstroke-linejoin=\"round\"\n\t\t\t\t\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\t\t\td=\"M4 12L20 12\"\n\t\t\t\t\t\t\t\t\t\tclass=\"origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\t\t\td=\"M4 12H20\"\n\t\t\t\t\t\t\t\t\t\tclass=\"origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,0.25,1.8)] group-aria-expanded:rotate-45\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\t\t\td=\"M4 12H20\"\n\t\t\t\t\t\t\t\t\t\tclass=\"origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t{/snippet}\n\t\t\t\t\t</PopoverTrigger>\n\t\t\t\t\t<PopoverContent align=\"start\" class=\"w-36 p-1 md:hidden\">\n\t\t\t\t\t\t<NavigationMenuRoot class=\"max-w-none *:w-full\">\n\t\t\t\t\t\t\t<NavigationMenuList class=\"flex-col items-start gap-0 md:gap-2\">\n\t\t\t\t\t\t\t\t{#each navigationLinks as link (link.label)}\n\t\t\t\t\t\t\t\t\t<NavigationMenuItem class=\"w-full\">\n\t\t\t\t\t\t\t\t\t\t<NavigationMenuLink href={link.href} class=\"py-1.5\" active={link.active}>\n\t\t\t\t\t\t\t\t\t\t\t{link.label}\n\t\t\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t\t\t</NavigationMenuItem>\n\t\t\t\t\t\t\t\t{/each}\n\t\t\t\t\t\t\t</NavigationMenuList>\n\t\t\t\t\t\t</NavigationMenuRoot>\n\t\t\t\t\t</PopoverContent>\n\t\t\t\t</Popover>\n\t\t\t</div>\n\t\t\t<!-- Main nav  -->\n\t\t\t<div class=\"flex items-center gap-6\">\n\t\t\t\t<a href=\"#\" class=\"text-primary hover:text-primary/90\">\n\t\t\t\t\t<Logo />\n\t\t\t\t</a>\n\t\t\t\t<!-- Navigation menu  -->\n\t\t\t\t<NavigationMenuRoot class=\"h-full *:h-full max-md:hidden\">\n\t\t\t\t\t<NavigationMenuList class=\"h-full gap-2\">\n\t\t\t\t\t\t{#each navigationLinks as link (link.label)}\n\t\t\t\t\t\t\t<NavigationMenuItem class=\"h-full\">\n\t\t\t\t\t\t\t\t<NavigationMenuLink\n\t\t\t\t\t\t\t\t\tactive={link.active}\n\t\t\t\t\t\t\t\t\thref={link.href}\n\t\t\t\t\t\t\t\t\tclass=\"text-muted-foreground hover:border-b-primary hover:text-primary data-active:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-active:bg-transparent!\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t{link.label}\n\t\t\t\t\t\t\t\t</NavigationMenuLink>\n\t\t\t\t\t\t\t</NavigationMenuItem>\n\t\t\t\t\t\t{/each}\n\t\t\t\t\t</NavigationMenuList>\n\t\t\t\t</NavigationMenuRoot>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Right side  -->\n\t\t<div class=\"flex items-center gap-2\">\n\t\t\t<Button href=\"#\" variant=\"ghost\" size=\"sm\" class=\"text-sm\">Sign In</Button>\n\t\t\t<Button href=\"#\" size=\"sm\" class=\"text-sm\">Get Started</Button>\n\t\t</div>\n\t</div>\n</header>\n",
+			"type": "registry:component",
+			"target": "comp-579.svelte"
+		},
+		{
+			"content": "<svg\n\tclass=\"stroke-svelte size-6\"\n\txmlns=\"http://www.w3.org/2000/svg\"\n\twidth=\"28\"\n\theight=\"28\"\n\tviewBox=\"0 0 32 32\"\n\taria-hidden=\"true\"\n>\n\t<circle cx=\"16\" cy=\"16\" r=\"13\" fill=\"none\" stroke-width=\"2\" />\n\t<circle cx=\"16\" cy=\"16\" r=\"9\" fill=\"none\" stroke-width=\"2\" />\n</svg>\n<span class=\"sr-only\">Origin UI - Svelte</span>\n",
+			"type": "registry:component",
+			"target": "logo.svelte"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-171",
+	"type": "registry:component",
+	"dependencies": [
+		"@remixicon/react"
+	],
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"rating",
+			"vote",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport StarFill from '~icons/ri/star-fill';\n\n\tconst id = $props.id();\n\n\tlet hoverRating = $state('');\n\tlet currentRating = $state('');\n\n\tfunction setHoverRating(value: string) {\n\t\thoverRating = value;\n\t}\n\n\tfunction setCurrentRating(value: string) {\n\t\tcurrentRating = value;\n\t}\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\"> Rate your experience </legend>\n\t<RadioGroup class=\"inline-flex gap-0\" onValueChange={setCurrentRating}>\n\t\t{#each ['1', '2', '3', '4', '5'] as value (value)}\n\t\t\t<label\n\t\t\t\tclass=\"group has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative cursor-pointer rounded p-0.5 outline-none has-focus-visible:ring-[3px]\"\n\t\t\t\tonmouseenter={() => setHoverRating(value)}\n\t\t\t\tonmouseleave={() => setHoverRating('')}\n\t\t\t>\n\t\t\t\t<RadioGroupItem id=\"{id}-{value}\" {value} class=\"sr-only\" />\n\t\t\t\t<StarFill\n\t\t\t\t\tclass={[\n\t\t\t\t\t\t'transition-all group-hover:scale-110',\n\t\t\t\t\t\t(hoverRating || currentRating) >= value ? 'text-amber-500' : 'text-input'\n\t\t\t\t\t]}\n\t\t\t\t/>\n\t\t\t\t<span class=\"sr-only\">\n\t\t\t\t\t{value} star{value === '1' ? '' : 's'}\n\t\t\t\t</span>\n\t\t\t</label>\n\t\t{/each}\n\t</RadioGroup>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-171.svelte"
+		}
+	]
+}

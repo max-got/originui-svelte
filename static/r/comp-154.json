@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-154",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n</script>\n\n<RadioGroup value=\"r2\" disabled>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"r1\" id=\"radio-03-r1\" />\n\t\t<Label for=\"radio-03-r1\">Option 1</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"r2\" id=\"radio-03-r2\" />\n\t\t<Label for=\"radio-03-r2\">Option 2</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<RadioGroupItem value=\"r3\" id=\"radio-03-r3\" />\n\t\t<Label for=\"radio-03-r3\">Option 3</Label>\n\t</div>\n</RadioGroup>\n",
+			"type": "registry:component",
+			"target": "comp-154.svelte"
+		}
+	]
+}

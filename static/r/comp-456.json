@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-456",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"pagination"
+	],
+	"meta": {
+		"tags": [
+			"pagination"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { buttonVariants } from '$lib/components/ui/button.svelte';\n\n\timport ChevronLeft from '@lucide/svelte/icons/chevron-left';\n\timport ChevronRight from '@lucide/svelte/icons/chevron-right';\n\timport {\n\t\tPagination,\n\t\tPaginationContent,\n\t\tPaginationItem,\n\t\tPaginationLink\n\t} from '$lib/components/ui/pagination';\n\timport { cn } from '$UTILS$';\n\n\ttype PaginationProps = {\n\t\tcurrentPage: number;\n\t\ttotalPages: number;\n\t};\n\tlet { currentPage = 1, totalPages = 10 }: PaginationProps = $props();\n</script>\n\n<Pagination>\n\t<PaginationContent class=\"w-full justify-between\">\n\t\t<PaginationItem>\n\t\t\t<PaginationLink\n\t\t\t\tclass={cn(\n\t\t\t\t\t'aria-disabled:pointer-events-none aria-disabled:opacity-50',\n\t\t\t\t\tbuttonVariants({\n\t\t\t\t\t\tvariant: 'outline'\n\t\t\t\t\t})\n\t\t\t\t)}\n\t\t\t\taria-label=\"Go to previous page\"\n\t\t\t\taria-disabled={currentPage === 1 ? true : undefined}\n\t\t\t\trole={currentPage === 1 ? 'link' : undefined}\n\t\t\t>\n\t\t\t\t<ChevronLeft size={16} aria-hidden=\"true\" />\n\t\t\t</PaginationLink>\n\t\t</PaginationItem>\n\t\t<PaginationItem>\n\t\t\t<p class=\"text-muted-foreground text-sm\" aria-live=\"polite\">\n\t\t\t\tPage <span class=\"text-foreground\">{currentPage}</span> of\n\t\t\t\t<span class=\"text-foreground\">{totalPages}</span>\n\t\t\t</p>\n\t\t</PaginationItem>\n\t\t<PaginationItem>\n\t\t\t<PaginationLink\n\t\t\t\tclass={cn(\n\t\t\t\t\t'aria-disabled:pointer-events-none aria-disabled:opacity-50',\n\t\t\t\t\tbuttonVariants({\n\t\t\t\t\t\tvariant: 'outline'\n\t\t\t\t\t})\n\t\t\t\t)}\n\t\t\t\thref={currentPage === totalPages ? undefined : `#/page/${currentPage + 1}`}\n\t\t\t\taria-label=\"Go to next page\"\n\t\t\t\taria-disabled={currentPage === totalPages ? true : undefined}\n\t\t\t\trole={currentPage === totalPages ? 'link' : undefined}\n\t\t\t>\n\t\t\t\t<ChevronRight size={16} aria-hidden=\"true\" />\n\t\t\t</PaginationLink>\n\t\t</PaginationItem>\n\t</PaginationContent>\n</Pagination>\n",
+			"type": "registry:component",
+			"target": "comp-456.svelte"
+		}
+	]
+}

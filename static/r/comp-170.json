@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-170",
+	"type": "registry:component",
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"pricing",
+			"switch",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\tlet selectedValue = $state('on');\n</script>\n\n<div class=\"bg-input/50 inline-flex h-9 rounded-lg p-0.5\">\n\t<RadioGroup\n\t\tbind:value={selectedValue}\n\t\tclass=\"group after:bg-background after:ring-offset-background has-focus-visible:after:ring-ring relative inline-grid grid-cols-[1fr_1fr] items-center gap-0 text-sm font-medium after:absolute after:inset-y-0 after:w-1/2 after:rounded-md after:shadow-xs after:shadow-black/[.04] after:transition-transform after:duration-300 after:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] has-focus-visible:after:ring-2 has-focus-visible:after:ring-offset-2 data-[state=off]:after:translate-x-0 data-[state=on]:after:translate-x-full\"\n\t\tdata-state={selectedValue}\n\t>\n\t\t<label\n\t\t\tclass=\"group-data-[state=on]:text-muted-foreground/70 relative z-10 inline-flex h-full min-w-8 cursor-pointer items-center justify-center px-4 whitespace-nowrap\"\n\t\t>\n\t\t\tBill Monthly\n\t\t\t<RadioGroupItem value=\"off\" class=\"sr-only\" />\n\t\t</label>\n\t\t<label\n\t\t\tclass=\"group-data-[state=off]:text-muted-foreground/70 relative z-10 inline-flex h-full min-w-8 cursor-pointer items-center justify-center px-4 whitespace-nowrap\"\n\t\t>\n\t\t\t<span>\n\t\t\t\tBill Yearly <span class=\"group-data-[state=on]:text-emerald-500\">-20%</span>\n\t\t\t</span>\n\t\t\t<RadioGroupItem value=\"on\" class=\"sr-only\" />\n\t\t</label>\n\t</RadioGroup>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-170.svelte"
+		}
+	]
+}

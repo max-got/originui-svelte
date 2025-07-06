@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-284",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"error"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ArrowRightIcon from '@lucide/svelte/icons/arrow-right';\n\timport CircleAlertIcon from '@lucide/svelte/icons/circle-alert';\n\timport XIcon from '@lucide/svelte/icons/x';\n</script>\n\n<!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->\n<div\n\tclass=\"border-border bg-background z-100 max-w-[400px] rounded-lg border px-4 py-3 shadow-lg shadow-black/5\"\n>\n\t<div class=\"flex gap-2\">\n\t\t<div class=\"flex grow gap-3\">\n\t\t\t<CircleAlertIcon class=\"mt-0.5 shrink-0 text-red-500\" size={16} aria-hidden=\"true\" />\n\t\t\t<div class=\"flex grow justify-between gap-12\">\n\t\t\t\t<p class=\"text-sm\">An error occurred!</p>\n\t\t\t\t<a href=\"#title\" class=\"group text-sm font-medium whitespace-nowrap\">\n\t\t\t\t\tLink<ArrowRightIcon\n\t\t\t\t\t\tclass=\"ms-1 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\t\t\t\t\tsize={16}\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t\t<Button\n\t\t\tvariant=\"ghost\"\n\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\taria-label=\"Close banner\"\n\t\t>\n\t\t\t<XIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-284.svelte"
+		}
+	]
+}

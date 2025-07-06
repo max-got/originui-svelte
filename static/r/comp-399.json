@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-399",
+	"type": "registry:component",
+	"registryDependencies": [
+		"avatar",
+		"badge"
+	],
+	"meta": {
+		"tags": [
+			"avatar",
+			"user",
+			"profile",
+			"badge",
+			"chip"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n\n\timport { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';\n</script>\n\n<div class=\"relative\">\n\t<Avatar class=\"rounded-lg\">\n\t\t<AvatarImage src=\"/avatar-80-07.jpg\" alt=\"Kelly King\" />\n\t\t<AvatarFallback>KK</AvatarFallback>\n\t</Avatar>\n\t<Badge class=\"border-background absolute -top-2 left-full min-w-5 -translate-x-3 px-1\">6</Badge>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-399.svelte"
+		}
+	]
+}

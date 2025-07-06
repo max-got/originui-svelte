@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-299",
+	"type": "registry:component",
+	"dependencies": [
+		"sonner"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"toast",
+			"sonner",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport { toast } from 'svelte-sonner';\n</script>\n\n<Button\n\tvariant=\"outline\"\n\tonclick={() => {\n\t\ttoast('Your request was completed!', {\n\t\t\taction: {\n\t\t\t\tlabel: 'Undo',\n\t\t\t\tonClick: () => console.info('Undo')\n\t\t\t},\n\t\t\tdescription: 'It was a long journey, but we made it!'\n\t\t});\n\t}}\n>\n\tShow sonner\n</Button>\n",
+			"type": "registry:component",
+			"target": "comp-299.svelte"
+		}
+	]
+}

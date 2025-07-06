@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-184",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"label",
+			"darkmode",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\timport IconMoon from '@lucide/svelte/icons/moon';\n\timport IconSun from '@lucide/svelte/icons/sun';\n\n\tconst uid = $props.id();\n</script>\n\n<div>\n\t<div class=\"relative inline-grid h-9 grid-cols-[1fr_1fr] items-center text-sm font-medium\">\n\t\t<Switch\n\t\t\tid={uid}\n\t\t\tchecked\n\t\t\tclass=\"peer data-[state=unchecked]:bg-input/50 absolute inset-0 h-[inherit] w-auto [&_span]:z-10 [&_span]:h-full [&_span]:w-1/2 [&_span]:transition-transform [&_span]:duration-300 [&_span]:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] [&_span]:data-[state=checked]:translate-x-full [&_span]:data-[state=checked]:rtl:-translate-x-full\"\n\t\t/>\n\t\t<span\n\t\t\tclass=\"pointer-events-none relative ms-0.5 flex min-w-8 items-center justify-center text-center transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] peer-data-[state=checked]:invisible peer-data-[state=unchecked]:translate-x-full peer-data-[state=unchecked]:rtl:-translate-x-full\"\n\t\t>\n\t\t\t<IconMoon size={16} aria-hidden=\"true\" />\n\t\t</span>\n\t\t<span\n\t\t\tclass=\"peer-data-[state=checked]:text-background pointer-events-none relative me-0.5 flex min-w-8 items-center justify-center text-center transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] peer-data-[state=checked]:-translate-x-full peer-data-[state=unchecked]:invisible peer-data-[state=checked]:rtl:translate-x-full\"\n\t\t>\n\t\t\t<IconSun size={16} aria-hidden=\"true\" />\n\t\t</span>\n\t</div>\n\t<Label for={uid} class=\"sr-only\">Labeled switch</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-184.svelte"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-249",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"tooltip",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n</script>\n\n<div class=\"*:not-first:mt-4\">\n\t<Label>Slider with labels and tooltip</Label>\n\t<div>\n\t\t<span\n\t\t\tclass=\"text-muted-foreground mb-3 flex w-full items-center justify-between gap-2 text-xs font-medium\"\n\t\t\taria-hidden=\"true\"\n\t\t>\n\t\t\t<span>Low</span>\n\t\t\t<span>High</span>\n\t\t</span>\n\t\t<Slider\n\t\t\ttype=\"single\"\n\t\t\tvalue={50}\n\t\t\tstep={10}\n\t\t\tshowTooltip\n\t\t\taria-label=\"Slider with labels and tooltip\"\n\t\t/>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-249.svelte"
+		}
+	]
+}

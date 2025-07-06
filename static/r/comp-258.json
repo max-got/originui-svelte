@@ -1,0 +1,32 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-258",
+	"type": "registry:component",
+	"registryDependencies": [
+		"input",
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"range slider",
+			"label",
+			"input",
+			"range",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n\timport { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';\n\n\tconst minValue = 0;\n\tconst maxValue = 200;\n\tconst initialValue = [50, 150];\n\n\tconst slider = useSliderWithInput({ initialValue, maxValue, minValue });\n</script>\n\n<div class=\"*:not-first:mt-3\">\n\t<Label>Dual range slider with input</Label>\n\t<div class=\"flex items-center gap-4\">\n\t\t<Input\n\t\t\tclass=\"h-8 w-12 px-2 py-1\"\n\t\t\ttype=\"text\"\n\t\t\tinputmode=\"decimal\"\n\t\t\tvalue={slider.inputValues[0]}\n\t\t\tonchange={(e) => slider.handleInputChange(e, 0)}\n\t\t\tonblur={() => slider.validateAndUpdateValue(slider.inputValues[0], 0)}\n\t\t\tonkeydown={(e) => {\n\t\t\t\tif (e.key === 'Enter') {\n\t\t\t\t\tslider.validateAndUpdateValue(slider.inputValues[0], 0);\n\t\t\t\t}\n\t\t\t}}\n\t\t\taria-label=\"Enter minimum value\"\n\t\t/>\n\t\t<Slider\n\t\t\ttype=\"multiple\"\n\t\t\tclass=\"grow\"\n\t\t\tbind:value={slider.sliderValue}\n\t\t\tonValueChange={slider.handleSliderChange}\n\t\t\tmin={minValue}\n\t\t\tmax={maxValue}\n\t\t\taria-label=\"Dual range slider with input\"\n\t\t/>\n\t\t<Input\n\t\t\tclass=\"h-8 w-12 px-2 py-1\"\n\t\t\ttype=\"text\"\n\t\t\tinputmode=\"decimal\"\n\t\t\tvalue={slider.inputValues[1]}\n\t\t\tonchange={(e) => slider.handleInputChange(e, 1)}\n\t\t\tonblur={() => slider.validateAndUpdateValue(slider.inputValues[1], 1)}\n\t\t\tonkeydown={(e) => {\n\t\t\t\tif (e.key === 'Enter') {\n\t\t\t\t\tslider.validateAndUpdateValue(slider.inputValues[1], 1);\n\t\t\t\t}\n\t\t\t}}\n\t\t\taria-label=\"Enter maximum value\"\n\t\t/>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-258.svelte"
+		},
+		{
+			"content": "type UseSliderWithInputProps = {\n\tdefaultValue?: number[];\n\tinitialValue?: number[];\n\tmaxValue?: number;\n\tminValue?: number;\n};\n\nexport class SliderWithInput {\n\tprivate minValue: number;\n\tprivate maxValue: number;\n\tprivate defaultValue: number[];\n\n\tpublic sliderValue = $state<number[]>([]);\n\tpublic inputValues = $state<string[]>([]);\n\n\tconstructor({\n\t\tminValue = 0,\n\t\tdefaultValue = [minValue],\n\t\tinitialValue = [minValue],\n\t\tmaxValue = 100\n\t}: UseSliderWithInputProps = {}) {\n\t\tthis.minValue = minValue;\n\t\tthis.maxValue = maxValue;\n\t\tthis.defaultValue = defaultValue;\n\n\t\tthis.sliderValue = [...initialValue];\n\t\tthis.inputValues = initialValue.map((v) => v.toString());\n\t\tthis.handleSliderChange = this.handleSliderChange.bind(this);\n\t\tthis.resetToDefault = this.resetToDefault.bind(this);\n\t\tthis.validateAndUpdateValue = this.validateAndUpdateValue.bind(this);\n\t\tthis.handleInputChange = this.handleInputChange.bind(this);\n\t}\n\n\tget showReset(): boolean {\n\t\treturn (\n\t\t\tthis.sliderValue.length === this.defaultValue.length &&\n\t\t\t!this.sliderValue.every((value, index) => value === this.defaultValue[index])\n\t\t);\n\t}\n\n\tvalidateAndUpdateValue = (rawValue: string, index: number): void => {\n\t\tif (rawValue === '' || rawValue === '-') {\n\t\t\tthis.inputValues[index] = '0';\n\t\t\tthis.sliderValue[index] = 0;\n\t\t\treturn;\n\t\t}\n\n\t\tconst numValue = parseFloat(rawValue);\n\n\t\tif (isNaN(numValue)) {\n\t\t\tthis.inputValues[index] = this.sliderValue[index]!.toString();\n\t\t\treturn;\n\t\t}\n\n\t\tlet clampedValue = Math.min(this.maxValue, Math.max(this.minValue, numValue));\n\n\t\tif (this.sliderValue.length > 1) {\n\t\t\tif (index === 0) {\n\t\t\t\tclampedValue = Math.min(clampedValue, this.sliderValue[1]!);\n\t\t\t} else {\n\t\t\t\tclampedValue = Math.max(clampedValue, this.sliderValue[0]!);\n\t\t\t}\n\t\t}\n\n\t\tthis.sliderValue[index] = clampedValue;\n\t\tthis.inputValues[index] = clampedValue.toString();\n\t};\n\n\thandleInputChange = (e: Event, index: number): void => {\n\t\tconst target = e.target as HTMLInputElement;\n\t\tconst newValue = target.value;\n\n\t\tif (newValue === '' || /^-?\\d*\\.?\\d*$/.test(newValue)) {\n\t\t\tthis.inputValues[index] = newValue;\n\t\t}\n\t};\n\n\thandleSliderChange = (): void => {\n\t\tthis.inputValues = this.sliderValue.map((v) => v.toString());\n\t};\n\n\tresetToDefault = (): void => {\n\t\tthis.sliderValue = [...this.defaultValue];\n\t\tthis.inputValues = this.defaultValue.map((v) => v.toString());\n\t};\n}\n\nexport function useSliderWithInput(props: UseSliderWithInputProps = {}) {\n\treturn new SliderWithInput(props);\n}\n",
+			"type": "registry:hook",
+			"target": "use-slider-with-input.svelte.ts"
+		}
+	]
+}

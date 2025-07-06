@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-362",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"tooltip"
+	],
+	"meta": {
+		"tags": [
+			"tooltip",
+			"chart",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport {\n\t\tTooltip,\n\t\tTooltipContent,\n\t\tTooltipProvider,\n\t\tTooltipTrigger\n\t} from '$lib/components/ui/tooltip';\n</script>\n\n<TooltipProvider delayDuration={0}>\n\t<Tooltip>\n\t\t<TooltipTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"sm\" {...props}>Chart</Button>\n\t\t\t{/snippet}\n\t\t</TooltipTrigger>\n\t\t<TooltipContent class=\"py-3\">\n\t\t\t<div class=\"space-y-2\">\n\t\t\t\t<div class=\"text-[13px] font-medium\">Tuesday, Aug 13</div>\n\t\t\t\t<div class=\"flex items-center gap-2 text-xs\">\n\t\t\t\t\t<svg\n\t\t\t\t\t\twidth=\"8\"\n\t\t\t\t\t\theight=\"8\"\n\t\t\t\t\t\tfill=\"currentColor\"\n\t\t\t\t\t\tviewBox=\"0 0 8 8\"\n\t\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\tclass=\"shrink-0 text-indigo-500\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<circle cx=\"4\" cy=\"4\" r=\"4\"></circle>\n\t\t\t\t\t</svg>\n\t\t\t\t\t<span class=\"flex grow gap-2\">\n\t\t\t\t\t\tSales <span class=\"ml-auto\">$40</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"flex items-center gap-2 text-xs\">\n\t\t\t\t\t<svg\n\t\t\t\t\t\twidth=\"8\"\n\t\t\t\t\t\theight=\"8\"\n\t\t\t\t\t\tfill=\"currentColor\"\n\t\t\t\t\t\tviewBox=\"0 0 8 8\"\n\t\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\tclass=\"shrink-0 text-purple-500\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<circle cx=\"4\" cy=\"4\" r=\"4\"></circle>\n\t\t\t\t\t</svg>\n\t\t\t\t\t<span class=\"flex grow gap-2\">\n\t\t\t\t\t\tRevenue <span class=\"ml-auto\">$74</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"flex items-center gap-2 text-xs\">\n\t\t\t\t\t<svg\n\t\t\t\t\t\twidth=\"8\"\n\t\t\t\t\t\theight=\"8\"\n\t\t\t\t\t\tfill=\"currentColor\"\n\t\t\t\t\t\tviewBox=\"0 0 8 8\"\n\t\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\t\tclass=\"shrink-0 text-rose-500\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<circle cx=\"4\" cy=\"4\" r=\"4\"></circle>\n\t\t\t\t\t</svg>\n\t\t\t\t\t<span class=\"flex grow gap-2\">\n\t\t\t\t\t\tCosts <span class=\"ml-auto\">$410</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t</div></TooltipContent\n\t\t>\n\t</Tooltip>\n</TooltipProvider>\n",
+			"type": "registry:component",
+			"target": "comp-362.svelte"
+		}
+	]
+}

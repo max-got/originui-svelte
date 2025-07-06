@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-302",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"banner"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n</script>\n\n<div class=\"dark bg-muted text-foreground px-4 py-3\">\n\t<p class=\"flex justify-center text-sm\">\n\t\t<a href=\"#title\" class=\"group\">\n\t\t\t<span class=\"me-1 text-base leading-none\">✨</span>Introducing transactional and marketing\n\t\t\temails\n\t\t\t<ArrowRight\n\t\t\t\tclass=\"ms-2 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\t\t\tsize={16}\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</a>\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-302.svelte"
+		}
+	]
+}

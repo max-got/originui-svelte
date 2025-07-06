@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-539",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { Timeline, TimelineContent, TimelineItem } from '$lib/components/ui/timeline';\n\ttype ActionType = 'create' | 'edit' | 'post' | 'reply';\n\n\timport type { Icon as IconType } from '@lucide/svelte';\n\n\timport BookOpenIcon from '@lucide/svelte/icons/book-open';\n\timport MessageCircleIcon from '@lucide/svelte/icons/message-circle';\n\timport PencilIcon from '@lucide/svelte/icons/pencil';\n\timport PlusIcon from '@lucide/svelte/icons/plus';\n\timport Avatar02 from '$lib/assets/avatar-40-02.jpg?w=48&h=48&enhanced';\n\tconst items: {\n\t\taction: ActionType;\n\t\tdate: Date;\n\t\tid: number;\n\t\timage: Picture;\n\t\tuser: string;\n\t}[] = [\n\t\t{\n\t\t\taction: 'post',\n\t\t\tdate: new Date(Date.now() - 59000), // 59 seconds ago\n\t\t\tid: 1,\n\t\t\timage: Avatar02,\n\t\t\tuser: 'Matt'\n\t\t},\n\t\t{\n\t\t\taction: 'reply',\n\t\t\tdate: new Date(Date.now() - 180000), // 3 minutes ago\n\t\t\tid: 2,\n\t\t\timage: Avatar02,\n\t\t\tuser: 'Matt'\n\t\t},\n\t\t{\n\t\t\taction: 'edit',\n\t\t\tdate: new Date(Date.now() - 300000), // 5 minutes ago\n\t\t\tid: 3,\n\t\t\timage: Avatar02,\n\t\t\tuser: 'Matt'\n\t\t},\n\t\t{\n\t\t\taction: 'create',\n\t\t\tdate: new Date(Date.now() - 600000), // 10 minutes ago\n\t\t\tid: 4,\n\t\t\timage: Avatar02,\n\t\t\tuser: 'Matt'\n\t\t}\n\t];\n\n\tfunction getActionIcon(action: ActionType): typeof IconType {\n\t\tconst icons: Record<ActionType, typeof IconType> = {\n\t\t\tcreate: PlusIcon,\n\t\t\tedit: PencilIcon,\n\t\t\tpost: BookOpenIcon,\n\t\t\treply: MessageCircleIcon\n\t\t};\n\t\treturn icons[action];\n\t}\n\n\tfunction getActionText(action: ActionType): string {\n\t\tconst texts: Record<ActionType, string> = {\n\t\t\tcreate: 'created a new project',\n\t\t\tedit: 'edited a post',\n\t\t\tpost: 'wrote a new post',\n\t\t\treply: 'replied to a comment'\n\t\t};\n\t\treturn texts[action];\n\t}\n\n\tfunction getRelativeTimeString(date: Date): string {\n\t\tconst now = new Date();\n\t\tconst diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);\n\n\t\tif (diffInSeconds < 60) {\n\t\t\treturn `${diffInSeconds} seconds ago`;\n\t\t} else if (diffInSeconds < 3600) {\n\t\t\tconst minutes = Math.floor(diffInSeconds / 60);\n\t\t\treturn `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;\n\t\t} else if (diffInSeconds < 86400) {\n\t\t\tconst hours = Math.floor(diffInSeconds / 3600);\n\t\t\treturn `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;\n\t\t} else {\n\t\t\tconst days = Math.floor(diffInSeconds / 86400);\n\t\t\treturn `${days} ${days === 1 ? 'day' : 'days'} ago`;\n\t\t}\n\t}\n</script>\n\n<div class=\"space-y-3\">\n\t<div class=\"text-muted-foreground text-xs font-medium\">Activity</div>\n\t<Timeline>\n\t\t{#each items as item (item.id)}\n\t\t\t{@const ActionIcon = getActionIcon(item.action)}\n\t\t\t<TimelineItem step={item.id} class=\"m-0! flex-row items-center gap-3 py-2.5!\">\n\t\t\t\t<ActionIcon class=\"text-muted-foreground/80\" size={16} />\n\t\t\t\t<enhanced:img src={item.image} alt={item.user} class=\"size-6 rounded-full\" />\n\t\t\t\t<TimelineContent class=\"text-foreground\">\n\t\t\t\t\t<a class=\"font-medium hover:underline\" href=\"#\">\n\t\t\t\t\t\t{item.user}\n\t\t\t\t\t</a>\n\t\t\t\t\t<span class=\"font-normal\">\n\t\t\t\t\t\t{getActionText(item.action)}\n\t\t\t\t\t\t<a class=\"hover:underline\" href=\"#\">\n\t\t\t\t\t\t\t{getRelativeTimeString(item.date)}\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</span>\n\t\t\t\t</TimelineContent>\n\t\t\t</TimelineItem>\n\t\t{/each}\n\t</Timeline>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-539.svelte"
+		}
+	]
+}

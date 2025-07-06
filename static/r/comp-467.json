@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-467",
+	"type": "registry:component",
+	"registryDependencies": [
+		"table"
+	],
+	"meta": {
+		"tags": [
+			"table",
+			"user",
+			"avatar"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTable,\n\t\tTableBody,\n\t\tTableCell,\n\t\tTableHead,\n\t\tTableHeader,\n\t\tTableRow\n\t} from '$lib/components/ui/table';\n\n\tconst items = [\n\t\t{\n\t\t\tbalance: '$1,250.00',\n\t\t\temail: 'alex.t@company.com',\n\t\t\tid: '1',\n\t\t\timage:\n\t\t\t\t'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358071/avatar-40-02_upqrxi.jpg',\n\t\t\tlocation: 'San Francisco, US',\n\t\t\tname: 'Alex Thompson',\n\t\t\tstatus: 'Active',\n\t\t\tusername: '@alexthompson'\n\t\t},\n\t\t{\n\t\t\tbalance: '$600.00',\n\t\t\temail: 'sarah.c@company.com',\n\t\t\tid: '2',\n\t\t\timage:\n\t\t\t\t'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358073/avatar-40-01_ij9v7j.jpg',\n\t\t\tlocation: 'Singapore',\n\t\t\tname: 'Sarah Chen',\n\t\t\tstatus: 'Active',\n\t\t\tusername: '@sarahchen'\n\t\t},\n\t\t{\n\t\t\tbalance: '$0.00',\n\t\t\temail: 'm.garcia@company.com',\n\t\t\tid: '4',\n\t\t\timage:\n\t\t\t\t'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358072/avatar-40-03_dkeufx.jpg',\n\t\t\tlocation: 'Madrid, Spain',\n\t\t\tname: 'Maria Garcia',\n\t\t\tstatus: 'Active',\n\t\t\tusername: '@mariagarcia'\n\t\t},\n\t\t{\n\t\t\tbalance: '-$1,000.00',\n\t\t\temail: 'd.kim@company.com',\n\t\t\tid: '5',\n\t\t\timage:\n\t\t\t\t'https://res.cloudinary.com/dlzlfasou/image/upload/v1736358070/avatar-40-05_cmz0mg.jpg',\n\t\t\tlocation: 'Seoul, KR',\n\t\t\tname: 'David Kim',\n\t\t\tstatus: 'Active',\n\t\t\tusername: '@davidkim'\n\t\t}\n\t];\n</script>\n\n<div>\n\t<Table>\n\t\t<TableHeader>\n\t\t\t<TableRow class=\"hover:bg-transparent\">\n\t\t\t\t<TableHead>Name</TableHead>\n\t\t\t\t<TableHead>Email</TableHead>\n\t\t\t\t<TableHead>Location</TableHead>\n\t\t\t\t<TableHead>Status</TableHead>\n\t\t\t\t<TableHead class=\"text-right\">Balance</TableHead>\n\t\t\t</TableRow>\n\t\t</TableHeader>\n\t\t<TableBody>\n\t\t\t{#each items as item (item.id)}\n\t\t\t\t<TableRow>\n\t\t\t\t\t<TableCell>\n\t\t\t\t\t\t<div class=\"flex items-center gap-3\">\n\t\t\t\t\t\t\t<img class=\"rounded-full\" src={item.image} width={40} height={40} alt={item.name} />\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<div class=\"font-medium\">{item.name}</div>\n\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground mt-0.5 text-xs\">\n\t\t\t\t\t\t\t\t\t{item.username}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</TableCell>\n\t\t\t\t\t<TableCell>{item.email}</TableCell>\n\t\t\t\t\t<TableCell>{item.location}</TableCell>\n\t\t\t\t\t<TableCell>{item.status}</TableCell>\n\t\t\t\t\t<TableCell class=\"text-right\">{item.balance}</TableCell>\n\t\t\t\t</TableRow>\n\t\t\t{/each}\n\t\t</TableBody>\n\t</Table>\n\t<p class=\"text-muted-foreground mt-4 text-center text-sm\">Table with images</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-467.svelte"
+		}
+	]
+}

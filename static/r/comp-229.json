@@ -1,0 +1,33 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-229",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"command",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"command",
+			"combobox",
+			"popover",
+			"search",
+			"autocomplete",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport * as Command from '$lib/components/ui/command';\n\timport * as Popover from '$lib/components/ui/popover';\n\timport { cn } from '$UTILS$';\n\n\tlet open = $state(false);\n\tlet value = $state('');\n\n\tconst frameworks = [\n\t\t{ label: 'SvelteKit', value: 'sveltekit' },\n\t\t{ label: 'Svelte', value: 'svelte' },\n\t\t{ label: 'Nuxt.js', value: 'nuxt.js' },\n\t\t{ label: 'Remix', value: 'remix' },\n\t\t{ label: 'Astro', value: 'astro' },\n\t\t{ label: 'Angular', value: 'angular' },\n\t\t{ label: 'Vue.js', value: 'vue' },\n\t\t{ label: 'Ember.js', value: 'ember' },\n\t\t{ label: 'Gatsby', value: 'gatsby' },\n\t\t{ label: 'Eleventy', value: 'eleventy' },\n\t\t{ label: 'SolidJS', value: 'solid' },\n\t\t{ label: 'Preact', value: 'preact' },\n\t\t{ label: 'Qwik', value: 'qwik' },\n\t\t{ label: 'Next.js', value: 'next.js' },\n\t\t{ label: 'Alpine.js', value: 'alpine' },\n\t\t{ label: 'Lit', value: 'lit' }\n\t] as const;\n\n\tfunction handleSelect(currentValue: string) {\n\t\tvalue = currentValue === value ? '' : currentValue;\n\t\topen = false;\n\t}\n</script>\n\n<div class=\"space-y-2\">\n\t<Label>Select with search</Label>\n\t<Popover.Root bind:open>\n\t\t<Popover.Trigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\trole=\"combobox\"\n\t\t\t\t\taria-expanded={open}\n\t\t\t\t\tclass=\"bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]\"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t<span class={cn('truncate', !value && 'text-muted-foreground')}>\n\t\t\t\t\t\t{#if value}\n\t\t\t\t\t\t\t{frameworks.find((framework) => framework.value === value)?.label}\n\t\t\t\t\t\t{:else}\n\t\t\t\t\t\t\tSelect framework\n\t\t\t\t\t\t{/if}\n\t\t\t\t\t</span>\n\t\t\t\t\t<ChevronDown size={16} class=\"text-muted-foreground/80 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</Popover.Trigger>\n\t\t<Popover.Content class=\"w-full min-w-(--bits-popover-anchor-width) p-0\" align=\"start\">\n\t\t\t<Command.Root>\n\t\t\t\t<Command.Input placeholder=\"Search framework...\" />\n\t\t\t\t<Command.List>\n\t\t\t\t\t<Command.Empty>No framework found.</Command.Empty>\n\t\t\t\t\t<Command.Group>\n\t\t\t\t\t\t{#each frameworks as framework (framework.value)}\n\t\t\t\t\t\t\t<Command.Item value={framework.value} onSelect={() => handleSelect(framework.value)}>\n\t\t\t\t\t\t\t\t{framework.label}\n\t\t\t\t\t\t\t\t<Check\n\t\t\t\t\t\t\t\t\tclass={cn('ml-auto', value === framework.value ? 'opacity-100' : 'opacity-0')}\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</Command.Item>\n\t\t\t\t\t\t{/each}\n\t\t\t\t\t</Command.Group>\n\t\t\t\t</Command.List>\n\t\t\t</Command.Root>\n\t\t</Popover.Content>\n\t</Popover.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-229.svelte"
+		}
+	]
+}

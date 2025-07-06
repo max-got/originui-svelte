@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-332",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dialog"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"onboarding",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n\timport DialogImg from '$lib/assets/dialog-content.png';\n\timport * as Dialog from '$lib/components/ui/dialog';\n\timport { cn } from '$UTILS$';\n\n\tconst steps = [\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Discover a powerful collection of components designed to enhance your development workflow.',\n\t\t\ttitle: 'Welcome to Origin UI'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Each component is fully customizable and built with modern web standards in mind.',\n\t\t\ttitle: 'Customizable Components'\n\t\t},\n\t\t{\n\t\t\tdescription: 'Begin building amazing interfaces with our comprehensive component library.',\n\t\t\ttitle: 'Ready to Start?'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Access our extensive documentation and community resources to make the most of Origin UI.',\n\t\t\ttitle: 'Get Support'\n\t\t}\n\t];\n\n\tlet step = $state(1);\n\n\tfunction handleContinue() {\n\t\tif (step < steps.length) {\n\t\t\tstep += 1;\n\t\t}\n\t}\n</script>\n\n<Dialog.Root\n\tonOpenChange={(open) => {\n\t\tif (open) step = 1;\n\t}}\n>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Onboarding</Dialog.Trigger>\n\t<Dialog.Content class=\"gap-0 p-0 [&>button:last-child]:text-white\">\n\t\t<div class=\"p-2\">\n\t\t\t<img class=\"w-full rounded-lg\" src={DialogImg} width={382} height={216} alt=\"dialog\" />\n\t\t</div>\n\t\t<div class=\"space-y-6 px-6 pt-3 pb-6\">\n\t\t\t<Dialog.Header>\n\t\t\t\t<Dialog.Title>{steps[step - 1].title}</Dialog.Title>\n\t\t\t\t<Dialog.Description>{steps[step - 1].description}</Dialog.Description>\n\t\t\t</Dialog.Header>\n\t\t\t<div class=\"flex flex-col justify-between gap-4 sm:flex-row sm:items-center\">\n\t\t\t\t<div class=\"flex justify-center space-x-1.5 max-sm:order-1\">\n\t\t\t\t\t{#each { length: steps.length } as _, index (index)}\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclass={cn(\n\t\t\t\t\t\t\t\t'bg-primary h-1.5 w-1.5 rounded-full',\n\t\t\t\t\t\t\t\tindex + 1 === step ? 'bg-primary' : 'opacity-20'\n\t\t\t\t\t\t\t)}\n\t\t\t\t\t\t></div>\n\t\t\t\t\t{/each}\n\t\t\t\t</div>\n\t\t\t\t<Dialog.Footer>\n\t\t\t\t\t<Dialog.Close class={buttonVariants({ variant: 'ghost' })}>Skip</Dialog.Close>\n\t\t\t\t\t{#if step < steps.length}\n\t\t\t\t\t\t<Button class=\"group\" type=\"button\" onclick={handleContinue}>\n\t\t\t\t\t\t\tNext\n\t\t\t\t\t\t\t<ArrowRight\n\t\t\t\t\t\t\t\tclassName=\"-me-1 ms-2 opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\t\t\t\t\t\t\tsize={16}\n\t\t\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t{:else}\n\t\t\t\t\t\t<Dialog.Close class={buttonVariants()}>Okay</Dialog.Close>\n\t\t\t\t\t{/if}\n\t\t\t\t</Dialog.Footer>\n\t\t\t</div>\n\t\t</div>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-332.svelte"
+		}
+	]
+}

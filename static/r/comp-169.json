@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-169",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"darkmode",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport IconCheck from '@lucide/svelte/icons/check';\n\timport IconMinus from '@lucide/svelte/icons/minus';\n\timport UiDark from '$assets/ui-dark.png?enhanced';\n\timport UiLight from '$assets/ui-light.png?enhanced';\n\timport UiSystem from '$assets/ui-system.png?enhanced';\n\n\tconst items = [\n\t\t{ id: 'radio-18-r1', image: UiLight, label: 'Light', value: 'r1' },\n\t\t{ id: 'radio-18-r2', image: UiDark, label: 'Dark', value: 'r2' },\n\t\t{ id: 'radio-18-r3', image: UiSystem, label: 'System', value: 'r3' }\n\t] as const;\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">Choose a theme</legend>\n\t<RadioGroup class=\"flex gap-3\" value=\"r1\">\n\t\t{#each items as item (item.id)}\n\t\t\t<label>\n\t\t\t\t<RadioGroupItem\n\t\t\t\t\tid={item.id}\n\t\t\t\t\tvalue={item.value}\n\t\t\t\t\tclass=\"peer sr-only after:absolute after:inset-0\"\n\t\t\t\t/>\n\t\t\t\t<enhanced:img\n\t\t\t\t\tsrc={item.image}\n\t\t\t\t\talt={item.label}\n\t\t\t\t\tclass=\"border-input ring-offset-background peer-focus-visible:ring-ring/70 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative h-[70px] w-[88px] cursor-pointer overflow-hidden rounded-lg border shadow-xs shadow-black/[.04] transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:opacity-50\"\n\t\t\t\t/>\n\t\t\t\t<span\n\t\t\t\t\tclass=\"group peer-data-[state=unchecked]:text-muted-foreground/70 mt-2 flex items-center gap-1\"\n\t\t\t\t>\n\t\t\t\t\t<IconCheck\n\t\t\t\t\t\tsize={16}\n\t\t\t\t\t\tstroke-width=\"2\"\n\t\t\t\t\t\tclass=\"in-[.group]:peer-data-[state=unchecked]:hidden\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t\t<IconMinus\n\t\t\t\t\t\tsize={16}\n\t\t\t\t\t\tstroke-width=\"2\"\n\t\t\t\t\t\tclass=\"in-[.group]:peer-data-[state=checked]:hidden\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t\t<span class=\"text-xs font-medium\">{item.label}</span>\n\t\t\t\t</span>\n\t\t\t</label>\n\t\t{/each}\n\t</RadioGroup>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-169.svelte"
+		}
+	]
+}

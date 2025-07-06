@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-199",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select-native",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Select with option groups (native)</Label>\n\t<SelectNative id={uid}>\n\t\t<optgroup label=\"Frontend\">\n\t\t\t<option value=\"s1\">Svelte</option>\n\t\t\t<option value=\"s2\">Vue</option>\n\t\t\t<option value=\"s3\">Angular</option>\n\t\t</optgroup>\n\t\t<optgroup label=\"Backend\">\n\t\t\t<option value=\"s4\">Node.js</option>\n\t\t\t<option value=\"s5\">Python</option>\n\t\t\t<option value=\"s6\">Java</option>\n\t\t</optgroup>\n\t</SelectNative>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-199.svelte"
+		}
+	]
+}

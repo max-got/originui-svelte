@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-300",
+	"type": "registry:component",
+	"dependencies": [
+		"sonner"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"toast",
+			"sonner",
+			"success",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport CircleCheckIcon from '@lucide/svelte/icons/circle-check';\n\timport XIcon from '@lucide/svelte/icons/x';\n\timport { toast, type ToastT } from 'svelte-sonner';\n\n\tfunction openToast() {\n\t\tconst newId = Math.random();\n\t\t//the implementation will change, once https://github.com/wobsoriano/svelte-sonner/pull/126 lands\n\t\t//@ts-expect-error - this is a hack to get the toast id, dont use in production\n\t\ttoast.custom((node) => customToastSnippet(node, () => newId), {\n\t\t\tid: newId\n\t\t});\n\t}\n</script>\n\n{#snippet customToastSnippet(toastId: ToastT['id'])}\n\t<div class=\"border-border bg-background w-(--width) rounded-lg border px-4 py-3\">\n\t\t<div class=\"flex gap-2\">\n\t\t\t<div class=\"flex grow gap-3\">\n\t\t\t\t<CircleCheckIcon class=\"mt-0.5 shrink-0 text-emerald-500\" size={16} aria-hidden=\"true\" />\n\n\t\t\t\t<div class=\"flex grow justify-between gap-12\">\n\t\t\t\t\t<p class=\"text-sm\">Message sent</p>\n\t\t\t\t\t<div class=\"text-sm whitespace-nowrap\">\n\t\t\t\t\t\t<button class=\"text-sm font-medium hover:underline\">View</button>\n\t\t\t\t\t\t<span class=\"text-muted-foreground mx-1\">·</span>\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\tclass=\"text-sm font-medium hover:underline\"\n\t\t\t\t\t\t\tonclick={() => toast.dismiss(toastId)}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\tUndo\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<Button\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\t\taria-label=\"Close banner\"\n\t\t\t\tonclick={() => toast.dismiss(toastId)}\n\t\t\t>\n\t\t\t\t<XIcon\n\t\t\t\t\tsize={16}\n\t\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t</Button>\n\t\t</div>\n\t</div>\n{/snippet}\n\n<Button variant=\"outline\" onclick={() => openToast()}>Custom sonner</Button>\n",
+			"type": "registry:component",
+			"target": "comp-300.svelte"
+		}
+	]
+}

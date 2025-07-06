@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-215",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"disabled",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\tconst items = [\n\t\t{ disabled: true, label: 'Svelte', value: 's1' },\n\t\t{ label: 'Next.js', value: 's2' },\n\t\t{ disabled: true, label: 'Astro', value: 's3' },\n\t\t{ label: 'Gatsby', value: 's4' }\n\t];\n\n\tlet value = $state('s2');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Select with disabled options</Label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger id={uid}>\n\t\t\t{selected?.label ?? 'Select a framework'}\n\t\t</Select.Trigger>\n\t\t<Select.Content>\n\t\t\t{#each items as item (item.value)}\n\t\t\t\t<Select.Item value={item.value} disabled={item.disabled}>\n\t\t\t\t\t{item.label}\n\t\t\t\t</Select.Item>\n\t\t\t{/each}\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-215.svelte"
+		}
+	]
+}

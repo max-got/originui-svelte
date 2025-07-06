@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-186",
+	"type": "registry:component",
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"label",
+			"card",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\tlet checked = $state(false);\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/[.04]\"\n>\n\t<Switch\n\t\tid={uid}\n\t\tbind:checked\n\t\tclass=\"order-1 h-4 w-6 after:absolute after:inset-0 [&_span]:size-3 data-[state=checked]:[&_span]:translate-x-2 data-[state=checked]:[&_span]:rtl:-translate-x-2\"\n\t\taria-describedby=\"{uid}-description\"\n\t/>\n\t<div class=\"grid grow gap-2\">\n\t\t<Label for={uid}>\n\t\t\tLabel\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (Sublabel) </span>\n\t\t</Label>\n\t\t<p id=\"{uid}-description\" class=\"text-muted-foreground text-xs\">\n\t\t\tA short description goes here.\n\t\t</p>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-186.svelte"
+		}
+	]
+}

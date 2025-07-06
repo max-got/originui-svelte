@@ -1,0 +1,20 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-311",
+	"type": "registry:component",
+	"meta": {
+		"tags": [
+			"banner",
+			"newsletter",
+			"subscribe"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<div class=\"border-border border-b px-4 py-3\">\n\t<p class=\"text-center text-sm\">\n\t\t<span class=\"mr-1 text-base leading-none\">📫</span> Subscribe to our newsletter and get 10% off\n\t\tyour first order! <span class=\"text-muted-foreground mx-1\">·</span>\n\t\t<a href=\"#title\" class=\"font-medium underline hover:no-underline\"> Subscribe </a>\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-311.svelte"
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-471",
+	"type": "registry:component",
+	"registryDependencies": [
+		"table"
+	],
+	"meta": {
+		"tags": [
+			"table"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTable,\n\t\tTableBody,\n\t\tTableCell,\n\t\tTableHead,\n\t\tTableHeader,\n\t\tTableRow\n\t} from '$lib/components/ui/table';\n\n\tconst programmingLanguages = [\n\t\t{\n\t\t\tdeveloper: 'Brendan Eich',\n\t\t\textension: '.js',\n\t\t\tid: '1',\n\t\t\tlatestVersion: 'ES2021',\n\t\t\tname: 'JavaScript',\n\t\t\tparadigm: 'Multi-paradigm',\n\t\t\tpopularity: 'High',\n\t\t\treleaseYear: '1995',\n\t\t\ttyping: 'Dynamic'\n\t\t},\n\t\t{\n\t\t\tdeveloper: 'Guido van Rossum',\n\t\t\textension: '.py',\n\t\t\tid: '2',\n\t\t\tlatestVersion: '3.10',\n\t\t\tname: 'Python',\n\t\t\tparadigm: 'Multi-paradigm',\n\t\t\tpopularity: 'High',\n\t\t\treleaseYear: '1991',\n\t\t\ttyping: 'Dynamic'\n\t\t},\n\t\t{\n\t\t\tdeveloper: 'James Gosling',\n\t\t\textension: '.java',\n\t\t\tid: '3',\n\t\t\tlatestVersion: '17',\n\t\t\tname: 'Java',\n\t\t\tparadigm: 'Object-oriented',\n\t\t\tpopularity: 'High',\n\t\t\treleaseYear: '1995',\n\t\t\ttyping: 'Static'\n\t\t},\n\t\t{\n\t\t\tdeveloper: 'Bjarne Stroustrup',\n\t\t\textension: '.cpp',\n\t\t\tid: '4',\n\t\t\tlatestVersion: 'C++20',\n\t\t\tname: 'C++',\n\t\t\tparadigm: 'Multi-paradigm',\n\t\t\tpopularity: 'High',\n\t\t\treleaseYear: '1985',\n\t\t\ttyping: 'Static'\n\t\t},\n\t\t{\n\t\t\tdeveloper: 'Yukihiro Matsumoto',\n\t\t\textension: '.rb',\n\t\t\tid: '5',\n\t\t\tlatestVersion: '3.0',\n\t\t\tname: 'Ruby',\n\t\t\tparadigm: 'Multi-paradigm',\n\t\t\tpopularity: 'Low',\n\t\t\treleaseYear: '1995',\n\t\t\ttyping: 'Dynamic'\n\t\t}\n\t];\n</script>\n\n<div>\n\t<div class=\"bg-background overflow-hidden rounded-md border\">\n\t\t<Table>\n\t\t\t<TableHeader>\n\t\t\t\t<TableRow class=\"bg-muted/50\">\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Name</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Release Year</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Developer</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Typing</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Paradigm</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Extension</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Latest Version</TableHead>\n\t\t\t\t\t<TableHead class=\"h-9 py-2\">Popularity</TableHead>\n\t\t\t\t</TableRow>\n\t\t\t</TableHeader>\n\t\t\t<TableBody>\n\t\t\t\t{#each programmingLanguages as language (language.id)}\n\t\t\t\t\t<TableRow>\n\t\t\t\t\t\t<TableCell class=\"py-2 font-medium\">\n\t\t\t\t\t\t\t{language.name}\n\t\t\t\t\t\t</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.releaseYear}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.developer}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.typing}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.paradigm}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.extension}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.latestVersion}</TableCell>\n\t\t\t\t\t\t<TableCell class=\"py-2\">{language.popularity}</TableCell>\n\t\t\t\t\t</TableRow>\n\t\t\t\t{/each}\n\t\t\t</TableBody>\n\t\t</Table>\n\t</div>\n\t<p class=\"text-muted-foreground mt-4 text-center text-sm\">Dense table</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-471.svelte"
+		}
+	]
+}

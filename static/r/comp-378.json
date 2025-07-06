@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-378",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"info",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Book from '@lucide/svelte/icons/book';\n\timport Info from '@lucide/svelte/icons/info';\n\timport LifeBuoy from '@lucide/svelte/icons/life-buoy';\n\timport MessageCircleMore from '@lucide/svelte/icons/message-circle-more';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuLabel,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"rounded-full shadow-none\"\n\t\t\t\taria-label=\"Open edit menu\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<Info size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent class=\"pb-2\">\n\t\t<DropdownMenuLabel>Need help?</DropdownMenuLabel>\n\t\t<DropdownMenuItem class=\"cursor-pointer py-1 focus:bg-transparent focus:underline\">\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<a href=\"#title\" {...props}>\n\t\t\t\t\t<Book size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t\tDocumentation\n\t\t\t\t</a>\n\t\t\t{/snippet}\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem class=\"cursor-pointer py-1 focus:bg-transparent focus:underline\">\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<a href=\"#title\" {...props}>\n\t\t\t\t\t<LifeBuoy size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t\tSupport\n\t\t\t\t</a>\n\t\t\t{/snippet}\n\t\t</DropdownMenuItem>\n\t\t<DropdownMenuItem class=\"cursor-pointer py-1 focus:bg-transparent focus:underline\">\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<a href=\"#title\" {...props}>\n\t\t\t\t\t<MessageCircleMore size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t\tContact us\n\t\t\t\t</a>\n\t\t\t{/snippet}\n\t\t</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-378.svelte"
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-263",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"vertical slider",
+			"range slider",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n</script>\n\n<div class=\"*:not-first:mt-4\">\n\t<Label>Vertical dual range slider and tooltip</Label>\n\t<div class=\"flex h-40 justify-center\">\n\t\t<Slider\n\t\t\ttype=\"multiple\"\n\t\t\tvalue={[2, 7]}\n\t\t\tmax={10}\n\t\t\torientation=\"vertical\"\n\t\t\taria-label=\"Vertical slider\"\n\t\t\tshowTooltip\n\t\t/>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-263.svelte"
+		}
+	]
+}

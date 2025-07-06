@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-148",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"checkbox-tree",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"tree",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport CheckboxTree, { type TreeNode } from '$lib/registry/default/ui/checkbox-tree.svelte';\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst initialTree: TreeNode = {\n\t\tchildren: [\n\t\t\t{ defaultChecked: true, id: 'mountains', indeterminate: true, label: 'Mountains' },\n\t\t\t{\n\t\t\t\tchildren: [\n\t\t\t\t\t{ id: 'niagara', label: 'Niagara Falls' },\n\t\t\t\t\t{ defaultChecked: true, id: 'angel-falls', label: 'Angel Falls' }\n\t\t\t\t],\n\t\t\t\tid: 'waterfalls',\n\t\t\t\tindeterminate: true,\n\t\t\t\tlabel: 'Waterfalls'\n\t\t\t},\n\t\t\t{ id: 'grand-canyon', label: 'Grand Canyon' }\n\t\t],\n\t\tid: 'natural-wonders',\n\t\tlabel: 'Natural Wonders'\n\t};\n</script>\n\n<div class=\"space-y-3\">\n\t<CheckboxTree tree={initialTree}>\n\t\t{#snippet renderNode({ checked, children, id, indeterminate, label, onCheckedChange })}\n\t\t\t<div class=\"ms-6 flex items-center gap-2\">\n\t\t\t\t<Checkbox {id} {checked} {onCheckedChange} {indeterminate} />\n\t\t\t\t<Label for={id}>{label}</Label>\n\t\t\t</div>\n\n\t\t\t{#if children}\n\t\t\t\t{#each children as child (child.id)}\n\t\t\t\t\t<div class=\"ms-6 space-y-3\">\n\t\t\t\t\t\t{@render renderNode(child)}\n\t\t\t\t\t</div>\n\t\t\t\t{/each}\n\t\t\t{/if}\n\t\t{/snippet}\n\t</CheckboxTree>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-148.svelte"
+		}
+	]
+}

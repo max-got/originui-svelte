@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-447",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"breadcrumb",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"breadcrumb",
+			"dropdown",
+			"bits ui"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Folders from '@lucide/svelte/icons/folder';\n\timport {\n\t\tBreadcrumb,\n\t\tBreadcrumbItem,\n\t\tBreadcrumbLink,\n\t\tBreadcrumbList,\n\t\tBreadcrumbPage,\n\t\tBreadcrumbSeparator\n\t} from '$lib/components/ui/breadcrumb';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<Breadcrumb>\n\t<BreadcrumbList>\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbLink href=\"#title\">Home</BreadcrumbLink>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<DropdownMenu>\n\t\t\t\t<DropdownMenuTrigger class=\"hover:text-foreground\">\n\t\t\t\t\t<span\n\t\t\t\t\t\trole=\"presentation\"\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t\tclass=\"flex size-5 items-center justify-center\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<Folders size={16} />\n\t\t\t\t\t</span>\n\t\t\t\t</DropdownMenuTrigger>\n\t\t\t\t<DropdownMenuContent align=\"start\">\n\t\t\t\t\t<DropdownMenuItem>\n\t\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t\t<a href=\"#title\" {...props}>Documentation</a>\n\t\t\t\t\t\t{/snippet}\n\t\t\t\t\t</DropdownMenuItem>\n\t\t\t\t\t<DropdownMenuItem>\n\t\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t\t<a href=\"#title\" {...props}>Themes</a>\n\t\t\t\t\t\t{/snippet}\n\t\t\t\t\t</DropdownMenuItem>\n\t\t\t\t\t<DropdownMenuItem>\n\t\t\t\t\t\t{#snippet child({ props })}\n\t\t\t\t\t\t\t<a href=\"#title\" {...props}>GitHub</a>\n\t\t\t\t\t\t{/snippet}\n\t\t\t\t\t</DropdownMenuItem>\n\t\t\t\t</DropdownMenuContent>\n\t\t\t</DropdownMenu>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbLink href=\"#\">Components</BreadcrumbLink>\n\t\t</BreadcrumbItem>\n\t\t<BreadcrumbSeparator />\n\t\t<BreadcrumbItem>\n\t\t\t<BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n\t\t</BreadcrumbItem>\n\t</BreadcrumbList>\n</Breadcrumb>\n",
+			"type": "registry:component",
+			"target": "comp-447.svelte"
+		}
+	]
+}

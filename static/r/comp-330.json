@@ -1,0 +1,30 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-330",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dialog",
+		"label",
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"user",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport Check from '@lucide/svelte/icons/check';\n\timport RefreshCcw from '@lucide/svelte/icons/refresh-ccw';\n\timport * as Dialog from '$lib/components/ui/dialog';\n</script>\n\n<Dialog.Root>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Change plan</Dialog.Trigger>\n\t<Dialog.Content>\n\t\t<div class=\"mb-2 flex flex-col gap-2\">\n\t\t\t<div\n\t\t\t\tclass=\"border-border flex size-11 shrink-0 items-center justify-center rounded-full border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<RefreshCcw class=\"opacity-80\" size={16} />\n\t\t\t</div>\n\t\t\t<Dialog.Header>\n\t\t\t\t<Dialog.Title class=\"text-left\">Change your plan</Dialog.Title>\n\t\t\t\t<Dialog.Description class=\"text-left\">Pick one of the following plans.</Dialog.Description>\n\t\t\t</Dialog.Header>\n\t\t</div>\n\n\t\t<form class=\"space-y-5\">\n\t\t\t<RadioGroup class=\"gap-2\" value=\"plan-02\">\n\t\t\t\t<div\n\t\t\t\t\tclass=\"border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5\"\n\t\t\t\t>\n\t\t\t\t\t<RadioGroupItem\n\t\t\t\t\t\tvalue=\"plan-01\"\n\t\t\t\t\t\tid=\"plan-01\"\n\t\t\t\t\t\taria-describedby=\"plan-01-description\"\n\t\t\t\t\t\tclass=\"order-1 after:absolute after:inset-0\"\n\t\t\t\t\t/>\n\t\t\t\t\t<div class=\"grid grow gap-1\">\n\t\t\t\t\t\t<Label for=\"plan-01\">Essential</Label>\n\t\t\t\t\t\t<p id=\"plan-01-description\" class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t$4 per member/month\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div\n\t\t\t\t\tclass=\"border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5\"\n\t\t\t\t>\n\t\t\t\t\t<RadioGroupItem\n\t\t\t\t\t\tvalue=\"plan-02\"\n\t\t\t\t\t\tid=\"plan-02\"\n\t\t\t\t\t\taria-describedby=\"plan-02-description\"\n\t\t\t\t\t\tclass=\"order-1 after:absolute after:inset-0\"\n\t\t\t\t\t/>\n\t\t\t\t\t<div class=\"grid grow gap-1\">\n\t\t\t\t\t\t<Label for=\"plan-02\">Standard</Label>\n\t\t\t\t\t\t<p id=\"plan-02-description\" class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t$19 per member/month\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div\n\t\t\t\t\tclass=\"border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex w-full items-center gap-2 rounded-lg border px-4 py-3 shadow-xs shadow-black/5\"\n\t\t\t\t>\n\t\t\t\t\t<RadioGroupItem\n\t\t\t\t\t\tvalue=\"plan-03\"\n\t\t\t\t\t\tid=\"plan-03\"\n\t\t\t\t\t\taria-describedby=\"plan-03-description\"\n\t\t\t\t\t\tclass=\"order-1 after:absolute after:inset-0\"\n\t\t\t\t\t/>\n\t\t\t\t\t<div class=\"grid grow gap-1\">\n\t\t\t\t\t\t<Label for=\"plan-03\">Enterprise</Label>\n\t\t\t\t\t\t<p id=\"plan-03-description\" class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t$32 per member/month\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</RadioGroup>\n\n\t\t\t<div class=\"space-y-3\">\n\t\t\t\t<p>\n\t\t\t\t\t<strong class=\"text-sm font-medium\">Features include:</strong>\n\t\t\t\t</p>\n\t\t\t\t<ul class=\"text-muted-foreground space-y-2 text-sm\">\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\tCreate unlimited projects.\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\tRemove watermarks.\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\tAdd unlimited users and free viewers.\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\tUpload unlimited files.\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\t7-day money back guarantee.\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"flex gap-2\">\n\t\t\t\t\t\t<Check size={16} class=\"text-primary mt-0.5 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t\t\tAdvanced permissions.\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\n\t\t\t<div class=\"grid gap-2\">\n\t\t\t\t<Button type=\"button\" class=\"w-full\">Change plan</Button>\n\t\t\t\t<Dialog.Close class=\"{buttonVariants({ variant: 'ghost' })} w-full\">Cancel</Dialog.Close>\n\t\t\t</div>\n\t\t</form>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-330.svelte"
+		}
+	]
+}

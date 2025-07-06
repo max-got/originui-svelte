@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-381",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"checkbox",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"filter",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Checkbox from '$lib/components/ui/checkbox.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport ListFilter from '@lucide/svelte/icons/list-filter';\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n</script>\n\n<div class=\"flex flex-col gap-4\">\n\t<Popover>\n\t\t<PopoverTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" size=\"icon\" aria-label=\"Filters\" {...props}>\n\t\t\t\t\t<ListFilter size={16} aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</PopoverTrigger>\n\t\t<PopoverContent class=\"w-36 p-3\">\n\t\t\t<div class=\"space-y-3\">\n\t\t\t\t<div class=\"text-muted-foreground text-xs font-medium\">Filters</div>\n\t\t\t\t<form class=\"space-y-3\">\n\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Checkbox id=\"popover-filter-01\" />\n\t\t\t\t\t\t<Label for=\"popover-filter-01\" class=\"font-normal\">Real Time</Label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Checkbox id=\"popover-filter-02\" />\n\t\t\t\t\t\t<Label for=\"popover-filter-02\" class=\"font-normal\">Top Channels</Label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Checkbox id=\"popover-filter-03\" />\n\t\t\t\t\t\t<Label for=\"popover-filter-03\" class=\"font-normal\">Last Orders</Label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t<Checkbox id=\"popover-filter-04\" />\n\t\t\t\t\t\t<Label for=\"popover-filter-04\" class=\"font-normal\">Total Spent</Label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div\n\t\t\t\t\t\trole=\"separator\"\n\t\t\t\t\t\taria-orientation=\"horizontal\"\n\t\t\t\t\t\tclass=\"bg-border -mx-3 my-1 h-px\"\n\t\t\t\t\t></div>\n\t\t\t\t\t<div class=\"flex justify-between gap-2\">\n\t\t\t\t\t\t<Button size=\"sm\" variant=\"outline\" class=\"h-7 px-2\">Clear</Button>\n\t\t\t\t\t\t<Button size=\"sm\" class=\"h-7 px-2\">Apply</Button>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</PopoverContent>\n\t</Popover>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-381.svelte"
+		}
+	]
+}

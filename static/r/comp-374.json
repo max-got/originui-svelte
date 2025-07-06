@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-374",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"checkbox",
+			"radio",
+			"delete",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ArchiveRestore from '@lucide/svelte/icons/archive-restore';\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport Plus from '@lucide/svelte/icons/plus';\n\timport Share2 from '@lucide/svelte/icons/share-2';\n\timport Trash from '@lucide/svelte/icons/trash';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuCheckboxItem,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuGroup,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuRadioGroup,\n\t\tDropdownMenuRadioItem,\n\t\tDropdownMenuSeparator,\n\t\tDropdownMenuShortcut,\n\t\tDropdownMenuSub,\n\t\tDropdownMenuSubContent,\n\t\tDropdownMenuSubTrigger,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n\n\tlet framework = $state('sveltekit');\n\tlet emailNotifications = $state(true);\n\tlet pushNotifications = $state(false);\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>\n\t\t\t\tRich menu with icons\n\t\t\t\t<ChevronDown class=\"-me-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent>\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<Plus size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>New</span>\n\t\t\t\t<DropdownMenuShortcut>⌘N</DropdownMenuShortcut>\n\t\t\t</DropdownMenuItem>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuSub>\n\t\t\t\t<DropdownMenuSubTrigger inset>Framework</DropdownMenuSubTrigger>\n\n\t\t\t\t<DropdownMenuSubContent>\n\t\t\t\t\t<DropdownMenuRadioGroup value={framework} onValueChange={(value) => (framework = value)}>\n\t\t\t\t\t\t<DropdownMenuRadioItem value=\"sveltekit\">SvelteKit</DropdownMenuRadioItem>\n\t\t\t\t\t\t<DropdownMenuRadioItem value=\"nextjs\" disabled>Next.js</DropdownMenuRadioItem>\n\t\t\t\t\t\t<DropdownMenuRadioItem value=\"remix\">Remix</DropdownMenuRadioItem>\n\t\t\t\t\t\t<DropdownMenuRadioItem value=\"astro\">Astro</DropdownMenuRadioItem>\n\t\t\t\t\t</DropdownMenuRadioGroup>\n\t\t\t\t</DropdownMenuSubContent>\n\t\t\t</DropdownMenuSub>\n\t\t\t<DropdownMenuSub>\n\t\t\t\t<DropdownMenuSubTrigger inset>Notifications</DropdownMenuSubTrigger>\n\n\t\t\t\t<DropdownMenuSubContent>\n\t\t\t\t\t<DropdownMenuCheckboxItem\n\t\t\t\t\t\tchecked={emailNotifications}\n\t\t\t\t\t\tonCheckedChange={(checked) => (emailNotifications = checked)}\n\t\t\t\t\t>\n\t\t\t\t\t\tEmail\n\t\t\t\t\t</DropdownMenuCheckboxItem>\n\t\t\t\t\t<DropdownMenuCheckboxItem\n\t\t\t\t\t\tchecked={pushNotifications}\n\t\t\t\t\t\tonCheckedChange={(checked) => (pushNotifications = checked)}\n\t\t\t\t\t>\n\t\t\t\t\t\tPush\n\t\t\t\t\t</DropdownMenuCheckboxItem>\n\t\t\t\t</DropdownMenuSubContent>\n\t\t\t</DropdownMenuSub>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<Share2 size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Share</span>\n\t\t\t</DropdownMenuItem>\n\t\t\t<DropdownMenuItem>\n\t\t\t\t<ArchiveRestore size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Archive</span>\n\t\t\t</DropdownMenuItem>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuItem class=\"text-destructive focus:text-destructive\">\n\t\t\t<Trash size={16} aria-hidden=\"true\" />\n\t\t\t<span>Delete</span>\n\t\t\t<DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>\n\t\t</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-374.svelte"
+		}
+	]
+}

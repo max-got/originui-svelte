@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-595",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"avatar",
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"navbar, navigation"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';\n\timport HistoryIcon from '@lucide/svelte/icons/history';\n\timport MessageSquareText from '@lucide/svelte/icons/message-square-text';\n\timport UserRoundPlus from '@lucide/svelte/icons/user-round-plus';\n\timport { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';\n</script>\n\n<header class=\"border-b px-4 md:px-6\">\n\t<div class=\"flex h-16 items-center justify-between gap-4\">\n\t\t<!-- Left side -->\n\t\t<div class=\"flex items-center gap-2\">\n\t\t\t<Button class=\"size-8\" variant=\"ghost\" size=\"icon\" aria-label=\"Go back\" href=\"#\">\n\t\t\t\t<ChevronLeftIcon />\n\t\t\t</Button>\n\t\t\t<h1 class=\"text-sm font-medium\">Basic UI</h1>\n\t\t</div>\n\t\t<!-- Right side -->\n\t\t<div class=\"flex items-center gap-2\">\n\t\t\t<!-- History button -->\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"text-muted-foreground size-8 rounded-full shadow-none\"\n\t\t\t\taria-label=\"History\"\n\t\t\t>\n\t\t\t\t<HistoryIcon size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t\t<!-- Comments button -->\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"text-muted-foreground size-8 rounded-full shadow-none\"\n\t\t\t\taria-label=\"Save\"\n\t\t\t>\n\t\t\t\t<MessageSquareText size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t\t<!-- Add user -->\n\t\t\t<Button\n\t\t\t\tsize=\"icon\"\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"text-muted-foreground size-8 rounded-full shadow-none\"\n\t\t\t\taria-label=\"Add user\"\n\t\t\t>\n\t\t\t\t<UserRoundPlus size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t\t<!-- Online users -->\n\t\t\t<div class=\"ml-2 flex items-center gap-2\">\n\t\t\t\t<div class=\"relative\">\n\t\t\t\t\t<Avatar>\n\t\t\t\t\t\t<AvatarImage src=\"./avatar-80-07.jpg\" alt=\"Kelly King\" />\n\t\t\t\t\t\t<AvatarFallback>KK</AvatarFallback>\n\t\t\t\t\t</Avatar>\n\t\t\t\t\t<span\n\t\t\t\t\t\tclass=\"border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-emerald-500\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<span class=\"sr-only\">Online</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative\">\n\t\t\t\t\t<Avatar>\n\t\t\t\t\t\t<AvatarImage src=\"./avatar-72-01.jpg\" alt=\"Martha Johnson\" />\n\t\t\t\t\t\t<AvatarFallback>KK</AvatarFallback>\n\t\t\t\t\t</Avatar>\n\t\t\t\t\t<span\n\t\t\t\t\t\tclass=\"border-background bg-muted-foreground absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<span class=\"sr-only\">Online</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative\">\n\t\t\t\t\t<Avatar>\n\t\t\t\t\t\t<AvatarImage src=\"./avatar.jpg\" alt=\"Linda Green\" />\n\t\t\t\t\t\t<AvatarFallback>KK</AvatarFallback>\n\t\t\t\t\t</Avatar>\n\t\t\t\t\t<span\n\t\t\t\t\t\tclass=\"border-background bg-muted-foreground absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<span class=\"sr-only\">Online</span>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"secondary\"\n\t\t\t\t\tclass=\"bg-secondary text-muted-foreground ring-background hover:bg-secondary hover:text-foreground flex size-8 items-center justify-center rounded-full text-xs\"\n\t\t\t\t\tsize=\"icon\"\n\t\t\t\t>\n\t\t\t\t\t+3\n\t\t\t\t</Button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</header>\n",
+			"type": "registry:component",
+			"target": "comp-595.svelte"
+		}
+	]
+}

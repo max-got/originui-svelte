@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-139",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"flex gap-6\">\n\t<div class=\"flex items-center gap-2\">\n\t\t<Checkbox id=\"{uid}-a\" />\n\t\t<Label for=\"{uid}-a\">Svelte</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<Checkbox id=\"{uid}-b\" />\n\t\t<Label for=\"{uid}-b\">SvelteKit</Label>\n\t</div>\n\t<div class=\"flex items-center gap-2\">\n\t\t<Checkbox id=\"{uid}-c\" />\n\t\t<Label for=\"{uid}-c\">Astro</Label>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-139.svelte"
+		}
+	]
+}

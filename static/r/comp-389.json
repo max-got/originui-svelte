@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-389",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"tour",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport type { Icon as IconType } from '@lucide/svelte';\n\n\timport Button from '../ui/button.svelte';\n\n\timport Club from '@lucide/svelte/icons/club';\n\timport Diamond from '@lucide/svelte/icons/diamond';\n\timport Heart from '@lucide/svelte/icons/heart';\n\timport Spade from '@lucide/svelte/icons/spade';\n\n\timport { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';\n\n\tinterface TourStep {\n\t\tdescription: string;\n\t\ticon: typeof IconType;\n\t\ttitle: string;\n\t}\n\n\tconst tourSteps: TourStep[] = [\n\t\t{\n\t\t\tdescription:\n\t\t\t\t\"This is your new workspace. Here you'll find all your projects, recent activities, settings, and more.\",\n\t\t\ticon: Heart,\n\t\t\ttitle: 'Heart'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Use the toolbar above to create new projects, invite team members, or access settings.',\n\t\t\ticon: Diamond,\n\t\t\ttitle: 'Diamond'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Click the support icon in the top right corner to access our help center and documentation.',\n\t\t\ticon: Club,\n\t\t\ttitle: 'Club'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Press ⌘K to open the command palette. Use arrow keys to navigate and Enter to select an action.',\n\t\t\ticon: Spade,\n\t\t\ttitle: 'Spade'\n\t\t}\n\t];\n\n\tlet currentStep = $state(0);\n\tlet anchors = $state<HTMLDivElement[]>([]);\n\n\tfunction handleNavigation() {\n\t\tif (currentStep === tourSteps.length - 1) {\n\t\t\tcurrentStep = 0;\n\t\t} else {\n\t\t\tcurrentStep++;\n\t\t}\n\t}\n</script>\n\n<div class=\"flex flex-col gap-4\">\n\t<Popover\n\t\tonOpenChange={(open) => {\n\t\t\tif (open) currentStep = 0;\n\t\t}}\n\t>\n\t\t<div class=\"grid grid-cols-2 place-items-center gap-4\">\n\t\t\t{#each tourSteps as _, index (index)}\n\t\t\t\t<div\n\t\t\t\t\tclass=\"bg-secondary text-muted-foreground flex size-10 items-center justify-center rounded-lg text-sm font-medium\"\n\t\t\t\t\tbind:this={anchors[index]}\n\t\t\t\t>\n\t\t\t\t\t{index + 1}\n\t\t\t\t</div>\n\t\t\t{/each}\n\t\t</div>\n\n\t\t<PopoverTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" {...props}>Start tour</Button>\n\t\t\t{/snippet}\n\t\t</PopoverTrigger>\n\n\t\t<PopoverContent\n\t\t\tclass=\"max-w-[280px] py-3 shadow-none\"\n\t\t\tside={currentStep % 2 === 0 ? 'left' : 'right'}\n\t\t\tcustomAnchor={anchors[currentStep]}\n\t\t\tshowArrow={true}\n\t\t>\n\t\t\t<div class=\"space-y-3\">\n\t\t\t\t<div class=\"space-y-1\">\n\t\t\t\t\t<p class=\"text-[13px] font-medium\">{tourSteps[currentStep].title}</p>\n\t\t\t\t\t<p class=\"text-muted-foreground text-xs\">{tourSteps[currentStep].description}</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"flex items-center justify-between gap-2\">\n\t\t\t\t\t<span class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t{currentStep + 1}/{tourSteps.length}\n\t\t\t\t\t</span>\n\t\t\t\t\t<button class=\"text-xs font-medium hover:underline\" onclick={handleNavigation}>\n\t\t\t\t\t\t{currentStep === tourSteps.length - 1 ? 'Start over' : 'Next'}\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</PopoverContent>\n\t</Popover>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-389.svelte"
+		}
+	]
+}

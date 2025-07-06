@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-134",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"flex items-center gap-2\"\n\tstyle:--primary=\"238.7 83.5% 66.7%\"\n\tstyle:--ring=\"238.7 83.5% 66.7%\"\n>\n\t<Checkbox id={uid} checked />\n\t<Label for={uid}>Colored checkbox</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-134.svelte"
+		}
+	]
+}

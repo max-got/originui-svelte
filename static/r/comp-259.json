@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-259",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"button",
+			"pricing",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n\n\timport Minus from '@lucide/svelte/icons/minus';\n\timport Plus from '@lucide/svelte/icons/plus';\n\n\tconst min = 0;\n\tconst max = 200;\n\tconst steps = 5;\n\n\tlet value = $state(100);\n\n\tfunction decrement() {\n\t\tvalue -= steps;\n\t}\n\n\tfunction increment() {\n\t\tvalue += steps;\n\t}\n</script>\n\n<div class=\"*:not-first:mt-3\">\n\t<Label class=\"tabular-nums\">{value} credits/mo</Label>\n\t<div class=\"flex items-center gap-4\">\n\t\t<div>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tsize=\"icon\"\n\t\t\t\tclass=\"size-8\"\n\t\t\t\taria-label=\"Decrease value\"\n\t\t\t\tdisabled={value === min}\n\t\t\t\tonclick={decrement}\n\t\t\t>\n\t\t\t\t<Minus size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t</div>\n\t\t<Slider\n\t\t\ttype=\"single\"\n\t\t\tclass=\"grow\"\n\t\t\tbind:value\n\t\t\t{min}\n\t\t\t{max}\n\t\t\tstep={steps}\n\t\t\taria-label=\"Dual range slider with buttons\"\n\t\t/>\n\t\t<div>\n\t\t\t<Button\n\t\t\t\tvariant=\"outline\"\n\t\t\t\tsize=\"icon\"\n\t\t\t\tclass=\"size-8\"\n\t\t\t\taria-label=\"Increase value\"\n\t\t\t\tdisabled={value === max}\n\t\t\t\tonclick={increment}\n\t\t\t>\n\t\t\t\t<Plus size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t</div>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-259.svelte"
+		}
+	]
+}

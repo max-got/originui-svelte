@@ -1,0 +1,33 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-329",
+	"type": "registry:component",
+	"registryDependencies": [
+		"badge",
+		"button",
+		"dialog",
+		"input",
+		"label",
+		"radio-group"
+	],
+	"meta": {
+		"todo": true,
+		"tags": [
+			"dialog",
+			"modal",
+			"checkout",
+			"payment",
+			"credit card",
+			"form",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "",
+			"type": "registry:component",
+			"target": "comp-329.todo.svelte"
+		}
+	]
+}

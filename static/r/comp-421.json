@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-421",
+	"type": "registry:component",
+	"registryDependencies": [
+		"badge"
+	],
+	"meta": {
+		"tags": [
+			"badge",
+			"chip",
+			"status"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Badge from '$lib/components/ui/badge.svelte';\n</script>\n\n<Badge variant=\"outline\" class=\"gap-1.5\">\n\t<span class=\"size-1.5 rounded-full bg-amber-500\" aria-hidden=\"true\"></span>\n\tBadge\n</Badge>\n",
+			"type": "registry:component",
+			"target": "comp-421.svelte"
+		}
+	]
+}

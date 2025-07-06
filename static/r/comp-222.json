@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-222",
+	"type": "registry:component",
+	"dependencies": [
+		"@remixicon/react"
+	],
+	"registryDependencies": [
+		"select",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport * as Select from '$lib/components/ui/select/index.js';\n\n\timport MonitorCog from '@lucide/svelte/icons/monitor-cog';\n\timport Moon from '@lucide/svelte/icons/moon';\n\timport Sun from '@lucide/svelte/icons/sun';\n\n\tconst items = [\n\t\t{ icon: Sun, label: 'Light', value: 's1' },\n\t\t{ icon: Moon, label: 'Dark', value: 's2' },\n\t\t{ icon: MonitorCog, label: 'System', value: 's3' }\n\t] as const;\n\n\tlet value = $state('s1');\n\n\tconst selected = $derived(items.find((i) => i.value === value));\n\n\tconst uid = $props.id();\n</script>\n\n{#snippet theme(item: (typeof items)[number])}\n\t<item.icon size={16} aria-hidden=\"true\" />\n\t<span class=\"truncate\">{item.label}</span>\n{/snippet}\n\n<div class=\"space-y-2\">\n\t<Label for={uid}>Options with icon</Label>\n\t<Select.Root type=\"single\" bind:value>\n\t\t<Select.Trigger\n\t\t\tid={uid}\n\t\t\tclass=\"[&>span_svg]:text-muted-foreground/80 [&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0\"\n\t\t>\n\t\t\t{#if selected}\n\t\t\t\t{@render theme(selected)}\n\t\t\t{:else}\n\t\t\t\tSelect a theme\n\t\t\t{/if}\n\t\t</Select.Trigger>\n\t\t<Select.Content\n\t\t\tclass=\"[&_*[data-select-item]>span>svg]:text-muted-foreground/80 [&_*[data-select-item]>span]:flex [&_*[data-select-item]>span]:gap-2 [&_*[data-select-item]>span>svg]:shrink-0\"\n\t\t>\n\t\t\t{#each items as item (item.value)}\n\t\t\t\t<Select.Item value={item.value}>\n\t\t\t\t\t{@render theme(item)}\n\t\t\t\t</Select.Item>\n\t\t\t{/each}\n\t\t</Select.Content>\n\t</Select.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-222.svelte"
+		}
+	]
+}

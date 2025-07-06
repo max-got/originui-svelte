@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-310",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"banner",
+			"countdown",
+			"sale"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport TicketPercent from '@lucide/svelte/icons/ticket-percent';\n\timport X from '@lucide/svelte/icons/x';\n\n\t// Setting 9h 45m 24s from now for demo purposes\n\tconst saleEndDate = new Date(Date.now() + 9 * 60 * 60 * 1000 + 45 * 60 * 1000 + 24 * 1000);\n\n\tlet visible = $state(true);\n\tlet timeLeft = $state(calculateTimeLeft());\n\n\tfunction calculateTimeLeft() {\n\t\tconst difference = saleEndDate.getTime() - new Date().getTime();\n\n\t\tif (difference <= 0) return { days: 0, hours: 0, isExpired: true, minutes: 0, seconds: 0 };\n\n\t\treturn {\n\t\t\tdays: Math.floor(difference / (1000 * 60 * 60 * 24)),\n\t\t\thours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),\n\t\t\tisExpired: false,\n\t\t\tminutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),\n\t\t\tseconds: Math.floor((difference % (1000 * 60)) / 1000)\n\t\t};\n\t}\n\n\t$effect(() => {\n\t\tconst timer = setInterval(() => {\n\t\t\ttimeLeft = calculateTimeLeft();\n\t\t\tif (timeLeft.isExpired) {\n\t\t\t\tclearInterval(timer);\n\t\t\t}\n\t\t}, 1000);\n\n\t\treturn () => clearInterval(timer);\n\t});\n</script>\n\n{#if visible && !timeLeft.isExpired}\n\t<div class=\"dark bg-muted text-foreground px-4 py-3\">\n\t\t<div class=\"flex gap-2 md:items-center\">\n\t\t\t<div class=\"flex grow gap-3 md:items-center\">\n\t\t\t\t<div\n\t\t\t\t\tclass=\"bg-primary/15 flex size-9 shrink-0 items-center justify-center rounded-full max-md:mt-0.5\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t>\n\t\t\t\t\t<TicketPercent class=\"opacity-80\" size={16} />\n\t\t\t\t</div>\n\t\t\t\t<div class=\"flex grow flex-col justify-between gap-3 md:flex-row md:items-center\">\n\t\t\t\t\t<div class=\"space-y-0.5\">\n\t\t\t\t\t\t<p class=\"text-sm font-medium\">Black Friday Sale!</p>\n\t\t\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\t\t\tIt kicks off today and is available for just 24 hours—don&lsquo;t miss out!\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex gap-3 max-md:flex-wrap\">\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tclass=\"divide-primary-foreground bg-primary/15 flex items-center divide-x rounded-lg text-sm tabular-nums\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{#if timeLeft.days > 0}\n\t\t\t\t\t\t\t\t<span class=\"flex h-8 items-center justify-center p-2\">\n\t\t\t\t\t\t\t\t\t{timeLeft.days}\n\t\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground\">d</span>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t{/if}\n\n\t\t\t\t\t\t\t<span class=\"flex h-8 items-center justify-center p-2\">\n\t\t\t\t\t\t\t\t{timeLeft.hours.toString().padStart(2, '0')}\n\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground\">h</span>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t<span class=\"flex h-8 items-center justify-center p-2\">\n\t\t\t\t\t\t\t\t{timeLeft.minutes.toString().padStart(2, '0')}\n\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground\">m</span>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t<span class=\"flex h-8 items-center justify-center p-2\">\n\t\t\t\t\t\t\t\t{timeLeft.seconds.toString().padStart(2, '0')}\n\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground\">s</span>\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<Button size=\"sm\" class=\"text-sm\">Buy now</Button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<Button\n\t\t\t\tvariant=\"ghost\"\n\t\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\t\tonclick={() => (visible = false)}\n\t\t\t\taria-label=\"Close banner\"\n\t\t\t>\n\t\t\t\t<X\n\t\t\t\t\tsize={16}\n\t\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t/>\n\t\t\t</Button>\n\t\t</div>\n\t</div>\n{/if}\n",
+			"type": "registry:component",
+			"target": "comp-310.svelte"
+		}
+	]
+}

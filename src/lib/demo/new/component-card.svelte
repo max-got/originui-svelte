@@ -1,6 +1,8 @@
 <script lang="ts">
-	import type { RegistryItem } from '$data/registry/schema';
+	import type { RegistryItem } from '@shadcn-svelte/registry';
 	import type { Snippet } from 'svelte';
+
+	import { ComponentCardContext } from './component-card-context.svelte.js';
 
 	import { cn } from '$lib/utils';
 
@@ -40,6 +42,8 @@
 			: component.meta?.style === 2
 				? 'text-center'
 				: '';
+
+	ComponentCardContext.set(component);
 </script>
 
 <div

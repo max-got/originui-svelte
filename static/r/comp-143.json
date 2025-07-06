@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-143",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"flex items-start gap-2\">\n\t<Checkbox id={uid} class=\"order-1\" aria-describedby=\"{uid}-description\" />\n\t<div class=\"grid grow gap-2\">\n\t\t<Label for={uid}>\n\t\t\tLabel\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (Sublabel) </span>\n\t\t</Label>\n\t\t<p id=\"{uid}-description\" class=\"text-muted-foreground text-xs\">\n\t\t\tYou can use this checkbox with a label and a description.\n\t\t</p>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-143.svelte"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-179",
+	"type": "registry:component",
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"label",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\tlet checked = $state(true);\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"inline-flex items-center gap-2\">\n\t<Switch id={uid} bind:checked aria-label=\"Toggle switch\" />\n\t<Label for={uid} class=\"text-sm font-medium\">\n\t\t{checked ? 'On' : 'Off'}\n\t</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-179.svelte"
+		}
+	]
+}

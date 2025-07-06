@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-150",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"toggle",
+			"darkmode",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport MoonIcon from '@lucide/svelte/icons/moon';\n\timport SunIcon from '@lucide/svelte/icons/sun';\n\n\tlet theme = $state<'dark' | 'light'>('light');\n\tconst id = $props.id();\n\n\tfunction setTheme() {\n\t\ttheme = theme === 'dark' ? 'light' : 'dark';\n\t}\n</script>\n\n<div class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">\n\t\tDark mode toggle checkbox\n\t</legend>\n\t<div class=\"flex flex-col justify-center\">\n\t\t<input\n\t\t\ttype=\"checkbox\"\n\t\t\tname={id}\n\t\t\t{id}\n\t\t\tclass=\"peer sr-only\"\n\t\t\tchecked={theme === 'dark'}\n\t\t\tonchange={setTheme}\n\t\t/>\n\t\t<label\n\t\t\tclass=\"group border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground peer-focus-visible:border-ring peer-focus-visible:ring-ring/50 relative inline-flex size-9 items-center justify-center rounded-md border shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:ring-[3px]\"\n\t\t\tfor={id}\n\t\t\taria-label=\"Switch to {theme === 'dark' ? 'light' : 'dark'} mode\"\n\t\t>\n\t\t\t<!-- Note: After dark mode implementation, rely on dark: prefix rather than group-peer-checked: -->\n\t\t\t<MoonIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"shrink-0 scale-0 opacity-0 transition-all group-peer-checked:scale-100 group-peer-checked:opacity-100\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t\t<SunIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"absolute shrink-0 scale-100 opacity-100 transition-all group-peer-checked:scale-0 group-peer-checked:opacity-0\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</label>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-150.svelte"
+		}
+	]
+}

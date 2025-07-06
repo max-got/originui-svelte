@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-237",
+	"type": "registry:component",
+	"dependencies": [
+		"react-aria-components"
+	],
+	"registryDependencies": [
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"multiselect",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "",
+			"type": "registry:component",
+			"target": "comp-237.todo.svelte"
+		}
+	]
+}

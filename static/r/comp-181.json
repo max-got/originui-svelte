@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-181",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"switch",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"switch",
+			"label",
+			"darkmode",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Switch from '$lib/components/ui/switch.svelte';\n\n\timport IconMoon from '@lucide/svelte/icons/moon';\n\timport IconSun from '@lucide/svelte/icons/sun';\n\n\tlet checked = $state(true);\n\n\tconst uid = $props.id();\n</script>\n\n<div class=\"inline-flex items-center gap-2\">\n\t<Switch id={uid} bind:checked aria-label=\"Toggle switch\" />\n\t<Label for={uid}>\n\t\t<span class=\"sr-only\">Toggle switch</span>\n\t\t{#if checked}\n\t\t\t<IconSun size={16} aria-hidden=\"true\" />\n\t\t{:else}\n\t\t\t<IconMoon size={16} aria-hidden=\"true\" />\n\t\t{/if}\n\t</Label>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-181.svelte"
+		}
+	]
+}

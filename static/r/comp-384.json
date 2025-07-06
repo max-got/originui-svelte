@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-384",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"tooltip",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script>\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n</script>\n\n<Popover>\n\t<PopoverTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>Tooltip-like popover</Button>\n\t\t{/snippet}\n\t</PopoverTrigger>\n\t<PopoverContent class=\"max-w-[280px] py-3 shadow-none\" side=\"top\">\n\t\t<div class=\"space-y-3\">\n\t\t\t<div class=\"space-y-1\">\n\t\t\t\t<p class=\"text-[13px] font-medium\">Popover with button</p>\n\t\t\t\t<p class=\"text-muted-foreground text-xs\">\n\t\t\t\t\tI am a popover that would like to look like a tooltip. I can&lsquo;t be a tooltip because\n\t\t\t\t\tof the interactive element inside me.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<Button size=\"sm\" class=\"h-7 px-2\">Know more</Button>\n\t\t</div>\n\t</PopoverContent>\n</Popover>\n",
+			"type": "registry:component",
+			"target": "comp-384.svelte"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-294",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"notification",
+			"button",
+			"info"
+		],
+		"colSpan": 2,
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport RefreshCw from '@lucide/svelte/icons/refresh-cw';\n\timport XIcon from '@lucide/svelte/icons/x';\n</script>\n\n<!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->\n<div\n\tclass=\"border-border bg-background z-100 max-w-[400px] rounded-lg border p-4 shadow-lg shadow-black/5\"\n>\n\t<div class=\"flex gap-3\">\n\t\t<div\n\t\t\tclass=\"border-border flex size-9 shrink-0 items-center justify-center rounded-full border\"\n\t\t\taria-hidden=\"true\"\n\t\t>\n\t\t\t<RefreshCw class=\"opacity-60\" size={16} />\n\t\t</div>\n\t\t<div class=\"flex grow flex-col gap-3\">\n\t\t\t<div class=\"space-y-1\">\n\t\t\t\t<p class=\"text-sm font-medium\">Version 1.4 is now available!</p>\n\t\t\t\t<p class=\"text-muted-foreground text-sm\">\n\t\t\t\t\tThis update contains several bug fixes and performance improvements.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div class=\"flex gap-2\">\n\t\t\t\t<Button size=\"sm\">Install</Button>\n\t\t\t\t<Button size=\"sm\" variant=\"link\">Later</Button>\n\t\t\t</div>\n\t\t</div>\n\t\t<Button\n\t\t\tvariant=\"ghost\"\n\t\t\tclass=\"group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent\"\n\t\t\taria-label=\"Close notification\"\n\t\t>\n\t\t\t<XIcon\n\t\t\t\tsize={16}\n\t\t\t\tclass=\"opacity-60 transition-opacity group-hover:opacity-100\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t/>\n\t\t</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-294.svelte"
+		}
+	]
+}

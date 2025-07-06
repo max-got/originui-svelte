@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-304",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"banner"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n\timport Eclipse from '@lucide/svelte/icons/eclipse';\n</script>\n\n<div class=\"dark bg-muted text-foreground px-4 py-3\">\n\t<div class=\"flex flex-col justify-between gap-2 md:flex-row\">\n\t\t<div class=\"flex grow gap-3\">\n\t\t\t<Eclipse class=\"mt-0.5 shrink-0 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t<div class=\"flex grow flex-col justify-between gap-2 md:flex-row md:items-center\">\n\t\t\t\t<p class=\"text-sm\">We just added something awesome to make your experience even better.</p>\n\t\t\t\t<a href=\"#title\" class=\"group text-sm font-medium whitespace-nowrap\">\n\t\t\t\t\tLearn more<ArrowRight\n\t\t\t\t\t\tclass=\"ms-1 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5\"\n\t\t\t\t\t\tsize={16}\n\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t/>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-304.svelte"
+		}
+	]
+}

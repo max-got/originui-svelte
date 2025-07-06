@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-386",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"tooltip",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script>\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ArrowLeft from '@lucide/svelte/icons/arrow-left';\n\timport ArrowRight from '@lucide/svelte/icons/arrow-right';\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n\n\tconst tips = [\n\t\t{\n\t\t\tdescription:\n\t\t\t\t\"This is your new workspace. Here you'll find all your projects, recent activities, settings, and more.\",\n\t\t\ttitle: 'Welcome to Dashboard'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Use the toolbar above to create new projects, invite team members, or access settings.',\n\t\t\ttitle: 'Quick Actions'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Click the support icon in the top right corner to access our help center and documentation.',\n\t\t\ttitle: 'Need Help?'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Press ⌘K to open the command palette. Use arrow keys to navigate and Enter to select an action.',\n\t\t\ttitle: 'Keyboard Shortcuts'\n\t\t},\n\t\t{\n\t\t\tdescription:\n\t\t\t\t'Enable notifications to receive updates about your projects, team activity, and important deadlines.',\n\t\t\ttitle: 'Stay Updated'\n\t\t}\n\t];\n\n\tlet currentTip = $state(0);\n\n\tfunction handleNext() {\n\t\tif (currentTip < tips.length - 1) {\n\t\t\tcurrentTip++;\n\t\t}\n\t}\n\n\tfunction handlePrev() {\n\t\tif (currentTip > 0) {\n\t\t\tcurrentTip--;\n\t\t}\n\t}\n\n\tconst isFirstTip = $derived(currentTip === 0);\n\tconst isLastTip = $derived(currentTip === tips.length - 1);\n</script>\n\n<Popover>\n\t<PopoverTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>Tooltip-like with steps</Button>\n\t\t{/snippet}\n\t</PopoverTrigger>\n\t<PopoverContent class=\"max-w-[280px] py-3 shadow-none\" side=\"top\">\n\t\t<div class=\"space-y-3\">\n\t\t\t<div class=\"space-y-1\">\n\t\t\t\t<p class=\"text-[13px] font-medium\">{tips[currentTip].title}</p>\n\t\t\t\t<p class=\"text-muted-foreground text-xs\">{tips[currentTip].description}</p>\n\t\t\t</div>\n\t\t\t<div class=\"flex items-center justify-between\">\n\t\t\t\t<span class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t{currentTip + 1}/{tips.length}\n\t\t\t\t</span>\n\t\t\t\t<div class=\"flex gap-0.5\">\n\t\t\t\t\t<Button\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\tclass=\"size-6\"\n\t\t\t\t\t\tonclick={handlePrev}\n\t\t\t\t\t\tdisabled={isFirstTip}\n\t\t\t\t\t\taria-label=\"Previous tip\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<ArrowLeft size={14} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t\t<Button\n\t\t\t\t\t\tsize=\"icon\"\n\t\t\t\t\t\tvariant=\"ghost\"\n\t\t\t\t\t\tclass=\"size-6\"\n\t\t\t\t\t\tonclick={handleNext}\n\t\t\t\t\t\tdisabled={isLastTip}\n\t\t\t\t\t\taria-label=\"Next tip\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<ArrowRight size={14} aria-hidden=\"true\" />\n\t\t\t\t\t</Button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</PopoverContent>\n</Popover>\n",
+			"type": "registry:component",
+			"target": "comp-386.svelte"
+		}
+	]
+}

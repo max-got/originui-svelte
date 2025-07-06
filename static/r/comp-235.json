@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-235",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"multiselect"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"multiselect",
+			"tag",
+			"input",
+			"search",
+			"autocomplete",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "",
+			"type": "registry:component",
+			"target": "comp-235.todo.svelte"
+		}
+	]
+}

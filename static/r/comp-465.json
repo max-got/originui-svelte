@@ -1,0 +1,32 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-465",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"input",
+		"label",
+		"pagination"
+	],
+	"meta": {
+		"tags": [
+			"pagination",
+			"input"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { usePagination } from '$lib/hooks/use-pagination.svelte';\n\n\timport ChevronLeft from '@lucide/svelte/icons/chevron-left';\n\timport ChevronRight from '@lucide/svelte/icons/chevron-right';\n\timport {\n\t\tPagination,\n\t\tPaginationContent,\n\t\tPaginationEllipsis,\n\t\tPaginationItem,\n\t\tPaginationLink\n\t} from '$lib/components/ui/pagination';\n\n\ttype PaginationProps = {\n\t\tcurrentPage: number;\n\t\tpaginationItemsToDisplay?: number;\n\t\ttotalPages: number;\n\t};\n\n\tlet {\n\t\tcurrentPage = 1,\n\t\tpaginationItemsToDisplay = 5,\n\t\ttotalPages = 10\n\t}: PaginationProps = $props();\n\n\tconst pagination = usePagination({\n\t\tcurrentPage,\n\t\tpaginationItemsToDisplay,\n\t\ttotalPages\n\t});\n</script>\n\n<div class=\"flex items-center justify-between gap-4\">\n\t<!-- Pagination -->\n\t<div>\n\t\t<Pagination>\n\t\t\t<PaginationContent>\n\t\t\t\t<!-- Previous page button -->\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink\n\t\t\t\t\t\tclass=\"aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n\t\t\t\t\t\thref={currentPage === 1 ? undefined : `#/page/${currentPage - 1}`}\n\t\t\t\t\t\taria-label=\"Go to previous page\"\n\t\t\t\t\t\taria-disabled={currentPage === 1 ? true : undefined}\n\t\t\t\t\t\trole={currentPage === 1 ? 'link' : undefined}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronLeft size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\n\t\t\t\t<!-- Left ellipsis (...) -->\n\t\t\t\t{#if pagination.showLeftEllipsis}\n\t\t\t\t\t<PaginationItem>\n\t\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t\t</PaginationItem>\n\t\t\t\t{/if}\n\n\t\t\t\t<!-- Page number links -->\n\t\t\t\t{#each pagination.pages as page (page)}\n\t\t\t\t\t<PaginationItem>\n\t\t\t\t\t\t<PaginationLink href=\"#/page/{page}\" isActive={page === currentPage}>\n\t\t\t\t\t\t\t{page}\n\t\t\t\t\t\t</PaginationLink>\n\t\t\t\t\t</PaginationItem>\n\t\t\t\t{/each}\n\n\t\t\t\t<!-- Right ellipsis (...)  -->\n\t\t\t\t{#if pagination.showRightEllipsis}\n\t\t\t\t\t<PaginationItem>\n\t\t\t\t\t\t<PaginationEllipsis />\n\t\t\t\t\t</PaginationItem>\n\t\t\t\t{/if}\n\n\t\t\t\t<!-- Next page button -->\n\t\t\t\t<PaginationItem>\n\t\t\t\t\t<PaginationLink\n\t\t\t\t\t\tclass=\"aria-disabled:pointer-events-none aria-disabled:opacity-50\"\n\t\t\t\t\t\thref={currentPage === totalPages ? undefined : `#/page/${currentPage + 1}`}\n\t\t\t\t\t\taria-label=\"Go to next page\"\n\t\t\t\t\t\taria-disabled={currentPage === totalPages ? true : undefined}\n\t\t\t\t\t\trole={currentPage === totalPages ? 'link' : undefined}\n\t\t\t\t\t>\n\t\t\t\t\t\t<ChevronRight size={16} aria-hidden=\"true\" />\n\t\t\t\t\t</PaginationLink>\n\t\t\t\t</PaginationItem>\n\t\t\t</PaginationContent>\n\t\t</Pagination>\n\t</div>\n\n\t<!-- Go to page input  -->\n\t<div class=\"flex items-center gap-3\">\n\t\t<Label for=\"pagination-input\" class=\"whitespace-nowrap\">Go to page</Label>\n\t\t<Input id=\"pagination-input\" type=\"text\" class=\"w-14\" value={String(currentPage)} />\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-465.svelte"
+		},
+		{
+			"content": "export type UsePaginationProps = {\n\tcurrentPage: number;\n\tpaginationItemsToDisplay: number;\n\ttotalPages: number;\n};\n\nexport class Pagination {\n\tcurrentPage = $state(1);\n\ttotalPages = $state(1);\n\t#itemsCount = $state(5);\n\n\tshowLeftEllipsis = $derived(this.currentPage > Math.ceil(this.#itemsCount / 2));\n\tshowRightEllipsis = $derived(\n\t\tthis.totalPages - this.currentPage >= Math.ceil(this.#itemsCount / 2)\n\t);\n\n\tpages = $derived.by(() => {\n\t\tif (this.totalPages <= this.#itemsCount) {\n\t\t\treturn Array.from({ length: this.totalPages }, (_, i) => i + 1);\n\t\t}\n\n\t\tconst half = Math.floor(this.#itemsCount / 2);\n\t\tlet start = Math.max(1, this.currentPage - half);\n\t\tlet end = Math.min(this.totalPages, start + this.#itemsCount - 1);\n\n\t\tif (end === this.totalPages) {\n\t\t\tstart = Math.max(1, end - this.#itemsCount + 1);\n\t\t} else if (start === 1) {\n\t\t\tend = Math.min(this.totalPages, this.#itemsCount);\n\t\t}\n\n\t\tif (this.showLeftEllipsis) start++;\n\t\tif (this.showRightEllipsis) end--;\n\n\t\treturn Array.from({ length: end - start + 1 }, (_, i) => start + i);\n\t});\n\n\tconstructor(props: UsePaginationProps) {\n\t\tthis.currentPage = props.currentPage;\n\t\tthis.#itemsCount = props.paginationItemsToDisplay;\n\t\tthis.totalPages = props.totalPages;\n\t}\n\n\tsetPage(newPage: number) {\n\t\tif (newPage >= 1 && newPage <= this.totalPages) {\n\t\t\tthis.currentPage = newPage;\n\t\t}\n\t}\n\n\tupdateTotalPages(count: number) {\n\t\tif (count >= 1) {\n\t\t\tthis.totalPages = count;\n\t\t\tif (this.currentPage > count) {\n\t\t\t\tthis.currentPage = count;\n\t\t\t}\n\t\t}\n\t}\n}\n\nexport function usePagination(options: UsePaginationProps) {\n\treturn new Pagination(options);\n}\n",
+			"type": "registry:hook",
+			"target": "use-pagination.svelte.ts"
+		}
+	]
+}

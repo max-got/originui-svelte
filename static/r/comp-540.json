@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-540",
+	"type": "registry:component",
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTimeline,\n\t\tTimelineContent,\n\t\tTimelineDate,\n\t\tTimelineHeader,\n\t\tTimelineIndicator,\n\t\tTimelineItem,\n\t\tTimelineSeparator,\n\t\tTimelineTitle\n\t} from '$lib/components/ui/timeline';\n\n\tconst items = [\n\t\t{\n\t\t\tdate: 'Mar 15, 2024',\n\t\t\tdescription: 'Initial team meeting.',\n\t\t\tid: 1,\n\t\t\ttitle: 'Project Kickoff'\n\t\t},\n\t\t{\n\t\t\tdate: 'Mar 22, 2024',\n\t\t\tdescription: 'Completed wireframes.',\n\t\t\tid: 2,\n\t\t\ttitle: 'Design Phase'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 5, 2024',\n\t\t\tdescription: 'Backend development.',\n\t\t\tid: 3,\n\t\t\ttitle: 'Development Sprint'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 19, 2024',\n\t\t\tdescription: 'Performance optimization.',\n\t\t\tid: 4,\n\t\t\ttitle: 'Testing & Deployment'\n\t\t}\n\t];\n</script>\n\n<Timeline defaultValue={3} orientation=\"horizontal\">\n\t{#each items as item (item.id)}\n\t\t<TimelineItem step={item.id}>\n\t\t\t<TimelineHeader>\n\t\t\t\t<TimelineSeparator />\n\t\t\t\t<TimelineDate>{item.date}</TimelineDate>\n\t\t\t\t<TimelineTitle>{item.title}</TimelineTitle>\n\t\t\t\t<TimelineIndicator />\n\t\t\t</TimelineHeader>\n\t\t\t<TimelineContent>{item.description}</TimelineContent>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-540.svelte"
+		}
+	]
+}

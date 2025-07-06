@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-163",
+	"type": "registry:component",
+	"dependencies": [
+		"@remixicon/react"
+	],
+	"registryDependencies": [
+		"radio-group"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"card",
+			"checkout",
+			"payment",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\timport IconApple from '~icons/ri/apple-line';\n\timport IconBankCard from '~icons/ri/bank-card-line';\n\timport IconPaypal from '~icons/ri/paypal-line';\n\n\tconst items = [\n\t\t{ Icon: IconBankCard, id: 'radio-12-cc', label: 'Card', value: 'cc' },\n\t\t{ Icon: IconPaypal, id: 'radio-12-paypal', label: 'PayPal', value: 'paypal' },\n\t\t{ Icon: IconApple, id: 'radio-12-apple-pay', label: 'Apple Pay', value: 'apple-pay' }\n\t];\n\n\tlet selectedValue = $state('cc');\n</script>\n\n<RadioGroup class=\"grid grid-cols-3 gap-2\" bind:value={selectedValue}>\n\t{#each items as item (item.id)}\n\t\t<label\n\t\t\tclass=\"border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2\"\n\t\t>\n\t\t\t<RadioGroupItem\n\t\t\t\tid={item.id}\n\t\t\t\tvalue={item.value}\n\t\t\t\tclass=\"sr-only after:absolute after:inset-0\"\n\t\t\t/>\n\t\t\t<item.Icon class=\"opacity-60\" width=\"20\" height=\"20\" aria-hidden=\"true\" />\n\t\t\t<p class=\"text-foreground text-xs leading-none font-medium\">{item.label}</p>\n\t\t</label>\n\t{/each}\n</RadioGroup>\n",
+			"type": "registry:component",
+			"target": "comp-163.svelte"
+		}
+	]
+}

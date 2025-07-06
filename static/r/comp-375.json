@@ -1,0 +1,28 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-375",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"user",
+			"profile",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport CircleUserRound from '@lucide/svelte/icons/circle-user-round';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuGroup,\n\t\tDropdownMenuItem,\n\t\tDropdownMenuLabel,\n\t\tDropdownMenuSeparator,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button size=\"icon\" variant=\"outline\" aria-label=\"Open account menu\" {...props}>\n\t\t\t\t<CircleUserRound size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent class=\"max-w-64\">\n\t\t<DropdownMenuLabel class=\"flex flex-col\">\n\t\t\t<span>Signed in as</span>\n\t\t\t<span class=\"text-foreground text-xs font-normal\">k.kennedy@originui-svelte.com</span>\n\t\t</DropdownMenuLabel>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuGroup>\n\t\t\t<DropdownMenuItem>Option 1</DropdownMenuItem>\n\t\t\t<DropdownMenuItem>Option 2</DropdownMenuItem>\n\t\t\t<DropdownMenuItem>Option 3</DropdownMenuItem>\n\t\t</DropdownMenuGroup>\n\t\t<DropdownMenuSeparator />\n\t\t<DropdownMenuItem>Logout</DropdownMenuItem>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-375.svelte"
+		}
+	]
+}

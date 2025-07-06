@@ -1,0 +1,27 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-372",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dropdown-menu"
+	],
+	"meta": {
+		"tags": [
+			"dropdown",
+			"radio",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport {\n\t\tDropdownMenu,\n\t\tDropdownMenuContent,\n\t\tDropdownMenuRadioGroup,\n\t\tDropdownMenuRadioItem,\n\t\tDropdownMenuTrigger\n\t} from '$lib/components/ui/dropdowns';\n\n\tlet framework = $state('sveltekit');\n</script>\n\n<DropdownMenu>\n\t<DropdownMenuTrigger>\n\t\t{#snippet child({ props })}\n\t\t\t<Button variant=\"outline\" {...props}>\n\t\t\t\tRadio items\n\t\t\t\t<ChevronDown class=\"-me-1 opacity-60\" size={16} aria-hidden=\"true\" />\n\t\t\t</Button>\n\t\t{/snippet}\n\t</DropdownMenuTrigger>\n\t<DropdownMenuContent>\n\t\t<DropdownMenuRadioGroup value={framework} onValueChange={(value) => (framework = value)}>\n\t\t\t<DropdownMenuRadioItem value=\"sveltekit\">SvelteKit</DropdownMenuRadioItem>\n\t\t\t<DropdownMenuRadioItem value=\"nextjs\" disabled>Next.js</DropdownMenuRadioItem>\n\t\t\t<DropdownMenuRadioItem value=\"remix\">Remix</DropdownMenuRadioItem>\n\t\t\t<DropdownMenuRadioItem value=\"astro\">Astro</DropdownMenuRadioItem>\n\t\t</DropdownMenuRadioGroup>\n\t</DropdownMenuContent>\n</DropdownMenu>\n",
+			"type": "registry:component",
+			"target": "comp-372.svelte"
+		}
+	]
+}

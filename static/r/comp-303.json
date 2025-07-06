@@ -1,0 +1,21 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-303",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"meta": {
+		"tags": [
+			"banner"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Eclipse from '@lucide/svelte/icons/eclipse';\n</script>\n\n<div class=\"dark bg-muted text-foreground px-4 py-3\">\n\t<p class=\"text-center text-sm\">\n\t\t<Eclipse class=\"me-3 -mt-0.5 inline-flex opacity-60\" size={16} aria-hidden=\"true\" />Get the most\n\t\tout of your app with real-time updates and analytics\n\t\t<span class=\"text-muted-foreground\">·</span>\n\t\t<a href=\"#title\" class=\"font-medium underline hover:no-underline\">Upgrade</a>\n\t</p>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-303.svelte"
+		}
+	]
+}

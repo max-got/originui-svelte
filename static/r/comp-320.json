@@ -1,0 +1,30 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-320",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"dialog",
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"delete",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport CircleAlert from '@lucide/svelte/icons/circle-alert';\n\timport * as Dialog from '$lib/components/ui/dialog';\n\timport { PROJECT_NAME } from '$lib/config';\n\n\tlet inputValue = $state('');\n</script>\n\n<Dialog.Root>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Delete project</Dialog.Trigger>\n\t<Dialog.Content>\n\t\t<div class=\"flex flex-col items-center gap-2\">\n\t\t\t<div\n\t\t\t\tclass=\"border-border flex size-9 shrink-0 items-center justify-center rounded-full border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<CircleAlert class=\"opacity-80\" size={16} />\n\t\t\t</div>\n\t\t\t<Dialog.Header>\n\t\t\t\t<Dialog.Title class=\"sm:text-center\">Final confirmation</Dialog.Title>\n\t\t\t\t<Dialog.Description class=\"sm:text-center\">\n\t\t\t\t\tThis action cannot be undone. To confirm, please enter the project name\n\t\t\t\t\t<span class=\"text-foreground\">{PROJECT_NAME}</span>.\n\t\t\t\t</Dialog.Description>\n\t\t\t</Dialog.Header>\n\t\t</div>\n\n\t\t<form class=\"space-y-5\">\n\t\t\t<div class=\"space-y-2\">\n\t\t\t\t<Label for=\"project-name\">Project name</Label>\n\t\t\t\t<Input\n\t\t\t\t\tid=\"project-name\"\n\t\t\t\t\ttype=\"text\"\n\t\t\t\t\tplaceholder=\"Type {PROJECT_NAME} to confirm\"\n\t\t\t\t\tbind:value={inputValue}\n\t\t\t\t/>\n\t\t\t</div>\n\t\t\t<Dialog.Footer>\n\t\t\t\t<Dialog.Close class=\"{buttonVariants({ variant: 'outline' })} flex-1\">Cancel</Dialog.Close>\n\t\t\t\t<Button type=\"button\" class=\"flex-1\" disabled={inputValue !== PROJECT_NAME}>Delete</Button>\n\t\t\t</Dialog.Footer>\n\t\t</form>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-320.svelte"
+		}
+	]
+}

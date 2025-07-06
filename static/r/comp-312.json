@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-312",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button"
+	],
+	"meta": {
+		"tags": [
+			"banner"
+		],
+		"colSpan": 3
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\n\timport Download from '@lucide/svelte/icons/download';\n\timport LoaderCircle from '@lucide/svelte/icons/loader-circle';\n\n\tlet isDownloading = $state(false);\n\n\tfunction handleDownload() {\n\t\tisDownloading = true;\n\t\tsetTimeout(() => (isDownloading = false), 2000);\n\t}\n</script>\n\n<div class=\"bg-muted px-4 py-3 md:py-2\">\n\t<div class=\"flex flex-wrap items-center justify-center gap-x-4 gap-y-2\">\n\t\t<p class=\"text-sm\">\n\t\t\t<span class=\"font-medium\">v2.1.0</span>\n\t\t\t<span class=\"text-muted-foreground mx-2\">•</span>\n\t\t\tNew features and improvements available\n\t\t</p>\n\t\t<Button\n\t\t\tsize=\"sm\"\n\t\t\tvariant=\"outline\"\n\t\t\tdisabled={isDownloading}\n\t\t\tonclick={handleDownload}\n\t\t\tclass=\"min-w-24\"\n\t\t>\n\t\t\t{#if isDownloading}\n\t\t\t\t<LoaderCircle class=\"-ms-0.5 animate-spin\" size={16} aria-hidden=\"true\" />\n\t\t\t\tUpdating...\n\t\t\t{:else}\n\t\t\t\t<Download size={16} class=\"-ms-0.5\" aria-hidden=\"true\" />\n\t\t\t\tUpdate now\n\t\t\t{/if}\n\t\t</Button>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-312.svelte"
+		}
+	]
+}

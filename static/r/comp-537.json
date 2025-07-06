@@ -1,0 +1,22 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-537",
+	"type": "registry:component",
+	"registryDependencies": [
+		"timeline"
+	],
+	"meta": {
+		"tags": [
+			"timeline",
+			"vertical timeline"
+		],
+		"colSpan": 2
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport {\n\t\tTimeline,\n\t\tTimelineDate,\n\t\tTimelineHeader,\n\t\tTimelineIndicator,\n\t\tTimelineItem,\n\t\tTimelineSeparator,\n\t\tTimelineTitle\n\t} from '$lib/components/ui/timeline';\n\n\tconst items = [\n\t\t{\n\t\t\tdate: 'Mar 15, 2024',\n\t\t\tid: 1,\n\t\t\ttitle: 'Project Kickoff'\n\t\t},\n\t\t{\n\t\t\tdate: 'Mar 22, 2024',\n\t\t\tid: 2,\n\t\t\ttitle: 'Design Phase'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 5, 2024',\n\t\t\tid: 3,\n\t\t\ttitle: 'Development Sprint'\n\t\t},\n\t\t{\n\t\t\tdate: 'Apr 19, 2024',\n\t\t\tid: 4,\n\t\t\ttitle: 'Testing & Deployment'\n\t\t},\n\t\t{\n\t\t\tdate: 'May 3, 2024',\n\t\t\tid: 5,\n\t\t\ttitle: 'User Training'\n\t\t},\n\t\t{\n\t\t\tdate: 'May 17, 2024',\n\t\t\tid: 6,\n\t\t\ttitle: 'Project Handover'\n\t\t}\n\t];\n</script>\n\n<Timeline defaultValue={3}>\n\t{#each items as item (item.id)}\n\t\t<TimelineItem\n\t\t\tstep={item.id}\n\t\t\tclass={[\n\t\t\t\t'w-[calc(50%-1.5rem)]',\n\t\t\t\t'odd:group-data-[orientation=vertical]/timeline:ms-auto',\n\t\t\t\t'even:group-data-[orientation=vertical]/timeline:text-right',\n\t\t\t\t'even:group-data-[orientation=vertical]/timeline:ml-0',\n\t\t\t\t'even:group-data-[orientation=vertical]/timeline:mr-8',\n\t\t\t\t'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:-right-6',\n\t\t\t\t'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:left-auto',\n\t\t\t\t'even:**:data-[slot=timeline-indicator]:group-data-[orientation=vertical]/timeline:translate-x-1/2',\n\t\t\t\t'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:-right-6',\n\t\t\t\t'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:left-auto',\n\t\t\t\t'even:**:data-[slot=timeline-separator]:group-data-[orientation=vertical]/timeline:translate-x-1/2'\n\t\t\t]}\n\t\t>\n\t\t\t<TimelineHeader>\n\t\t\t\t<TimelineSeparator />\n\t\t\t\t<TimelineDate>{item.date}</TimelineDate>\n\t\t\t\t<TimelineTitle>{item.title}</TimelineTitle>\n\t\t\t\t<TimelineIndicator />\n\t\t\t</TimelineHeader>\n\t\t</TimelineItem>\n\t{/each}\n</Timeline>\n",
+			"type": "registry:component",
+			"target": "comp-537.svelte"
+		}
+	]
+}

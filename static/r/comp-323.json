@@ -1,0 +1,30 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-323",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"dialog",
+		"label",
+		"radio-group",
+		"textarea"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"rating",
+			"feedback",
+			"form",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\timport Textarea from '$lib/components/ui/textarea.svelte';\n\n\timport * as Dialog from '$lib/components/ui/dialog';\n</script>\n\n<Dialog.Root>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Rating</Dialog.Trigger>\n\t<Dialog.Content class=\"flex flex-col gap-0 p-0 [&>button:last-child]:top-3.5\">\n\t\t<Dialog.Header class=\"contents space-y-0 text-left\">\n\t\t\t<Dialog.Title class=\"border-border border-b px-6 py-4 text-base\">\n\t\t\t\tHelp us improve\n\t\t\t</Dialog.Title>\n\t\t</Dialog.Header>\n\t\t<div class=\"px-6 py-4\">\n\t\t\t<form class=\"space-y-5\">\n\t\t\t\t<div class=\"space-y-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<fieldset class=\"space-y-4\">\n\t\t\t\t\t\t\t<legend class=\"text-foreground text-lg leading-none font-semibold\">\n\t\t\t\t\t\t\t\tHow hard was it to set up your account?\n\t\t\t\t\t\t\t</legend>\n\t\t\t\t\t\t\t<RadioGroup\n\t\t\t\t\t\t\t\tvalue=\"\"\n\t\t\t\t\t\t\t\tclass=\"flex gap-0 -space-x-px rounded-lg shadow-xs shadow-black/5\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{#each Array.from({ length: 9 }) as _, index (index)}\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\tfor=\"radio-17-r{index}\"\n\t\t\t\t\t\t\t\t\t\tclass=\"border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:outline-ring/70 relative flex size-9 flex-1 cursor-pointer flex-col items-center justify-center gap-3 border text-center text-sm outline-offset-2 transition-colors first:rounded-s-lg last:rounded-e-lg has-focus-visible:outline-2 has-focus-visible:outline-solid has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[state=checked]:z-10\"\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<RadioGroupItem\n\t\t\t\t\t\t\t\t\t\t\tid=\"radio-17-r{index}\"\n\t\t\t\t\t\t\t\t\t\t\tvalue=\"r{index}\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"sr-only after:absolute after:inset-0\"\n\t\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t\t{index}\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t{/each}\n\t\t\t\t\t\t\t</RadioGroup>\n\t\t\t\t\t\t</fieldset>\n\t\t\t\t\t\t<div class=\"text-muted-foreground mt-2 flex justify-between text-xs\">\n\t\t\t\t\t\t\t<p>Very easy</p>\n\t\t\t\t\t\t\t<p>Very dificult</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"space-y-2\">\n\t\t\t\t\t\t<Label>Why did you give this rating?</Label>\n\t\t\t\t\t\t<Textarea\n\t\t\t\t\t\t\tid=\"feedback\"\n\t\t\t\t\t\t\tplaceholder=\"How can we improve Origin UI?\"\n\t\t\t\t\t\t\taria-label=\"Send feedback\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<Button type=\"button\" class=\"w-full\">Send feedback</Button>\n\t\t\t</form>\n\t\t</div>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-323.svelte"
+		}
+	]
+}

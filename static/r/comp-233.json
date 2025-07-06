@@ -1,0 +1,33 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-233",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"button",
+		"command",
+		"label",
+		"popover"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"command",
+			"combobox",
+			"popover",
+			"search",
+			"autocomplete",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport Blocks from '@lucide/svelte/icons/blocks';\n\timport Brain from '@lucide/svelte/icons/brain';\n\timport LineChart from '@lucide/svelte/icons/chart-line';\n\timport ChevronDown from '@lucide/svelte/icons/chevron-down';\n\timport Cpu from '@lucide/svelte/icons/cpu';\n\timport Database from '@lucide/svelte/icons/database';\n\timport Globe from '@lucide/svelte/icons/globe';\n\timport Layout from '@lucide/svelte/icons/layout-template';\n\timport Network from '@lucide/svelte/icons/network';\n\timport Search from '@lucide/svelte/icons/search';\n\timport Server from '@lucide/svelte/icons/server';\n\timport * as Command from '$lib/components/ui/command';\n\timport * as Popover from '$lib/components/ui/popover';\n\n\tlet open = $state(false);\n\tlet value = $state('');\n\tconst items = [\n\t\t{\n\t\t\ticon: LineChart,\n\t\t\tlabel: 'Analytics Platform',\n\t\t\tnumber: 2451,\n\t\t\tvalue: 'analytics platform'\n\t\t},\n\t\t{\n\t\t\ticon: Brain,\n\t\t\tlabel: 'AI Services',\n\t\t\tnumber: 1832,\n\t\t\tvalue: 'ai services'\n\t\t},\n\t\t{\n\t\t\ticon: Database,\n\t\t\tlabel: 'Database Systems',\n\t\t\tnumber: 1654,\n\t\t\tvalue: 'database systems'\n\t\t},\n\t\t{\n\t\t\ticon: Cpu,\n\t\t\tlabel: 'Compute Resources',\n\t\t\tnumber: 943,\n\t\t\tvalue: 'compute resources'\n\t\t},\n\t\t{\n\t\t\ticon: Network,\n\t\t\tlabel: 'Network Services',\n\t\t\tnumber: 832,\n\t\t\tvalue: 'network services'\n\t\t},\n\t\t{\n\t\t\ticon: Globe,\n\t\t\tlabel: 'Web Services',\n\t\t\tnumber: 654,\n\t\t\tvalue: 'web services'\n\t\t},\n\t\t{\n\t\t\ticon: Search,\n\t\t\tlabel: 'Monitoring Tools',\n\t\t\tnumber: 432,\n\t\t\tvalue: 'monitoring tools'\n\t\t},\n\t\t{\n\t\t\ticon: Server,\n\t\t\tlabel: 'Server Management',\n\t\t\tnumber: 321,\n\t\t\tvalue: 'server management'\n\t\t},\n\t\t{\n\t\t\ticon: Blocks,\n\t\t\tlabel: 'Infrastructure',\n\t\t\tnumber: 234,\n\t\t\tvalue: 'infrastructure'\n\t\t},\n\t\t{\n\t\t\ticon: Layout,\n\t\t\tlabel: 'Frontend Services',\n\t\t\tnumber: 123,\n\t\t\tvalue: 'frontend services'\n\t\t}\n\t] as const;\n\n\tconst selectedItem = $derived(items.find((item) => item.value === value));\n\n\tfunction handleSelect(currentValue: string) {\n\t\tvalue = currentValue;\n\t\topen = false;\n\t}\n</script>\n\n<div class=\"space-y-2\">\n\t<Label>Options with icon and number</Label>\n\t<Popover.Root bind:open>\n\t\t<Popover.Trigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\trole=\"combobox\"\n\t\t\t\t\taria-expanded={open}\n\t\t\t\t\tclass=\"bg-background hover:bg-background focus-visible:border-ring focus-visible:outline-ring/20 w-full justify-between px-3 font-normal outline-offset-0 focus-visible:outline-[3px]\"\n\t\t\t\t\t{...props}\n\t\t\t\t>\n\t\t\t\t\t{#if value && selectedItem}\n\t\t\t\t\t\t{@const IconComponent = selectedItem.icon}\n\t\t\t\t\t\t<span class=\"flex min-w-0 items-center gap-2\">\n\t\t\t\t\t\t\t<IconComponent class=\"text-muted-foreground h-4 w-4\" />\n\t\t\t\t\t\t\t<span class=\"truncate\">{selectedItem.label}</span>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t{:else}\n\t\t\t\t\t\t<span class=\"text-muted-foreground\">Select service category</span>\n\t\t\t\t\t{/if}\n\t\t\t\t\t<ChevronDown size={16} class=\"text-muted-foreground/80 shrink-0\" aria-hidden=\"true\" />\n\t\t\t\t</Button>\n\t\t\t{/snippet}\n\t\t</Popover.Trigger>\n\t\t<Popover.Content class=\"w-full min-w-(--bits-popover-anchor-width) p-0\" align=\"start\">\n\t\t\t<Command.Root>\n\t\t\t\t<Command.Input placeholder=\"Search services...\" />\n\t\t\t\t<Command.List>\n\t\t\t\t\t<Command.Empty>No service found.</Command.Empty>\n\t\t\t\t\t<Command.Group>\n\t\t\t\t\t\t{#each items as item (item.value)}\n\t\t\t\t\t\t\t<Command.Item value={item.value} onSelect={() => handleSelect(item.value)}>\n\t\t\t\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t\t\t\t<item.icon class=\"text-muted-foreground h-4 w-4\" />\n\t\t\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<span class=\"text-muted-foreground text-xs\">\n\t\t\t\t\t\t\t\t\t{item.number.toLocaleString()}\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</Command.Item>\n\t\t\t\t\t\t{/each}\n\t\t\t\t\t</Command.Group>\n\t\t\t\t</Command.List>\n\t\t\t</Command.Root>\n\t\t</Popover.Content>\n\t</Popover.Root>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-233.svelte"
+		}
+	]
+}

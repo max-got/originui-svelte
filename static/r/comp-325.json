@@ -1,0 +1,29 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-325",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"dialog",
+		"input",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"signup",
+			"authentication",
+			"form",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button, { buttonVariants } from '$lib/components/ui/button.svelte';\n\timport Input from '$lib/components/ui/input.svelte';\n\timport Label from '$lib/components/ui/label.svelte';\n\n\timport * as Dialog from '$lib/components/ui/dialog';\n</script>\n\n<Dialog.Root>\n\t<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>Sign up</Dialog.Trigger>\n\t<Dialog.Content>\n\t\t<div class=\"flex flex-col items-center gap-2\">\n\t\t\t<div\n\t\t\t\tclass=\"border-border flex size-11 shrink-0 items-center justify-center rounded-full border\"\n\t\t\t\taria-hidden=\"true\"\n\t\t\t>\n\t\t\t\t<svg\n\t\t\t\t\tclass=\"stroke-svelte size-6\"\n\t\t\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\t\t\twidth=\"28\"\n\t\t\t\t\theight=\"28\"\n\t\t\t\t\tviewBox=\"0 0 32 32\"\n\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t>\n\t\t\t\t\t<circle cx=\"16\" cy=\"16\" r=\"13\" fill=\"none\" stroke-width=\"2\" />\n\t\t\t\t\t<circle cx=\"16\" cy=\"16\" r=\"9\" fill=\"none\" stroke-width=\"2\" />\n\t\t\t\t</svg>\n\t\t\t</div>\n\t\t\t<Dialog.Header>\n\t\t\t\t<Dialog.Title class=\"sm:text-center\">Sign up Origin UI</Dialog.Title>\n\t\t\t\t<Dialog.Description class=\"sm:text-center\">\n\t\t\t\t\tWe just need a few details to get you started.\n\t\t\t\t</Dialog.Description>\n\t\t\t</Dialog.Header>\n\t\t</div>\n\n\t\t<form class=\"space-y-5\">\n\t\t\t<div class=\"space-y-4\">\n\t\t\t\t<div class=\"space-y-2\">\n\t\t\t\t\t<Label for=\"signup-name\">Full name</Label>\n\t\t\t\t\t<Input id=\"signup-name\" placeholder=\"Matt Welsh\" type=\"text\" required />\n\t\t\t\t</div>\n\t\t\t\t<div class=\"space-y-2\">\n\t\t\t\t\t<Label for=\"signup-email\">Email</Label>\n\t\t\t\t\t<Input id=\"signup-email\" placeholder=\"hi@yourcompany.com\" type=\"email\" required />\n\t\t\t\t</div>\n\t\t\t\t<div class=\"space-y-2\">\n\t\t\t\t\t<Label for=\"signup-password\">Password</Label>\n\t\t\t\t\t<Input id=\"signup-password\" placeholder=\"Enter your password\" type=\"password\" required />\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<Button type=\"button\" class=\"w-full\">Sign up</Button>\n\t\t</form>\n\n\t\t<div\n\t\t\tclass=\"before:bg-border after:bg-border flex items-center gap-3 before:h-px before:flex-1 after:h-px after:flex-1\"\n\t\t>\n\t\t\t<span class=\"text-muted-foreground text-xs\">Or</span>\n\t\t</div>\n\n\t\t<Button variant=\"outline\">Continue with Google</Button>\n\n\t\t<p class=\"text-muted-foreground text-center text-xs\">\n\t\t\tBy signing up you agree to our\n\t\t\t<a class=\"underline hover:no-underline\" href=\"#title\">Terms</a>.\n\t\t</p>\n\t</Dialog.Content>\n</Dialog.Root>\n",
+			"type": "registry:component",
+			"target": "comp-325.svelte"
+		}
+	]
+}

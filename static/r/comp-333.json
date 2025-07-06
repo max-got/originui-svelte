@@ -1,0 +1,32 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-333",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"command"
+	],
+	"meta": {
+		"tags": [
+			"dialog",
+			"modal",
+			"command",
+			"combobox",
+			"popover",
+			"search",
+			"bits ui",
+			"autocomplete",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';\n\timport CircleFadingPlus from '@lucide/svelte/icons/circle-fading-plus';\n\timport FileInput from '@lucide/svelte/icons/file-input';\n\timport FolderPlus from '@lucide/svelte/icons/folder-plus';\n\timport Search from '@lucide/svelte/icons/search';\n\timport {\n\t\tCommandDialog,\n\t\tCommandEmpty,\n\t\tCommandGroup,\n\t\tCommandInput,\n\t\tCommandItem,\n\t\tCommandList,\n\t\tCommandSeparator,\n\t\tCommandShortcut\n\t} from '$lib/components/ui/command';\n\n\tlet open = $state(false);\n\n\tconst down = (e: KeyboardEvent) => {\n\t\tif (e.key === 'k' && (e.metaKey || e.ctrlKey)) {\n\t\t\te.preventDefault();\n\t\t\topen = !open;\n\t\t}\n\t};\n</script>\n\n<svelte:window onkeydown={down} />\n\n<button\n\tclass=\"border-input bg-background text-foreground placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/20 inline-flex h-9 w-fit rounded-lg border px-3 py-2 text-sm shadow-xs shadow-black/5 transition-shadow focus-visible:ring-[3px] focus-visible:outline-hidden\"\n\tonclick={() => (open = true)}\n>\n\t<span class=\"flex grow items-center\">\n\t\t<Search class=\"text-muted-foreground/80 -ms-1 me-3\" size={16} aria-hidden=\"true\" />\n\t\t<span class=\"text-muted-foreground/70 font-normal\">Search</span>\n\t</span>\n\t<kbd\n\t\tclass=\"border-border bg-background text-muted-foreground/70 ms-12 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\"\n\t>\n\t\t⌘K\n\t</kbd>\n</button>\n<CommandDialog bind:open>\n\t<CommandInput placeholder=\"Type a command or search...\" />\n\t<CommandList>\n\t\t<CommandEmpty>No results found.</CommandEmpty>\n\t\t<CommandGroup heading=\"Quick start\">\n\t\t\t<CommandItem>\n\t\t\t\t<FolderPlus size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>New folder</span>\n\t\t\t\t<CommandShortcut class=\"justify-center\">⌘N</CommandShortcut>\n\t\t\t</CommandItem>\n\t\t\t<CommandItem>\n\t\t\t\t<FileInput size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Import document</span>\n\t\t\t\t<CommandShortcut class=\"justify-center\">⌘I</CommandShortcut>\n\t\t\t</CommandItem>\n\t\t\t<CommandItem>\n\t\t\t\t<CircleFadingPlus size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Add block</span>\n\t\t\t\t<CommandShortcut class=\"justify-center\">⌘B</CommandShortcut>\n\t\t\t</CommandItem>\n\t\t</CommandGroup>\n\t\t<CommandSeparator />\n\t\t<CommandGroup heading=\"Navigation\">\n\t\t\t<CommandItem>\n\t\t\t\t<ArrowUpRight size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Go to dashboard</span>\n\t\t\t</CommandItem>\n\t\t\t<CommandItem>\n\t\t\t\t<ArrowUpRight size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Go to apps</span>\n\t\t\t</CommandItem>\n\t\t\t<CommandItem>\n\t\t\t\t<ArrowUpRight size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t\t\t\t<span>Go to connections</span>\n\t\t\t</CommandItem>\n\t\t</CommandGroup>\n\t</CommandList>\n</CommandDialog>\n",
+			"type": "registry:component",
+			"target": "comp-333.svelte"
+		}
+	]
+}

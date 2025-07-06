@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-242",
+	"type": "registry:component",
+	"registryDependencies": [
+		"label",
+		"slider"
+	],
+	"meta": {
+		"tags": [
+			"slider",
+			"label",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport Slider from '$lib/components/ui/slider.svelte';\n</script>\n\n<div class=\"*:not-first:mt-4\">\n\t<Label>Slider with square thumb</Label>\n\t<Slider\n\t\ttype=\"single\"\n\t\tvalue={25}\n\t\tmax={100}\n\t\tstep={5}\n\t\tclass=\"*:data-slider-thumb:rounded\"\n\t\taria-label=\"Slider with square thumb\"\n\t/>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-242.svelte"
+		}
+	]
+}

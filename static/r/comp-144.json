@@ -1,0 +1,24 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-144",
+	"type": "registry:component",
+	"registryDependencies": [
+		"checkbox",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"checkbox",
+			"label",
+			"card",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Checkbox from '$lib/registry/default/ui/checkbox.svelte';\n\timport Label from '$lib/registry/default/ui/label.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<div\n\tclass=\"border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/[.04]\"\n>\n\t<Checkbox\n\t\tid={uid}\n\t\tclass=\"order-1 after:absolute after:inset-0\"\n\t\taria-describedby=\"{uid}-description\"\n\t/>\n\t<div class=\"grid grow gap-2\">\n\t\t<Label for={uid}>\n\t\t\tLabel\n\t\t\t<span class=\"text-muted-foreground text-xs leading-[inherit] font-normal\"> (Sublabel) </span>\n\t\t</Label>\n\t\t<p id=\"{uid}-description\" class=\"text-muted-foreground text-xs\">\n\t\t\tA short description goes here.\n\t\t</p>\n\t</div>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-144.svelte"
+		}
+	]
+}

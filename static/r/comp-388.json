@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-388",
+	"type": "registry:component",
+	"registryDependencies": [
+		"button",
+		"popover",
+		"textarea"
+	],
+	"meta": {
+		"tags": [
+			"popover",
+			"feedback",
+			"form",
+			"bits ui"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Button from '$lib/components/ui/button.svelte';\n\timport Textarea from '$lib/components/ui/textarea.svelte';\n\n\timport { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';\n</script>\n\n<div class=\"flex flex-col gap-4\">\n\t<Popover>\n\t\t<PopoverTrigger>\n\t\t\t{#snippet child({ props })}\n\t\t\t\t<Button variant=\"outline\" {...props}>Feedback</Button>\n\t\t\t{/snippet}\n\t\t</PopoverTrigger>\n\t\t<PopoverContent class=\"w-72\">\n\t\t\t<h2 class=\"mb-2 text-sm font-semibold\">Send us feedback</h2>\n\t\t\t<form class=\"space-y-3\">\n\t\t\t\t<Textarea\n\t\t\t\t\tid=\"feedback\"\n\t\t\t\t\tplaceholder=\"How can we improve Origin UI?\"\n\t\t\t\t\taria-label=\"Send feedback\"\n\t\t\t\t/>\n\t\t\t\t<div class=\"flex flex-col sm:flex-row sm:justify-end\">\n\t\t\t\t\t<Button size=\"sm\">Send feedback</Button>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</PopoverContent>\n\t</Popover>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-388.svelte"
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-166",
+	"type": "registry:component",
+	"registryDependencies": [
+		"radio-group",
+		"label",
+		"badge"
+	],
+	"meta": {
+		"tags": [
+			"radio",
+			"label",
+			"pricing",
+			"bits ui"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';\n\n\tconst items = [\n\t\t{ id: 'radio-15-r1', label: 'Hobby', price: '$9/mo', value: 'r1' },\n\t\t{ id: 'radio-15-r2', label: 'Plus', price: '$29/mo', value: 'r2' },\n\t\t{ id: 'radio-15-r3', label: 'Team', price: '$49/mo', value: 'r3' },\n\t\t{ id: 'radio-15-r4', label: 'Enterprise', price: 'Custom', value: 'r4' }\n\t];\n\n\tlet selectedValue = $state('r2');\n</script>\n\n<fieldset class=\"space-y-4\">\n\t<legend class=\"text-foreground text-sm leading-none font-medium\">Choose plan</legend>\n\t<RadioGroup\n\t\tclass=\"gap-0 -space-y-px rounded-lg shadow-xs shadow-black/[.04]\"\n\t\tbind:value={selectedValue}\n\t>\n\t\t{#each items as item (item.id)}\n\t\t\t<div\n\t\t\t\tclass=\"border-input has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent relative flex flex-col gap-4 border p-4 first:rounded-t-lg last:rounded-b-lg has-data-[state=checked]:z-10\"\n\t\t\t>\n\t\t\t\t<div class=\"flex items-center justify-between\">\n\t\t\t\t\t<div class=\"flex items-center gap-2\">\n\t\t\t\t\t\t<RadioGroupItem\n\t\t\t\t\t\t\tid={item.id}\n\t\t\t\t\t\t\tvalue={item.value}\n\t\t\t\t\t\t\tclass=\"after:absolute after:inset-0\"\n\t\t\t\t\t\t\taria-describedby={`${item.id}-price`}\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<Label\n\t\t\t\t\t\t\tclass=\"inline-flex items-start leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 \"\n\t\t\t\t\t\t\tfor={item.id}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{item.label}\n\t\t\t\t\t\t\t{#if item.value === 'r2'}\n\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\tclass=\"-mt-1 ml-2 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-300/15 px-1 py-0.5 text-[10px] font-medium text-emerald-600 uppercase\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\tPopular\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t{/if}\n\t\t\t\t\t\t</Label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div id={`${item.id}-price`} class=\"text-muted-foreground text-xs leading-[inherit]\">\n\t\t\t\t\t\t{item.price}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t{/each}\n\t</RadioGroup>\n</fieldset>\n",
+			"type": "registry:component",
+			"target": "comp-166.svelte"
+		}
+	]
+}

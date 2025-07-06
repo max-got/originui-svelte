@@ -1,0 +1,26 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-392",
+	"type": "registry:component",
+	"dependencies": [
+		"@lucide/svelte@^0.525.0"
+	],
+	"registryDependencies": [
+		"avatar"
+	],
+	"meta": {
+		"tags": [
+			"avatar",
+			"user",
+			"profile"
+		],
+		"style": 1
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport UserRound from '@lucide/svelte/icons/user-round';\n\timport { Avatar, AvatarFallback } from '$lib/components/ui/avatar';\n</script>\n\n<Avatar>\n\t<AvatarFallback>\n\t\t<UserRound size={16} class=\"opacity-60\" aria-hidden=\"true\" />\n\t</AvatarFallback>\n</Avatar>\n",
+			"type": "registry:component",
+			"target": "comp-392.svelte"
+		}
+	]
+}

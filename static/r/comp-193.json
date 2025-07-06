@@ -1,0 +1,23 @@
+{
+	"$schema": "https://shadcn-svelte.com/schema/registry-item.json",
+	"name": "comp-193",
+	"type": "registry:component",
+	"registryDependencies": [
+		"select-native",
+		"label"
+	],
+	"meta": {
+		"tags": [
+			"label",
+			"select",
+			"native select"
+		]
+	},
+	"files": [
+		{
+			"content": "<script lang=\"ts\">\n\timport Label from '$lib/components/ui/label.svelte';\n\timport SelectNative from '$lib/components/ui/select-native.svelte';\n\n\tconst uid = $props.id();\n</script>\n\n<!-- NOTE: This inline style is to show how to set the --ring variable in your CSS file in order to change the focus ring color. -->\n<div class=\"space-y-2\" style=\"--ring: 234 89% 74%\">\n\t<Label for={uid}>Select with colored border (native)</Label>\n\t<SelectNative id={uid}>\n\t\t<option value=\"s1\">Svelte</option>\n\t\t<option value=\"s2\">Next.js</option>\n\t\t<option value=\"s3\">Astro</option>\n\t\t<option value=\"s4\">Gatsby</option>\n\t</SelectNative>\n</div>\n",
+			"type": "registry:component",
+			"target": "comp-193.svelte"
+		}
+	]
+}
