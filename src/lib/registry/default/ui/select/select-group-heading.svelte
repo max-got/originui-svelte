@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { Select as SelectPrimitive } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		class: className,

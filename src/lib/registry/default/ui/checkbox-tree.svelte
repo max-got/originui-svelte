@@ -26,7 +26,6 @@
 
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-
 	import { SvelteSet } from 'svelte/reactivity';
 
 	let {

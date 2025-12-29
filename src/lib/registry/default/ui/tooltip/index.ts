@@ -1,6 +1,6 @@
-import TooltipContent from './tooltip-content.svelte';
-
 import { Tooltip as TooltipPrimitive } from 'bits-ui';
+
+import TooltipContent from './tooltip-content.svelte';
 
 const TooltipProvider = TooltipPrimitive.Provider;
 

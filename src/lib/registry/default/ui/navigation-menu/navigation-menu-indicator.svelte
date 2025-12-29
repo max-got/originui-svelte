@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
 	import { NavigationMenu as NavigationMenuPrimitive } from 'bits-ui';
+
+	import { cn } from '$lib/utils';
 
 	let {
 		class: className,

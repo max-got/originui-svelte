@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { TimeField, type WithoutChildren } from 'bits-ui';
+
 	import TimeSegment from './time-segment.svelte';
 
 	import { cn } from '$lib/utils';
-	import { TimeField, type WithoutChildren } from 'bits-ui';
 
 	let {
 		class: className,

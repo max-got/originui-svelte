@@ -1,7 +1,8 @@
 <script module lang="ts">
-	import type { WithElementRef } from 'bits-ui';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
+
+	import type { WithElementRef } from 'bits-ui';
 
 	import { type ButtonProps, buttonVariants } from '$lib/registry/default/ui/button.svelte';
 

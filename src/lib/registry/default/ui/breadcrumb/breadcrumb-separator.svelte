@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLLiAttributes } from 'svelte/elements';
+
+	import type { WithElementRef } from 'bits-ui';
 
 	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 

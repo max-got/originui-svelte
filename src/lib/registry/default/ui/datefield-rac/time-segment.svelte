@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
 	import { TimeField, type TimeSegmentPart } from 'bits-ui';
+
+	import { cn } from '$lib/utils';
 
 	interface Props {
 		class?: string;

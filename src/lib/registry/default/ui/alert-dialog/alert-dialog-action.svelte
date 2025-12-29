@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { buttonVariants } from '$lib/registry/default/ui/button.svelte';
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { AlertDialog as AlertDialogPrimitive } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
+	import { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 
 	let {
 		class: className,

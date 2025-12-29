@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import Circle from '@lucide/svelte/icons/circle';
 	import { DropdownMenu as DropdownMenuPrimitive, type WithoutChild } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		children: childrenProp,

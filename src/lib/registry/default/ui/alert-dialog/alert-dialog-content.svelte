@@ -1,8 +1,9 @@
 <script lang="ts">
-	import AlertDialogOverlay from './alert-dialog-overlay.svelte';
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { AlertDialog as AlertDialogPrimitive, type WithoutChild } from 'bits-ui';
+
+	import AlertDialogOverlay from './alert-dialog-overlay.svelte';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		class: className,

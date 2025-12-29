@@ -1,6 +1,7 @@
 <script lang="ts" module>
-	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+
+	import type { WithElementRef } from 'bits-ui';
 
 	import { tv, type VariantProps } from 'tailwind-variants';
 
@@ -65,6 +66,7 @@
 		{@render children?.()}
 	</button>
 {:else}
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 	<a bind:this={ref} {href} class={cn(buttonVariants({ className, size, variant }))} {...restProps}>
 		{@render children?.()}
 	</a>

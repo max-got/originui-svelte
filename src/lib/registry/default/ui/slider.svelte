@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { cn } from '$lib/registry/default/lib/utils.js';
+	import { on } from 'svelte/events';
 
+	import { Slider as SliderPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 	import {
 		Tooltip,
 		TooltipContent,
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/registry/default/ui/tooltip';
-	import { Slider as SliderPrimitive, type WithoutChildrenOrChild } from 'bits-ui';
-	import { on } from 'svelte/events';
 
 	let {
 		class: className,

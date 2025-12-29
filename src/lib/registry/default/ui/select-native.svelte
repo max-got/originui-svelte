@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLSelectAttributes } from 'svelte/elements';
 
-	import { cn } from '$lib/registry/default/lib/utils.js';
+	import type { WithElementRef } from 'bits-ui';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		children,

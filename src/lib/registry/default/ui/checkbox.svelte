@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { Checkbox as CheckboxPrimitive } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		checked = $bindable(false),
@@ -17,7 +17,7 @@
 	bind:checked
 	bind:indeterminate
 	class={cn(
-		'peer border-input focus-visible:border-ring focus-visible:ring-ring/50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground **:aria-[invalid]:border-destructive **:aria-[invalid]:ring-destructive/20 dark:**:aria-[invalid]:ring-destructive/40 size-4 shrink-0 rounded-[4px] border shadow-xs outline-hidden transition-shadow focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50',
+		'peer border-input focus-visible:border-ring focus-visible:ring-ring/50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground **:aria-[invalid]:border-destructive **:aria-[invalid]:ring-destructive/20 dark:**:aria-[invalid]:ring-destructive/40 size-4 shrink-0 rounded-lg border shadow-xs outline-hidden transition-shadow focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50',
 
 		className
 	)}

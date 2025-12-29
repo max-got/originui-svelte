@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { LinkPreview as HoverCardPrimitive, type WithoutChildren } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		align = 'center',

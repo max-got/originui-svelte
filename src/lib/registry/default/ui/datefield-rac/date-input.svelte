@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { DateField } from 'bits-ui';
+
 	import DateSegment from './date-segment.svelte';
 
 	import { cn } from '$lib/utils';
-	import { DateField } from 'bits-ui';
 
 	let {
 		class: className,

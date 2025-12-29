@@ -1,7 +1,8 @@
 <script lang="ts">
-	import type { WithElementRef } from 'bits-ui';
 	import type { Snippet } from 'svelte';
 	import type { SvelteHTMLElements } from 'svelte/elements';
+
+	import type { WithElementRef } from 'bits-ui';
 
 	import { cn } from '$lib/registry/default/lib/utils.js';
 

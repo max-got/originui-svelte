@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { TooltipContentProps } from 'bits-ui';
 
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import { Tooltip } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		children,

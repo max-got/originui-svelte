@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	import DialogOverlay from './dialog-overlay.svelte';
-	import { cn } from '$lib/registry/default/lib/utils.js';
-
 	import XIcon from '@lucide/svelte/icons/x';
 	import { Dialog as DialogPrimitive, type WithoutChild } from 'bits-ui';
+
+	import DialogOverlay from './dialog-overlay.svelte';
+
+	import { cn } from '$lib/registry/default/lib/utils.js';
 
 	let {
 		children,
