@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Home from '@lucide/svelte/icons/home';
+
 	import {
 		Breadcrumb,
 		BreadcrumbItem,

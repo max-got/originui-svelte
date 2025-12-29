@@ -3,6 +3,7 @@
 	import GitFork from '@lucide/svelte/icons/git-fork';
 	import GitMerge from '@lucide/svelte/icons/git-merge';
 	import GitPullRequest from '@lucide/svelte/icons/git-pull-request';
+
 	import {
 		Timeline,
 		TimelineContent,
@@ -12,7 +13,7 @@
 		TimelineItem,
 		TimelineSeparator,
 		TimelineTitle
-	} from '$lib/components/ui/timeline';
+	} from '$lib/registry/default/ui/timeline';
 
 	const items = [
 		{

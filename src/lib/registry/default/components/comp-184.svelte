@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import Switch from '$lib/components/ui/switch.svelte';
-
 	import IconMoon from '@lucide/svelte/icons/moon';
 	import IconSun from '@lucide/svelte/icons/sun';
+
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import Switch from '$lib/registry/default/ui/switch.svelte';
 
 	const uid = $props.id();
 </script>

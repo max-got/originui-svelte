@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import Minus from '@lucide/svelte/icons/minus';
 	import Plus from '@lucide/svelte/icons/plus';
+
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let value = $state(2048);
 	const minValue = 0;
@@ -35,7 +35,7 @@
 		Number input with plus/minus buttons
 	</Label>
 	<div
-		class="border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden"
+		class="border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden"
 	>
 		<button
 			id="decrement-button"

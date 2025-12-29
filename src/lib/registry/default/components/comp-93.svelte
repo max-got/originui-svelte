@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import Printer from '@lucide/svelte/icons/printer';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button variant="outline">

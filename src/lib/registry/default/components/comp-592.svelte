@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import Switch from '$lib/components/ui/switch.svelte';
-
 	import LayoutGridIcon from '@lucide/svelte/icons/layout-grid';
 	import PlusIcon from '@lucide/svelte/icons/plus';
 	import SearchIcon from '@lucide/svelte/icons/search';
+
 	import { InfoMenu, NotificationMenu, SettingsMenu } from '$lib/components/_extras/navbars';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import Switch from '$lib/registry/default/ui/switch.svelte';
 
 	const id = $props.id();
 

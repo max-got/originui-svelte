@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import Textarea from '$lib/components/ui/textarea.svelte';
-
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Textarea from '$lib/components/ui/textarea.svelte';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Dialog.Root>

@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
 	import type { ChangeEventHandler } from 'svelte/elements';
 
-	import Label from '$lib/registry/default/ui/label.svelte';
+	import type { CountryCode, E164Number } from 'svelte-tel-input/types';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import Phone from '@lucide/svelte/icons/phone';
 	import { normalizedCountries, TelInput } from 'svelte-tel-input';
+
+	import Label from '$lib/registry/default/ui/label.svelte';
 	import 'svelte-tel-input/styles/flags.css';
 
 	let selectedCountry = $state<CountryCode | null>(null);
@@ -22,7 +23,7 @@
 
 <div class="*:not-first:mt-2" dir="ltr">
 	<Label for={uid}>Phone number input</Label>
-	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/4">
 		<div
 			class="border-input bg-background text-muted-foreground ring-offset-background focus-within:border-ring focus-within:text-foreground focus-within:ring-ring/30 hover:bg-accent hover:text-foreground relative inline-flex items-center self-stretch rounded-l-lg border py-2 ps-3 pe-2 transition-shadow focus-within:z-10 focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden has-disabled:pointer-events-none has-disabled:opacity-50"
 		>
@@ -58,7 +59,7 @@
 			id={uid}
 			required
 			placeholder="Enter phone number"
-			class="border-input bg-background text-foreground ring-offset-background placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/30 -ml-px flex h-9 w-full rounded-lg rounded-l-none border px-3 py-2 text-sm shadow-none shadow-black/[.04] transition-shadow focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
+			class="border-input bg-background text-foreground ring-offset-background placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/30 -ml-px flex h-9 w-full rounded-lg rounded-l-none border px-3 py-2 text-sm shadow-none shadow-black/4 transition-shadow focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
 			bind:country={selectedCountry}
 			bind:value
 			options={{

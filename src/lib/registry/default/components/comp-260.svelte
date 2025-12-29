@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const min = 5;
 	const max = 1240;

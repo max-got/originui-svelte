@@ -1,13 +1,13 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import type { EventHandler } from 'svelte/elements';
-
-	import Input from '$lib/registry/default/ui/input.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
 
 	import LoaderCircle from '@lucide/svelte/icons/loader-circle';
 	import Mic from '@lucide/svelte/icons/mic';
 	import Search from '@lucide/svelte/icons/search';
-	import { onDestroy } from 'svelte';
+
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let inputValue = $state('');
 	let isLoading = $state(false);

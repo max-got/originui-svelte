@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import SelectNative from '$lib/components/ui/select-native.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import SelectNative from '$lib/registry/default/ui/select-native.svelte';
 
 	const uid = $props.id();
 </script>

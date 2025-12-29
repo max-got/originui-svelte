@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import AvatarImg from '$assets/avatar-40-04.jpg?w=40&h=40&enhanced';
 	import { HoverCard, HoverCardContent, HoverCardTrigger } from '$lib/components/ui/hover-card';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <HoverCard>
@@ -18,7 +17,7 @@
 			</Button>
 		{/snippet}
 	</HoverCardTrigger>
-	<HoverCardContent class="w-[340px]">
+	<HoverCardContent class="w-85">
 		<div class="flex items-start gap-3">
 			<div class="shrink-0">
 				<enhanced:img class="size-10 rounded-full" src={AvatarImg} alt="Avatar" />

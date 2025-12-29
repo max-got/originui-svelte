@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
 	import {
 		Table,
 		TableBody,
@@ -9,8 +8,9 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 
+	const id = $props.id();
 	const items = [
 		{
 			balance: '$1,250.00',
@@ -53,8 +53,6 @@
 			status: 'Active'
 		}
 	];
-
-	const id = $props.id();
 </script>
 
 <div>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Badge from '$lib/components/ui/badge.svelte';
-
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 </script>
 

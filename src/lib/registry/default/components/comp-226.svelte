@@ -1,11 +1,10 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
-	import { cn } from '$lib/utils.js';
-
 	import Avatar01 from '$lib/assets/avatar-40-01.jpg?w=40&h=40&enhanced';
 	import Avatar02 from '$lib/assets/avatar-40-02.jpg?w=40&h=40&enhanced';
 	import Avatar03 from '$lib/assets/avatar-40-03.jpg?w=40&h=40&enhanced';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import * as Select from '$lib/registry/default/ui/select/index.js';
+	import { cn } from '$lib/utils.js';
 
 	const items = [
 		{ avatar: Avatar01, name: 'Jenny Hamilton', value: 's1' },

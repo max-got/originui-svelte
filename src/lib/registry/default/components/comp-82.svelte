@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import Trash from '@lucide/svelte/icons/trash';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button variant="destructive">

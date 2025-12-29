@@ -2,6 +2,7 @@
 	import Box from '@lucide/svelte/icons/box';
 	import House from '@lucide/svelte/icons/house';
 	import PanelsTopLeft from '@lucide/svelte/icons/panels-top-left';
+
 	import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
 </script>
 

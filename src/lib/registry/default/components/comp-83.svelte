@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import XIcon from '@lucide/svelte/icons/x';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button variant="secondary">

@@ -1,11 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import ArchiveRestore from '@lucide/svelte/icons/archive-restore';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import Plus from '@lucide/svelte/icons/plus';
 	import Share2 from '@lucide/svelte/icons/share-2';
 	import Trash from '@lucide/svelte/icons/trash';
+
 	import {
 		DropdownMenu,
 		DropdownMenuCheckboxItem,
@@ -21,6 +20,7 @@
 		DropdownMenuSubTrigger,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let framework = $state('sveltekit');
 	let emailNotifications = $state(true);

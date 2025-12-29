@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { DateField } from 'bits-ui';
+
 	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import { DateField } from 'bits-ui';
 
 	const localeCtx = useLocale();
 </script>
@@ -11,7 +11,7 @@
 	<Label class="text-foreground text-sm font-medium">Date input</Label>
 	<DateField.Root locale={localeCtx.locale}>
 		<DateField.Input
-			class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
+			class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 text-sm whitespace-nowrap shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
 		>
 			{#snippet children({ segments })}
 				<!-- eslint-disable-next-line svelte/require-each-key -->

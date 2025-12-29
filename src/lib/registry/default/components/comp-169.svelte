@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
-
 	import IconCheck from '@lucide/svelte/icons/check';
 	import IconMinus from '@lucide/svelte/icons/minus';
+
 	import UiDark from '$assets/ui-dark.png?enhanced';
 	import UiLight from '$assets/ui-light.png?enhanced';
 	import UiSystem from '$assets/ui-system.png?enhanced';
+	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	const items = [
 		{ id: 'radio-18-r1', image: UiLight, label: 'Light', value: 'r1' },
@@ -27,7 +27,7 @@
 				<enhanced:img
 					src={item.image}
 					alt={item.label}
-					class="border-input ring-offset-background peer-focus-visible:ring-ring/70 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative h-[70px] w-[88px] cursor-pointer overflow-hidden rounded-lg border shadow-xs shadow-black/[.04] transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+					class="border-input ring-offset-background peer-focus-visible:ring-ring/70 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative h-[70px] w-[88px] cursor-pointer overflow-hidden rounded-lg border shadow-xs shadow-black/4 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
 				/>
 				<span
 					class="group peer-data-[state=unchecked]:text-muted-foreground/70 mt-2 flex items-center gap-1"

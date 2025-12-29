@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Rocket from '@lucide/svelte/icons/rocket';
 	import X from '@lucide/svelte/icons/x';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let visible = $state(true);
 </script>
@@ -19,7 +19,7 @@
 				</div>
 				<div class="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
 					<div class="space-y-0.5">
-						<p class="text-sm font-medium">Boost your experience with Origin UI</p>
+						<p class="text-sm font-medium">Boost your experience with Origin UI - Svelte</p>
 						<p class="text-muted-foreground text-sm">
 							The new feature is live! Try it out and let us know what you think.
 						</p>

@@ -1,8 +1,8 @@
 <script lang="ts">
+	import BellIcon from '@lucide/svelte/icons/bell';
+
 	import Badge from '$lib/registry/default/ui/badge.svelte';
 	import Button from '$lib/registry/default/ui/button.svelte';
-
-	import BellIcon from '@lucide/svelte/icons/bell';
 
 	let count = $state(3);
 

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { TransitionEventHandler } from 'svelte/elements';
 
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let selectedValue = $state('without-expansion');
 	let inputElement = $state<HTMLInputElement | null>(null);

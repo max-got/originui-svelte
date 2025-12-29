@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import CircleUserRound from '@lucide/svelte/icons/circle-user-round';
+
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -11,6 +10,7 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <DropdownMenu>

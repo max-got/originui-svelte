@@ -1,6 +1,4 @@
 <script lang="ts">
-	import * as Accordion from '$lib/components/ui/accordion/index.js';
-
 	import AtSign from '@lucide/svelte/icons/at-sign';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import CircleDashed from '@lucide/svelte/icons/circle-dashed';
@@ -9,12 +7,14 @@
 	import Gauge from '@lucide/svelte/icons/gauge';
 	import Plus from '@lucide/svelte/icons/plus';
 	import Zap from '@lucide/svelte/icons/zap';
+	import { Accordion as AccordionPrimitive } from 'bits-ui';
+
+	import * as Accordion from '$lib/registry/default/ui/accordion/index.js';
 	import {
 		Collapsible,
 		CollapsibleContent,
 		CollapsibleTrigger
-	} from '$lib/components/ui/collapsible';
-	import { Accordion as AccordionPrimitive } from 'bits-ui';
+	} from '$lib/registry/default/ui/collapsible';
 
 	const items = [
 		{

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Timeline, TimelineContent, TimelineItem } from '$lib/components/ui/timeline';
+	import { Timeline, TimelineContent, TimelineItem } from '$lib/registry/default/ui/timeline';
 	type ActionType = 'create' | 'edit' | 'post' | 'reply';
 
 	import type { Icon as IconType } from '@lucide/svelte';
@@ -8,6 +8,7 @@
 	import MessageCircleIcon from '@lucide/svelte/icons/message-circle';
 	import PencilIcon from '@lucide/svelte/icons/pencil';
 	import PlusIcon from '@lucide/svelte/icons/plus';
+
 	import Avatar02 from '$lib/assets/avatar-40-02.jpg?w=48&h=48&enhanced';
 	const items: {
 		action: ActionType;

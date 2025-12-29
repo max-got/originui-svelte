@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import Switch from '$lib/components/ui/switch.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import Switch from '$lib/registry/default/ui/switch.svelte';
 
 	let checked = $state(true);
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
-
 	import StarFill from '~icons/ri/star-fill';
+
+	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	const id = $props.id();
 

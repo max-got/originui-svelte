@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { badgeVariants } from '$lib/components/ui/badge.svelte';
-
 	import { cn } from '$lib/utils';
 </script>
 

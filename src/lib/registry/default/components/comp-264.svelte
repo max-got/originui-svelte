@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import Slider from '$lib/components/ui/slider.svelte';
-
 	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
+
+	import Slider from '$lib/components/ui/slider.svelte';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const defaultValue = 0;
 	const min = -10;

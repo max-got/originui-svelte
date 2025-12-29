@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import Mail from '@lucide/svelte/icons/mail';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button class="group" variant="secondary">

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button class="py-0 pe-0" variant="outline">

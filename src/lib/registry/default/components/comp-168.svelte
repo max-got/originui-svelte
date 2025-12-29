@@ -9,7 +9,7 @@
 		How likely are you to recommend us?
 	</legend>
 	<RadioGroup
-		class="flex gap-0 -space-x-px rounded-lg shadow-xs shadow-black/[.04]"
+		class="flex gap-0 -space-x-px rounded-lg shadow-xs shadow-black/4"
 		bind:value={selectedValue}
 	>
 		{#each [0, 1, 2, 3, 4, 5] as number (number)}

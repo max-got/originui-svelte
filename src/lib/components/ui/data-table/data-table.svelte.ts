@@ -5,7 +5,10 @@ import {
 	type TableOptionsResolved,
 	type TableState
 } from '@tanstack/table-core';
-
+type Intersection<T extends readonly unknown[]> = (T extends [infer H, ...infer R]
+	? H & Intersection<R>
+	: unknown) & {};
+type MaybeThunk<T extends object> = (() => null | T | undefined) | T;
 /**
  * Creates a reactive TanStack table object for Svelte.
  * @param options Table options to create the table with.
@@ -22,13 +25,13 @@ import {
  *       <tr>
  *         {#each headerGroup.headers as header}
  *           <th colspan={header.colSpan}>
- *         	   <FlexRender content={header.column.columnDef.header} context={header.getContext()} />
- *         	 </th>
+ *              <FlexRender content={header.column.columnDef.header} context={header.getContext()} />
+ *            </th>
  *         {/each}
  *       </tr>
  *     {/each}
  *   </thead>
- * 	 <!-- ... -->
+ *    <!-- ... -->
  * </table>
  * ```
  */
@@ -47,10 +50,8 @@ export function createSvelteTable<TData extends RowData>(options: TableOptions<T
 		},
 		options
 	);
-
 	const table = createTable(resolvedOptions);
 	let state = $state<Partial<TableState>>(table.initialState);
-
 	function updateOptions() {
 		table.setOptions((prev) => {
 			return mergeObjects(prev, options, {
@@ -58,60 +59,68 @@ export function createSvelteTable<TData extends RowData>(options: TableOptions<T
 				onStateChange: (updater: any) => {
 					if (updater instanceof Function) state = updater(state);
 					else state = mergeObjects(state, updater);
-
 					options.onStateChange?.(updater);
 				},
-
 				state: mergeObjects(state, options.state || {})
 			});
 		});
 	}
-
 	updateOptions();
-
 	$effect.pre(() => {
 		updateOptions();
 	});
-
 	return table;
 }
-
 /**
- * Merges objects together while keeping their getters alive.
- * Taken from SolidJS: {@link https://github.com/solidjs/solid/blob/24abc825c0996fd2bc8c1de1491efe9a7e743aff/packages/solid/src/server/rendering.ts#L82-L115}
+ * Lazily merges several objects (or thunks) while preserving
+ * getter semantics from every source.
+ *
+ * Proxy-based to avoid known WebKit recursion issue.
  */
-export function mergeObjects<T>(source: T): T;
-export function mergeObjects<T, U>(source: T, source1: U): T & U;
-export function mergeObjects<T, U, V>(source: T, source1: U, source2: V): T & U & V;
-export function mergeObjects<T, U, V, W>(
-	source: T,
-	source1: U,
-	source2: V,
-	source3: W
-): T & U & V & W;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function mergeObjects(...sources: any): any {
-	const target = {};
-	for (let i = 0; i < sources.length; i++) {
-		let source = sources[i];
-		if (typeof source === 'function') source = source();
-		if (source) {
-			const descriptors = Object.getOwnPropertyDescriptors(source);
-			for (const key in descriptors) {
-				if (key in target) continue;
-				Object.defineProperty(target, key, {
-					enumerable: true,
-					get() {
-						for (let i = sources.length - 1; i >= 0; i--) {
-							let s = sources[i];
-							if (typeof s === 'function') s = s();
-							const v = (s || {})[key];
-							if (v !== undefined) return v;
-						}
-					}
-				});
-			}
+export function mergeObjects<Sources extends readonly MaybeThunk<any>[]>(
+	...sources: Sources
+): Intersection<{ [K in keyof Sources]: Sources[K] }> {
+	const resolve = <T extends object>(src: MaybeThunk<T>): T | undefined =>
+		typeof src === 'function' ? (src() ?? undefined) : src;
+	const findSourceWithKey = (key: PropertyKey) => {
+		for (let i = sources.length - 1; i >= 0; i--) {
+			const obj = resolve(sources[i]);
+			if (obj && key in obj) return obj;
 		}
-	}
-	return target;
+		return undefined;
+	};
+	return new Proxy(Object.create(null), {
+		get(_, key) {
+			const src = findSourceWithKey(key);
+			return src?.[key as never];
+		},
+		getOwnPropertyDescriptor(_, key) {
+			const src = findSourceWithKey(key);
+			if (!src) return undefined;
+			return {
+				configurable: true,
+				enumerable: true,
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				value: (src as any)[key],
+				writable: true
+			};
+		},
+		has(_, key) {
+			return !!findSourceWithKey(key);
+		},
+		ownKeys(): (string | symbol)[] {
+			// eslint-disable-next-line svelte/prefer-svelte-reactivity
+			const all = new Set<string | symbol>();
+			for (const s of sources) {
+				const obj = resolve(s);
+				if (obj) {
+					for (const k of Reflect.ownKeys(obj) as (string | symbol)[]) {
+						all.add(k);
+					}
+				}
+			}
+			return [...all];
+		}
+	}) as Intersection<{ [K in keyof Sources]: Sources[K] }>;
 }

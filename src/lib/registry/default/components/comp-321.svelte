@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-
 	import Mail from '@lucide/svelte/icons/mail';
+
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
 </script>
 
 <Dialog.Root>

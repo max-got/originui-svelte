@@ -1,8 +1,9 @@
 <script lang="ts">
-	import Button from '../ui/button.svelte';
-
 	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import UploadIcon from '@lucide/svelte/icons/upload';
+
+	import Button from '../ui/button.svelte';
+
 	import { AppToggle, TeamSwitcher } from '$lib/components/_extras/navbars';
 	const teams = ['Acme Inc.', 'Origin UI - Svelte', 'Junon'];
 </script>

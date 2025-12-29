@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import Brush from '@lucide/svelte/icons/brush';
 	import Eraser from '@lucide/svelte/icons/eraser';
 	import Scissors from '@lucide/svelte/icons/scissors';
 	import SwatchBook from '@lucide/svelte/icons/swatch-book';
+
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const items = [
 		{ defaultChecked: true, Icon: SwatchBook, id: 'checkbox-16-c1', label: 'Palette', value: 'c1' },
@@ -18,7 +18,7 @@
 <div class="grid grid-cols-2 gap-3">
 	{#each items as item (item.id)}
 		<label
-			class="border-input has-data-[state=checked]:border-ring relative flex cursor-pointer flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/[.04]"
+			class="border-input has-data-[state=checked]:border-ring relative flex cursor-pointer flex-col gap-4 rounded-lg border p-4 shadow-xs shadow-black/4"
 			for={item.id}
 		>
 			<div class="flex justify-between gap-2">

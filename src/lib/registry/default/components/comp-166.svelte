@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const items = [
 		{ id: 'radio-15-r1', label: 'Hobby', price: '$9/mo', value: 'r1' },
@@ -15,7 +15,7 @@
 <fieldset class="space-y-4">
 	<legend class="text-foreground text-sm leading-none font-medium">Choose plan</legend>
 	<RadioGroup
-		class="gap-0 -space-y-px rounded-lg shadow-xs shadow-black/[.04]"
+		class="gap-0 -space-y-px rounded-lg shadow-xs shadow-black/4"
 		bind:value={selectedValue}
 	>
 		{#each items as item (item.id)}

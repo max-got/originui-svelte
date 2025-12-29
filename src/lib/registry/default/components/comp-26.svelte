@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Input from '$lib/registry/default/ui/input.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import Search from '@lucide/svelte/icons/search';
+
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const uid = $props.id();
 </script>

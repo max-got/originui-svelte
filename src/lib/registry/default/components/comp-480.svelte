@@ -1,8 +1,7 @@
 <script lang="ts">
-	import type { User } from '$data/api/data/users.handlers';
+	import { getFakeUsers, type User } from '../data/users.data.remote';
+	import { createRawSnippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-
-	import Button from '$lib/components/ui/button.svelte';
 
 	import ArrowLeftToLineIcon from '@lucide/svelte/icons/arrow-left-to-line';
 	import ArrowRightToLineIcon from '@lucide/svelte/icons/arrow-right-to-line';
@@ -17,14 +16,19 @@
 		getSortedRowModel,
 		type SortingState
 	} from '@tanstack/table-core';
-	import { fetchUsers } from '$data/api/data/users';
-	import { createSvelteTable, FlexRender, renderSnippet } from '$lib/components/ui/data-table';
+
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
 		DropdownMenuItem,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import {
+		createSvelteTable,
+		FlexRender,
+		renderSnippet
+	} from '$lib/registry/default/ui/data-table';
 	import {
 		Table,
 		TableBody,
@@ -32,9 +36,7 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
-	import { createRawSnippet } from 'svelte';
-
+	} from '$lib/registry/default/ui/table';
 	let sorting = $state<SortingState>([
 		{
 			desc: false,
@@ -137,23 +139,13 @@
 
 	let columnSizing = $state<ColumnSizingState>({});
 	let columnPinning = $state<ColumnPinningState>({});
-	let data = $state<User[]>([]);
-
-	$effect(() => {
-		fetchUsers()
-			.then((response) => {
-				data = response.slice(0, 5);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	});
+	let data = $derived(await getFakeUsers({ count: 5 }));
 
 	const table = createSvelteTable<User>({
 		columnResizeMode: 'onChange',
 		columns,
 		get data() {
-			return data;
+			return data.data;
 		},
 		enableSortingRemoval: false,
 

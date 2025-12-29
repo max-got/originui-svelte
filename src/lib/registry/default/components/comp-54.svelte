@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Inputmask from 'inputmask';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import Inputmask from 'inputmask';
 
 	let inputElement = $state<HTMLInputElement | null>(null);
 

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
-
 	import Check from '@lucide/svelte/icons/check';
 	import RefreshCcw from '@lucide/svelte/icons/refresh-ccw';
+
 	import * as Dialog from '$lib/components/ui/dialog';
+	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <Dialog.Root>

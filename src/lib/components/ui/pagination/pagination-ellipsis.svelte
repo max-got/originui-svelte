@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { WithElementRef, WithoutChildren } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import { cn } from '$lib/utils.js';
+	import type { WithElementRef, WithoutChildren } from 'bits-ui';
 
 	import MoreHorizontal from '@lucide/svelte/icons/more-horizontal';
+
+	import { cn } from '$lib/utils.js';
 
 	let {
 		class: className,

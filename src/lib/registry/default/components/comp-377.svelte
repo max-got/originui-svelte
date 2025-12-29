@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Bolt from '@lucide/svelte/icons/bolt';
 	import BookOpen from '@lucide/svelte/icons/book-open';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
@@ -8,6 +6,7 @@
 	import LogOut from '@lucide/svelte/icons/log-out';
 	import Pin from '@lucide/svelte/icons/pin';
 	import UserPen from '@lucide/svelte/icons/user-pen';
+
 	import { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';
 	import {
 		DropdownMenu,
@@ -18,6 +17,7 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <DropdownMenu>

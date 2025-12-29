@@ -3,6 +3,7 @@
 	import Monitor from '@lucide/svelte/icons/monitor';
 	import Smartphone from '@lucide/svelte/icons/smartphone';
 	import X from '@lucide/svelte/icons/x';
+
 	import {
 		Table,
 		TableBody,
@@ -10,7 +11,7 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 
 	const items = [
 		{
@@ -64,7 +65,7 @@
 				{ name: 'Samsung Internet', supported: false, version: 'No' }
 			]
 		}
-	];
+	] as const;
 </script>
 
 <Table>

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button>

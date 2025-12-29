@@ -7,7 +7,7 @@
 
 <div class="*:not-first:mt-2">
 	<Label for={uid}>Input with inline start and end add-on</Label>
-	<div class="relative flex rounded-lg shadow-xs shadow-black/[.04]">
+	<div class="relative flex rounded-lg shadow-xs shadow-black/4">
 		<span
 			class="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm"
 		>

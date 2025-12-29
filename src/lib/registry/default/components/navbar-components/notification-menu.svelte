@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { ClassValue } from 'svelte/elements';
 
-	import Button from '$lib/components/ui/button.svelte';
-
 	import BellIcon from '@lucide/svelte/icons/bell';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 	const initialNotifications = [
 		{
 			action: 'requested review on',

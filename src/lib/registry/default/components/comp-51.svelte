@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { usePasswordStrength } from '$lib/registry/default/hooks/use-password-strength.svelte';
-	import Input from '$lib/registry/default/ui/input.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import Check from '@lucide/svelte/icons/check';
 	import Eye from '@lucide/svelte/icons/eye';
 	import EyeOff from '@lucide/svelte/icons/eye-off';
 	import XIcon from '@lucide/svelte/icons/x';
+
+	import { usePasswordStrength } from '$lib/registry/default/hooks/use-password-strength.svelte';
 	import { cn } from '$lib/registry/default/lib/utils';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const uid = $props.id();
 	const passwordStrength = usePasswordStrength({ id: uid });

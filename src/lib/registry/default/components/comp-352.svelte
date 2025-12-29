@@ -1,12 +1,12 @@
 <script lang="ts">
-	import * as Accordion from '$lib/components/ui/accordion/index.js';
-
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+
+	import * as Accordion from '$lib/registry/default/ui/accordion/index.js';
 	import {
 		Collapsible,
 		CollapsibleContent,
 		CollapsibleTrigger
-	} from '$lib/components/ui/collapsible';
+	} from '$lib/registry/default/ui/collapsible';
 
 	const items = [
 		{

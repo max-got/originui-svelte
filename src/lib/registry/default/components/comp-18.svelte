@@ -1,15 +1,15 @@
 <script lang="ts">
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 
 	const uid = $props.id();
 </script>
 
 <div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end select</Label>
-	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/4">
 		<Input
 			id={uid}
 			class="-me-px rounded-e-none shadow-none focus-visible:z-10"

@@ -1,7 +1,6 @@
 <script>
-	import Button from '$lib/components/ui/button.svelte';
-
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 
 	const tips = [
 		{

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 inset-x-4` to the container element. -->

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const items = [
 		{ id: 'radio-14-r1', label: 'USA', value: 'r1' },
@@ -14,7 +14,7 @@
 	<RadioGroup class="flex flex-wrap gap-2" value="r1">
 		{#each items as item (item.id)}
 			<div
-				class="border-input has-data-[state=checked]:border-ring relative flex flex-col items-start gap-4 rounded-lg border p-3 shadow-xs shadow-black/[.04]"
+				class="border-input has-data-[state=checked]:border-ring relative flex flex-col items-start gap-4 rounded-lg border p-3 shadow-xs shadow-black/4"
 			>
 				<div class="flex items-center gap-2">
 					<RadioGroupItem id={item.id} value={item.value} class="after:absolute after:inset-0" />

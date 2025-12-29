@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { DateValue } from '@internationalized/date';
 
-	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import CalendarIcon from '@lucide/svelte/icons/calendar';
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
 	import ChevronRight from '@lucide/svelte/icons/chevron-right';
-	import { cn } from '$lib/registry/default/lib/utils';
 	import { DatePicker } from 'bits-ui';
+
+	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
+	import { cn } from '$lib/registry/default/lib/utils';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let value: DateValue | undefined = $state(undefined);
 	let locale = useLocale();
@@ -19,7 +19,7 @@
 		<Label class="text-foreground text-sm font-medium">Date picker</Label>
 		<div class="flex">
 			<div
-				class="bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 pe-9 text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
+				class="bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 pe-9 text-sm whitespace-nowrap shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
 			>
 				<DatePicker.Input>
 					{#snippet children({ segments })}
@@ -43,9 +43,10 @@
 				<CalendarIcon size={16} />
 			</DatePicker.Trigger>
 		</div>
+
 		<DatePicker.Content
 			sideOffset={6}
-			class="border-input bg-background text-foreground z-50 rounded-lg border shadow-lg shadow-black/[.04] outline-hidden"
+			class="border-input bg-background text-foreground z-50 rounded-lg border shadow-lg shadow-black/4 outline-hidden"
 		>
 			<DatePicker.Calendar class="w-fit p-2">
 				{#snippet children({ months, weekdays })}

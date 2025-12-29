@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let isExpanded = $state(false);
 

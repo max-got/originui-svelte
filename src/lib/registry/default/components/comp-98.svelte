@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import Plus from '@lucide/svelte/icons/plus';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let open = $state(false);
 </script>

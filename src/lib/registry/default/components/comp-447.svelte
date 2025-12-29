@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Folders from '@lucide/svelte/icons/folder';
+
 	import {
 		Breadcrumb,
 		BreadcrumbItem,

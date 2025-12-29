@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import StarIcon from '@lucide/svelte/icons/star';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button>

@@ -1,9 +1,8 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <Dialog.Root>

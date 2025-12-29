@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { buttonVariants } from '$lib/components/ui/button.svelte';
-
 	import * as Dialog from '$lib/components/ui/dialog';
+	import { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Dialog.Root>

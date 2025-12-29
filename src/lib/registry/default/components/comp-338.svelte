@@ -1,10 +1,10 @@
 <script lang="ts">
-	import * as Accordion from '$lib/components/ui/accordion/index.js';
-
 	import AtSign from '@lucide/svelte/icons/at-sign';
 	import Command from '@lucide/svelte/icons/command';
 	import Eclipse from '@lucide/svelte/icons/eclipse';
 	import Zap from '@lucide/svelte/icons/zap';
+
+	import * as Accordion from '$lib/registry/default/ui/accordion/index.js';
 
 	const items = [
 		{

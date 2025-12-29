@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { buttonVariants } from '$lib/components/ui/button.svelte';
-	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
-
 	import * as Dialog from '$lib/components/ui/dialog';
+	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
+	import { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Dialog.Root>

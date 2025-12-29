@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Heading1 from '@lucide/svelte/icons/heading-1';
 	import Heading2 from '@lucide/svelte/icons/heading-2';
 	import Minus from '@lucide/svelte/icons/minus';
 	import Plus from '@lucide/svelte/icons/plus';
 	import TextQuote from '@lucide/svelte/icons/text-quote';
 	import Type from '@lucide/svelte/icons/type';
+
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -14,6 +13,7 @@
 		DropdownMenuLabel,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <DropdownMenu>

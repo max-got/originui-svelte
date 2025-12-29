@@ -4,6 +4,7 @@
 	import FileInput from '@lucide/svelte/icons/file-input';
 	import FolderPlus from '@lucide/svelte/icons/folder-plus';
 	import Search from '@lucide/svelte/icons/search';
+
 	import {
 		CommandDialog,
 		CommandEmpty,

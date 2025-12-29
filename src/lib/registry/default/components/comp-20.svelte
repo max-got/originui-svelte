@@ -1,15 +1,15 @@
 <script lang="ts">
+	import Download from '@lucide/svelte/icons/download';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import Download from '@lucide/svelte/icons/download';
 
 	const uid = $props.id();
 </script>
 
 <div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end icon button</Label>
-	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/4">
 		<Input
 			id={uid}
 			class="-me-px flex-1 rounded-e-none shadow-none focus-visible:z-10"

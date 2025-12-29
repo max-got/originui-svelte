@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import Slider from '$lib/components/ui/slider.svelte';
-
 	import Minus from '@lucide/svelte/icons/minus';
 	import Plus from '@lucide/svelte/icons/plus';
+
+	import Slider from '$lib/components/ui/slider.svelte';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const min = 0;
 	const max = 200;

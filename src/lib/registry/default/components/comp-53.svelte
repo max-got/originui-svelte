@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Input from '$lib/registry/default/ui/input.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import Check from '@lucide/svelte/icons/check';
 	import Copy from '@lucide/svelte/icons/copy';
+
 	import { cn } from '$lib/registry/default/lib/utils';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 	import {
 		Tooltip,
 		TooltipContent,

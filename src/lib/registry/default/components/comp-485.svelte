@@ -1,11 +1,5 @@
 <script lang="ts">
-	import type { User } from '$data/api/data/users.handlers';
-
-	import Badge from '$lib/components/ui/badge.svelte';
-	import Button from '$lib/components/ui/button.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import { getFakeUsers, type User } from '$lib/registry/default/data/users.data.remote';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronFirst from '@lucide/svelte/icons/chevron-first';
@@ -35,6 +29,7 @@
 		type SortingState,
 		type VisibilityState
 	} from '@tanstack/table-core';
+
 	import {
 		AlertDialogAction,
 		AlertDialogCancel,
@@ -46,12 +41,7 @@
 		AlertDialogTitle,
 		AlertDialogTrigger
 	} from '$lib/components/ui/alert-dialog';
-	import {
-		createSvelteTable,
-		FlexRender,
-		renderComponent,
-		renderSnippet
-	} from '$lib/components/ui/data-table';
+	import Badge from '$lib/components/ui/badge.svelte';
 	import {
 		DropdownMenu,
 		DropdownMenuCheckboxItem,
@@ -67,8 +57,23 @@
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
 	import { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
+	import {
+		createSvelteTable,
+		FlexRender,
+		renderComponent,
+		renderSnippet
+	} from '$lib/registry/default/ui/data-table';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
+	import {
+		Select,
+		SelectContent,
+		SelectItem,
+		SelectTrigger
+	} from '$lib/registry/default/ui/select';
 	import {
 		Table,
 		TableBody,
@@ -76,9 +81,8 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 	import { cn } from '$lib/utils';
-	import { createRawSnippet } from 'svelte';
 
 	// Custom filter function for multi-column searching
 	const multiColumnFilterFn: FilterFn<User> = (row, _, filterValue) => {
@@ -116,13 +120,7 @@
 		{
 			accessorKey: 'name',
 			cell: ({ row }) => {
-				const nameSnippet = createRawSnippet<[string]>((getName) => {
-					const name = getName();
-					return {
-						render: () => `<div class="font-medium">${name}</div>`
-					};
-				});
-				return renderSnippet(nameSnippet, row.getValue('name'));
+				return renderSnippet(NameCell, { name: row.getValue('name') as string });
 			},
 			enableHiding: false,
 			filterFn: multiColumnFilterFn,
@@ -137,17 +135,7 @@
 		{
 			accessorKey: 'location',
 			cell: ({ row }) => {
-				const locationSnippet = createRawSnippet<[{ flag: string; location: string }]>((args) => {
-					const { flag, location } = args();
-					return {
-						render: () => `
-							<div>
-								<span class="text-lg leading-none">${flag}</span>
-								${location}
-							</div>`
-					};
-				});
-				return renderSnippet(locationSnippet, {
+				return renderSnippet(LocationCell, {
 					flag: row.original.flag,
 					location: row.getValue('location') as string
 				});
@@ -157,19 +145,10 @@
 		},
 		{
 			accessorKey: 'status',
-			cell: ({ row }) =>
-				renderComponent(Badge, {
-					children: createRawSnippet(() => {
-						const status = row.getValue('status') as string;
-						return {
-							render: () => status
-						};
-					}),
-					class: cn(
-						row.getValue('status') === 'Inactive' &&
-							'bg-muted-foreground/60 text-primary-foreground'
-					)
-				}),
+			cell: ({ row }) => {
+				const status = row.getValue('status') as string;
+				return renderSnippet(StatusCell, { status });
+			},
 			filterFn: statusFilterFn,
 			header: 'Status',
 			size: 100
@@ -194,15 +173,7 @@
 		{
 			cell: ({ row }) => renderSnippet(RowActions, { row }),
 			enableHiding: false,
-			header: () =>
-				renderSnippet(
-					createRawSnippet(() => {
-						return {
-							render: () => `<span class="sr-only">Actions</span>`
-						};
-					}),
-					{}
-				),
+			header: () => renderSnippet(ActionsHeader, {}),
 			id: 'actions',
 			size: 60
 		}
@@ -221,29 +192,20 @@
 			id: 'name'
 		}
 	]);
-	let data = $state<User[]>([]);
-
-	$effect(() => {
-		fetch('https://res.cloudinary.com/dlzlfasou/raw/upload/users-01_fertyx.json')
-			.then((res) => res.json())
-			.then((response) => {
-				data = response;
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	});
+	let data = $derived(await getFakeUsers({ count: 50 }));
 
 	function handleDeleteRows() {
 		const selectedRows = table.getSelectedRowModel().rows;
-		data = data.filter((item) => !selectedRows.some((row) => row.original.id === item.id));
+		data.data = data.data.filter(
+			(item) => !selectedRows.some((row) => row.original.id === item.id)
+		);
 		table.resetRowSelection();
 	}
 
 	const table = createSvelteTable<User>({
 		columns,
 		get data() {
-			return data;
+			return data.data;
 		},
 		enableSortingRemoval: false,
 		getCoreRowModel: getCoreRowModel(),
@@ -338,6 +300,88 @@
 		table.getColumn('status')?.setFilterValue(newFilterValue.length ? newFilterValue : undefined);
 	}
 </script>
+
+{#snippet NameCell({ name }: { name: string })}
+	<div class="font-medium">{name}</div>
+{/snippet}
+
+{#snippet LocationCell({ flag, location }: { flag: string; location: string })}
+	<div>
+		<span class="text-lg leading-none">{flag}</span>
+		{location}
+	</div>
+{/snippet}
+
+{#snippet StatusCell({ status }: { status: string })}
+	<Badge
+		class="data-[status=Inactive]:bg-muted-foreground/60 data-[status=Inactive]:text-primary-foreground"
+		data-status={status}
+	>
+		{status}
+	</Badge>
+{/snippet}
+
+{#snippet ActionsHeader()}
+	<span class="sr-only">Actions</span>
+{/snippet}
+
+{#snippet RowActions()}
+	<DropdownMenu>
+		<DropdownMenuTrigger>
+			{#snippet child({ props })}
+				<div class="flex justify-end">
+					<Button size="icon" variant="ghost" class="shadow-none" aria-label="Edit item" {...props}>
+						<Ellipsis size={16} aria-hidden="true" />
+					</Button>
+				</div>
+			{/snippet}
+		</DropdownMenuTrigger>
+		<DropdownMenuContent align="end">
+			<DropdownMenuGroup>
+				<DropdownMenuItem>
+					<span>Edit</span>
+					<DropdownMenuShortcut>⌘E</DropdownMenuShortcut>
+				</DropdownMenuItem>
+				<DropdownMenuItem>
+					<span>Duplicate</span>
+					<DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
+				</DropdownMenuItem>
+			</DropdownMenuGroup>
+			<DropdownMenuSeparator />
+			<DropdownMenuGroup>
+				<DropdownMenuItem>
+					<span>Archive</span>
+					<DropdownMenuShortcut>⌘A</DropdownMenuShortcut>
+				</DropdownMenuItem>
+				<DropdownMenuSub>
+					<DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
+					<DropdownMenuSubContent>
+						<DropdownMenuItem>Move to project</DropdownMenuItem>
+						<DropdownMenuItem>Move to folder</DropdownMenuItem>
+						<DropdownMenuSeparator />
+						<DropdownMenuItem>Advanced options</DropdownMenuItem>
+					</DropdownMenuSubContent>
+				</DropdownMenuSub>
+			</DropdownMenuGroup>
+			<DropdownMenuSeparator />
+			<DropdownMenuGroup>
+				<DropdownMenuItem>
+					<span>Share</span>
+					<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+				</DropdownMenuItem>
+				<DropdownMenuItem>
+					<span>Add to favorites</span>
+					<DropdownMenuShortcut>⌘F</DropdownMenuShortcut>
+				</DropdownMenuItem>
+			</DropdownMenuGroup>
+			<DropdownMenuSeparator />
+			<DropdownMenuItem class="text-destructive focus:text-destructive">
+				<span>Delete</span>
+				<DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
+			</DropdownMenuItem>
+		</DropdownMenuContent>
+	</DropdownMenu>
+{/snippet}
 
 <div class="space-y-4">
 	<!-- Filters -->
@@ -671,61 +715,3 @@
 		</a>
 	</p>
 </div>
-
-{#snippet RowActions()}
-	<DropdownMenu>
-		<DropdownMenuTrigger>
-			{#snippet child({ props })}
-				<div class="flex justify-end">
-					<Button size="icon" variant="ghost" class="shadow-none" aria-label="Edit item" {...props}>
-						<Ellipsis size={16} aria-hidden="true" />
-					</Button>
-				</div>
-			{/snippet}
-		</DropdownMenuTrigger>
-		<DropdownMenuContent align="end">
-			<DropdownMenuGroup>
-				<DropdownMenuItem>
-					<span>Edit</span>
-					<DropdownMenuShortcut>⌘E</DropdownMenuShortcut>
-				</DropdownMenuItem>
-				<DropdownMenuItem>
-					<span>Duplicate</span>
-					<DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
-				</DropdownMenuItem>
-			</DropdownMenuGroup>
-			<DropdownMenuSeparator />
-			<DropdownMenuGroup>
-				<DropdownMenuItem>
-					<span>Archive</span>
-					<DropdownMenuShortcut>⌘A</DropdownMenuShortcut>
-				</DropdownMenuItem>
-				<DropdownMenuSub>
-					<DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
-					<DropdownMenuSubContent>
-						<DropdownMenuItem>Move to project</DropdownMenuItem>
-						<DropdownMenuItem>Move to folder</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>Advanced options</DropdownMenuItem>
-					</DropdownMenuSubContent>
-				</DropdownMenuSub>
-			</DropdownMenuGroup>
-			<DropdownMenuSeparator />
-			<DropdownMenuGroup>
-				<DropdownMenuItem>
-					<span>Share</span>
-					<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-				</DropdownMenuItem>
-				<DropdownMenuItem>
-					<span>Add to favorites</span>
-					<DropdownMenuShortcut>⌘F</DropdownMenuShortcut>
-				</DropdownMenuItem>
-			</DropdownMenuGroup>
-			<DropdownMenuSeparator />
-			<DropdownMenuItem class="text-destructive focus:text-destructive">
-				<span>Delete</span>
-				<DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
-			</DropdownMenuItem>
-		</DropdownMenuContent>
-	</DropdownMenu>
-{/snippet}

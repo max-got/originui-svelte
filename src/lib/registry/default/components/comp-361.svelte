@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import {
 		Tooltip,
 		TooltipContent,
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <TooltipProvider delayDuration={0}>
@@ -16,7 +15,7 @@
 				<Button variant="outline" size="sm" {...props}>Stats</Button>
 			{/snippet}
 		</TooltipTrigger>
-		<TooltipContent class=" py-3"
+		<TooltipContent class="py-3"
 			><ul class="grid gap-3 text-xs">
 				<li class="grid gap-0.5">
 					<span class="text-muted-foreground">Status</span>

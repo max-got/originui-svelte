@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import ClockIcon from '@lucide/svelte/icons/clock';
+
 	import { TimeField, TimeInput } from '$lib/registry/default/ui/datefield-rac';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <TimeField class="*:not-first:mt-2">

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { User } from '$data/api/data/users.handlers';
+	import { getFakeUsers, type User } from '$lib/registry/default/data/users.data.remote';
+	import { createRawSnippet } from 'svelte';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronUp from '@lucide/svelte/icons/chevron-up';
@@ -10,8 +11,12 @@
 		getSortedRowModel,
 		type SortingState
 	} from '@tanstack/table-core';
-	import { fetchUsers } from '$data/api/data/users';
-	import { createSvelteTable, FlexRender, renderSnippet } from '$lib/components/ui/data-table';
+
+	import {
+		createSvelteTable,
+		FlexRender,
+		renderSnippet
+	} from '$lib/registry/default/ui/data-table';
 	import {
 		Table,
 		TableBody,
@@ -19,9 +24,8 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 	import { cn } from '$lib/utils';
-	import { createRawSnippet } from 'svelte';
 
 	const columns: ColumnDef<User>[] = [
 		{
@@ -108,23 +112,13 @@
 		}
 	]);
 	let columnSizing = $state<ColumnSizingState>({});
-	let data = $state<User[]>([]);
-
-	$effect(() => {
-		fetchUsers()
-			.then((response) => {
-				data = response.slice(0, 5);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	});
+	let data = $derived(await getFakeUsers({ count: 5 }));
 
 	const table = createSvelteTable<User>({
 		columnResizeMode: 'onChange',
 		columns,
 		get data() {
-			return data;
+			return data.data;
 		},
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),

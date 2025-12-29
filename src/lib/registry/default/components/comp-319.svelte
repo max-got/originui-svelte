@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 
 	let content = $state<HTMLDivElement | null>();
 	let hasReadToBottom = $state(false);

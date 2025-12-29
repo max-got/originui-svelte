@@ -1,10 +1,5 @@
 <script lang="ts">
-	import type { User } from '$data/api/data/users.handlers';
-
-	import Badge from '$lib/components/ui/badge.svelte';
-	import Button from '$lib/components/ui/button.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import { getFakeUsers, type User } from '../data/users.data.remote';
 
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronFirst from '@lucide/svelte/icons/chevron-first';
@@ -21,15 +16,24 @@
 		type RowSelectionState,
 		type SortingState
 	} from '@tanstack/table-core';
-	import { fetchUsers } from '$data/api/data/users';
+
+	import Badge from '$lib/components/ui/badge.svelte';
+	import { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
 	import {
 		createSvelteTable,
 		FlexRender,
 		renderComponent,
 		renderSnippet
-	} from '$lib/components/ui/data-table';
-	import { Pagination, PaginationContent, PaginationItem } from '$lib/components/ui/pagination';
-	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
+	} from '$lib/registry/default/ui/data-table';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import {
+		Select,
+		SelectContent,
+		SelectItem,
+		SelectTrigger
+	} from '$lib/registry/default/ui/select';
 	import {
 		Table,
 		TableBody,
@@ -37,9 +41,8 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 	import { cn } from '$lib/utils';
-	import { createRawSnippet } from 'svelte';
 
 	const columns: ColumnDef<User>[] = [
 		{
@@ -63,13 +66,7 @@
 		{
 			accessorKey: 'name',
 			cell: ({ row }) => {
-				const nameSnippet = createRawSnippet<[string]>((getName) => {
-					const name = getName();
-					return {
-						render: () => `<div class="font-medium">${name}</div>`
-					};
-				});
-				return renderSnippet(nameSnippet, row.getValue('name'));
+				return renderSnippet(NameCell, { name: row.getValue('name') as string });
 			},
 			header: 'Name',
 			size: 180
@@ -82,17 +79,7 @@
 		{
 			accessorKey: 'location',
 			cell: ({ row }) => {
-				const locationSnippet = createRawSnippet<[{ flag: string; location: string }]>((args) => {
-					const { flag, location } = args();
-					return {
-						render: () => `
-							<div>
-								<span class="text-lg leading-none">${flag}</span>
-								${location}
-							</div>`
-					};
-				});
-				return renderSnippet(locationSnippet, {
+				return renderSnippet(LocationCell, {
 					flag: row.original.flag,
 					location: row.getValue('location') as string
 				});
@@ -102,20 +89,10 @@
 		},
 		{
 			accessorKey: 'status',
-			cell: ({ row }) =>
-				renderComponent(Badge, {
-					children: createRawSnippet(() => {
-						const status = row.getValue('status') as string;
-						return {
-							render: () => status
-						};
-					}),
-
-					class: cn(
-						row.getValue('status') === 'Inactive' &&
-							'bg-muted-foreground/60 text-primary-foreground'
-					)
-				}),
+			cell: ({ row }) => {
+				const status = row.getValue('status') as string;
+				return renderSnippet(StatusCell, { status });
+			},
 			header: 'Status',
 			size: 120
 		},
@@ -140,29 +117,21 @@
 		pageIndex: 0,
 		pageSize: 5
 	});
+
 	let sorting = $state<SortingState>([
 		{
 			desc: false,
 			id: 'name'
 		}
 	]);
-	let rowSelection = $state<RowSelectionState>({});
-	let data = $state<User[]>([]);
 
-	$effect(() => {
-		fetchUsers()
-			.then((response) => {
-				data = [...response];
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	});
+	let rowSelection = $state<RowSelectionState>({});
+	let data = $derived(await getFakeUsers({ count: 50 }));
 
 	const table = createSvelteTable<User>({
 		columns,
 		get data() {
-			return data;
+			return data.data;
 		},
 		enableSortingRemoval: false,
 		getCoreRowModel: getCoreRowModel(),
@@ -202,6 +171,26 @@
 		}
 	});
 </script>
+
+{#snippet NameCell({ name }: { name: string })}
+	<div class="font-medium">{name}</div>
+{/snippet}
+
+{#snippet LocationCell({ flag, location }: { flag: string; location: string })}
+	<div>
+		<span class="text-lg leading-none">{flag}</span>
+		{location}
+	</div>
+{/snippet}
+
+{#snippet StatusCell({ status }: { status: string })}
+	<Badge
+		class="data-[status=Inactive]:bg-muted-foreground/60 data-[status=Inactive]:text-primary-foreground"
+		data-status={status}
+	>
+		{status}
+	</Badge>
+{/snippet}
 
 <div class="space-y-4">
 	<div class="bg-background overflow-hidden rounded-md border">
@@ -299,11 +288,7 @@
 					{table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1}
 					-
 					{Math.min(
-						Math.max(
-							table.getState().pagination.pageIndex * table.getState().pagination.pageSize +
-								table.getState().pagination.pageSize,
-							0
-						),
+						(table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize,
 						table.getRowCount()
 					)}
 				</span>

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-
 	import ListFilterIcon from '@lucide/svelte/icons/list-filter';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 	const id = $props.id();
 </script>
 

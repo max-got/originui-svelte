@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';
 	import HistoryIcon from '@lucide/svelte/icons/history';
 	import MessageSquareText from '@lucide/svelte/icons/message-square-text';
 	import UserRoundPlus from '@lucide/svelte/icons/user-round-plus';
+
 	import { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <header class="border-b px-4 md:px-6">

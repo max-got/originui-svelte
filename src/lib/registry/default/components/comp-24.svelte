@@ -1,8 +1,8 @@
 <script lang="ts">
+	import CircleX from '@lucide/svelte/icons/circle-x';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import CircleX from '@lucide/svelte/icons/circle-x';
 
 	let inputValue = $state('Click to clear');
 	let inputElement = $state<HTMLInputElement | null>(null)!;

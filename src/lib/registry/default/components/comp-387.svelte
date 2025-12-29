@@ -1,20 +1,21 @@
 <script lang="ts">
-	import Input from '../ui/input.svelte';
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Check from '@lucide/svelte/icons/check';
 	import Copy from '@lucide/svelte/icons/copy';
 	import RiCodeFill from '~icons/ri/code-fill';
 	import RiFacebookFill from '~icons/ri/facebook-fill';
 	import RiMailLine from '~icons/ri/mail-line';
 	import RiTwitterXFill from '~icons/ri/twitter-x-fill';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+
+	import Input from '../ui/input.svelte';
+
 	import {
 		Tooltip,
 		TooltipContent,
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 	import { cn } from '$lib/utils';
 
 	let copied = $state(false);

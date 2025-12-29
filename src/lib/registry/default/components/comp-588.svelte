@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import HouseIcon from '@lucide/svelte/icons/house';
 	import InboxIcon from '@lucide/svelte/icons/inbox';
 	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import ZapIcon from '@lucide/svelte/icons/zap';
+
 	import { Logo, UserMenu } from '$lib/components/_extras/navbars';
 	import {
 		NavigationMenuItem,
@@ -12,7 +11,8 @@
 		NavigationMenuList,
 		NavigationMenuRoot
 	} from '$lib/components/ui/navigation-menu';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 
 	// Navigation links array
 	const navigationLinks = [
@@ -45,15 +45,15 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
+									class="origin-center -translate-y-1.75 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,0.25,1.8)] group-aria-expanded:rotate-45"
+									class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,0.25,1.8)] group-aria-expanded:rotate-45"
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
+									class="origin-centertranslate-y-1.75 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>

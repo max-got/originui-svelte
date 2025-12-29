@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Send from '@lucide/svelte/icons/send';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import Send from '@lucide/svelte/icons/send';
 
 	const uid = $props.id();
 </script>

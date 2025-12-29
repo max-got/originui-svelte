@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import { DateField, DateInput } from '$lib/registry/default/ui/datefield-rac';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <DateField class="*:not-first:mt-2" granularity="minute" hourCycle={24}>

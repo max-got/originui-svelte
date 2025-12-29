@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import { getLocalTimeZone, today } from '@internationalized/date';
 	import Calendar from '@lucide/svelte/icons/calendar';
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
 	import ChevronRight from '@lucide/svelte/icons/chevron-right';
-	import { cn } from '$lib/registry/default/lib/utils';
 	import { type DateRange, DateRangePicker } from 'bits-ui';
+
+	import { useLocale } from '$lib/registry/default/hooks/use-locale.svelte';
+	import { cn } from '$lib/registry/default/lib/utils';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let now = today(getLocalTimeZone());
 	let value: DateRange = $state({ end: undefined, start: undefined });
@@ -24,7 +24,7 @@
 	<Label class="text-foreground text-sm font-medium">Date range picker</Label>
 	<div class="flex">
 		<div
-			class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 pe-9 text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
+			class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 inline-flex h-9 w-full items-center overflow-hidden rounded-lg border px-3 py-2 pe-9 text-sm whitespace-nowrap shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden disabled:opacity-50"
 		>
 			{#each ['start', 'end'] as const as type (type)}
 				<DateRangePicker.Input {type}>
@@ -57,7 +57,7 @@
 	</div>
 
 	<DateRangePicker.Content
-		class="border-input bg-background text-foreground z-50 rounded-lg border shadow-lg shadow-black/[.04] outline-hidden"
+		class="border-input bg-background text-foreground z-50 rounded-lg border shadow-lg shadow-black/4 outline-hidden"
 	>
 		<DateRangePicker.Calendar class="w-fit p-2">
 			{#snippet children({ months, weekdays })}

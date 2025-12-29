@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <Button variant="outline">

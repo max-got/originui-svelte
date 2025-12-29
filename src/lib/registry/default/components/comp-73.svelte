@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative rounded-lg border shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 has-disabled:cursor-not-allowed has-disabled:opacity-50 [&:has(input:is(:disabled))_*]:pointer-events-none"
+	class="border-input bg-background ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative rounded-lg border shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 has-disabled:cursor-not-allowed has-disabled:opacity-50 [&:has(input:is(:disabled))_*]:pointer-events-none"
 >
 	<label for={uid} class="text-foreground block px-3 pt-2 text-xs font-medium">
 		Textarea with inset label

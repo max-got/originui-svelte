@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { useCharacterLimit } from '$lib/registry/default/hooks/use-character-limit.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
 	import Textarea from '$lib/registry/default/ui/textarea.svelte';
-	import { useCharacterLimit } from '$lib/registry/default/hooks/use-character-limit.svelte';
 
 	const maxLength = 180;
 	const characterLimit = useCharacterLimit(maxLength);

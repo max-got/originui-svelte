@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
+
 	import Slider from '$lib/components/ui/slider.svelte';
 	import {
 		Tooltip,
@@ -10,8 +9,9 @@
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip/index.js';
 	import { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';
-
-	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 	import { cn } from '$lib/utils';
 
 	const minValue = 0;

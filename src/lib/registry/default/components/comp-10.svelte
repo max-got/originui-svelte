@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Mail from '@lucide/svelte/icons/mail';
+
 	import Input from '$lib/registry/default/ui/input.svelte';
 	import Label from '$lib/registry/default/ui/label.svelte';
-
-	import Mail from '@lucide/svelte/icons/mail';
 
 	const uid = $props.id();
 </script>

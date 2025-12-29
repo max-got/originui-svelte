@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-
 	import MicIcon from '@lucide/svelte/icons/mic';
 	import SearchIcon from '@lucide/svelte/icons/search';
+
 	import { Logo, ThemeToggle } from '$lib/components/_extras/navbars';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
 
 	const id = $props.id();
 </script>

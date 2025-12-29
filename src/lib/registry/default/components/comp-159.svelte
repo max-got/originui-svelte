@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <RadioGroup class="gap-2" value="r1">
 	<!-- Radio card #1 -->
 	<div
-		class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/[.04]"
+		class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/4"
 	>
 		<RadioGroupItem
 			value="r1"
@@ -28,7 +28,7 @@
 	</div>
 	<!-- Radio card #2 -->
 	<div
-		class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/[.04]"
+		class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/4"
 	>
 		<RadioGroupItem
 			value="r2"

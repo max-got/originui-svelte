@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-
 	import Minus from '@lucide/svelte/icons/minus';
-	import { cn } from '$lib/registry/default/lib/utils';
 	import { PinInput, type PinInputCell } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let value = $state('');
 	const uid = $props.id();
@@ -13,7 +13,7 @@
 	<PinInput.Cell
 		{cell}
 		class={cn(
-			'border-input bg-background text-foreground ring-offset-background relative flex size-9 items-center justify-center border-y border-e font-medium shadow-xs shadow-black/[.04] transition-all first:rounded-s-lg first:border-s last:rounded-e-lg',
+			'border-input bg-background text-foreground ring-offset-background relative flex size-9 items-center justify-center border-y border-e font-medium shadow-xs shadow-black/4 transition-all first:rounded-s-lg first:border-s last:rounded-e-lg',
 			{ 'border-ring ring-ring/30 z-10 border ring-2 ring-offset-2': cell.isActive }
 		)}
 	>

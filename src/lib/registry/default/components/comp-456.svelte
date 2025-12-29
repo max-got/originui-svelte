@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { buttonVariants } from '$lib/components/ui/button.svelte';
-
 	import ChevronLeft from '@lucide/svelte/icons/chevron-left';
 	import ChevronRight from '@lucide/svelte/icons/chevron-right';
+
 	import {
 		Pagination,
 		PaginationContent,
 		PaginationItem,
 		PaginationLink
 	} from '$lib/components/ui/pagination';
+	import { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 	import { cn } from '$lib/utils';
 
 	type PaginationProps = {

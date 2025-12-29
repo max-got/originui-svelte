@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import LoaderCircle from '@lucide/svelte/icons/loader-circle';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let isLoading = $state(false);
 

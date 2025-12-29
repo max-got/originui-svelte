@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Book from '@lucide/svelte/icons/book';
 	import Info from '@lucide/svelte/icons/info';
 	import LifeBuoy from '@lucide/svelte/icons/life-buoy';
 	import MessageCircleMore from '@lucide/svelte/icons/message-circle-more';
+
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -12,6 +11,7 @@
 		DropdownMenuLabel,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <DropdownMenu>

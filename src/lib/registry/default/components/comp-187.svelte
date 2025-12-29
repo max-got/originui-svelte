@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import Switch from '$lib/components/ui/switch.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import Switch from '$lib/registry/default/ui/switch.svelte';
 
 	let checked = $state(false);
 
@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/[.04]"
+	class="border-input has-data-[state=checked]:border-ring relative flex w-full items-start gap-2 rounded-lg border p-4 shadow-xs shadow-black/4"
 >
 	<Switch
 		id={uid}

@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-
 	import Blocks from '@lucide/svelte/icons/blocks';
 	import Brain from '@lucide/svelte/icons/brain';
 	import LineChart from '@lucide/svelte/icons/chart-line';
@@ -13,8 +10,11 @@
 	import Network from '@lucide/svelte/icons/network';
 	import Search from '@lucide/svelte/icons/search';
 	import Server from '@lucide/svelte/icons/server';
+
 	import * as Command from '$lib/components/ui/command';
-	import * as Popover from '$lib/components/ui/popover';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import * as Popover from '$lib/registry/default/ui/popover';
 
 	let open = $state(false);
 	let value = $state('');

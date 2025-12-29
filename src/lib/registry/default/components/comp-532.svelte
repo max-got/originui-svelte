@@ -8,7 +8,7 @@
 		TimelineItem,
 		TimelineSeparator,
 		TimelineTitle
-	} from '$lib/components/ui/timeline';
+	} from '$lib/registry/default/ui/timeline';
 	const items = [
 		{
 			date: 'Mar 15, 2024',

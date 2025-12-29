@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-	import { cn } from '$lib/registry/default/lib/utils';
-
 	import { PinInput, type PinInputCell } from 'bits-ui';
+
+	import { cn } from '$lib/registry/default/lib/utils';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	let value = $state('');
 	const uid = $props.id();

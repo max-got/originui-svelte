@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Badge from '$lib/components/ui/badge.svelte';
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Bell from '@lucide/svelte/icons/bell';
+
 	import UserImg01 from '$assets/avatar-80-01.jpg?w=64&h=64&enhanced';
 	import UserImg02 from '$assets/avatar-80-02.jpg?w=64&h=64&enhanced';
 	import UserImg03 from '$assets/avatar-80-03.jpg?w=64&h=64&enhanced';
 	import UserImg04 from '$assets/avatar-80-04.jpg?w=64&h=64&enhanced';
 	import UserImg05 from '$assets/avatar-80-05.jpg?w=64&h=64&enhanced';
 	import UserImg06 from '$assets/avatar-80-06.jpg?w=64&h=64&enhanced';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+	import Badge from '$lib/components/ui/badge.svelte';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 	const initialNotifications = [
 		{
 			action: 'requested review on',

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Badge from '$lib/components/ui/badge.svelte';
-
 	import Zap from '@lucide/svelte/icons/zap';
+
+	import Badge from '$lib/components/ui/badge.svelte';
 </script>
 
 <Badge class="gap-1">

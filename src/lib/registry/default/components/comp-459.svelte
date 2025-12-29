@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { usePagination } from '$lib/hooks/use-pagination.svelte';
-
 	import {
 		Pagination,
 		PaginationContent,
@@ -10,6 +8,7 @@
 		PaginationNextButton,
 		PaginationPrevButton
 	} from '$lib/components/ui/pagination';
+	import { usePagination } from '$lib/hooks/use-pagination.svelte';
 
 	type PaginationProps = {
 		currentPage: number;

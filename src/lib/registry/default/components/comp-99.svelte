@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Plus from '@lucide/svelte/icons/plus';
+
 	import Button from '$lib/registry/default/ui/button.svelte';
 	import {
 		Tooltip,
@@ -6,8 +8,6 @@
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/registry/default/ui/tooltip';
-
-	import Plus from '@lucide/svelte/icons/plus';
 </script>
 
 <TooltipProvider>

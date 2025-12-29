@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Select from '$lib/components/ui/select/index.js';
+	import * as Select from '$lib/registry/default/ui/select/index.js';
 
 	const items = [
 		{ label: 'Svelte', value: 's1' },

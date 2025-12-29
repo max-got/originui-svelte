@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import ChevronUpDownIcon from '@lucide/svelte/icons/chevrons-up-down';
+	import { Select as SelectPrimitive } from 'bits-ui';
+
 	import { SettingsMenu, UserMenu } from '$lib/components/_extras/navbars';
 	import {
 		Breadcrumb,
@@ -15,9 +15,9 @@
 		NavigationMenuList,
 		NavigationMenuRoot
 	} from '$lib/components/ui/navigation-menu';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import { Select, SelectContent, SelectItem } from '$lib/components/ui/select';
-	import { Select as SelectPrimitive } from 'bits-ui';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
+	import { Select, SelectContent, SelectItem } from '$lib/registry/default/ui/select';
 
 	const navigationLinks = [
 		{ href: '#', label: 'Dashboard' },
@@ -62,15 +62,15 @@
 							>
 								<path
 									d="M4 12L20 12"
-									class="origin-center -translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
+									class="origin-center -translate-y-1.75 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315"
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,0.25,1.8)] group-aria-expanded:rotate-45"
+									class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,0.25,1.8)] group-aria-expanded:rotate-45"
 								/>
 								<path
 									d="M4 12H20"
-									class="origin-center translate-y-[7px] transition-all duration-300 [transition-timing-function:cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
+									class="origin-centertranslate-y-1.75 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135"
 								/>
 							</svg>
 						</Button>

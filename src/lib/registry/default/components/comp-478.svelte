@@ -9,9 +9,7 @@
 </script>
 
 <script lang="ts">
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
+	import { resolve } from '$app/paths';
 
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
@@ -31,13 +29,22 @@
 		type RowSelectionState,
 		type SortingState
 	} from '@tanstack/table-core';
+
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
 	import {
 		createSvelteTable,
 		FlexRender,
 		renderComponent,
 		renderSnippet
-	} from '$lib/components/ui/data-table';
-	import { Select, SelectContent, SelectItem, SelectTrigger } from '$lib/components/ui/select';
+	} from '$lib/registry/default/ui/data-table';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import {
+		Select,
+		SelectContent,
+		SelectItem,
+		SelectTrigger
+	} from '$lib/registry/default/ui/select';
 	import {
 		Table,
 		TableBody,
@@ -45,10 +52,8 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
+	} from '$lib/registry/default/ui/table';
 	import { cn } from '$lib/utils';
-	import { createRawSnippet, mount, unmount } from 'svelte';
-	import { render } from 'svelte/server';
 
 	type Item = {
 		cpc: number;
@@ -80,41 +85,20 @@
 		{
 			accessorKey: 'keyword',
 			cell: ({ row }) => {
-				const nameSnippet = createRawSnippet<[string]>((getKeyword) => {
-					const keyword = getKeyword();
-					return {
-						render: () => `<div class="font-medium">${keyword}</div>`
-					};
+				return renderSnippet(KeywordCell, {
+					keyword: row.getValue('keyword') as string
 				});
-				return renderSnippet(nameSnippet, row.getValue('keyword'));
 			},
 			header: 'Keyword'
 		},
 		{
 			accessorKey: 'intents',
 			cell: ({ row }) => {
-				const nameSnippet = createRawSnippet<[Array<string>]>((getIntents) => {
-					const intents = getIntents();
-					const styles = {
-						Commercial: 'bg-amber-400/20 text-amber-500',
-						Informational: 'bg-indigo-400/20 text-indigo-500',
-						Navigational: 'bg-emerald-400/20 text-emerald-500',
-						Transactional: 'bg-rose-400/20 text-rose-500'
-					} as const;
-					return {
-						render: () => {
-							const inner = intents.map((intent) => {
-								const className = cn(
-									'flex size-5 items-center justify-center rounded text-xs font-medium',
-									styles[intent as keyof typeof styles]
-								);
-								return `<div class="${className}" title="${intent}">${intent.charAt(0)}</div>`;
-							});
-							return `<div class="flex gap-1">${inner.join('')}</div>`;
-						}
-					};
+				return renderSnippet(IntentsCell, {
+					intents: row.getValue('intents') as Array<
+						'Commercial' | 'Informational' | 'Navigational' | 'Transactional'
+					>
 				});
-				return renderSnippet(nameSnippet, row.getValue('intents'));
 			},
 			enableSorting: false,
 			filterFn: (row, id, filterValue) => {
@@ -143,13 +127,7 @@
 		{
 			accessorKey: 'cpc',
 			cell: ({ row }) => {
-				const cpcSnippet = createRawSnippet<[number]>((getCpc) => {
-					const cpc = getCpc();
-					return {
-						render: () => `<div>${cpc}</div>`
-					};
-				});
-				return renderSnippet(cpcSnippet, row.getValue('cpc'));
+				return row.getValue('cpc');
 			},
 			header: 'CPC',
 			meta: {
@@ -173,66 +151,7 @@
 		{
 			accessorKey: 'link',
 			cell: ({ row }) => {
-				const linkSnippet = createRawSnippet<
-					[{ component: typeof ExternalLinkIcon; link: string }]
-				>((args) => {
-					const { component, link } = args();
-
-					// For server-side rendering, use render
-					if (typeof window === 'undefined') {
-						const { body } = render(component, {
-							props: {
-								'aria-hidden': 'true',
-								size: 16
-							}
-						});
-
-						return {
-							render: () => `
-								<a 
-									href="${link}" 
-									target="_blank" 
-									rel="noopener noreferrer"
-									class="inline-flex items-center gap-1 hover:underline"
-									aria-label="Open ${link} in new tab"
-								>
-									${link}
-									${body}
-								</a>
-							`
-						};
-					}
-
-					// For client-side rendering, use mount
-					const target = document.createElement('span');
-					const icon = mount(component, {
-						props: {
-							'aria-hidden': 'true',
-							size: 16
-						},
-						target
-					});
-
-					return {
-						destroy: () => {
-							unmount(icon);
-						},
-						render: () => `
-							<a 
-								href="${link}" 
-								target="_blank" 
-								rel="noopener noreferrer"
-								class="inline-flex items-center gap-1 hover:underline"
-								aria-label="Open ${link} in new tab"
-							>
-								${link}
-								${target.outerHTML}
-							</a>
-						`
-					};
-				});
-				return renderSnippet(linkSnippet, {
-					component: ExternalLinkIcon,
+				return renderSnippet(LinkCell, {
 					link: row.getValue('link') as string
 				});
 			},
@@ -247,7 +166,7 @@
 			id: '1',
 			intents: ['Informational', 'Navigational'],
 			keyword: 'svelte components',
-			link: 'https://originui-svelte.pages.dev/radios',
+			link: 'alert',
 			traffic: 88,
 			volume: 2507
 		},
@@ -256,7 +175,7 @@
 			id: '2',
 			intents: ['Commercial', 'Transactional'],
 			keyword: 'buy svelte templates',
-			link: 'https://originui-svelte.pages.dev/switches',
+			link: 'badge',
 			traffic: 65,
 			volume: 1850
 		},
@@ -265,7 +184,7 @@
 			id: '3',
 			intents: ['Informational', 'Commercial'],
 			keyword: 'svelte ui library',
-			link: 'https://originui-svelte.pages.dev/checkboxes',
+			link: 'banner',
 			traffic: 112,
 			volume: 3200
 		},
@@ -274,7 +193,7 @@
 			id: '4',
 			intents: ['Transactional'],
 			keyword: 'tailwind components download',
-			link: 'https://originui-svelte.pages.dev/alerts',
+			link: 'button',
 			traffic: 45,
 			volume: 890
 		},
@@ -283,7 +202,7 @@
 			id: '5',
 			intents: ['Commercial', 'Transactional'],
 			keyword: 'svelte dashboard template free',
-			link: 'https://originui-svelte.pages.dev/inputs',
+			link: 'checkbox',
 			traffic: 156,
 			volume: 4100
 		},
@@ -292,7 +211,7 @@
 			id: '6',
 			intents: ['Informational'],
 			keyword: 'how to use svelte components',
-			link: 'https://originui-svelte.pages.dev/tables',
+			link: 'dropdown',
 			traffic: 42,
 			volume: 1200
 		},
@@ -301,7 +220,7 @@
 			id: '7',
 			intents: ['Commercial', 'Transactional'],
 			keyword: 'svelte ui kit premium',
-			link: 'https://originui-svelte.pages.dev/avatars',
+			link: 'navbar',
 			traffic: 28,
 			volume: 760
 		},
@@ -310,7 +229,7 @@
 			id: '8',
 			intents: ['Informational', 'Navigational'],
 			keyword: 'svelte component documentation',
-			link: 'https://originui-svelte.pages.dev/badges',
+			link: 'input',
 			traffic: 35,
 			volume: 950
 		}
@@ -385,6 +304,130 @@
 		return Array.from(new Set(flattenedValues)).sort();
 	};
 </script>
+
+{#snippet Filter({ column }: { column: Column<Item> })}
+	{@const columnHeader = typeof column.columnDef.header === 'string' ? column.columnDef.header : ''}
+	{@const columnFilterValue = column.getFilterValue()}
+	{@const filterVariant = column.columnDef.meta?.filterVariant ?? ''}
+	{@const sortedUniqueValues = getSortedUniqueValues(column, filterVariant)}
+
+	{#if filterVariant === 'range'}
+		<div class="[&>*:not(:first-child)]:mt-2">
+			<Label for="{column.id}-range-1">{columnHeader}</Label>
+			<div class="flex">
+				<Input
+					id="{column.id}-range-1"
+					class="flex-1 rounded-e-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+					value={(columnFilterValue as [number, number])?.[0] ?? ''}
+					onchange={(e) =>
+						column.setFilterValue((old: [number, number]) => [
+							e.currentTarget.value ? Number(e.currentTarget.value) : undefined,
+							old?.[1]
+						])}
+					placeholder="Min"
+					type="number"
+					aria-label="{columnHeader} min"
+				/>
+				<Input
+					id="{column.id}-range-2"
+					class="-ms-px flex-1 rounded-s-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+					value={(columnFilterValue as [number, number])?.[1] ?? ''}
+					onchange={(e) =>
+						column.setFilterValue((old: [number, number]) => [
+							old?.[0],
+							e.currentTarget.value ? Number(e.currentTarget.value) : undefined
+						])}
+					placeholder="Max"
+					type="number"
+					aria-label="{columnHeader} max"
+				/>
+			</div>
+		</div>
+	{:else if filterVariant === 'select'}
+		<div class="[&>*:not(:first-child)]:mt-2">
+			<Label for="{column.id}-select">{columnHeader}</Label>
+			<Select
+				type="single"
+				value={columnFilterValue?.toString() ?? 'all'}
+				onValueChange={(value) => {
+					column.setFilterValue(value === 'all' ? undefined : value);
+				}}
+			>
+				<SelectTrigger id="{column.id}-select">
+					{columnFilterValue?.toString() ?? 'All'}
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value="all">All</SelectItem>
+					{#each sortedUniqueValues as value (value)}
+						<SelectItem value={String(value)}>{String(value)}</SelectItem>
+					{/each}
+				</SelectContent>
+			</Select>
+		</div>
+	{:else}
+		<div class="[&>*:not(:first-child)]:mt-2">
+			<Label for="{column.id}-input">{columnHeader}</Label>
+			<div class="relative">
+				<Input
+					id="{column.id}-input"
+					class="peer ps-9"
+					value={(columnFilterValue ?? '') as string}
+					onchange={(e) => column.setFilterValue(e.currentTarget.value)}
+					placeholder={`Search ${columnHeader.toLowerCase()}`}
+					type="text"
+				/>
+				<div
+					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50"
+				>
+					<SearchIcon size={16} />
+				</div>
+			</div>
+		</div>
+	{/if}
+{/snippet}
+
+{#snippet KeywordCell({ keyword }: { keyword: string })}
+	<div class="font-medium">{keyword}</div>
+{/snippet}
+
+{#snippet IntentsCell({
+	intents
+}: {
+	intents: Array<'Commercial' | 'Informational' | 'Navigational' | 'Transactional'>;
+})}
+	{@const styles = {
+		Commercial: 'bg-amber-400/20 text-amber-500',
+		Informational: 'bg-indigo-400/20 text-indigo-500',
+		Navigational: 'bg-emerald-400/20 text-emerald-500',
+		Transactional: 'bg-rose-400/20 text-rose-500'
+	} as const}
+	<div class="flex gap-1">
+		{#each intents as intent (intent)}
+			<div
+				class={cn(
+					'flex size-5 items-center justify-center rounded text-xs font-medium',
+					styles[intent]
+				)}
+				title={intent}
+			>
+				{intent.charAt(0)}
+			</div>
+		{/each}
+	</div>
+{/snippet}
+
+{#snippet LinkCell({ link }: { link: string })}
+	<a
+		href={resolve('/(components)/[directory=componentDirectory]', { directory: link })}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex items-center gap-1 hover:underline"
+		aria-label="Open {link} in new tab"
+	>
+		{link}
+		<ExternalLinkIcon size={16} aria-hidden="true" />
+	</a>
+{/snippet}
 
 <div class="space-y-6">
 	<!-- Filters  -->
@@ -491,84 +534,3 @@
 		</a>
 	</p>
 </div>
-
-{#snippet Filter({ column }: { column: Column<Item> })}
-	{@const columnHeader = typeof column.columnDef.header === 'string' ? column.columnDef.header : ''}
-	{@const columnFilterValue = column.getFilterValue()}
-	{@const filterVariant = column.columnDef.meta?.filterVariant ?? ''}
-	{@const sortedUniqueValues = getSortedUniqueValues(column, filterVariant)}
-
-	{#if filterVariant === 'range'}
-		<div class="[&>*:not(:first-child)]:mt-2">
-			<Label for="{column.id}-range-1">{columnHeader}</Label>
-			<div class="flex">
-				<Input
-					id="{column.id}-range-1"
-					class="flex-1 rounded-e-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-					value={(columnFilterValue as [number, number])?.[0] ?? ''}
-					onchange={(e) =>
-						column.setFilterValue((old: [number, number]) => [
-							e.currentTarget.value ? Number(e.currentTarget.value) : undefined,
-							old?.[1]
-						])}
-					placeholder="Min"
-					type="number"
-					aria-label="{columnHeader} min"
-				/>
-				<Input
-					id="{column.id}-range-2"
-					class="-ms-px flex-1 rounded-s-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-					value={(columnFilterValue as [number, number])?.[1] ?? ''}
-					onchange={(e) =>
-						column.setFilterValue((old: [number, number]) => [
-							old?.[0],
-							e.currentTarget.value ? Number(e.currentTarget.value) : undefined
-						])}
-					placeholder="Max"
-					type="number"
-					aria-label="{columnHeader} max"
-				/>
-			</div>
-		</div>
-	{:else if filterVariant === 'select'}
-		<div class="[&>*:not(:first-child)]:mt-2">
-			<Label for="{column.id}-select">{columnHeader}</Label>
-			<Select
-				type="single"
-				value={columnFilterValue?.toString() ?? 'all'}
-				onValueChange={(value) => {
-					column.setFilterValue(value === 'all' ? undefined : value);
-				}}
-			>
-				<SelectTrigger id="{column.id}-select">
-					{columnFilterValue?.toString() ?? 'All'}
-				</SelectTrigger>
-				<SelectContent>
-					<SelectItem value="all">All</SelectItem>
-					{#each sortedUniqueValues as value (value)}
-						<SelectItem value={String(value)}>{String(value)}</SelectItem>
-					{/each}
-				</SelectContent>
-			</Select>
-		</div>
-	{:else}
-		<div class="[&>*:not(:first-child)]:mt-2">
-			<Label for="{column.id}-input">{columnHeader}</Label>
-			<div class="relative">
-				<Input
-					id="{column.id}-input"
-					class="peer ps-9"
-					value={(columnFilterValue ?? '') as string}
-					onchange={(e) => column.setFilterValue(e.currentTarget.value)}
-					placeholder={`Search ${columnHeader.toLowerCase()}`}
-					type="text"
-				/>
-				<div
-					class="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50"
-				>
-					<SearchIcon size={16} />
-				</div>
-			</div>
-		</div>
-	{/if}
-{/snippet}

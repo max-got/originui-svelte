@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 </script>
 
 <div class="*:not-first:mt-4">

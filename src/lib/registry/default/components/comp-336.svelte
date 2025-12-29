@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Accordion from '$lib/components/ui/accordion/index.js';
+	import * as Accordion from '$lib/registry/default/ui/accordion/index.js';
 
 	const items = [
 		{

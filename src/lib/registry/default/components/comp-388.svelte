@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
 	import Textarea from '$lib/components/ui/textarea.svelte';
-
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Popover, PopoverContent, PopoverTrigger } from '$lib/registry/default/ui/popover';
 </script>
 
 <div class="flex flex-col gap-4">

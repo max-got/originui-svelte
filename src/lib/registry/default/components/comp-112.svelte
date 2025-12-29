@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/registry/default/ui/button.svelte';
-
 	import SquareArrowOutUpRight from '@lucide/svelte/icons/square-arrow-out-up-right';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <div class="inline-flex -space-x-px rounded-md shadow-2xs rtl:space-x-reverse">

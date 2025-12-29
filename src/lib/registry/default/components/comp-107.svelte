@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/default/ui/toggle-group/index.js';
-
 	import AlignCenter from '@lucide/svelte/icons/align-center';
 	import AlignJustify from '@lucide/svelte/icons/align-justify';
 	import AlignLeft from '@lucide/svelte/icons/align-left';
 	import AlignRight from '@lucide/svelte/icons/align-right';
+
+	import { ToggleGroup, ToggleGroupItem } from '$lib/registry/default/ui/toggle-group/index.js';
 
 	let value = $state('center');
 </script>

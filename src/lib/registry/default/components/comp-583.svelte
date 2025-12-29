@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import ChevronUpDownIcon from '@lucide/svelte/icons/chevrons-up-down';
+	import { Select as SelectPrimitive } from 'bits-ui';
+
 	import { Logo, NotificationMenu, UserMenu } from '$lib/components/_extras/navbars';
 	import {
 		Breadcrumb,
@@ -17,8 +17,8 @@
 		DropdownMenuItem,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
-	import { Select, SelectContent, SelectItem } from '$lib/components/ui/select';
-	import { Select as SelectPrimitive } from 'bits-ui';
+	import Button from '$lib/registry/default/ui/button.svelte';
+	import { Select, SelectContent, SelectItem } from '$lib/registry/default/ui/select';
 
 	const projects = [
 		{ label: 'Main project', value: '1' },

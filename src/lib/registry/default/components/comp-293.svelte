@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import XIcon from '@lucide/svelte/icons/x';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <!-- To make the notification fixed, add classes like `fixed bottom-4 right-4` to the container element. -->
 <div
-	class="border-border bg-background z-100 max-w-[400px] rounded-lg border p-4 shadow-lg shadow-black/5"
+	class="border-border bg-background z-100 max-w-100 rounded-lg border p-4 shadow-lg shadow-black/5"
 >
 	<div class="flex gap-2">
 		<div class="flex grow flex-col gap-3">

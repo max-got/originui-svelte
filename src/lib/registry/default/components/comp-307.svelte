@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Eclipse from '@lucide/svelte/icons/eclipse';
 	import X from '@lucide/svelte/icons/x';
+
+	import Button from '$lib/registry/default/ui/button.svelte';
 
 	let visible = $state(true);
 </script>

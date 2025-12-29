@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SelectNative from '$lib/components/ui/select-native.svelte';
+	import SelectNative from '$lib/registry/default/ui/select-native.svelte';
 
 	const uid = $props.id();
 </script>

@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import {
 		Tooltip,
 		TooltipContent,
 		TooltipProvider,
 		TooltipTrigger
 	} from '$lib/components/ui/tooltip';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <TooltipProvider delayDuration={0}>

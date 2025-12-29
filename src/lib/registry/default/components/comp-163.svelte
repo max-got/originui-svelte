@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
-
 	import IconApple from '~icons/ri/apple-line';
 	import IconBankCard from '~icons/ri/bank-card-line';
 	import IconPaypal from '~icons/ri/paypal-line';
+
+	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 
 	const items = [
 		{ Icon: IconBankCard, id: 'radio-12-cc', label: 'Card', value: 'cc' },
@@ -17,7 +17,7 @@
 <RadioGroup class="grid grid-cols-3 gap-2" bind:value={selectedValue}>
 	{#each items as item (item.id)}
 		<label
-			class="border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs shadow-black/[.04] transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2"
+			class="border-input ring-offset-background has-data-[state=checked]:border-ring has-data-[state=checked]:bg-accent has-focus-visible:ring-ring/70 relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs shadow-black/4 transition-colors has-focus-visible:ring-2 has-focus-visible:ring-offset-2"
 		>
 			<RadioGroupItem
 				id={item.id}

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import BotMessageSquareIcon from '@lucide/svelte/icons/bot-message-square';
 	import MessageCircleDashedIcon from '@lucide/svelte/icons/message-circle-dashed';
+
 	import { UserMenu } from '$lib/components/_extras/navbars';
+	import Button from '$lib/registry/default/ui/button.svelte';
 	import {
 		Select,
 		SelectContent,
@@ -11,7 +11,7 @@
 		SelectGroupHeading,
 		SelectItem,
 		SelectTrigger
-	} from '$lib/components/ui/select';
+	} from '$lib/registry/default/ui/select';
 
 	const aiModels = [
 		{

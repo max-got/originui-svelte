@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+
 	import DialogImg from '$lib/assets/dialog-content.png';
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
 	import { cn } from '$lib/utils';
 
 	const steps = [

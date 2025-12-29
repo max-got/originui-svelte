@@ -1,17 +1,16 @@
 <script lang="ts">
-	import type { User } from '$data/api/data/users.handlers';
-
-	import Badge from '$lib/components/ui/badge.svelte';
-	import Checkbox from '$lib/components/ui/checkbox.svelte';
+	import { getFakeUsers, type User } from '$lib/registry/default/data/users.data.remote';
 
 	import { type ColumnDef, getCoreRowModel, type RowSelectionState } from '@tanstack/table-core';
-	import { fetchUsers } from '$data/api/data/users';
+
+	import Badge from '$lib/components/ui/badge.svelte';
+	import Checkbox from '$lib/registry/default/ui/checkbox.svelte';
 	import {
 		createSvelteTable,
 		FlexRender,
 		renderComponent,
 		renderSnippet
-	} from '$lib/components/ui/data-table';
+	} from '$lib/registry/default/ui/data-table';
 	import {
 		Table,
 		TableBody,
@@ -20,9 +19,7 @@
 		TableHead,
 		TableHeader,
 		TableRow
-	} from '$lib/components/ui/table';
-	import { cn } from '$lib/utils';
-	import { createRawSnippet } from 'svelte';
+	} from '$lib/registry/default/ui/table';
 
 	const columns: ColumnDef<User>[] = [
 		{
@@ -44,13 +41,7 @@
 		{
 			accessorKey: 'name',
 			cell: ({ row }) => {
-				const nameSnippet = createRawSnippet<[string]>((getName) => {
-					const name = getName();
-					return {
-						render: () => `<div class="font-medium">${name}</div>`
-					};
-				});
-				return renderSnippet(nameSnippet, row.getValue('name'));
+				return renderSnippet(NameCell, { name: row.getValue('name') as string });
 			},
 			header: 'Name'
 		},
@@ -61,17 +52,7 @@
 		{
 			accessorKey: 'location',
 			cell: ({ row }) => {
-				const locationSnippet = createRawSnippet<[{ flag: string; location: string }]>((args) => {
-					const { flag, location } = args();
-					return {
-						render: () => `
-							<div>
-								<span class="text-lg leading-none">${flag}</span>
-								${location}
-							</div>`
-					};
-				});
-				return renderSnippet(locationSnippet, {
+				return renderSnippet(LocationCell, {
 					flag: row.original.flag,
 					location: row.getValue('location') as string
 				});
@@ -80,67 +61,32 @@
 		},
 		{
 			accessorKey: 'status',
-			cell: ({ row }) =>
-				renderComponent(Badge, {
-					children: createRawSnippet(() => {
-						const status = row.getValue('status') as string;
-						return {
-							render: () => status
-						};
-					}),
-
-					class: cn(
-						row.getValue('status') === 'Inactive' &&
-							'bg-muted-foreground/60 text-primary-foreground'
-					)
-				}),
+			cell: ({ row }) => {
+				const status = row.getValue('status') as string;
+				return renderSnippet(StatusCell, { status });
+			},
 			header: 'Status'
 		},
 		{
 			accessorKey: 'balance',
 			cell: ({ row }) => {
-				return renderSnippet(
-					createRawSnippet((getBalance) => {
-						const balance = getBalance() as string;
-						const formatted = new Intl.NumberFormat('en-US', {
-							currency: 'USD',
-							style: 'currency'
-						}).format(parseFloat(balance));
-						return {
-							render: () => `<div class="text-right">${formatted}</div>`
-						};
-					}),
-					row.getValue('balance')
-				);
+				return renderSnippet(BalanceCell, {
+					balance: row.getValue('balance') as number
+				});
 			},
 			header: () => {
-				const nameSnippet = createRawSnippet(() => {
-					return {
-						render: () => `<div class="text-right">Balance</div>`
-					};
-				});
-				return renderSnippet(nameSnippet, {});
+				return renderSnippet(BalanceHeader, {});
 			}
 		}
 	];
 
 	let rowSelection = $state<RowSelectionState>({});
-	let data = $state<User[]>([]);
-
-	$effect(() => {
-		fetchUsers()
-			.then((response) => {
-				data = response.slice(0, 5);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	});
+	let data = $derived(await getFakeUsers({ count: 5 }));
 
 	const table = createSvelteTable<User>({
 		columns,
 		get data() {
-			return data;
+			return data.data;
 		},
 		getCoreRowModel: getCoreRowModel(),
 		onRowSelectionChange: (updater) => {
@@ -157,6 +103,39 @@
 		}
 	});
 </script>
+
+{#snippet NameCell({ name }: { name: string })}
+	<div class="font-medium">{name}</div>
+{/snippet}
+
+{#snippet LocationCell({ flag, location }: { flag: string; location: string })}
+	<div>
+		<span class="text-lg leading-none">{flag}</span>
+		{location}
+	</div>
+{/snippet}
+
+{#snippet StatusCell({ status }: { status: string })}
+	<Badge
+		class="data-[status=Inactive]:bg-muted-foreground/60 data-[status=Inactive]:text-primary-foreground"
+		data-status={status}
+	>
+		{status}
+	</Badge>
+{/snippet}
+
+{#snippet BalanceCell({ balance }: { balance: number })}
+	<div class="text-right">
+		{new Intl.NumberFormat('en-US', {
+			currency: 'USD',
+			style: 'currency'
+		}).format(balance)}
+	</div>
+{/snippet}
+
+{#snippet BalanceHeader()}
+	<div class="text-right">Balance</div>
+{/snippet}
 
 <div>
 	<Table>
@@ -198,7 +177,7 @@
 					{new Intl.NumberFormat('en-US', {
 						currency: 'USD',
 						style: 'currency'
-					}).format(data.reduce((total, item) => total + item.balance, 0))}
+					}).format(data.data.reduce((total, item) => total + item.balance, 0))}
 				</TableCell>
 			</TableRow>
 		</TableFooter>

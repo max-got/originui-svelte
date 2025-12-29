@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Toggle from '$lib/components/ui/toggle.svelte';
-
 	import MoonIcon from '@lucide/svelte/icons/moon';
 	import SunIcon from '@lucide/svelte/icons/sun';
+
+	import Toggle from '$lib/components/ui/toggle.svelte';
 
 	let theme = $state('light');
 </script>

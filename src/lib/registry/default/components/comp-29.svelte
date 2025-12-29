@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Label from '$lib/registry/default/ui/label.svelte';
-	import { CurrencyInput } from '$lib/registry/default/hooks/use-currency-input.svelte';
-
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronUp from '@lucide/svelte/icons/chevron-up';
+
+	import { CurrencyInput } from '$lib/registry/default/hooks/use-currency-input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const uid = $props.id();
 	const currencyInput = new CurrencyInput({ id: uid, initialValue: 99 });
@@ -14,7 +14,7 @@
 		Number input with chevrons
 	</Label>
 	<div
-		class="border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/[.04] transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden"
+		class="border-input ring-offset-background focus-within:border-ring focus-within:ring-ring/30 relative inline-flex h-9 w-full items-center overflow-hidden rounded-lg border text-sm whitespace-nowrap shadow-xs shadow-black/4 transition-shadow focus-within:ring-2 focus-within:ring-offset-2 focus-within:outline-hidden"
 	>
 		<input
 			class="bg-background text-foreground flex-1 px-3 py-2 tabular-nums focus:outline-hidden"

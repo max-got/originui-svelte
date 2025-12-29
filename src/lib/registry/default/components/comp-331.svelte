@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Button, { buttonVariants } from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-	import { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';
-	import { useImageUpload } from '$lib/hooks/use-image-upload.svelte';
-	import Input from '$lib/registry/default/ui/input.svelte';
-	import Textarea from '$lib/registry/default/ui/textarea.svelte';
-
 	import Check from '@lucide/svelte/icons/check';
 	import ImagePlus from '@lucide/svelte/icons/image-plus';
 	import X from '@lucide/svelte/icons/x';
+
 	import * as Dialog from '$lib/components/ui/dialog';
+	import { useCharacterLimit } from '$lib/hooks/use-character-limit.svelte';
+	import { useImageUpload } from '$lib/hooks/use-image-upload.svelte';
+	import Button, { buttonVariants } from '$lib/registry/default/ui/button.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import Textarea from '$lib/registry/default/ui/textarea.svelte';
 
 	const bioLimit = useCharacterLimit(
 		180,

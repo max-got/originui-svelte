@@ -1,12 +1,11 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import Bolt from '@lucide/svelte/icons/bolt';
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import CopyPlus from '@lucide/svelte/icons/copy-plus';
 	import Files from '@lucide/svelte/icons/files';
 	import Layers2 from '@lucide/svelte/icons/layers-2';
 	import Trash from '@lucide/svelte/icons/trash';
+
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -16,6 +15,7 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger
 	} from '$lib/components/ui/dropdowns';
+	import Button from '$lib/registry/default/ui/button.svelte';
 </script>
 
 <DropdownMenu>

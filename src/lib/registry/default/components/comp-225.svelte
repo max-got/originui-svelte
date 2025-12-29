@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
+	import Label from '$lib/registry/default/ui/label.svelte';
+	import * as Select from '$lib/registry/default/ui/select/index.js';
 
 	const continents = [
 		{

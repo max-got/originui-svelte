@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Badge from '$lib/components/ui/badge.svelte';
-
 	import { Avatar, AvatarFallback, AvatarImage } from '$lib/components/ui/avatar';
+	import Badge from '$lib/components/ui/badge.svelte';
 </script>
 
 <div class="relative">

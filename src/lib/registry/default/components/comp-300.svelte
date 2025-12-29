@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-
 	import CircleCheckIcon from '@lucide/svelte/icons/circle-check';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { toast, type ToastT } from 'svelte-sonner';
 
+	import Button from '$lib/registry/default/ui/button.svelte';
+
 	function openToast() {
 		const newId = Math.random();
 		//the implementation will change, once https://github.com/wobsoriano/svelte-sonner/pull/126 lands
-		//@ts-expect-error - this is a hack to get the toast id, dont use in production
+		//@ts-expect-error - this is a hack to get the toast id, don't use in production
 		toast.custom((node) => customToastSnippet(node, () => newId), {
 			id: newId
 		});

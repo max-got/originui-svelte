@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Input from '$lib/components/ui/input.svelte';
-	import Label from '$lib/components/ui/label.svelte';
 	import Slider from '$lib/components/ui/slider.svelte';
 	import { useSliderWithInput } from '$lib/hooks/use-slider-with-input.svelte';
+	import Input from '$lib/registry/default/ui/input.svelte';
+	import Label from '$lib/registry/default/ui/label.svelte';
 
 	const minValue = 0;
 	const maxValue = 100;

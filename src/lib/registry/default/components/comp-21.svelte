@@ -7,7 +7,7 @@
 
 <div class="*:not-first:mt-2">
 	<Label for={uid}>Input with end button</Label>
-	<div class="flex rounded-lg shadow-xs shadow-black/[.04]">
+	<div class="flex rounded-lg shadow-xs shadow-black/4">
 		<Input
 			id={uid}
 			class="-me-px flex-1 rounded-e-none shadow-none focus-visible:z-10"
