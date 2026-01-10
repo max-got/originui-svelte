@@ -44,6 +44,9 @@ importers:
       bits-ui:
         specifier: 2.5.0
         version: 2.5.0(@internationalized/date@3.8.2)(svelte@5.33.18)
+      cleave.js:
+        specifier: ^1.6.0
+        version: 1.6.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -102,6 +105,9 @@ importers:
       '@testing-library/svelte':
         specifier: ^5.2.4
         version: 5.2.7(svelte@5.33.18)(vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@3.2.3(@types/node@22.14.1)(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.30.1)(tsx@4.19.4)(yaml@2.7.0))
+      '@types/cleave.js':
+        specifier: ^1.4.12
+        version: 1.4.12
       '@types/inputmask':
         specifier: ^5.0.7
         version: 5.0.7
@@ -288,8 +294,13 @@ packages:
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
     engines: {node: '>=18'}
 
-  '@dnd-kit-svelte/accessibility@0.0.8':
-    resolution: {integrity: sha512-Dm+6jTIuorEI4fkOh9ZcbVeJfUAPQGdseT2HfG9gu30PtxHTd9offH5cGWKxsdxjKZjkr5OH2O3DVeNtFjOPxQ==}
+  '@dnd-kit-svelte/accessibility@0.0.11':
+    resolution: {integrity: sha512-YkMjzabpnwELyeOSC2COV6EIGWZM8m4kgi/wIMwG0g/ZO3WWuzkMiLRLhYZqRkrEdpoz5tZnVclw+x/kcUjQHw==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@dnd-kit-svelte/core@0.0.11':
+    resolution: {integrity: sha512-bVqutZhSOk3nQsjwJ0SveUrPeBgUO/wajfon1AiKA8mxfQhaUG97CfoQLs7tLW3YxSkHkLPhYRw9WQat7OMB7g==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -305,6 +316,11 @@ packages:
 
   '@dnd-kit-svelte/sortable@0.0.8':
     resolution: {integrity: sha512-4lHgd7ttFqQqfuxeg2GofqnM2nHrAqtFsxqXf/Vr7/s4rEusPO8cZkQ6n2KTr08lvHGpQM2l8aLBUDyQtWtCVQ==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  '@dnd-kit-svelte/utilities@0.0.11':
+    resolution: {integrity: sha512-Y9Z016gLdieHiAVoteSBa1tvrgug1/Rl5wdKw/2g1Fd4G0q9HWIyPe2evKrv8H5ePfcNegA1jN7fneDVmHd3pQ==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -1419,6 +1435,9 @@ packages:
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
 
+  '@types/cleave.js@1.4.12':
+    resolution: {integrity: sha512-d+TDoy5wsWfG/lTLNV4CCziGzJovbX5RCrYzrfG2iB5F6yvrzeTtGEgoXW3/7oRj0H6gAzLxuvwmgNEx4Og4QA==}
+
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
@@ -1442,6 +1461,9 @@ packages:
 
   '@types/node@22.14.1':
     resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
+
+  '@types/react@19.2.8':
+    resolution: {integrity: sha512-3MbSL37jEchWZz2p2mjntRZtPt837ij10ApxKfgmXCTuHWagYg7iA5bqPw6C8BMPfwidlvfPI/fxOc42HLhcyg==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -1681,6 +1703,9 @@ packages:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
     engines: {node: '>=18'}
 
+  cleave.js@1.6.0:
+    resolution: {integrity: sha512-ivqesy3j5hQVG3gywPfwKPbi/7ZSftY/UNp5uphnqjr25yI2CP8FS2ODQPzuLXXnNLi29e2+PgPkkiKUXLs/Nw==}
+
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
@@ -1731,6 +1756,9 @@ packages:
   cssstyle@4.2.1:
     resolution: {integrity: sha512-9+vem03dMXG7gDmZ62uqmRiMRNtinIZ9ZyuF6BdxzfOD+FdN5hretzynkn0ReS2DO2GSw76RWHs0UmJPI2zUjw==}
     engines: {node: '>=18'}
+
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   data-uri-to-buffer@2.0.2:
     resolution: {integrity: sha512-ND9qDTLc6diwj+Xe5cdAgVTbLVdXbtxTJRXRhli8Mowuaan+0EJOtdqJ0QCHNSSPyoXGx9HX2/VMnKeC34AChA==}
@@ -3233,32 +3261,45 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@dnd-kit-svelte/accessibility@0.0.8(svelte@5.33.18)':
+  '@dnd-kit-svelte/accessibility@0.0.11(svelte@5.33.18)':
     dependencies:
-      '@dnd-kit-svelte/utilities': 0.0.8(svelte@5.33.18)
+      '@dnd-kit-svelte/utilities': 0.0.11(svelte@5.33.18)
       esm-env: 1.2.2
       runed: 0.23.4(svelte@5.33.18)
       svelte: 5.33.18
 
+  '@dnd-kit-svelte/core@0.0.11(svelte@5.33.18)':
+    dependencies:
+      '@dnd-kit-svelte/accessibility': 0.0.11(svelte@5.33.18)
+      '@dnd-kit-svelte/utilities': 0.0.11(svelte@5.33.18)
+      runed: 0.23.4(svelte@5.33.18)
+      svelte: 5.33.18
+      svelte-toolbelt: 0.7.1(svelte@5.33.18)
+
   '@dnd-kit-svelte/core@0.0.8(svelte@5.33.18)':
     dependencies:
-      '@dnd-kit-svelte/accessibility': 0.0.8(svelte@5.33.18)
-      '@dnd-kit-svelte/utilities': 0.0.8(svelte@5.33.18)
+      '@dnd-kit-svelte/accessibility': 0.0.11(svelte@5.33.18)
+      '@dnd-kit-svelte/utilities': 0.0.11(svelte@5.33.18)
       runed: 0.23.4(svelte@5.33.18)
       svelte: 5.33.18
       svelte-toolbelt: 0.7.1(svelte@5.33.18)
 
   '@dnd-kit-svelte/modifiers@0.0.8(svelte@5.33.18)':
     dependencies:
-      '@dnd-kit-svelte/core': 0.0.8(svelte@5.33.18)
-      '@dnd-kit-svelte/utilities': 0.0.8(svelte@5.33.18)
+      '@dnd-kit-svelte/core': 0.0.11(svelte@5.33.18)
+      '@dnd-kit-svelte/utilities': 0.0.11(svelte@5.33.18)
       svelte: 5.33.18
 
   '@dnd-kit-svelte/sortable@0.0.8(svelte@5.33.18)':
     dependencies:
-      '@dnd-kit-svelte/core': 0.0.8(svelte@5.33.18)
-      '@dnd-kit-svelte/utilities': 0.0.8(svelte@5.33.18)
+      '@dnd-kit-svelte/core': 0.0.11(svelte@5.33.18)
+      '@dnd-kit-svelte/utilities': 0.0.11(svelte@5.33.18)
       runed: 0.23.4(svelte@5.33.18)
+      svelte: 5.33.18
+      svelte-toolbelt: 0.7.1(svelte@5.33.18)
+
+  '@dnd-kit-svelte/utilities@0.0.11(svelte@5.33.18)':
+    dependencies:
       svelte: 5.33.18
       svelte-toolbelt: 0.7.1(svelte@5.33.18)
 
@@ -4095,6 +4136,10 @@ snapshots:
     dependencies:
       '@types/deep-eql': 4.0.2
 
+  '@types/cleave.js@1.4.12':
+    dependencies:
+      '@types/react': 19.2.8
+
   '@types/cookie@0.6.0': {}
 
   '@types/deep-eql@4.0.2': {}
@@ -4116,6 +4161,10 @@ snapshots:
   '@types/node@22.14.1':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/react@19.2.8':
+    dependencies:
+      csstype: 3.2.3
 
   '@types/unist@3.0.3': {}
 
@@ -4412,6 +4461,8 @@ snapshots:
 
   chownr@3.0.0: {}
 
+  cleave.js@1.6.0: {}
+
   clsx@2.1.1: {}
 
   color-convert@2.0.1:
@@ -4454,6 +4505,8 @@ snapshots:
     dependencies:
       '@asamuzakjp/css-color': 2.8.3
       rrweb-cssom: 0.8.0
+
+  csstype@3.2.3: {}
 
   data-uri-to-buffer@2.0.2: {}
 
