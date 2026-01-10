@@ -40,6 +40,12 @@ export const POSSIBLE_DEPENDENCIES = [
 	},
 	{
 		dev: false,
+		name: 'cleave.js',
+		packageName: 'cleave.js',
+		url: 'https://github.com/nosir/cleave.js'
+	},
+	{
+		dev: false,
 		name: 'svelte-sonner',
 		packageName: 'svelte-sonner',
 		url: 'https://github.com/wobsoriano/svelte-sonner'
