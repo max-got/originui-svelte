@@ -1,31 +1,30 @@
 <script lang="ts">
+	import type { Attachment } from 'svelte/attachments';
+
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
 	import { CreditCardIcon } from '@lucide/svelte';
 	import { DefaultCreditCardDelimiter, formatCreditCard, registerCursorTracker } from 'cleave-zen';
 
-	let inputRef = $state<HTMLInputElement>(null!);
-
-	$effect(() => {
-		if (!inputRef) return;
-
+	const creditCardAttachment: Attachment<HTMLInputElement> = (input) => {
 		const unregisterCursorTracker = registerCursorTracker({
 			delimiter: DefaultCreditCardDelimiter,
-			input: inputRef
+			input
 		});
+
 		const handleInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatCreditCard(input.value);
+			const target = event.target as HTMLInputElement;
+			target.value = formatCreditCard(target.value);
 		};
 
-		inputRef.addEventListener('input', handleInput);
+		input.addEventListener('input', handleInput);
 
 		return () => {
-			inputRef.removeEventListener('input', handleInput);
+			input.removeEventListener('input', handleInput);
 			unregisterCursorTracker();
 		};
-	});
+	};
 </script>
 
 <div class="*:not-first:mt-2">
@@ -33,11 +32,11 @@
 	<div class="relative">
 		<Input
 			id="input-48"
-			bind:ref={inputRef}
 			type="text"
 			placeholder="Card number"
 			autocomplete="cc-number"
 			class="peer pe-11"
+			{@attach creditCardAttachment}
 		/>
 		<div
 			class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50"

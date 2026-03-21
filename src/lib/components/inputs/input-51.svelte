@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { Attachment } from 'svelte/attachments';
+
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
@@ -14,52 +16,59 @@
 
 	const id = $props.id();
 
-	let cardNumberRef = $state<HTMLInputElement>(null!);
-	let expiryDateRef = $state<HTMLInputElement>(null!);
-	let cvcRef = $state<HTMLInputElement>(null!);
-
-	$effect(() => {
-		if (!cardNumberRef || !expiryDateRef || !cvcRef) return;
-
-		const unregisterCardCursorTracker = registerCursorTracker({
+	const creditCardAttachment: Attachment<HTMLInputElement> = (input) => {
+		const unregisterCursorTracker = registerCursorTracker({
 			delimiter: DefaultCreditCardDelimiter,
-			input: cardNumberRef
-		});
-		const unregisterExpiryCursorTracker = registerCursorTracker({
-			delimiter: DefaultDateDelimiter,
-			input: expiryDateRef
+			input
 		});
 
-		const handleCardInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatCreditCard(input.value);
+		const handleInput = (event: Event) => {
+			const target = event.target as HTMLInputElement;
+			target.value = formatCreditCard(target.value);
 		};
-		const handleExpiryInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatDate(input.value, {
+
+		input.addEventListener('input', handleInput);
+
+		return () => {
+			input.removeEventListener('input', handleInput);
+			unregisterCursorTracker();
+		};
+	};
+
+	const expiryAttachment: Attachment<HTMLInputElement> = (input) => {
+		const unregisterCursorTracker = registerCursorTracker({
+			delimiter: DefaultDateDelimiter,
+			input
+		});
+
+		const handleInput = (event: Event) => {
+			const target = event.target as HTMLInputElement;
+			target.value = formatDate(target.value, {
 				datePattern: ['m', 'y']
 			});
 		};
-		const handleCvcInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatGeneral(input.value, {
+
+		input.addEventListener('input', handleInput);
+
+		return () => {
+			input.removeEventListener('input', handleInput);
+			unregisterCursorTracker();
+		};
+	};
+
+	const cvcAttachment: Attachment<HTMLInputElement> = (input) => {
+		const handleInput = (event: Event) => {
+			const target = event.target as HTMLInputElement;
+			target.value = formatGeneral(target.value, {
 				blocks: [4],
 				numericOnly: true
 			});
 		};
 
-		cardNumberRef.addEventListener('input', handleCardInput);
-		expiryDateRef.addEventListener('input', handleExpiryInput);
-		cvcRef.addEventListener('input', handleCvcInput);
+		input.addEventListener('input', handleInput);
 
-		return () => {
-			cardNumberRef.removeEventListener('input', handleCardInput);
-			expiryDateRef.removeEventListener('input', handleExpiryInput);
-			cvcRef.removeEventListener('input', handleCvcInput);
-			unregisterCardCursorTracker();
-			unregisterExpiryCursorTracker();
-		};
-	});
+		return () => input.removeEventListener('input', handleInput);
+	};
 </script>
 
 <div class="*:not-first:mt-2">
@@ -68,11 +77,11 @@
 		<div class="relative focus-within:z-1">
 			<Input
 				id="number-{id}"
-				bind:ref={cardNumberRef}
 				type="text"
 				placeholder="Card number"
 				autocomplete="cc-number"
 				class="peer rounded-b-none pe-9 shadow-none"
+				{@attach creditCardAttachment}
 			/>
 			<div
 				class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50"
@@ -85,21 +94,21 @@
 			<div class="min-w-0 flex-1 focus-within:z-1">
 				<Input
 					id="expiry-{id}"
-					bind:ref={expiryDateRef}
 					type="text"
 					placeholder="MM/YY"
 					autocomplete="cc-exp"
 					class="rounded-e-none rounded-t-none shadow-none"
+					{@attach expiryAttachment}
 				/>
 			</div>
 			<div class="-ms-px min-w-0 flex-1 focus-within:z-1">
 				<Input
 					id="cvc-{id}"
-					bind:ref={cvcRef}
 					type="text"
 					placeholder="CVC"
 					autocomplete="cc-csc"
 					class="rounded-s-none rounded-t-none shadow-none"
+					{@attach cvcAttachment}
 				/>
 			</div>
 		</div>

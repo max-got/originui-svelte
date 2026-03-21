@@ -1,43 +1,42 @@
 <script lang="ts">
+	import type { Attachment } from 'svelte/attachments';
+
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
 	import { DefaultDateDelimiter, formatDate, registerCursorTracker } from 'cleave-zen';
 
-	let inputRef = $state<HTMLInputElement>(null!);
-
-	$effect(() => {
-		if (!inputRef) return;
-
+	const expiryAttachment: Attachment<HTMLInputElement> = (input) => {
 		const unregisterCursorTracker = registerCursorTracker({
 			delimiter: DefaultDateDelimiter,
-			input: inputRef
+			input
 		});
+
 		const handleInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatDate(input.value, {
+			const target = event.target as HTMLInputElement;
+			target.value = formatDate(target.value, {
 				datePattern: ['m', 'y']
 			});
 		};
 
-		inputRef.addEventListener('input', handleInput);
+		input.addEventListener('input', handleInput);
 
 		return () => {
-			inputRef.removeEventListener('input', handleInput);
+			input.removeEventListener('input', handleInput);
 			unregisterCursorTracker();
 		};
-	});
+	};
 </script>
 
 <div class="*:not-first:mt-2">
 	<Label for="input-49">Expiry date</Label>
 	<Input
 		id="input-49"
-		bind:ref={inputRef}
 		type="text"
 		placeholder="MM/YY"
 		autocomplete="cc-exp"
 		class="peer pe-11"
+		{@attach expiryAttachment}
 	/>
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a

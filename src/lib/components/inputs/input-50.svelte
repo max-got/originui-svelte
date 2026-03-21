@@ -1,37 +1,35 @@
 <script lang="ts">
+	import type { Attachment } from 'svelte/attachments';
+
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
 
 	import { formatGeneral } from 'cleave-zen';
 
-	let inputRef = $state<HTMLInputElement>(null!);
-
-	$effect(() => {
-		if (!inputRef) return;
-
+	const cvcAttachment: Attachment<HTMLInputElement> = (input) => {
 		const handleInput = (event: Event) => {
-			const input = event.target as HTMLInputElement;
-			input.value = formatGeneral(input.value, {
+			const target = event.target as HTMLInputElement;
+			target.value = formatGeneral(target.value, {
 				blocks: [4],
 				numericOnly: true
 			});
 		};
 
-		inputRef.addEventListener('input', handleInput);
+		input.addEventListener('input', handleInput);
 
-		return () => inputRef.removeEventListener('input', handleInput);
-	});
+		return () => input.removeEventListener('input', handleInput);
+	};
 </script>
 
 <div class="*:not-first:mt-2">
 	<Label for="input-50">Code</Label>
 	<Input
 		id="input-50"
-		bind:ref={inputRef}
 		type="text"
 		placeholder="CVC"
 		autocomplete="cc-csc"
 		class="peer pe-11"
+		{@attach cvcAttachment}
 	/>
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
