@@ -1,8 +1,16 @@
 <script lang="ts">
-	import { CreditCardIcon } from '@lucide/svelte';
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
-	import Cleave from 'cleave.js';
+
+	import { CreditCardIcon } from '@lucide/svelte';
+	import {
+		DefaultCreditCardDelimiter,
+		DefaultDateDelimiter,
+		formatCreditCard,
+		formatDate,
+		formatGeneral,
+		registerCursorTracker
+	} from 'cleave-zen';
 
 	const id = $props.id();
 
@@ -13,22 +21,43 @@
 	$effect(() => {
 		if (!cardNumberRef || !expiryDateRef || !cvcRef) return;
 
-		const cardNumberCleave = new Cleave(cardNumberRef, {
-			creditCard: true
+		const unregisterCardCursorTracker = registerCursorTracker({
+			delimiter: DefaultCreditCardDelimiter,
+			input: cardNumberRef
 		});
-		const expiryDateCleave = new Cleave(expiryDateRef, {
-			date: true,
-			datePattern: ['m', 'y']
-		});
-		const cvcCleave = new Cleave(cvcRef, {
-			blocks: [4],
-			numericOnly: true
+		const unregisterExpiryCursorTracker = registerCursorTracker({
+			delimiter: DefaultDateDelimiter,
+			input: expiryDateRef
 		});
 
+		const handleCardInput = (event: Event) => {
+			const input = event.target as HTMLInputElement;
+			input.value = formatCreditCard(input.value);
+		};
+		const handleExpiryInput = (event: Event) => {
+			const input = event.target as HTMLInputElement;
+			input.value = formatDate(input.value, {
+				datePattern: ['m', 'y']
+			});
+		};
+		const handleCvcInput = (event: Event) => {
+			const input = event.target as HTMLInputElement;
+			input.value = formatGeneral(input.value, {
+				blocks: [4],
+				numericOnly: true
+			});
+		};
+
+		cardNumberRef.addEventListener('input', handleCardInput);
+		expiryDateRef.addEventListener('input', handleExpiryInput);
+		cvcRef.addEventListener('input', handleCvcInput);
+
 		return () => {
-			cardNumberCleave.destroy();
-			expiryDateCleave.destroy();
-			cvcCleave.destroy();
+			cardNumberRef.removeEventListener('input', handleCardInput);
+			expiryDateRef.removeEventListener('input', handleExpiryInput);
+			cvcRef.removeEventListener('input', handleCvcInput);
+			unregisterCardCursorTracker();
+			unregisterExpiryCursorTracker();
 		};
 	});
 </script>
@@ -78,11 +107,11 @@
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
 			class="hover:text-foreground underline"
-			href="https://github.com/nosir/cleave.js"
+			href="https://github.com/nosir/cleave-zen"
 			target="_blank"
 			rel="noopener nofollow"
 		>
-			cleave.js
+			cleave-zen
 		</a>
 	</p>
 </div>

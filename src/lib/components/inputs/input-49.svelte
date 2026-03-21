@@ -1,19 +1,31 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
-	import Cleave from 'cleave.js';
+
+	import { DefaultDateDelimiter, formatDate, registerCursorTracker } from 'cleave-zen';
 
 	let inputRef = $state<HTMLInputElement>(null!);
 
 	$effect(() => {
 		if (!inputRef) return;
 
-		const cleave = new Cleave(inputRef, {
-			date: true,
-			datePattern: ['m', 'y']
+		const unregisterCursorTracker = registerCursorTracker({
+			delimiter: DefaultDateDelimiter,
+			input: inputRef
 		});
+		const handleInput = (event: Event) => {
+			const input = event.target as HTMLInputElement;
+			input.value = formatDate(input.value, {
+				datePattern: ['m', 'y']
+			});
+		};
 
-		return () => cleave.destroy();
+		inputRef.addEventListener('input', handleInput);
+
+		return () => {
+			inputRef.removeEventListener('input', handleInput);
+			unregisterCursorTracker();
+		};
 	});
 </script>
 
@@ -30,11 +42,11 @@
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
 			class="hover:text-foreground underline"
-			href="https://github.com/nosir/cleave.js"
+			href="https://github.com/nosir/cleave-zen"
 			target="_blank"
 			rel="noopener nofollow"
 		>
-			cleave.js
+			cleave-zen
 		</a>
 	</p>
 </div>

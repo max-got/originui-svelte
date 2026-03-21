@@ -1,19 +1,25 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input.svelte';
 	import Label from '$lib/components/ui/label.svelte';
-	import Cleave from 'cleave.js';
+
+	import { formatGeneral } from 'cleave-zen';
 
 	let inputRef = $state<HTMLInputElement>(null!);
 
 	$effect(() => {
 		if (!inputRef) return;
 
-		const cleave = new Cleave(inputRef, {
-			blocks: [4],
-			numericOnly: true
-		});
+		const handleInput = (event: Event) => {
+			const input = event.target as HTMLInputElement;
+			input.value = formatGeneral(input.value, {
+				blocks: [4],
+				numericOnly: true
+			});
+		};
 
-		return () => cleave.destroy();
+		inputRef.addEventListener('input', handleInput);
+
+		return () => inputRef.removeEventListener('input', handleInput);
 	});
 </script>
 
@@ -30,11 +36,11 @@
 	<p class="text-muted-foreground mt-2 text-xs" role="region" aria-live="polite">
 		Built with <a
 			class="hover:text-foreground underline"
-			href="https://github.com/nosir/cleave.js"
+			href="https://github.com/nosir/cleave-zen"
 			target="_blank"
 			rel="noopener nofollow"
 		>
-			cleave.js
+			cleave-zen
 		</a>
 	</p>
 </div>

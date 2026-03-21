@@ -40,9 +40,9 @@ export const POSSIBLE_DEPENDENCIES = [
 	},
 	{
 		dev: false,
-		name: 'cleave.js',
-		packageName: 'cleave.js',
-		url: 'https://github.com/nosir/cleave.js'
+		name: 'cleave-zen',
+		packageName: 'cleave-zen',
+		url: 'https://github.com/nosir/cleave-zen'
 	},
 	{
 		dev: false,
