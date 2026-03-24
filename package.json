@@ -28,6 +28,7 @@
 		"@tailwindcss/vite": "^4.1.8",
 		"@tanstack/table-core": "^8.21.3",
 		"bits-ui": "2.5.0",
+		"cleave-zen": "^0.0.17",
 		"clsx": "^2.1.1",
 		"inputmask": "^5.0.9",
 		"mode-watcher": "^0.5.1",
@@ -78,5 +79,5 @@
 			"esbuild"
 		]
 	},
-	"packageManager": "pnpm@10.5.2"
+	"packageManager": "pnpm@10.32.1"
 }

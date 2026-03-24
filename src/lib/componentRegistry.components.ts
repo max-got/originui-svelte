@@ -352,10 +352,10 @@ export const OUI_DIRECTORIES = {
 			'input-45.svelte',
 			'input-46.svelte',
 			'input-47.svelte',
-			'input-48.todo.svelte',
-			'input-49.todo.svelte',
-			'input-50.todo.svelte',
-			'input-51.todo.svelte',
+			'input-48.svelte',
+			'input-49.svelte',
+			'input-50.svelte',
+			'input-51.svelte',
 			'input-52.svelte',
 			'input-53.svelte',
 			'input-54.svelte',
@@ -366,8 +366,8 @@ export const OUI_DIRECTORIES = {
 			'input-59.todo.svelte'
 		],
 		status: {
-			todo: 6,
-			ready: 53
+			todo: 2,
+			ready: 57
 		}
 	},
 	NAVBARS: {
