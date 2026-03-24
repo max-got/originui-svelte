@@ -7,7 +7,7 @@
 	import { CreditCardIcon } from '@lucide/svelte';
 	import { DefaultCreditCardDelimiter, formatCreditCard, registerCursorTracker } from 'cleave-zen';
 
-	const creditCardAttachment: Attachment<HTMLInputElement> = (input) => {
+	const cardNumberAttachment: Attachment<HTMLInputElement> = (input) => {
 		const unregisterCursorTracker = registerCursorTracker({
 			delimiter: DefaultCreditCardDelimiter,
 			input
@@ -36,7 +36,7 @@
 			placeholder="Card number"
 			autocomplete="cc-number"
 			class="peer pe-11"
-			{@attach creditCardAttachment}
+			{@attach cardNumberAttachment}
 		/>
 		<div
 			class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50"

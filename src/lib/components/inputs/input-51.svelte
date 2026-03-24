@@ -16,7 +16,7 @@
 
 	const id = $props.id();
 
-	const creditCardAttachment: Attachment<HTMLInputElement> = (input) => {
+	const cardNumberAttachment: Attachment<HTMLInputElement> = (input) => {
 		const unregisterCursorTracker = registerCursorTracker({
 			delimiter: DefaultCreditCardDelimiter,
 			input
@@ -81,7 +81,7 @@
 				placeholder="Card number"
 				autocomplete="cc-number"
 				class="peer rounded-b-none pe-9 shadow-none"
-				{@attach creditCardAttachment}
+				{@attach cardNumberAttachment}
 			/>
 			<div
 				class="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50"
