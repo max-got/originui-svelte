@@ -50,7 +50,6 @@
 		"@tailwindcss/postcss": "^4.1.8",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.4",
-		"@types/cleave.js": "^1.4.12",
 		"@types/inputmask": "^5.0.7",
 		"@types/node": "^22.14.1",
 		"eslint": "^9.28.0",
